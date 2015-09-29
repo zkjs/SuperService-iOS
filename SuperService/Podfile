@@ -2,7 +2,7 @@
 # platform :ios, '6.0'
 
 target 'SuperService' do
-
+  pod 'LTBouncyPlaceholder'
 end
 
 target 'SuperServiceTests' do

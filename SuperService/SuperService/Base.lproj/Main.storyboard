@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UWx-dP-vze">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--登陆-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,103 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4">
+                                <rect key="frame" x="200" y="230" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="TOf-7l-4jJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zkv-zN-T9V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-MG-jSx">
+                                <rect key="frame" x="150" y="351" width="300" height="48"/>
+                                <color key="backgroundColor" red="0.16078431372549018" green="0.71372549019607845" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="mv2-3r-AYw"/>
+                                    <constraint firstAttribute="height" constant="48" id="ygf-nN-CBW"/>
+                                </constraints>
+                                <state key="normal" title="发送验证码">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendVerificationCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wpk-uf-w4y"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML">
+                                <rect key="frame" x="200" y="283" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5XB-7A-prA"/>
+                                    <constraint firstAttribute="width" constant="200" id="oAz-1t-3FY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HK-59-BIt">
+                                <rect key="frame" x="270" y="548" width="60" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="V8H-Tk-sfg"/>
+                                </constraints>
+                                <state key="normal" title="我是商家"/>
+                                <connections>
+                                    <action selector="changeToAdminLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wfe-HD-GTB"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="eht-R1-Zj4">
+                                <rect key="frame" x="255" y="100" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Hpw-Ta-mON"/>
+                                    <constraint firstAttribute="width" constant="90" id="gm0-4U-Bkd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fNJ-pz-sML" firstAttribute="top" secondItem="ebg-Vo-2k4" secondAttribute="bottom" constant="23" id="BFb-Oa-Y4u"/>
+                            <constraint firstItem="fNJ-pz-sML" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MV0-RJ-PAO"/>
+                            <constraint firstItem="eht-R1-Zj4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NXb-Yi-kLS"/>
+                            <constraint firstItem="0HK-59-BIt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PNb-5g-auV"/>
+                            <constraint firstItem="ebg-Vo-2k4" firstAttribute="top" secondItem="eht-R1-Zj4" secondAttribute="bottom" constant="40" id="gib-LX-kH8"/>
+                            <constraint firstItem="4Ar-MG-jSx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hW6-kT-cyk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0HK-59-BIt" secondAttribute="bottom" constant="8" id="oNL-Fq-Lwr"/>
+                            <constraint firstItem="4Ar-MG-jSx" firstAttribute="top" secondItem="fNJ-pz-sML" secondAttribute="bottom" constant="38" id="sJW-DQ-4TQ"/>
+                            <constraint firstItem="eht-R1-Zj4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="skD-NJ-qHD"/>
+                            <constraint firstItem="ebg-Vo-2k4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="twT-Of-f5C"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="登陆" id="2k4-2w-4lj"/>
+                    <connections>
+                        <outlet property="adminLoginButton" destination="0HK-59-BIt" id="GRd-Vx-KOa"/>
+                        <outlet property="codeTextField" destination="fNJ-pz-sML" id="C54-n2-taf"/>
+                        <outlet property="phoneTextField" destination="ebg-Vo-2k4" id="AdN-vt-qjS"/>
+                        <outlet property="sendCodeButton" destination="4Ar-MG-jSx" id="caw-Mt-Fwz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1016" y="533"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P2R-Ny-Ntz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UWx-dP-vze" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NiD-nh-ECN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wzE-AU-t3T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoY-NJ-HMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="533"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_hotel_zhanwei" width="90" height="90"/>
+    </resources>
 </document>

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
+		40C5E9A91BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A81BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift */; settings = {ASSET_TAGS = (); }; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
-		40DA78941BAFAA8F00956B72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78931BAFAA8F00956B72 /* ViewController.swift */; };
 		40DA78971BAFAA8F00956B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78951BAFAA8F00956B72 /* Main.storyboard */; };
 		40DA78991BAFAA8F00956B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78981BAFAA8F00956B72 /* Assets.xcassets */; };
 		40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		40C5E9A81BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPadDoneButtonView.swift; sourceTree = "<group>"; };
 		40DA788E1BAFAA8F00956B72 /* SuperService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78911BAFAA8F00956B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40DA78931BAFAA8F00956B72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40DA78961BAFAA8F00956B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40DA78981BAFAA8F00956B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40DA789B1BAFAA8F00956B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
-				40DA78931BAFAA8F00956B72 /* ViewController.swift */,
+				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
+				40C5E9A81BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift */,
 				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
 				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
@@ -255,8 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40DA78941BAFAA8F00956B72 /* ViewController.swift in Sources */,
+				40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
+				40C5E9A91BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +485,7 @@
 				40DA78B81BAFAA8F00956B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40DA78B91BAFAA8F00956B72 /* Build configuration list for PBXNativeTarget "SuperServiceTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +494,7 @@
 				40DA78BB1BAFAA8F00956B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40DA78BC1BAFAA8F00956B72 /* Build configuration list for PBXNativeTarget "SuperServiceUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +503,7 @@
 				40DA78BE1BAFAA8F00956B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

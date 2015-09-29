@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; settings = {ASSET_TAGS = (); }; };
+		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; settings = {ASSET_TAGS = (); }; };
 		40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
-		40C5E9A91BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A81BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift */; settings = {ASSET_TAGS = (); }; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
 		40DA78971BAFAA8F00956B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78951BAFAA8F00956B72 /* Main.storyboard */; };
 		40DA78991BAFAA8F00956B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78981BAFAA8F00956B72 /* Assets.xcassets */; };
 		40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */; };
 		40DA78A71BAFAA8F00956B72 /* SuperServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78A61BAFAA8F00956B72 /* SuperServiceTests.swift */; };
 		40DA78B21BAFAA8F00956B72 /* SuperServiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */; };
+		5085C5598019F2E176D89E5C /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 393242BB132B46A9F043440E /* libPods-SuperService.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
+		393242BB132B46A9F043440E /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
+		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		40C5E9A81BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPadDoneButtonView.swift; sourceTree = "<group>"; };
 		40DA788E1BAFAA8F00956B72 /* SuperService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78911BAFAA8F00956B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40DA78961BAFAA8F00956B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		40DA78AD1BAFAA8F00956B72 /* SuperServiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperServiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperServiceUITests.swift; sourceTree = "<group>"; };
 		40DA78B31BAFAA8F00956B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5085C5598019F2E176D89E5C /* libPods-SuperService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +90,8 @@
 				40DA78A51BAFAA8F00956B72 /* SuperServiceTests */,
 				40DA78B01BAFAA8F00956B72 /* SuperServiceUITests */,
 				40DA788F1BAFAA8F00956B72 /* Products */,
+				E5FC522A96B4F0D1A7B6E52B /* Pods */,
+				AC027541ADA26D63AB53B25F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,7 +110,8 @@
 			children = (
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
 				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
-				40C5E9A81BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift */,
+				405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */,
+				405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */,
 				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
 				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
@@ -128,6 +138,23 @@
 			path = SuperServiceUITests;
 			sourceTree = "<group>";
 		};
+		AC027541ADA26D63AB53B25F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				393242BB132B46A9F043440E /* libPods-SuperService.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5FC522A96B4F0D1A7B6E52B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */,
+				77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40DA78B61BAFAA8F00956B72 /* Build configuration list for PBXNativeTarget "SuperService" */;
 			buildPhases = (
+				8031BBC8AAEF1B9BCD71EA6F /* Check Pods Manifest.lock */,
 				40DA788A1BAFAA8F00956B72 /* Sources */,
 				40DA788B1BAFAA8F00956B72 /* Frameworks */,
 				40DA788C1BAFAA8F00956B72 /* Resources */,
+				827F7E1EB5E3D536E476F437 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,14 +282,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8031BBC8AAEF1B9BCD71EA6F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		827F7E1EB5E3D536E476F437 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperService/Pods-SuperService-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		40DA788A1BAFAA8F00956B72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */,
+				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
+				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
-				40C5E9A91BBA6FE0004F5FDD /* NumberPadDoneButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +461,7 @@
 		};
 		40DA78B71BAFAA8F00956B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SuperService/Info.plist;
@@ -409,6 +473,7 @@
 		};
 		40DA78B81BAFAA8F00956B72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SuperService/Info.plist;

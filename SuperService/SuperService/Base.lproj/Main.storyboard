@@ -15,8 +15,11 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="298" affinity="minY"/>
+                        </userGuides>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
                                 <rect key="frame" x="200" y="230" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="TOf-7l-4jJ"/>
@@ -25,11 +28,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-MG-jSx">
-                                <rect key="frame" x="150" y="351" width="300" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-MG-jSx" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="351" width="260" height="48"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.71372549019607845" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="mv2-3r-AYw"/>
+                                    <constraint firstAttribute="width" constant="260" id="mv2-3r-AYw"/>
                                     <constraint firstAttribute="height" constant="48" id="ygf-nN-CBW"/>
                                 </constraints>
                                 <state key="normal" title="发送验证码">
@@ -39,7 +42,7 @@
                                     <action selector="sendVerificationCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wpk-uf-w4y"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
                                 <rect key="frame" x="200" y="283" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5XB-7A-prA"/>
@@ -49,9 +52,10 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HK-59-BIt">
-                                <rect key="frame" x="270" y="548" width="60" height="44"/>
+                                <rect key="frame" x="200" y="544" width="200" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="V8H-Tk-sfg"/>
+                                    <constraint firstAttribute="height" constant="48" id="V8H-Tk-sfg"/>
+                                    <constraint firstAttribute="width" constant="200" id="dn4-Uj-9dW"/>
                                 </constraints>
                                 <state key="normal" title="我是商家"/>
                                 <connections>

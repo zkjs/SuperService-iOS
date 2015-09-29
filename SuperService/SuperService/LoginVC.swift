@@ -10,9 +10,9 @@ import UIKit
 
 class LoginVC: UIViewController {
   
-  @IBOutlet weak var phoneTextField: UITextField!
-  @IBOutlet weak var codeTextField: UITextField!
-  @IBOutlet weak var sendCodeButton: UIButton!
+  @IBOutlet weak var phoneTextField: LTBouncyTextField!
+  @IBOutlet weak var codeTextField: LTBouncyTextField!
+  @IBOutlet weak var sendCodeButton: RoundedRectButton!
   @IBOutlet weak var adminLoginButton: UIButton!
   
   // MARK: - View Lifecycle
@@ -21,8 +21,12 @@ class LoginVC: UIViewController {
     super.viewDidLoad()
     
     phoneTextField.delegate = self
+    phoneTextField.alwaysBouncePlaceholder = true
+    phoneTextField.abbreviatedPlaceholder = "手机号码"
     codeTextField.delegate = self
-    sendCodeButton.enabled = false
+    codeTextField.alwaysBouncePlaceholder = true
+    codeTextField.abbreviatedPlaceholder = "验证码"
+//    sendCodeButton.enabled = false
   }
   
   override func didReceiveMemoryWarning() {
@@ -105,13 +109,17 @@ class LoginVC: UIViewController {
 extension LoginVC: UITextFieldDelegate {
   
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-    
     if textField == phoneTextField {
+      // 电话号码11位
       if range.location + string.characters.count <= 11 {
         return true
       }
+    } else if textField == codeTextField {
+      // 验证码6位
+      if range.location + string.characters.count <= 6 {
+        return true
+      }
     }
-    
     return false
   }
   

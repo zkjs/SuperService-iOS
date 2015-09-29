@@ -9,13 +9,19 @@
 import UIKit
 
 class RoundedRectButton: UIButton {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setUp()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setUp()
+  }
+  
+  private func setUp() {
+    layer.cornerRadius = 5.0
+  }
+  
 }

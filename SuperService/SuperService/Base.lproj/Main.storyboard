@@ -20,9 +20,9 @@
                         </userGuides>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="170" y="230" width="260" height="44"/>
+                                <rect key="frame" x="170" y="230" width="192" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="TOf-7l-4jJ"/>
+                                    <constraint firstAttribute="width" constant="192" id="TOf-7l-4jJ"/>
                                     <constraint firstAttribute="height" constant="44" id="Zkv-zN-T9V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -35,11 +35,12 @@
                                     <constraint firstAttribute="width" constant="260" id="mv2-3r-AYw"/>
                                     <constraint firstAttribute="height" constant="44" id="ygf-nN-CBW"/>
                                 </constraints>
-                                <state key="normal" title="发送验证码">
+                                <state key="normal" title="登陆">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sendVerificationCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wpk-uf-w4y"/>
+                                    <segue destination="sGb-FK-S1X" kind="show" id="mUN-7a-qBl"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
@@ -70,6 +71,20 @@
                                     <constraint firstAttribute="width" constant="90" id="gm0-4U-Bkd"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzG-Ju-Jz5" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="370" y="230" width="60" height="44"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="2Tk-aV-Usw"/>
+                                    <constraint firstAttribute="height" constant="44" id="Dbm-4B-8Ef"/>
+                                </constraints>
+                                <state key="normal" title="验证">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendVerificationCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5m6-XY-nhk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,12 +92,14 @@
                             <constraint firstItem="fNJ-pz-sML" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MV0-RJ-PAO"/>
                             <constraint firstItem="eht-R1-Zj4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NXb-Yi-kLS"/>
                             <constraint firstItem="0HK-59-BIt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PNb-5g-auV"/>
+                            <constraint firstItem="rzG-Ju-Jz5" firstAttribute="centerY" secondItem="ebg-Vo-2k4" secondAttribute="centerY" id="UH3-Mf-ifk"/>
                             <constraint firstItem="ebg-Vo-2k4" firstAttribute="top" secondItem="eht-R1-Zj4" secondAttribute="bottom" constant="40" id="gib-LX-kH8"/>
                             <constraint firstItem="4Ar-MG-jSx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hW6-kT-cyk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0HK-59-BIt" secondAttribute="bottom" constant="8" id="oNL-Fq-Lwr"/>
                             <constraint firstItem="4Ar-MG-jSx" firstAttribute="top" secondItem="fNJ-pz-sML" secondAttribute="bottom" constant="38" id="sJW-DQ-4TQ"/>
                             <constraint firstItem="eht-R1-Zj4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="skD-NJ-qHD"/>
-                            <constraint firstItem="ebg-Vo-2k4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="twT-Of-f5C"/>
+                            <constraint firstItem="ebg-Vo-2k4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-34" id="twT-Of-f5C"/>
+                            <constraint firstItem="rzG-Ju-Jz5" firstAttribute="leading" secondItem="ebg-Vo-2k4" secondAttribute="trailing" constant="8" id="un4-cB-K74"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登陆" id="2k4-2w-4lj"/>
@@ -97,13 +114,21 @@
             </objects>
             <point key="canvasLocation" x="1016" y="533"/>
         </scene>
+        <!--Register-->
+        <scene sceneID="tKy-6J-ZDP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Register" id="sGb-FK-S1X" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUP-pf-07F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473" y="533"/>
+        </scene>
         <!--AdminLogin-->
         <scene sceneID="OAl-PF-kMT">
             <objects>
                 <viewControllerPlaceholder storyboardName="AdminLogin" id="Ncd-3v-6st" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RB0-da-RGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480.5" y="533"/>
+            <point key="canvasLocation" x="1016" y="957"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P2R-Ny-Ntz">

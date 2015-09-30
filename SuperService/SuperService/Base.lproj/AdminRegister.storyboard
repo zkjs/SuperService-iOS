@@ -20,9 +20,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="hqv-bb-DC0">
                                 <rect key="frame" x="255" y="47" width="90" height="90"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置Logo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ux-QV-dFT">
-                                <rect key="frame" x="255" y="158" width="90" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ux-QV-dFT">
+                                <rect key="frame" x="263" y="158" width="75" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -96,7 +96,7 @@
                             <constraint firstItem="hqv-bb-DC0" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="bYe-49-wjb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iO8-vA-lU4" secondAttribute="trailing" id="c7f-k5-Yt5"/>
                             <constraint firstItem="rBO-VB-j1H" firstAttribute="top" secondItem="iO8-vA-lU4" secondAttribute="bottom" id="kIE-sS-aq4"/>
-                            <constraint firstItem="itL-vK-NIc" firstAttribute="top" secondItem="4ux-QV-dFT" secondAttribute="bottom" constant="27" id="lL9-NH-oy8"/>
+                            <constraint firstItem="itL-vK-NIc" firstAttribute="top" secondItem="4ux-QV-dFT" secondAttribute="bottom" constant="31" id="lL9-NH-oy8"/>
                             <constraint firstItem="4ux-QV-dFT" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="mcl-ik-6LQ"/>
                             <constraint firstItem="itL-vK-NIc" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="xHQ-sc-tpG"/>
                         </constraints>

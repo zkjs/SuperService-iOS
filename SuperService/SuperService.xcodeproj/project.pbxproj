@@ -21,6 +21,7 @@
 		4068A2DC1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2DB1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift */; settings = {ASSET_TAGS = (); }; };
 		4068A2DF1BBBCF6400FF8608 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4068A2DD1BBBCF6400FF8608 /* Register.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4068A2E11BBBD7B900FF8608 /* SelectRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2E01BBBD7B900FF8608 /* SelectRegionCell.swift */; settings = {ASSET_TAGS = (); }; };
+		4068A2E41BBBE93900FF8608 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2E31BBBE93900FF8608 /* BaseNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
 		40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
 		40DA78971BAFAA8F00956B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78951BAFAA8F00956B72 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		4068A2DB1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSelectRegionVC.swift; sourceTree = "<group>"; };
 		4068A2DE1BBBCF6400FF8608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Register.storyboard; sourceTree = "<group>"; };
 		4068A2E01BBBD7B900FF8608 /* SelectRegionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRegionCell.swift; sourceTree = "<group>"; };
+		4068A2E31BBBE93900FF8608 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		40DA788E1BAFAA8F00956B72 /* SuperService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78911BAFAA8F00956B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
 				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
+				4068A2E31BBBE93900FF8608 /* BaseNavigationController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4068A2E41BBBE93900FF8608 /* BaseNavigationController.swift in Sources */,
 				40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */,
 				4068A2E11BBBD7B900FF8608 /* SelectRegionCell.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,

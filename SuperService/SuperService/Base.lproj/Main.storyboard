@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="1016" y="957"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="P2R-Ny-Ntz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UWx-dP-vze" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UWx-dP-vze" customClass="BaseNavigationController" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NiD-nh-ECN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

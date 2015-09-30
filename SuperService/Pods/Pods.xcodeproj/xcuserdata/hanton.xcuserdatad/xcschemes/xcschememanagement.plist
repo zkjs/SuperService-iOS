@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>HexColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8235D5A51BA8FB1924532B9CBE3763AF</key>
+		<key>101189E04E4523473C4D9529BF654B3F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1FB2B7CE0548C78E8DCE1CE4458206E</key>
+		<key>2DB9E21DCE0389A59944B2B056459B83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F458C7B463E9EFF8A52AD1F7797410A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

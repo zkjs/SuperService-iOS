@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D6B85BC0DD8258C0B357EB9"
-               BuildableName = "libPods-SuperService.a"
-               BlueprintName = "Pods-SuperService"
+               BlueprintIdentifier = "893CC96484B2EFEED51A9A3D"
+               BuildableName = "libHexColors.a"
+               BlueprintName = "HexColors"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

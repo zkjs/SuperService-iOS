@@ -3,6 +3,7 @@
 
 target 'SuperService' do
   pod 'MBProgressHUD'
+  pod 'HexColors'
 end
 
 target 'SuperServiceTests' do

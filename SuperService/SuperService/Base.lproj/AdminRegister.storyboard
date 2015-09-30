@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iXL-PL-2Qa">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--商户注册-->
+        <scene sceneID="71F-Ce-Swn">
+            <objects>
+                <viewController title="商户注册" id="iXL-PL-2Qa" customClass="AdminRegisterInfoVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2jA-Ob-2c8"/>
+                        <viewControllerLayoutGuide type="bottom" id="rBO-VB-j1H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zbl-nf-C2f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="hqv-bb-DC0">
+                                <rect key="frame" x="255" y="47" width="90" height="90"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置Logo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ux-QV-dFT">
+                                <rect key="frame" x="255" y="158" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="商户名称(全称)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itL-vK-NIc" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="206" width="260" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ULk-kf-mQM"/>
+                                    <constraint firstAttribute="width" constant="260" id="XDO-QA-vCZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="商户名称(简称)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mq9-kF-Dqs" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="272" width="260" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kia-3w-gz9"/>
+                                    <constraint firstAttribute="width" constant="260" id="lug-1d-1i4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="设置密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jsn-LA-i3X" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="340" width="260" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="NLh-ZM-6MP"/>
+                                    <constraint firstAttribute="height" constant="44" id="Vv6-WD-UZo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iO8-vA-lU4">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="992-jJ-ygW">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="ic_houtui">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="iXL-PL-2Qa" eventType="touchUpInside" id="6Gp-4R-hng"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="408-6R-0mw">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="ic_qianjin">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Z3G-x1-nyJ" kind="show" id="gSA-NW-EIm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Nbr-di-3Ry"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hqv-bb-DC0" firstAttribute="top" secondItem="2jA-Ob-2c8" secondAttribute="bottom" constant="27" id="6LB-nK-MdK"/>
+                            <constraint firstItem="iO8-vA-lU4" firstAttribute="leading" secondItem="Zbl-nf-C2f" secondAttribute="leadingMargin" id="6oY-Ow-nr2"/>
+                            <constraint firstItem="Mq9-kF-Dqs" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="CEJ-JO-unW"/>
+                            <constraint firstItem="Jsn-LA-i3X" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="KWs-qB-XyP"/>
+                            <constraint firstItem="4ux-QV-dFT" firstAttribute="top" secondItem="hqv-bb-DC0" secondAttribute="bottom" constant="21" id="Lnu-bb-ujO"/>
+                            <constraint firstAttribute="trailing" secondItem="iO8-vA-lU4" secondAttribute="trailing" id="Rn7-Kd-hNw"/>
+                            <constraint firstItem="Mq9-kF-Dqs" firstAttribute="top" secondItem="itL-vK-NIc" secondAttribute="bottom" constant="22" id="VST-9k-Q7x"/>
+                            <constraint firstItem="iO8-vA-lU4" firstAttribute="leading" secondItem="Zbl-nf-C2f" secondAttribute="leading" id="X68-33-NkV"/>
+                            <constraint firstItem="Jsn-LA-i3X" firstAttribute="top" secondItem="Mq9-kF-Dqs" secondAttribute="bottom" constant="24" id="ab9-A2-mMB"/>
+                            <constraint firstItem="hqv-bb-DC0" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="bYe-49-wjb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iO8-vA-lU4" secondAttribute="trailing" id="c7f-k5-Yt5"/>
+                            <constraint firstItem="rBO-VB-j1H" firstAttribute="top" secondItem="iO8-vA-lU4" secondAttribute="bottom" id="kIE-sS-aq4"/>
+                            <constraint firstItem="itL-vK-NIc" firstAttribute="top" secondItem="4ux-QV-dFT" secondAttribute="bottom" constant="27" id="lL9-NH-oy8"/>
+                            <constraint firstItem="4ux-QV-dFT" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="mcl-ik-6LQ"/>
+                            <constraint firstItem="itL-vK-NIc" firstAttribute="centerX" secondItem="Zbl-nf-C2f" secondAttribute="centerX" id="xHQ-sc-tpG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6oY-Ow-nr2"/>
+                                <exclude reference="c7f-k5-Yt5"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIa-Ef-lbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688" y="1207"/>
+        </scene>
+        <!--使用说明-->
+        <scene sceneID="fAx-d1-g3F">
+            <objects>
+                <viewController title="使用说明" id="THT-Y5-IhQ" customClass="AdminRegisterUserGuideVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fTN-cs-MCa"/>
+                        <viewControllerLayoutGuide type="bottom" id="nMq-HJ-KKZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z7l-ou-9gg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tYb-Ci-w8V">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYm-O0-YQq">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="ic_houtui">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="THT-Y5-IhQ" eventType="touchUpInside" id="BW2-Rd-eTc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y25-rH-s4k">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="ic_qianjin">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToAdminMain:" destination="THT-Y5-IhQ" eventType="touchUpInside" id="WfT-aF-mrM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RIr-Xo-S1D"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="aRl-pb-Wn7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="nMv-yQ-dhP"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-kt-ADV">
+                                <rect key="frame" x="20" y="30" width="560" height="526"/>
+                                <string key="text">感谢您注册超级服务，稍后我们会同您联系。您目前可以使用内部IM功能，离智慧酒店使用还有如下步骤：
+
+1、上门签约
+2、部署iBeacon
+3、培训员工
+
+添加的员工后，员工直接用手机号登录即可</string>
+                                <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tYb-Ci-w8V" secondAttribute="trailing" id="42J-hr-nLL"/>
+                            <constraint firstItem="iqB-kt-ADV" firstAttribute="top" secondItem="fTN-cs-MCa" secondAttribute="bottom" constant="10" id="6y5-Fp-Tor"/>
+                            <constraint firstItem="tYb-Ci-w8V" firstAttribute="leading" secondItem="Z7l-ou-9gg" secondAttribute="leading" id="KFB-0Q-kxf"/>
+                            <constraint firstItem="iqB-kt-ADV" firstAttribute="leading" secondItem="Z7l-ou-9gg" secondAttribute="leadingMargin" id="Wox-qr-C9s"/>
+                            <constraint firstItem="nMq-HJ-KKZ" firstAttribute="top" secondItem="tYb-Ci-w8V" secondAttribute="bottom" id="dB0-At-P0F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iqB-kt-ADV" secondAttribute="trailing" id="lNZ-Aj-TWT"/>
+                            <constraint firstItem="tYb-Ci-w8V" firstAttribute="top" secondItem="iqB-kt-ADV" secondAttribute="bottom" id="uwC-o0-1SO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MBw-9m-wYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3022" y="1207"/>
+        </scene>
+        <!--设置员工-->
+        <scene sceneID="A8J-mn-XKC">
+            <objects>
+                <viewController title="设置员工" id="Z3G-x1-nyJ" customClass="AdminRegisterSelectEmployeeVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oc9-HP-kaE"/>
+                        <viewControllerLayoutGuide type="bottom" id="LLe-Tk-j05"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jtb-4z-Gh9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-3X-zR7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectEmployeeCellReuseId" rowHeight="60" id="Qke-nV-DIa" customClass="SelectEmployeeCell" customModule="SuperService" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qke-nV-DIa" id="9eY-s1-LcB">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="7j0-Ba-CN9">
+                                                    <rect key="frame" x="8" y="2" width="55" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="JIE-Cn-GOX"/>
+                                                        <constraint firstAttribute="width" constant="55" id="KUM-NK-kt1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张小画" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7R-EB-9Hc">
+                                                    <rect key="frame" x="83" y="8" width="48" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="lJ0-Ye-Suq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18923456789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V63-Ap-htg">
+                                                    <rect key="frame" x="83" y="31" width="104" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Z5U-J2-CGg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUV-JZ-CiJ">
+                                                    <rect key="frame" x="551" y="17" width="25" height="25"/>
+                                                    <state key="normal" image="ic_jia_pre"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="f7R-EB-9Hc" firstAttribute="top" secondItem="9eY-s1-LcB" secondAttribute="topMargin" id="2Fh-Ta-9bb"/>
+                                                <constraint firstItem="7j0-Ba-CN9" firstAttribute="leading" secondItem="9eY-s1-LcB" secondAttribute="leading" constant="8" id="3GE-m2-YMC"/>
+                                                <constraint firstItem="7j0-Ba-CN9" firstAttribute="top" secondItem="9eY-s1-LcB" secondAttribute="top" constant="2" id="5ut-ib-JJO"/>
+                                                <constraint firstItem="V63-Ap-htg" firstAttribute="top" secondItem="f7R-EB-9Hc" secondAttribute="bottom" constant="3" id="69D-yp-Cgf"/>
+                                                <constraint firstItem="V63-Ap-htg" firstAttribute="leading" secondItem="7j0-Ba-CN9" secondAttribute="trailing" constant="20" id="9aT-xD-Hoo"/>
+                                                <constraint firstItem="f7R-EB-9Hc" firstAttribute="leading" secondItem="7j0-Ba-CN9" secondAttribute="trailing" constant="20" id="RJg-Dt-zgr"/>
+                                                <constraint firstAttribute="bottom" secondItem="7j0-Ba-CN9" secondAttribute="bottom" constant="2" id="Tm8-Tc-nHW"/>
+                                                <constraint firstItem="V63-Ap-htg" firstAttribute="bottom" secondItem="9eY-s1-LcB" secondAttribute="bottomMargin" id="WbA-0T-DEJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Z3G-x1-nyJ" id="247-yl-JjN"/>
+                                    <outlet property="delegate" destination="Z3G-x1-nyJ" id="KPE-AT-cao"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ttn-RZ-PUj">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-bT-XSd">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="ic_houtui">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="Z3G-x1-nyJ" eventType="touchUpInside" id="tW5-pd-Cc7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3it-LI-Guk">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="ic_qianjin">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="THT-Y5-IhQ" kind="show" id="gNU-rt-8Yz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dn2-Mv-Obb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LLe-Tk-j05" firstAttribute="top" secondItem="Ttn-RZ-PUj" secondAttribute="bottom" id="60z-hU-vNK"/>
+                            <constraint firstItem="fiN-3X-zR7" firstAttribute="top" secondItem="Jtb-4z-Gh9" secondAttribute="top" id="7id-Yr-jsf"/>
+                            <constraint firstItem="fiN-3X-zR7" firstAttribute="leading" secondItem="Jtb-4z-Gh9" secondAttribute="leading" id="Ag0-5c-f4i"/>
+                            <constraint firstAttribute="trailing" secondItem="fiN-3X-zR7" secondAttribute="trailing" id="H95-jG-Aqe"/>
+                            <constraint firstAttribute="trailing" secondItem="Ttn-RZ-PUj" secondAttribute="trailing" id="Uoz-ed-cGa"/>
+                            <constraint firstItem="Ttn-RZ-PUj" firstAttribute="top" secondItem="fiN-3X-zR7" secondAttribute="bottom" id="V2v-Ov-grT"/>
+                            <constraint firstItem="Ttn-RZ-PUj" firstAttribute="leading" secondItem="Jtb-4z-Gh9" secondAttribute="leading" id="W9q-Vd-YeP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="in0-kI-rMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="1207"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_houtui" width="8" height="14"/>
+        <image name="ic_jia_pre" width="25" height="25"/>
+        <image name="ic_qianjin" width="8" height="14"/>
+        <image name="img_hotel_zhanwei" width="90" height="90"/>
+    </resources>
+</document>

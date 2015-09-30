@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; settings = {ASSET_TAGS = (); }; };
+		4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */; settings = {ASSET_TAGS = (); }; };
+		4068A2C71BBB929200FF8608 /* AdminRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */; settings = {ASSET_TAGS = (); }; };
+		4068A2C91BBBAF3500FF8608 /* AdminLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */; settings = {ASSET_TAGS = (); }; };
+		4068A2CD1BBBB06800FF8608 /* AdminRegisterInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2CC1BBBB06800FF8608 /* AdminRegisterInfoVC.swift */; settings = {ASSET_TAGS = (); }; };
+		4068A2CF1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2CE1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift */; settings = {ASSET_TAGS = (); }; };
+		4068A2D11BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2D01BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift */; settings = {ASSET_TAGS = (); }; };
+		4068A2D81BBBB4BF00FF8608 /* SelectEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068A2D71BBBB4BF00FF8608 /* SelectEmployeeCell.swift */; settings = {ASSET_TAGS = (); }; };
 		40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
 		40DA78971BAFAA8F00956B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78951BAFAA8F00956B72 /* Main.storyboard */; };
@@ -42,6 +49,13 @@
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
+		4068A2C31BBB925600FF8608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AdminLogin.storyboard; sourceTree = "<group>"; };
+		4068A2C61BBB929200FF8608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AdminRegister.storyboard; sourceTree = "<group>"; };
+		4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginVC.swift; sourceTree = "<group>"; };
+		4068A2CC1BBBB06800FF8608 /* AdminRegisterInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminRegisterInfoVC.swift; sourceTree = "<group>"; };
+		4068A2CE1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminRegisterSelectEmployeeVC.swift; sourceTree = "<group>"; };
+		4068A2D01BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminRegisterUserGuideVC.swift; sourceTree = "<group>"; };
+		4068A2D71BBBB4BF00FF8608 /* SelectEmployeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectEmployeeCell.swift; sourceTree = "<group>"; };
 		40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		40DA788E1BAFAA8F00956B72 /* SuperService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78911BAFAA8F00956B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +98,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4068A2D21BBBB11100FF8608 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				4068A2D51BBBB18E00FF8608 /* Login */,
+				4068A2D61BBBB1AA00FF8608 /* Register */,
+			);
+			name = Admin;
+			sourceTree = "<group>";
+		};
+		4068A2D31BBBB13100FF8608 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */,
+				405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */,
+			);
+			name = Widget;
+			sourceTree = "<group>";
+		};
+		4068A2D41BBBB14600FF8608 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
+				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4068A2D51BBBB18E00FF8608 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */,
+				4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4068A2D61BBBB1AA00FF8608 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				4068A2CC1BBBB06800FF8608 /* AdminRegisterInfoVC.swift */,
+				4068A2CE1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift */,
+				4068A2D71BBBB4BF00FF8608 /* SelectEmployeeCell.swift */,
+				4068A2D01BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift */,
+				4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
 		40DA78851BAFAA8F00956B72 = {
 			isa = PBXGroup;
 			children = (
@@ -110,10 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
-				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
-				405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */,
-				405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */,
-				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
+				4068A2D41BBBB14600FF8608 /* Login */,
+				4068A2D31BBBB13100FF8608 /* Widget */,
+				4068A2D21BBBB11100FF8608 /* Admin */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
 				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
@@ -265,7 +326,9 @@
 			files = (
 				40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */,
 				40DA78991BAFAA8F00956B72 /* Assets.xcassets in Resources */,
+				4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */,
 				40DA78971BAFAA8F00956B72 /* Main.storyboard in Resources */,
+				4068A2C71BBB929200FF8608 /* AdminRegister.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +389,12 @@
 				40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
+				4068A2D81BBBB4BF00FF8608 /* SelectEmployeeCell.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
+				4068A2C91BBBAF3500FF8608 /* AdminLoginVC.swift in Sources */,
+				4068A2D11BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift in Sources */,
+				4068A2CD1BBBB06800FF8608 /* AdminRegisterInfoVC.swift in Sources */,
+				4068A2CF1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +430,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4068A2C31BBB925600FF8608 /* Base */,
+			);
+			name = AdminLogin.storyboard;
+			sourceTree = "<group>";
+		};
+		4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4068A2C61BBB929200FF8608 /* Base */,
+			);
+			name = AdminRegister.storyboard;
+			sourceTree = "<group>";
+		};
 		40DA78951BAFAA8F00956B72 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

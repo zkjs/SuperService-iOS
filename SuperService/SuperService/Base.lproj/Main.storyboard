@@ -20,20 +20,20 @@
                         </userGuides>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="200" y="230" width="200" height="30"/>
+                                <rect key="frame" x="170" y="230" width="260" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="TOf-7l-4jJ"/>
-                                    <constraint firstAttribute="height" constant="30" id="Zkv-zN-T9V"/>
+                                    <constraint firstAttribute="width" constant="260" id="TOf-7l-4jJ"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zkv-zN-T9V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-MG-jSx" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="170" y="351" width="260" height="48"/>
+                                <rect key="frame" x="170" y="379" width="260" height="44"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.71372549019607845" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="mv2-3r-AYw"/>
-                                    <constraint firstAttribute="height" constant="48" id="ygf-nN-CBW"/>
+                                    <constraint firstAttribute="height" constant="44" id="ygf-nN-CBW"/>
                                 </constraints>
                                 <state key="normal" title="发送验证码">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,23 +43,24 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="200" y="283" width="200" height="30"/>
+                                <rect key="frame" x="170" y="297" width="260" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5XB-7A-prA"/>
-                                    <constraint firstAttribute="width" constant="200" id="oAz-1t-3FY"/>
+                                    <constraint firstAttribute="height" constant="44" id="5XB-7A-prA"/>
+                                    <constraint firstAttribute="width" constant="260" id="oAz-1t-3FY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HK-59-BIt">
-                                <rect key="frame" x="200" y="544" width="200" height="48"/>
+                                <rect key="frame" x="200" y="548" width="200" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="V8H-Tk-sfg"/>
+                                    <constraint firstAttribute="height" constant="44" id="V8H-Tk-sfg"/>
                                     <constraint firstAttribute="width" constant="200" id="dn4-Uj-9dW"/>
                                 </constraints>
                                 <state key="normal" title="我是商家"/>
                                 <connections>
                                     <action selector="changeToAdminLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wfe-HD-GTB"/>
+                                    <segue destination="Ncd-3v-6st" kind="show" id="dis-Q3-CZ8"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="eht-R1-Zj4">
@@ -95,6 +96,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1016" y="533"/>
+        </scene>
+        <!--AdminLogin-->
+        <scene sceneID="OAl-PF-kMT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminLogin" id="Ncd-3v-6st" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RB0-da-RGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480.5" y="533"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P2R-Ny-Ntz">

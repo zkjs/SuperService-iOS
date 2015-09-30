@@ -13,9 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  
+  // MARK: - Application Delegate
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    customizeNavigationBar()
     return true
   }
 
@@ -40,7 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+  
+  // MARK: - Private Method
 
+  private func customizeNavigationBar() {
+    UINavigationBar.appearance().barTintColor = UIColor(hexString: "03a9f4")
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+    UINavigationBar.appearance().translucent = false
+  }
 
 }
 

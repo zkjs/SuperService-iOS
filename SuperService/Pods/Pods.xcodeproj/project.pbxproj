@@ -7,78 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15718EA84773B2E3F9016BD967E03FFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710D83C867476DD230B23626317A9D53 /* Foundation.framework */; };
-		22ADFED7BF928396952D32BD038CF6C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710D83C867476DD230B23626317A9D53 /* Foundation.framework */; };
-		659114DD77BA342D2A6FC375668FF611 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33AFCE96FBD530E10F0D9E9DC0BBE6CE /* CoreGraphics.framework */; };
-		720D0DC9C06D3A8BA3DE1722100EB0CB /* HexColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AAA13A8F49D5B3F0CBD6062598EAA /* HexColors-dummy.m */; };
-		895E4B09E5EB9F3301172D808D77347E /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1570D463006B896703F3F3DE1B5D14F5 /* MBProgressHUD-dummy.m */; };
-		9281A03A8473DB5C42D593EA8292B885 /* HexColors.h in Headers */ = {isa = PBXBuildFile; fileRef = ED96D6F81670F9DBE5DDDF9EE54026F2 /* HexColors.h */; };
-		C55DC466AD2AFDA31C36DB442D431C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710D83C867476DD230B23626317A9D53 /* Foundation.framework */; };
-		CB9DCDEB928F39334C90A8EAF6BA75A7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57E324DE1C0F286E3D95AA574FCF1D /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1FED86E45BACDD532317F93E0DD3A6EE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E900389B9EAAF957041344356F4531 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		22ADFED7BF928396952D32BD038CF6C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFCBD85D284911ADC1A0AC75C9654C9 /* Foundation.framework */; };
+		5CCD6FD7EAF1AC29C84AA8BC1F2984E7 /* HexColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF62AA8086AAA2764B044FE83325A44 /* HexColors-dummy.m */; };
+		9962922EC757074C875133B1560DF6E5 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7CEFB90DA996F90B3EFABABEC40E4 /* MBProgressHUD-dummy.m */; };
+		ABA7B62B07F9B054DDD5006D77FD5B92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFCBD85D284911ADC1A0AC75C9654C9 /* Foundation.framework */; };
+		AC41CC257A4F3756B09EFC708A0FEDC4 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 4940CE93BCFA5D6A00100A00AAD1DD97 /* MBProgressHUD.h */; };
+		BF2882334767FAF349328CDEEAA9D160 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7893D81EFDF87261617E19C84EB31BAB /* CoreGraphics.framework */; };
+		CE2A4AEFD4576BFDBC5129114B38D6FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFCBD85D284911ADC1A0AC75C9654C9 /* Foundation.framework */; };
 		D2BCC5634A3AAF67C72B0447EFA9CB8A /* Pods-SuperService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B6F3C2F76D59E8F2083A6C59A09C25 /* Pods-SuperService-dummy.m */; };
-		DF3842A7416DB3373F3B0822D036099D /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = A4D4ADEA66D05ADE3B06D466306BE6C5 /* MBProgressHUD.h */; };
-		ED978A2BEE154A72325D2242927FED75 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FC286C5618B342952957246008CEE /* HexColors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E1EB6713FCDD8A86398AEB4F98A8935E /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1197A8AD6AE78BE6A31240D538B574 /* HexColors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F6418022453AD301BC83E9F9BD08D5BE /* HexColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 88791F9889E54B9FEDB8B6EBF60969A5 /* HexColors.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2A2C781026F1027968B47D763E2D3281 /* PBXContainerItemProxy */ = {
+		4BDEB541D681AA0E75C73820D87B6366 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F458C7B463E9EFF8A52AD1F7797410A9;
-			remoteInfo = HexColors;
-		};
-		9A0A4018A6406DB05A0C554722C66AAC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2DB9E21DCE0389A59944B2B056459B83;
+			remoteGlobalIDString = ED75D5E3265EB7B8C9919FE1D43784EE;
 			remoteInfo = MBProgressHUD;
+		};
+		FA8B3E531CC9D73E4CA07047707A4F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25C498D8679CB894F53C412B66D91C23;
+			remoteInfo = HexColors;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00F831B94849F37656476747261D3315 /* Pods-SuperService-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperService-resources.sh"; sourceTree = "<group>"; };
-		0B6FC286C5618B342952957246008CEE /* HexColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColors.m; path = Classes/HexColors.m; sourceTree = "<group>"; };
+		04E900389B9EAAF957041344356F4531 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		0BFCBD85D284911ADC1A0AC75C9654C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1022E6D131E73AA18ED907871CE4FA31 /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1570D463006B896703F3F3DE1B5D14F5 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		1709F441CFF52E9581B15CF22B73E35C /* Pods-SuperService-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SuperService-acknowledgements.markdown"; sourceTree = "<group>"; };
-		187AAA13A8F49D5B3F0CBD6062598EAA /* HexColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HexColors-dummy.m"; sourceTree = "<group>"; };
-		33AFCE96FBD530E10F0D9E9DC0BBE6CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		372D773E8368D5054B7F9315E73B4D1B /* HexColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "HexColors-Private.xcconfig"; sourceTree = "<group>"; };
+		1DB7CEFB90DA996F90B3EFABABEC40E4 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		2CF62AA8086AAA2764B044FE83325A44 /* HexColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HexColors-dummy.m"; sourceTree = "<group>"; };
+		3091A0A4DCFD1626E6729F83422D060B /* HexColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "HexColors-Private.xcconfig"; sourceTree = "<group>"; };
 		3A9A8A74AB7EEA92144C5CFBAC9E97EB /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
+		4940CE93BCFA5D6A00100A00AAD1DD97 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		5602A87395E1C016E920D5D3E9E4CDBD /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 		64C90081D10337DBE424D5EA00F90820 /* Pods-SuperService-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SuperService-acknowledgements.plist"; sourceTree = "<group>"; };
 		6F93D0A065133D7DEA8905B4356AB566 /* HexColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HexColors-prefix.pch"; sourceTree = "<group>"; };
-		710D83C867476DD230B23626317A9D53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7893D81EFDF87261617E19C84EB31BAB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		88791F9889E54B9FEDB8B6EBF60969A5 /* HexColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HexColors.h; path = Classes/HexColors.h; sourceTree = "<group>"; };
 		8F8A0062045727D2057F09FA6FE79746 /* HexColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HexColors.xcconfig; sourceTree = "<group>"; };
 		97B6F3C2F76D59E8F2083A6C59A09C25 /* Pods-SuperService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SuperService-dummy.m"; sourceTree = "<group>"; };
-		9B774EEC6CC273417A251767D49783B8 /* libHexColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHexColors.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E57E324DE1C0F286E3D95AA574FCF1D /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		A4D4ADEA66D05ADE3B06D466306BE6C5 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		A21BBE788B43FAA4B6A03594AE02FCB8 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82406C5E9853C865C41172287B0D5AA /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 		AC210880FF6A83934C08B2AFFEC92905 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C2C1066AE79BA139CD83233E853A3771 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE691DE61B615D3F92070BFB1B5EF573 /* MBProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MBProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
-		ED96D6F81670F9DBE5DDDF9EE54026F2 /* HexColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HexColors.h; path = Classes/HexColors.h; sourceTree = "<group>"; };
+		D4ABE68A33AAF57DDBD4E5F5E21C04F0 /* libHexColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHexColors.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB8E71EE0F1ECC2E6679DB4715F2935B /* MBProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MBProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
+		DD1197A8AD6AE78BE6A31240D538B574 /* HexColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColors.m; path = Classes/HexColors.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0D12320027DA1FB04F9BE7C14DA5AFE6 /* Frameworks */ = {
+		45F8135C3E09D87BD0C69FF56A8761C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				659114DD77BA342D2A6FC375668FF611 /* CoreGraphics.framework in Frameworks */,
-				15718EA84773B2E3F9016BD967E03FFE /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		662437DED056EEC708DAE0CB40585264 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C55DC466AD2AFDA31C36DB442D431C36 /* Foundation.framework in Frameworks */,
+				CE2A4AEFD4576BFDBC5129114B38D6FD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +81,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8E501EB1ADDA736084277C16540895A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF2882334767FAF349328CDEEAA9D160 /* CoreGraphics.framework in Frameworks */,
+				ABA7B62B07F9B054DDD5006D77FD5B92 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				3A9A8A74AB7EEA92144C5CFBAC9E97EB /* MBProgressHUD.xcconfig */,
-				DE691DE61B615D3F92070BFB1B5EF573 /* MBProgressHUD-Private.xcconfig */,
-				1570D463006B896703F3F3DE1B5D14F5 /* MBProgressHUD-dummy.m */,
+				DB8E71EE0F1ECC2E6679DB4715F2935B /* MBProgressHUD-Private.xcconfig */,
+				1DB7CEFB90DA996F90B3EFABABEC40E4 /* MBProgressHUD-dummy.m */,
 				5602A87395E1C016E920D5D3E9E4CDBD /* MBProgressHUD-prefix.pch */,
 			);
 			name = "Support Files";
@@ -144,8 +144,8 @@
 		860545C6B6AA20340DFE102428748966 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				A4D4ADEA66D05ADE3B06D466306BE6C5 /* MBProgressHUD.h */,
-				9E57E324DE1C0F286E3D95AA574FCF1D /* MBProgressHUD.m */,
+				4940CE93BCFA5D6A00100A00AAD1DD97 /* MBProgressHUD.h */,
+				04E900389B9EAAF957041344356F4531 /* MBProgressHUD.m */,
 				2F219F4DC2631A83F798B9D274923301 /* Support Files */,
 			);
 			path = MBProgressHUD;
@@ -154,8 +154,8 @@
 		9394A58D265A8CD1DEB9085F67D2619C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				33AFCE96FBD530E10F0D9E9DC0BBE6CE /* CoreGraphics.framework */,
-				710D83C867476DD230B23626317A9D53 /* Foundation.framework */,
+				7893D81EFDF87261617E19C84EB31BAB /* CoreGraphics.framework */,
+				0BFCBD85D284911ADC1A0AC75C9654C9 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -177,8 +177,8 @@
 		AF1826D232126AC34C90126158EF54DC /* HexColors */ = {
 			isa = PBXGroup;
 			children = (
-				ED96D6F81670F9DBE5DDDF9EE54026F2 /* HexColors.h */,
-				0B6FC286C5618B342952957246008CEE /* HexColors.m */,
+				88791F9889E54B9FEDB8B6EBF60969A5 /* HexColors.h */,
+				DD1197A8AD6AE78BE6A31240D538B574 /* HexColors.m */,
 				D5FA312CE11C96CF445DC92345D7894D /* Support Files */,
 			);
 			path = HexColors;
@@ -187,8 +187,8 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B774EEC6CC273417A251767D49783B8 /* libHexColors.a */,
-				C2C1066AE79BA139CD83233E853A3771 /* libMBProgressHUD.a */,
+				D4ABE68A33AAF57DDBD4E5F5E21C04F0 /* libHexColors.a */,
+				A21BBE788B43FAA4B6A03594AE02FCB8 /* libMBProgressHUD.a */,
 				1022E6D131E73AA18ED907871CE4FA31 /* libPods-SuperService.a */,
 			);
 			name = Products;
@@ -198,8 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				8F8A0062045727D2057F09FA6FE79746 /* HexColors.xcconfig */,
-				372D773E8368D5054B7F9315E73B4D1B /* HexColors-Private.xcconfig */,
-				187AAA13A8F49D5B3F0CBD6062598EAA /* HexColors-dummy.m */,
+				3091A0A4DCFD1626E6729F83422D060B /* HexColors-Private.xcconfig */,
+				2CF62AA8086AAA2764B044FE83325A44 /* HexColors-dummy.m */,
 				6F93D0A065133D7DEA8905B4356AB566 /* HexColors-prefix.pch */,
 			);
 			name = "Support Files";
@@ -209,19 +209,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		807A91C7534DFB11424B9E5260F98EB1 /* Headers */ = {
+		196C83BE321DBD4D1891E42709D83E0C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9281A03A8473DB5C42D593EA8292B885 /* HexColors.h in Headers */,
+				F6418022453AD301BC83E9F9BD08D5BE /* HexColors.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B03302551A3FFA5D048DFEBB6FBC9D30 /* Headers */ = {
+		7BFD9DEC038D9FB277E3B563AACBFF17 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF3842A7416DB3373F3B0822D036099D /* MBProgressHUD.h in Headers */,
+				AC41CC257A4F3756B09EFC708A0FEDC4 /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,38 +238,21 @@
 			buildRules = (
 			);
 			dependencies = (
-				D97D050A40897C6BAF33C7142AF9EF68 /* PBXTargetDependency */,
-				016255A801AF571E4CF02DAA8EAFB2E2 /* PBXTargetDependency */,
+				BCD2888BD008087B98BC88AF7A424AE0 /* PBXTargetDependency */,
+				415A1CFBA3E67FF842E57A5661C49D25 /* PBXTargetDependency */,
 			);
 			name = "Pods-SuperService";
 			productName = "Pods-SuperService";
 			productReference = 1022E6D131E73AA18ED907871CE4FA31 /* libPods-SuperService.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		2DB9E21DCE0389A59944B2B056459B83 /* MBProgressHUD */ = {
+		25C498D8679CB894F53C412B66D91C23 /* HexColors */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE679B620B7D3FBD01065285DC126390 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
+			buildConfigurationList = DA2568AEE2E35D1B9834D0822F5BD717 /* Build configuration list for PBXNativeTarget "HexColors" */;
 			buildPhases = (
-				4D6B7DBEA1E1B443C9E1320A81144608 /* Sources */,
-				0D12320027DA1FB04F9BE7C14DA5AFE6 /* Frameworks */,
-				B03302551A3FFA5D048DFEBB6FBC9D30 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MBProgressHUD;
-			productName = MBProgressHUD;
-			productReference = C2C1066AE79BA139CD83233E853A3771 /* libMBProgressHUD.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F458C7B463E9EFF8A52AD1F7797410A9 /* HexColors */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2079F3722C8FB9427DBE37C6CDDA26C2 /* Build configuration list for PBXNativeTarget "HexColors" */;
-			buildPhases = (
-				50F3B2BB8812B84155FBC7B3E21BCC8B /* Sources */,
-				662437DED056EEC708DAE0CB40585264 /* Frameworks */,
-				807A91C7534DFB11424B9E5260F98EB1 /* Headers */,
+				ED76DE07609CACA3032F3D010EEE27A5 /* Sources */,
+				45F8135C3E09D87BD0C69FF56A8761C3 /* Frameworks */,
+				196C83BE321DBD4D1891E42709D83E0C /* Headers */,
 			);
 			buildRules = (
 			);
@@ -277,7 +260,24 @@
 			);
 			name = HexColors;
 			productName = HexColors;
-			productReference = 9B774EEC6CC273417A251767D49783B8 /* libHexColors.a */;
+			productReference = D4ABE68A33AAF57DDBD4E5F5E21C04F0 /* libHexColors.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		ED75D5E3265EB7B8C9919FE1D43784EE /* MBProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54464E3EDB8FDBC4E579A06BAB39EC24 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
+			buildPhases = (
+				B9D95521857D7CA1FCE89F21EFEE11C4 /* Sources */,
+				B8E501EB1ADDA736084277C16540895A /* Frameworks */,
+				7BFD9DEC038D9FB277E3B563AACBFF17 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MBProgressHUD;
+			productName = MBProgressHUD;
+			productReference = A21BBE788B43FAA4B6A03594AE02FCB8 /* libMBProgressHUD.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -301,8 +301,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F458C7B463E9EFF8A52AD1F7797410A9 /* HexColors */,
-				2DB9E21DCE0389A59944B2B056459B83 /* MBProgressHUD */,
+				25C498D8679CB894F53C412B66D91C23 /* HexColors */,
+				ED75D5E3265EB7B8C9919FE1D43784EE /* MBProgressHUD */,
 				101189E04E4523473C4D9529BF654B3F /* Pods-SuperService */,
 			);
 		};
@@ -317,45 +317,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D6B7DBEA1E1B443C9E1320A81144608 /* Sources */ = {
+		B9D95521857D7CA1FCE89F21EFEE11C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				895E4B09E5EB9F3301172D808D77347E /* MBProgressHUD-dummy.m in Sources */,
-				CB9DCDEB928F39334C90A8EAF6BA75A7 /* MBProgressHUD.m in Sources */,
+				9962922EC757074C875133B1560DF6E5 /* MBProgressHUD-dummy.m in Sources */,
+				1FED86E45BACDD532317F93E0DD3A6EE /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50F3B2BB8812B84155FBC7B3E21BCC8B /* Sources */ = {
+		ED76DE07609CACA3032F3D010EEE27A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				720D0DC9C06D3A8BA3DE1722100EB0CB /* HexColors-dummy.m in Sources */,
-				ED978A2BEE154A72325D2242927FED75 /* HexColors.m in Sources */,
+				5CCD6FD7EAF1AC29C84AA8BC1F2984E7 /* HexColors-dummy.m in Sources */,
+				E1EB6713FCDD8A86398AEB4F98A8935E /* HexColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		016255A801AF571E4CF02DAA8EAFB2E2 /* PBXTargetDependency */ = {
+		415A1CFBA3E67FF842E57A5661C49D25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MBProgressHUD;
-			target = 2DB9E21DCE0389A59944B2B056459B83 /* MBProgressHUD */;
-			targetProxy = 9A0A4018A6406DB05A0C554722C66AAC /* PBXContainerItemProxy */;
+			target = ED75D5E3265EB7B8C9919FE1D43784EE /* MBProgressHUD */;
+			targetProxy = 4BDEB541D681AA0E75C73820D87B6366 /* PBXContainerItemProxy */;
 		};
-		D97D050A40897C6BAF33C7142AF9EF68 /* PBXTargetDependency */ = {
+		BCD2888BD008087B98BC88AF7A424AE0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HexColors;
-			target = F458C7B463E9EFF8A52AD1F7797410A9 /* HexColors */;
-			targetProxy = 2A2C781026F1027968B47D763E2D3281 /* PBXContainerItemProxy */;
+			target = 25C498D8679CB894F53C412B66D91C23 /* HexColors */;
+			targetProxy = FA8B3E531CC9D73E4CA07047707A4F24 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03ABAF6F6B39AC4E0D8E36E0D062606A /* Release */ = {
+		03D4244F7474C1160B26FE69D4DE9743 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE691DE61B615D3F92070BFB1B5EF573 /* MBProgressHUD-Private.xcconfig */;
+			baseConfigurationReference = 3091A0A4DCFD1626E6729F83422D060B /* HexColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HexColors/HexColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0B1401736FCC2120188BC4E462CE36BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB8E71EE0F1ECC2E6679DB4715F2935B /* MBProgressHUD-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
@@ -379,6 +395,22 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		412CF7177608A3760BFAB6513B246A96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB8E71EE0F1ECC2E6679DB4715F2935B /* MBProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -474,25 +506,9 @@
 			};
 			name = Release;
 		};
-		831D5E343547355A5178B9BBB812825D /* Debug */ = {
+		82237DE898B63BBDB81C8594E2D8DDDA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE691DE61B615D3F92070BFB1B5EF573 /* MBProgressHUD-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9A39A72E7F3D90E3548363472C80AB81 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 372D773E8368D5054B7F9315E73B4D1B /* HexColors-Private.xcconfig */;
+			baseConfigurationReference = 3091A0A4DCFD1626E6729F83422D060B /* HexColors-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HexColors/HexColors-prefix.pch";
@@ -506,22 +522,6 @@
 			};
 			name = Release;
 		};
-		E757E07DDC4D3F63DA187D1554BC44F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 372D773E8368D5054B7F9315E73B4D1B /* HexColors-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HexColors/HexColors-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -530,15 +530,6 @@
 			buildConfigurations = (
 				2620A2B160E1B61FD4482B967235C135 /* Debug */,
 				4926B23F4CC6DD0B1F3D66899EF7BD5B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2079F3722C8FB9427DBE37C6CDDA26C2 /* Build configuration list for PBXNativeTarget "HexColors" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E757E07DDC4D3F63DA187D1554BC44F5 /* Debug */,
-				9A39A72E7F3D90E3548363472C80AB81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -552,11 +543,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE679B620B7D3FBD01065285DC126390 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
+		54464E3EDB8FDBC4E579A06BAB39EC24 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				831D5E343547355A5178B9BBB812825D /* Debug */,
-				03ABAF6F6B39AC4E0D8E36E0D062606A /* Release */,
+				412CF7177608A3760BFAB6513B246A96 /* Debug */,
+				0B1401736FCC2120188BC4E462CE36BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA2568AEE2E35D1B9834D0822F5BD717 /* Build configuration list for PBXNativeTarget "HexColors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03D4244F7474C1160B26FE69D4DE9743 /* Debug */,
+				82237DE898B63BBDB81C8594E2D8DDDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,7 +25,6 @@ class SelectEmployeeCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    backgroundColor = UIColor.clearColor()
   }
   
   override func setSelected(selected: Bool, animated: Bool) {

@@ -196,11 +196,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-3X-zR7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-3X-zR7">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectEmployeeCellReuseId" rowHeight="60" id="Qke-nV-DIa" customClass="SelectEmployeeCell" customModule="SuperService" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectEmployeeCellReuseId" rowHeight="60" id="Qke-nV-DIa">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qke-nV-DIa" id="9eY-s1-LcB">
@@ -232,21 +233,41 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUV-JZ-CiJ">
-                                                    <rect key="frame" x="551" y="17" width="25" height="25"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUV-JZ-CiJ">
+                                                    <rect key="frame" x="548" y="8" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="GAj-Zt-PJB"/>
+                                                        <constraint firstAttribute="height" constant="44" id="rku-dK-lhK"/>
+                                                    </constraints>
                                                     <state key="normal" image="ic_jia_pre"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="7j0-Ba-CN9" firstAttribute="centerY" secondItem="9eY-s1-LcB" secondAttribute="centerY" id="24f-yW-hKL"/>
                                                 <constraint firstItem="f7R-EB-9Hc" firstAttribute="top" secondItem="9eY-s1-LcB" secondAttribute="topMargin" id="2Fh-Ta-9bb"/>
                                                 <constraint firstItem="7j0-Ba-CN9" firstAttribute="leading" secondItem="9eY-s1-LcB" secondAttribute="leading" constant="8" id="3GE-m2-YMC"/>
                                                 <constraint firstItem="7j0-Ba-CN9" firstAttribute="top" secondItem="9eY-s1-LcB" secondAttribute="top" constant="2" id="5ut-ib-JJO"/>
                                                 <constraint firstItem="V63-Ap-htg" firstAttribute="top" secondItem="f7R-EB-9Hc" secondAttribute="bottom" constant="3" id="69D-yp-Cgf"/>
                                                 <constraint firstItem="V63-Ap-htg" firstAttribute="leading" secondItem="7j0-Ba-CN9" secondAttribute="trailing" constant="20" id="9aT-xD-Hoo"/>
+                                                <constraint firstItem="XUV-JZ-CiJ" firstAttribute="centerY" secondItem="9eY-s1-LcB" secondAttribute="centerY" id="FZX-gq-nQA"/>
                                                 <constraint firstItem="f7R-EB-9Hc" firstAttribute="leading" secondItem="7j0-Ba-CN9" secondAttribute="trailing" constant="20" id="RJg-Dt-zgr"/>
                                                 <constraint firstAttribute="bottom" secondItem="7j0-Ba-CN9" secondAttribute="bottom" constant="2" id="Tm8-Tc-nHW"/>
                                                 <constraint firstItem="V63-Ap-htg" firstAttribute="bottom" secondItem="9eY-s1-LcB" secondAttribute="bottomMargin" id="WbA-0T-DEJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="XUV-JZ-CiJ" secondAttribute="trailing" constant="8" id="YAM-nL-b1l"/>
+                                                <constraint firstItem="f7R-EB-9Hc" firstAttribute="top" secondItem="9eY-s1-LcB" secondAttribute="top" constant="8" id="cvV-bn-bku"/>
+                                                <constraint firstItem="V63-Ap-htg" firstAttribute="top" secondItem="f7R-EB-9Hc" secondAttribute="bottom" constant="3" id="iGc-Ke-R1e"/>
+                                                <constraint firstAttribute="bottom" secondItem="V63-Ap-htg" secondAttribute="bottom" constant="8" id="zhN-JO-Fcd"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="5ut-ib-JJO"/>
+                                                    <exclude reference="Tm8-Tc-nHW"/>
+                                                    <exclude reference="2Fh-Ta-9bb"/>
+                                                    <exclude reference="69D-yp-Cgf"/>
+                                                    <exclude reference="WbA-0T-DEJ"/>
+                                                    <exclude reference="iGc-Ke-R1e"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -295,6 +316,9 @@
                             <constraint firstItem="Ttn-RZ-PUj" firstAttribute="leading" secondItem="Jtb-4z-Gh9" secondAttribute="leading" id="W9q-Vd-YeP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="fiN-3X-zR7" id="M0F-64-cqI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="in0-kI-rMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

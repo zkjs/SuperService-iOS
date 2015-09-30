@@ -10,10 +10,12 @@ import UIKit
 
 class AdminRegisterSelectEmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
+  @IBOutlet weak var tableView: UITableView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    tableView.tableFooterView = UIView()
   }
   
   override func didReceiveMemoryWarning() {
@@ -34,19 +36,19 @@ class AdminRegisterSelectEmployeeVC: UIViewController, UITableViewDataSource, UI
   
   // MARK: - Table View Data Source
   
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return SelectEmployeeCell.height()
-  }
-  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 16
+    return 6
   }
   
   // MARK: - Table View Delegate
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(SelectEmployeeCell.reuseIdentifier()) as! SelectEmployeeCell
-    return cell
+    let cell = tableView.dequeueReusableCellWithIdentifier(SelectEmployeeCell.reuseIdentifier())
+    guard let tableCell = cell else {
+      return UITableViewCell()
+    }
+    tableCell.layoutMargins = UIEdgeInsetsZero
+    return tableCell
   }
   
   // MARK: - Button Action

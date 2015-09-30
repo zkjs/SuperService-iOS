@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2363C6938E05EA78FB222F /* libPods-SuperService.a */; };
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; settings = {ASSET_TAGS = (); }; };
 		4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -23,7 +24,6 @@
 		40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */; };
 		40DA78A71BAFAA8F00956B72 /* SuperServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78A61BAFAA8F00956B72 /* SuperServiceTests.swift */; };
 		40DA78B21BAFAA8F00956B72 /* SuperServiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */; };
-		5085C5598019F2E176D89E5C /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 393242BB132B46A9F043440E /* libPods-SuperService.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E2363C6938E05EA78FB222F /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
-		393242BB132B46A9F043440E /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5085C5598019F2E176D89E5C /* libPods-SuperService.a in Frameworks */,
+				3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +204,7 @@
 		AC027541ADA26D63AB53B25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				393242BB132B46A9F043440E /* libPods-SuperService.a */,
+				0E2363C6938E05EA78FB222F /* libPods-SuperService.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

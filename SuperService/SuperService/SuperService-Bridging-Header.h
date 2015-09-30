@@ -4,3 +4,4 @@
 
 #import "HexColors.h"
 #import "MBProgressHUD.h"
+#import "WPMediaPicker.h"

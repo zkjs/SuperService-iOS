@@ -42,6 +42,14 @@
                                     <outlet property="delegate" destination="mBA-hY-Ld2" id="LHg-8K-M1D"/>
                                 </connections>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9PU-W0-1PH">
+                                <rect key="frame" x="331" y="158" width="89" height="29"/>
+                                <segments>
+                                    <segment title="男" width="44"/>
+                                    <segment title="女" width="44"/>
+                                </segments>
+                                <color key="tintColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Jik-MS-Cqf">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <subviews>
@@ -70,22 +78,30 @@
                                     <constraint firstAttribute="height" constant="44" id="7mO-AW-K3q"/>
                                 </constraints>
                             </stackView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9PU-W0-1PH">
-                                <rect key="frame" x="331" y="158" width="89" height="29"/>
-                                <segments>
-                                    <segment title="男" width="44"/>
-                                    <segment title="女" width="44"/>
-                                </segments>
-                                <color key="tintColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32O-Zw-jh0" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="220" y="278" width="160" height="44"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0nv-1n-8xS"/>
+                                    <constraint firstAttribute="width" constant="160" id="r85-wF-dLx"/>
+                                </constraints>
+                                <state key="normal" title="上传头像">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAvatarImage:" destination="mBA-hY-Ld2" eventType="touchUpInside" id="UB5-B7-kKd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ond-gh-oHz" firstAttribute="centerX" secondItem="3tf-Tq-Y7n" secondAttribute="centerX" id="3wt-lp-fCa"/>
                             <constraint firstItem="9PU-W0-1PH" firstAttribute="top" secondItem="udj-Xv-Dkw" secondAttribute="bottom" constant="25" id="I78-rW-pd1"/>
                             <constraint firstItem="udj-Xv-Dkw" firstAttribute="centerX" secondItem="3tf-Tq-Y7n" secondAttribute="centerX" id="Kdc-EP-77P"/>
+                            <constraint firstItem="32O-Zw-jh0" firstAttribute="centerX" secondItem="3tf-Tq-Y7n" secondAttribute="centerX" id="QCP-jv-NzW"/>
                             <constraint firstItem="0JB-LV-r1z" firstAttribute="centerX" secondItem="3tf-Tq-Y7n" secondAttribute="centerX" constant="-90" id="Vh9-zg-hV2"/>
                             <constraint firstItem="0JB-LV-r1z" firstAttribute="top" secondItem="udj-Xv-Dkw" secondAttribute="bottom" constant="28" id="Vuf-7o-g03"/>
+                            <constraint firstItem="32O-Zw-jh0" firstAttribute="top" secondItem="Ond-gh-oHz" secondAttribute="bottom" constant="31" id="dJB-vk-cjn"/>
                             <constraint firstItem="Jik-MS-Cqf" firstAttribute="leading" secondItem="3tf-Tq-Y7n" secondAttribute="leading" id="dVM-3Z-QsZ"/>
                             <constraint firstAttribute="trailing" secondItem="Jik-MS-Cqf" secondAttribute="trailing" id="f3U-MF-MaC"/>
                             <constraint firstItem="9PU-W0-1PH" firstAttribute="centerX" secondItem="3tf-Tq-Y7n" secondAttribute="centerX" constant="75" id="gDc-f9-T6X"/>

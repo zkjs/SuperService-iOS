@@ -46,7 +46,6 @@ class RegisterSelectRegionVC: UIViewController, UITableViewDataSource, UITableVi
     guard let tableCell = cell else {
       return UITableViewCell()
     }
-    tableCell.layoutMargins = UIEdgeInsetsZero
     return tableCell
   }
   

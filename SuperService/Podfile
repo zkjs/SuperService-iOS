@@ -6,6 +6,7 @@
 target 'SuperService' do
   pod 'MBProgressHUD'
   pod 'HexColors'
+  pod 'WPMediaPicker', :inhibit_warnings => true
 #  pod 'TKAnimatedCheckButton'
 end
 

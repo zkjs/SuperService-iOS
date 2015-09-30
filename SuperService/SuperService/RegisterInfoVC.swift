@@ -15,7 +15,6 @@ class RegisterInfoVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
@@ -38,6 +37,17 @@ class RegisterInfoVC: UIViewController {
   }
   */
   
+  // MARK: - Button Action
+  
+  
+  @IBAction func selectAvatarImage(sender: AnyObject) {
+    let mediaPicker = WPMediaPickerViewController()
+    mediaPicker.delegate = self
+    mediaPicker.filter = WPMediaType.Image
+    mediaPicker.allowMultipleSelection = false
+    presentViewController(mediaPicker, animated: true, completion: nil)
+  }
+  
   @IBAction func goBack(sender: AnyObject) {
     navigationController?.popViewControllerAnimated(true)
   }
@@ -49,6 +59,18 @@ extension RegisterInfoVC: UITextFieldDelegate {
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     nameTextField.resignFirstResponder()
     return true
+  }
+  
+}
+
+extension RegisterInfoVC: WPMediaPickerViewControllerDelegate {
+  
+  func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
 }

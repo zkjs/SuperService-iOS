@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     customizeWindow()
-    customizeNavigationBar()
     return true
   }
 
@@ -49,13 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private func customizeWindow() {
     window?.layer.cornerRadius = 5
     window?.layer.masksToBounds = true
-  }
-
-  private func customizeNavigationBar() {
-    UINavigationBar.appearance().barTintColor = UIColor(hexString: "03a9f4")
-    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-    UINavigationBar.appearance().translucent = false
   }
 
 }

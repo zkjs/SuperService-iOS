@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d7z-d4-Ip6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d7z-d4-Ip6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fvQ-mR-vBR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9hw-hc-xi3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,7 +33,7 @@
                         <viewControllerLayoutGuide type="bottom" id="h7C-T8-vFR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h3U-C7-9j2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,26 +43,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PS6-aF-dTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1791" y="2491"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="v3p-Le-MnZ">
-            <objects>
-                <viewController id="pB1-we-3DV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zgc-sv-kRC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jyx-xv-19a"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WjR-cz-JCc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="FRa-2r-PwM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kbj-xS-ddO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1791" y="1092"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="54u-Dk-cqn">
@@ -91,10 +71,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ABz-lq-ycl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="团队" id="C6H-Mk-mZn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rMB-qD-FU1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rMB-qD-FU1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -111,10 +95,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8wi-3U-2nr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="客户" id="XOA-9t-wfz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kt7-xc-dNi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kt7-xc-dNi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -134,7 +122,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xgH-ZK-Yus"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="66h-sf-EFv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,10 +139,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRz-mG-dhg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" id="csq-Lu-ZRa"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nE8-v1-U6X">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nE8-v1-U6X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -171,19 +163,76 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65L-73-Pko" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="主页" id="m0z-gy-FFZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSc-p5-LGV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XSc-p5-LGV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="pB1-we-3DV" kind="relationship" relationship="rootViewController" id="W5V-XM-S6S"/>
+                        <segue destination="Veu-ft-gWe" kind="relationship" relationship="rootViewController" id="kXE-ff-1w6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmf-6V-H6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979" y="1092"/>
         </scene>
+        <!--MainVC-->
+        <scene sceneID="KnB-Ut-Msq">
+            <objects>
+                <viewController id="Veu-ft-gWe" customClass="MainVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HbM-Ha-8zy"/>
+                        <viewControllerLayoutGuide type="bottom" id="SUv-H8-6S1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gpd-FW-Oso">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOf-et-a8Y">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lOf-et-a8Y" firstAttribute="leading" secondItem="Gpd-FW-Oso" secondAttribute="leading" id="1DS-9R-dao"/>
+                            <constraint firstItem="lOf-et-a8Y" firstAttribute="top" secondItem="HbM-Ha-8zy" secondAttribute="bottom" id="Q1N-gS-iJQ"/>
+                            <constraint firstItem="SUv-H8-6S1" firstAttribute="top" secondItem="lOf-et-a8Y" secondAttribute="bottom" id="bJ8-RA-iSB"/>
+                            <constraint firstAttribute="trailing" secondItem="lOf-et-a8Y" secondAttribute="trailing" id="sg9-L3-2Rc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AgF-gb-ZFj">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="I1Q-Lb-pfw">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO">
+                        <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </simulatedNavigationBarMetrics>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
+                        <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </simulatedTabBarMetrics>
+                    <connections>
+                        <outlet property="containerView" destination="lOf-et-a8Y" id="Ctf-6L-BFO"/>
+                        <outlet property="segmentedControl" destination="I1Q-Lb-pfw" id="moj-MR-ppg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYc-zv-gRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="1092"/>
+        </scene>
     </scenes>
+    <color key="tintColor" red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
 </document>

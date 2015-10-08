@@ -11,15 +11,11 @@ import UIKit
 class SelectRegionCell: UITableViewCell {
 
   class func reuseIdentifier() -> String {
-    return "SelectRegionCellReuseId"
+    return "SelectRegionCell"
   }
   
   class func nibName() -> String {
     return "SelectRegionCell"
-  }
-  
-  class func height() -> CGFloat {
-    return 60.0
   }
   
   override func awakeFromNib() {

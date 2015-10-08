@@ -5,3 +5,4 @@
 #import "HexColors.h"
 #import "MBProgressHUD.h"
 #import "WPMediaPicker.h"
+#import "XLSegmentedPagerTabStripViewController.h"

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "165C1A5873372EB5BBBA23D2"
+               BlueprintIdentifier = "2B1D156A35F4650F8062C630"
                BuildableName = "libPods-SuperService.a"
                BlueprintName = "Pods-SuperService"
                ReferencedContainer = "container:Pods.xcodeproj">

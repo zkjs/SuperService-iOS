@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E2475733704FC181C62AAF6"
+               BlueprintIdentifier = "6E80B3373E87C9C4D0EF5542"
                BuildableName = "WPMediaPicker.bundle"
                BlueprintName = "WPMediaPicker-WPMediaPicker"
                ReferencedContainer = "container:Pods.xcodeproj">

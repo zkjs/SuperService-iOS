@@ -43,13 +43,9 @@ class RegisterSelectRegionVC: UIViewController, UITableViewDataSource, UITableVi
   // MARK: - Table View Delegate
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(SelectRegionCell.reuseIdentifier())
-    guard let tableCell = cell else {
-      return UITableViewCell()
-    }
-    return tableCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("SelectRegionCell", forIndexPath: indexPath)
+    return cell
   }
-  
   
   // MARK: - Button Action
   

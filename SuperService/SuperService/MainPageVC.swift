@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainVC: XLSegmentedPagerTabStripViewController {
+class MainPageVC: XLSegmentedPagerTabStripViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

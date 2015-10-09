@@ -44,12 +44,21 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     return 6
   }
   
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return ArrivalCell.height()
+  }
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier(ArrivalCell.reuseIdentifier(), forIndexPath: indexPath) as! ArrivalCell
-  
-  // Configure the cell...
-  
-  return cell
+    let cell = tableView.dequeueReusableCellWithIdentifier(ArrivalCell.reuseIdentifier(), forIndexPath: indexPath) as! ArrivalCell
+
+    let firstRow = NSIndexPath(forRow: 0, inSection: 0)
+    if indexPath == firstRow {
+      cell.topLineImageView.hidden = true
+    } else {
+      cell.topLineImageView.hidden = false
+    }
+    
+    return cell
   }
   
 }

@@ -18,6 +18,10 @@ class MessageCell: UITableViewCell {
     return "MessageCell"
   }
   
+  class func height() -> CGFloat {
+    return 70
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

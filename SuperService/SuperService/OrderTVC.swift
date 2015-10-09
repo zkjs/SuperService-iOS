@@ -44,10 +44,19 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     return 6
   }
   
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return OrderCell.height()
+  }
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(OrderCell.reuseIdentifier(), forIndexPath: indexPath) as! OrderCell
     
-    // Configure the cell...
+    let firstRow = NSIndexPath(forRow: 0, inSection: 0)
+    if indexPath == firstRow {
+      cell.topLineImageView.hidden = true
+    } else {
+      cell.topLineImageView.hidden = false
+    }
     
     return cell
   }

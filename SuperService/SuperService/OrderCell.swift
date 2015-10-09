@@ -10,12 +10,22 @@ import UIKit
 
 class OrderCell: UITableViewCell {
 
+  @IBOutlet weak var topLineImageView: UIImageView!
+  @IBOutlet weak var clientInfoLabel: UILabel!
+  @IBOutlet weak var infoLabel: UILabel!
+  @IBOutlet weak var timeAgoLabel: UILabel!
+  @IBOutlet weak var orderButton: UIButton!
+  
   class func reuseIdentifier() -> String {
     return "OrderCell"
   }
   
   class func nibName() -> String {
     return "OrderCell"
+  }
+  
+  class func height() -> CGFloat {
+    return 140
   }
   
   override func awakeFromNib() {

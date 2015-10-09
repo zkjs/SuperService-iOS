@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2363C6938E05EA78FB222F /* libPods-SuperService.a */; };
+		404D41451BC7BF4900D0401D /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D41441BC7BF4900D0401D /* TeamListVC.swift */; settings = {ASSET_TAGS = (); }; };
+		404D41471BC7BF5600D0401D /* ClientListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D41461BC7BF5600D0401D /* ClientListVC.swift */; settings = {ASSET_TAGS = (); }; };
+		404D41491BC7BF9300D0401D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D41481BC7BF9300D0401D /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; settings = {ASSET_TAGS = (); }; };
 		40600CAA1BC64562008F8DEC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40600CA91BC64562008F8DEC /* MainVC.swift */; settings = {ASSET_TAGS = (); }; };
@@ -64,6 +67,9 @@
 /* Begin PBXFileReference section */
 		0E2363C6938E05EA78FB222F /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
+		404D41441BC7BF4900D0401D /* TeamListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListVC.swift; sourceTree = "<group>"; };
+		404D41461BC7BF5600D0401D /* ClientListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListVC.swift; sourceTree = "<group>"; };
+		404D41481BC7BF9300D0401D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40600CA91BC64562008F8DEC /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -87,7 +93,7 @@
 		4084230B1BC68E8600C215CD /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		4084230E1BC68E9800C215CD /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		4084230F1BC68E9800C215CD /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
-		408423121BC68EB000C215CD /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; };
+		408423121BC68EB000C215CD /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		408423131BC68EB000C215CD /* MessageTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTVC.xib; sourceTree = "<group>"; };
 		408423161BC68EC100C215CD /* OrderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTVC.swift; sourceTree = "<group>"; };
 		408423171BC68EC100C215CD /* OrderTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTVC.xib; sourceTree = "<group>"; };
@@ -256,6 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
+				404D41441BC7BF4900D0401D /* TeamListVC.swift */,
+				404D41461BC7BF5600D0401D /* ClientListVC.swift */,
+				404D41481BC7BF9300D0401D /* SettingsViewController.swift */,
 				4068A2D31BBBB13100FF8608 /* Widget */,
 				40600CAB1BC64579008F8DEC /* Main */,
 				4068A2D41BBBB14600FF8608 /* Login */,
@@ -494,8 +503,11 @@
 				4068A2C91BBBAF3500FF8608 /* AdminLoginVC.swift in Sources */,
 				4068A2DC1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift in Sources */,
 				4068A2D11BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift in Sources */,
+				404D41491BC7BF9300D0401D /* SettingsViewController.swift in Sources */,
 				4068A2CD1BBBB06800FF8608 /* AdminRegisterInfoVC.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
+				404D41471BC7BF5600D0401D /* ClientListVC.swift in Sources */,
+				404D41451BC7BF4900D0401D /* TeamListVC.swift in Sources */,
 				4068A2CF1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift in Sources */,
 				408423141BC68EB000C215CD /* MessageTVC.swift in Sources */,
 				40600CAA1BC64562008F8DEC /* MainVC.swift in Sources */,

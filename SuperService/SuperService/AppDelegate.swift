@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     customizeWindow()
+    customizeTabBar()
     return true
   }
 
@@ -49,6 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.layer.cornerRadius = 5
     window?.layer.masksToBounds = true
   }
-
+  
+  private func customizeTabBar() {
+    let attribute = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    UITabBarItem.appearance().setTitleTextAttributes(attribute, forState: UIControlState.Normal)
+    UITabBarItem.appearance().titlePositionAdjustment = UIOffsetMake(0.0, -2.0)
+    UITabBar.appearance().tintColor = UIColor.redColor()
+  }
+  
 }
 

@@ -52,7 +52,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="65L-73-Pko" kind="relationship" relationship="viewControllers" id="zfi-tp-H3P"/>
@@ -69,7 +69,13 @@
         <scene sceneID="yCc-KF-54B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ABz-lq-ycl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="团队" id="C6H-Mk-mZn"/>
+                    <tabBarItem key="tabBarItem" title="团队" image="ic_tuandui_b" id="C6H-Mk-mZn">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rMB-qD-FU1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -93,7 +99,13 @@
         <scene sceneID="zXc-X1-pUr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8wi-3U-2nr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="客户" id="XOA-9t-wfz"/>
+                    <tabBarItem key="tabBarItem" title="客户" image="ic_kehu_b" id="XOA-9t-wfz">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kt7-xc-dNi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -137,7 +149,13 @@
         <scene sceneID="aGy-XN-RLt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRz-mG-dhg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="csq-Lu-ZRa"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="ic_shezhi" id="csq-Lu-ZRa">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nE8-v1-U6X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -161,7 +179,13 @@
         <scene sceneID="gdI-1C-ePl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65L-73-Pko" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" id="m0z-gy-FFZ"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="ic_home" id="m0z-gy-FFZ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XSc-p5-LGV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -234,5 +258,11 @@
             <point key="canvasLocation" x="1791" y="1092"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_home" width="27" height="27"/>
+        <image name="ic_kehu_b" width="22" height="17"/>
+        <image name="ic_shezhi" width="26" height="26"/>
+        <image name="ic_tuandui_b" width="24" height="12"/>
+    </resources>
     <color key="tintColor" red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -30,4 +30,12 @@ class SettingsTVC: UITableViewController {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   
+  override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    let statusIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+    if indexPath == statusIndexPath {
+      return nil
+    }
+    return indexPath
+  }
+  
 }

@@ -41,6 +41,7 @@
 		408AD37A1BC5533600A202DD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408AD3791BC5533600A202DD /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
 		40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC261BCE366E00785D2E /* ZKJSTool.m */; settings = {ASSET_TAGS = (); }; };
 		40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC291BCE395300785D2E /* AccountManager.swift */; settings = {ASSET_TAGS = (); }; };
+		40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
 		40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
 		40DA78971BAFAA8F00956B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DA78951BAFAA8F00956B72 /* Main.storyboard */; };
@@ -111,6 +112,8 @@
 		40B0DC251BCE366E00785D2E /* ZKJSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTool.h; sourceTree = "<group>"; };
 		40B0DC261BCE366E00785D2E /* ZKJSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTool.m; sourceTree = "<group>"; };
 		40B0DC291BCE395300785D2E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTCPSessionManager.h; sourceTree = "<group>"; };
+		40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTCPSessionManager.m; sourceTree = "<group>"; };
 		40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		40DA788E1BAFAA8F00956B72 /* SuperService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78911BAFAA8F00956B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 			children = (
 				404FB5221BCE2A4B0074D205 /* NSString+ZKJS.h */,
 				404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */,
+				40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */,
+				40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */,
 				404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */,
 				404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */,
 			);
@@ -570,6 +575,7 @@
 				404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */,
 				40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
+				40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */,
 				4068A2D81BBBB4BF00FF8608 /* SelectEmployeeCell.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
 				4068A2C91BBBAF3500FF8608 /* AdminLoginVC.swift in Sources */,

@@ -152,8 +152,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-aj-qrP">
-                                                    <rect key="frame" x="15" y="21" width="28" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上班状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-aj-qrP">
+                                                    <rect key="frame" x="15" y="21" width="56" height="17"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="kUG-cN-iIA"/>
@@ -162,19 +162,15 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="La7-SP-B5F">
-                                                    <rect key="frame" x="503" y="16" width="81" height="29"/>
-                                                    <segments>
-                                                        <segment title="在线"/>
-                                                        <segment title="离线"/>
-                                                    </segments>
-                                                </segmentedControl>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcg-Yd-Fbn">
+                                                    <rect key="frame" x="543" y="14" width="51" height="31"/>
+                                                </switch>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="La7-SP-B5F" secondAttribute="trailing" constant="16" id="Nlh-oT-UUn"/>
+                                                <constraint firstAttribute="trailing" secondItem="dcg-Yd-Fbn" secondAttribute="trailing" constant="8" id="DqT-N0-gUK"/>
                                                 <constraint firstItem="cxi-aj-qrP" firstAttribute="centerY" secondItem="R5K-B6-PF0" secondAttribute="centerY" id="ZYd-ae-Hvg"/>
-                                                <constraint firstItem="La7-SP-B5F" firstAttribute="centerY" secondItem="R5K-B6-PF0" secondAttribute="centerY" id="fna-7J-paS"/>
+                                                <constraint firstItem="dcg-Yd-Fbn" firstAttribute="centerY" secondItem="R5K-B6-PF0" secondAttribute="centerY" id="gqH-YR-H6T"/>
                                                 <constraint firstItem="cxi-aj-qrP" firstAttribute="leading" secondItem="R5K-B6-PF0" secondAttribute="leading" constant="15" id="uNm-M3-GIN"/>
                                             </constraints>
                                         </tableViewCellContentView>

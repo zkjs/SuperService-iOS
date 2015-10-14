@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - HexColors (2.3.0)
   - MBProgressHUD (0.9.1)
+  - SocketRocket (0.4.1)
   - WPMediaPicker (0.6.0)
   - XLPagerTabStrip (2.0.0)
 
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - AFNetworking
   - HexColors
   - MBProgressHUD
+  - SocketRocket
   - WPMediaPicker
   - XLPagerTabStrip
 
@@ -36,6 +38,7 @@ SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
   WPMediaPicker: 6e7904663b386ad4eea2f2e3dc30fd15babceb66
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
 

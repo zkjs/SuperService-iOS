@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>WPMediaPicker-WPMediaPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +52,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>091B80B2570404E04B703BB97F4C5F6B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2BBEF424934C8383D6BB8E4C34BBD78C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3AD2938DB463C106CF80B17E6A58D7F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65109635AE34041975490E0BDC783C92</key>
+		<key>5EC20D9C930BBFF8F7D6BE8D4E1F8C5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EAA6AB62183966CEB1E74D371D02E802</key>
+		<key>8E1960393457B7D73A42863CD2FEB8CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94F7F189F3302603E3064AD0A6552133</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A707D434A0B334FEE7E4882E188E97C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F82484F73672783B9CAEE4C664A3E86E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

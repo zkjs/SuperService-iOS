@@ -4,6 +4,7 @@
 #use_frameworks!
 
 target 'SuperService' do
+  pod 'SocketRocket', :inhibit_warnings => true
   pod 'AFNetworking', :inhibit_warnings => true
   pod 'XLPagerTabStrip', :inhibit_warnings => true
   pod 'MBProgressHUD'

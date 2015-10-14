@@ -18,9 +18,15 @@ class SettingsTVC: UITableViewController {
     tableView.tableFooterView = UIView()
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  
+  // MARK: - Table View Data Source
+  
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    let statusIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+    if indexPath == statusIndexPath {
+      return 0
+    }
+    return 60
   }
   
   
@@ -51,6 +57,7 @@ class SettingsTVC: UITableViewController {
     }
     return indexPath
   }
+  
   
   // MARK: - Private
   

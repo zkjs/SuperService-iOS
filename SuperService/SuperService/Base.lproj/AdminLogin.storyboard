@@ -24,6 +24,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uyp-4p-Hhu" id="jkR-sY-MfR"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgk-5X-DrV" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
                                 <rect key="frame" x="170" y="209" width="260" height="44"/>
@@ -36,7 +39,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapLoginButton:" destination="uyp-4p-Hhu" eventType="touchUpInside" id="cU6-1L-Eve"/>
+                                    <action selector="tappedLoginButton:" destination="uyp-4p-Hhu" eventType="touchUpInside" id="OD4-CG-0CL"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9n1-eD-xT1" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
@@ -47,6 +50,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uyp-4p-Hhu" id="TcP-GT-0n9"/>
+                                </connections>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieQ-DS-mfp">
                                 <rect key="frame" x="200" y="268" width="200" height="44"/>
@@ -78,6 +84,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="9n1-eD-xT1" id="m2K-Kw-fBb"/>
+                        <outlet property="phoneTextField" destination="1jc-5q-xDa" id="LJu-p0-GHI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcm-Vw-8ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

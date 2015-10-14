@@ -4,7 +4,7 @@
 #use_frameworks!
 
 target 'SuperService' do
-  pod 'AFNetworking'
+  pod 'AFNetworking', :inhibit_warnings => true
   pod 'XLPagerTabStrip', :inhibit_warnings => true
   pod 'MBProgressHUD'
   pod 'HexColors'

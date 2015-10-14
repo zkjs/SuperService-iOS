@@ -18,13 +18,15 @@ class MainTBC: UITabBarController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-//    let storyboard = UIStoryboard(name: "AdminLogin", bundle: nil)
-//    let vc = storyboard.instantiateViewControllerWithIdentifier("AdminLoginVC") as! AdminLoginVC
-//    let nv = UINavigationController(rootViewController: vc)
-//    nv.navigationBar.barTintColor = UIColor(hexString: "29B6F6")
-//    nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//    nv.navigationBar.translucent = false
-//    presentViewController(nv, animated: true, completion: nil)
+    if AccountManager.sharedInstance().userid.isEmpty {
+      let storyboard = UIStoryboard(name: "AdminLogin", bundle: nil)
+      let vc = storyboard.instantiateViewControllerWithIdentifier("AdminLoginVC") as! AdminLoginVC
+      let nv = UINavigationController(rootViewController: vc)
+      nv.navigationBar.barTintColor = UIColor(hexString: "29B6F6")
+      nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+      nv.navigationBar.translucent = false
+      presentViewController(nv, animated: true, completion: nil)
+    }
   }
   
 }

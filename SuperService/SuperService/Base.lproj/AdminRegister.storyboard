@@ -154,7 +154,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="nMv-yQ-dhP"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-kt-ADV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-kt-ADV">
                                 <rect key="frame" x="20" y="30" width="560" height="526"/>
                                 <string key="text">感谢您注册超级服务，稍后我们会同您联系。您目前可以使用内部IM功能，离智慧酒店使用还有如下步骤：
 

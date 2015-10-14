@@ -10,6 +10,7 @@
 		3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2363C6938E05EA78FB222F /* libPods-SuperService.a */; };
 		404D41451BC7BF4900D0401D /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D41441BC7BF4900D0401D /* TeamListVC.swift */; settings = {ASSET_TAGS = (); }; };
 		404D41471BC7BF5600D0401D /* ClientListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D41461BC7BF5600D0401D /* ClientListVC.swift */; settings = {ASSET_TAGS = (); }; };
+		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; settings = {ASSET_TAGS = (); }; };
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; settings = {ASSET_TAGS = (); }; };
 		40600CAA1BC64562008F8DEC /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40600CA91BC64562008F8DEC /* MainPageVC.swift */; settings = {ASSET_TAGS = (); }; };
@@ -71,6 +72,7 @@
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
 		404D41441BC7BF4900D0401D /* TeamListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListVC.swift; sourceTree = "<group>"; };
 		404D41461BC7BF5600D0401D /* ClientListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListVC.swift; sourceTree = "<group>"; };
+		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40600CA91BC64562008F8DEC /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				4068A2D31BBBB13100FF8608 /* Widget */,
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
+				404FB51A1BCE01AE0074D205 /* MainTBC.swift */,
 				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
 				40600CAB1BC64579008F8DEC /* MainPage */,
 				40F1BA7F1BC7FBB7006C2B41 /* TeamList */,
@@ -537,6 +540,7 @@
 				4068A2D11BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift in Sources */,
 				4068A2CD1BBBB06800FF8608 /* AdminRegisterInfoVC.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
+				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,
 				404D41471BC7BF5600D0401D /* ClientListVC.swift in Sources */,
 				404D41451BC7BF4900D0401D /* TeamListVC.swift in Sources */,
 				40F1BA8B1BC80BBF006C2B41 /* SettingsTVC.swift in Sources */,
@@ -727,9 +731,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SuperService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "75efa0ff-fa65-42dd-821c-ba064d65adbf";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -741,11 +747,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Zhongke Jinshi Technology Co., Ltd (ERF86L9T4U)";
 				INFOPLIST_FILE = SuperService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2711a80b-903c-496b-a7a4-1ebb8be010bc";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 			};
 			name = Release;

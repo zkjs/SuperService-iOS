@@ -7,7 +7,7 @@
         <!--商户登陆-->
         <scene sceneID="NxR-ql-WuR">
             <objects>
-                <viewController storyboardIdentifier="AdminLoginVC" title="商户登陆" id="uyp-4p-Hhu" customClass="AdminLoginVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminLoginVC" title="商户登陆" hidesBottomBarWhenPushed="YES" id="uyp-4p-Hhu" customClass="AdminLoginVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uyA-RX-i6F"/>
                         <viewControllerLayoutGuide type="bottom" id="TqG-Ch-aYc"/>
@@ -32,11 +32,14 @@
                                     <constraint firstAttribute="width" constant="260" id="hYp-nL-7ci"/>
                                     <constraint firstAttribute="height" constant="44" id="qgl-4E-Rqf"/>
                                 </constraints>
-                                <state key="normal" title="发送验证码">
+                                <state key="normal" title="登陆">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapLoginButton:" destination="uyp-4p-Hhu" eventType="touchUpInside" id="cU6-1L-Eve"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9n1-eD-xT1" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9n1-eD-xT1" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
                                 <rect key="frame" x="170" y="127" width="260" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="BMe-Pr-Gev"/>
@@ -45,7 +48,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieQ-DS-mfp">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieQ-DS-mfp">
                                 <rect key="frame" x="200" y="268" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ifL-eA-keE"/>

@@ -55,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let attribute = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     UITabBarItem.appearance().setTitleTextAttributes(attribute, forState: UIControlState.Normal)
     UITabBarItem.appearance().titlePositionAdjustment = UIOffsetMake(0.0, -2.0)
-    UITabBar.appearance().tintColor = UIColor.redColor()
   }
   
 }

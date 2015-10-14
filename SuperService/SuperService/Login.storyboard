@@ -7,7 +7,7 @@
         <!--登陆-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="LoginVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,8 +19,8 @@
                             <userLayoutGuide location="298" affinity="minY"/>
                         </userGuides>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="170" y="230" width="192" height="44"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Vo-2k4" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="186" width="192" height="44"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="192" id="TOf-7l-4jJ"/>
@@ -29,8 +29,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-MG-jSx" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="170" y="379" width="260" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-MG-jSx" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="335" width="260" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.71372549019607845" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -45,8 +45,8 @@
                                     <segue destination="sGb-FK-S1X" kind="show" id="mUN-7a-qBl"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="170" y="297" width="260" height="44"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-pz-sML" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="170" y="253" width="260" height="44"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5XB-7A-prA"/>
@@ -68,16 +68,16 @@
                                     <segue destination="Ncd-3v-6st" kind="show" id="dis-Q3-CZ8"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="eht-R1-Zj4">
-                                <rect key="frame" x="255" y="100" width="90" height="90"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="eht-R1-Zj4">
+                                <rect key="frame" x="255" y="56" width="90" height="90"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="Hpw-Ta-mON"/>
                                     <constraint firstAttribute="width" constant="90" id="gm0-4U-Bkd"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzG-Ju-Jz5" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="370" y="230" width="60" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzG-Ju-Jz5" customClass="RoundedRectButton" customModule="SuperService" customModuleProvider="target">
+                                <rect key="frame" x="370" y="186" width="60" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

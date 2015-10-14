@@ -10,16 +10,16 @@ import UIKit
 
 class AccountManager: NSObject {
   
-//  {
-//  "set": true,
-//  "userid": "5577ecee5acc7",
-//  "shopid": "120",
-//  "fullname": "长沙芙蓉国温德姆至尊豪廷大酒店",
-//  "token": "jxT3sB_U2M2EsGF_",
-//  "name": "王二麻子",
-//  "roleid": "4",
-//  "locid": "1,2,3"
-//  }
+//{
+//  fullname = "长沙豪廷大酒店";
+//  locid = "1,6,2,3";
+//  name = "\U5343\U91cc";
+//  roleid = 1;
+//  set = 1;
+//  shopid = 120;
+//  token = q8RzZznqWvzwBfzR;
+//  userid = 557aa57bd087f;
+//}
 
   private(set) var userid = ""
   private(set) var shopid = ""
@@ -64,6 +64,18 @@ class AccountManager: NSObject {
     userDefaults.setObject(dict["name"], forKey: "name")
     userDefaults.setObject(dict["roleid"], forKey: "roleid")
     userDefaults.setObject(dict["locid"], forKey: "locid")
+    userDefaults.synchronize()
+  }
+  
+  func clearAccountCache() {
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(nil, forKey: "userid")
+    userDefaults.setObject(nil, forKey: "shopid")
+    userDefaults.setObject(nil, forKey: "fullname")
+    userDefaults.setObject(nil, forKey: "token")
+    userDefaults.setObject(nil, forKey: "name")
+    userDefaults.setObject(nil, forKey: "roleid")
+    userDefaults.setObject(nil, forKey: "locid")
     userDefaults.synchronize()
   }
   

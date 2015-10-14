@@ -19,7 +19,7 @@ class AdminLoginVC: UIViewController {
     phoneTextField.alwaysBouncePlaceholder = true
     phoneTextField.abbreviatedPlaceholder = "手机号码"
     passwordTextField.alwaysBouncePlaceholder = true
-    passwordTextField.abbreviatedPlaceholder = "验证码"
+    passwordTextField.abbreviatedPlaceholder = "密码"
   }
   
   /*

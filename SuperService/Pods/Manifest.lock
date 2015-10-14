@@ -1,16 +1,39 @@
 PODS:
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - HexColors (2.3.0)
   - MBProgressHUD (0.9.1)
   - WPMediaPicker (0.6.0)
   - XLPagerTabStrip (2.0.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - HexColors
   - MBProgressHUD
   - WPMediaPicker
   - XLPagerTabStrip
 
 SPEC CHECKSUMS:
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   WPMediaPicker: 6e7904663b386ad4eea2f2e3dc30fd15babceb66

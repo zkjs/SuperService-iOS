@@ -10,15 +10,21 @@
 		008774D010AE38EDEAF581CC9A5E6969 /* WPMediaPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F7D29A8E6C49DAA67AC1FD09ACF38B /* WPMediaPickerViewController.h */; };
 		03E7BE58E77ADCA75C1315433C3D2B6B /* XLButtonBarPagerTabStripViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FDE5CA2F4DC11E4F6EF096876ED9293 /* XLButtonBarPagerTabStripViewController.h */; };
 		0476A7C8FB1BE0ED426F3DFF4FB8562F /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = DE78D4152C695309287B397F3D2E23E7 /* camera.png */; };
-		06C9398EEF8782B27E81EFC7D4E3C28B /* HexColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E38A6770DDFA04F664E7F34B77AB349 /* HexColors.h */; };
 		06D8CEC587673F7DFFA79CAEE4A6EFEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
-		0B737158E1D77907BF4FE36097E93C03 /* Pods-SuperService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7084AAC594E3C3250C5C61BE7146AB98 /* Pods-SuperService-dummy.m */; };
+		085DFE2F5EC46764ECEEA3ADA3DCBED2 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08DA867CB84CC8D0FFBA41E6C658D8 /* UIActivityIndicatorView+AFNetworking.m */; };
+		08A3F4BE89EC478FCF5B742C27D60867 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D875BB954B3DCA4AB4099506F3B2AC48 /* UIButton+AFNetworking.h */; };
+		09C7A7126449B0C95C350C84F3A58568 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A2AE5D508F889533C51B3D33D47ECE8A /* UIImageView+AFNetworking.h */; };
 		100A4C2FD86519AE1E2A753ECDE5B206 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E385DF4BFA5F88A7DF54BDF68EEA914 /* AVFoundation.framework */; };
 		13C6B941A4DE7A2F7A9F283566C6CA22 /* WPMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60DA61FDE4A54AEB59EFE9071EFD7D /* WPMediaPicker-dummy.m */; };
 		1814D283A1723D8C00A7828D1645AA51 /* XLBarPagerTabStripViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E23C463EE329F4C86A91E0214C62C806 /* XLBarPagerTabStripViewController.h */; };
 		1886B4E106181CA060B1BD20479069CB /* WPMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BFACC97EA7C86D6E22278DB13DD1C4 /* WPMediaPickerViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1AEF1DFE9CDBC419AC1A008453D2C338 /* FXPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6AF901E0621F3DABE41D4E1E8DEAAD /* FXPageControl.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		25880F07045D4D7EC1268DDFFEAC9796 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3EDC90447F5E3D6C530EFF66E35F51 /* MBProgressHUD.h */; };
+		1CBC7D7F33A4AA68AD8493F77D83B04F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB1B0152523B3EFE13CAF88808BE55A /* MobileCoreServices.framework */; };
+		1FCDECB29B8A37A6383FEF5D703A26FB /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF3EEBA76286E1EA6CAF27209F1B6DE /* UIImage+AFNetworking.h */; };
+		22DC5173C0F1EE1C6578ED7C3F63C717 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 658FBC3C197E64D672AA55132EAE5758 /* UIAlertView+AFNetworking.m */; };
+		249EF3588A3FA4B381380D8AA912DC55 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A40D34BA7D9D9CFB1C5FC0A42CD13E3E /* AFURLConnectionOperation.h */; };
+		28BA2CB7163EDBCCDBEC8FAE7D480EFF /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6908F08529DF45E153241D354E98DB48 /* AFNetworkReachabilityManager.m */; };
+		28C7D701CFC606928958EAE4FAFA0CDF /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C95A37F23CA798D97A15FE131D7EB86 /* HexColors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		2A460FF0656C5B7B396BB6E084E56A17 /* video@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70ABD970255735E228764D3D5934B34 /* video@3x.png */; };
 		2D5F9A2F8E83A1AC38CD037CE48548B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6535F6951EA7CAB66D59F8A995E5029 /* AssetsLibrary.framework */; };
 		2F27427F28B8A8B83D2DB21E38964F6F /* XLBarPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7512F73B828FA09AC2A2BEE57398CC80 /* XLBarPagerTabStripViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -27,88 +33,132 @@
 		32DCF82462FFBF5F0F780D320B768439 /* WPMediaGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0961D6A5D250020106E3D130B7479B /* WPMediaGroupTableViewCell.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		340432881039B58256201B96A566B56B /* XLSegmentedPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C515CCEA66A0843EA38D242B28CD7 /* XLSegmentedPagerTabStripViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		369412E9795EC5B582FC40DA07A08620 /* WPMediaGroupTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DC926099DD79A7A185BF8A1C58FA491C /* WPMediaGroupTableViewCell.h */; };
+		372E4DA094D247AA76555F51ABC220EB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9756DEEB5A512F5B2BBD30C7AE89C5C0 /* AFHTTPRequestOperationManager.m */; };
 		38326BDCA5884A1126AF44ABA9CED971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C76B19A383624D987427D47D0698BB /* UIKit.framework */; };
-		3DAFC57C425D322851C45C7618956504 /* HexColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C402C72770422B5079219C7C6E6BE7DC /* HexColors-dummy.m */; };
-		3DF645315EA055D21CADE171DA0D44F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
-		486DD1B31A45FA7D6A9117A2774FD733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43FE3818BA48386F17C4B834D92D251 /* CoreGraphics.framework */; };
+		44BE8D5138F023371AC45D0F6A402B2B /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A141F783720B31792A689619E9B49B6 /* UIKit+AFNetworking.h */; };
+		453F06166B4FD2733CC489DE617C7758 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F82E8F0FCE64A064A8787C9BFAC50C /* UIActivityIndicatorView+AFNetworking.h */; };
 		4BD11002E6375F096FD9A0F63791080A /* XLPagerTabStrip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECB61C943AC2F5C9FD8F031E30F30A /* XLPagerTabStrip-dummy.m */; };
-		4C91A4F2447231F73A71C3B933636586 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A09EB8B9FEE1E0B1623FD7AFE7F35F7 /* HexColors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4E97BF819639EFE3ADD321059D0F8DEB /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FD9456E1BA1C49F3E00423077AE70A /* AFURLSessionManager.h */; };
 		55CA6F1078FC5390D3B09CC1406F48DF /* video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A060A6D234794A729B9C1A4766938F40 /* video@2x.png */; };
 		5765271E5156045EB6CB51B66C24EB59 /* WPALAssetDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C12FCB94F3AEF9AED262AB8E7B7F50E2 /* WPALAssetDataSource.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5837D6589BC889F0B448D62158D38F6F /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = B4211C3FB4A902468AFD2C6D49FF0785 /* AFURLResponseSerialization.h */; };
+		5A0B1B80800665A47700829A8D3F62EF /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 82602E07A9B647557CFFCFCDA8FD7FCE /* UIWebView+AFNetworking.h */; };
 		5A320ED72143D918D8208D3EB19F4B47 /* XLButtonBarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2297E936A43B08E427404C8AA02E2 /* XLButtonBarViewCell.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5E89704A595A11B3EFBED252D475BE32 /* WPMediaPickerResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5A319964788C48B1CD4427D2CF2069 /* WPMediaPickerResources.h */; };
+		5EE5C3825C0A4916945CA549F20580B3 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 19362A89E78C3ACD31EF84330CC95509 /* AFHTTPRequestOperationManager.h */; };
+		5F058AA645AD1443ABB8671C6294C4B5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D535B1004E5D981D763DC2B1E36B66 /* Security.framework */; };
+		5F8C7CA4E886B612A7669F9C400DD410 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E802973A55DAE1805F512F975368CBD8 /* AFHTTPRequestOperation.h */; };
 		631325BC246FB587FE7C6785E0AD3EA9 /* WPALAssetImageCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B9C2E10D7C99BDAD681B3DBF6A7206EA /* WPALAssetImageCacheManager.h */; };
+		664B005DC5FBEBDFB4F3D343A8E7D95F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B449775EABC6883A7BA3DCC9EC3D6A /* AFURLSessionManager.m */; };
 		666B2E5567404E7B359D6CC96BA83B99 /* XLTwitterPagerTabStripViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F9E506E597E1663B2DF34392232D59E /* XLTwitterPagerTabStripViewController.h */; };
 		672892A24DE3FFF796972281F88A8216 /* XLButtonBarPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2501E257287F539FAD0B7EB4665912AB /* XLButtonBarPagerTabStripViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		679AB9AE425B56EF0681080B4346F89E /* XLButtonBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA1A166B1557128F2F00632E0F0A194 /* XLButtonBarView.h */; };
 		6A671611A6FDAB6210A5CAAA11BDA0DD /* video.png in Resources */ = {isa = PBXBuildFile; fileRef = 676B0717AC808A725706439094A11F48 /* video.png */; };
+		6DE71C8BC775C50141EEFA50919025C4 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9A23C0D49DE1655BA1B679CB39105E /* AFURLConnectionOperation.m */; };
 		6F3EBFC5BFCBF3A8335039B377E8E22B /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0042A063611F0255871AF4646F377A0E /* camera@2x.png */; };
 		6F820C3CD593491D69232923E00470F9 /* WPMediaCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 35E213D313D5D292F8F95210DB948D61 /* WPMediaCollectionViewController.h */; };
+		723F9B2CBFFA13C708048D626B932AB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD08A4DD793FB1B8CC3AB57516A89D /* SystemConfiguration.framework */; };
+		732FA04C23B5BF9647627986597BEE3E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 876E13C325B998B1F7D89D95708CF002 /* UIImageView+AFNetworking.m */; };
+		734BF355B017D5238AD199E1BC74E726 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7B2DFEDD0BB230083C374D2FD79C2 /* UIAlertView+AFNetworking.h */; };
+		74B5735EDB105F3F3D5DE72C6CA508A1 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 095352A063A38D8D41967EA9029E94EF /* UIButton+AFNetworking.m */; };
 		756246A2E610A755BED1A67278C1A826 /* XLSegmentedPagerTabStripViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FA00CECF33FFD851A7EE87EEC531B7 /* XLSegmentedPagerTabStripViewController.h */; };
 		77AAAECF8E6470C41B9DBC4A2BB425A3 /* WPMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E4DB160F7DCC4C85E93B018E096B40 /* WPMediaPicker.h */; };
+		7A7F2FD76785B49975822E3738B4E7A7 /* Pods-SuperService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A01CBEB7AD8CE7F59C5BA266797B70FA /* Pods-SuperService-dummy.m */; };
 		7A8AA508A9E4DF76698972128FD0566E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
 		7D79FC4786A46A32210AEB8680B7D656 /* WPMediaCaptureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72010291C40CF9BDB3B70BF4E89924EE /* WPMediaCaptureCollectionViewCell.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7DDEA38DD168DF7EDBB563D4DFEF3941 /* HexColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE19D2B76D82788C713B08C4B4BD512 /* HexColors.h */; };
 		7F9B22FF8379C209E8D3406DD5437AB4 /* WPALAssetImageCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBFA26759E231885D1261FE92FBC9C85 /* WPALAssetImageCacheManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		80148B05DE906189E4ADA7BE19BB7616 /* XLBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65F2B599E74B0EA05A5D08DED06DA9 /* XLBarView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		84596A25DBC750235F7B168088EDF725 /* XLBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A9377B9DF11D1369FF1C5D9DC648645 /* XLBarView.h */; };
+		848161F5804615A110264F6F51F27C6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
+		859FBB4EDBEF1019FA9852225D7B7975 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5114BFE4F261379051B760E0F8DE84 /* AFHTTPSessionManager.h */; };
+		89017B345ADA97299AA6D82C512D8E93 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 947AD9C81C4B9EF3BD4B70976310C7F3 /* AFHTTPRequestOperation.m */; };
 		8C47467EE6307D61410AEA9D43075E28 /* WPMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB46EAAFCC15562FBBB82EA649A8DC9C /* WPMediaCollectionViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8DF1F264C4330D76A8DA5EC6DBEC222E /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 533737504E7335F84A633D8ABB0B4769 /* MBProgressHUD-dummy.m */; };
+		8F87646FB0066EEB9E90B57797284F53 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24741C162F7B054AF8C1C3E603CED91C /* AFURLResponseSerialization.m */; };
 		931431AFFC92F41F9E2824BF9C5CCA93 /* WPMediaCollectionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5D2C92F481F49BAA46EBA86A224DE7 /* WPMediaCollectionDataSource.h */; };
+		954377F469EA03C0F8793DD5C5D0655A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FA19D612A52435E5E86B9BEF3E3132 /* AFSecurityPolicy.m */; };
 		95C2B6A3ED7A3F651C4CA533DCF75D0A /* XLButtonBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB80A6094E77906F30C28D19F1387DB /* XLButtonBarView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9892422E5E80E779AE292793A7ED346E /* HexColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 283C48E22130201A4EB093D58824CAA4 /* HexColors-dummy.m */; };
+		9B652DF04F83803DF10C21833B51B448 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8BF6BFD95247F8739F700B10E49E14 /* UIRefreshControl+AFNetworking.m */; };
 		A1A0750EF74A312B6B1BE5AFA9AC100F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C76B19A383624D987427D47D0698BB /* UIKit.framework */; };
+		A240472AB295F0A0FD050DECA00A8CFF /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 93DAD49BC3C5B50629B21D8364F41EF5 /* AFNetworkActivityIndicatorManager.h */; };
+		A597082F68418282C25545253E4AFE87 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 483522FD365A063FDE59C49B99798378 /* AFNetworkReachabilityManager.h */; };
+		A902C0A82E6E2B3CE3DE9C02F10BDC93 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAE104492F61739FDBE965ECC93DFB6 /* CoreGraphics.framework */; };
+		AC3594BA473EC679D78D92280BBF95C4 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BA059F21171E7BD2FBD5F911354F205F /* UIProgressView+AFNetworking.m */; };
 		ADCC3D4B716F71C8D25A6B69AD596680 /* camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB5D57B663B2B0EF39BAE00663DF3BF /* camera@3x.png */; };
+		AEE6CDDEC6F32C3B493945CFC1E14003 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A5BC9B114B6CA07E40D98B7002E2C99 /* UIProgressView+AFNetworking.h */; };
 		B177648064564C39460C8FF805B9E1D1 /* WPMediaGroupPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D16992EE16E38DC992CBC51EC25C71B /* WPMediaGroupPickerViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B9D8058B295F486F587E28D210571346 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
+		B363FDEB3EE261CB972883D0B946809D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
+		BA05D8E0268B9995931797EE5EB114B9 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CCC52BAD40B5A83262BDDE3D7B341B5 /* MBProgressHUD.h */; };
 		BA827280BD35BB308CAFEE0BBBF5F912 /* XLPagerTabStripViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 02F46C713B6D697D0D35AF3E4FB91A60 /* XLPagerTabStripViewController.h */; };
+		BF14B05115B57BB87CD294CDFF0919D0 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60CB94A22BBF02948C3F05D118C6EA /* AFHTTPSessionManager.m */; };
 		C2B8396DEA727D8CD6F1B88E7C0FFC22 /* WPPHAssetDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D71653779917B4388EE42E818CB8FA93 /* WPPHAssetDataSource.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C679ADD35A1743EF0181F243815FA084 /* FXPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = A36D85AB0CCDAB0A90D97BC96DEC6FDF /* FXPageControl.h */; };
+		C81BBA1F84DCE3FA6D1ACD16838B8556 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B9B307CA97A0B5DC2066421CED0428 /* UIWebView+AFNetworking.m */; };
 		C9381651BCF5ACBDEF176DC088954EB4 /* WPMediaGroupPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C6491D3AB0BAF85AB86F330403FF9F96 /* WPMediaGroupPickerViewController.h */; };
+		CFAAEBF7D615B1DD1962BBA74427B4E7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADC513A810766A953B300B17871C94B /* AFURLRequestSerialization.m */; };
+		D1B260D65DAAC42A43FA8529AA2B2944 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF45C04B7877647014D694B52D95EF4 /* MBProgressHUD-dummy.m */; };
 		D301CE6365FAADB896792CE489E98619 /* WPALAssetDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AD7EE1CC104708D5E20AD2A589692D4E /* WPALAssetDataSource.h */; };
 		D50E46FE1D1139396DF1EE8B9C4964EF /* WPPHAssetDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1CA42827DC4286D41A08F7D43B1BBD /* WPPHAssetDataSource.h */; };
-		DC4DBEA759751A718F36A971F6DD19CF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC430804F4F48622C00A33EDBD84FB5 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D8BDD1DBCDAF9F3862F2F789EDB64F80 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 090E8C301500DB7206F6805BAC818AA2 /* AFURLRequestSerialization.h */; };
+		DB330C1DBB1E91289D9409E2AE973EDE /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD2ECAFAD1BA53D91AE267BCCC713D /* AFNetworking-dummy.m */; };
+		DD18451C64FCABF40C5A1C8108D0EA59 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBA80E04DA9BB54024D82CC08B5F9BF /* AFNetworking.h */; };
 		E0DC8941C3FA8FB42E669EAE997ACB14 /* WPMediaPickerResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF59361E1B705A4B2D2B049BFA0ED2 /* WPMediaPickerResources.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E12045CE9AFFCC876AE06054F0E5342B /* XLPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF5E8C3B4AD2B8A1EA1BA86D8580FE /* XLPagerTabStripViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E16E396C32935364D51BB08805F74A7E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8F2D3C30355A6D8F47EA173F5FAD6A /* ImageIO.framework */; };
 		E3171ABFE8AE64E6359707E5C40B492E /* WPMediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7D54D824E7AEA51DD4046FAB299C8A /* WPMediaCollectionViewCell.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E65A48372FF8D00788CAF29FD57B6D2D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAE104492F61739FDBE965ECC93DFB6 /* CoreGraphics.framework */; };
+		EDC7B69D37D18FBD6757F0F0EC51C28B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
 		F22B58942FEB3951EC2FDAC6D40134D9 /* WPMediaCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B3B5007C537FE08BCA1B650C0E3D299 /* WPMediaCollectionViewCell.h */; };
-		FC0C0B6B79D6E7016165C772A761CA20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
+		F41B769EDB8883426D28A957175408DD /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 165D9D5AB4F7044A8F4E2E94CEC31268 /* AFNetworkActivityIndicatorManager.m */; };
+		F8560C534EDB2AB19973B307BE99D330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */; };
+		FB367CAD7FF02B892015A655ACD991AD /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 54358AE0CE271086DC2FAFC6B1A08FAB /* AFSecurityPolicy.h */; };
+		FCA79143945E4DCF715661E2E2661873 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 246668B7D0DE601922813DD2D3C974D6 /* UIRefreshControl+AFNetworking.h */; };
 		FD48B56A6E8A750B20597431A8CC5E54 /* XLButtonBarViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4B5FB0531164561A62EA8A0B6979B /* XLButtonBarViewCell.h */; };
+		FF7747B0D5F687BAB725EFFBA9B888E2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDBABFC09648EFBB25E2CE11D3D5089 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		35F28D3E08DA4C5C3C8320E420D4C45E /* PBXContainerItemProxy */ = {
+		20041021B816B6BA2381F6F1254B4B9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 892C9BE515E7B609CDBF8A7C2A5BD427;
-			remoteInfo = "WPMediaPicker-WPMediaPicker";
+			remoteGlobalIDString = ABB7FBED753E31629DCF47E868A19917;
+			remoteInfo = AFNetworking;
 		};
-		9828A6795DEBC5BFD85363D7E9E14E4D /* PBXContainerItemProxy */ = {
+		294E3AE7624823672BB3D4278CD3158B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 782F13A46DD46F473C41A49E14C96066;
+			remoteGlobalIDString = 60133E6E67EDBA73EAAD4391F841F26D;
 			remoteInfo = MBProgressHUD;
 		};
-		A0AE5D15AA785A48FF8B25895059FF33 /* PBXContainerItemProxy */ = {
+		CDF9DD7481863CEFA7FEED9C0E7616B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00E668414C2A003C6F8E1BAE5AFD9380;
 			remoteInfo = WPMediaPicker;
 		};
-		A8F31B583C8AD66D8AC7864E3561380F /* PBXContainerItemProxy */ = {
+		E5DB6F6388E03A00FE49B323F1F39A5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 892C9BE515E7B609CDBF8A7C2A5BD427;
+			remoteInfo = "WPMediaPicker-WPMediaPicker";
+		};
+		E79CE3F3AA38BDCD234A0EA02D43D802 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3AD2938DB463C106CF80B17E6A58D7F4;
 			remoteInfo = XLPagerTabStrip;
 		};
-		C4E88B46A2B930E117E4D79104EBF977 /* PBXContainerItemProxy */ = {
+		FEA3EF09E6FF30533035DB59B16D0339 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 60AE35ED2110A60C560290C5BF96FE1F;
+			remoteGlobalIDString = 34283BFF184B1976D500BA394E34B975;
 			remoteInfo = HexColors;
 		};
 /* End PBXContainerItemProxy section */
@@ -117,96 +167,170 @@
 		0042A063611F0255871AF4646F377A0E /* camera@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "camera@2x.png"; path = "Pod/Assets/camera@2x.png"; sourceTree = "<group>"; };
 		00F831B94849F37656476747261D3315 /* Pods-SuperService-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperService-resources.sh"; sourceTree = "<group>"; };
 		02F46C713B6D697D0D35AF3E4FB91A60 /* XLPagerTabStripViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLPagerTabStripViewController.h; path = XLPagerTabStrip/XL/Controllers/XLPagerTabStripViewController.h; sourceTree = "<group>"; };
-		0346939B5A5E443FA91F8EEC8DD7CD1A /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
-		055C5FF978569DCAB26822EF4DE7AE32 /* XLPagerTabStrip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLPagerTabStrip.xcconfig; sourceTree = "<group>"; };
-		0A09EB8B9FEE1E0B1623FD7AFE7F35F7 /* HexColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColors.m; path = Classes/HexColors.m; sourceTree = "<group>"; };
-		0BFB1DF0677E424072BE7A015A4F614D /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
+		05B9B307CA97A0B5DC2066421CED0428 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		090E8C301500DB7206F6805BAC818AA2 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		095352A063A38D8D41967EA9029E94EF /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		0A5BC9B114B6CA07E40D98B7002E2C99 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		0DF3EEBA76286E1EA6CAF27209F1B6DE /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
 		0E5A319964788C48B1CD4427D2CF2069 /* WPMediaPickerResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaPickerResources.h; path = Pod/Classes/WPMediaPickerResources.h; sourceTree = "<group>"; };
+		165D9D5AB4F7044A8F4E2E94CEC31268 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		1709F441CFF52E9581B15CF22B73E35C /* Pods-SuperService-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SuperService-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1F3EDC90447F5E3D6C530EFF66E35F51 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		18D535B1004E5D981D763DC2B1E36B66 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		19362A89E78C3ACD31EF84330CC95509 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		19FD2ECAFAD1BA53D91AE267BCCC713D /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
 		1F8F2D3C30355A6D8F47EA173F5FAD6A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		246668B7D0DE601922813DD2D3C974D6 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		24741C162F7B054AF8C1C3E603CED91C /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		2501E257287F539FAD0B7EB4665912AB /* XLButtonBarPagerTabStripViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLButtonBarPagerTabStripViewController.m; path = XLPagerTabStrip/XL/Controllers/XLButtonBarPagerTabStripViewController.m; sourceTree = "<group>"; };
+		283C48E22130201A4EB093D58824CAA4 /* HexColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HexColors-dummy.m"; sourceTree = "<group>"; };
+		2A32DF41E0CCC122E03DC3A0FD719075 /* HexColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HexColors-prefix.pch"; sourceTree = "<group>"; };
 		2B3B5007C537FE08BCA1B650C0E3D299 /* WPMediaCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaCollectionViewCell.h; path = Pod/Classes/WPMediaCollectionViewCell.h; sourceTree = "<group>"; };
 		2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2DAE104492F61739FDBE965ECC93DFB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		2DB8688F722D5D139EDC6D7076FE24ED /* XLPagerTabStrip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLPagerTabStrip-prefix.pch"; sourceTree = "<group>"; };
+		2EF45C04B7877647014D694B52D95EF4 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		30B436F044332D378D295FB890057F2E /* libWPMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWPMediaPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		31BB3BB6A5A537C0102C2FF187C71EF6 /* WPMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WPMediaPicker-prefix.pch"; sourceTree = "<group>"; };
+		331B871FB3DB9DBE76609D40FAAE4BB3 /* HexColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HexColors.xcconfig; sourceTree = "<group>"; };
 		35E213D313D5D292F8F95210DB948D61 /* WPMediaCollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaCollectionViewController.h; path = Pod/Classes/WPMediaCollectionViewController.h; sourceTree = "<group>"; };
-		3FC430804F4F48622C00A33EDBD84FB5 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		3A141F783720B31792A689619E9B49B6 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		3BE19D2B76D82788C713B08C4B4BD512 /* HexColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HexColors.h; path = Classes/HexColors.h; sourceTree = "<group>"; };
+		3C95A37F23CA798D97A15FE131D7EB86 /* HexColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColors.m; path = Classes/HexColors.m; sourceTree = "<group>"; };
+		483522FD365A063FDE59C49B99798378 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		4ADC513A810766A953B300B17871C94B /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		4FDE5CA2F4DC11E4F6EF096876ED9293 /* XLButtonBarPagerTabStripViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLButtonBarPagerTabStripViewController.h; path = XLPagerTabStrip/XL/Controllers/XLButtonBarPagerTabStripViewController.h; sourceTree = "<group>"; };
-		533737504E7335F84A633D8ABB0B4769 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
-		55E456C2E62DE19C6289E2F3A2DEC640 /* WPMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WPMediaPicker.xcconfig; sourceTree = "<group>"; };
+		54358AE0CE271086DC2FAFC6B1A08FAB /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		59B449775EABC6883A7BA3DCC9EC3D6A /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		5A8624465EEDAC2027469BD97F846918 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9377B9DF11D1369FF1C5D9DC648645 /* XLBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLBarView.h; path = XLPagerTabStrip/XL/Views/XLBarView.h; sourceTree = "<group>"; };
+		5BD96FE75FA0CAF043114E4D602AD853 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB80A6094E77906F30C28D19F1387DB /* XLButtonBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLButtonBarView.m; path = XLPagerTabStrip/XL/Views/XLButtonBarView.m; sourceTree = "<group>"; };
 		5CE2297E936A43B08E427404C8AA02E2 /* XLButtonBarViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLButtonBarViewCell.m; path = XLPagerTabStrip/XL/Views/XLButtonBarViewCell.m; sourceTree = "<group>"; };
+		5E397CCA053D52B0C0536FE2D4C6D39F /* XLPagerTabStrip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLPagerTabStrip.xcconfig; sourceTree = "<group>"; };
+		5F9F8B63B6B77F601082E4655314BE0E /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
 		60D22A7FFFCE73E17B1984076471A852 /* WPMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "WPMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
 		64BFACC97EA7C86D6E22278DB13DD1C4 /* WPMediaPickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaPickerViewController.m; path = Pod/Classes/WPMediaPickerViewController.m; sourceTree = "<group>"; };
 		64C90081D10337DBE424D5EA00F90820 /* Pods-SuperService-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SuperService-acknowledgements.plist"; sourceTree = "<group>"; };
 		64F488F06127330129CCB1B452B3F1A2 /* WPMediaPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WPMediaPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		66A3B39450FBE77F4A787ABDC14DB524 /* HexColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HexColors.xcconfig; sourceTree = "<group>"; };
+		658FBC3C197E64D672AA55132EAE5758 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
 		67479A9A58DC13D06495057D4800628F /* libXLPagerTabStrip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXLPagerTabStrip.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		676B0717AC808A725706439094A11F48 /* video.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = video.png; path = Pod/Assets/video.png; sourceTree = "<group>"; };
 		67F7D29A8E6C49DAA67AC1FD09ACF38B /* WPMediaPickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaPickerViewController.h; path = Pod/Classes/WPMediaPickerViewController.h; sourceTree = "<group>"; };
+		6908F08529DF45E153241D354E98DB48 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		6ADF59361E1B705A4B2D2B049BFA0ED2 /* WPMediaPickerResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaPickerResources.m; path = Pod/Classes/WPMediaPickerResources.m; sourceTree = "<group>"; };
 		6B76B6426D2FCAECB7ED7B01937BC943 /* XLTwitterPagerTabStripViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLTwitterPagerTabStripViewController.m; path = XLPagerTabStrip/XL/Controllers/XLTwitterPagerTabStripViewController.m; sourceTree = "<group>"; };
 		6BC49F399BC4B28CFC72DB76589DF53C /* XLPagerTabStrip-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "XLPagerTabStrip-Private.xcconfig"; sourceTree = "<group>"; };
+		6CCC52BAD40B5A83262BDDE3D7B341B5 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		6E1C515CCEA66A0843EA38D242B28CD7 /* XLSegmentedPagerTabStripViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLSegmentedPagerTabStripViewController.m; path = XLPagerTabStrip/XL/Controllers/XLSegmentedPagerTabStripViewController.m; sourceTree = "<group>"; };
-		7084AAC594E3C3250C5C61BE7146AB98 /* Pods-SuperService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SuperService-dummy.m"; sourceTree = "<group>"; };
 		72010291C40CF9BDB3B70BF4E89924EE /* WPMediaCaptureCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaCaptureCollectionViewCell.m; path = Pod/Classes/WPMediaCaptureCollectionViewCell.m; sourceTree = "<group>"; };
 		73ECB61C943AC2F5C9FD8F031E30F30A /* XLPagerTabStrip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XLPagerTabStrip-dummy.m"; sourceTree = "<group>"; };
 		7512F73B828FA09AC2A2BEE57398CC80 /* XLBarPagerTabStripViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLBarPagerTabStripViewController.m; path = XLPagerTabStrip/XL/Controllers/XLBarPagerTabStripViewController.m; sourceTree = "<group>"; };
+		77AD08A4DD793FB1B8CC3AB57516A89D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		79FD9456E1BA1C49F3E00423077AE70A /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		7A60CB94A22BBF02948C3F05D118C6EA /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		7D16992EE16E38DC992CBC51EC25C71B /* WPMediaGroupPickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaGroupPickerViewController.m; path = Pod/Classes/WPMediaGroupPickerViewController.m; sourceTree = "<group>"; };
+		7DBA80E04DA9BB54024D82CC08B5F9BF /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		7F08DA867CB84CC8D0FFBA41E6C658D8 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		7F9E506E597E1663B2DF34392232D59E /* XLTwitterPagerTabStripViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLTwitterPagerTabStripViewController.h; path = XLPagerTabStrip/XL/Controllers/XLTwitterPagerTabStripViewController.h; sourceTree = "<group>"; };
+		82602E07A9B647557CFFCFCDA8FD7FCE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		82E4DB160F7DCC4C85E93B018E096B40 /* WPMediaPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaPicker.h; path = Pod/Classes/WPMediaPicker.h; sourceTree = "<group>"; };
+		876E13C325B998B1F7D89D95708CF002 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		93DAD49BC3C5B50629B21D8364F41EF5 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		947AD9C81C4B9EF3BD4B70976310C7F3 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		9756DEEB5A512F5B2BBD30C7AE89C5C0 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		98B86B84001348D54248546EE69DEFC6 /* WPMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WPMediaPicker-prefix.pch"; sourceTree = "<group>"; };
 		98FA00CECF33FFD851A7EE87EEC531B7 /* XLSegmentedPagerTabStripViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLSegmentedPagerTabStripViewController.h; path = XLPagerTabStrip/XL/Controllers/XLSegmentedPagerTabStripViewController.h; sourceTree = "<group>"; };
+		9A18F1B71B3E1434EA1CBC6ECF07B95D /* AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
 		9BE4B5FB0531164561A62EA8A0B6979B /* XLButtonBarViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLButtonBarViewCell.h; path = XLPagerTabStrip/XL/Views/XLButtonBarViewCell.h; sourceTree = "<group>"; };
 		9C1CA42827DC4286D41A08F7D43B1BBD /* WPPHAssetDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPPHAssetDataSource.h; path = Pod/Classes/WPPHAssetDataSource.h; sourceTree = "<group>"; };
 		9E385DF4BFA5F88A7DF54BDF68EEA914 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		9E38A6770DDFA04F664E7F34B77AB349 /* HexColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HexColors.h; path = Classes/HexColors.h; sourceTree = "<group>"; };
 		9E4A9227E0559F04299D29D07AC5E951 /* WPMediaCaptureCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaCaptureCollectionViewCell.h; path = Pod/Classes/WPMediaCaptureCollectionViewCell.h; sourceTree = "<group>"; };
+		9FB1B0152523B3EFE13CAF88808BE55A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		A01CBEB7AD8CE7F59C5BA266797B70FA /* Pods-SuperService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SuperService-dummy.m"; sourceTree = "<group>"; };
 		A060A6D234794A729B9C1A4766938F40 /* video@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "video@2x.png"; path = "Pod/Assets/video@2x.png"; sourceTree = "<group>"; };
+		A1778D83297E31AC95ACBB810B72FF9F /* WPMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WPMediaPicker.xcconfig; sourceTree = "<group>"; };
+		A2AE5D508F889533C51B3D33D47ECE8A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		A36D85AB0CCDAB0A90D97BC96DEC6FDF /* FXPageControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FXPageControl.h; path = XLPagerTabStrip/XL/Views/FXPageControl/FXPageControl.h; sourceTree = "<group>"; };
+		A40D34BA7D9D9CFB1C5FC0A42CD13E3E /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
 		A7EF5E8C3B4AD2B8A1EA1BA86D8580FE /* XLPagerTabStripViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLPagerTabStripViewController.m; path = XLPagerTabStrip/XL/Controllers/XLPagerTabStripViewController.m; sourceTree = "<group>"; };
 		AD7EE1CC104708D5E20AD2A589692D4E /* WPALAssetDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPALAssetDataSource.h; path = Pod/Classes/WPALAssetDataSource.h; sourceTree = "<group>"; };
+		AD8BF6BFD95247F8739F700B10E49E14 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		ADDBABFC09648EFBB25E2CE11D3D5089 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		AF0961D6A5D250020106E3D130B7479B /* WPMediaGroupTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaGroupTableViewCell.m; path = Pod/Classes/WPMediaGroupTableViewCell.m; sourceTree = "<group>"; };
-		B4342D16509C48AB469290649F06BD43 /* libHexColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHexColors.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B51DA1A0C836FF3CB7FAA3BA5DE12CE0 /* MBProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MBProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
+		B4211C3FB4A902468AFD2C6D49FF0785 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		B676B8C38215A9A2FF1EB87711FCEE1B /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 		B9C2E10D7C99BDAD681B3DBF6A7206EA /* WPALAssetImageCacheManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPALAssetImageCacheManager.h; path = Pod/Classes/WPALAssetImageCacheManager.h; sourceTree = "<group>"; };
+		BA059F21171E7BD2FBD5F911354F205F /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB9A23C0D49DE1655BA1B679CB39105E /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
 		BC7D54D824E7AEA51DD4046FAB299C8A /* WPMediaCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaCollectionViewCell.m; path = Pod/Classes/WPMediaCollectionViewCell.m; sourceTree = "<group>"; };
 		BFB5D57B663B2B0EF39BAE00663DF3BF /* camera@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "camera@3x.png"; path = "Pod/Assets/camera@3x.png"; sourceTree = "<group>"; };
 		C12FCB94F3AEF9AED262AB8E7B7F50E2 /* WPALAssetDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPALAssetDataSource.m; path = Pod/Classes/WPALAssetDataSource.m; sourceTree = "<group>"; };
-		C402C72770422B5079219C7C6E6BE7DC /* HexColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HexColors-dummy.m"; sourceTree = "<group>"; };
+		C61425C4980AFBBB7FA261D1D8403448 /* MBProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MBProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
 		C6491D3AB0BAF85AB86F330403FF9F96 /* WPMediaGroupPickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaGroupPickerViewController.h; path = Pod/Classes/WPMediaGroupPickerViewController.h; sourceTree = "<group>"; };
 		C6535F6951EA7CAB66D59F8A995E5029 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
-		C82E4446CEDC410666CBE79151FA5D2A /* HexColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HexColors-prefix.pch"; sourceTree = "<group>"; };
+		C9F82E8F0FCE64A064A8787C9BFAC50C /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		CB46EAAFCC15562FBBB82EA649A8DC9C /* WPMediaCollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPMediaCollectionViewController.m; path = Pod/Classes/WPMediaCollectionViewController.m; sourceTree = "<group>"; };
-		CBED2D0999D19F45EE70082BA47B83CB /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 		CBFA26759E231885D1261FE92FBC9C85 /* WPALAssetImageCacheManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPALAssetImageCacheManager.m; path = Pod/Classes/WPALAssetImageCacheManager.m; sourceTree = "<group>"; };
+		CD1CB7D41AF54675B8CD69D942DEBC19 /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
+		CEE7B2DFEDD0BB230083C374D2FD79C2 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
 		D1C76B19A383624D987427D47D0698BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D2C837A5D8EBBB7D0E17440F3924A6C9 /* XLPagerTabStrip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLPagerTabStrip-prefix.pch"; sourceTree = "<group>"; };
-		D43FE3818BA48386F17C4B834D92D251 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		D6FA19D612A52435E5E86B9BEF3E3132 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
 		D71653779917B4388EE42E818CB8FA93 /* WPPHAssetDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WPPHAssetDataSource.m; path = Pod/Classes/WPPHAssetDataSource.m; sourceTree = "<group>"; };
-		DACB8B7CEE8516D0F7B6B017FECF5085 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D875BB954B3DCA4AB4099506F3B2AC48 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		DC926099DD79A7A185BF8A1C58FA491C /* WPMediaGroupTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaGroupTableViewCell.h; path = Pod/Classes/WPMediaGroupTableViewCell.h; sourceTree = "<group>"; };
 		DE78D4152C695309287B397F3D2E23E7 /* camera.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = camera.png; path = Pod/Assets/camera.png; sourceTree = "<group>"; };
+		E020987D517AD30F2074A19FF3301CB3 /* libHexColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHexColors.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E234D2FA70D88039AEAFBEAE2E93B841 /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23C463EE329F4C86A91E0214C62C806 /* XLBarPagerTabStripViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLBarPagerTabStripViewController.h; path = XLPagerTabStrip/XL/Controllers/XLBarPagerTabStripViewController.h; sourceTree = "<group>"; };
-		E96CE10A10E013AB27F7B7B4A9AC1196 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		E802973A55DAE1805F512F975368CBD8 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		E984C3EFBB93DDF50F9CC5610683BB3C /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		EA60DA61FDE4A54AEB59EFE9071EFD7D /* WPMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WPMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		EAD80FC44B08390DA0208FE49FB63586 /* HexColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "HexColors-Private.xcconfig"; sourceTree = "<group>"; };
 		EC6AF901E0621F3DABE41D4E1E8DEAAD /* FXPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FXPageControl.m; path = XLPagerTabStrip/XL/Views/FXPageControl/FXPageControl.m; sourceTree = "<group>"; };
-		EC8CD1677680D016A616A7408F3FD774 /* HexColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "HexColors-Private.xcconfig"; sourceTree = "<group>"; };
+		F1534C1765B5F8C8EEEB6A4E5087EE86 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		F70ABD970255735E228764D3D5934B34 /* video@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "video@3x.png"; path = "Pod/Assets/video@3x.png"; sourceTree = "<group>"; };
-		F86D640B7C7E42D17104237201BF3D6B /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB5114BFE4F261379051B760E0F8DE84 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FCA1A166B1557128F2F00632E0F0A194 /* XLButtonBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLButtonBarView.h; path = XLPagerTabStrip/XL/Views/XLButtonBarView.h; sourceTree = "<group>"; };
 		FD65F2B599E74B0EA05A5D08DED06DA9 /* XLBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLBarView.m; path = XLPagerTabStrip/XL/Views/XLBarView.m; sourceTree = "<group>"; };
 		FE5D2C92F481F49BAA46EBA86A224DE7 /* WPMediaCollectionDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WPMediaCollectionDataSource.h; path = Pod/Classes/WPMediaCollectionDataSource.h; sourceTree = "<group>"; };
+		FF7CEEDEDB455DF615A81E3242F05E9F /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ABB2D5EF28ED9082C215D876034A4896 /* Frameworks */ = {
+		13184D07D5D91E7DDE03F5B9D36808CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9D8058B295F486F587E28D210571346 /* Foundation.framework in Frameworks */,
+				B363FDEB3EE261CB972883D0B946809D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E94F74B98D2B88D18FD99DB433E9C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDC7B69D37D18FBD6757F0F0EC51C28B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C1BC282AD0FE58AF8D24F9CF440AB2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E65A48372FF8D00788CAF29FD57B6D2D /* CoreGraphics.framework in Frameworks */,
+				F8560C534EDB2AB19973B307BE99D330 /* Foundation.framework in Frameworks */,
+				1CBC7D7F33A4AA68AD8493F77D83B04F /* MobileCoreServices.framework in Frameworks */,
+				5F058AA645AD1443ABB8671C6294C4B5 /* Security.framework in Frameworks */,
+				723F9B2CBFFA13C708048D626B932AB5 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CE60003022C58AFD2E9117E02351BFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A902C0A82E6E2B3CE3DE9C02F10BDC93 /* CoreGraphics.framework in Frameworks */,
+				848161F5804615A110264F6F51F27C6E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,23 +338,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9CD08CE342ADDDD854233DA5FFF0ECD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3DF645315EA055D21CADE171DA0D44F1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DA5F185A33227E6071329832CAEF46DC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				486DD1B31A45FA7D6A9117A2774FD733 /* CoreGraphics.framework in Frameworks */,
-				FC0C0B6B79D6E7016165C772A761CA20 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,28 +365,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C4E817A9238435342452D111C04E19B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				DE78D4152C695309287B397F3D2E23E7 /* camera.png */,
-				0042A063611F0255871AF4646F377A0E /* camera@2x.png */,
-				BFB5D57B663B2B0EF39BAE00663DF3BF /* camera@3x.png */,
-				676B0717AC808A725706439094A11F48 /* video.png */,
-				A060A6D234794A729B9C1A4766938F40 /* video@2x.png */,
-				F70ABD970255735E228764D3D5934B34 /* video@3x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				97BCEB275CED34F83EE1246D9FF21532 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1303D744726BF9A19F1E186820D20CD6 /* XLPagerTabStrip */ = {
+		0AFDF43D81FD5ECFD5FCF74DF11D5EEB /* XLPagerTabStrip */ = {
 			isa = PBXGroup;
 			children = (
 				A36D85AB0CCDAB0A90D97BC96DEC6FDF /* FXPageControl.h */,
@@ -300,23 +386,100 @@
 				6E1C515CCEA66A0843EA38D242B28CD7 /* XLSegmentedPagerTabStripViewController.m */,
 				7F9E506E597E1663B2DF34392232D59E /* XLTwitterPagerTabStripViewController.h */,
 				6B76B6426D2FCAECB7ED7B01937BC943 /* XLTwitterPagerTabStripViewController.m */,
-				C486E34A10CEA88D1771DD9EFF231AD4 /* Support Files */,
+				2E09AEABCE6078E5153110E005B4E124 /* Support Files */,
 			);
 			path = XLPagerTabStrip;
 			sourceTree = "<group>";
 		};
-		24772805F1BD9E82D3471436C1B9A8F4 /* Pods */ = {
+		0BE9825A41F38C50C066F0792A35D51C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				825936BF870E82EBC0344A67576548D0 /* HexColors */,
-				9D07E6F4B96B4553DC9DD26AC2C0CB90 /* MBProgressHUD */,
-				28CE57CEDE61896DAC82E6438E069225 /* WPMediaPicker */,
-				1303D744726BF9A19F1E186820D20CD6 /* XLPagerTabStrip */,
+				D2BA8E20D030734D879E51962E204849 /* AFNetworking */,
+				6A639A889CB8AD001BB0C0AF754A4BC0 /* HexColors */,
+				9998089C707036FD63DC163CDAD46014 /* MBProgressHUD */,
+				69F4341F928A0DBBE995419D31B0B96D /* WPMediaPicker */,
+				0AFDF43D81FD5ECFD5FCF74DF11D5EEB /* XLPagerTabStrip */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		28CE57CEDE61896DAC82E6438E069225 /* WPMediaPicker */ = {
+		133EB23EA71F52CA8D4050FC2710207A /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				FB5114BFE4F261379051B760E0F8DE84 /* AFHTTPSessionManager.h */,
+				7A60CB94A22BBF02948C3F05D118C6EA /* AFHTTPSessionManager.m */,
+				79FD9456E1BA1C49F3E00423077AE70A /* AFURLSessionManager.h */,
+				59B449775EABC6883A7BA3DCC9EC3D6A /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		16A2AB1987511D672326F38D67E31A41 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				93DAD49BC3C5B50629B21D8364F41EF5 /* AFNetworkActivityIndicatorManager.h */,
+				165D9D5AB4F7044A8F4E2E94CEC31268 /* AFNetworkActivityIndicatorManager.m */,
+				C9F82E8F0FCE64A064A8787C9BFAC50C /* UIActivityIndicatorView+AFNetworking.h */,
+				7F08DA867CB84CC8D0FFBA41E6C658D8 /* UIActivityIndicatorView+AFNetworking.m */,
+				CEE7B2DFEDD0BB230083C374D2FD79C2 /* UIAlertView+AFNetworking.h */,
+				658FBC3C197E64D672AA55132EAE5758 /* UIAlertView+AFNetworking.m */,
+				D875BB954B3DCA4AB4099506F3B2AC48 /* UIButton+AFNetworking.h */,
+				095352A063A38D8D41967EA9029E94EF /* UIButton+AFNetworking.m */,
+				0DF3EEBA76286E1EA6CAF27209F1B6DE /* UIImage+AFNetworking.h */,
+				A2AE5D508F889533C51B3D33D47ECE8A /* UIImageView+AFNetworking.h */,
+				876E13C325B998B1F7D89D95708CF002 /* UIImageView+AFNetworking.m */,
+				3A141F783720B31792A689619E9B49B6 /* UIKit+AFNetworking.h */,
+				0A5BC9B114B6CA07E40D98B7002E2C99 /* UIProgressView+AFNetworking.h */,
+				BA059F21171E7BD2FBD5F911354F205F /* UIProgressView+AFNetworking.m */,
+				246668B7D0DE601922813DD2D3C974D6 /* UIRefreshControl+AFNetworking.h */,
+				AD8BF6BFD95247F8739F700B10E49E14 /* UIRefreshControl+AFNetworking.m */,
+				82602E07A9B647557CFFCFCDA8FD7FCE /* UIWebView+AFNetworking.h */,
+				05B9B307CA97A0B5DC2066421CED0428 /* UIWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		24002A6670E6882ECD6250D3E60F9CB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3F50E2CB86F2516113F5FFD584C6867 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E09AEABCE6078E5153110E005B4E124 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E397CCA053D52B0C0536FE2D4C6D39F /* XLPagerTabStrip.xcconfig */,
+				6BC49F399BC4B28CFC72DB76589DF53C /* XLPagerTabStrip-Private.xcconfig */,
+				73ECB61C943AC2F5C9FD8F031E30F30A /* XLPagerTabStrip-dummy.m */,
+				2DB8688F722D5D139EDC6D7076FE24ED /* XLPagerTabStrip-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/XLPagerTabStrip";
+			sourceTree = "<group>";
+		};
+		38BF75D1374099F15342AA8E4AFA7D3C /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				090E8C301500DB7206F6805BAC818AA2 /* AFURLRequestSerialization.h */,
+				4ADC513A810766A953B300B17871C94B /* AFURLRequestSerialization.m */,
+				B4211C3FB4A902468AFD2C6D49FF0785 /* AFURLResponseSerialization.h */,
+				24741C162F7B054AF8C1C3E603CED91C /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		3D5C39178A3DA54D9BEA21A6C8395C2C /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				54358AE0CE271086DC2FAFC6B1A08FAB /* AFSecurityPolicy.h */,
+				D6FA19D612A52435E5E86B9BEF3E3132 /* AFSecurityPolicy.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		69F4341F928A0DBBE995419D31B0B96D /* WPMediaPicker */ = {
 			isa = PBXGroup;
 			children = (
 				AD7EE1CC104708D5E20AD2A589692D4E /* WPALAssetDataSource.h */,
@@ -341,10 +504,20 @@
 				64BFACC97EA7C86D6E22278DB13DD1C4 /* WPMediaPickerViewController.m */,
 				9C1CA42827DC4286D41A08F7D43B1BBD /* WPPHAssetDataSource.h */,
 				D71653779917B4388EE42E818CB8FA93 /* WPPHAssetDataSource.m */,
-				0C4E817A9238435342452D111C04E19B /* Resources */,
-				C8AD34ECBA932174C7559F276D27CEA9 /* Support Files */,
+				AAA890867E9E0E1C41286772A635568C /* Resources */,
+				C583AE241CEB692478E17836E2588112 /* Support Files */,
 			);
 			path = WPMediaPicker;
+			sourceTree = "<group>";
+		};
+		6A639A889CB8AD001BB0C0AF754A4BC0 /* HexColors */ = {
+			isa = PBXGroup;
+			children = (
+				3BE19D2B76D82788C713B08C4B4BD512 /* HexColors.h */,
+				3C95A37F23CA798D97A15FE131D7EB86 /* HexColors.m */,
+				75C07A1C0F51DB57E09AE2A2113CA2BF /* Support Files */,
+			);
+			path = HexColors;
 			sourceTree = "<group>";
 		};
 		6EB9AEC174E4C8B647B1730EEB64CF03 /* Targets Support Files */ = {
@@ -355,58 +528,48 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7DB346D0F39D3F0E887471402A8071AB = {
+		75C07A1C0F51DB57E09AE2A2113CA2BF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */,
-				24772805F1BD9E82D3471436C1B9A8F4 /* Pods */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				6EB9AEC174E4C8B647B1730EEB64CF03 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		825936BF870E82EBC0344A67576548D0 /* HexColors */ = {
-			isa = PBXGroup;
-			children = (
-				9E38A6770DDFA04F664E7F34B77AB349 /* HexColors.h */,
-				0A09EB8B9FEE1E0B1623FD7AFE7F35F7 /* HexColors.m */,
-				8D13BCA22492299F45093A058BDF4444 /* Support Files */,
-			);
-			path = HexColors;
-			sourceTree = "<group>";
-		};
-		8D13BCA22492299F45093A058BDF4444 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				66A3B39450FBE77F4A787ABDC14DB524 /* HexColors.xcconfig */,
-				EC8CD1677680D016A616A7408F3FD774 /* HexColors-Private.xcconfig */,
-				C402C72770422B5079219C7C6E6BE7DC /* HexColors-dummy.m */,
-				C82E4446CEDC410666CBE79151FA5D2A /* HexColors-prefix.pch */,
+				331B871FB3DB9DBE76609D40FAAE4BB3 /* HexColors.xcconfig */,
+				EAD80FC44B08390DA0208FE49FB63586 /* HexColors-Private.xcconfig */,
+				283C48E22130201A4EB093D58824CAA4 /* HexColors-dummy.m */,
+				2A32DF41E0CCC122E03DC3A0FD719075 /* HexColors-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/HexColors";
 			sourceTree = "<group>";
 		};
-		97BCEB275CED34F83EE1246D9FF21532 /* iOS */ = {
+		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				9E385DF4BFA5F88A7DF54BDF68EEA914 /* AVFoundation.framework */,
-				C6535F6951EA7CAB66D59F8A995E5029 /* AssetsLibrary.framework */,
-				D43FE3818BA48386F17C4B834D92D251 /* CoreGraphics.framework */,
-				2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */,
-				1F8F2D3C30355A6D8F47EA173F5FAD6A /* ImageIO.framework */,
-				D1C76B19A383624D987427D47D0698BB /* UIKit.framework */,
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				24002A6670E6882ECD6250D3E60F9CB2 /* Frameworks */,
+				0BE9825A41F38C50C066F0792A35D51C /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				6EB9AEC174E4C8B647B1730EEB64CF03 /* Targets Support Files */,
 			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
-		9D07E6F4B96B4553DC9DD26AC2C0CB90 /* MBProgressHUD */ = {
+		8142D34731108CCDA9866235EA80B802 /* NSURLConnection */ = {
 			isa = PBXGroup;
 			children = (
-				1F3EDC90447F5E3D6C530EFF66E35F51 /* MBProgressHUD.h */,
-				3FC430804F4F48622C00A33EDBD84FB5 /* MBProgressHUD.m */,
-				CEB8AAC80C25953102F7EFAA41D843AB /* Support Files */,
+				E802973A55DAE1805F512F975368CBD8 /* AFHTTPRequestOperation.h */,
+				947AD9C81C4B9EF3BD4B70976310C7F3 /* AFHTTPRequestOperation.m */,
+				19362A89E78C3ACD31EF84330CC95509 /* AFHTTPRequestOperationManager.h */,
+				9756DEEB5A512F5B2BBD30C7AE89C5C0 /* AFHTTPRequestOperationManager.m */,
+				A40D34BA7D9D9CFB1C5FC0A42CD13E3E /* AFURLConnectionOperation.h */,
+				BB9A23C0D49DE1655BA1B679CB39105E /* AFURLConnectionOperation.m */,
+			);
+			name = NSURLConnection;
+			sourceTree = "<group>";
+		};
+		9998089C707036FD63DC163CDAD46014 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6CCC52BAD40B5A83262BDDE3D7B341B5 /* MBProgressHUD.h */,
+				ADDBABFC09648EFBB25E2CE11D3D5089 /* MBProgressHUD.m */,
+				F7BB7D3E8AE33425876CA46D5E2F77A2 /* Support Files */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -416,34 +579,35 @@
 			children = (
 				1709F441CFF52E9581B15CF22B73E35C /* Pods-SuperService-acknowledgements.markdown */,
 				64C90081D10337DBE424D5EA00F90820 /* Pods-SuperService-acknowledgements.plist */,
-				7084AAC594E3C3250C5C61BE7146AB98 /* Pods-SuperService-dummy.m */,
+				A01CBEB7AD8CE7F59C5BA266797B70FA /* Pods-SuperService-dummy.m */,
 				00F831B94849F37656476747261D3315 /* Pods-SuperService-resources.sh */,
-				0346939B5A5E443FA91F8EEC8DD7CD1A /* Pods-SuperService.debug.xcconfig */,
-				CBED2D0999D19F45EE70082BA47B83CB /* Pods-SuperService.release.xcconfig */,
+				5F9F8B63B6B77F601082E4655314BE0E /* Pods-SuperService.debug.xcconfig */,
+				B676B8C38215A9A2FF1EB87711FCEE1B /* Pods-SuperService.release.xcconfig */,
 			);
 			name = "Pods-SuperService";
 			path = "Target Support Files/Pods-SuperService";
 			sourceTree = "<group>";
 		};
-		C486E34A10CEA88D1771DD9EFF231AD4 /* Support Files */ = {
+		AAA890867E9E0E1C41286772A635568C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				055C5FF978569DCAB26822EF4DE7AE32 /* XLPagerTabStrip.xcconfig */,
-				6BC49F399BC4B28CFC72DB76589DF53C /* XLPagerTabStrip-Private.xcconfig */,
-				73ECB61C943AC2F5C9FD8F031E30F30A /* XLPagerTabStrip-dummy.m */,
-				D2C837A5D8EBBB7D0E17440F3924A6C9 /* XLPagerTabStrip-prefix.pch */,
+				DE78D4152C695309287B397F3D2E23E7 /* camera.png */,
+				0042A063611F0255871AF4646F377A0E /* camera@2x.png */,
+				BFB5D57B663B2B0EF39BAE00663DF3BF /* camera@3x.png */,
+				676B0717AC808A725706439094A11F48 /* video.png */,
+				A060A6D234794A729B9C1A4766938F40 /* video@2x.png */,
+				F70ABD970255735E228764D3D5934B34 /* video@3x.png */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/XLPagerTabStrip";
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		C8AD34ECBA932174C7559F276D27CEA9 /* Support Files */ = {
+		C583AE241CEB692478E17836E2588112 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				55E456C2E62DE19C6289E2F3A2DEC640 /* WPMediaPicker.xcconfig */,
+				A1778D83297E31AC95ACBB810B72FF9F /* WPMediaPicker.xcconfig */,
 				60D22A7FFFCE73E17B1984076471A852 /* WPMediaPicker-Private.xcconfig */,
 				EA60DA61FDE4A54AEB59EFE9071EFD7D /* WPMediaPicker-dummy.m */,
-				31BB3BB6A5A537C0102C2FF187C71EF6 /* WPMediaPicker-prefix.pch */,
+				98B86B84001348D54248546EE69DEFC6 /* WPMediaPicker-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/WPMediaPicker";
@@ -453,22 +617,75 @@
 			isa = PBXGroup;
 			children = (
 				64F488F06127330129CCB1B452B3F1A2 /* WPMediaPicker.bundle */,
-				B4342D16509C48AB469290649F06BD43 /* libHexColors.a */,
-				DACB8B7CEE8516D0F7B6B017FECF5085 /* libMBProgressHUD.a */,
-				F86D640B7C7E42D17104237201BF3D6B /* libPods-SuperService.a */,
+				5A8624465EEDAC2027469BD97F846918 /* libAFNetworking.a */,
+				E020987D517AD30F2074A19FF3301CB3 /* libHexColors.a */,
+				5BD96FE75FA0CAF043114E4D602AD853 /* libMBProgressHUD.a */,
+				E234D2FA70D88039AEAFBEAE2E93B841 /* libPods-SuperService.a */,
 				30B436F044332D378D295FB890057F2E /* libWPMediaPicker.a */,
 				67479A9A58DC13D06495057D4800628F /* libXLPagerTabStrip.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEB8AAC80C25953102F7EFAA41D843AB /* Support Files */ = {
+		CF1A26A028BAD241431389904586C46D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0BFB1DF0677E424072BE7A015A4F614D /* MBProgressHUD.xcconfig */,
-				B51DA1A0C836FF3CB7FAA3BA5DE12CE0 /* MBProgressHUD-Private.xcconfig */,
-				533737504E7335F84A633D8ABB0B4769 /* MBProgressHUD-dummy.m */,
-				E96CE10A10E013AB27F7B7B4A9AC1196 /* MBProgressHUD-prefix.pch */,
+				F1534C1765B5F8C8EEEB6A4E5087EE86 /* AFNetworking.xcconfig */,
+				9A18F1B71B3E1434EA1CBC6ECF07B95D /* AFNetworking-Private.xcconfig */,
+				19FD2ECAFAD1BA53D91AE267BCCC713D /* AFNetworking-dummy.m */,
+				E984C3EFBB93DDF50F9CC5610683BB3C /* AFNetworking-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AFNetworking";
+			sourceTree = "<group>";
+		};
+		D2BA8E20D030734D879E51962E204849 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				7DBA80E04DA9BB54024D82CC08B5F9BF /* AFNetworking.h */,
+				8142D34731108CCDA9866235EA80B802 /* NSURLConnection */,
+				133EB23EA71F52CA8D4050FC2710207A /* NSURLSession */,
+				DB3B69CD682661F8305B1E956273F3DE /* Reachability */,
+				3D5C39178A3DA54D9BEA21A6C8395C2C /* Security */,
+				38BF75D1374099F15342AA8E4AFA7D3C /* Serialization */,
+				CF1A26A028BAD241431389904586C46D /* Support Files */,
+				16A2AB1987511D672326F38D67E31A41 /* UIKit */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		D3F50E2CB86F2516113F5FFD584C6867 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9E385DF4BFA5F88A7DF54BDF68EEA914 /* AVFoundation.framework */,
+				C6535F6951EA7CAB66D59F8A995E5029 /* AssetsLibrary.framework */,
+				2DAE104492F61739FDBE965ECC93DFB6 /* CoreGraphics.framework */,
+				2C0E4E98ABBC063A638A24F6A6B2B689 /* Foundation.framework */,
+				1F8F2D3C30355A6D8F47EA173F5FAD6A /* ImageIO.framework */,
+				9FB1B0152523B3EFE13CAF88808BE55A /* MobileCoreServices.framework */,
+				18D535B1004E5D981D763DC2B1E36B66 /* Security.framework */,
+				77AD08A4DD793FB1B8CC3AB57516A89D /* SystemConfiguration.framework */,
+				D1C76B19A383624D987427D47D0698BB /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DB3B69CD682661F8305B1E956273F3DE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				483522FD365A063FDE59C49B99798378 /* AFNetworkReachabilityManager.h */,
+				6908F08529DF45E153241D354E98DB48 /* AFNetworkReachabilityManager.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		F7BB7D3E8AE33425876CA46D5E2F77A2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD1CB7D41AF54675B8CD69D942DEBC19 /* MBProgressHUD.xcconfig */,
+				C61425C4980AFBBB7FA261D1D8403448 /* MBProgressHUD-Private.xcconfig */,
+				2EF45C04B7877647014D694B52D95EF4 /* MBProgressHUD-dummy.m */,
+				FF7CEEDEDB455DF615A81E3242F05E9F /* MBProgressHUD-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MBProgressHUD";
@@ -477,11 +694,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		26F7E6A1769B65B72553B2498CAB0B1E /* Headers */ = {
+		0C26FAE53B329D6608B7B04844C3B3CC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06C9398EEF8782B27E81EFC7D4E3C28B /* HexColors.h in Headers */,
+				7DDEA38DD168DF7EDBB563D4DFEF3941 /* HexColors.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,11 +721,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D42553EBFFB0B42CE1687ED4E4DBED39 /* Headers */ = {
+		62658EE13CA507A4A86C2E08360E2A25 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25880F07045D4D7EC1268DDFFEAC9796 /* MBProgressHUD.h in Headers */,
+				BA05D8E0268B9995931797EE5EB114B9 /* MBProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B95D36589C147C415D4672BD880314F5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8C7CA4E886B612A7669F9C400DD410 /* AFHTTPRequestOperation.h in Headers */,
+				5EE5C3825C0A4916945CA549F20580B3 /* AFHTTPRequestOperationManager.h in Headers */,
+				859FBB4EDBEF1019FA9852225D7B7975 /* AFHTTPSessionManager.h in Headers */,
+				A240472AB295F0A0FD050DECA00A8CFF /* AFNetworkActivityIndicatorManager.h in Headers */,
+				A597082F68418282C25545253E4AFE87 /* AFNetworkReachabilityManager.h in Headers */,
+				DD18451C64FCABF40C5A1C8108D0EA59 /* AFNetworking.h in Headers */,
+				FB367CAD7FF02B892015A655ACD991AD /* AFSecurityPolicy.h in Headers */,
+				249EF3588A3FA4B381380D8AA912DC55 /* AFURLConnectionOperation.h in Headers */,
+				D8BDD1DBCDAF9F3862F2F789EDB64F80 /* AFURLRequestSerialization.h in Headers */,
+				5837D6589BC889F0B448D62158D38F6F /* AFURLResponseSerialization.h in Headers */,
+				4E97BF819639EFE3ADD321059D0F8DEB /* AFURLSessionManager.h in Headers */,
+				453F06166B4FD2733CC489DE617C7758 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				734BF355B017D5238AD199E1BC74E726 /* UIAlertView+AFNetworking.h in Headers */,
+				08A3F4BE89EC478FCF5B742C27D60867 /* UIButton+AFNetworking.h in Headers */,
+				1FCDECB29B8A37A6383FEF5D703A26FB /* UIImage+AFNetworking.h in Headers */,
+				09C7A7126449B0C95C350C84F3A58568 /* UIImageView+AFNetworking.h in Headers */,
+				44BE8D5138F023371AC45D0F6A402B2B /* UIKit+AFNetworking.h in Headers */,
+				AEE6CDDEC6F32C3B493945CFC1E14003 /* UIProgressView+AFNetworking.h in Headers */,
+				FCA79143945E4DCF715661E2E2661873 /* UIRefreshControl+AFNetworking.h in Headers */,
+				5A0B1B80800665A47700829A8D3F62EF /* UIWebView+AFNetworking.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,11 +786,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				547312BFCE0C025759BF0A864CF3B88F /* PBXTargetDependency */,
+				A6A98D7368B2B41CE2CA1C0758A8634A /* PBXTargetDependency */,
 			);
 			name = WPMediaPicker;
 			productName = WPMediaPicker;
 			productReference = 30B436F044332D378D295FB890057F2E /* libWPMediaPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		34283BFF184B1976D500BA394E34B975 /* HexColors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D10814E9BBE25426574C1CB85CEC7C0 /* Build configuration list for PBXNativeTarget "HexColors" */;
+			buildPhases = (
+				D8C7DDFE975BFEC03B60C0CF03056296 /* Sources */,
+				50E94F74B98D2B88D18FD99DB433E9C2 /* Frameworks */,
+				0C26FAE53B329D6608B7B04844C3B3CC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HexColors;
+			productName = HexColors;
+			productReference = E020987D517AD30F2074A19FF3301CB3 /* libHexColors.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		3AD2938DB463C106CF80B17E6A58D7F4 /* XLPagerTabStrip */ = {
@@ -566,30 +827,13 @@
 			productReference = 67479A9A58DC13D06495057D4800628F /* libXLPagerTabStrip.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		60AE35ED2110A60C560290C5BF96FE1F /* HexColors */ = {
+		60133E6E67EDBA73EAAD4391F841F26D /* MBProgressHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 471E5DECD8692F0475D75F5B1163621B /* Build configuration list for PBXNativeTarget "HexColors" */;
+			buildConfigurationList = 4D745AAF6245E5575CE099DF31582AA6 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
 			buildPhases = (
-				A944888FB8F61135A37F6C1786FD60E2 /* Sources */,
-				D9CD08CE342ADDDD854233DA5FFF0ECD /* Frameworks */,
-				26F7E6A1769B65B72553B2498CAB0B1E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HexColors;
-			productName = HexColors;
-			productReference = B4342D16509C48AB469290649F06BD43 /* libHexColors.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		782F13A46DD46F473C41A49E14C96066 /* MBProgressHUD */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DCFD9CFD06E06AA0843697F4B4A29E63 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
-			buildPhases = (
-				38F38805B50A2DB34A346AA22CFA6BD5 /* Sources */,
-				DA5F185A33227E6071329832CAEF46DC /* Frameworks */,
-				D42553EBFFB0B42CE1687ED4E4DBED39 /* Headers */,
+				13E3040DDBE8F91C714BE7A3D66D21E1 /* Sources */,
+				8CE60003022C58AFD2E9117E02351BFF /* Frameworks */,
+				62658EE13CA507A4A86C2E08360E2A25 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -597,7 +841,7 @@
 			);
 			name = MBProgressHUD;
 			productName = MBProgressHUD;
-			productReference = DACB8B7CEE8516D0F7B6B017FECF5085 /* libMBProgressHUD.a */;
+			productReference = 5BD96FE75FA0CAF043114E4D602AD853 /* libMBProgressHUD.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		892C9BE515E7B609CDBF8A7C2A5BD427 /* WPMediaPicker-WPMediaPicker */ = {
@@ -617,24 +861,42 @@
 			productReference = 64F488F06127330129CCB1B452B3F1A2 /* WPMediaPicker.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		FC5843FEDF2DCFD71A98A38B90156FBF /* Pods-SuperService */ = {
+		ABB7FBED753E31629DCF47E868A19917 /* AFNetworking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B2EB13691F62E607BDADE4EAFA861E4 /* Build configuration list for PBXNativeTarget "Pods-SuperService" */;
+			buildConfigurationList = BA3DB70C47F5CE39A6712ECC112CDAEE /* Build configuration list for PBXNativeTarget "AFNetworking" */;
 			buildPhases = (
-				38695ADC21B1A3F09B55E8D43DCFAC12 /* Sources */,
-				ABB2D5EF28ED9082C215D876034A4896 /* Frameworks */,
+				8FEC39400856982B9D0DD38EE49130A8 /* Sources */,
+				5C1BC282AD0FE58AF8D24F9CF440AB2B /* Frameworks */,
+				B95D36589C147C415D4672BD880314F5 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A0FBFA9866AB6B27AEEFD6245B938FF0 /* PBXTargetDependency */,
-				8C31D5D0C6D806AC498CEBB83982F3C0 /* PBXTargetDependency */,
-				6744FF5DCA4F26345D654CF46733EEF2 /* PBXTargetDependency */,
-				083DC85FF8C714D0CAB309A23C1B50F7 /* PBXTargetDependency */,
+			);
+			name = AFNetworking;
+			productName = AFNetworking;
+			productReference = 5A8624465EEDAC2027469BD97F846918 /* libAFNetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EAA6AB62183966CEB1E74D371D02E802 /* Pods-SuperService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A99A94A8D5505BBCF81C888B033E640 /* Build configuration list for PBXNativeTarget "Pods-SuperService" */;
+			buildPhases = (
+				01AE273DE685DA4039726474E70C176F /* Sources */,
+				13184D07D5D91E7DDE03F5B9D36808CC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB076519CD0FBB95F15EDE2EDD89E7AC /* PBXTargetDependency */,
+				CE6BA7FC289C40FAF6C381FD004C2ABB /* PBXTargetDependency */,
+				F1F465882BDD528EF5E665A5C431DC4A /* PBXTargetDependency */,
+				4ABF54ACDBF27B6F5EEF23D55C104256 /* PBXTargetDependency */,
+				BA4A2D32157135247649A557899C2481 /* PBXTargetDependency */,
 			);
 			name = "Pods-SuperService";
 			productName = "Pods-SuperService";
-			productReference = F86D640B7C7E42D17104237201BF3D6B /* libPods-SuperService.a */;
+			productReference = E234D2FA70D88039AEAFBEAE2E93B841 /* libPods-SuperService.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -658,9 +920,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60AE35ED2110A60C560290C5BF96FE1F /* HexColors */,
-				782F13A46DD46F473C41A49E14C96066 /* MBProgressHUD */,
-				FC5843FEDF2DCFD71A98A38B90156FBF /* Pods-SuperService */,
+				ABB7FBED753E31629DCF47E868A19917 /* AFNetworking */,
+				34283BFF184B1976D500BA394E34B975 /* HexColors */,
+				60133E6E67EDBA73EAAD4391F841F26D /* MBProgressHUD */,
+				EAA6AB62183966CEB1E74D371D02E802 /* Pods-SuperService */,
 				00E668414C2A003C6F8E1BAE5AFD9380 /* WPMediaPicker */,
 				892C9BE515E7B609CDBF8A7C2A5BD427 /* WPMediaPicker-WPMediaPicker */,
 				3AD2938DB463C106CF80B17E6A58D7F4 /* XLPagerTabStrip */,
@@ -685,6 +948,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		01AE273DE685DA4039726474E70C176F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7F2FD76785B49975822E3738B4E7A7 /* Pods-SuperService-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E3040DDBE8F91C714BE7A3D66D21E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B260D65DAAC42A43FA8529AA2B2944 /* MBProgressHUD-dummy.m in Sources */,
+				FF7747B0D5F687BAB725EFFBA9B888E2 /* MBProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		345E798DC38B0DCA889CE1D68048F303 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -699,23 +979,6 @@
 				E12045CE9AFFCC876AE06054F0E5342B /* XLPagerTabStripViewController.m in Sources */,
 				340432881039B58256201B96A566B56B /* XLSegmentedPagerTabStripViewController.m in Sources */,
 				30998036234ED6CAEFFC78D9F427B471 /* XLTwitterPagerTabStripViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38695ADC21B1A3F09B55E8D43DCFAC12 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0B737158E1D77907BF4FE36097E93C03 /* Pods-SuperService-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38F38805B50A2DB34A346AA22CFA6BD5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DF1F264C4330D76A8DA5EC6DBEC222E /* MBProgressHUD-dummy.m in Sources */,
-				DC4DBEA759751A718F36A971F6DD19CF /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +1000,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FEC39400856982B9D0DD38EE49130A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89017B345ADA97299AA6D82C512D8E93 /* AFHTTPRequestOperation.m in Sources */,
+				372E4DA094D247AA76555F51ABC220EB /* AFHTTPRequestOperationManager.m in Sources */,
+				BF14B05115B57BB87CD294CDFF0919D0 /* AFHTTPSessionManager.m in Sources */,
+				F41B769EDB8883426D28A957175408DD /* AFNetworkActivityIndicatorManager.m in Sources */,
+				28BA2CB7163EDBCCDBEC8FAE7D480EFF /* AFNetworkReachabilityManager.m in Sources */,
+				DB330C1DBB1E91289D9409E2AE973EDE /* AFNetworking-dummy.m in Sources */,
+				954377F469EA03C0F8793DD5C5D0655A /* AFSecurityPolicy.m in Sources */,
+				6DE71C8BC775C50141EEFA50919025C4 /* AFURLConnectionOperation.m in Sources */,
+				CFAAEBF7D615B1DD1962BBA74427B4E7 /* AFURLRequestSerialization.m in Sources */,
+				8F87646FB0066EEB9E90B57797284F53 /* AFURLResponseSerialization.m in Sources */,
+				664B005DC5FBEBDFB4F3D343A8E7D95F /* AFURLSessionManager.m in Sources */,
+				085DFE2F5EC46764ECEEA3ADA3DCBED2 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				22DC5173C0F1EE1C6578ED7C3F63C717 /* UIAlertView+AFNetworking.m in Sources */,
+				74B5735EDB105F3F3D5DE72C6CA508A1 /* UIButton+AFNetworking.m in Sources */,
+				732FA04C23B5BF9647627986597BEE3E /* UIImageView+AFNetworking.m in Sources */,
+				AC3594BA473EC679D78D92280BBF95C4 /* UIProgressView+AFNetworking.m in Sources */,
+				9B652DF04F83803DF10C21833B51B448 /* UIRefreshControl+AFNetworking.m in Sources */,
+				C81BBA1F84DCE3FA6D1ACD16838B8556 /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1686E6AA009905AF727AF4CCFA16325 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -744,61 +1032,83 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A944888FB8F61135A37F6C1786FD60E2 /* Sources */ = {
+		D8C7DDFE975BFEC03B60C0CF03056296 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DAFC57C425D322851C45C7618956504 /* HexColors-dummy.m in Sources */,
-				4C91A4F2447231F73A71C3B933636586 /* HexColors.m in Sources */,
+				9892422E5E80E779AE292793A7ED346E /* HexColors-dummy.m in Sources */,
+				28C7D701CFC606928958EAE4FAFA0CDF /* HexColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		083DC85FF8C714D0CAB309A23C1B50F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XLPagerTabStrip;
-			target = 3AD2938DB463C106CF80B17E6A58D7F4 /* XLPagerTabStrip */;
-			targetProxy = A8F31B583C8AD66D8AC7864E3561380F /* PBXContainerItemProxy */;
-		};
-		547312BFCE0C025759BF0A864CF3B88F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "WPMediaPicker-WPMediaPicker";
-			target = 892C9BE515E7B609CDBF8A7C2A5BD427 /* WPMediaPicker-WPMediaPicker */;
-			targetProxy = 35F28D3E08DA4C5C3C8320E420D4C45E /* PBXContainerItemProxy */;
-		};
-		6744FF5DCA4F26345D654CF46733EEF2 /* PBXTargetDependency */ = {
+		4ABF54ACDBF27B6F5EEF23D55C104256 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = WPMediaPicker;
 			target = 00E668414C2A003C6F8E1BAE5AFD9380 /* WPMediaPicker */;
-			targetProxy = A0AE5D15AA785A48FF8B25895059FF33 /* PBXContainerItemProxy */;
+			targetProxy = CDF9DD7481863CEFA7FEED9C0E7616B0 /* PBXContainerItemProxy */;
 		};
-		8C31D5D0C6D806AC498CEBB83982F3C0 /* PBXTargetDependency */ = {
+		A6A98D7368B2B41CE2CA1C0758A8634A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MBProgressHUD;
-			target = 782F13A46DD46F473C41A49E14C96066 /* MBProgressHUD */;
-			targetProxy = 9828A6795DEBC5BFD85363D7E9E14E4D /* PBXContainerItemProxy */;
+			name = "WPMediaPicker-WPMediaPicker";
+			target = 892C9BE515E7B609CDBF8A7C2A5BD427 /* WPMediaPicker-WPMediaPicker */;
+			targetProxy = E5DB6F6388E03A00FE49B323F1F39A5A /* PBXContainerItemProxy */;
 		};
-		A0FBFA9866AB6B27AEEFD6245B938FF0 /* PBXTargetDependency */ = {
+		BA4A2D32157135247649A557899C2481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XLPagerTabStrip;
+			target = 3AD2938DB463C106CF80B17E6A58D7F4 /* XLPagerTabStrip */;
+			targetProxy = E79CE3F3AA38BDCD234A0EA02D43D802 /* PBXContainerItemProxy */;
+		};
+		CB076519CD0FBB95F15EDE2EDD89E7AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFNetworking;
+			target = ABB7FBED753E31629DCF47E868A19917 /* AFNetworking */;
+			targetProxy = 20041021B816B6BA2381F6F1254B4B9D /* PBXContainerItemProxy */;
+		};
+		CE6BA7FC289C40FAF6C381FD004C2ABB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HexColors;
-			target = 60AE35ED2110A60C560290C5BF96FE1F /* HexColors */;
-			targetProxy = C4E88B46A2B930E117E4D79104EBF977 /* PBXContainerItemProxy */;
+			target = 34283BFF184B1976D500BA394E34B975 /* HexColors */;
+			targetProxy = FEA3EF09E6FF30533035DB59B16D0339 /* PBXContainerItemProxy */;
+		};
+		F1F465882BDD528EF5E665A5C431DC4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			target = 60133E6E67EDBA73EAAD4391F841F26D /* MBProgressHUD */;
+			targetProxy = 294E3AE7624823672BB3D4278CD3158B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		422FBD4CF8253D1AEE82AF5A14E7A53D /* Debug */ = {
+		2097F10FA074DC6D67E9503CDAD5B37D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC8CD1677680D016A616A7408F3FD774 /* HexColors-Private.xcconfig */;
+			baseConfigurationReference = C61425C4980AFBBB7FA261D1D8403448 /* MBProgressHUD-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HexColors/HexColors-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		36A319488A070A2D414293A469D41BC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F9F8B63B6B77F601082E4655314BE0E /* Pods-SuperService.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -820,6 +1130,38 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		50BBDFDD5D22F1EF00523EF5BE575E51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C61425C4980AFBBB7FA261D1D8403448 /* MBProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		559A4B52D50044785011729FF936E93F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A18F1B71B3E1434EA1CBC6ECF07B95D /* AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		5665498BBD254C96AD653271CB4A4237 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -876,22 +1218,6 @@
 			};
 			name = Debug;
 		};
-		656B21BE57D3B84D8AF7DA5C39CAD34A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0346939B5A5E443FA91F8EEC8DD7CD1A /* Pods-SuperService.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -938,6 +1264,22 @@
 			};
 			name = Release;
 		};
+		84F221F897A234614C2FB39F5462A23D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B676B8C38215A9A2FF1EB87711FCEE1B /* Pods-SuperService.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		96766C63B90E6BA74FC05C03F67736C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60D22A7FFFCE73E17B1984076471A852 /* WPMediaPicker-Private.xcconfig */;
@@ -954,25 +1296,21 @@
 			};
 			name = Release;
 		};
-		9B32CD045627CEFB8A88745A9E0A27B6 /* Release */ = {
+		D2F4CFCF00B49101E3FB39B6E4DEF768 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBED2D0999D19F45EE70082BA47B83CB /* Pods-SuperService.release.xcconfig */;
+			baseConfigurationReference = 60D22A7FFFCE73E17B1984076471A852 /* WPMediaPicker-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WPMediaPicker;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
-		B10ED6F9D93D5C74B877992352935B7C /* Release */ = {
+		D88282C0DF6C1B9A2878044FABAD4EFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC8CD1677680D016A616A7408F3FD774 /* HexColors-Private.xcconfig */;
+			baseConfigurationReference = EAD80FC44B08390DA0208FE49FB63586 /* HexColors-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HexColors/HexColors-prefix.pch";
@@ -986,28 +1324,12 @@
 			};
 			name = Release;
 		};
-		C3C152A94ED84CDD8F7FE2AE242D15C0 /* Release */ = {
+		DDAD0576B654D9BB517B197BE3EFB5CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B51DA1A0C836FF3CB7FAA3BA5DE12CE0 /* MBProgressHUD-Private.xcconfig */;
+			baseConfigurationReference = 9A18F1B71B3E1434EA1CBC6ECF07B95D /* AFNetworking-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		CA7E91196594C1627CA71EC853D3D392 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B51DA1A0C836FF3CB7FAA3BA5DE12CE0 /* MBProgressHUD-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1015,18 +1337,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D2F4CFCF00B49101E3FB39B6E4DEF768 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60D22A7FFFCE73E17B1984076471A852 /* WPMediaPicker-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = WPMediaPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -1046,6 +1356,22 @@
 			};
 			name = Release;
 		};
+		FCC43D3CE8B42F74126EF088A2B0B598 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAD80FC44B08390DA0208FE49FB63586 /* HexColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HexColors/HexColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1054,6 +1380,15 @@
 			buildConfigurations = (
 				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
 				74857149DC1E0D599B8A01A78349A926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D10814E9BBE25426574C1CB85CEC7C0 /* Build configuration list for PBXNativeTarget "HexColors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCC43D3CE8B42F74126EF088A2B0B598 /* Debug */,
+				D88282C0DF6C1B9A2878044FABAD4EFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1067,11 +1402,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		471E5DECD8692F0475D75F5B1163621B /* Build configuration list for PBXNativeTarget "HexColors" */ = {
+		4D745AAF6245E5575CE099DF31582AA6 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				422FBD4CF8253D1AEE82AF5A14E7A53D /* Debug */,
-				B10ED6F9D93D5C74B877992352935B7C /* Release */,
+				50BBDFDD5D22F1EF00523EF5BE575E51 /* Debug */,
+				2097F10FA074DC6D67E9503CDAD5B37D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A99A94A8D5505BBCF81C888B033E640 /* Build configuration list for PBXNativeTarget "Pods-SuperService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36A319488A070A2D414293A469D41BC8 /* Debug */,
+				84F221F897A234614C2FB39F5462A23D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1085,20 +1429,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B2EB13691F62E607BDADE4EAFA861E4 /* Build configuration list for PBXNativeTarget "Pods-SuperService" */ = {
+		BA3DB70C47F5CE39A6712ECC112CDAEE /* Build configuration list for PBXNativeTarget "AFNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				656B21BE57D3B84D8AF7DA5C39CAD34A /* Debug */,
-				9B32CD045627CEFB8A88745A9E0A27B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DCFD9CFD06E06AA0843697F4B4A29E63 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CA7E91196594C1627CA71EC853D3D392 /* Debug */,
-				C3C152A94ED84CDD8F7FE2AE242D15C0 /* Release */,
+				DDAD0576B654D9BB517B197BE3EFB5CE /* Debug */,
+				559A4B52D50044785011729FF936E93F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

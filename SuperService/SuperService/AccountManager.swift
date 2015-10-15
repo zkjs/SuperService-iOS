@@ -13,7 +13,7 @@ class AccountManager: NSObject {
 //{
 //  fullname = "长沙豪廷大酒店";
 //  locid = "1,6,2,3";
-//  name = "\U5343\U91cc";
+//  name = "千里";
 //  roleid = 1;
 //  set = 1;
 //  shopid = 120;
@@ -21,13 +21,13 @@ class AccountManager: NSObject {
 //  userid = 557aa57bd087f;
 //}
 
-  private(set) var userid = ""
-  private(set) var shopid = ""
-  private(set) var fullname = ""
+  private(set) var userID = ""
+  private(set) var shopID = ""
+  private(set) var shopName = ""
   private(set) var token = ""
-  private(set) var name = ""
-  private(set) var roleid = ""
-  private(set) var locid = ""
+  private(set) var userName = ""
+  private(set) var roleID = ""
+  private(set) var beaconLocationIDs = ""
 
   class func sharedInstance() -> AccountManager {
     struct Singleton {
@@ -38,23 +38,23 @@ class AccountManager: NSObject {
   
   override init() {
     let userDefaults = NSUserDefaults()
-    userid = userDefaults.objectForKey("userid") as? String ?? ""
-    shopid = userDefaults.objectForKey("shopid") as? String ?? ""
-    fullname = userDefaults.objectForKey("fullname") as? String ?? ""
+    userID = userDefaults.objectForKey("userid") as? String ?? ""
+    shopID = userDefaults.objectForKey("shopid") as? String ?? ""
+    shopName = userDefaults.objectForKey("fullname") as? String ?? ""
     token = userDefaults.objectForKey("token") as? String ?? ""
-    name = userDefaults.objectForKey("name") as? String ?? ""
-    roleid = userDefaults.objectForKey("roleid") as? String ?? ""
-    locid = userDefaults.objectForKey("locid") as? String ?? ""
+    userName = userDefaults.objectForKey("name") as? String ?? ""
+    roleID = userDefaults.objectForKey("roleid") as? String ?? ""
+    beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
   }
   
   func saveAccountWithDict(dict: NSDictionary) {
-    userid = dict["userid"] as! String
-    shopid = dict["shopid"] as! String
-    fullname = dict["fullname"] as! String
+    userID = dict["userid"] as! String
+    shopID = dict["shopid"] as! String
+    shopName = dict["fullname"] as! String
     token = dict["token"] as! String
-    name = dict["name"] as! String
-    roleid = dict["roleid"] as! String
-    locid = dict["locid"] as! String
+    userName = dict["name"] as! String
+    roleID = dict["roleid"] as! String
+    beaconLocationIDs = dict["locid"] as! String
     
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(dict["userid"], forKey: "userid")

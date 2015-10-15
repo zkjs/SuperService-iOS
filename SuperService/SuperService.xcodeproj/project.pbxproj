@@ -15,6 +15,7 @@
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; settings = {ASSET_TAGS = (); }; };
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; settings = {ASSET_TAGS = (); }; };
+		405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */ = {isa = PBXBuildFile; fileRef = 405F4CA81BCF3FCC00BBBF47 /* server.der */; settings = {ASSET_TAGS = (); }; };
 		40600CAA1BC64562008F8DEC /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40600CA91BC64562008F8DEC /* MainPageVC.swift */; settings = {ASSET_TAGS = (); }; };
 		4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4068A2C71BBB929200FF8608 /* AdminRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -84,6 +85,7 @@
 		404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZKJS.m"; sourceTree = "<group>"; };
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
+		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
 		40600CA91BC64562008F8DEC /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
 		4068A2C31BBB925600FF8608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AdminLogin.storyboard; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				4068A2E21BBBD81600FF8608 /* Register */,
 				4068A2D21BBBB11100FF8608 /* Admin */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
+				405F4CA81BCF3FCC00BBBF47 /* server.der */,
 				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
 				4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */,
@@ -498,6 +501,7 @@
 				40DA78991BAFAA8F00956B72 /* Assets.xcassets in Resources */,
 				408AD37A1BC5533600A202DD /* Login.storyboard in Resources */,
 				4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */,
+				405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */,
 				40F1BA861BC80245006C2B41 /* ClientList.storyboard in Resources */,
 				4084230D1BC68E8600C215CD /* MessageCell.xib in Resources */,
 				40F1BA841BC80230006C2B41 /* TeamList.storyboard in Resources */,

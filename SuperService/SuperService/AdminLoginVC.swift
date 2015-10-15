@@ -105,6 +105,7 @@ class AdminLoginVC: UIViewController {
           if set {
             // 缓存用户信息
             AccountManager.sharedInstance().saveAccountWithDict(dict)
+            self.view.endEditing(true)
             self.dismissViewControllerAnimated(true, completion: nil)
           } else {
             if let err = dict["err"] as? NSNumber {
@@ -137,14 +138,6 @@ extension AdminLoginVC: UITextFieldDelegate {
       }
     }
     return false
-  }
-  
-  func textFieldDidEndEditing(textField: UITextField) {
-    if textField == phoneTextField {
-      
-    } else if textField == passwordTextField {
-      
-    }
   }
   
 }

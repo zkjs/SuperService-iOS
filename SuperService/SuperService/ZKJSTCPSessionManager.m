@@ -11,7 +11,7 @@
 
 #define kHeartBeatInterval 60
 
-@interface ZKJSTCPSessionManager () <NSStreamDelegate, SRWebSocketDelegate> {
+@interface ZKJSTCPSessionManager () <SRWebSocketDelegate> {
   SRWebSocket *_webSocket;
 }
 
@@ -40,14 +40,6 @@
   _webSocket.delegate = nil;
   [_webSocket close];
   _webSocket = nil;
-}
-
-- (void)startHeartbeat {
-  [NSTimer scheduledTimerWithTimeInterval:kHeartBeatInterval
-                                   target:self
-                                 selector:@selector(heartBeat)
-                                 userInfo:nil
-                                  repeats:YES];
 }
 
 
@@ -125,29 +117,29 @@
   _webSocket = nil;
 }
 
-//- (void)shopLogin:(NSString *)shopID {
-//  NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
-//#if DEBUG
-//  NSString *appid = @"SuperService_DEBUG";
-//#else
-//  NSString *appid = @"SuperService";
-//#endif
-//  NSDictionary *dictionary = @{
-//                               @"type": [NSNumber numberWithInteger:MessageIMClientLogin],
-//                               @"timestamp": timestamp,
-//                               @"id": userID,
-//                               @"name": name,
-//                               @"devtoken": deviceToken,
-//                               @"platform": @"I",  // A: android,I:ios,W:web
-//                               @"appid": appid,
-//                               @"shopid": shopID,
-//                               @"roleid": @1,  //0: APP用户 1:商家
-//                               @"loc": locid,
-//                               @"workstatus": workstatus
-//                               };
-//  
-//  [self sendPacketFromDictionary:dictionary];
-//}
+- (void)loginWithUserID:(NSString *)userID userName:(NSString *)userName deviceToken:(NSString *)deviceToken shopID:(NSString *)shopID beaconLocationIDs:(NSString *)beaconLocationIDs {
+  NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
+#if DEBUG
+  NSString *appid = @"SuperService_DEBUG";
+#else
+  NSString *appid = @"SuperService";
+#endif
+  NSDictionary *dictionary = @{
+                               @"type": [NSNumber numberWithInteger:MessageIMClientLogin],
+                               @"timestamp": timestamp,
+                               @"platform": @"I",  // A: android,I:ios,W:web
+                               @"roleid": @1,  //0: APP用户 1:商家
+                               @"appid": appid,
+                               @"id": userID,
+                               @"name": userName,
+                               @"devtoken": deviceToken,
+                               @"shopid": shopID,
+                               @"loc": beaconLocationIDs,
+                               @"workstatus": @1  //0:上班 1:下班
+                               };
+  
+  [self sendPacketFromDictionary:dictionary];
+}
 
 - (void)sendPacketFromDictionary:(NSDictionary *)dictionary {
   NSString *jsonString = [self jsonFromDictionary:dictionary];
@@ -158,6 +150,14 @@
 
 
 #pragma mark Private Method
+
+- (void)startHeartbeat {
+  [NSTimer scheduledTimerWithTimeInterval:kHeartBeatInterval
+                                   target:self
+                                 selector:@selector(heartBeat)
+                                 userInfo:nil
+                                  repeats:YES];
+}
 
 // 心跳包
 - (void)heartBeat {

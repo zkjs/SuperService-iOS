@@ -18,7 +18,7 @@ class MainTBC: UITabBarController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    if AccountManager.sharedInstance().userid.isEmpty {
+    if AccountManager.sharedInstance().userID.isEmpty {
       showAdminLogin()
     }
   }

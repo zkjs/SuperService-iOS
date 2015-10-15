@@ -48,10 +48,10 @@ typedef NS_ENUM(NSInteger, MessageCustomType) {
 // 释放Socket
 - (void)deinitNetworkCommunication;
 
-// 商家登录的接口
-- (void)shopLogin:(NSString *)shopID;
+// 登录接口
+- (void)loginWithUserID:(NSString *)userID userName:(NSString *)userName deviceToken:(NSString *)deviceToken shopID:(NSString *)shopID beaconLocationIDs:(NSString *)beaconLocationIDs;
 
-// 发包的接口
+// 发包接口
 - (void)sendPacketFromDictionary:(NSDictionary *)dictionary;
 
 @end

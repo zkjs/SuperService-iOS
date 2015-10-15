@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
 
   var window: UIWindow?
 
@@ -30,10 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidEnterBackground(application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    ZKJSTCPSessionManager.sharedInstance().deinitNetworkCommunication()
   }
 
   func applicationWillEnterForeground(application: UIApplication) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
   }
 
   func applicationDidBecomeActive(application: UIApplication) {
@@ -43,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+  
   
   // MARK: - Private Method
   
@@ -55,6 +60,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let attribute = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     UITabBarItem.appearance().setTitleTextAttributes(attribute, forState: UIControlState.Normal)
     UITabBarItem.appearance().titlePositionAdjustment = UIOffsetMake(0.0, -2.0)
+  }
+  
+  
+  // MARK: - TCPSessionManagerDelegate
+  func didOpenTCPSocket() {
+    // 端口连接后发登陆包
+    let userID = AccountManager.sharedInstance().userID
+    let userName = AccountManager.sharedInstance().userName
+    let deviceToken = ""
+    let shopID = AccountManager.sharedInstance().shopID
+    let beaconLocationIDs = AccountManager.sharedInstance().beaconLocationIDs
+    if !userID.isEmpty {
+      ZKJSTCPSessionManager.sharedInstance().loginWithUserID(userID,
+        userName: userName,
+        deviceToken: deviceToken,
+        shopID: shopID,
+        beaconLocationIDs: beaconLocationIDs)
+    }
+  }
+  
+  func didReceivePacket(dictionary: [NSObject : AnyObject]!) {
+
   }
   
 }

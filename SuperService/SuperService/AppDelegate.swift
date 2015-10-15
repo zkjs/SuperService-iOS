@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     customizeWindow()
     customizeTabBar()
+    setupNotification()
+    setupTCPSessionManager()
     return true
   }
 
@@ -49,6 +51,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   
+  // MARK: - Push Notification
+  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    print(deviceToken)
+    let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+    let cleanToken = trimEnds.stringByReplacingOccurrencesOfString(" ", withString: "", options: .CaseInsensitiveSearch, range: nil)
+    AccountManager.sharedInstance().saveDeviceToken(cleanToken)
+  }
+  
+  func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    print(error)
+  }
+  
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    print(userInfo)
+  }
+  
+  
   // MARK: - Private Method
   
   private func customizeWindow() {
@@ -62,13 +81,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     UITabBarItem.appearance().titlePositionAdjustment = UIOffsetMake(0.0, -2.0)
   }
   
+  private func setupNotification() {
+    let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+    UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+    UIApplication.sharedApplication().registerForRemoteNotifications()
+  }
+  
+  private func setupTCPSessionManager() {
+    ZKJSTCPSessionManager.sharedInstance().delegate = self
+  }
+  
   
   // MARK: - TCPSessionManagerDelegate
   func didOpenTCPSocket() {
     // 端口连接后发登陆包
     let userID = AccountManager.sharedInstance().userID
     let userName = AccountManager.sharedInstance().userName
-    let deviceToken = ""
+    let deviceToken = AccountManager.sharedInstance().deviceToken
     let shopID = AccountManager.sharedInstance().shopID
     let beaconLocationIDs = AccountManager.sharedInstance().beaconLocationIDs
     if !userID.isEmpty {

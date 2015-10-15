@@ -10,16 +10,16 @@ import UIKit
 
 class AccountManager: NSObject {
   
-//{
-//  fullname = "长沙豪廷大酒店";
-//  locid = "1,6,2,3";
-//  name = "千里";
-//  roleid = 1;
-//  set = 1;
-//  shopid = 120;
-//  token = q8RzZznqWvzwBfzR;
-//  userid = 557aa57bd087f;
-//}
+//  {
+//  "set": true,
+//  "userid": "5577ecee5acc7",
+//  "shopid": "120",
+//  "fullname": "长沙芙蓉国温德姆至尊豪廷大酒店",
+//  "token": "jxT3sB_U2M2EsGF_",
+//  "name": "王二麻子",
+//  "roleid": "4",
+//  "locid": "1,2,3"
+//  }
 
   private(set) var userID = ""
   private(set) var shopID = ""
@@ -28,6 +28,7 @@ class AccountManager: NSObject {
   private(set) var userName = ""
   private(set) var roleID = ""
   private(set) var beaconLocationIDs = ""
+  private(set) var deviceToken = ""
 
   class func sharedInstance() -> AccountManager {
     struct Singleton {
@@ -47,7 +48,7 @@ class AccountManager: NSObject {
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
   }
   
-  func saveAccountWithDict(dict: NSDictionary) {
+  func saveAccountWithDict(dict: [String: AnyObject]) {
     userID = dict["userid"] as! String
     shopID = dict["shopid"] as! String
     shopName = dict["fullname"] as! String
@@ -77,6 +78,10 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "roleid")
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.synchronize()
+  }
+  
+  func saveDeviceToken(deviceToken: String) {
+    self.deviceToken = deviceToken
   }
   
 }

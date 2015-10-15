@@ -104,8 +104,9 @@ class AdminLoginVC: UIViewController {
         if let set = dict["set"] as? Bool {
           if set {
             // 缓存用户信息
-            AccountManager.sharedInstance().saveAccountWithDict(dict)
+            AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
             self.view.endEditing(true)
+            ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
             self.dismissViewControllerAnimated(true, completion: nil)
           } else {
             if let err = dict["err"] as? NSNumber {

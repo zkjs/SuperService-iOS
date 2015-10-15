@@ -13,6 +13,9 @@ class MainTBC: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    if AccountManager.sharedInstance().userID.isEmpty == false {
+      ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
+    }
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -23,7 +26,10 @@ class MainTBC: UITabBarController {
     }
   }
   
-  func showAdminLogin() {
+  
+  // MARK: - Private
+  
+  private func showAdminLogin() {
     let storyboard = UIStoryboard(name: "AdminLogin", bundle: nil)
     let vc = storyboard.instantiateViewControllerWithIdentifier("AdminLoginVC") as! AdminLoginVC
     let nv = UINavigationController(rootViewController: vc)

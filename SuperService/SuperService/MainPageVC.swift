@@ -13,14 +13,6 @@ class MainPageVC: XLSegmentedPagerTabStripViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    initTCPSessionManager()
-  }
-  
-  
-  // MARK: - Private
-  
-  private func initTCPSessionManager() {
-    ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
   }
   
   

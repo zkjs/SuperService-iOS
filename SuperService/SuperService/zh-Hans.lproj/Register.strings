@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "黄晓阳"; ObjectID = "0JB-LV-r1z"; */
+"0JB-LV-r1z.text" = "黄晓阳";
+
+/* Class = "UIButton"; normalTitle = "上传头像"; ObjectID = "32O-Zw-jh0"; */
+"32O-Zw-jh0.normalTitle" = "上传头像";
+
+/* Class = "UILabel"; text = "酒店大门"; ObjectID = "8RQ-2G-p3V"; */
+"8RQ-2G-p3V.text" = "酒店大门";
+
+/* Class = "UISegmentedControl"; 9PU-W0-1PH.segmentTitles[0] = "男"; ObjectID = "9PU-W0-1PH"; */
+"9PU-W0-1PH.segmentTitles[0]" = "男";
+
+/* Class = "UISegmentedControl"; 9PU-W0-1PH.segmentTitles[1] = "女"; ObjectID = "9PU-W0-1PH"; */
+"9PU-W0-1PH.segmentTitles[1]" = "女";
+
+/* Class = "UITextView"; text = "选择您的通知区域，客人到达该区域时，您将会收到通知，且要做出处理。"; ObjectID = "Mt5-v6-wCB"; */
+"Mt5-v6-wCB.text" = "选择您的通知区域，客人到达该区域时，您将会收到通知，且要做出处理。";
+
+/* Class = "UITextField"; placeholder = "或取个新昵称"; ObjectID = "Ond-gh-oHz"; */
+"Ond-gh-oHz.placeholder" = "或取个新昵称";
+
+/* Class = "UIViewController"; title = "选择通知区域"; ObjectID = "Tn2-QP-OpX"; */
+"Tn2-QP-OpX.title" = "选择通知区域";
+
+/* Class = "UIViewController"; title = "设置"; ObjectID = "mBA-hY-Ld2"; */
+"mBA-hY-Ld2.title" = "设置";

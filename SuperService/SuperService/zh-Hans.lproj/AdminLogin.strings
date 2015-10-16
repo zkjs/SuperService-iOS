@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "手机号"; ObjectID = "1jc-5q-xDa"; */
+"1jc-5q-xDa.placeholder" = "手机号";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "9n1-eD-xT1"; */
+"9n1-eD-xT1.placeholder" = "密码";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "ieQ-DS-mfp"; */
+"ieQ-DS-mfp.normalTitle" = "注册";
+
+/* Class = "UIButton"; normalTitle = "登陆"; ObjectID = "rgk-5X-DrV"; */
+"rgk-5X-DrV.normalTitle" = "登陆";
+
+/* Class = "UIViewController"; title = "商户登陆"; ObjectID = "uyp-4p-Hhu"; */
+"uyp-4p-Hhu.title" = "商户登陆";

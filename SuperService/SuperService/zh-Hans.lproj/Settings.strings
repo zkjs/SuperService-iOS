@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "黄小洋"; ObjectID = "SfC-ab-9qP"; */
+"SfC-ab-9qP.text" = "黄小洋";
+
+/* Class = "UILabel"; text = "关于我们"; ObjectID = "W41-ap-kWs"; */
+"W41-ap-kWs.text" = "关于我们";
+
+/* Class = "UILabel"; text = "长沙芙蓉国温德姆至尊豪廷大酒店"; ObjectID = "Xet-oL-hDL"; */
+"Xet-oL-hDL.text" = "长沙芙蓉国温德姆至尊豪廷大酒店";
+
+/* Class = "UITabBarItem"; title = "我的"; ObjectID = "csq-Lu-ZRa"; */
+"csq-Lu-ZRa.title" = "我的";
+
+/* Class = "UILabel"; text = "上班状态"; ObjectID = "cxi-aj-qrP"; */
+"cxi-aj-qrP.text" = "上班状态";
+
+/* Class = "UILabel"; text = "管理"; ObjectID = "jpx-55-TGR"; */
+"jpx-55-TGR.text" = "管理";
+
+/* Class = "UILabel"; text = "设置"; ObjectID = "lpy-lO-zRm"; */
+"lpy-lO-zRm.text" = "设置";
+
+/* Class = "UILabel"; text = "登出"; ObjectID = "m1P-fY-dkA"; */
+"m1P-fY-dkA.text" = "登出";

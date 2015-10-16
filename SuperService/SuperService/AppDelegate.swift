@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     customizeTabBar()
     setupNotification()
     setupTCPSessionManager()
+//    let timeAgoDate = NSDate(timeIntervalSinceNow: -90)
+//    print(timeAgoDate.timeAgoSinceNow())
     return true
   }
 

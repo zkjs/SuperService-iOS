@@ -120,9 +120,9 @@
 - (void)loginWithUserID:(NSString *)userID userName:(NSString *)userName deviceToken:(NSString *)deviceToken shopID:(NSString *)shopID beaconLocationIDs:(NSString *)beaconLocationIDs {
   NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
 #if DEBUG
-  NSString *appid = @"SuperService_DEBUG";
+  NSString *appid = @"SUPERSERVICE_DEBUG";
 #else
-  NSString *appid = @"SuperService";
+  NSString *appid = @"SUPERSERVICE";
 #endif
   NSDictionary *dictionary = @{
                                @"type": [NSNumber numberWithInteger:MessageIMClientLogin],

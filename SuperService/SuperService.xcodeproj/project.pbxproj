@@ -85,13 +85,13 @@
 		404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZKJS.m"; sourceTree = "<group>"; };
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
-		40549B271BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		40549B281BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TeamList.strings"; sourceTree = "<group>"; };
-		40549B291BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
-		40549B2A1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Register.strings"; sourceTree = "<group>"; };
-		40549B2B1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdminLogin.strings"; sourceTree = "<group>"; };
-		40549B2C1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdminRegister.strings"; sourceTree = "<group>"; };
-		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		40549B271BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		40549B281BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TeamList.storyboard"; sourceTree = "<group>"; };
+		40549B291BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.storyboard"; sourceTree = "<group>"; };
+		40549B2A1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Register.storyboard"; sourceTree = "<group>"; };
+		40549B2B1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdminLogin.storyboard"; sourceTree = "<group>"; };
+		40549B2C1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdminRegister.storyboard"; sourceTree = "<group>"; };
+		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
 		40600CA91BC64562008F8DEC /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperServiceUITests.swift; sourceTree = "<group>"; };
 		40DA78B31BAFAA8F00956B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40F1BA831BC80230006C2B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamList.storyboard; sourceTree = "<group>"; };
-		40F1BA851BC80245006C2B41 /* ClientList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ClientList.storyboard; path = Base.lproj/ClientList.storyboard; sourceTree = "<group>"; };
+		40F1BA851BC80245006C2B41 /* ClientList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ClientList.storyboard; sourceTree = "<group>"; };
 		40F1BA881BC80261006C2B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		40F1BA8A1BC80BBF006C2B41 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,21 +174,21 @@
 			children = (
 				404FB5221BCE2A4B0074D205 /* NSString+ZKJS.h */,
 				404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */,
-				40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */,
-				40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */,
 				404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */,
 				404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */,
+				40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */,
+				40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */,
 			);
-			name = Networking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		40600CAB1BC64579008F8DEC /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				40600CA91BC64562008F8DEC /* MainPageVC.swift */,
 				40600CB21BC64946008F8DEC /* Child */,
+				40600CA91BC64562008F8DEC /* MainPageVC.swift */,
 			);
-			name = MainPage;
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		40600CB21BC64946008F8DEC /* Child */ = {
@@ -202,7 +202,7 @@
 				408423161BC68EC100C215CD /* OrderTVC.swift */,
 				408423171BC68EC100C215CD /* OrderTVC.xib */,
 			);
-			name = Child;
+			path = Child;
 			sourceTree = "<group>";
 		};
 		40600CBE1BC66DF3008F8DEC /* Cell */ = {
@@ -215,7 +215,7 @@
 				4084230E1BC68E9800C215CD /* OrderCell.swift */,
 				4084230F1BC68E9800C215CD /* OrderCell.xib */,
 			);
-			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4068A2D21BBBB11100FF8608 /* Admin */ = {
@@ -224,7 +224,7 @@
 				4068A2D51BBBB18E00FF8608 /* Login */,
 				4068A2D61BBBB1AA00FF8608 /* Register */,
 			);
-			name = Admin;
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		4068A2D31BBBB13100FF8608 /* Widget */ = {
@@ -233,47 +233,47 @@
 				405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */,
 				405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */,
 			);
-			name = Widget;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		4068A2D41BBBB14600FF8608 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
 				408AD3791BC5533600A202DD /* Login.storyboard */,
+				40C5E9A61BBA6CE4004F5FDD /* LoginVC.swift */,
 			);
-			name = Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		4068A2D51BBBB18E00FF8608 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */,
 				4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */,
+				4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */,
 			);
-			name = Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		4068A2D61BBBB1AA00FF8608 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */,
 				4068A2CC1BBBB06800FF8608 /* AdminRegisterInfoVC.swift */,
 				4068A2CE1BBBB0AE00FF8608 /* AdminRegisterSelectEmployeeVC.swift */,
-				4068A2D71BBBB4BF00FF8608 /* SelectEmployeeCell.swift */,
 				4068A2D01BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift */,
-				4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */,
+				4068A2D71BBBB4BF00FF8608 /* SelectEmployeeCell.swift */,
 			);
-			name = Register;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		4068A2E21BBBD81600FF8608 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				4068A2DD1BBBCF6400FF8608 /* Register.storyboard */,
 				4068A2D91BBBCEE700FF8608 /* RegisterInfoVC.swift */,
 				4068A2DB1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift */,
-				4068A2DD1BBBCF6400FF8608 /* Register.storyboard */,
 			);
-			name = Register;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		40B0DC281BCE367300785D2E /* Tool */ = {
@@ -282,18 +282,18 @@
 				40B0DC251BCE366E00785D2E /* ZKJSTool.h */,
 				40B0DC261BCE366E00785D2E /* ZKJSTool.m */,
 			);
-			name = Tool;
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		40DA78851BAFAA8F00956B72 = {
 			isa = PBXGroup;
 			children = (
+				AC027541ADA26D63AB53B25F /* Frameworks */,
+				E5FC522A96B4F0D1A7B6E52B /* Pods */,
+				40DA788F1BAFAA8F00956B72 /* Products */,
 				40DA78901BAFAA8F00956B72 /* SuperService */,
 				40DA78A51BAFAA8F00956B72 /* SuperServiceTests */,
 				40DA78B01BAFAA8F00956B72 /* SuperServiceUITests */,
-				40DA788F1BAFAA8F00956B72 /* Products */,
-				E5FC522A96B4F0D1A7B6E52B /* Pods */,
-				AC027541ADA26D63AB53B25F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,25 +310,25 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
-				40B0DC281BCE367300785D2E /* Tool */,
-				404FB51E1BCE08840074D205 /* Networking */,
-				4068A2D31BBBB13100FF8608 /* Widget */,
-				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
-				40B0DC291BCE395300785D2E /* AccountManager.swift */,
-				404FB51A1BCE01AE0074D205 /* MainTBC.swift */,
-				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
-				40600CAB1BC64579008F8DEC /* MainPage */,
-				40F1BA7F1BC7FBB7006C2B41 /* TeamList */,
-				40F1BA801BC7FBC0006C2B41 /* ClientList */,
-				40F1BA811BC7FBC9006C2B41 /* Settings */,
-				4068A2D41BBBB14600FF8608 /* Login */,
-				4068A2E21BBBD81600FF8608 /* Register */,
 				4068A2D21BBBB11100FF8608 /* Admin */,
+				40F1BA801BC7FBC0006C2B41 /* ClientList */,
+				4068A2D41BBBB14600FF8608 /* Login */,
+				40600CAB1BC64579008F8DEC /* MainPage */,
+				404FB51E1BCE08840074D205 /* Networking */,
+				4068A2E21BBBD81600FF8608 /* Register */,
+				40F1BA811BC7FBC9006C2B41 /* Settings */,
+				40F1BA7F1BC7FBB7006C2B41 /* TeamList */,
+				40B0DC281BCE367300785D2E /* Tool */,
+				4068A2D31BBBB13100FF8608 /* Widget */,
+				40B0DC291BCE395300785D2E /* AccountManager.swift */,
+				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
-				405F4CA81BCF3FCC00BBBF47 /* server.der */,
-				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
+				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
+				40DA78951BAFAA8F00956B72 /* Main.storyboard */,
+				404FB51A1BCE01AE0074D205 /* MainTBC.swift */,
 				4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */,
+				405F4CA81BCF3FCC00BBBF47 /* server.der */,
 			);
 			path = SuperService;
 			sourceTree = "<group>";
@@ -336,8 +336,8 @@
 		40DA78A51BAFAA8F00956B72 /* SuperServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				40DA78A61BAFAA8F00956B72 /* SuperServiceTests.swift */,
 				40DA78A81BAFAA8F00956B72 /* Info.plist */,
+				40DA78A61BAFAA8F00956B72 /* SuperServiceTests.swift */,
 			);
 			path = SuperServiceTests;
 			sourceTree = "<group>";
@@ -345,8 +345,8 @@
 		40DA78B01BAFAA8F00956B72 /* SuperServiceUITests */ = {
 			isa = PBXGroup;
 			children = (
-				40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */,
 				40DA78B31BAFAA8F00956B72 /* Info.plist */,
+				40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */,
 			);
 			path = SuperServiceUITests;
 			sourceTree = "<group>";
@@ -354,28 +354,28 @@
 		40F1BA7F1BC7FBB7006C2B41 /* TeamList */ = {
 			isa = PBXGroup;
 			children = (
-				404D41441BC7BF4900D0401D /* TeamListVC.swift */,
 				40F1BA821BC80230006C2B41 /* TeamList.storyboard */,
+				404D41441BC7BF4900D0401D /* TeamListVC.swift */,
 			);
-			name = TeamList;
+			path = TeamList;
 			sourceTree = "<group>";
 		};
 		40F1BA801BC7FBC0006C2B41 /* ClientList */ = {
 			isa = PBXGroup;
 			children = (
-				404D41461BC7BF5600D0401D /* ClientListVC.swift */,
 				40F1BA851BC80245006C2B41 /* ClientList.storyboard */,
+				404D41461BC7BF5600D0401D /* ClientListVC.swift */,
 			);
-			name = ClientList;
+			path = ClientList;
 			sourceTree = "<group>";
 		};
 		40F1BA811BC7FBC9006C2B41 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				40F1BA8A1BC80BBF006C2B41 /* SettingsTVC.swift */,
 				40F1BA871BC80261006C2B41 /* Settings.storyboard */,
+				40F1BA8A1BC80BBF006C2B41 /* SettingsTVC.swift */,
 			);
-			name = Settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		AC027541ADA26D63AB53B25F /* Frameworks */ = {
@@ -650,6 +650,7 @@
 				40549B2B1BD0939500923F5F /* zh-Hans */,
 			);
 			name = AdminLogin.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		4068A2C51BBB929200FF8608 /* AdminRegister.storyboard */ = {
@@ -659,6 +660,7 @@
 				40549B2C1BD0939500923F5F /* zh-Hans */,
 			);
 			name = AdminRegister.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		4068A2DD1BBBCF6400FF8608 /* Register.storyboard */ = {
@@ -668,6 +670,7 @@
 				40549B2A1BD0939500923F5F /* zh-Hans */,
 			);
 			name = Register.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		40DA78951BAFAA8F00956B72 /* Main.storyboard */ = {
@@ -677,6 +680,7 @@
 				40549B271BD0939500923F5F /* zh-Hans */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */ = {
@@ -686,6 +690,7 @@
 				40549B2D1BD0939500923F5F /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		40F1BA821BC80230006C2B41 /* TeamList.storyboard */ = {
@@ -695,6 +700,7 @@
 				40549B281BD0939500923F5F /* zh-Hans */,
 			);
 			name = TeamList.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		40F1BA871BC80261006C2B41 /* Settings.storyboard */ = {
@@ -704,6 +710,7 @@
 				40549B291BD0939500923F5F /* zh-Hans */,
 			);
 			name = Settings.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

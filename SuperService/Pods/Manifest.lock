@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DateTools (1.7.0)
   - HexColors (2.3.0)
   - MBProgressHUD (0.9.1)
   - SocketRocket (0.4.1)
@@ -28,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DateTools
   - HexColors
   - MBProgressHUD
   - SocketRocket
@@ -36,6 +38,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa

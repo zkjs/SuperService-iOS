@@ -21,8 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     customizeTabBar()
     setupNotification()
     setupTCPSessionManager()
+    
 //    let timeAgoDate = NSDate(timeIntervalSinceNow: -90)
 //    print(timeAgoDate.timeAgoSinceNow())
+    
+//    let userID = AccountManager.sharedInstance().userID
+//    let token = AccountManager.sharedInstance().token
+//    ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithUserID(userID,
+//      token: token,
+//      clientID: "5603d8d417392",
+//      shopID: "120",
+//      success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//        
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//        
+//    }
     return true
   }
 
@@ -68,6 +81,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     print(userInfo)
+    if let childType = userInfo["childType"] as? NSNumber {
+      if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
+        let content = userInfo["content"] as! String
+        let data = content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        let dict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)) as! [String: String]
+        guard let userID = dict["userid"] else { return }
+        guard let userName = dict["username"] else { return }
+//        guard let beaconLocationID = dict["locid"] else { return }
+        guard let beaconLocationName = dict["locdesc"] else { return }
+        
+//        let shopName = StorageManager.sharedInstance().shopNameWithShopID(shopid!)
+        let alertView = UIAlertController(title: "到店通知", message: "\(userName)已到达\(beaconLocationName)", preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
+        alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: { (action: UIAlertAction!) -> Void in
+          
+          }))
+        window?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
+        
+      }
+    }
   }
   
   

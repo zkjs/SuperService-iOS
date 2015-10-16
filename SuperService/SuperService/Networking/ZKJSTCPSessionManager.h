@@ -28,9 +28,8 @@ typedef NS_ENUM(NSInteger, MessageIMType) {
 };
 
 //自定义用户协议
-typedef NS_ENUM(NSInteger, MessageCustomType) {
-  MessageCustomUserDefine = 7,
-  MessageCustomUserDefine_RSP = 8
+typedef NS_ENUM(NSInteger, MessageUserDefineType) {
+  MessageUserDefineClientArrival = 0,
 };
 
 @protocol TCPSessionManagerDelegate;

@@ -46,4 +46,21 @@
   }];
 }
 
+#pragma mark - 获取到店通知信息
+
+- (void)clientArrivalInfoWithUserID:(NSString *)userID token:(NSString *)token clientID:(NSString *)clientID shopID:(NSString *)shopID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/notice" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[token dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[clientID dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
+    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"%@", [responseObject description]);
+    success(task, responseObject);
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
 @end

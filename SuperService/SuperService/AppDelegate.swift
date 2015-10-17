@@ -25,17 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
 //    let timeAgoDate = NSDate(timeIntervalSinceNow: -90)
 //    print(timeAgoDate.timeAgoSinceNow())
     
-//    let userID = AccountManager.sharedInstance().userID
-//    let token = AccountManager.sharedInstance().token
-//    ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithUserID(userID,
-//      token: token,
-//      clientID: "5603d8d417392",
-//      shopID: "120",
-//      success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//        
-//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//        
-//    }
     return true
   }
 
@@ -81,24 +70,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     print(userInfo)
-    if let childType = userInfo["childType"] as? NSNumber {
+    if let childType = userInfo["childtype"] as? NSNumber {
       if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
-        let content = userInfo["content"] as! String
-        let data = content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let dict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)) as! [String: String]
-        guard let userID = dict["userid"] else { return }
-        guard let userName = dict["username"] else { return }
-//        guard let beaconLocationID = dict["locid"] else { return }
-        guard let beaconLocationName = dict["locdesc"] else { return }
+        guard let clientID = userInfo["userid"] as? String else { return }
+        guard let clientName = userInfo["username"] as? String else { return }
+//        guard let beaconLocationID = dict["locid"] as? String else { return }
+        guard let beaconLocationName = userInfo["locdesc"] as? String else { return }
         
+        let userID = AccountManager.sharedInstance().userID
+        let token = AccountManager.sharedInstance().token
+        let shopID = AccountManager.sharedInstance().shopID
+        ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithUserID(userID,
+          token: token,
+          clientID: clientID,
+          shopID: shopID,
+          success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//            {
+//              order = 0;
+//              "order_count" = 0;
+//              phone = 18925232944;
+//              sex = 0;
+//              "user_level" = 0;
+//              userid = 5603d8d417392;
+//              username = Hanton;
+//            }
+            
+            // 缓存到店信息到数据库
 //        let shopName = StorageManager.sharedInstance().shopNameWithShopID(shopid!)
-        let alertView = UIAlertController(title: "到店通知", message: "\(userName)已到达\(beaconLocationName)", preferredStyle: .Alert)
-        alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
-        alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: { (action: UIAlertAction!) -> Void in
-          
-          }))
-        window?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
-        
+
+            let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(beaconLocationName)", preferredStyle: .Alert)
+            alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
+            alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: {[unowned self] (action: UIAlertAction!) -> Void in
+              if let mainTBC = self.window?.rootViewController as? UITabBarController {
+                // 跳转到主页
+                mainTBC.selectedIndex = 0
+                if let navigationController = mainTBC.childViewControllers.first as? UINavigationController {
+                  if let mainPageVC = navigationController.viewControllers.first as? XLSegmentedPagerTabStripViewController {
+                    // 跳转到到店通知页面
+                    mainPageVC.moveToViewControllerAtIndex(0)
+                    // Tab Bar角标置0
+                    navigationController.tabBarItem.badgeValue = nil
+                    // App角标置0
+                    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+                  }
+                }
+              }
+            }))
+            self.window?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
+          }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+            
+        }
       }
     }
   }

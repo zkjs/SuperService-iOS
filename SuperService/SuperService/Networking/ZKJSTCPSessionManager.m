@@ -135,7 +135,7 @@
                                @"devtoken": deviceToken,
                                @"shopid": shopID,
                                @"loc": beaconLocationIDs,
-                               @"workstatus": @1  //0:上班 1:下班
+                               @"workstatus": @0  //0:上班 1:下班
                                };
   
   [self sendPacketFromDictionary:dictionary];

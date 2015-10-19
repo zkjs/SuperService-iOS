@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
@@ -83,8 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
         guard let clientID = userInfo["userid"] as? String else { return }
         guard let clientName = userInfo["username"] as? String else { return }
-//        guard let beaconLocationID = dict["locid"] as? String else { return }
-        guard let beaconLocationName = userInfo["locdesc"] as? String else { return }
+        guard let locationID = userInfo["locid"] as? String else { return }
+        guard let locationName = userInfo["locdesc"] as? String else { return }
         
         let userID = AccountManager.sharedInstance().userID
         let token = AccountManager.sharedInstance().token
@@ -95,19 +96,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
           shopID: shopID,
           success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
 //            {
-//              order = 0;
-//              "order_count" = 0;
+//              order =     {
+//                "arrival_date" = "2015-10-17";
+//                created = "2015-10-17 05:13:01";
+//                "departure_date" = "2015-10-18";
+//                fullname = "\U957f\U6c99\U8c6a\U5ef7\U5927\U9152\U5e97";
+//                guest = "<null>";
+//                guestid = 5603d8d417392;
+//                guesttel = "<null>";
+//                imgurl = "uploads/rooms/1.jpg";
+//                "pay_id" = 1;
+//                "pay_name" = "\U652f\U4ed8\U5b9d";
+//                "pay_status" = 0;
+//                payment = 1;
+//                remark = "<null>";
+//                "reservation_no" = H20151017051301;
+//                "room_rate" = 566;
+//                "room_type" = "\U8c6a\U534e\U5927\U5e8a\U65e0\U65e9";
+//                "room_typeid" = 1;
+//                rooms = 1;
+//                shopid = 120;
+//                status = 0;
+//              };
+//              "order_count" = 1;
 //              phone = 18925232944;
 //              sex = 0;
 //              "user_level" = 0;
 //              userid = 5603d8d417392;
 //              username = Hanton;
-//            }
             
             // 缓存到店信息到数据库
-//        let shopName = StorageManager.sharedInstance().shopNameWithShopID(shopid!)
+            let moc = Persistence.sharedInstance().managedObjectContext
+            let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
+              inManagedObjectContext: moc!) as! ClientArrivalInfo
+            clientArrivalInfo.client?.id = responseObject["userid"] as? String
+            clientArrivalInfo.client?.name = responseObject["username"] as? String
+            clientArrivalInfo.client?.level = responseObject["user_level"] as? NSNumber
+            clientArrivalInfo.client?.phone = (responseObject["phone"] as! NSNumber).stringValue
+            clientArrivalInfo.location?.id = locationID
+            clientArrivalInfo.location?.name = locationName
+            if let order = responseObject["order"] as? [String: AnyObject] {
+              let arrivalDate = order["arrival_date"] as! String
+              let departureDate = order["departure_date"] as! String
+              clientArrivalInfo.order?.roomType = order["room_type"] as? String
+              clientArrivalInfo.order?.arrivalDate = arrivalDate
+              clientArrivalInfo.order?.duration = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
+            }
+            Persistence.sharedInstance().saveContext()
 
-            let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(beaconLocationName)", preferredStyle: .Alert)
+            let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(locationName)", preferredStyle: .Alert)
             alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
             alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: {[unowned self] (action: UIAlertAction!) -> Void in
               if let mainTBC = self.window?.rootViewController as? UITabBarController {

@@ -20,11 +20,11 @@ class Persistence: NSObject {
   
   var managedObjectContext: NSManagedObjectContext? = {
     // Initialize the managed object model
-    let modelURL = NSBundle.mainBundle().URLForResource("SVIP", withExtension: "momd")
+    let modelURL = NSBundle.mainBundle().URLForResource("SuperService", withExtension: "momd")
     let managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL!)
     
     // Initialize the persistent store coordinator
-    let storeURL = Persistence.applicationDocumentsDirectory.URLByAppendingPathComponent("SVIP.sqlite")
+    let storeURL = Persistence.applicationDocumentsDirectory.URLByAppendingPathComponent("SuperService.sqlite")
     var error: NSError? = nil
     let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel!)
     
@@ -81,156 +81,33 @@ class Persistence: NSObject {
     }
   }
   
-  func saveMessage(chatMessage: XHMessage, shopID: String) {
-    let message = NSEntityDescription.insertNewObjectForEntityForName("Message",
-      inManagedObjectContext: self.managedObjectContext!) as! Message
-    message.userID = JSHAccountManager.sharedJSHAccountManager().userid
-    message.shopID = shopID
-    message.avatar = NSData(data: UIImageJPEGRepresentation(chatMessage.avatar, 1)!)
-    message.sender = chatMessage.senderName
-    message.timestamp = Int64(chatMessage.timestamp.timeIntervalSince1970)
-    message.sended = chatMessage.sended
-    message.messageMediaType = Int16(chatMessage.messageMediaType.rawValue)
-    message.bubbleMessageType = Int16(chatMessage.bubbleMessageType.rawValue)
-    message.isRead = chatMessage.isRead
-    switch chatMessage.messageMediaType.rawValue {
-    case XHBubbleMessageMediaType.Photo.rawValue:
-//      message.photo = NSData(data: UIImageJPEGRepresentation(chatMessage.photo, 1)!)
-      message.originPhotoUrl = chatMessage.originPhotoUrl
-      message.thumbnailUrl = chatMessage.thumbnailUrl
-    case XHBubbleMessageMediaType.Voice.rawValue:
-      message.voicePath = chatMessage.voicePath
-      message.voiceDuration = chatMessage.voiceDuration
-    case XHBubbleMessageMediaType.Text.rawValue:
-      message.text = chatMessage.textString
-    case XHBubbleMessageMediaType.Card.rawValue:
-      message.cardTitle = chatMessage.cardTitle
-      message.cardImage = NSData(data: UIImageJPEGRepresentation(chatMessage.cardImage, 0.8)!)
-      message.cardContent = chatMessage.cardContent
-    default:
-      break
-    }
-    saveContext()
-  }
+//  func saveClientArrivalInfoWithClient(client: Client, order: Order?, location: Location) {
+//    let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
+//      inManagedObjectContext: self.managedObjectContext!) as! ClientArrivalInfo
+//    clientArrivalInfo.clientID = client.ID
+//    clientArrivalInfo.clientName = client.name
+//    clientArrivalInfo.clientLevel = client.level
+//    clientArrivalInfo.location = location.name
+//    if let order = order {
+//      clientArrivalInfo.roomType = order.roomType
+//      clientArrivalInfo.duration = order.duration
+//      clientArrivalInfo.arrivalDate = order.arrivalDate
+//    }
+//    saveContext()
+//  }
   
-  func fetchMessagesWithShopID(shopID: String, userID: String, beforeTimeStamp: NSDate) -> NSMutableArray {
-    let fetchRequest = NSFetchRequest(entityName: "Message")
-    fetchRequest.predicate = NSPredicate(format: "shopID = %@ && userID = %@ && timestamp < %lld", argumentArray: [shopID, userID, beforeTimeStamp.timeIntervalSince1970])
+  func fetchClientArrivalInfoArray() -> [ClientArrivalInfo]? {
+    let fetchRequest = NSFetchRequest(entityName: "ClientArrivalInfo")
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
     fetchRequest.fetchLimit = 7
-    var error : NSError?
-    let messages: [AnyObject]?
+    let clientArrivalInfoArray: [ClientArrivalInfo]
     do {
-      messages = try self.managedObjectContext!.executeFetchRequest(fetchRequest)
-    } catch let error1 as NSError {
-      error = error1
-      messages = nil
+      clientArrivalInfoArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as! [ClientArrivalInfo]
+      return clientArrivalInfoArray
+    } catch let error as NSError {
+      print("Fetch failed: \(error.localizedDescription)")
+      return nil
     }
-    if let error = error {
-      print("Something went wrong: \(error.localizedDescription)")
-    }
-    let chatMessages = NSMutableArray()
-    for message in messages as! [Message] {
-      let chatMessage = XHMessage()
-      chatMessage.avatar = UIImage(data: message.avatar)
-      chatMessage.sender = message.sender as! String
-      chatMessage.senderName = message.sender as! String
-      chatMessage.timestamp = NSDate(timeIntervalSince1970: NSTimeInterval(message.timestamp))
-      chatMessage.sended = message.sended.boolValue
-      chatMessage.isRead = message.isRead.boolValue
-      switch Int(message.messageMediaType) {
-      case XHBubbleMessageMediaType.Photo.rawValue:
-        chatMessage.photo = UIImage(data: message.photo)
-        chatMessage.originPhotoUrl = message.originPhotoUrl
-        chatMessage.thumbnailUrl = message.thumbnailUrl
-        chatMessage.messageMediaType = .Photo
-      case XHBubbleMessageMediaType.Voice.rawValue:
-        chatMessage.voicePath = message.voicePath
-        chatMessage.voiceDuration = message.voiceDuration
-        chatMessage.messageMediaType = .Voice
-      case XHBubbleMessageMediaType.Text.rawValue:
-        chatMessage.text = message.text as! String
-        chatMessage.textString = message.text as! String
-        chatMessage.messageMediaType = .Text
-      case XHBubbleMessageMediaType.Card.rawValue:
-        chatMessage.cardTitle = message.cardTitle as String
-        chatMessage.cardImage = UIImage(data: message.cardImage)
-        chatMessage.cardContent = message.cardContent as String
-        chatMessage.messageMediaType = .Card
-      default:
-        break
-      }
-      switch Int(message.bubbleMessageType) {
-      case XHBubbleMessageType.Receiving.rawValue:
-        chatMessage.bubbleMessageType = .Receiving
-      case XHBubbleMessageType.Sending.rawValue:
-        chatMessage.bubbleMessageType = .Sending
-      default:
-        break
-      }
-      chatMessages.addObject(chatMessage)
-    }
-    let sort = NSSortDescriptor(key: "timestamp", ascending: true)
-    chatMessages.sortUsingDescriptors([sort])
-    return chatMessages
-  }
-  
-  func fetchLastMessageWithShopID(shopID: String, userID: String) -> XHMessage? {
-    let fetchRequest = NSFetchRequest(entityName: "Message")
-    fetchRequest.predicate = NSPredicate(format: "shopID = %@ && userID = %@", argumentArray: [shopID, userID])
-    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
-    fetchRequest.fetchLimit = 1
-    var error : NSError?
-    let messages: [AnyObject]?
-    do {
-      messages = try self.managedObjectContext!.executeFetchRequest(fetchRequest)
-    } catch let error1 as NSError {
-      error = error1
-      messages = nil
-    }
-    if let error = error {
-      print("Something went wrong: \(error.localizedDescription)")
-    }
-    
-    if let message = messages?.first as? Message {
-      let chatMessage = XHMessage()
-      chatMessage.avatar = UIImage(data: message.avatar)
-      chatMessage.sender = message.sender as! String
-      chatMessage.senderName = message.sender as! String
-      chatMessage.timestamp = NSDate(timeIntervalSince1970: NSTimeInterval(message.timestamp))
-      chatMessage.sended = message.sended.boolValue
-      chatMessage.isRead = message.isRead.boolValue
-      switch Int(message.messageMediaType) {
-      case XHBubbleMessageMediaType.Photo.rawValue:
-        chatMessage.photo = UIImage(data: message.photo)
-        chatMessage.messageMediaType = .Photo
-      case XHBubbleMessageMediaType.Voice.rawValue:
-        chatMessage.voicePath = message.voicePath
-        chatMessage.voiceDuration = message.voiceDuration
-        chatMessage.messageMediaType = .Voice
-      case XHBubbleMessageMediaType.Text.rawValue:
-        chatMessage.text = message.text as! String
-        chatMessage.textString = message.text as! String
-        chatMessage.messageMediaType = .Text
-      case XHBubbleMessageMediaType.Card.rawValue:
-        chatMessage.cardTitle = message.cardTitle as String
-        chatMessage.cardImage = UIImage(data: message.cardImage)
-        chatMessage.cardContent = message.cardContent as String
-        chatMessage.messageMediaType = .Card
-      default:
-        break
-      }
-      switch Int(message.bubbleMessageType) {
-      case XHBubbleMessageType.Receiving.rawValue:
-        chatMessage.bubbleMessageType = .Receiving
-      case XHBubbleMessageType.Sending.rawValue:
-        chatMessage.bubbleMessageType = .Sending
-      default:
-        break
-      }
-      return chatMessage
-    }
-    return nil
   }
   
 }

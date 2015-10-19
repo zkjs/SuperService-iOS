@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Location: NSObject {
+class LocationModel: NSObject {
 
   var ID = ""
   var name = ""

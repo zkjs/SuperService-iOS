@@ -31,7 +31,7 @@ import UIKit
 //  status = 0;
 //};
 
-class Order: NSObject {
+class OrderModel: NSObject {
 
   var roomCount: NSNumber = 0
   var paymentType: NSNumber = 0

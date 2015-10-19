@@ -15,7 +15,7 @@ import UIKit
 //userid = 5603d8d417392;
 //username = Hanton;
 
-class Client: NSObject {
+class ClientModel: NSObject {
 
   var ID = ""
   var name = ""

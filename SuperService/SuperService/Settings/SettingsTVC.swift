@@ -9,7 +9,16 @@
 import UIKit
 
 class SettingsTVC: UITableViewController {
-    
+  
+  @IBOutlet weak var avatarImageView: UIImageView! {
+    didSet {
+      avatarImageView.layer.masksToBounds = true
+      avatarImageView.layer.cornerRadius = 40
+    }
+  }
+  @IBOutlet weak var userNameLabel: UILabel!
+  @IBOutlet weak var shopNameLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -18,15 +27,26 @@ class SettingsTVC: UITableViewController {
     tableView.tableFooterView = UIView()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    userNameLabel.text = AccountManager.sharedInstance().userName
+    shopNameLabel.text = AccountManager.sharedInstance().shopName
+    let userID = AccountManager.sharedInstance().userID
+    var url = NSURL(string: kBaseURL)
+    url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
+    avatarImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+  }
+  
   
   // MARK: - Table View Data Source
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    let statusIndexPath = NSIndexPath(forRow: 2, inSection: 0)
-    if indexPath == statusIndexPath {
-      return 0
+    let logoutIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+    if indexPath == logoutIndexPath {
+      return 60
     }
-    return 60
+    return 0
   }
   
   

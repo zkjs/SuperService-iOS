@@ -10,6 +10,12 @@ import UIKit
 
 class ArrivalCell: UITableViewCell {
   
+  @IBOutlet weak var avatarImageView: UIButton! {
+    didSet {
+      avatarImageView.layer.masksToBounds = true
+      avatarImageView.layer.cornerRadius = 20
+    }
+  }
   @IBOutlet weak var topLineImageView: UIImageView!
   @IBOutlet weak var clientInfoLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
@@ -70,8 +76,15 @@ class ArrivalCell: UITableViewCell {
       if let name = client.name {
         userName = name
       }
+      
       if let phone = client.phone {
         self.phone = phone
+      }
+      
+      if let userID = client.id {
+        var url = NSURL(string: kBaseURL)
+        url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
+        avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
       }
     }
     clientInfoLabel.text = userLevel + " " + userName

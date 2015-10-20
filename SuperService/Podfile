@@ -4,6 +4,7 @@
 #use_frameworks!
 
 target 'SuperService' do
+  pod 'SDWebImage', :inhibit_warnings => true
   pod 'DateTools'
   pod 'SocketRocket', :inhibit_warnings => true
   pod 'AFNetworking', :inhibit_warnings => true

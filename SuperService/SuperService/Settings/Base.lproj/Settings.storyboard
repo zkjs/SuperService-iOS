@@ -235,12 +235,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ozx-Yq-q52"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="Jce-Ad-asV" id="1Dz-DM-kFA"/>
+                        <outlet property="shopNameLabel" destination="Xet-oL-hDL" id="24o-ev-P9E"/>
                         <outlet property="tableView" destination="a0X-zt-POW" id="3x3-jR-bDG"/>
+                        <outlet property="userNameLabel" destination="SfC-ab-9qP" id="mzF-HJ-wEK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3XF-Wh-F2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1679" y="3249"/>
+            <point key="canvasLocation" x="1677" y="3171"/>
         </scene>
     </scenes>
     <resources>

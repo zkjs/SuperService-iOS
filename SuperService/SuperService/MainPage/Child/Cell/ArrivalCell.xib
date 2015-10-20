@@ -114,19 +114,13 @@
                                 </constraints>
                                 <state key="normal" image="ic_zhuanfa"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-qv-urQ" userLabel="Avatar Button">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-qv-urQ" userLabel="Avatar Button">
                                 <rect key="frame" x="8" y="8" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="4Sh-Sz-6BU"/>
                                     <constraint firstAttribute="height" constant="40" id="Nwc-Lv-tJW"/>
                                 </constraints>
                                 <state key="normal" image="img_hotel_zhanwei"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,6 +185,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="avatarImageView" destination="PSV-qv-urQ" id="Dnu-cR-QYH"/>
                 <outlet property="clientInfoLabel" destination="uII-aj-A9K" id="gi5-g3-LIn"/>
                 <outlet property="infoLabel" destination="EeG-bp-zZn" id="cVd-sZ-GC3"/>
                 <outlet property="locationLabel" destination="xJI-lb-VRW" id="KZY-pV-cU5"/>

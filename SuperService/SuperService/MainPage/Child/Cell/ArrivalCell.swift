@@ -17,6 +17,9 @@ class ArrivalCell: UITableViewCell {
   @IBOutlet weak var timeAgoLabel: UILabel!
   @IBOutlet weak var orderButton: UIButton!
   
+  var phone = ""
+  
+  
   class func reuseIdentifier() -> String {
     return "ArrivalCell"
   }
@@ -38,6 +41,67 @@ class ArrivalCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
+  }
+  
+  
+  // MARK: - Button Action
+  
+  @IBAction func makePhoneCall(sender: AnyObject) {
+    let phoneURL = NSURL(string: "tel://\(phone)")
+    UIApplication.sharedApplication().openURL(phoneURL!)
+  }
+  
+  
+  // MARK: - Private
+  
+  func setData(data: ClientArrivalInfo) {
+    var userLevel = ""
+    var userName = ""
+    var userLocation = ""
+    
+    // 客户信息
+    if let client = data.client {
+      if let level = client.level {
+        userLevel = "VIP\((level.integerValue + 1))"
+      } else {
+        userLevel = "新客户"
+      }
+      
+      if let name = client.name {
+        userName = name
+      }
+      if let phone = client.phone {
+        self.phone = phone
+      }
+    }
+    clientInfoLabel.text = userLevel + " " + userName
+    
+    
+    // 客户位置信息
+    if let location = data.location {
+      userLocation = location.name!
+    }
+    locationLabel.text = "到达\(userLocation)"
+    
+    // 订单信息
+    if let order = data.order {
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd"
+      let arrivalDate = dateFormatter.dateFromString(order.arrivalDate!)
+      dateFormatter.dateFormat = "M/dd"
+      let arrivalDateString = dateFormatter.stringFromDate(arrivalDate!)
+      let orderInfo = "\(order.roomType!) | \(order.duration!)晚 | \(arrivalDateString)入住"
+      orderButton.setTitle(orderInfo, forState: .Normal)
+    } else {
+      orderButton.setTitle("无订单", forState: .Normal)
+    }
+    
+    // 多久以前
+    if let timeAgoDate = data.timestamp {
+      timeAgoLabel.text = timeAgoDate.timeAgoSinceNow()
+    }
+    
+    infoLabel.text = "请准备好为其服务"
   }
   
 }

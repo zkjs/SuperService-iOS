@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     customizeTabBar()
     setupNotification()
     setupTCPSessionManager()
-    
-//    let timeAgoDate = NSDate(timeIntervalSinceNow: -90)
-//    print(timeAgoDate.timeAgoSinceNow())
-    
     return true
   }
 
@@ -129,25 +125,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
             let moc = Persistence.sharedInstance().managedObjectContext
             let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
               inManagedObjectContext: moc!) as! ClientArrivalInfo
-            clientArrivalInfo.client?.id = responseObject["userid"] as? String
-            clientArrivalInfo.client?.name = responseObject["username"] as? String
-            clientArrivalInfo.client?.level = responseObject["user_level"] as? NSNumber
-            clientArrivalInfo.client?.phone = (responseObject["phone"] as! NSNumber).stringValue
-            clientArrivalInfo.location?.id = locationID
-            clientArrivalInfo.location?.name = locationName
-            if let order = responseObject["order"] as? [String: AnyObject] {
-              let arrivalDate = order["arrival_date"] as! String
-              let departureDate = order["departure_date"] as! String
-              clientArrivalInfo.order?.roomType = order["room_type"] as? String
-              clientArrivalInfo.order?.arrivalDate = arrivalDate
-              clientArrivalInfo.order?.duration = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
+            // 客户信息
+            let client = NSEntityDescription.insertNewObjectForEntityForName("Client",
+              inManagedObjectContext: moc!) as! Client
+            client.id = responseObject["userid"] as? String
+            client.name = responseObject["username"] as? String
+            client.level = responseObject["user_level"] as? NSNumber
+            client.phone = (responseObject["phone"] as! NSNumber).stringValue
+            clientArrivalInfo.client = client
+            // 位置信息
+            let location = NSEntityDescription.insertNewObjectForEntityForName("Location",
+              inManagedObjectContext: moc!) as! Location
+            location.id = locationID
+            location.name = locationName
+            clientArrivalInfo.location = location
+            // 订单信息
+            if let orderInfo = responseObject["order"] as? [String: AnyObject] {
+              let arrivalDate = orderInfo["arrival_date"] as! String
+              let departureDate = orderInfo["departure_date"] as! String
+              let order = NSEntityDescription.insertNewObjectForEntityForName("Order",
+                inManagedObjectContext: moc!) as! Order
+              order.roomType = orderInfo["room_type"] as? String
+              order.arrivalDate = arrivalDate
+              let days = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
+              if days == 0 {
+                order.duration = 1  // 当天走的也算一天
+              } else if days > 0 {
+                order.duration = days
+              } else {
+                order.duration = 0
+              }
+              clientArrivalInfo.order = order
             }
+            clientArrivalInfo.timestamp = NSDate()
             Persistence.sharedInstance().saveContext()
 
             let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(locationName)", preferredStyle: .Alert)
             alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
             alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: {[unowned self] (action: UIAlertAction!) -> Void in
-              if let mainTBC = self.window?.rootViewController as? UITabBarController {
+              if let mainTBC = self.window?.rootViewController as? MainTBC {
                 // 跳转到主页
                 mainTBC.selectedIndex = 0
                 if let navigationController = mainTBC.childViewControllers.first as? UINavigationController {
@@ -158,6 +174,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
                     navigationController.tabBarItem.badgeValue = nil
                     // App角标置0
                     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+                    
+                    if let arrivatTVC = mainPageVC.pagerTabStripChildViewControllers.first as? ArrivalTVC {
+                      arrivatTVC.refresh()
+                    }
                   }
                 }
               }

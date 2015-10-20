@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.swift
 //  SuperService
 //
-//  Created by Hanton on 10/19/15.
+//  Created by Hanton on 10/20/15.
 //  Copyright © 2015 ZKJS. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

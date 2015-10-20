@@ -2,7 +2,7 @@
 //  ClientArrivalInfo+CoreDataProperties.swift
 //  SuperService
 //
-//  Created by Hanton on 10/19/15.
+//  Created by Hanton on 10/20/15.
 //  Copyright © 2015 ZKJS. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,8 +15,8 @@ import CoreData
 extension ClientArrivalInfo {
 
     @NSManaged var timestamp: NSDate?
-    @NSManaged var order: Order?
     @NSManaged var client: Client?
     @NSManaged var location: Location?
+    @NSManaged var order: Order?
 
 }

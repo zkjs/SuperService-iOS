@@ -10,6 +10,9 @@ import UIKit
 
 class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   
+  var dataArray: [ClientArrivalInfo]?
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -19,10 +22,28 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    refresh()
   }
+  
+  
+  // MARK: - Public
+  
+  func refresh() {
+    loadData()
+    tableView.reloadData()
+  }
+  
+  
+  // MARK: - Private
+  
+  func loadData() {
+    dataArray = Persistence.sharedInstance().fetchClientArrivalInfoArray()
+    print(dataArray?.count)
+  }
+  
   
   // MARK: - XLPagerTabStripChildItem Delegate
   
@@ -34,14 +55,12 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     return UIColor.whiteColor()
   }
   
+  
   // MARK: - Table view data source
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
-  }
-  
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    guard let data = dataArray else { return 0}
+    return data.count
   }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -57,6 +76,9 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     } else {
       cell.topLineImageView.hidden = false
     }
+    
+    let data = dataArray![indexPath.row]
+    cell.setData(data)
     
     return cell
   }

@@ -2,7 +2,7 @@
 //  Order+CoreDataProperties.swift
 //  SuperService
 //
-//  Created by Hanton on 10/19/15.
+//  Created by Hanton on 10/20/15.
 //  Copyright © 2015 ZKJS. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,9 +14,9 @@ import CoreData
 
 extension Order {
 
+    @NSManaged var arrivalDate: String?
     @NSManaged var duration: NSNumber?
     @NSManaged var roomType: String?
-    @NSManaged var arrivalDate: String?
     @NSManaged var clientArrivalInfo: ClientArrivalInfo?
 
 }

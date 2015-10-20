@@ -2,7 +2,7 @@
 //  Client+CoreDataProperties.swift
 //  SuperService
 //
-//  Created by Hanton on 10/19/15.
+//  Created by Hanton on 10/20/15.
 //  Copyright © 2015 ZKJS. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,8 +15,8 @@ import CoreData
 extension Client {
 
     @NSManaged var id: String?
-    @NSManaged var name: String?
     @NSManaged var level: NSNumber?
+    @NSManaged var name: String?
     @NSManaged var phone: String?
     @NSManaged var clientArrivalInfo: ClientArrivalInfo?
 

@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +62,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>080741DA9DF08E4922477053D64140F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E73618BB653E875BBC00EF1DF4466BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3AD2938DB463C106CF80B17E6A58D7F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>47F0D2A3C336C08E04192ED31CBCD266</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>65C19E454B11B788C78F31396777FD61</key>
+		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>930D4FB1D158C93B703BDB8108F406AA</key>
+		<key>93DD4231969E3017B6933BCB02FD5981</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5412CFF99B35840B82CB759DD98B651</key>
+		<key>D791B4F6696F3B3D8335B74F522D8923</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F1AFAA94BF0244256552BB4FB06961D7</key>
+		<key>F1D3D46BAD4817039ADD2FC2BDF98B2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

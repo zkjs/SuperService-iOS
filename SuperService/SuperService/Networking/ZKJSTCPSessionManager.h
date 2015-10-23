@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, MessageIMType) {
 
 //自定义用户协议
 typedef NS_ENUM(NSInteger, MessageUserDefineType) {
-  MessageUserDefineClientArrival = 0,
+  MessageUserDefineClientArrival = 1006,
 };
 
 @protocol TCPSessionManagerDelegate;

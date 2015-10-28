@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DateTools.xcscheme</key>
+		<key>ChameleonFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HexColors.xcscheme</key>
+		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,17 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>08C4E07ABA62F1D7FA899F95102D424B</key>
+		<key>0184CC1AD194B6C6ECC7E96C764D7C90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0FADBF7D9F96D03724B50CAAB991A700</key>
+		<key>2359FF6AB141244CAE82DCC8F8A9B213</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18D056A780980154E384DA49198EB7EB</key>
+		<key>32679E08191F7437917AD00BA375708C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4795BA9F1AFB729CE1F7455228116FEC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68405556BC9698513E3FCEE6E709236A</key>
+		<key>5E3AAB39FDD0A742D364A2C43958C706</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>865D7B02C3DD08390810A1C9B273B9A5</key>
+		<key>5E3D6D8D1D7B72DA04EBF42683132FA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +117,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8D07BC7486B66437D259A4F113635324</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>94F7F189F3302603E3064AD0A6552133</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7E453761245DAE554304F2BC953DD11</key>
+		<key>EF5D707AD27511E3ABB02B3D2D2AF64F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A836D5B05DC3A4291C59AE532F0E53E4</key>
+		<key>F67298B8CDFDECFBEB7D20EE72FF1F21</key>
 		<dict>
 			<key>primary</key>
 			<true/>

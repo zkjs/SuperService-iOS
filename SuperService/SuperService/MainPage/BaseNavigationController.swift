@@ -23,6 +23,7 @@ class BaseNavigationController: UINavigationController {
     navigationBar.barStyle = UIBarStyle.Black
     navigationBar.translucent = false
     navigationBar.barTintColor = UIColor(hexString: "03A9F4")
+    navigationBar.tintColor = UIColor.whiteColor()
   }
   
 }

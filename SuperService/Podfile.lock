@@ -20,8 +20,10 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ChameleonFramework (2.0.4):
+    - ChameleonFramework/Default (= 2.0.4)
+  - ChameleonFramework/Default (2.0.4)
   - DateTools (1.7.0)
-  - HexColors (2.3.0)
   - JCTagListView (0.0.4)
   - MBProgressHUD (0.9.1)
   - MJRefresh (2.4.12)
@@ -34,8 +36,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - ChameleonFramework
   - DateTools
-  - HexColors
   - JCTagListView
   - MBProgressHUD
   - MJRefresh
@@ -46,8 +48,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
   JCTagListView: e267bb1e2f44555093d4d5ff5b95939c12ebd5ad
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44

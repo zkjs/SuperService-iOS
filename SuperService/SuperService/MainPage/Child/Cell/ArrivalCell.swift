@@ -22,6 +22,7 @@ class ArrivalCell: UITableViewCell {
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var timeAgoLabel: UILabel!
   @IBOutlet weak var orderButton: UIButton!
+  @IBOutlet weak var statusImageView: UIImageView!
   
   var phone = ""
   
@@ -114,7 +115,11 @@ class ArrivalCell: UITableViewCell {
       timeAgoLabel.text = timeAgoDate.timeAgoSinceNow()
     }
     
+    // 提示信息
     infoLabel.text = "请准备好为其服务"
+    
+    // 随机颜色的小图标
+    statusImageView.backgroundColor = UIColor(randomFlatColorOfShadeStyle: .Light)
   }
   
 }

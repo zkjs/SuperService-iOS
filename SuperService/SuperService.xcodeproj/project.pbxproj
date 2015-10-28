@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2363C6938E05EA78FB222F /* libPods-SuperService.a */; };
 		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; };
 		404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */; };
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
@@ -86,6 +85,7 @@
 		40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7577E1BE055A80053C2BE /* TeamListVC.swift */; };
 		40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F7577F1BE055A80053C2BE /* TeamListVC.xib */; };
 		40F757861BE055A80053C2BE /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757801BE055A80053C2BE /* TeamModel.swift */; };
+		63E28326BA769F2D61252D8F /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A119745E721FAE26747D6D /* libPods-SuperService.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +106,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E2363C6938E05EA78FB222F /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
 		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -202,6 +201,7 @@
 		40F7577F1BE055A80053C2BE /* TeamListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamListVC.xib; sourceTree = "<group>"; };
 		40F757801BE055A80053C2BE /* TeamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
 		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
+		E7A119745E721FAE26747D6D /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */,
+				63E28326BA769F2D61252D8F /* libPods-SuperService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +498,7 @@
 		AC027541ADA26D63AB53B25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0E2363C6938E05EA78FB222F /* libPods-SuperService.a */,
+				E7A119745E721FAE26747D6D /* libPods-SuperService.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

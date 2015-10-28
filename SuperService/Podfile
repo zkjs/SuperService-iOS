@@ -4,6 +4,7 @@
 #use_frameworks!
 
 target 'SuperService' do
+  pod 'ChameleonFramework'
   pod 'MJRefresh'
   pod 'JCTagListView'
   pod 'SDWebImage', :inhibit_warnings => true
@@ -12,7 +13,7 @@ target 'SuperService' do
   pod 'AFNetworking', :inhibit_warnings => true
   pod 'XLPagerTabStrip', :inhibit_warnings => true
   pod 'MBProgressHUD'
-  pod 'HexColors'
+#  pod 'HexColors'
   pod 'WPMediaPicker', :inhibit_warnings => true
 #  pod 'TKAnimatedCheckButton'
 end

@@ -114,13 +114,21 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     
     let order = orderArray[indexPath.row]
     cell.setData(order)
+    cell.orderButton.tag = indexPath.row
+    cell.orderButton.addTarget(self, action: "showOrder:", forControlEvents: .TouchUpInside)
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  
+  // MARK: - Button Action
+  
+  func showOrder(sender: UIButton) {
+    // 正在刷新时点击无效
+    if orderArray.count == 0 {
+      return
+    }
     
-    let order = orderArray[indexPath.row]
+    let order = orderArray[sender.tag]
     let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
     let vc = storyboard.instantiateViewControllerWithIdentifier("OrderDetailVC") as! OrderDetailTVC
     vc.order = order

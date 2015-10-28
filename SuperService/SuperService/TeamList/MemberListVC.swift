@@ -30,10 +30,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
   
   func getMemberListData() {
-    let userID = AccountManager.sharedInstance().userID
-    let token = AccountManager.sharedInstance().token
-    let shopID = AccountManager.sharedInstance().shopID
-    ZKJSHTTPSessionManager.sharedInstance().getMemberListWithUserID(userID, token: token, shopID: shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().getMemberListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [MemberModel]()
         for dic in array{
@@ -103,10 +100,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     return addmemberButton
   }
   func AddDepartment(sender:UIButton) {
-    let userID = AccountManager.sharedInstance().userID
-    let token = AccountManager.sharedInstance().token
-    let shopID = AccountManager.sharedInstance().shopID
-    ZKJSHTTPSessionManager.sharedInstance().addDepartmentWithuserID(userID, shopID: shopID, token: token, dept: newDepartment.text, success: { (task:NSURLSessionDataTask!, responObject:AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().addDepartmentWithDepartment(newDepartment.text, success: { (task:NSURLSessionDataTask!, responObject:AnyObject!) -> Void in
       let dic = responObject as! [String: AnyObject]
       if let set = dic["set"] as? Bool {
         if set == true {

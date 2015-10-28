@@ -69,11 +69,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
     self.tableView.reloadData()
   }
   func loadData() {
-    let salesID = AccountManager.sharedInstance().userID
-    let token = AccountManager.sharedInstance().token
-    let shopID = AccountManager.sharedInstance().shopID
-    
-    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSalesID(salesID, token: token, shopID: shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [TeamModel]()
         for dic in array {

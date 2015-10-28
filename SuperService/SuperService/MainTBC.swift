@@ -16,6 +16,8 @@ class MainTBC: UITabBarController {
     if AccountManager.sharedInstance().userID.isEmpty == false {
       ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
     }
+    
+    setupView()
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -37,6 +39,10 @@ class MainTBC: UITabBarController {
     nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     nv.navigationBar.translucent = false
     presentViewController(nv, animated: true, completion: nil)
+  }
+  
+  private func setupView() {
+    tabBar.tintColor = UIColor(hexString: "03A9F4")
   }
   
 }

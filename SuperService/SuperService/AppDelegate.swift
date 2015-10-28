@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     customizeWindow()
-    customizeTabBar()
     setupNotification()
     setupTCPSessionManager()
     setupWindows()
@@ -199,12 +198,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     window?.layer.masksToBounds = true
   }
   
-  private func customizeTabBar() {
-    let attribute = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-    UITabBarItem.appearance().setTitleTextAttributes(attribute, forState: UIControlState.Normal)
-    UITabBarItem.appearance().titlePositionAdjustment = UIOffsetMake(0.0, -2.0)
-  }
-  
   private func setupNotification() {
     let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
     UIApplication.sharedApplication().registerUserNotificationSettings(settings)
@@ -252,7 +245,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     
     let tabs = MainTBC()
     tabs.viewControllers = [nav1,nav2,nav3,nav4]
-    UITabBar.appearance().barTintColor = UIColor(hexString: "03A9F4")
     window!.rootViewController = tabs
     window?.makeKeyAndVisible()
   }

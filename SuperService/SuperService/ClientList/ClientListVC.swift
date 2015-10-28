@@ -77,14 +77,8 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     self.tableView.reloadData()
   }
   
-  func loadData() {
-    
-    
-    let userID = AccountManager.sharedInstance().userID
-    let shopID = AccountManager.sharedInstance().shopID
-    let token = AccountManager.sharedInstance().token
-    
-    ZKJSHTTPSessionManager.sharedInstance().getClientListWithUserID(userID, token: token, shopID: shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+  func loadData() { 
+    ZKJSHTTPSessionManager.sharedInstance().getClientListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [ClientModel]()
         for dic in array{

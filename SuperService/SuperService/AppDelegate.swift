@@ -83,13 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
         guard let locationID = userInfo["locid"] as? String else { return }
         guard let locationName = userInfo["locdesc"] as? String else { return }
         
-        let userID = AccountManager.sharedInstance().userID
-        let token = AccountManager.sharedInstance().token
-        let shopID = AccountManager.sharedInstance().shopID
-        ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithUserID(userID,
-          token: token,
-          clientID: clientID,
-          shopID: shopID,
+        ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
           success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
 //            {
 //              order =     {
@@ -242,6 +236,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   
   // MARK: - TCPSessionManagerDelegate
+  
   func didOpenTCPSocket() {
     // 端口连接后发登陆包
     let userID = AccountManager.sharedInstance().userID
@@ -249,7 +244,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     let deviceToken = AccountManager.sharedInstance().deviceToken
     let shopID = AccountManager.sharedInstance().shopID
     let beaconLocationIDs = AccountManager.sharedInstance().beaconLocationIDs
-    if !userID.isEmpty {
+    if userID.isEmpty == false {
       ZKJSTCPSessionManager.sharedInstance().loginWithUserID(userID,
         userName: userName,
         deviceToken: deviceToken,

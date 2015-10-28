@@ -44,35 +44,24 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     tableView.tableFooterView = UIView()
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
   func loadData() {
-    let salesID = AccountManager.sharedInstance().userID
-    let token = AccountManager.sharedInstance().token
-    let shopID = AccountManager.sharedInstance().shopID
-    
-    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSalesID(salesID, token: token, shopID: shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [TeamModel]()
         for dic in array {
           let team = TeamModel(dic: dic as! [String:AnyObject])
           datasource.append(team)
-          
         }
-        
         self.teamArray = datasource
-       
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
     }
   }
   
+  
   // MARK: - Table View Data Source
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return sections.count
   }
@@ -130,16 +119,5 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
-  
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
   
 }

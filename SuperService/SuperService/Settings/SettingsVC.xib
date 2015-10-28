@@ -53,6 +53,7 @@
                     <exclude reference="voq-Cf-DTB"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="426" y="472"/>
         </view>
     </objects>
 </document>

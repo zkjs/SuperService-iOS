@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,RefreshTeamListVCDelegate{
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -42,26 +42,55 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let nibName = UINib(nibName: TeamListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
+    let  add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+      target: self, action: "AddMemberBtn:")
+    
+    self.navigationItem.rightBarButtonItem = add_clientButton
+  
   }
   
+  func AddMemberBtn(sender: UIButton) {
+    let vc = AddMemberVC()
+    vc.delegate = self
+    self.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
+    self.hidesBottomBarWhenPushed = false
+  
+  }
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  //RefreshTeamListVCDelegate
+  func RefreshTeamListTableView(set: [String : AnyObject],memberModel:TeamModel) {
+    let member = memberModel
+    self.teamArray.append(member)
+    self.tableView.reloadData()
+  }
   func loadData() {
-    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    let salesID = AccountManager.sharedInstance().userID
+    let token = AccountManager.sharedInstance().token
+    let shopID = AccountManager.sharedInstance().shopID
+    
+    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSalesID(salesID, token: token, shopID: shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [TeamModel]()
         for dic in array {
           let team = TeamModel(dic: dic as! [String:AnyObject])
           datasource.append(team)
+          
         }
+        
         self.teamArray = datasource
+      
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
     }
   }
   
-  
   // MARK: - Table View Data Source
-  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return sections.count
   }
@@ -119,5 +148,16 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
+  
+  
+  /*
+  // MARK: - Navigation
+  
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  // Get the new view controller using segue.destinationViewController.
+  // Pass the selected object to the new view controller.
+  }
+  */
   
 }

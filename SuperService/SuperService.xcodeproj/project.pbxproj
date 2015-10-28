@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2363C6938E05EA78FB222F /* libPods-SuperService.a */; };
 		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; };
 		404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */; };
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
@@ -85,7 +86,13 @@
 		40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7577E1BE055A80053C2BE /* TeamListVC.swift */; };
 		40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F7577F1BE055A80053C2BE /* TeamListVC.xib */; };
 		40F757861BE055A80053C2BE /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757801BE055A80053C2BE /* TeamModel.swift */; };
-		63E28326BA769F2D61252D8F /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A119745E721FAE26747D6D /* libPods-SuperService.a */; };
+		842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659401BE09C31005E82F2 /* MemberListVC.swift */; settings = {ASSET_TAGS = (); }; };
+		842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659411BE09C31005E82F2 /* MemberListVC.xib */; settings = {ASSET_TAGS = (); }; };
+		842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659441BE09FCF005E82F2 /* MemberListCell.swift */; settings = {ASSET_TAGS = (); }; };
+		842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659451BE09FCF005E82F2 /* MemberListCell.xib */; settings = {ASSET_TAGS = (); }; };
+		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; settings = {ASSET_TAGS = (); }; };
+		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; settings = {ASSET_TAGS = (); }; };
+		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +113,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E2363C6938E05EA78FB222F /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
 		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -201,7 +209,13 @@
 		40F7577F1BE055A80053C2BE /* TeamListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamListVC.xib; sourceTree = "<group>"; };
 		40F757801BE055A80053C2BE /* TeamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
 		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
-		E7A119745E721FAE26747D6D /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		842659401BE09C31005E82F2 /* MemberListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListVC.swift; sourceTree = "<group>"; };
+		842659411BE09C31005E82F2 /* MemberListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberListVC.xib; sourceTree = "<group>"; };
+		842659441BE09FCF005E82F2 /* MemberListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListCell.swift; sourceTree = "<group>"; };
+		842659451BE09FCF005E82F2 /* MemberListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberListCell.xib; sourceTree = "<group>"; };
+		842659481BE0A216005E82F2 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
+		844E329B1BE065810024C678 /* AddMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberVC.swift; sourceTree = "<group>"; };
+		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63E28326BA769F2D61252D8F /* libPods-SuperService.a in Frameworks */,
+				3175EAD7235B75267AF1FCAC /* libPods-SuperService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +276,10 @@
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
 				408423121BC68EB000C215CD /* MessageTVC.swift */,
 				408423131BC68EB000C215CD /* MessageTVC.xib */,
+				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
+				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
 				40F757541BE054550053C2BE /* OrderTVC.swift */,
 				40F757551BE054550053C2BE /* OrderTVC.xib */,
-				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
-				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 			);
 			path = Child;
 			sourceTree = "<group>";
@@ -445,11 +459,9 @@
 		40F1BA7F1BC7FBB7006C2B41 /* TeamList */ = {
 			isa = PBXGroup;
 			children = (
-				40F7577C1BE055A80053C2BE /* TeamListCell.swift */,
-				40F7577D1BE055A80053C2BE /* TeamListCell.xib */,
-				40F7577E1BE055A80053C2BE /* TeamListVC.swift */,
-				40F7577F1BE055A80053C2BE /* TeamListVC.xib */,
-				40F757801BE055A80053C2BE /* TeamModel.swift */,
+				8426594C1BE0BED2005E82F2 /* Model */,
+				8426594A1BE0BE8A005E82F2 /* ViewController */,
+				8426594B1BE0BEA9005E82F2 /* Cell */,
 			);
 			path = TeamList;
 			sourceTree = "<group>";
@@ -495,10 +507,43 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		8426594A1BE0BE8A005E82F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				40F7577E1BE055A80053C2BE /* TeamListVC.swift */,
+				40F7577F1BE055A80053C2BE /* TeamListVC.xib */,
+				844E329B1BE065810024C678 /* AddMemberVC.swift */,
+				844E329C1BE065810024C678 /* AddMemberVC.xib */,
+				842659401BE09C31005E82F2 /* MemberListVC.swift */,
+				842659411BE09C31005E82F2 /* MemberListVC.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8426594B1BE0BEA9005E82F2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				40F7577C1BE055A80053C2BE /* TeamListCell.swift */,
+				40F7577D1BE055A80053C2BE /* TeamListCell.xib */,
+				842659441BE09FCF005E82F2 /* MemberListCell.swift */,
+				842659451BE09FCF005E82F2 /* MemberListCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		8426594C1BE0BED2005E82F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40F757801BE055A80053C2BE /* TeamModel.swift */,
+				842659481BE0A216005E82F2 /* MemberModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		AC027541ADA26D63AB53B25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E7A119745E721FAE26747D6D /* libPods-SuperService.a */,
+				0E2363C6938E05EA78FB222F /* libPods-SuperService.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -638,6 +683,9 @@
 				4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */,
 				40F757461BE054160053C2BE /* AddClientVC.xib in Resources */,
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
+				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
+				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
+				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
 				40F7575D1BE0546A0053C2BE /* OrderCell.xib in Resources */,
 				405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */,
 				4084230D1BC68E8600C215CD /* MessageCell.xib in Resources */,
@@ -723,9 +771,11 @@
 				404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */,
 				40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */,
 				40F757451BE054160053C2BE /* AddClientVC.swift in Sources */,
+				842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */,
 				40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
+				842659491BE0A216005E82F2 /* MemberModel.swift in Sources */,
 				40F757491BE054160053C2BE /* ClientListVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
 				40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */,
@@ -734,8 +784,10 @@
 				4068A2D81BBBB4BF00FF8608 /* SelectEmployeeCell.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,
+				842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */,
 				4068A2C91BBBAF3500FF8608 /* AdminLoginVC.swift in Sources */,
 				4068A2DC1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift in Sources */,
+				844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */,
 				4068A2D11BBBB10700FF8608 /* AdminRegisterUserGuideVC.swift in Sources */,
 				4068A2CD1BBBB06800FF8608 /* AdminRegisterInfoVC.swift in Sources */,
 				40F7576C1BE0553E0053C2BE /* InformCell.swift in Sources */,

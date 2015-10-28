@@ -190,4 +190,61 @@
   }];
 }
 
+#pragma mark - 新建成员
+- (void)addMemberWithUserID:(NSString *)userID token:(NSString *)token shopID:(NSString *)shopID phone:(NSString *)phone name:(NSString *)name roleid:(NSString *)roleid email:(NSString *)email dept:(NSString *)dept desc:(NSString *)desc success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"shop/add" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+   [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[token dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+    [formData appendPartWithFormData:[name dataUsingEncoding:NSUTF8StringEncoding] name:@"name"];
+    [formData appendPartWithFormData:[roleid dataUsingEncoding:NSUTF8StringEncoding] name:@"roleid"];
+    [formData appendPartWithFormData:[email dataUsingEncoding:NSUTF8StringEncoding] name:@"email"];
+    [formData appendPartWithFormData:[dept dataUsingEncoding:NSUTF8StringEncoding] name:@"dept"];
+    [formData appendPartWithFormData:[desc dataUsingEncoding:NSUTF8StringEncoding] name:@"desc"];
+  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+    NSLog(@"==%@",[responseObject description]);
+    success(task,responseObject);
+  } failure:^(NSURLSessionDataTask *  task, NSError * error) {
+    NSLog(@"%@",error.description);
+    failure(task,error);
+  }];
+}
+
+#pragma mark - 获取部门列表
+
+- (void)getMemberListWithUserID:(NSString *)userID token:(NSString *)token shopID:(NSString *)shopID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"shop/deptlist" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[token dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    
+    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"部门列表==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 新增部门
+- (void)addDepartmentWithuserID:(NSString *)userID shopID:(NSString *)shopID token:(NSString *)token dept:(NSString *)dept success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"shop/adddept" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[token dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    
+    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
 @end

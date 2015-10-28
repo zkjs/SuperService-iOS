@@ -138,11 +138,11 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     
-  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
     NSLog(@"%@",[responseObject description]);
     success(task,responseObject);
 
-  } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@",error.description);
     failure(task,error);
   }];
@@ -162,11 +162,29 @@
     [formData appendPartWithFormData:[@"" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagetime"];
     [formData appendPartWithFormData:[@"7" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagedata"];
     
-  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
     NSLog(@"==%@",[responseObject description]);
     success(task,responseObject);
     
-  } failure:^(NSURLSessionDataTask *  task, NSError * error) {
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@",error.description);
+    failure(task,error);
+  }];
+}
+
+#pragma mark - 获取订单详情
+
+- (void)getOrderWithReservationNO:(NSString *)reservationNO success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/show" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[reservationNO dataUsingEncoding:NSUTF8StringEncoding] name:@"reservation_no"];
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@",[responseObject description]);
+    success(task,responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@",error.description);
     failure(task,error);
   }];

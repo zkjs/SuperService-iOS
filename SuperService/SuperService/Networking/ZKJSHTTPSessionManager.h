@@ -34,4 +34,7 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 // 获取订单列表
 - (void)getOrderListWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+// 获取订单详情
+- (void)getOrderWithReservationNO:(NSString *)reservationNO success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 @end

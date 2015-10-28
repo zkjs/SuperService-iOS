@@ -19,7 +19,6 @@ private let kServiceRow = 1
 class OrderDetailTVC: UITableViewController,UITextFieldDelegate {
   
   @IBOutlet weak var amountLabel: UILabel!
-  @IBOutlet weak var roomTypeLabel: UILabel!
   @IBOutlet weak var statusLabel: UILabel!
   
   @IBOutlet weak var roomCountInfoLabel: UILabel!
@@ -54,23 +53,29 @@ class OrderDetailTVC: UITableViewController,UITextFieldDelegate {
   @IBOutlet weak var okButton: UIButton!
   @IBOutlet weak var cancelButton: UIButton!
   
-  var roomCount = 1
-  var order:OrderModel!
+  var reservationNO: String!
+  var order: OrderModel!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "订单处理"
-    roomCountLabel.text = order.rooms
-    startDateLabel.text = order.arrival_date
-    endDateLabel.text = order.departure_date
-    roomTypeLabel.text = order.room_type
-    // status=订单状态 默认0 未确认可取消订单 1取消订单 2已确认订单 3已经完成的订单 4已经入住的订单 5删除订单
     
-    if order.status == 1 {
-      statusLabel.text = "已确定"
-    }else {
-      statusLabel.text = "待确认"
+    title = "订单处理"
+    loadData()
+  }
+  
+  
+  func setupOrder() {
+  
+  }
+  
+  func loadData() {
+    ZKJSHTTPSessionManager.sharedInstance().getOrderWithReservationNO(reservationNO, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      
+      self.setupOrder()
+      
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
     }
   }
   
@@ -78,42 +83,21 @@ class OrderDetailTVC: UITableViewController,UITextFieldDelegate {
   // MARK: - Table view data source
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    var count = super.tableView(tableView, numberOfRowsInSection: section)
-    if section == kNameSection {
-      count = roomCount
-    }
-    return count
-  }
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if indexPath.section == kNameSection {
-      if indexPath.row > roomCount {
-        return 0.0
-      }
-    }
-    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    return super.tableView(tableView, numberOfRowsInSection: section)
   }
   
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+  }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
     
-    if indexPath.section == kRoomSection && indexPath.row == kRoomRow {
-      cell.contentView.addSubview(roomTagView)
-    } else if indexPath.section == kServiceSection && indexPath.row == kServiceRow {
-      cell.contentView.addSubview(serviceTagView)
-    }
-    
     return cell
-    
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    let indexPath = NSIndexPath(forItem: 1, inSection: 3)
-    if indexPath == indexPath {
-      print("111")
-    }
-    
   }
   
 }

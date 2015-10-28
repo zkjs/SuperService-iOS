@@ -40,12 +40,9 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     getDataWithPage(1)
   }
   
-  
   // MARK: - Private
   
   private func setupView() {
-    hidesBottomBarWhenPushed = true
-    
     let nibName = UINib(nibName: OrderCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: OrderCell.reuseIdentifier())
     
@@ -131,7 +128,7 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     let order = orderArray[sender.tag]
     let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
     let vc = storyboard.instantiateViewControllerWithIdentifier("OrderDetailVC") as! OrderDetailTVC
-    vc.order = order
+    vc.reservationNO = order.reservation_no
     navigationController?.pushViewController(vc, animated: true)
   }
   

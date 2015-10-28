@@ -209,43 +209,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   private func setupWindows() {
+    let vc1 = MainPageVC()
+    vc1.tabBarItem.image = UIImage(named: "ic_home")
+    vc1.tabBarItem.title = "主页"
+    let nv1 = BaseNavigationController()
+    nv1.viewControllers = [vc1]
+    
+    let vc2 = TeamListVC()
+    vc2.tabBarItem.title = "团队"
+    vc2.tabBarItem.image = UIImage(named: "ic_tuandui_b")
+    let nv2 = BaseNavigationController()
+    nv2.viewControllers = [vc2]
+    
+    let vc3 = ClientListVC()
+    vc3.tabBarItem.title = "客户"
+    vc3.tabBarItem.image = UIImage(named: "ic_kehu_b")
+    let nv3 = BaseNavigationController()
+    nv3.viewControllers = [vc3]
+    
+    let vc4 = SettingsVC()
+    vc4.tabBarItem.title = "我的"
+    vc4.tabBarItem.image = UIImage(named: "ic_shezhi")
+    let nv4 = BaseNavigationController()
+    nv4.viewControllers = [vc4]
+    
+    let mainTBC = MainTBC()
+    mainTBC.viewControllers = [nv1, nv2, nv3, nv4]
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    
-    let nav1 = BaseNavigationController()
-    nav1.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
-    nav1.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-    let first = MainPageVC(nibName:nil,bundle:nil)
-    nav1.viewControllers = [first]
-    first.tabBarItem.image = UIImage(named: "ic_home")
-    first.tabBarItem.title = "主页"
-    
-    let nav2 = BaseNavigationController()
-    nav2.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
-    let second = TeamListVC(nibName:nil,bundle:nil)
-    nav2.viewControllers = [second]
-    second.tabBarItem.title = "团队"
-    second.tabBarItem.image = UIImage(named: "ic_tuandui_b")
-    
-    
-    let nav3 = BaseNavigationController()
-    nav3.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
-    let third = ClientListVC(nibName:nil,bundle:nil)
-    nav3.viewControllers = [third]
-    third.tabBarItem.title = "客户"
-    third.tabBarItem.image = UIImage(named: "ic_kehu_b")
-    
-    
-    let nav4 = BaseNavigationController()
-    nav4.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
-    let fource = SettingsVC(nibName:nil,bundle:nil)
-    nav4.viewControllers = [fource]
-    fource.tabBarItem.title = "我的"
-    fource.tabBarItem.image = UIImage(named: "ic_shezhi")
-    
-    
-    let tabs = MainTBC()
-    tabs.viewControllers = [nav1,nav2,nav3,nav4]
-    window!.rootViewController = tabs
+    window!.rootViewController = mainTBC
     window?.makeKeyAndVisible()
   }
   

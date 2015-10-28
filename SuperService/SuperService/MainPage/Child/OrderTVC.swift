@@ -9,21 +9,84 @@
 import UIKit
 
 class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
-  
+  var orderArray = [OrderModel]()
+  var orderPage = 1
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    tableView.tableFooterView = UIView()
-    
     let nibName = UINib(nibName: OrderCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: OrderCell.reuseIdentifier())
+    tableView.tableFooterView = UIView()
+//    let nv = UINavigationController(rootViewController: self.tableView)
+
+    
+    tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")//下拉刷新
+    tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")//上拉加载
+    
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.header.beginRefreshing()
+
   }
   
+  //MARK: - MJRefresh Drag Download MoreData
+  
+  func loadMoreData() {
+    self.orderPage++
+    
+    let salesID = AccountManager.sharedInstance().userID
+    let token = AccountManager.sharedInstance().token
+    let shopID = AccountManager.sharedInstance().shopID
+    let page = String(orderPage)
+    ZKJSHTTPSessionManager.sharedInstance().getOrderListWithSalesID(salesID, token: token, shopID: shopID, status: "1", userID: "", page: page,pagetime:"", pagedata: "10", success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      
+      if let array = responseObject as? NSArray {
+        for dic in array {
+          let order = OrderModel(dic: dic as! [String:AnyObject])
+          self.orderArray.append(order)
+          print(order.pay_name)
+        }
+        self.tableView.reloadData()
+        self.tableView.footer.endRefreshing()
+        
+      } else {
+        self.tableView.footer.endRefreshingWithNoMoreData()
+      }
+      
+      
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
+    }
+  }
+  
+  //MARK: - MJRefresh Drag Refresh Datas
+  
+  func refreshData() {
+    self.orderPage = 1
+    let salesID = AccountManager.sharedInstance().userID
+    let token = AccountManager.sharedInstance().token
+    let shopID = AccountManager.sharedInstance().shopID
+    self.orderArray .removeAll()
+    ZKJSHTTPSessionManager.sharedInstance().getOrderListWithSalesID(salesID, token: token, shopID: shopID, status: "1", userID: "", page: "1",pagetime:"", pagedata: "10", success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      
+      if let array = responseObject as? NSArray {
+        for dic in array {
+          let order = OrderModel(dic: dic as! [String:AnyObject])
+          self.orderArray.append(order)
+        }
+        self.tableView.reloadData()
+        self.tableView.header.endRefreshing()
+        
+      } else {
+       
+      }
+      
+      
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
+    }
+  }
   // MARK: - XLPagerTabStripChildItem Delegate
   
   func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
@@ -41,7 +104,8 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    return orderArray.count
+    
   }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -57,8 +121,20 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     } else {
       cell.topLineImageView.hidden = false
     }
-    
+    let order = orderArray[indexPath.row]
+    cell.setData(order)
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
     return cell
   }
   
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let order = orderArray[indexPath.row]
+    self.hidesBottomBarWhenPushed = true
+    let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("OrderDetailVC") as! OrderDetailTVC
+    navigationController?.pushViewController(vc, animated: true)
+    vc.DetailOrder = order
+    
+  }
 }

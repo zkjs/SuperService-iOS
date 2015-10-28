@@ -28,11 +28,21 @@ class OrderCell: UITableViewCell {
     return 140
   }
   
+  func setData(order:OrderModel) {
+    timeAgoLabel.text = order.created
+    
+  }
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
+  @IBAction func calloutButton(sender: UIButton) {
+  }
+  @IBAction func sendMessageButton(sender: UIButton) {
+  }
+  @IBAction func shareButton(sender: UIButton) {
+  }
   override func setSelected(selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     

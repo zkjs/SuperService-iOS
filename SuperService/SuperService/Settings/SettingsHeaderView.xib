@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SettingsHeaderView" customModule="SuperService" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="hPt-bF-CYc">
+                    <rect key="frame" x="260" y="33" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Mtw-9U-USr"/>
+                        <constraint firstAttribute="height" constant="80" id="SYi-AH-noK"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄小洋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5h-f5-wBe">
+                    <rect key="frame" x="273" y="128" width="54" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="54" id="YtZ-hk-e5Y"/>
+                        <constraint firstAttribute="height" constant="22" id="viI-t1-ZA6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长沙芙蓉国温德姆至尊豪廷大酒店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-fM-bQA">
+                    <rect key="frame" x="0.0" y="158" width="600" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="Qb4-Ee-JkN"/>
+                        <constraint firstAttribute="width" constant="600" id="dNZ-o7-ghu"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="dkp-sQ-j8n"/>
+                        <constraint firstAttribute="height" constant="17" id="lwm-SI-gjX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Qb4-Ee-JkN"/>
+                            <exclude reference="dkp-sQ-j8n"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hPt-bF-CYc" secondAttribute="trailing" constant="260" id="1X3-KZ-pvn"/>
+                <constraint firstItem="hPt-bF-CYc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2qg-ez-As8"/>
+                <constraint firstItem="hPt-bF-CYc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="260" id="OkD-JD-3Cv"/>
+                <constraint firstItem="od8-fM-bQA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="195" id="QRF-mw-aBZ"/>
+                <constraint firstAttribute="trailing" secondItem="h5h-f5-wBe" secondAttribute="trailing" constant="273" id="SEA-g6-0to"/>
+                <constraint firstItem="h5h-f5-wBe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="273" id="YzR-Qo-VwU"/>
+                <constraint firstItem="od8-fM-bQA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aJK-Zm-SDb"/>
+                <constraint firstItem="od8-fM-bQA" firstAttribute="top" secondItem="h5h-f5-wBe" secondAttribute="bottom" constant="8" id="ezg-AI-H5h"/>
+                <constraint firstItem="hPt-bF-CYc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="quY-iE-sOd"/>
+                <constraint firstAttribute="trailing" secondItem="od8-fM-bQA" secondAttribute="trailing" constant="195" id="tue-Ka-mLa"/>
+                <constraint firstItem="h5h-f5-wBe" firstAttribute="top" secondItem="hPt-bF-CYc" secondAttribute="bottom" constant="15" id="v2R-WO-3uO"/>
+                <constraint firstItem="h5h-f5-wBe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yRn-Wc-rrX"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="QRF-mw-aBZ"/>
+                    <exclude reference="tue-Ka-mLa"/>
+                    <exclude reference="1X3-KZ-pvn"/>
+                    <exclude reference="OkD-JD-3Cv"/>
+                    <exclude reference="SEA-g6-0to"/>
+                    <exclude reference="YzR-Qo-VwU"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="userAddress" destination="od8-fM-bQA" id="wqR-MF-8ON"/>
+                <outlet property="userImage" destination="hPt-bF-CYc" id="rHZ-TJ-AeP"/>
+                <outlet property="username" destination="h5h-f5-wBe" id="Qzw-kU-3b8"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_hotel_zhanwei" width="90" height="90"/>
+    </resources>
+</document>

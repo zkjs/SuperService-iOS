@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     customizeTabBar()
     setupNotification()
     setupTCPSessionManager()
+    setupWindows()
     return true
   }
 
@@ -212,6 +213,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   private func setupTCPSessionManager() {
     ZKJSTCPSessionManager.sharedInstance().delegate = self
+  }
+  
+  private func setupWindows() {
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    
+    let nav1 = BaseNavigationController()
+    nav1.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
+    nav1.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+    let first = MainPageVC(nibName:nil,bundle:nil)
+    nav1.viewControllers = [first]
+    first.tabBarItem.image = UIImage(named: "ic_home")
+    first.tabBarItem.title = "主页"
+    
+    let nav2 = BaseNavigationController()
+    nav2.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
+    let second = TeamListVC(nibName:nil,bundle:nil)
+    nav2.viewControllers = [second]
+    second.tabBarItem.title = "团队"
+    second.tabBarItem.image = UIImage(named: "ic_tuandui_b")
+    
+    
+    let nav3 = BaseNavigationController()
+    nav3.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
+    let third = ClientListVC(nibName:nil,bundle:nil)
+    nav3.viewControllers = [third]
+    third.tabBarItem.title = "客户"
+    third.tabBarItem.image = UIImage(named: "ic_kehu_b")
+    
+    
+    let nav4 = BaseNavigationController()
+    nav4.navigationBar.barTintColor = UIColor(hexString: "03A9F4")
+    let fource = SettingsVC(nibName:nil,bundle:nil)
+    nav4.viewControllers = [fource]
+    fource.tabBarItem.title = "我的"
+    fource.tabBarItem.image = UIImage(named: "ic_shezhi")
+    
+    
+    let tabs = MainTBC()
+    tabs.viewControllers = [nav1,nav2,nav3,nav4]
+    UITabBar.appearance().barTintColor = UIColor(hexString: "03A9F4")
+    window!.rootViewController = tabs
+    window?.makeKeyAndVisible()
   }
   
   

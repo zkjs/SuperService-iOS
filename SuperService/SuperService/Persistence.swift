@@ -38,7 +38,7 @@ class Persistence: NSObject {
     }
     
     // Initialize the managed object context
-    var managedObjectContext = NSManagedObjectContext()
+    var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
     managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
     
     return managedObjectContext

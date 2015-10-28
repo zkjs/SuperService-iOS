@@ -4,6 +4,8 @@
 #use_frameworks!
 
 target 'SuperService' do
+  pod 'MJRefresh'
+  pod 'JCTagListView'
   pod 'SDWebImage', :inhibit_warnings => true
   pod 'DateTools'
   pod 'SocketRocket', :inhibit_warnings => true

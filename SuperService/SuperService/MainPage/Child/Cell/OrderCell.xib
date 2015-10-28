@@ -44,7 +44,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oF8-Te-ysP" userLabel="Card View">
                         <rect key="frame" x="36" y="8" width="289" height="123"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP2 朱小姐已提交订单" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Dg-1t7" userLabel="Client Info Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VIP2 朱小姐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Dg-1t7" userLabel="Client Info Label">
                                 <rect key="frame" x="56" y="8" width="146" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="gB9-r6-WRV"/>
@@ -76,6 +76,9 @@
                                     <constraint firstAttribute="width" constant="30" id="kMo-7x-dAa"/>
                                 </constraints>
                                 <state key="normal" image="ic_dianhua_b"/>
+                                <connections>
+                                    <action selector="calloutButton:" destination="pql-aW-Jyh" eventType="touchUpInside" id="T5M-80-VPT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsL-70-PPa" userLabel="Chat Button">
                                 <rect key="frame" x="229" y="93" width="30" height="30"/>
@@ -84,6 +87,9 @@
                                     <constraint firstAttribute="width" constant="30" id="RML-OF-Irb"/>
                                 </constraints>
                                 <state key="normal" image="ic_duihua_b"/>
+                                <connections>
+                                    <action selector="sendMessageButton:" destination="pql-aW-Jyh" eventType="touchUpInside" id="Q3Z-Ka-ek2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT1-Dk-HcR" userLabel="Forward Button">
                                 <rect key="frame" x="259" y="93" width="30" height="30"/>
@@ -92,6 +98,9 @@
                                     <constraint firstAttribute="width" constant="30" id="KVF-XQ-sN2"/>
                                 </constraints>
                                 <state key="normal" image="ic_zhuanfa"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="pql-aW-Jyh" eventType="touchUpInside" id="DIa-J6-1uN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMY-pT-8c1" userLabel="Avatar Button">
                                 <rect key="frame" x="8" y="8" width="40" height="40"/>
@@ -125,7 +134,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您需要 确认房间 | 确认价格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-I5-EXj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="已确定 | 已支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-I5-EXj">
                                 <rect key="frame" x="56" y="74" width="170" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="eBf-ct-sv2"/>

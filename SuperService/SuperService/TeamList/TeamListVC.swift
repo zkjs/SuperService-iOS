@@ -68,6 +68,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
     self.teamArray.append(member)
     self.tableView.reloadData()
   }
+  
   func loadData() {
     ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
@@ -144,16 +145,5 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
-  
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
   
 }

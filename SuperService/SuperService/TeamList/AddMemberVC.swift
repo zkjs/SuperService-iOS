@@ -42,6 +42,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
     navigationController?.pushViewController(vc, animated: true)
     //    self.hidesBottomBarWhenPushed = false
   }
+  
   @IBAction func IsManager(sender: AnyObject) {
     isUncheck = !isUncheck
     if isUncheck {
@@ -52,6 +53,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
       managerButton.setImage(UIImage(named: "ic_jia_nor"), forState:UIControlState.Normal)
     }
   }
+  
   @IBAction func sureButton(sender: AnyObject) {
     ZKJSHTTPSessionManager.sharedInstance().addMemberWithPhone(photoTextField.text, name: usernameTextField.text, roleid: "1", email: "", dept: departmentLabel.text, desc: remarkTextView.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       var dic = responseObject as! [String: AnyObject]
@@ -71,14 +73,5 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
       
     }
   }
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
   
 }

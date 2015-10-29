@@ -100,6 +100,12 @@
 		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; };
 		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
 		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
+		FAF0198E1BE1ACD700E67ECD /* StaffLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0198C1BE1ACD700E67ECD /* StaffLoginVC.swift */; };
+		FAF0198F1BE1ACD700E67ECD /* StaffLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF0198D1BE1ACD700E67ECD /* StaffLoginVC.xib */; };
+		FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */; };
+		FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */; };
+		FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */; };
+		FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +242,12 @@
 		842659481BE0A216005E82F2 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		844E329B1BE065810024C678 /* AddMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberVC.swift; sourceTree = "<group>"; };
 		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
+		FAF0198C1BE1ACD700E67ECD /* StaffLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffLoginVC.swift; sourceTree = "<group>"; };
+		FAF0198D1BE1ACD700E67ECD /* StaffLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffLoginVC.xib; sourceTree = "<group>"; };
+		FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentHeaderView.swift; sourceTree = "<group>"; };
+		FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentHeaderView.xib; sourceTree = "<group>"; };
+		FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentFooterView.swift; sourceTree = "<group>"; };
+		FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentFooterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,22 +303,15 @@
 		40600CB21BC64946008F8DEC /* Child */ = {
 			isa = PBXGroup;
 			children = (
-				40600CBE1BC66DF3008F8DEC /* Cell */,
-				408423021BC689E200C215CD /* ArrivalTVC.swift */,
-				408423031BC689E200C215CD /* ArrivalTVC.xib */,
-				408423121BC68EB000C215CD /* MessageTVC.swift */,
-				408423131BC68EB000C215CD /* MessageTVC.xib */,
-				40F757541BE054550053C2BE /* OrderTVC.swift */,
-				40F757551BE054550053C2BE /* OrderTVC.xib */,
-				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
-				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
+				40600CBE1BC66DF3008F8DEC /* View */,
+				FAF019991BE1CF9D00E67ECD /* Controller */,
 				40ABA9631BE1B9E000737C6D /* PaymentModel.swift */,
 				40ABA9651BE1BE4700737C6D /* GoodsModel.swift */,
 			);
 			path = Child;
 			sourceTree = "<group>";
 		};
-		40600CBE1BC66DF3008F8DEC /* Cell */ = {
+		40600CBE1BC66DF3008F8DEC /* View */ = {
 			isa = PBXGroup;
 			children = (
 				408423061BC68A7800C215CD /* ArrivalCell.swift */,
@@ -316,6 +321,7 @@
 				40F7575A1BE0546A0053C2BE /* OrderCell.swift */,
 				40F7575B1BE0546A0053C2BE /* OrderCell.xib */,
 			);
+			name = View;
 			path = Cell;
 			sourceTree = "<group>";
 		};
@@ -353,6 +359,8 @@
 			children = (
 				4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */,
 				4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */,
+				FAF0198C1BE1ACD700E67ECD /* StaffLoginVC.swift */,
+				FAF0198D1BE1ACD700E67ECD /* StaffLoginVC.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -501,8 +509,8 @@
 			isa = PBXGroup;
 			children = (
 				8426594C1BE0BED2005E82F2 /* Model */,
-				8426594A1BE0BE8A005E82F2 /* ViewController */,
-				8426594B1BE0BEA9005E82F2 /* Cell */,
+				8426594A1BE0BE8A005E82F2 /* View */,
+				8426594B1BE0BEA9005E82F2 /* Controller */,
 			);
 			path = TeamList;
 			sourceTree = "<group>";
@@ -510,13 +518,9 @@
 		40F1BA801BC7FBC0006C2B41 /* ClientList */ = {
 			isa = PBXGroup;
 			children = (
-				40F7573E1BE054160053C2BE /* AddClientVC.swift */,
-				40F7573F1BE054160053C2BE /* AddClientVC.xib */,
-				40F757401BE054160053C2BE /* ClientListCell.swift */,
-				40F757411BE054160053C2BE /* ClientListCell.xib */,
-				40F757421BE054160053C2BE /* ClientListVC.swift */,
-				40F757431BE054160053C2BE /* ClientListVC.xib */,
-				40F757441BE054160053C2BE /* ClientModel.swift */,
+				FAF0199C1BE1CFD700E67ECD /* Model */,
+				FAF0199A1BE1CFB700E67ECD /* View */,
+				FAF0199B1BE1CFC500E67ECD /* Controller */,
 			);
 			path = ClientList;
 			sourceTree = "<group>";
@@ -525,12 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				40F7577A1BE055480053C2BE /* View */,
-				40F757601BE0553E0053C2BE /* InformVC.swift */,
-				40F757611BE0553E0053C2BE /* InformVC.xib */,
-				40F757681BE0553E0053C2BE /* SettingsVC.swift */,
-				40F757691BE0553E0053C2BE /* SettingsVC.xib */,
-				40F7576A1BE0553E0053C2BE /* SetUpVC.swift */,
-				40F7576B1BE0553E0053C2BE /* SetUpVC.xib */,
+				FAF019981BE1CF7800E67ECD /* Controller */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -548,7 +547,22 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		8426594A1BE0BE8A005E82F2 /* ViewController */ = {
+		8426594A1BE0BE8A005E82F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				40F7577C1BE055A80053C2BE /* TeamListCell.swift */,
+				40F7577D1BE055A80053C2BE /* TeamListCell.xib */,
+				842659441BE09FCF005E82F2 /* MemberListCell.swift */,
+				842659451BE09FCF005E82F2 /* MemberListCell.xib */,
+				FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */,
+				FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */,
+				FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */,
+				FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8426594B1BE0BEA9005E82F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				40F7577E1BE055A80053C2BE /* TeamListVC.swift */,
@@ -558,18 +572,7 @@
 				842659401BE09C31005E82F2 /* MemberListVC.swift */,
 				842659411BE09C31005E82F2 /* MemberListVC.xib */,
 			);
-			name = ViewController;
-			sourceTree = "<group>";
-		};
-		8426594B1BE0BEA9005E82F2 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				40F7577C1BE055A80053C2BE /* TeamListCell.swift */,
-				40F7577D1BE055A80053C2BE /* TeamListCell.xib */,
-				842659441BE09FCF005E82F2 /* MemberListCell.swift */,
-				842659451BE09FCF005E82F2 /* MemberListCell.xib */,
-			);
-			name = Cell;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		8426594C1BE0BED2005E82F2 /* Model */ = {
@@ -596,6 +599,62 @@
 				77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FAF019981BE1CF7800E67ECD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				40F757601BE0553E0053C2BE /* InformVC.swift */,
+				40F757611BE0553E0053C2BE /* InformVC.xib */,
+				40F757681BE0553E0053C2BE /* SettingsVC.swift */,
+				40F757691BE0553E0053C2BE /* SettingsVC.xib */,
+				40F7576A1BE0553E0053C2BE /* SetUpVC.swift */,
+				40F7576B1BE0553E0053C2BE /* SetUpVC.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FAF019991BE1CF9D00E67ECD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				408423021BC689E200C215CD /* ArrivalTVC.swift */,
+				408423031BC689E200C215CD /* ArrivalTVC.xib */,
+				408423121BC68EB000C215CD /* MessageTVC.swift */,
+				408423131BC68EB000C215CD /* MessageTVC.xib */,
+				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
+				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
+				40F757541BE054550053C2BE /* OrderTVC.swift */,
+				40F757551BE054550053C2BE /* OrderTVC.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FAF0199A1BE1CFB700E67ECD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				40F757401BE054160053C2BE /* ClientListCell.swift */,
+				40F757411BE054160053C2BE /* ClientListCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FAF0199B1BE1CFC500E67ECD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				40F7573E1BE054160053C2BE /* AddClientVC.swift */,
+				40F7573F1BE054160053C2BE /* AddClientVC.xib */,
+				40F757421BE054160053C2BE /* ClientListVC.swift */,
+				40F757431BE054160053C2BE /* ClientListVC.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FAF0199C1BE1CFD700E67ECD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40F757441BE054160053C2BE /* ClientModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,6 +774,7 @@
 				40F757591BE054550053C2BE /* OrderTVC.xib in Resources */,
 				40F757741BE0553E0053C2BE /* SettingsHeaderView.xib in Resources */,
 				40F757481BE054160053C2BE /* ClientListCell.xib in Resources */,
+				FAF0198F1BE1ACD700E67ECD /* StaffLoginVC.xib in Resources */,
 				40F7576F1BE0553E0053C2BE /* InformVC.xib in Resources */,
 				40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */,
 				408423091BC68A7800C215CD /* ArrivalCell.xib in Resources */,
@@ -724,6 +784,7 @@
 				4068A2C41BBB925600FF8608 /* AdminLogin.storyboard in Resources */,
 				40F757461BE054160053C2BE /* AddClientVC.xib in Resources */,
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
+				FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */,
 				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
 				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
 				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
@@ -738,6 +799,7 @@
 				4068A2DF1BBBCF6400FF8608 /* Register.storyboard in Resources */,
 				40F757721BE0553E0053C2BE /* SettingsCell.xib in Resources */,
 				40F757561BE054550053C2BE /* OrderDetail.storyboard in Resources */,
+				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +871,7 @@
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
+				FAF0198E1BE1ACD700E67ECD /* StaffLoginVC.swift in Sources */,
 				4068A2DA1BBBCEE700FF8608 /* RegisterInfoVC.swift in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
@@ -826,7 +889,9 @@
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
 				40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */,
 				40F757781BE0553E0053C2BE /* SetUpVC.swift in Sources */,
+				FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */,
 				40F757711BE0553E0053C2BE /* SettingsCell.swift in Sources */,
+				FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */,
 				4068A2D81BBBB4BF00FF8608 /* SelectEmployeeCell.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,
@@ -1022,15 +1087,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hanton Yang (VW3VA323Z6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hanton Yang (VW3VA323Z6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SuperService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "54a73e21-7190-402c-bd79-bc9b6c12e4bc";
+				PROVISIONING_PROFILE = "54dfd3a0-1805-44f1-9cec-c9ca5d287656";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1042,15 +1107,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Zhongke Jinshi Technology Co., Ltd (ERF86L9T4U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Zhongke Jinshi Technology Co., Ltd (ERF86L9T4U)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SuperService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "63473246-d2ab-4761-b7c4-1f7a7671fc9d";
+				PROVISIONING_PROFILE = "f401adbf-5900-4469-8e29-973a38ba7e0a";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 			};
 			name = Release;

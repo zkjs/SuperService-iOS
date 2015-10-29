@@ -49,6 +49,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 50.0
   }
+  
   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return 50
   }
@@ -56,11 +57,13 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
       return self.memberListArray.count
     
   }
+  
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return MemberListCell.height()
   }
@@ -73,6 +76,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     return cell
     
   }
+  
   //MARK -- Table View Delegate 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let member = memberListArray[indexPath.row]
@@ -84,21 +88,24 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //newDepartment.frame = CGRectMake(50, 20, 100, 30)
-    newDepartment.layer.borderWidth = 1
-    newDepartment.layer.borderColor = UIColor.grayColor().CGColor
-    newDepartment.placeholder = "增加新部门"
-    return newDepartment
+    let headerV = NSBundle.mainBundle().loadNibNamed("DepartmentHeaderView", owner: self, options: nil).first as? DepartmentHeaderView
+    if headerV != nil {
+      self.view.addSubview(headerV!)
+    }
+    
+    return headerV
   }
   
   
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    let addmemberButton = UIButton()
-    addmemberButton.addTarget(self, action: "AddDepartment:", forControlEvents: .TouchUpInside)
-    addmemberButton.setTitle("确认", forState: UIControlState.Normal)
-    addmemberButton.backgroundColor = UIColor(hexString: "03A9F4")
-    return addmemberButton
+    let footerV = NSBundle.mainBundle().loadNibNamed("DepartmentFooterView", owner: self, options: nil).first as? DepartmentFooterView
+    if footerV != nil {
+      self.view.addSubview(footerV!)
+    }
+
+    return footerV
   }
+  
   func AddDepartment(sender:UIButton) {
     ZKJSHTTPSessionManager.sharedInstance().addDepartmentWithDepartment(newDepartment.text, success: { (task:NSURLSessionDataTask!, responObject:AnyObject!) -> Void in
       let dic = responObject as! [String: AnyObject]
@@ -119,15 +126,5 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     self.tableView.reloadData()
   }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

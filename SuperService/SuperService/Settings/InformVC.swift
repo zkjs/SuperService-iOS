@@ -18,13 +18,10 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         super.viewDidLoad()
       title = "选择通知区域"
       navigationController?.navigationBarHidden = false
-//      navigationItem.leftBarButtonItem = nil
-//      navigationItem.hidesBackButton = true
       let nibName = UINib(nibName: InformCell.nibName(), bundle: nil)
       tableView.registerNib(nibName, forCellReuseIdentifier: InformCell.reuseIdentifier())
       tableView.tableFooterView = UIView()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

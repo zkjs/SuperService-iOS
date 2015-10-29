@@ -8,6 +8,8 @@
 
 #import "AFNetworking.h"
 
+@class OrderModel;
+
 //static NSString *kBaseURL = @"http://172.21.7.54/";  // HTTP内网服务器地址
 static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器地址
 
@@ -45,4 +47,14 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 
 //  新增部门
 - (void)addDepartmentWithDepartment:(NSString *)department success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+// 支付列表
+- (void)getPaymentListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+// 商品列表
+- (void)getGoodsListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+// 更新订单
+- (void)updateOrderWithOrder:(OrderModel *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 @end

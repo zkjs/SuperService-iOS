@@ -33,6 +33,13 @@
 		408423141BC68EB000C215CD /* MessageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408423121BC68EB000C215CD /* MessageTVC.swift */; };
 		408423151BC68EB000C215CD /* MessageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408423131BC68EB000C215CD /* MessageTVC.xib */; };
 		408AD37A1BC5533600A202DD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408AD3791BC5533600A202DD /* Login.storyboard */; };
+		40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9631BE1B9E000737C6D /* PaymentModel.swift */; };
+		40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9651BE1BE4700737C6D /* GoodsModel.swift */; };
+		40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */; };
+		40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA96D1BE1C60A00737C6D /* TSQCalendarCell.m */; };
+		40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA96F1BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m */; };
+		40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9711BE1C60A00737C6D /* TSQCalendarRowCell.m */; };
+		40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */; };
 		40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC261BCE366E00785D2E /* ZKJSTool.m */; };
 		40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC291BCE395300785D2E /* AccountManager.swift */; };
 		40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */; };
@@ -86,13 +93,13 @@
 		40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7577E1BE055A80053C2BE /* TeamListVC.swift */; };
 		40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F7577F1BE055A80053C2BE /* TeamListVC.xib */; };
 		40F757861BE055A80053C2BE /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757801BE055A80053C2BE /* TeamModel.swift */; };
-		842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659401BE09C31005E82F2 /* MemberListVC.swift */; settings = {ASSET_TAGS = (); }; };
-		842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659411BE09C31005E82F2 /* MemberListVC.xib */; settings = {ASSET_TAGS = (); }; };
-		842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659441BE09FCF005E82F2 /* MemberListCell.swift */; settings = {ASSET_TAGS = (); }; };
-		842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659451BE09FCF005E82F2 /* MemberListCell.xib */; settings = {ASSET_TAGS = (); }; };
-		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; settings = {ASSET_TAGS = (); }; };
-		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; settings = {ASSET_TAGS = (); }; };
-		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; settings = {ASSET_TAGS = (); }; };
+		842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659401BE09C31005E82F2 /* MemberListVC.swift */; };
+		842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659411BE09C31005E82F2 /* MemberListVC.xib */; };
+		842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659441BE09FCF005E82F2 /* MemberListCell.swift */; };
+		842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659451BE09FCF005E82F2 /* MemberListCell.xib */; };
+		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; };
+		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
+		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +154,19 @@
 		408423121BC68EB000C215CD /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		408423131BC68EB000C215CD /* MessageTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTVC.xib; sourceTree = "<group>"; };
 		408AD3791BC5533600A202DD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		40ABA9631BE1B9E000737C6D /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
+		40ABA9651BE1BE4700737C6D /* GoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsModel.swift; sourceTree = "<group>"; };
+		40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDateSelectionViewController.swift; sourceTree = "<group>"; };
+		40ABA96A1BE1C60A00737C6D /* TimesSquare-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimesSquare-Prefix.pch"; sourceTree = "<group>"; };
+		40ABA96B1BE1C60A00737C6D /* TimesSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimesSquare.h; sourceTree = "<group>"; };
+		40ABA96C1BE1C60A00737C6D /* TSQCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarCell.h; sourceTree = "<group>"; };
+		40ABA96D1BE1C60A00737C6D /* TSQCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarCell.m; sourceTree = "<group>"; };
+		40ABA96E1BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarMonthHeaderCell.h; sourceTree = "<group>"; };
+		40ABA96F1BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarMonthHeaderCell.m; sourceTree = "<group>"; };
+		40ABA9701BE1C60A00737C6D /* TSQCalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarRowCell.h; sourceTree = "<group>"; };
+		40ABA9711BE1C60A00737C6D /* TSQCalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarRowCell.m; sourceTree = "<group>"; };
+		40ABA9721BE1C60A00737C6D /* TSQCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarView.h; sourceTree = "<group>"; };
+		40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarView.m; sourceTree = "<group>"; };
 		40B0DC251BCE366E00785D2E /* ZKJSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTool.h; sourceTree = "<group>"; };
 		40B0DC261BCE366E00785D2E /* ZKJSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTool.m; sourceTree = "<group>"; };
 		40B0DC291BCE395300785D2E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -276,10 +296,12 @@
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
 				408423121BC68EB000C215CD /* MessageTVC.swift */,
 				408423131BC68EB000C215CD /* MessageTVC.xib */,
-				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
-				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
 				40F757541BE054550053C2BE /* OrderTVC.swift */,
 				40F757551BE054550053C2BE /* OrderTVC.xib */,
+				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
+				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
+				40ABA9631BE1B9E000737C6D /* PaymentModel.swift */,
+				40ABA9651BE1BE4700737C6D /* GoodsModel.swift */,
 			);
 			path = Child;
 			sourceTree = "<group>";
@@ -311,6 +333,8 @@
 			children = (
 				405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */,
 				405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */,
+				40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */,
+				40ABA9691BE1C60A00737C6D /* TimesSquare */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -353,6 +377,23 @@
 				4068A2DB1BBBCF3800FF8608 /* RegisterSelectRegionVC.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		40ABA9691BE1C60A00737C6D /* TimesSquare */ = {
+			isa = PBXGroup;
+			children = (
+				40ABA96A1BE1C60A00737C6D /* TimesSquare-Prefix.pch */,
+				40ABA96B1BE1C60A00737C6D /* TimesSquare.h */,
+				40ABA96C1BE1C60A00737C6D /* TSQCalendarCell.h */,
+				40ABA96D1BE1C60A00737C6D /* TSQCalendarCell.m */,
+				40ABA96E1BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.h */,
+				40ABA96F1BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m */,
+				40ABA9701BE1C60A00737C6D /* TSQCalendarRowCell.h */,
+				40ABA9711BE1C60A00737C6D /* TSQCalendarRowCell.m */,
+				40ABA9721BE1C60A00737C6D /* TSQCalendarView.h */,
+				40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */,
+			);
+			path = TimesSquare;
 			sourceTree = "<group>";
 		};
 		40B0DC281BCE367300785D2E /* Tool */ = {
@@ -758,13 +799,16 @@
 				40F7574B1BE054160053C2BE /* ClientModel.swift in Sources */,
 				40F757731BE0553E0053C2BE /* SettingsHeaderView.swift in Sources */,
 				40E326291BD4C369008344DF /* Persistence.swift in Sources */,
+				40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */,
 				40C5E9A71BBA6CE4004F5FDD /* LoginVC.swift in Sources */,
 				40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */,
 				4084230C1BC68E8600C215CD /* MessageCell.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				40F757501BE054340053C2BE /* MainPageVC.swift in Sources */,
 				40E3263D1BD50444008344DF /* Order+CoreDataProperties.swift in Sources */,
+				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
+				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				4068A2DA1BBBCEE700FF8608 /* RegisterInfoVC.swift in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
@@ -776,6 +820,8 @@
 				40E326411BD50544008344DF /* Location.swift in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
 				842659491BE0A216005E82F2 /* MemberModel.swift in Sources */,
+				40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */,
+				40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */,
 				40F757491BE054160053C2BE /* ClientListVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
 				40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */,
@@ -795,7 +841,9 @@
 				40F7576E1BE0553E0053C2BE /* InformVC.swift in Sources */,
 				40F757861BE055A80053C2BE /* TeamModel.swift in Sources */,
 				40F757571BE054550053C2BE /* OrderDetailTVC.swift in Sources */,
+				40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
+				40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */,
 				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,
 				40F7575C1BE0546A0053C2BE /* OrderCell.swift in Sources */,
 				40F757511BE054340053C2BE /* OrderModel.swift in Sources */,

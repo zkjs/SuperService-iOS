@@ -41,6 +41,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="updateOrder:" destination="BwC-8R-pXn" eventType="touchUpInside" id="5gg-Aw-kNk"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <animations/>
@@ -283,8 +286,8 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="TXc-gP-wn2"/>
                                                     <exclude reference="Esf-6s-OmZ"/>
+                                                    <exclude reference="TXc-gP-wn2"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -309,7 +312,7 @@
                                                     <rect key="frame" x="295" y="11" width="72" height="30"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="mWd-zG-OfP" id="luA-hG-mHs"/>
                                                     </connections>
@@ -643,6 +646,23 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1300"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="I02-oQ-T4P" id="izZ-os-tyD"/>
+                        <outlet property="dateInfoLabel" destination="Ftm-bX-doO" id="DgM-8t-YhY"/>
+                        <outlet property="endDateLabel" destination="DMh-yu-5dB" id="GD2-hH-Dvx"/>
+                        <outlet property="invoiceTextField" destination="nfp-ls-OyH" id="bfr-ch-K4Y"/>
+                        <outlet property="paymentTypeLabel" destination="8b9-OJ-Idk" id="8qY-Yu-F5P"/>
+                        <outlet property="remarkTextView" destination="QiW-fI-1go" id="z1K-CJ-t8I"/>
+                        <outlet property="roomCountLabel" destination="XeX-Zq-hBL" id="jqg-PH-KLm"/>
+                        <outlet property="roomTagView" destination="ETd-II-ewh" id="E2u-rr-ktt"/>
+                        <outlet property="roomTypeLabel" destination="YUa-dG-iva" id="Qth-sw-AUb"/>
+                        <outlet property="serviceTagView" destination="Eoo-rv-MIB" id="NKC-07-2s4"/>
+                        <outlet property="startDateLabel" destination="SXX-nV-8It" id="hl9-dg-dv7"/>
+                        <outletCollection property="nameTextFields" destination="I02-oQ-T4P" collectionClass="NSMutableArray" id="hVm-Uc-tbo"/>
+                        <outletCollection property="nameTextFields" destination="3Yp-JX-VxI" collectionClass="NSMutableArray" id="Zma-cL-GIi"/>
+                        <outletCollection property="nameTextFields" destination="Za0-Yc-l6e" collectionClass="NSMutableArray" id="VjL-AE-JAF"/>
+                        <outletCollection property="nameTextFields" destination="zhA-OB-Drn" collectionClass="NSMutableArray" id="aDN-ew-5mG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFY-nY-vCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

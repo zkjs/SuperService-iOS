@@ -250,4 +250,81 @@
     failure(task, error);
   }];
 }
+
+#pragma mark - 支付方式列表
+
+- (void)getPaymentListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/paylist" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 商品列表
+
+- (void)getGoodsListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSString *url = [NSString stringWithFormat:@"semp/goods?shopid=%@", [self shopID]];
+  [self GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 修改订单
+
+- (void)updateOrderWithOrder:(OrderModel *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"order/update" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    
+    [formData appendPartWithFormData:[order.reservation_no dataUsingEncoding:NSUTF8StringEncoding] name:@"reservation_no"];
+    [formData appendPartWithFormData:[order.status.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"status"];
+    
+    [formData appendPartWithFormData:[order.arrival_date dataUsingEncoding:NSUTF8StringEncoding] name:@"arrival_date"];
+    [formData appendPartWithFormData:[order.departure_date dataUsingEncoding:NSUTF8StringEncoding] name:@"departure_date"];
+    [formData appendPartWithFormData:[order.room_typeid.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"room_typeid"];
+    [formData appendPartWithFormData:[order.room_type dataUsingEncoding:NSUTF8StringEncoding] name:@"room_type"];
+    [formData appendPartWithFormData:[order.room_rate.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"room_rate"];
+    [formData appendPartWithFormData:[order.rooms.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"rooms"];
+    [formData appendPartWithFormData:[order.pay_id.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"payment"];
+    
+    if (order.invoice) {
+      [formData appendPartWithFormData:[order.invoice dataUsingEncoding:NSUTF8StringEncoding] name:@"invoice"];
+    }
+    if (order.users) {
+      [formData appendPartWithFormData:[order.users dataUsingEncoding:NSUTF8StringEncoding] name:@"users"];
+    }
+    if (order.room_tags) {
+      [formData appendPartWithFormData:[order.room_tags dataUsingEncoding:NSUTF8StringEncoding] name:@"room_tags"];
+    }
+    if (order.privilege) {
+      [formData appendPartWithFormData:[order.privilege dataUsingEncoding:NSUTF8StringEncoding] name:@"privilege"];
+    }
+    if (order.remark) {
+      [formData appendPartWithFormData:[order.remark dataUsingEncoding:NSUTF8StringEncoding] name:@"remark"];
+    }
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
 @end

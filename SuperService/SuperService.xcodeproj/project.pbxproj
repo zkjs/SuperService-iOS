@@ -100,6 +100,9 @@
 		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; };
 		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
 		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
+		FA93EA421BE209B300D4C932 /* AdminLoginV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA401BE209B300D4C932 /* AdminLoginV.swift */; };
+		FA93EA431BE209B300D4C932 /* AdminLoginV.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA93EA411BE209B300D4C932 /* AdminLoginV.xib */; };
+		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAF0198E1BE1ACD700E67ECD /* StaffLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0198C1BE1ACD700E67ECD /* StaffLoginVC.swift */; };
 		FAF0198F1BE1ACD700E67ECD /* StaffLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF0198D1BE1ACD700E67ECD /* StaffLoginVC.xib */; };
 		FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */; };
@@ -242,6 +245,10 @@
 		842659481BE0A216005E82F2 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		844E329B1BE065810024C678 /* AddMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberVC.swift; sourceTree = "<group>"; };
 		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
+		FA93EA401BE209B300D4C932 /* AdminLoginV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginV.swift; sourceTree = "<group>"; };
+		FA93EA411BE209B300D4C932 /* AdminLoginV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminLoginV.xib; sourceTree = "<group>"; };
+		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
+		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAF0198C1BE1ACD700E67ECD /* StaffLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffLoginVC.swift; sourceTree = "<group>"; };
 		FAF0198D1BE1ACD700E67ECD /* StaffLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffLoginVC.xib; sourceTree = "<group>"; };
 		FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentHeaderView.swift; sourceTree = "<group>"; };
@@ -281,6 +288,8 @@
 			children = (
 				404FB5221BCE2A4B0074D205 /* NSString+ZKJS.h */,
 				404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */,
+				FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */,
+				FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */,
 				404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */,
 				404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */,
 				40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */,
@@ -359,6 +368,8 @@
 			children = (
 				4068A2C21BBB925600FF8608 /* AdminLogin.storyboard */,
 				4068A2C81BBBAF3500FF8608 /* AdminLoginVC.swift */,
+				FA93EA401BE209B300D4C932 /* AdminLoginV.swift */,
+				FA93EA411BE209B300D4C932 /* AdminLoginV.xib */,
 				FAF0198C1BE1ACD700E67ECD /* StaffLoginVC.swift */,
 				FAF0198D1BE1ACD700E67ECD /* StaffLoginVC.xib */,
 			);
@@ -793,6 +804,7 @@
 				4084230D1BC68E8600C215CD /* MessageCell.xib in Resources */,
 				40F757771BE0553E0053C2BE /* SettingsVC.xib in Resources */,
 				408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */,
+				FA93EA431BE209B300D4C932 /* AdminLoginV.xib in Resources */,
 				4068A2C71BBB929200FF8608 /* AdminRegister.storyboard in Resources */,
 				40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */,
 				40F757831BE055A80053C2BE /* TeamListCell.xib in Resources */,
@@ -869,6 +881,7 @@
 				40F757501BE054340053C2BE /* MainPageVC.swift in Sources */,
 				40E3263D1BD50444008344DF /* Order+CoreDataProperties.swift in Sources */,
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
+				FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				FAF0198E1BE1ACD700E67ECD /* StaffLoginVC.swift in Sources */,
@@ -879,6 +892,7 @@
 				40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */,
 				40F757451BE054160053C2BE /* AddClientVC.swift in Sources */,
 				842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */,
+				FA93EA421BE209B300D4C932 /* AdminLoginV.swift in Sources */,
 				40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,

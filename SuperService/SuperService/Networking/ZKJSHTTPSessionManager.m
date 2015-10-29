@@ -327,4 +327,18 @@
   }];
 }
 
+#pragma mark - 员工登录 
+
+- (void)loginWithphoneNumber:(NSString *)phoneNumber success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/login" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+    
+    [formData appendPartWithFormData:[phoneNumber dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+    
+  } success:^(NSURLSessionDataTask *  task, id   responseObject) {
+    
+  } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+    
+  }];
+}
+
 @end

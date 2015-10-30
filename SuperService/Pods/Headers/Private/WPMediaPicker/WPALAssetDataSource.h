@@ -1,1 +1,0 @@
-../../../WPMediaPicker/Pod/Classes/WPALAssetDataSource.h

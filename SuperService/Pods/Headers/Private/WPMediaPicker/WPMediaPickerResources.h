@@ -1,1 +1,0 @@
-../../../WPMediaPicker/Pod/Classes/WPMediaPickerResources.h

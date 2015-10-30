@@ -209,26 +209,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     let nv1 = BaseNavigationController()
     nv1.viewControllers = [vc1]
     
-    let vc2 = TeamListVC()
-    vc2.tabBarItem.title = "团队"
-    vc2.tabBarItem.image = UIImage(named: "ic_tuandui_b")
+    let vc2 = MessageTVC()
+    vc2.tabBarItem.title = "消息"
+    vc2.tabBarItem.image = UIImage(named: "ic_duihua_b")
     let nv2 = BaseNavigationController()
     nv2.viewControllers = [vc2]
     
-    let vc3 = ClientListVC()
-    vc3.tabBarItem.title = "客户"
-    vc3.tabBarItem.image = UIImage(named: "ic_kehu_b")
+    let vc3 = TeamListVC()
+    vc3.tabBarItem.title = "团队"
+    vc3.tabBarItem.image = UIImage(named: "ic_tuandui_b")
     let nv3 = BaseNavigationController()
     nv3.viewControllers = [vc3]
     
-    let vc4 = SettingsVC()
-    vc4.tabBarItem.title = "我的"
-    vc4.tabBarItem.image = UIImage(named: "ic_shezhi")
+    let vc4 = ClientListVC()
+    vc4.tabBarItem.title = "客户"
+    vc4.tabBarItem.image = UIImage(named: "ic_kehu_b")
     let nv4 = BaseNavigationController()
     nv4.viewControllers = [vc4]
     
+    let vc5 = SettingsVC()
+    vc5.tabBarItem.title = "我的"
+    vc5.tabBarItem.image = UIImage(named: "ic_shezhi")
+    let nv5 = BaseNavigationController()
+    nv5.viewControllers = [vc5]
+    
     let mainTBC = MainTBC()
-    mainTBC.viewControllers = [nv1, nv2, nv3, nv4]
+    mainTBC.viewControllers = [nv1, nv2, nv3, nv4, nv5]
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window!.rootViewController = mainTBC
     window?.makeKeyAndVisible()

@@ -8,10 +8,12 @@
 
 import UIKit
 
-class MessageTVC: UITableViewController, XLPagerTabStripChildItem {
+class MessageTVC: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    title = "消息通知"
     
     tableView.tableFooterView = UIView()
     
@@ -24,15 +26,6 @@ class MessageTVC: UITableViewController, XLPagerTabStripChildItem {
     // Dispose of any resources that can be recreated.
   }
   
-  // MARK: - XLPagerTabStripChildItem Delegate
-  
-  func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-    return "消息通知"
-  }
-  
-  func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
-    return UIColor.whiteColor()
-  }
   
   // MARK: - Table view data source
   

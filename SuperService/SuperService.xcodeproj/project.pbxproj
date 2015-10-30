@@ -267,10 +267,10 @@
 		408423031BC689E200C215CD /* ArrivalTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrivalTVC.xib; sourceTree = "<group>"; };
 		408423061BC68A7800C215CD /* ArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalCell.swift; sourceTree = "<group>"; };
 		408423071BC68A7800C215CD /* ArrivalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrivalCell.xib; sourceTree = "<group>"; };
-		4084230A1BC68E8600C215CD /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		4084230B1BC68E8600C215CD /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
-		408423121BC68EB000C215CD /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		408423131BC68EB000C215CD /* MessageTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTVC.xib; sourceTree = "<group>"; };
+		4084230A1BC68E8600C215CD /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = MainPage/Child/Cell/MessageCell.swift; sourceTree = "<group>"; };
+		4084230B1BC68E8600C215CD /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = MainPage/Child/Cell/MessageCell.xib; sourceTree = "<group>"; };
+		408423121BC68EB000C215CD /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTVC.swift; path = MainPage/Child/MessageTVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		408423131BC68EB000C215CD /* MessageTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageTVC.xib; path = MainPage/Child/MessageTVC.xib; sourceTree = "<group>"; };
 		408AD3791BC5533600A202DD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		40ABA9631BE1B9E000737C6D /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		40ABA9651BE1BE4700737C6D /* GoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsModel.swift; sourceTree = "<group>"; };
@@ -472,6 +472,7 @@
 		40D7311E1BE3178800266228 /* weChatBubble_Receiving_Solid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Solid@2x.png"; sourceTree = "<group>"; };
 		40D7311F1BE3178800266228 /* weChatBubble_Sending_Solid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Sending_Solid@2x.png"; sourceTree = "<group>"; };
 		40D731201BE3178800266228 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MessageDisplayKitString.strings"; sourceTree = "<group>"; };
+		40D7339E1BE31FA600266228 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		40DA788E1BAFAA8F00956B72 /* SuperService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DA78911BAFAA8F00956B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40DA78981BAFAA8F00956B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -615,8 +616,6 @@
 			children = (
 				408423061BC68A7800C215CD /* ArrivalCell.swift */,
 				408423071BC68A7800C215CD /* ArrivalCell.xib */,
-				4084230A1BC68E8600C215CD /* MessageCell.swift */,
-				4084230B1BC68E8600C215CD /* MessageCell.xib */,
 				40F7575A1BE0546A0053C2BE /* OrderCell.swift */,
 				40F7575B1BE0546A0053C2BE /* OrderCell.xib */,
 			);
@@ -1134,6 +1133,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		40D7339D1BE31E7E00266228 /* MessageCenter */ = {
+			isa = PBXGroup;
+			children = (
+				4084230A1BC68E8600C215CD /* MessageCell.swift */,
+				4084230B1BC68E8600C215CD /* MessageCell.xib */,
+				408423121BC68EB000C215CD /* MessageTVC.swift */,
+				408423131BC68EB000C215CD /* MessageTVC.xib */,
+			);
+			name = MessageCenter;
+			sourceTree = "<group>";
+		};
 		40DA78851BAFAA8F00956B72 = {
 			isa = PBXGroup;
 			children = (
@@ -1166,6 +1176,7 @@
 				4068A2D41BBBB14600FF8608 /* Login */,
 				40600CAB1BC64579008F8DEC /* MainPage */,
 				404FB51E1BCE08840074D205 /* Networking */,
+				40D7339D1BE31E7E00266228 /* MessageCenter */,
 				4068A2E21BBBD81600FF8608 /* Register */,
 				40F1BA811BC7FBC9006C2B41 /* Settings */,
 				40F1BA7F1BC7FBB7006C2B41 /* TeamList */,
@@ -1178,6 +1189,7 @@
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
 				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
+				40D7339E1BE31FA600266228 /* PrefixHeader.pch */,
 				4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */,
 				405F4CA81BCF3FCC00BBBF47 /* server.der */,
 			);
@@ -1341,8 +1353,6 @@
 			children = (
 				408423021BC689E200C215CD /* ArrivalTVC.swift */,
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
-				408423121BC68EB000C215CD /* MessageTVC.swift */,
-				408423131BC68EB000C215CD /* MessageTVC.xib */,
 				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
 				40F757541BE054550053C2BE /* OrderTVC.swift */,
@@ -1942,6 +1952,8 @@
 					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitStoryBoradExample/MessageDisplayKitStoryBoradExample/Vendor",
 					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitWeChatExample/MessageDisplayKitWeChatExample/Vendor/MessageDisplayKit",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SuperService/PrefixHeader.pch;
 				INFOPLIST_FILE = SuperService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1970,6 +1982,8 @@
 					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitStoryBoradExample/MessageDisplayKitStoryBoradExample/Vendor",
 					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitWeChatExample/MessageDisplayKitWeChatExample/Vendor/MessageDisplayKit",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SuperService/PrefixHeader.pch;
 				INFOPLIST_FILE = SuperService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

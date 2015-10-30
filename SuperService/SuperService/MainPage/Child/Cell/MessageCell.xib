@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="316" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="316" height="69.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="316" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄小姐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaM-D2-ZaY">
@@ -100,6 +100,13 @@
             </tableViewCellContentView>
             <animations/>
             <inset key="separatorInset" minX="76" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="lastChatLabel" destination="xME-Lx-WGg" id="01C-Cl-QWi"/>
+                <outlet property="photoImageView" destination="Srh-sg-RFc" id="PmM-4S-0lt"/>
+                <outlet property="timestampLabel" destination="gT7-QE-zPu" id="RIH-j4-zDB"/>
+                <outlet property="titleLabel" destination="uaM-D2-ZaY" id="7qW-gm-SIO"/>
+                <outlet property="unreadLabel" destination="PXy-Ye-9Mi" id="yT3-E3-f60"/>
+            </connections>
             <point key="canvasLocation" x="309" y="341"/>
         </tableViewCell>
     </objects>

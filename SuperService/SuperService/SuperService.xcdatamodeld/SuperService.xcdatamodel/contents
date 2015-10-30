@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="Client" representedClassName=".Client" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -12,6 +12,15 @@
         <relationship name="client" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="clientArrivalInfo" inverseEntity="Client" syncable="YES"/>
         <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="clientArrivalInfo" inverseEntity="Location" syncable="YES"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="clientArrivalInfo" inverseEntity="Order" syncable="YES"/>
+    </entity>
+    <entity name="Conversation" representedClassName=".Conversation" syncable="YES">
+        <attribute name="lastChat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="unread" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName=".Location" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,5 +38,6 @@
         <element name="ClientArrivalInfo" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Location" positionX="-27" positionY="81" width="128" height="90"/>
         <element name="Order" positionX="-54" positionY="54" width="128" height="105"/>
+        <element name="Conversation" positionX="-54" positionY="63" width="128" height="150"/>
     </elements>
 </model>

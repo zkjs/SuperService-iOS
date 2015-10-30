@@ -10,31 +10,28 @@ import UIKit
 
 class MessageTVC: UITableViewController {
   
+  var dataArray = [Conversation]()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "消息通知"
+    title = "消息"
     
     tableView.tableFooterView = UIView()
     
     let nibName = UINib(nibName: MessageCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: MessageCell.reuseIdentifier())
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    
+    if let dataArray = Persistence.sharedInstance().fetchConversationArray() {
+      self.dataArray = dataArray
+    }
   }
   
   
   // MARK: - Table view data source
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
-  }
-  
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    return dataArray.count
   }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -44,10 +41,12 @@ class MessageTVC: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(MessageCell.reuseIdentifier(), forIndexPath: indexPath) as! MessageCell
     
-    // Configure the cell...
+    let data = dataArray[indexPath.row]
+    cell.setData(data)
     
     return cell
   }
+  
   
   // MARK: - Table view delegate
   

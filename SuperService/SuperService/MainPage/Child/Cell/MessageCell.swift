@@ -10,6 +10,13 @@ import UIKit
 
 class MessageCell: UITableViewCell {
 
+  @IBOutlet weak var photoImageView: UIImageView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var lastChatLabel: UILabel!
+  @IBOutlet weak var timestampLabel: UILabel!
+  @IBOutlet weak var unreadLabel: UILabel!
+  
+  
   class func reuseIdentifier() -> String {
     return "MessageCell"
   }
@@ -20,6 +27,16 @@ class MessageCell: UITableViewCell {
   
   class func height() -> CGFloat {
     return 70
+  }
+  
+  func setData(conversation: Conversation) {
+    if let photoData = conversation.photo {
+      photoImageView.image = UIImage(data: photoData)
+    }
+    titleLabel.text = conversation.title
+    lastChatLabel.text = conversation.lastChat
+    timestampLabel.text = conversation.timestamp?.timeAgoSinceNow()
+    unreadLabel.text = conversation.unread?.stringValue
   }
   
   override func awakeFromNib() {

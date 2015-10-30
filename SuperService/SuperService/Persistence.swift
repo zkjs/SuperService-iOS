@@ -110,4 +110,50 @@ class Persistence: NSObject {
     }
   }
   
+  func fetchConversationArray() -> [Conversation]? {
+    let fetchRequest = NSFetchRequest(entityName: "Conversation")
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+    let conversationArray: [Conversation]
+    do {
+      conversationArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as! [Conversation]
+      return conversationArray
+    } catch let error as NSError {
+      print("Fetch failed: \(error.localizedDescription)")
+      return nil
+    }
+  }
+  
+  func saveConversationWithSessionID(sessionID: String, title: String, lastChat: String, timestamp: NSDate) {
+    let fetchRequest = NSFetchRequest(entityName: "Conversation")
+    fetchRequest.predicate = NSPredicate(format: "sessionID = %@", sessionID)
+    do {
+      if let results = try managedObjectContext?.executeFetchRequest(fetchRequest) as? [Conversation] {
+        if results.count > 0 {
+          // 已存在，更新
+          if let conversation = results.first {
+            conversation.sessionID = sessionID
+            conversation.title = title
+            conversation.lastChat = lastChat
+            conversation.timestamp = timestamp
+            let oldUnread = conversation.unread!
+            conversation.unread = NSNumber(integer: oldUnread.integerValue + 1)
+            saveContext()
+          } else {
+            // 未存在，插入
+            let conversation = NSEntityDescription.insertNewObjectForEntityForName("Conversation",
+              inManagedObjectContext: self.managedObjectContext!) as! Conversation
+            conversation.sessionID = sessionID
+            conversation.title = title
+            conversation.lastChat = lastChat
+            conversation.timestamp = timestamp
+            conversation.unread = NSNumber(integer: 1)
+            saveContext()
+          }
+        }
+      }
+    } catch let error as NSError {
+      print("Something went wrong: \(error.localizedDescription)")
+    }
+  }
+  
 }

@@ -260,7 +260,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   func didReceivePacket(dictionary: [NSObject : AnyObject]!) {
-
+    print(dictionary)
+//    let number = dictionary["timestamp"] as! NSNumber
+//    let timestamp = NSDate(timeIntervalSince1970: number.doubleValue)
+//    Persistence.sharedInstance().saveConversationWithSessionID(dictionary["sessionid"],
+//      title: dictionary["fromname"],
+//      lastChat: dictionary["textmsg"],
+//      timestamp: timestamp)
   }
   
 }

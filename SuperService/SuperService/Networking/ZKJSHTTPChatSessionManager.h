@@ -20,6 +20,6 @@
 - (void)uploadPictureWithFromID:(NSString *)fromID sessionID:(NSString *)sessionID shopID:(NSString *)shopID format:(NSString *)format image:(UIImage *)image success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 // 查看消息记录
-- (void)getChatLogWithUserID:(NSString *)userID shopID:(NSString *)shopID fromTime:(NSNumber *)fromTime count:(NSNumber *)count success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (void)getChatLogWithSessionID:(NSString *)sessionID fromTime:(NSNumber *)fromTime count:(NSNumber *)count success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end

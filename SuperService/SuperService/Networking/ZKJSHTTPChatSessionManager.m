@@ -81,12 +81,12 @@
 }
 
 // 查看消息记录
-- (void)getChatLogWithUserID:(NSString *)userID shopID:(NSString *)shopID fromTime:(NSNumber *)fromTime count:(NSNumber *)count success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void)getChatLogWithSessionID:(NSString *)sessionID fromTime:(NSNumber *)fromTime count:(NSNumber *)count success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   
-  [self POST:@"msg/find/clientid" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"ClientID"];
-    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"ShopID"];
-    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"UserID"];
+  [self POST:@"msg/find/sessionid" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [formData appendPartWithFormData:[sessionID dataUsingEncoding:NSUTF8StringEncoding] name:@"SessionID"];
+//    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"ShopID"];
+//    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"UserID"];
     [formData appendPartWithFormData:[[fromTime stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:@"FromTime"];
     [formData appendPartWithFormData:[[count stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:@"Count"];
   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

@@ -88,10 +88,15 @@ class MessageTVC: UITableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
-//    let vc = UIViewController()
-//    vc.view.backgroundColor = UIColor.blackColor()
-//    
-//    navigationController?.pushViewController(vc, animated: true)
+    let data = dataArray[indexPath.row]
+    let vc = JSHChatVC()
+    vc.sessionID = data.sessionID
+    vc.receiverID = data.otherSideID
+    vc.receiverName = data.otherSideName
+    
+    hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
+    hidesBottomBarWhenPushed = false
   }
   
 }

@@ -4,7 +4,7 @@
 #use_frameworks!
 
 target 'SuperService' do
-  pod 'JTSImageViewController'
+  pod 'JTSImageViewController', :inhibit_warnings => true
   pod 'ChameleonFramework'
   pod 'MJRefresh'
   pod 'JCTagListView'

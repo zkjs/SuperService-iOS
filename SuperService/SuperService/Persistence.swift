@@ -158,4 +158,22 @@ class Persistence: NSObject {
     }
   }
   
+  func resetConversationBadgeWithSessionID(sessionID: String) {
+    let fetchRequest = NSFetchRequest(entityName: "Conversation")
+    fetchRequest.predicate = NSPredicate(format: "sessionID = %@", sessionID)
+    do {
+      if let results = try managedObjectContext?.executeFetchRequest(fetchRequest) as? [Conversation] {
+        if results.count > 0 {
+          // 已存在，更新
+          if let conversation = results.first {
+            conversation.unread = NSNumber(integer: 0)
+            saveContext()
+          }
+        }
+      }
+    } catch let error as NSError {
+      print("Something went wrong: \(error.localizedDescription)")
+    }
+  }
+  
 }

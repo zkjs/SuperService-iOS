@@ -27,7 +27,6 @@
 @property (nonatomic, strong) NSString *senderName;
 @property (nonatomic, strong) UIImage *senderAvatar;
 @property (nonatomic) ChatType chatType;
-@property (nonatomic, strong) NSString *sessionID;
 @property (nonatomic, strong) NSString *shopID;
 @end
 
@@ -49,12 +48,12 @@
   
   [super viewDidLoad];
   
+  [[Persistence sharedInstance] resetConversationBadgeWithSessionID:self.sessionID];
+  
   [self setupNotification];
-  [self setupNavigationBar];
-  [self setupNavigationBackButton];
   [self setupMessageTableView];
   [self setupMessageInputView];
-  [self setupSessionID];
+//  [self setupSessionID];
   [self customizeChatType];
   [self loadDataSource];
 }
@@ -81,7 +80,7 @@
       
       WEAKSELF
       NSNumber *timestamp = [NSNumber numberWithLongLong:[message.timestamp timeIntervalSince1970]];
-      [[ZKJSHTTPChatSessionManager sharedInstance] getChatLogWithUserID:self.senderID shopID:self.shopID fromTime:timestamp count:@7 success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[ZKJSHTTPChatSessionManager sharedInstance] getChatLogWithSessionID:self.sessionID fromTime:timestamp count:@7 success:^(NSURLSessionDataTask *task, id responseObject) {
         NSMutableArray *chatMessages = [NSMutableArray array];
         for (NSDictionary *message in responseObject) {
           XHMessage *chatMessage = [self getXHMessageFromDictionary:message];
@@ -122,7 +121,7 @@
 }
 
 - (void)didSendPhoto:(UIImage *)photo fromSender:(NSString *)sender onDate:(NSDate *)date {
-  [ZKJSTool showLoading:NSLocalizedString(@"SENDING_PHOTO", nil)];
+  [ZKJSTool showLoading:@"正在发送..."];
   NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
   NSString *format = @"jpg";
   // 压缩图片
@@ -179,7 +178,7 @@
       [ZKJSTool hideHUD];
     } else {
       [ZKJSTool hideHUD];
-      [ZKJSTool showMsg:NSLocalizedString(@"UPLOAD_FAIL", nil)];
+      [ZKJSTool showMsg:@"上传失败，请重新发送"];
     }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     [ZKJSTool hideHUD];
@@ -222,12 +221,16 @@
       message.messageMediaType = XHBubbleMessageMediaTypeVoice;
       message.avatar = self.senderAvatar;
       
-      [Persistence.sharedInstance saveMessage:message shopID:self.shopID];
+      [[Persistence sharedInstance] saveConversationWithSessionID:self.sessionID
+                                                      otherSideID:self.receiverID
+                                                    otherSideName:self.receiverName
+                                                         lastChat:@"[语音]"
+                                                        timestamp:date];
       
       [self addMessage:message];
       [self finishSendMessageWithBubbleMessageType:XHBubbleMessageMediaTypeVoice];
     } else {
-      [ZKJSTool showMsg:NSLocalizedString(@"UPLOAD_FAIL_AUDIO", nil)];
+      [ZKJSTool showMsg:@"上传失败，请重新发送"];
     }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     [ZKJSTool showMsg:error.localizedDescription];
@@ -297,7 +300,7 @@
       DLog(@"facePath : %@", message.localPositionPhoto);
       break;
     }
-    case XHBubbleMessageMediaTypeCard: {
+//    case XHBubbleMessageMediaTypeCard: {
 //      disPlayViewController = [UIViewController new];
 //      disPlayViewController.view.backgroundColor = [UIColor whiteColor];
 //      UILabel *label = [[UILabel alloc] initWithFrame:disPlayViewController.view.bounds];
@@ -305,8 +308,8 @@
 //      label.textColor = [UIColor blackColor];
 //      label.text = @"呵呵";
 //      [disPlayViewController.view addSubview:label];
-      break;
-    }
+//      break;
+//    }
     default:
       break;
   }
@@ -323,20 +326,6 @@
   }
   [self.currentSelectedCell.messageBubbleView.animationVoiceImageView stopAnimating];
   self.currentSelectedCell = nil;
-}
-
-#pragma mark - XHEmotionManagerView DataSource
-
-- (NSInteger)numberOfEmotionManagers {
-  return self.emotionManagers.count;
-}
-
-- (XHEmotionManager *)emotionManagerForColumn:(NSInteger)column {
-  return [self.emotionManagers objectAtIndex:column];
-}
-
-- (NSArray *)emotionManagersAtManager {
-  return self.emotionManagers;
 }
 
 #pragma mark - RecorderPath Helper Method
@@ -363,25 +352,13 @@
 
 #pragma mark - Private Methods
 
-- (void)setupNavigationBackButton {
-  UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_fanhui"] style:UIBarButtonItemStylePlain target:self action:@selector(popToRootVC:)];
-  newBackButton.tintColor = [UIColor blackColor];
-  self.navigationItem.leftBarButtonItem = newBackButton;
-}
-
 - (void)popToRootVC:(UIBarButtonItem *)sender {
   [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)setupNavigationBar {
-  // 把Navigation Bar设置为不透明的
-  self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-  self.navigationController.navigationBar.translucent = NO;
-}
-
 - (void)setupMessageTableView {
   self.messageTableView.backgroundColor = [UIColor colorWithHexString:@"#CBCCCA"];
-  self.messageSender = NSLocalizedString(@"ME", nil);
+  self.messageSender = @"我";
   self.messageReceiver = self.receiverName;
   self.senderID = [AccountManager sharedInstance].userID;
   self.senderName = [AccountManager sharedInstance].userName;
@@ -399,7 +376,7 @@
 - (void)setupMessageInputView {
   NSMutableArray *shareMenuItems = [NSMutableArray array];
   NSArray *plugIcons = @[@"sharemore_pic", @"sharemore_video"];
-  NSArray *plugTitle = @[NSLocalizedString(@"PHOTOS", nil), NSLocalizedString(@"CAMERA", nil)];
+  NSArray *plugTitle = @[@"图片", @"拍照"];
   for (NSString *plugIcon in plugIcons) {
     XHShareMenuItem *shareMenuItem = [[XHShareMenuItem alloc] initWithNormalIconImage:[UIImage imageNamed:plugIcon] title:[plugTitle objectAtIndex:[plugIcons indexOfObject:plugIcon]]];
     [shareMenuItems addObject:shareMenuItem];
@@ -432,15 +409,8 @@
   self.title = self.senderName;
 }
 
-- (void)setupSessionID {
-  self.sessionID = [[StorageManager sharedInstance] chatSession:self.shopID];
-  if (!self.sessionID) {
-    self.sessionID = [self newSessionID];
-  }
-}
-
 - (void)loadDataSource {
-  [ZKJSTool showLoading:NSLocalizedString(@"LOADING_CHAT_LOG", nil)];
+  [ZKJSTool showLoading:@"正在加载聊天记录..."];
 
   [self loadServerMessages];
 }
@@ -455,7 +425,7 @@
   chatMessage.sended = YES;
   chatMessage.isRead = YES;
   switch ([message[@"type"] integerValue]) {
-    case MessageServiceChatCustomerServiceTextChat:
+    case MessageServiceChatTextChat:
       if ([message[@"childtype"] integerValue] == 0) {
         // 普通文本
         chatMessage.text = message[@"textmsg"];
@@ -463,7 +433,7 @@
         chatMessage.messageMediaType = XHBubbleMessageMediaTypeText;
       } else if ([message[@"childtype"] integerValue] == 1) {
         // 卡片消息
-        chatMessage.cardTitle = NSLocalizedString(@"BOOKING_CARD_TITLE", nil);
+        chatMessage.cardTitle = @"客户订房信息";
         NSData *jsonData = [message[@"textmsg"] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
         NSString *urlString = [kBaseURL stringByAppendingString:json[@"image"]];
@@ -471,17 +441,17 @@
         chatMessage.cardImage = [UIImage imageWithData:imageData];
         NSArray *subStrings = [json[@"arrival_date"] componentsSeparatedByString:@"-"];
         NSString *date = [NSString stringWithFormat:@"%@/%@", subStrings[1], subStrings[2]];
-        NSString *content = [NSString stringWithFormat:NSLocalizedString(@"BOOKING_CARD_CONTENT", nil), json[@"room_type"], date, json[@"dayNum"]];
+        NSString *content = [NSString stringWithFormat:@"%@ | %@ | %@晚", json[@"room_type"], date, json[@"dayNum"]];
         chatMessage.cardContent = content;
         chatMessage.messageMediaType = XHBubbleMessageMediaTypeCard;
       }
       break;
-    case MessageServiceChatCustomerServiceImgChat:
+    case MessageServiceChatImgChat:
       chatMessage.originPhotoUrl = message[@"url"];
       chatMessage.thumbnailUrl = message[@"scaleurl"];
       chatMessage.messageMediaType = XHBubbleMessageMediaTypePhoto;
       break;
-    case MessageServiceChatCustomerServiceMediaChat: {
+    case MessageServiceChatMediaChat: {
       NSURL *audioURL = [NSURL URLWithString:message[@"url"]];
       NSData *audioData = [NSData dataWithContentsOfURL:audioURL];
       NSString *path = [self getRecorderPath];
@@ -498,7 +468,7 @@
   
   if (message[@"clientid"] == message[@"fromid"]) {
     chatMessage.bubbleMessageType = XHBubbleMessageTypeSending;
-    chatMessage.avatar = [[JSHStorage baseInfo].avatarImage resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
+    chatMessage.avatar = self.senderAvatar;
   } else {
     chatMessage.bubbleMessageType = XHBubbleMessageTypeReceiving;
     chatMessage.avatar = [[UIImage imageNamed:@"ic_home_nor"] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
@@ -510,7 +480,7 @@
 - (void)loadServerMessages {
   WEAKSELF
   NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
-  [[ZKJSHTTPChatSessionManager sharedInstance] getChatLogWithUserID:self.senderID shopID:self.shopID fromTime:timestamp count:@7 success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[ZKJSHTTPChatSessionManager sharedInstance] getChatLogWithSessionID:self.sessionID fromTime:timestamp count:@7 success:^(NSURLSessionDataTask *task, id responseObject) {
     NSMutableArray *chatMessages = [NSMutableArray array];
     for (NSDictionary *message in responseObject) {
       XHMessage *chatMessage = [self getXHMessageFromDictionary:message];
@@ -524,39 +494,6 @@
       [weakSelf.messageTableView reloadData];
       [weakSelf scrollToBottomAnimated:NO];
       [ZKJSTool hideHUD];
-      
-      switch (self.chatType) {
-        case ChatNewSession: {
-          NSArray *subStrings = [weakSelf.order.departure_date componentsSeparatedByString:@"-"];
-          NSString *date = [NSString stringWithFormat:@"%@/%@", subStrings[1], subStrings[2]];
-          NSString *content = [NSString stringWithFormat:NSLocalizedString(@"BOOKING_CARD_CONTENT", nil), weakSelf.order.room_type, date, weakSelf.order.dayInt];
-          [weakSelf sendCardWithTitle:NSLocalizedString(@"BOOKING_CARD_TITLE", nil) image:weakSelf.order.room_image content:content];
-          break;
-        }
-        case ChatOldSession:
-        case ChatConfirmOrder:
-        case ChatCancelOrder: {
-          if (self.firstMessage) {
-            [weakSelf sendTextMessage:self.firstMessage];
-            XHMessage *message = [[XHMessage alloc] initWithText:self.firstMessage sender:self.senderName timestamp:[NSDate date]];
-            message.bubbleMessageType = XHBubbleMessageTypeSending;
-            message.messageMediaType = XHBubbleMessageMediaTypeText;
-            if ([JSHStorage baseInfo].avatarImage) {
-              message.avatar = [JSHStorage baseInfo].avatarImage;
-            } else {
-              message.avatar = [UIImage imageNamed:@"ic_home_nor"];
-            }
-            
-            [Persistence.sharedInstance saveMessage:message shopID:self.shopID];
-            
-            [weakSelf addMessage:message];
-            [weakSelf finishSendMessageWithBubbleMessageType:XHBubbleMessageMediaTypeText];
-          }
-          break;
-        }
-        default:
-          break;
-      }
     });
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     [ZKJSTool showMsg:error.localizedDescription];
@@ -566,7 +503,7 @@
 - (void)sendTextMessage:(NSString *)text {
   NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
   NSDictionary *dictionary = @{
-                               @"type": [NSNumber numberWithInteger:MessageServiceChatCustomerServiceTextChat],
+                               @"type": [NSNumber numberWithInteger:MessageServiceChatTextChat],
                                @"timestamp": timestamp,
                                @"fromid": self.senderID,
                                @"fromname": self.senderName,
@@ -594,7 +531,7 @@
       [dateFormatter setDateFormat:@"yyyyMMddHHmmssSSS"];
       NSString *fileName = [dateFormatter stringFromDate:[NSDate date]];
       NSDictionary *dictionary = @{
-                                   @"type": [NSNumber numberWithInteger:MessageServiceChatCustomerServiceMediaChat],
+                                   @"type": [NSNumber numberWithInteger:MessageServiceChatMediaChat],
                                    @"timestamp": timestamp,
                                    @"fromid": self.senderID,
                                    @"fromname": self.senderName,
@@ -610,7 +547,7 @@
                                    };
       [[ZKJSTCPSessionManager sharedInstance] sendPacketFromDictionary:dictionary];
     } else {
-      [ZKJSTool showMsg:NSLocalizedString(@"UPLOAD_FAIL_AUDIO", nil)];
+      [ZKJSTool showMsg:@"发送失败，请重新发送"];
     }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     
@@ -682,7 +619,7 @@
 - (void)sendReadAcknowledge:(NSDictionary *)userInfo {
   NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
   NSDictionary *dictionary = @{
-                               @"type": [NSNumber numberWithInteger:MessageServiceChatCustomerServiceSessionMsgReadAck],
+                               @"type": [NSNumber numberWithInteger:MessageServiceChatMsgReadAck],
                                @"timestamp": timestamp,
                                @"shopid": userInfo[@"shopid"],
                                @"seqid": userInfo[@"seqid"],
@@ -702,7 +639,11 @@
   message.messageMediaType = XHBubbleMessageMediaTypeText;
   message.avatar = [[UIImage imageNamed:@"ic_home_nor"] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
   
-  [Persistence.sharedInstance saveMessage:message shopID:self.shopID];
+  [[Persistence sharedInstance] saveConversationWithSessionID:self.sessionID
+                                                  otherSideID:self.receiverID
+                                                otherSideName:self.receiverName
+                                                     lastChat:text
+                                                    timestamp:[NSDate date]];
   
   [self addMessage:message];
   [self.messageTableView reloadData];
@@ -741,7 +682,11 @@
   message.messageMediaType = XHBubbleMessageMediaTypeVoice;
   message.avatar = [[UIImage imageNamed:@"ic_home_nor"] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
   
-  [Persistence.sharedInstance saveMessage:message shopID:self.shopID];
+  [[Persistence sharedInstance] saveConversationWithSessionID:self.sessionID
+                                                  otherSideID:self.receiverID
+                                                otherSideName:self.receiverName
+                                                     lastChat:@"[语音]"
+                                                    timestamp:timestamp];
   
   [self addMessage:message];
   [self.messageTableView reloadData];
@@ -769,7 +714,11 @@
   message.messageMediaType = XHBubbleMessageMediaTypePhoto;
   message.avatar = [[UIImage imageNamed:@"ic_home_nor"] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
   
-  [Persistence.sharedInstance saveMessage:message shopID:self.shopID];
+  [[Persistence sharedInstance] saveConversationWithSessionID:self.sessionID
+                                                  otherSideID:self.receiverID
+                                                otherSideName:self.receiverName
+                                                     lastChat:@"[图片]"
+                                                    timestamp:timestamp];
   
   [self addMessage:message];
   [self.messageTableView reloadData];
@@ -783,13 +732,14 @@
 
 - (void)handleMessageResponse:(NSNotification *)notification {
   NSNumber *result = notification.userInfo[@"result"];
-  // 0:发送成功 1:发送失败(说明会话无成员或创建失败,不保存消息) 2:会话中仅客人在线(针对客人) 3:客人当前不在线(针对客服)
+  // 0:发送成功 1:发送失败(协议包不正确,不保存消息) 2:会话中仅客人在线(针对客人) 3:客人当前不在线(针对客服)
+  // 4:商家所有客服都不在线 5:会话不存在(可能未创建或已解散) 6:发送者不在会话中
   if ([result integerValue] == 1) {
-    [ZKJSTool showMsg:NSLocalizedString(@"HOTEL_IS_OFFLINE", nil)];
-  } else if ([result integerValue] == 2) {
+    [ZKJSTool showMsg:@"消息发送失败"];
+  } else if ([result integerValue] == 3) {
     // 当前会话成员中只有客户自己在线
-    [self requestWaiterWithRuleType:@"DefaultChatRuleType" andDescription:@""];
-    [ZKJSTool showMsg:NSLocalizedString(@"SEND_MESSAGE_FAIL", nil)];
+//    [self requestWaiterWithRuleType:@"DefaultChatRuleType" andDescription:@""];
+    [ZKJSTool showMsg:@"客人不在线"];
   }
 }
 

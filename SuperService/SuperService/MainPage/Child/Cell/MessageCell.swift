@@ -38,7 +38,12 @@ class MessageCell: UITableViewCell {
     titleLabel.text = conversation.otherSideName
     lastChatLabel.text = conversation.lastChat
     timestampLabel.text = conversation.timestamp?.timeAgoSinceNow()
-    unreadLabel.text = conversation.unread?.stringValue
+    if conversation.unread == 0 {
+      unreadLabel.hidden = true
+    } else {
+      unreadLabel.hidden = false
+      unreadLabel.text = conversation.unread?.stringValue
+    }
   }
   
   override func awakeFromNib() {

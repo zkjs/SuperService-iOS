@@ -14,8 +14,8 @@
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="clientArrivalInfo" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="Conversation" representedClassName=".Conversation" syncable="YES">
+        <attribute name="fromID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastChat" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,8 +36,8 @@
     <elements>
         <element name="Client" positionX="-36" positionY="63" width="128" height="120"/>
         <element name="ClientArrivalInfo" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Conversation" positionX="-54" positionY="63" width="128" height="150"/>
         <element name="Location" positionX="-27" positionY="81" width="128" height="90"/>
         <element name="Order" positionX="-54" positionY="54" width="128" height="105"/>
-        <element name="Conversation" positionX="-54" positionY="63" width="128" height="150"/>
     </elements>
 </model>

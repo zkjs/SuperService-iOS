@@ -32,6 +32,24 @@ typedef NS_ENUM(NSInteger, MessageUserDefineType) {
   MessageUserDefineClientArrival = 1006,
 };
 
+typedef NS_ENUM(NSInteger, MessageServiceChatType) {
+  //文本
+  MessageServiceChatTextChat     = 141,
+  MessageServiceChatTextChat_RSP = 142,
+  
+  //语音
+  MessageServiceChatMediaChat     = 143,
+  MessageServiceChatMediaChat_RSP = 144,
+  
+  //图片
+  MessageServiceChatImgChat     = 145,
+  MessageServiceChatImgChat_RSP = 146,
+  
+  //消息回执
+  MessageServiceChatMsgReadAck     = 212,
+  MessageServiceChatMsgReadAck_RSP = 213
+};
+
 @protocol TCPSessionManagerDelegate;
 
 @interface ZKJSTCPSessionManager : NSObject

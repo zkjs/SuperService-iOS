@@ -32,11 +32,9 @@ class MainTBC: UITabBarController {
   // MARK: - Private
   
   private func showAdminLogin() {
-   let loginVC = StaffLoginVC()
-    
-//    let storyboard = UIStoryboard(name: "Login", bundle: nil)
-//    let vc = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginVC
-    let nv = UINavigationController(rootViewController: loginVC)
+    let storyboard = UIStoryboard(name: "AdminLogin", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("AdminLoginVC") as! AdminLoginVC
+    let nv = UINavigationController(rootViewController: vc)
     nv.navigationBar.barTintColor = UIColor(hexString: "29B6F6")
     nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     nv.navigationBar.translucent = false

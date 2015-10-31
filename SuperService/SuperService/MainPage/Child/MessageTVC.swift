@@ -15,16 +15,51 @@ class MessageTVC: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "消息"
+    setupView()
     
-    tableView.tableFooterView = UIView()
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: "refresh",
+      name: refreshConversationListKey,
+      object: nil)
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    refresh()
+    resetTabBadge()
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  
+  // MARK: - Public
+  
+  func refresh() {
+    if let dataArray = Persistence.sharedInstance().fetchConversationArray() {
+      self.dataArray = dataArray
+      tableView.reloadData()
+    }
+  }
+  
+  
+  // MARK: - Private
+  
+  private func setupView() {
+    title = "消息"
     
     let nibName = UINib(nibName: MessageCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: MessageCell.reuseIdentifier())
     
-    if let dataArray = Persistence.sharedInstance().fetchConversationArray() {
-      self.dataArray = dataArray
-    }
+    tableView.tableFooterView = UIView()
+  }
+  
+  private func resetTabBadge() {
+    let tabArray = super.tabBarController?.tabBar.items as NSArray!
+    let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+    tabItem.badgeValue = nil
   }
   
   

@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
+let refreshConversationListKey = "refreshConversationListKey"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
 
   var window: UIWindow?
-
+  var mainTBC: MainTBC!
   
   // MARK: - Application Delegate
 
@@ -233,7 +235,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     let nv5 = BaseNavigationController()
     nv5.viewControllers = [vc5]
     
-    let mainTBC = MainTBC()
+    mainTBC = MainTBC()
     mainTBC.viewControllers = [nv1, nv2, nv3, nv4, nv5]
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window!.rootViewController = mainTBC
@@ -261,12 +263,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func didReceivePacket(dictionary: [NSObject : AnyObject]!) {
     print(dictionary)
-//    let number = dictionary["timestamp"] as! NSNumber
-//    let timestamp = NSDate(timeIntervalSince1970: number.doubleValue)
-//    Persistence.sharedInstance().saveConversationWithSessionID(dictionary["sessionid"],
-//      title: dictionary["fromname"],
-//      lastChat: dictionary["textmsg"],
-//      timestamp: timestamp)
+    if let type = dictionary["type"] as? NSNumber {
+      if let messageType = MessageServiceChatType(rawValue: type.integerValue) {
+        // 消息类型
+        handleChatMessageWithType(messageType, dictionary: dictionary)
+      }
+    }
+  }
+  
+  func handleChatMessageWithType(type: MessageServiceChatType, dictionary: [NSObject: AnyObject]) {
+    if [MessageServiceChatType.TextChat, .ImgChat, .MediaChat].contains(type) {
+      // 文本，图片，语音消息
+      let number = dictionary["timestamp"] as! NSNumber
+      let timestamp = NSDate(timeIntervalSince1970: number.doubleValue)
+      let sessionID = dictionary["sessionid"] as! String
+      let fromID = dictionary["fromid"] as! String
+      let fromName = dictionary["fromname"] as! String
+      switch type {
+      case .TextChat:
+        Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
+          fromID: fromID,
+          title: fromName,
+          lastChat: dictionary["textmsg"] as! String,
+          timestamp: timestamp)
+      case .MediaChat:
+        Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
+          fromID: fromID,
+          title: fromName,
+          lastChat: "[语音]",
+          timestamp: timestamp)
+      case .ImgChat:
+        Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
+          fromID: fromID,
+          title: fromName,
+          lastChat: "[图片]",
+          timestamp: timestamp)
+      default:
+        break
+      }
+      NSNotificationCenter.defaultCenter().postNotificationName(refreshConversationListKey, object: self)
+      if mainTBC.selectedIndex != 1 {
+        let tabArray = mainTBC.tabBar.items as NSArray!
+        let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+        tabItem.badgeValue = "1"
+      }
+    }
   }
   
 }

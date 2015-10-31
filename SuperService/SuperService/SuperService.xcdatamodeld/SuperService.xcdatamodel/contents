@@ -14,11 +14,11 @@
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="clientArrivalInfo" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="Conversation" representedClassName=".Conversation" syncable="YES">
-        <attribute name="fromID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastChat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherSideID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherSideName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="unread" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>

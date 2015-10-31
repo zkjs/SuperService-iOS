@@ -17,9 +17,9 @@ extension Conversation {
     @NSManaged var lastChat: String?
     @NSManaged var sessionID: String?
     @NSManaged var timestamp: NSDate?
-    @NSManaged var title: String?
+    @NSManaged var otherSideName: String?
     @NSManaged var type: NSNumber?
     @NSManaged var unread: NSNumber?
-    @NSManaged var fromID: String?
+    @NSManaged var otherSideID: String?
 
 }

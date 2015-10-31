@@ -282,20 +282,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       switch type {
       case .TextChat:
         Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-          fromID: fromID,
-          title: fromName,
+          otherSideID: fromID,
+          otherSideName: fromName,
           lastChat: dictionary["textmsg"] as! String,
           timestamp: timestamp)
       case .MediaChat:
         Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-          fromID: fromID,
-          title: fromName,
+          otherSideID: fromID,
+          otherSideName: fromName,
           lastChat: "[语音]",
           timestamp: timestamp)
       case .ImgChat:
         Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-          fromID: fromID,
-          title: fromName,
+          otherSideID: fromID,
+          otherSideName: fromName,
           lastChat: "[图片]",
           timestamp: timestamp)
       default:

@@ -30,12 +30,12 @@ class MessageCell: UITableViewCell {
   }
   
   func setData(conversation: Conversation) {
-    if let userID = conversation.fromID {
+    if let otherSideID = conversation.otherSideID {
       var url = NSURL(string: kBaseURL)
-      url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
+      url = url?.URLByAppendingPathComponent("uploads/users/\(otherSideID).jpg")
       photoImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
     }
-    titleLabel.text = conversation.title
+    titleLabel.text = conversation.otherSideName
     lastChatLabel.text = conversation.lastChat
     timestampLabel.text = conversation.timestamp?.timeAgoSinceNow()
     unreadLabel.text = conversation.unread?.stringValue

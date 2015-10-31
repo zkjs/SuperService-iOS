@@ -123,7 +123,7 @@ class Persistence: NSObject {
     }
   }
   
-  func saveConversationWithSessionID(sessionID: String, fromID: String, title: String, lastChat: String, timestamp: NSDate) {
+  func saveConversationWithSessionID(sessionID: String, otherSideID: String, otherSideName: String, lastChat: String, timestamp: NSDate) {
     let fetchRequest = NSFetchRequest(entityName: "Conversation")
     fetchRequest.predicate = NSPredicate(format: "sessionID = %@", sessionID)
     do {
@@ -132,8 +132,8 @@ class Persistence: NSObject {
           // 已存在，更新
           if let conversation = results.first {
             conversation.sessionID = sessionID
-            conversation.fromID = fromID
-            conversation.title = title
+            conversation.otherSideID = otherSideID
+            conversation.otherSideName = otherSideName
             conversation.lastChat = lastChat
             conversation.timestamp = timestamp
             let oldUnread = conversation.unread!
@@ -145,8 +145,8 @@ class Persistence: NSObject {
           let conversation = NSEntityDescription.insertNewObjectForEntityForName("Conversation",
             inManagedObjectContext: self.managedObjectContext!) as! Conversation
           conversation.sessionID = sessionID
-          conversation.fromID = fromID
-          conversation.title = title
+          conversation.otherSideID = otherSideID
+          conversation.otherSideName = otherSideName
           conversation.lastChat = lastChat
           conversation.timestamp = timestamp
           conversation.unread = NSNumber(integer: 1)

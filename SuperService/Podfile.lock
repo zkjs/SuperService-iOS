@@ -25,6 +25,7 @@ PODS:
   - ChameleonFramework/Default (2.0.4)
   - DateTools (1.7.0)
   - JCTagListView (0.0.4)
+  - JTSImageViewController (1.5.1)
   - MBProgressHUD (0.9.1)
   - MJRefresh (2.4.12)
   - SDWebImage (3.7.3):
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - ChameleonFramework
   - DateTools
   - JCTagListView
+  - JTSImageViewController
   - MBProgressHUD
   - MJRefresh
   - SDWebImage
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   JCTagListView: e267bb1e2f44555093d4d5ff5b95939c12ebd5ad
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

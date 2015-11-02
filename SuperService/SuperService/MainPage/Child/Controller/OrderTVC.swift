@@ -23,7 +23,14 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    addRightBarButton()
     tableView.header.beginRefreshing()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    deleteRightBarButton()
   }
   
   
@@ -40,7 +47,24 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     getDataWithPage(1)
   }
   
+  
   // MARK: - Private
+  
+  private func addRightBarButton() {
+    let addOrderButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"),
+      style: .Plain,
+      target: self,
+      action: "addOrder")
+    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
+    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
+    baseNC.topViewController?.navigationItem.rightBarButtonItem = addOrderButton
+  }
+  
+  private func deleteRightBarButton() {
+    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
+    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
+    baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
+  }
   
   private func setupView() {
     let nibName = UINib(nibName: OrderCell.nibName(), bundle: nil)
@@ -119,6 +143,13 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   
   // MARK: - Button Action
   
+  func addOrder() {
+    let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("OrderDetailVC") as! OrderDetailTVC
+    vc.type = .Add
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  
   func showOrder(sender: UIButton) {
     // 正在刷新时点击无效
     if orderArray.count == 0 {
@@ -128,6 +159,7 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     let order = orderArray[sender.tag]
     let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
     let vc = storyboard.instantiateViewControllerWithIdentifier("OrderDetailVC") as! OrderDetailTVC
+    vc.type = .Update
     vc.reservationNO = order.reservation_no
     navigationController?.pushViewController(vc, animated: true)
   }

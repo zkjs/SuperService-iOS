@@ -51,6 +51,10 @@
   return [AccountManager sharedInstance].userName;
 }
 
+- (NSString *)shopName {
+  return [AccountManager sharedInstance].shopName;
+}
+
 
 #pragma mark - 管理员登陆
 
@@ -395,6 +399,37 @@
     NSLog(@"==%@", [responseObject description]);
     success(task, responseObject);
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 新增订单
+
+- (void)addOrderWithOrder:(OrderModel *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"order/update" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"empid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[order.reservation_no dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[order.guest dataUsingEncoding:NSUTF8StringEncoding] name:@"guest"];
+    [formData appendPartWithFormData:[order.guesttel.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"guesttel"];
+    [formData appendPartWithFormData:[[self shopName] dataUsingEncoding:NSUTF8StringEncoding] name:@"fullname"];
+    [formData appendPartWithFormData:[order.room_typeid.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"roomid"];
+    [formData appendPartWithFormData:[order.room_type dataUsingEncoding:NSUTF8StringEncoding] name:@"room_type"];
+    [formData appendPartWithFormData:[order.imgurl dataUsingEncoding:NSUTF8StringEncoding] name:@"imgurl"];
+    [formData appendPartWithFormData:[order.rooms.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"rooms"];
+    [formData appendPartWithFormData:[order.arrival_date dataUsingEncoding:NSUTF8StringEncoding] name:@"arrival_date"];
+    [formData appendPartWithFormData:[order.departure_date dataUsingEncoding:NSUTF8StringEncoding] name:@"departure_date"];
+    [formData appendPartWithFormData:[order.room_rate.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"room_rate"];
+    [formData appendPartWithFormData:[order.status.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"status"];
+    [formData appendPartWithFormData:[order.pay_id.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"payment"];
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
   }];

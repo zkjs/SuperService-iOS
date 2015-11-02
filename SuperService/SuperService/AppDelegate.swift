@@ -87,36 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
         
         ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
           success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//            {
-//              order =     {
-//                "arrival_date" = "2015-10-17";
-//                created = "2015-10-17 05:13:01";
-//                "departure_date" = "2015-10-18";
-//                fullname = "\U957f\U6c99\U8c6a\U5ef7\U5927\U9152\U5e97";
-//                guest = "<null>";
-//                guestid = 5603d8d417392;
-//                guesttel = "<null>";
-//                imgurl = "uploads/rooms/1.jpg";
-//                "pay_id" = 1;
-//                "pay_name" = "\U652f\U4ed8\U5b9d";
-//                "pay_status" = 0;
-//                payment = 1;
-//                remark = "<null>";
-//                "reservation_no" = H20151017051301;
-//                "room_rate" = 566;
-//                "room_type" = "\U8c6a\U534e\U5927\U5e8a\U65e0\U65e9";
-//                "room_typeid" = 1;
-//                rooms = 1;
-//                shopid = 120;
-//                status = 0;
-//              };
-//              "order_count" = 1;
-//              phone = 18925232944;
-//              sex = 0;
-//              "user_level" = 0;
-//              userid = 5603d8d417392;
-//              username = Hanton;
-            
             // 缓存到店信息到数据库
             let moc = Persistence.sharedInstance().managedObjectContext
             let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",

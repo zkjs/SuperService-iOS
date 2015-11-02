@@ -8,34 +8,35 @@
 
 import UIKit
 
-private let kNameSection = 2
-private let kReceiptSection = 4
-private let kReceiptRow = 1
-private let kRoomSection = 5
-private let kRoomRow = 1
-private let kServiceSection = 6
-private let kServiceRow = 1
+
+enum OrderType: Int {
+  case Add = 0
+  case Update = 1
+}
 
 class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
-  @IBOutlet weak var dateInfoLabel: UILabel!
+  @IBOutlet weak var dateInfoTextField: UITextField!
   @IBOutlet weak var startDateLabel: UILabel!
   @IBOutlet weak var endDateLabel: UILabel!
-  @IBOutlet weak var roomTypeLabel: UILabel!
-  @IBOutlet weak var roomCountLabel: UILabel!
-  @IBOutlet weak var paymentTypeLabel: UILabel!
+  @IBOutlet weak var roomTypeTextField: UITextField!
+  @IBOutlet weak var roomCountTextField: UITextField!
+  @IBOutlet weak var paymentTextField: UITextField!
   @IBOutlet weak var amountTextField: UITextField!
   @IBOutlet weak var invoiceTextField: UITextField!
   @IBOutlet var nameTextFields: [UITextField]!
   @IBOutlet weak var roomTagView: JCTagListView!
   @IBOutlet weak var serviceTagView: JCTagListView!
   @IBOutlet weak var remarkTextView: UITextView!
+  @IBOutlet weak var clientNameTextField: UITextField!
+  @IBOutlet weak var orderStatusTextField: UITextField!
   
+  var type = OrderType.Add
   var reservationNO: String!
-  var order: OrderModel!
+  var order = OrderModel()
   var paymentArray = [PaymentModel]()
   var goodsArray = [GoodsModel]()
-  
+  var orderStatusArray = ["待确定", "已取消", "已确定", "已完成", "入住中", "已删除"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,48 +47,70 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   
   func setupOrder() {
-    startDateLabel.text = order.arrivalDateShortStyle!
-    endDateLabel.text = order.departureDateShortStyle!
-    dateInfoLabel.text = "共\(order.duration!.stringValue)晚 在\(order.departureDateShortStyle!) 13点前退房"
-    roomTypeLabel.text = order.room_type!
-    roomCountLabel.text = order.rooms!.stringValue
-    paymentTypeLabel.text = order.pay_name!
-    amountTextField.text = order.room_rate!.stringValue
-//    invoiceTextField.text = order.
-//    nameTextFields
-//    roomTagView
-//    serviceTagView
-//    remarkTextView.text = order.remar
+    startDateLabel.text = order.arrivalDateShortStyle
+    endDateLabel.text = order.departureDateShortStyle
+    
+    if let duration = order.duration, let departureDate = order.departureDateShortStyle {
+      dateInfoTextField.text = "共\(duration.stringValue)晚 在\(departureDate) 13点前退房"
+    }
+    
+    roomTypeTextField.text = order.room_type
+    
+    if let rooms = order.rooms {
+      roomCountTextField.text = rooms.stringValue
+    } else {
+      roomCountTextField.text = ""
+    }
+    
+    paymentTextField.text = order.pay_name
+    
+    if let room_rate = order.room_rate {
+      amountTextField.text = room_rate.stringValue
+    } else {
+      amountTextField.text = ""
+      order.room_rate = NSNumber(integer: 0)
+    }
+    
+    clientNameTextField.text = order.guest
+    orderStatusTextField.text = order.orderStatus
+    
+    //    invoiceTextField.text = order.
+    //    nameTextFields
+    //    roomTagView
+    //    serviceTagView
+    //    remarkTextView.text = order.remar
   }
   
   func loadData() {
-    ZKJSTool.showLoading("正在加载数据...")
-    ZKJSHTTPSessionManager.sharedInstance().getOrderWithReservationNO(reservationNO, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let dict = responseObject as? [String: AnyObject] {
-        if let room = dict["room"] as? [String: AnyObject] {
-          self.order = OrderModel(dic: room)
+    if type == .Update {
+      ZKJSTool.showLoading("正在加载数据...")
+      ZKJSHTTPSessionManager.sharedInstance().getOrderWithReservationNO(reservationNO, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+        if let dict = responseObject as? [String: AnyObject] {
+          if let room = dict["room"] as? [String: AnyObject] {
+            self.order = OrderModel(dic: room)
+          }
+          
+          if let invoice = dict["invoice"] as? String {
+            print(invoice)
+          }
+          
+          if let privilege = dict["privilege"] as? String {
+            print(privilege)
+          }
+          
+          if let room_tag = dict["room_tag"] as? String {
+            print(room_tag)
+          }
+          
+          if let users = dict["users"] as? String {
+            print(users)
+          }
         }
-        
-        if let invoice = dict["invoice"] as? String {
-          print(invoice)
-        }
-        
-        if let privilege = dict["privilege"] as? String {
-          print(privilege)
-        }
-        
-        if let room_tag = dict["room_tag"] as? String {
-          print(room_tag)
-        }
-        
-        if let users = dict["users"] as? String {
-          print(users)
-        }
+        self.setupOrder()
+        ZKJSTool.hideHUD()
+        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+          
       }
-      self.setupOrder()
-      ZKJSTool.hideHUD()
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
     }
     
     // 获取支付方式
@@ -143,6 +166,10 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       chooseRoomCount()
     } else if indexPath == NSIndexPath(forRow: 0, inSection: 2) {  // 支付方式
       choosePayment()
+    } else if indexPath == NSIndexPath(forRow: 0, inSection: 3) {  // 预定人
+      chooseClient()
+    } else if indexPath == NSIndexPath(forRow: 1, inSection: 3) {  // 订单状态
+      chooseOrderStatus()
     }
   }
   
@@ -154,7 +181,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       self.startDateLabel.text = dateFormatter.stringFromDate(startDate)
       self.endDateLabel.text = dateFormatter.stringFromDate(endDate)
       let duration = NSDate.daysFromDate(startDate, toDate: endDate)
-      self.dateInfoLabel.text = "共\(duration)晚 在\(self.endDateLabel.text!) 13点前退房"
+      self.dateInfoTextField.text = "共\(duration)晚 在\(self.endDateLabel.text!) 13点前退房"
       // 更新订单
       dateFormatter.dateFormat = "yyyy-MM-dd"
       self.order.arrival_date = dateFormatter.stringFromDate(startDate)
@@ -167,10 +194,11 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     let alertView = UIAlertController(title: "选择房型", message: "", preferredStyle: .ActionSheet)
     for room in goodsArray {
       alertView.addAction(UIAlertAction(title: room.name!, style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
-        self.roomTypeLabel.text = room.name!
+        self.roomTypeTextField.text = room.name!
         // 更新订单
         self.order.room_typeid = room.id
         self.order.room_type = room.name
+        self.order.imgurl = room.imgurl
         }))
     }
     alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
@@ -181,7 +209,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     let alertView = UIAlertController(title: "选择房间数", message: "", preferredStyle: .ActionSheet)
     for i in 1...3 {
       alertView.addAction(UIAlertAction(title: "\(i)间", style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
-        self.roomCountLabel.text = "\(i)"
+        self.roomCountTextField.text = "\(i)"
         // 更新订单
         self.order.rooms = NSNumber(integer: i)
         }))
@@ -194,7 +222,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     let alertView = UIAlertController(title: "选择支付方式", message: "", preferredStyle: .ActionSheet)
     for payment in paymentArray {
       alertView.addAction(UIAlertAction(title: payment.pay_name!, style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
-        self.paymentTypeLabel.text = payment.pay_name!
+        self.paymentTextField.text = payment.pay_name!
         // 更新订单
         self.order.pay_id = payment.pay_id
         self.order.pay_name = payment.pay_name
@@ -204,17 +232,85 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     presentViewController(alertView, animated: true, completion: nil)
   }
   
-  @IBAction func updateOrder(sender: AnyObject) {
-    if let amountText = amountTextField.text {
-      if let amount = Int(amountText) {
-        order.room_rate = NSNumber(integer: amount)
-      } else {
-        order.room_rate = NSNumber(integer: 0)
-      }
-    } else {
-      order.room_rate = NSNumber(integer: 0)
+  func chooseOrderStatus() {
+    let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: .ActionSheet)
+    
+    for index in 0..<orderStatusArray.count {
+      alertView.addAction(UIAlertAction(title: orderStatusArray[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
+        self.orderStatusTextField.text = self.orderStatusArray[index]
+        // 更新订单
+        self.order.status = NSNumber(integer: index)
+        }))
     }
-    print(order)
+    alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+    presentViewController(alertView, animated: true, completion: nil)
+  }
+  
+  func chooseClient() {
+    let vc = ClientListVC()
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  
+  @IBAction func doneOrder(sender: AnyObject) {
+    if checkOrder() == false {
+      return
+    }
+    
+    switch type {
+    case .Add:
+      addOrder()
+    case .Update:
+      updateOrder()
+    }
+  }
+  
+  func checkOrder() -> Bool {
+    var showAlert = false
+    var alertContent = ""
+    if dateInfoTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "入住/离店日期"
+    } else if roomTypeTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "房型"
+    } else if roomCountTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "房间数量"
+    } else if paymentTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "支付方式"
+    } else if amountTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "支付金额"
+    } else if clientNameTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "预定人"
+    } else if orderStatusTextField.text!.isEmpty {
+      showAlert = true
+      alertContent = "订单状态"
+    }
+    
+    if showAlert {
+      let alertView = UIAlertController(title: "\(alertContent)不能为空", message: "", preferredStyle: .Alert)
+      alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+      presentViewController(alertView, animated: true, completion: nil)
+      return false
+    } else {
+      return true
+    }
+  }
+  
+  func addOrder() {
+    ZKJSTool.showLoading("正在新增订单...")
+    ZKJSHTTPSessionManager.sharedInstance().addOrderWithOrder(order, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      ZKJSTool.hideHUD()
+      self.navigationController?.popViewControllerAnimated(true)
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
+    }
+  }
+  
+  func updateOrder() {
     ZKJSTool.showLoading("正在更新订单...")
     ZKJSHTTPSessionManager.sharedInstance().updateOrderWithOrder(order, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       ZKJSTool.hideHUD()
@@ -223,4 +319,22 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
         
     }
   }
+  
+  
+  // MARK: - UITextFieldDelegate
+  
+  func textFieldDidEndEditing(textField: UITextField) {
+    if textField == amountTextField {
+      if let amountText = amountTextField.text {
+        if let amount = Double(amountText) {
+          order.room_rate = NSNumber(double: amount)
+        } else {
+          order.room_rate = NSNumber(double: 0)
+        }
+      } else {
+        order.room_rate = NSNumber(double: 0)
+      }
+    }
+  }
+  
 }

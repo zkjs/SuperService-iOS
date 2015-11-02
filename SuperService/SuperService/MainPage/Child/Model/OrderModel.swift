@@ -49,6 +49,7 @@ class OrderModel: NSObject {
   var status: NSNumber?
   var userid: String?
   var remark: String?
+  var imgurl: String?
   
 //  users 多维[入住人] 必须是已保存用户
 //  简化模式:入住人id,入住人id,入住人id...
@@ -180,6 +181,11 @@ class OrderModel: NSObject {
     output += "payStatus: \(payStatus)\n"
     output += "remark: \(remark)\n"
     return output
+  }
+  
+  override init() {
+    super.init()
+    
   }
   
   init(dic:[String:AnyObject]) {

@@ -1329,8 +1329,8 @@
 			children = (
 				408423021BC689E200C215CD /* ArrivalTVC.swift */,
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
-				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
+				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 				40F757541BE054550053C2BE /* OrderTVC.swift */,
 				40F757551BE054550053C2BE /* OrderTVC.xib */,
 			);

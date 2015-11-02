@@ -123,7 +123,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   
   // MARK: - Table View Delegate
-  // MARK: UITableViewDelegate
   
    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if (sections[section].count == 0){

@@ -22,12 +22,11 @@ class MainPageVC: XLSegmentedPagerTabStripViewController {
   private func setupSubViews() {
     segmentedControl.sizeToFit()
   }
-  
+
   
   // MARK: - XLPagerTabStripViewControllerDataSource
   
   override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
-    
     let child1 = ArrivalTVC()
     let child2 = OrderTVC()
     return [child1, child2]

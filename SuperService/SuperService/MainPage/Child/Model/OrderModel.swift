@@ -35,7 +35,7 @@ class OrderModel: NSObject {
   var fullname: String?
   var created: String?
   var guest: String?
-  var guesttel: NSNumber?
+  var guesttel: String?
   var nologin: NSNumber?
   var pay_id: NSNumber?
   var pay_name: String?
@@ -194,7 +194,7 @@ class OrderModel: NSObject {
     fullname = dic["fullname"] as? String
     created = dic["created"] as? String
     guest = dic["guest"] as? String
-    guesttel = dic["guesttel"] as? NSNumber
+    guesttel = dic["guesttel"] as? String
     nologin = dic["nologin"] as? NSNumber
     pay_id = dic["pay_id"] as? NSNumber
     pay_name = dic["pay_name"] as? String

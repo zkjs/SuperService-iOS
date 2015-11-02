@@ -411,9 +411,9 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"empid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    [formData appendPartWithFormData:[order.reservation_no dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[order.userid dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
     [formData appendPartWithFormData:[order.guest dataUsingEncoding:NSUTF8StringEncoding] name:@"guest"];
-    [formData appendPartWithFormData:[order.guesttel.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"guesttel"];
+    [formData appendPartWithFormData:[order.guesttel dataUsingEncoding:NSUTF8StringEncoding] name:@"guesttel"];
     [formData appendPartWithFormData:[[self shopName] dataUsingEncoding:NSUTF8StringEncoding] name:@"fullname"];
     [formData appendPartWithFormData:[order.room_typeid.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"roomid"];
     [formData appendPartWithFormData:[order.room_type dataUsingEncoding:NSUTF8StringEncoding] name:@"room_type"];

@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-
+typealias ClientSelectionBlock = (ClientModel) -> ()
 
 class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,refreshTableViewDelegate{
   
@@ -33,6 +32,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
       self.tableView.reloadData()
     }
   }
+  var selection: ClientSelectionBlock?
   
   override func viewDidLoad() {
     
@@ -157,6 +157,11 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
-    
+    if let selection = selection {
+      let section = sections[indexPath.section]
+      let client = section[indexPath.row] as! ClientModel
+      selection(client)
+      navigationController?.popViewControllerAnimated(true)
+    }
   }
 }

@@ -15,6 +15,13 @@ protocol RefreshTeamListVCDelegate {
 class AddMemberVC: UIViewController,UITextFieldDelegate {
   
   var delegate:RefreshTeamListVCDelegate?
+  
+  @IBOutlet weak var checkoutButton: UIButton! {
+    didSet {
+      checkoutButton.layer.masksToBounds = true
+      checkoutButton.layer.cornerRadius = 20
+    }
+  }
   @IBOutlet weak var departmentLabel: UILabel!
   @IBOutlet weak var managerButton: UIButton!
   @IBOutlet weak var remarkTextView: UITextView!

@@ -169,7 +169,7 @@
   } success:^(NSURLSessionDataTask *task, id responseObject) {
     NSLog(@"%@",[responseObject description]);
     success(task,responseObject);
-
+    
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -355,7 +355,7 @@
   }];
 }
 
-#pragma mark - 员工登录 
+#pragma mark - 员工登录
 
 - (void)loginWithphoneNumber:(NSString *)phoneNumber success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"semp/login" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
@@ -432,6 +432,25 @@
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
+  }];
+}
+
+#pragma mark - 查询客户
+
+- (void)inquiryClientWithPhoneNumber:(NSString *)phoneNumber success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/sempsuforphone" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"empid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[phoneNumber dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[@"9" dataUsingEncoding:NSUTF8StringEncoding] name:@"set"];
+  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+    NSLog(@"==%@",[responseObject description]);
+    success(task,responseObject);
+    
+  } failure:^(NSURLSessionDataTask *  task, NSError * error) {
+    NSLog(@"%@",error.description);
+    failure(task,error);
   }];
 }
 

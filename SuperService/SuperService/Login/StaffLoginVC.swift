@@ -14,7 +14,13 @@ class StaffLoginVC: UIViewController {
   
   @IBOutlet weak var verificationCodeButton: UIButton!
   
-  @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var loginButton: UIButton! {
+    didSet {
+      loginButton.layer.masksToBounds = true
+      loginButton.layer.cornerRadius = 20
+    }
+  }
+
   @IBOutlet weak var identifyingCodeTextField: UITextField!
   @IBOutlet weak var userphoneTextField: UITextField!
   @IBOutlet weak var userImage: UIImageView!
@@ -25,6 +31,7 @@ class StaffLoginVC: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      title = "登录"
       userphoneTextField.keyboardType = UIKeyboardType.NumberPad
       identifyingCodeTextField.keyboardType = UIKeyboardType.NumberPad
       identifyingCodeTextField.secureTextEntry = true

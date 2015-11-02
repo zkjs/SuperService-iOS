@@ -28,6 +28,9 @@ class ClientModel: NSObject {
   var position: String?
   var Is_bill: Int16?
   
+  override init() {
+    super.init()
+  }
   init(dic:[String: AnyObject]){
     userid = dic["userid"] as?String
     shopid = dic["shopid"] as?String
@@ -43,7 +46,9 @@ class ClientModel: NSObject {
     created = dic["created"] as?String
     modified = dic["modified"] as?String
     username = dic["username"] as?String
-    phone = dic["phone"] as?String
+    if let phoneNumber = dic["phone"] {
+      phone = phoneNumber.stringValue
+    }
     company = dic["company"] as?String
     position = dic["position"] as?String
     Is_bill = dic["Is_bill"] as?Int16

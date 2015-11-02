@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddClientVC" customModule="SuperService" customModuleProvider="target">
             <connections>
+                <outlet property="checkButton" destination="pLp-Sg-9e9" id="Ydy-U6-C8L"/>
                 <outlet property="comapnyTextField" destination="O7P-fG-kZR" id="Img-HC-KSn"/>
                 <outlet property="phoneTextField" destination="IMv-wf-Kfe" id="DoW-c2-oC2"/>
                 <outlet property="positionTextField" destination="rje-08-JYf" id="jgr-Io-3ew"/>

@@ -14,13 +14,27 @@ protocol refreshTableViewDelegate{
 
 class AddClientVC: UIViewController,UITextViewDelegate{
   
-  @IBOutlet weak var remarkTextView: UITextView!
+  @IBOutlet weak var checkButton: UIButton! {
+    didSet {
+      checkButton.layer.masksToBounds = true
+      checkButton.layer.cornerRadius = 20
+    }
+  }
+  
+  @IBOutlet weak var remarkTextView: UITextView! {
+    didSet {
+      remarkTextView.delegate = self
+      remarkTextView.layer.borderWidth = 0.5
+      remarkTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+    }
+  }
+  
   @IBOutlet weak var phoneTextField: UITextField!
   @IBOutlet weak var userNameTextField: UITextField!
   @IBOutlet weak var positionTextField: UITextField!
   @IBOutlet weak var comapnyTextField: UITextField!
   var delegate:refreshTableViewDelegate?
-  
+  var client = ClientModel()
   @IBAction func sureAdd(sender: UIButton) {
     //根据角色的区分来判断登陆的是服务员还是管理员，调用不同的接口
     let roleID = AccountManager.sharedInstance().roleID
@@ -37,13 +51,17 @@ class AddClientVC: UIViewController,UITextViewDelegate{
           if set == true {
             self.delegate?.refreshTableView(dic ,clientModel: client)
           } else {
-            
+            if let error = dic["err"] as? NSNumber {
+              if error.integerValue == 300 {
+                ZKJSTool.showMsg("该客户已经被抢, 请重新填写客户资料")
+              }
+            }
           }
         }
         }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
           
       }
-
+      
     } else {
       ZKJSHTTPSessionManager.sharedInstance().waiterAddClientWithPhone(phoneTextField.text, tag: remarkTextView.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
         let dic = responseObject as! [String: AnyObject]
@@ -54,7 +72,11 @@ class AddClientVC: UIViewController,UITextViewDelegate{
           if set == true {
             self.delegate?.refreshTableView(dic ,clientModel: client)
           } else {
-            
+            if let error = dic["err"] as? NSNumber {
+              if error.integerValue == 300 {
+                ZKJSTool.showMsg("该客户已经被抢, 请重新填写客户资料")
+              }
+            }
           }
         }
         }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
@@ -66,12 +88,13 @@ class AddClientVC: UIViewController,UITextViewDelegate{
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "新建会员"
-    //print(self.view.center.x,self.view.center.y)
-    remarkTextView.delegate = self
-    remarkTextView.layer.borderWidth = 0.5
-    remarkTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
-    
+    phoneTextField.text = client.phone
+    userNameTextField.text = client.username
+    comapnyTextField.text = client.company
+    positionTextField.text = client.position
+    remarkTextView.text = client.other_desc
   }
+  
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)

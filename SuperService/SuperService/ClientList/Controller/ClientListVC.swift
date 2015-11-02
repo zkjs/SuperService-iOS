@@ -40,18 +40,19 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     loadData()
     delegate = self
     title = "客户"
-    
+    let addVC = AddClientVC()
+    addVC.delegate = self
     ZKJSTool.showLoading("正在加载")
     ZKJSTool.hideHUD()
     let nibName = UINib(nibName: ClientListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
     
-  let  add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+    let  add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "AddClientBtn:")
-    
     self.navigationItem.rightBarButtonItem = add_clientButton
-      }
+    
+  }
   
   
   // MARK: - Button Action
@@ -61,11 +62,9 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   }
   
   @IBAction func AddClientBtn(sender: UIButton) {
-    self.hidesBottomBarWhenPushed = true
-    let addVC = AddClientVC()
-    addVC.delegate = self
+    let addVC = InquiryVC()
+    addVC.hidesBottomBarWhenPushed = true
     self.navigationController?.pushViewController(addVC, animated: true)
-    self.hidesBottomBarWhenPushed = false
   }
   
   
@@ -77,7 +76,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     self.tableView.reloadData()
   }
   
-  func loadData() { 
+  func loadData() {
     ZKJSHTTPSessionManager.sharedInstance().getClientListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [ClientModel]()
@@ -90,19 +89,19 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
     }
-
+    
   }
- 
+  
   
   // MARK: - Table View Data Source
-
-
+  
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return sections.count
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+    
     return sections[section].count
     
   }
@@ -118,24 +117,25 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     cell.setData(client)
     
     return cell
-
+    
   }
   
   
   // MARK: - Table View Delegate
+  // MARK: UITableViewDelegate
   
-   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if (sections[section].count == 0){
       return nil
     }
     return collation.sectionTitles[section]
   }
   
-   func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+  func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
     if (sections.count == 0){
       return nil
     }
-
+    
     var titleArray = [String]()
     
     for (var i = 0 ; i < collation.sectionTitles.count; i++) {
@@ -145,15 +145,15 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
       }
     }
     titleArray.append(collation.sectionTitles[26])
-   return titleArray
+    return titleArray
     
   }
   
-   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
     return collation.sectionForSectionIndexTitleAtIndex(index)
   }
-
-
+  
+  
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     

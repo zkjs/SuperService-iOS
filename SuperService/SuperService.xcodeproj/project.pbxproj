@@ -150,6 +150,8 @@
 		40CAA5F71BE705DA00FAFDA0 /* AdminLoginV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5F51BE705DA00FAFDA0 /* AdminLoginV.xib */; };
 		40CAA5FA1BE705F800FAFDA0 /* StaffLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5F81BE705F800FAFDA0 /* StaffLoginVC.swift */; };
 		40CAA5FB1BE705F800FAFDA0 /* StaffLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5F91BE705F800FAFDA0 /* StaffLoginVC.xib */; };
+		40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */; };
+		40CAA6001BE7810800FAFDA0 /* InquiryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */; };
 		40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */; };
 		40D733A41BE348AB00266228 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A21BE348AB00266228 /* Conversation.swift */; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
@@ -463,6 +465,8 @@
 		40CAA5F51BE705DA00FAFDA0 /* AdminLoginV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminLoginV.xib; sourceTree = "<group>"; };
 		40CAA5F81BE705F800FAFDA0 /* StaffLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffLoginVC.swift; sourceTree = "<group>"; };
 		40CAA5F91BE705F800FAFDA0 /* StaffLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffLoginVC.xib; sourceTree = "<group>"; };
+		40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryVC.swift; sourceTree = "<group>"; };
+		40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InquiryVC.xib; sourceTree = "<group>"; };
 		40D7339E1BE31FA600266228 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40D733A21BE348AB00266228 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
@@ -1353,6 +1357,8 @@
 				40F7573F1BE054160053C2BE /* AddClientVC.xib */,
 				40F757421BE054160053C2BE /* ClientListVC.swift */,
 				40F757431BE054160053C2BE /* ClientListVC.xib */,
+				40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */,
+				40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1521,6 +1527,7 @@
 				401AEA871BE4B84900E38870 /* RecordingSignal004@2x.png in Resources */,
 				401AEA7D1BE4B84900E38870 /* ReceiverVoiceNodePlaying000@2x.png in Resources */,
 				401AEA951BE4B84900E38870 /* VoiceBtn_BlackHL@2x.png in Resources */,
+				40CAA6001BE7810800FAFDA0 /* InquiryVC.xib in Resources */,
 				401AEA971BE4B84900E38870 /* weChatBubble_Sending_Solid@2x.png in Resources */,
 				401AEA8D1BE4B84900E38870 /* SenderVoiceNodePlaying000@2x.png in Resources */,
 				401AEA8C1BE4B84900E38870 /* SECoreTextView.bundle in Resources */,
@@ -1699,6 +1706,7 @@
 				401AEA481BE4B84900E38870 /* XHAnnotation.m in Sources */,
 				40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */,
 				401ADD131BE4745100E38870 /* JSHChatVC.m in Sources */,
+				40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */,
 				401AEA3A1BE4B84900E38870 /* XHDisplayEmotionViewController.m in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,

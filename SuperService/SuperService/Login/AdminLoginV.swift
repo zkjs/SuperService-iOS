@@ -10,10 +10,18 @@ import UIKit
 
 class AdminLoginV: UIViewController {
 
+  @IBOutlet weak var loginButton: UIButton!  {
+    didSet {
+      loginButton.layer.masksToBounds = true
+      loginButton.layer.cornerRadius = 20
+    }
+  }
+
   @IBOutlet weak var passwordTextField: LTBouncyTextField!
   @IBOutlet weak var userphoneTextField: LTBouncyTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+      title = "商家登录"
 
       passwordTextField.secureTextEntry = true
 

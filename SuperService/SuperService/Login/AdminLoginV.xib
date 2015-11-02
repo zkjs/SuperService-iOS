@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminLoginV" customModule="SuperService" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="0iN-IQ-JCq" id="ZVG-gu-nSQ"/>
                 <outlet property="passwordTextField" destination="oYd-Dp-XAx" id="XU0-wS-TBN"/>
                 <outlet property="userphoneTextField" destination="xEA-Xr-qjU" id="Xpg-Nc-pbS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

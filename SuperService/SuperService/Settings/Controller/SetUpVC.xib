@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="newNameYextFiled" destination="mJD-Ku-Aak" id="RGS-VN-NA3"/>
                 <outlet property="segmentControl" destination="7dB-uH-3o6" id="ZIN-Xf-9cP"/>
+                <outlet property="uoloadButton" destination="gVN-hz-Mv5" id="mIv-0F-kzh"/>
                 <outlet property="userImage" destination="1Nw-eC-4N6" id="zoF-vd-G8B"/>
                 <outlet property="username" destination="7jp-xG-CjY" id="1FB-uE-Rkz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

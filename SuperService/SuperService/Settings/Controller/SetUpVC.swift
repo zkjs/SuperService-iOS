@@ -9,6 +9,14 @@
 import UIKit
 
 class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+  
+  @IBOutlet weak var uoloadButton: UIButton!  {
+    didSet {
+      uoloadButton.layer.masksToBounds = true
+      uoloadButton.layer.cornerRadius = 20
+    }
+  }
+
   @IBOutlet weak var newNameYextFiled: UITextField!
   @IBOutlet weak var username: UILabel!
   @IBOutlet weak var userImage: UIImageView!

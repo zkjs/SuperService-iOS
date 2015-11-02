@@ -47,6 +47,10 @@
   return [AccountManager sharedInstance].shopID;
 }
 
+- (NSString *)userName {
+  return [AccountManager sharedInstance].userName;
+}
+
 
 #pragma mark - 管理员登陆
 
@@ -66,7 +70,7 @@
 }
 
 
-#pragma mark - 添加客户
+#pragma mark - 管理员添加客户
 
 - (void)addClientWithPhone:(NSString *)phone username:(NSString *)username  position:(NSString *)position company:(NSString *)company other_desc:(NSString *)other_desc is_bill:(NSString *)is_bill success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"semp/adduser" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -90,6 +94,26 @@
   }];
 }
 
+#pragma mark - 服务员添加客户
+
+- (void)waiterAddClientWithPhone:(NSString *)phone tag:(NSString *)tag success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/addtag" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+    [formData appendPartWithFormData:[tag dataUsingEncoding:NSUTF8StringEncoding] name:@"tag"];
+    
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"失败==%@", error.description);
+    failure(task, error);
+  }];
+}
 
 #pragma mark - 获取我的客户
 
@@ -340,5 +364,41 @@
     
   }];
 }
+
+#pragma mark - 上传服务员资料
+
+- (void)uploadDataWithUserName:(NSString *)userName sex:(NSString *)sex imageFile:(NSData *)imageFile success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/sempupdate" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self userName] dataUsingEncoding:NSUTF8StringEncoding] name:@"name"];
+    [formData appendPartWithFormData:[sex dataUsingEncoding:NSUTF8StringEncoding] name:@"sex"];
+    [formData appendPartWithFormData:imageFile  name:@"file"];
+    
+  } success:^(NSURLSessionDataTask *  task, id   responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+  } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 获取区域列表
+
+- (void)WaiterGetWholeAreaOfTheBusinessListSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/sempupdate" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+  } success:^(NSURLSessionDataTask *  task, id   responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+  } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
 
 @end

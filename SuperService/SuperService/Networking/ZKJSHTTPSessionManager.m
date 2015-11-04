@@ -315,7 +315,7 @@
 
 - (void)updateOrderWithOrder:(OrderModel *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"order/update" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     
     [formData appendPartWithFormData:[order.reservation_no dataUsingEncoding:NSUTF8StringEncoding] name:@"reservation_no"];
@@ -363,8 +363,12 @@
     [formData appendPartWithFormData:[phoneNumber dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
     
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
     
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
     
   }];
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class AreaModel: NSObject {
-  var locid:Int?
+  var locid:NSNumber?
   var shopid:Int?
   var sensorid:Int?
   var major:Int?
@@ -19,7 +19,7 @@ class AreaModel: NSObject {
   var locdesc:String?
   var remark:String?
   init(dic:[String:AnyObject]) {
-    locid  = dic["locid"] as? Int
+    locid  = dic["locid"] as? NSNumber
     shopid = dic["shopid"] as? Int
     sensorid = dic["sensorid"] as? Int
     major = dic["major"] as? Int

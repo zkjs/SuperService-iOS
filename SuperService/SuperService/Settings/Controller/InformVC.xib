@@ -27,14 +27,50 @@
                         <outlet property="delegate" destination="-1" id="Ndf-DM-Kbk"/>
                     </connections>
                 </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gRa-6e-gdt">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsR-6W-hDH">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="ic_houtui">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="backToView:" destination="-1" eventType="touchUpInside" id="sRm-cE-2Vb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5S-6s-8E0">
+                            <rect key="frame" x="300" y="0.0" width="300" height="44"/>
+                            <color key="backgroundColor" red="0.16078431369999999" green="0.71372549019999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="ic_qianjin">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="checkinNextTep:" destination="-1" eventType="touchUpInside" id="ayz-MA-DfJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="600" id="C81-aX-n8U"/>
+                        <constraint firstAttribute="height" constant="44" id="F1a-74-oiy"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="xZ7-He-6ey"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="SI8-4f-rwd" secondAttribute="bottom" id="921-XW-cRT"/>
                 <constraint firstItem="SI8-4f-rwd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Av0-4w-7ib"/>
                 <constraint firstItem="SI8-4f-rwd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H99-hF-n7h"/>
+                <constraint firstAttribute="bottom" secondItem="gRa-6e-gdt" secondAttribute="bottom" id="Qi2-vf-NxY"/>
                 <constraint firstAttribute="trailing" secondItem="SI8-4f-rwd" secondAttribute="trailing" id="fZC-3X-hyi"/>
+                <constraint firstItem="gRa-6e-gdt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t0F-HS-pHe"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="ic_houtui" width="8" height="14"/>
+        <image name="ic_qianjin" width="8" height="14"/>
+    </resources>
 </document>

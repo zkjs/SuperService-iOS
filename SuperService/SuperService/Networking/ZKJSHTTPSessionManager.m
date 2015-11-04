@@ -390,20 +390,36 @@
 
 #pragma mark - 获取区域列表
 
-- (void)WaiterGetWholeAreaOfTheBusinessListSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  [self POST:@"semp/sempupdate" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+-  (void)WaiterGetWholeAreaOfTheBusinessListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/shoplocation" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-    NSLog(@"==%@", [responseObject description]);
+    NSLog(@"11%@", [responseObject description]);
     success(task, responseObject);
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
     NSLog(@"%@", error.description);
     failure(task, error);
   }];
 }
+#pragma mark - 服务员管理修改通知区域
+- (void)TheClerkModifiestheAreaOfJurisdictionWithLocID:(NSString *)locID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/semplocationupdate" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[locID dataUsingEncoding:NSUTF8StringEncoding] name:@"locid"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"==%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
 
+}
 #pragma mark - 新增订单
 
 - (void)addOrderWithOrder:(OrderModel *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {

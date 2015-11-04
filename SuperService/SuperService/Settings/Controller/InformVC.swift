@@ -9,27 +9,27 @@
 import UIKit
 
 class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
-
+  
   @IBOutlet weak var tableView: UITableView!
   var areaArray = [AreaModel]()
   var locID = (String)()
   var selectedArray = [String]()
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title = "选择通知区域"
-      navigationController?.navigationBarHidden = false
-      let nibName = UINib(nibName: InformCell.nibName(), bundle: nil)
-      tableView.registerNib(nibName, forCellReuseIdentifier: InformCell.reuseIdentifier())
-      tableView.tableFooterView = UIView()
-      GetWholeAreaOfTheBusinessList()
-
-    }
-
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "选择通知区域"
+    navigationController?.navigationBarHidden = false
+    let nibName = UINib(nibName: InformCell.nibName(), bundle: nil)
+    tableView.registerNib(nibName, forCellReuseIdentifier: InformCell.reuseIdentifier())
+    tableView.tableFooterView = UIView()
+    GetWholeAreaOfTheBusinessList()
+    
+  }
+  
   override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
+    super.didReceiveMemoryWarning()
+    
+  }
   
   func GetWholeAreaOfTheBusinessList() {
     ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
@@ -39,7 +39,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
           let area = AreaModel(dic: dic as! [String: AnyObject])
           datasource.append(area)
         }
-      self.areaArray = datasource
+        self.areaArray = datasource
         print(self.areaArray.count)
         self.tableView.reloadData()
       }
@@ -48,7 +48,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
   }
   
-    //MARK: - Table View Data Source
+  //MARK: - Table View Data Source
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return areaArray.count
   }
@@ -74,10 +74,10 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let label = UILabel()
-    label.text = "选择您通知的区域，客人到达时，您将会收到通知，且要作出处理"
+    label.frame = CGRectMake(30, 108, 280, 40)
+    label.text = "*选择您通知的区域，客人到达时，您将会收到通知，且要作出处理"
     label.numberOfLines = 0
-    
-    label.frame = CGRectMake(24, 108, 280, 40)
+    label.textColor = UIColor(hexString: "29b6f6")
     return label
   }
   
@@ -134,5 +134,5 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
   }
   
-
+  
 }

@@ -53,6 +53,7 @@
   NSString *mainSig = [self getMainSig:[NSString stringWithFormat:@"%@%@%@", mainAccount, mainToken, timestamp]];
   NSString *requestURL = [NSString stringWithFormat:@"https://%@:%d/%@/Accounts/%@/SMS/TemplateSMS?sig=%@", serverIP, serverPort, serverVersion, mainAccount, mainSig];
   NSString *verifyCode = [NSString stringWithFormat:@"%d%d%d%d%d%d", arc4random() % 9 + 1, arc4random() % 10, arc4random() % 10, arc4random() % 10, arc4random() % 10, arc4random() % 10];
+  NSLog(@"%@",verifyCode);
   NSString *verifyTime = @"5";
   NSArray *datas = @[verifyCode, verifyTime];
   NSDictionary *parameters = @{

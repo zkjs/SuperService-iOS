@@ -67,7 +67,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
   }
   
   @IBAction func sureButton(sender: AnyObject) {
-    ZKJSHTTPSessionManager.sharedInstance().addMemberWithPhone(photoTextField.text, name: usernameTextField.text, roleid: "1", email: "", dept: departmentLabel.text, desc: remarkTextView.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().addMemberWithPhone(photoTextField.text, name: usernameTextField.text, roleid: "1", email: "weixu@zkjinshi.com", dept: departmentLabel.text, desc: remarkTextView.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       var dic = responseObject as! [String: AnyObject]
       let member = TeamModel(dic: dic)
       if let set = dic["set"] as? Bool {

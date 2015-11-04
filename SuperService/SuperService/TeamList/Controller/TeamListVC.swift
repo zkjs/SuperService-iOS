@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,RefreshTeamListVCDelegate{
+class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,RefreshTeamListVCDelegate,SWTableViewCellDelegate{
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -136,6 +136,26 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
     titleArray.append(collation.sectionTitles[26])
     return titleArray
     
+  }
+  
+  
+  //MARK - SWTabelViewDelagate
+  func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+    switch index {
+    case 0:
+      let indexPath = tableView.indexPathForCell(cell)!
+      let team = teamArray[indexPath.row]
+      
+      teamArray.removeAtIndex(indexPath.row)
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+      ZKJSHTTPSessionManager.sharedInstance().deleteMemberWithDeleteList(team.salesid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+        
+        }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+          
+      })
+    default:
+      break
+    }
   }
   
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {

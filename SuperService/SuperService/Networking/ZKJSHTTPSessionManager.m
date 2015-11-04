@@ -242,6 +242,25 @@
   }];
 }
 
+#pragma mark - 批量删除员工
+
+- (void)deleteMemberWithDeleteList:(NSString *)deleteList success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"shop/deletesemp" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[deleteList dataUsingEncoding:NSUTF8StringEncoding] name:@"deletelist"];
+    
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"%@", [responseObject description]);
+    success(task, responseObject);
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
 #pragma mark - 获取部门列表
 
 - (void)getMemberListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {

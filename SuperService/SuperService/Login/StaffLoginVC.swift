@@ -12,6 +12,13 @@ import UIKit
 
 class StaffLoginVC: UIViewController {
   
+  @IBOutlet weak var administratorButton: UIButton! {
+    didSet {
+      administratorButton.layer.masksToBounds = true
+      administratorButton.layer.cornerRadius = 20
+    }
+  }
+  
   @IBOutlet weak var verificationCodeButton: UIButton!
   
   @IBOutlet weak var loginButton: UIButton! {
@@ -20,7 +27,7 @@ class StaffLoginVC: UIViewController {
       loginButton.layer.cornerRadius = 20
     }
   }
-
+  
   @IBOutlet weak var identifyingCodeTextField: UITextField!
   @IBOutlet weak var userphoneTextField: UITextField!
   @IBOutlet weak var userImage: UIImageView!
@@ -29,23 +36,23 @@ class StaffLoginVC: UIViewController {
   var countTimer:NSTimer?
   var count:Int = 30
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title = "登录"
-      userphoneTextField.keyboardType = UIKeyboardType.NumberPad
-      identifyingCodeTextField.keyboardType = UIKeyboardType.NumberPad
-      identifyingCodeTextField.secureTextEntry = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "登录"
+    userphoneTextField.keyboardType = UIKeyboardType.NumberPad
+    identifyingCodeTextField.keyboardType = UIKeyboardType.NumberPad
+    identifyingCodeTextField.secureTextEntry = true
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
   }
-    
+  
   @IBAction func sendVerificationcodeButton(sender: AnyObject) {
     //验证手机号码合法后在发验证码并启动计时器
     if (ZKJSTool.validateMobile(userphoneTextField.text) == true) {
@@ -53,7 +60,7 @@ class StaffLoginVC: UIViewController {
         if (success == true) {
           self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "refreshCount:", userInfo: nil, repeats: true)
           self.countTimer?.fire()
-            ZKJSTool.showMsg("验证码已发送!")
+          ZKJSTool.showMsg("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
           
         }
@@ -78,9 +85,6 @@ class StaffLoginVC: UIViewController {
   
   
   @IBAction func staffCheckoutLoginButton(sender: AnyObject) {
-    
-   
-    
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
       print(success)
       
@@ -88,24 +92,29 @@ class StaffLoginVC: UIViewController {
         
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
-
+        
         ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
-                // 缓存用户信息
-                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-                
+                //先判断手机号是不是管理员，要不然返回的数据是空去存数据库时会崩溃
+                let name = dict["name"]
+                if name == nil {
+                  ZKJSTool.showMsg("您还不是管理员")
+                }else {
+                  // 缓存用户信息
+                  AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
+                }
                 ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
                 let url = AccountManager.sharedInstance().url
+                
                 if url == "" {
                   let setVC = SetUpVC()
                   self.navigationController?.pushViewController(setVC, animated: true)
-                } else {
+                }
+                else {
                   self.dismissViewControllerAnimated(true, completion: nil)
                 }
-                
-                
               } else {
                 if let err = dict["err"] as? NSNumber {
                   if err.longLongValue == 406 {
@@ -118,21 +127,21 @@ class StaffLoginVC: UIViewController {
           }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
             
         }
-
+        
       }
     }
     
-}
-
+  }
+  
   @IBAction func bussinessManButton(sender: AnyObject) {
     let vc = AdminLoginV()
-   navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     return true
   }
-
+  
 }
 
 extension StaffLoginVC: UITextFieldDelegate {

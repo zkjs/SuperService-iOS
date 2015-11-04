@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListCell: UITableViewCell {
+class TeamListCell: SWTableViewCell {
   
   @IBOutlet weak var username: UILabel!
   @IBOutlet weak var userImage: UIImageView!
@@ -32,7 +32,14 @@ class TeamListCell: UITableViewCell {
   
   func setData(team:TeamModel) {
     username.text = team.name
-    print(team.name)
+     rightUtilityButtons = rightButtons() as [AnyObject]
+    
+  }
+  
+  func rightButtons() -> NSArray {
+    let rightUtilityButtons: NSMutableArray = []
+    rightUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "删除")
+    return rightUtilityButtons
   }
   
   override func setSelected(selected: Bool, animated: Bool) {

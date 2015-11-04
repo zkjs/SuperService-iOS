@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StaffLoginVC" customModule="SuperService" customModuleProvider="target">
             <connections>
+                <outlet property="administratorButton" destination="jIU-3f-47j" id="fRz-2p-le1"/>
                 <outlet property="identifyingCodeTextField" destination="05i-mC-6a8" id="Tds-KY-dDw"/>
                 <outlet property="loginButton" destination="gXp-1z-7iF" id="bV6-a6-Mvc"/>
                 <outlet property="userImage" destination="FBL-GK-IOo" id="GrJ-ab-OLI"/>
@@ -79,8 +80,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIU-3f-47j">
-                    <rect key="frame" x="260" y="522" width="80" height="45"/>
-                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="260" y="485" width="80" height="45"/>
+                    <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="Xa6-Bf-HYw"/>
                         <constraint firstAttribute="height" constant="45" id="caX-qD-NlP"/>
@@ -95,7 +96,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="jIU-3f-47j" secondAttribute="bottom" constant="33" id="H46-rI-0fz"/>
+                <constraint firstAttribute="bottom" secondItem="jIU-3f-47j" secondAttribute="bottom" constant="70" id="H46-rI-0fz"/>
                 <constraint firstItem="dh6-re-aI1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-35" id="K53-dn-Jtr"/>
                 <constraint firstItem="gXp-1z-7iF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KfW-ul-sAk"/>
                 <constraint firstItem="FBL-GK-IOo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Mts-Pz-vEg"/>

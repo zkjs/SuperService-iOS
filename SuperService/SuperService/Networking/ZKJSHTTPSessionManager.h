@@ -42,6 +42,9 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 //新建成员
 - (void)addMemberWithPhone:(NSString *)phone name:(NSString *)name roleid:(NSString *)roleid email:(NSString *)email dept:(NSString *)dept desc:(NSString *)desc success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+//批量删除员工
+- (void)deleteMemberWithDeleteList:(NSString *)deleteList success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 //获取部门列表
 - (void)getMemberListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
@@ -68,8 +71,10 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 
 // 获取区域列表
 - (void)WaiterGetWholeAreaOfTheBusinessListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 // 服务员管理修改通知区域
 - (void)TheClerkModifiestheAreaOfJurisdictionWithLocID:(NSString *)locID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 // 新增订单
 - (void)addOrderWithOrder:(OrderModel *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 

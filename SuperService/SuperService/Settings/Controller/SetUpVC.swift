@@ -28,7 +28,7 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
       if let dict = responseObject as? NSDictionary {
         if let set = dict["set"] as? Bool {
           if set {
-            
+            ZKJSTool.showMsg("上传资料成功")
           }
         }
       }
@@ -64,6 +64,7 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
   }
   
   @IBAction func goforwardButton(sender: UIButton) {
+    
     let InformV = InformVC()
     self.hidesBottomBarWhenPushed = true
     self.navigationController?.pushViewController(InformV, animated: true)

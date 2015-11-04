@@ -84,6 +84,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
           let client = ClientModel(dic: dic as! [String: AnyObject])
           datasource.append(client)
         }
+        self.tableView.reloadData()
         self.clientArray = datasource
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in

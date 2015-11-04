@@ -70,6 +70,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       amountTextField.text = ""
       order.room_rate = NSNumber(integer: 0)
     }
+    amountTextField.delegate = self
     
     clientNameTextField.text = order.guest
     orderStatusTextField.text = order.orderStatus
@@ -111,6 +112,8 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
         }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
           
       }
+    } else if type == .Add {
+      setupOrder()
     }
     
     // 获取支付方式
@@ -247,21 +250,44 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseClient() {
-    let vc = ClientListVC()
-    vc.selection = { [unowned self] (client: ClientModel) ->() in
-      self.clientNameTextField.text = client.username
-      // 更新订单
-      self.order.userid = client.userid
-      self.order.guest = client.username
-      self.order.guesttel = client.phone
+//    let vc = ClientListVC()
+//    vc.selection = { [unowned self] (client: ClientModel) ->() in
+//      self.clientNameTextField.text = client.username
+//      // 更新订单
+//      self.order.userid = client.userid
+//      self.order.guest = client.username
+//      self.order.guesttel = client.phone
+//    }
+//    navigationController?.pushViewController(vc, animated: true)
+    
+    testChooseClient()
+  }
+  
+  func testChooseClient() {
+    let clientArray = [["userid": "5603d8d417392", "guest": "Hanton", "guesttel": "18925232944"],
+      ["userid": "5555ee0c86e4c", "guest": "AlexBang", "guesttel": "15815507102"]]
+    let alertView = UIAlertController(title: "选择订单状态-只供测试", message: "", preferredStyle: .ActionSheet)
+    
+    for index in 0..<clientArray.count {
+      let client = clientArray[index]
+      alertView.addAction(UIAlertAction(title: client["guest"], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
+        self.clientNameTextField.text = client["guest"]
+        // 更新订单
+        self.order.userid = client["userid"]
+        self.order.guest = client["guest"]
+        self.order.guesttel = client["guesttel"]
+        }))
     }
-    navigationController?.pushViewController(vc, animated: true)
+    alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+    presentViewController(alertView, animated: true, completion: nil)
   }
   
   @IBAction func doneOrder(sender: AnyObject) {
     if checkOrder() == false {
       return
     }
+    
+    print(order)
     
     switch type {
     case .Add:

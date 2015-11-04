@@ -12,7 +12,8 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
   @IBOutlet weak var tableView: UITableView!
   var areaArray = [AreaModel]()
-  var selectedArray = [NSInteger]()
+  var locID = (String)()
+  var selectedArray = [String]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
   
   func GetWholeAreaOfTheBusinessList() {
-    ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [AreaModel]()
         for dic in array {
@@ -54,9 +55,11 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("InformCell", forIndexPath: indexPath) as! InformCell
-    
+    let area = areaArray[indexPath.row]
     cell.selectedButton.addTarget(self, action: "tappedCellSelectedButton:", forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
+    
+    cell.setData(area)
     return cell
   }
   
@@ -83,8 +86,9 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     tableView.deselectRowAtIndexPath(indexPath, animated: false)
     
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! InformCell
-    updateSelectedArrayWithCell(cell)
     cell.changeSelectedButtonImage()
+    updateSelectedArrayWithCell(cell)
+    
     
     
   }
@@ -96,12 +100,39 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func updateSelectedArrayWithCell(cell: InformCell) {
     if cell.isUncheck == false {
-      // add to an array
-      print("111")
+      let area = self.areaArray[cell.selectedButton.tag]
+      self.selectedArray.append((area.locid?.stringValue)!)
+    } else {
+      selectedArray.removeAtIndex(cell.selectedButton.tag)
     }
+    locID = selectedArray.joinWithSeparator(",")
+    
   }
   
+  @IBAction func backToView(sender: AnyObject) {
+    navigationController?.popViewControllerAnimated(true)
+  }
   
+  @IBAction func checkinNextTep(sender: AnyObject) {
+    ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      let timestamp = Int64(NSDate().timeIntervalSince1970)
+      let shopID = AccountManager.sharedInstance().shopID
+      let userID = AccountManager.sharedInstance().userID
+      let dictionary: [String: AnyObject] = [
+        "type":MessagePushType.EmpLocal_E2S.rawValue,
+        "timestamp": NSNumber(longLong: timestamp),
+        "empid": userID,
+        "loc":self.locID,
+        "shopid":shopID
+      ]
+      ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
+      self.tabBarController?.selectedIndex = 0
+      self.navigationController?.popToRootViewControllerAnimated(true)
+      
+      }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
+        
+    }
+  }
   
 
 }

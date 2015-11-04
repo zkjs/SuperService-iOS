@@ -112,5 +112,9 @@ class AccountManager: NSObject {
   func saveDeviceToken(deviceToken: String) {
     self.deviceToken = deviceToken
   }
-  
+  func savebeaconLocationIDs(beaconLocationIDs: String) {
+    self.beaconLocationIDs = beaconLocationIDs
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(beaconLocationIDs, forKey: "locid")
+  }
 }

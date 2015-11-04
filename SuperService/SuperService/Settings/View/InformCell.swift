@@ -40,6 +40,10 @@ class InformCell: UITableViewCell {
         // Configure the view for the selected state
       //changeSelectedButtonImage()
     }
+  func setData(area: AreaModel) {
+    locationLabel.text = area.locdesc
+    
+  }
     
   @IBAction func tappedCheckedButton(sender: UIButton) {
     changeSelectedButtonImage()

@@ -69,6 +69,7 @@
                         <segment title="男"/>
                         <segment title="女"/>
                     </segments>
+                    <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="segmentSelectIndex:" destination="-1" eventType="valueChanged" id="fsO-Ta-AxM"/>
                     </connections>

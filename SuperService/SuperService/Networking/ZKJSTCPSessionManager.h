@@ -28,6 +28,12 @@ typedef NS_ENUM(NSInteger, MessageIMType) {
 };
 
 //自定义用户协议
+typedef NS_ENUM(NSInteger, MessagePushType) {
+  MessagePushEmpLocal_E2S = 209,
+  MessagePushEmpLocal_E2S_RSP = 210
+};
+
+//自定义用户协议
 typedef NS_ENUM(NSInteger, MessageUserDefineType) {
   MessageUserDefineClientArrival = 1006,
 };

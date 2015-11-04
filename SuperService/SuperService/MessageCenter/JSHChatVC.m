@@ -406,7 +406,7 @@
 }
 
 - (void)customizeChatType {
-  self.title = self.senderName;
+  self.title = self.receiverName;
 }
 
 - (void)loadDataSource {
@@ -466,7 +466,7 @@
       break;
   }
   
-  if (message[@"clientid"] == message[@"fromid"]) {
+  if (message[@"clientid"] != message[@"fromid"]) {
     chatMessage.bubbleMessageType = XHBubbleMessageTypeSending;
     chatMessage.avatar = self.senderAvatar;
   } else {

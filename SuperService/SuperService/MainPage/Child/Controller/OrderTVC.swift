@@ -42,7 +42,7 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   }
   
   func refreshData() {
-    orderArray.removeAll()
+    orderArray = [OrderModel]()
     orderPage = 1
     getDataWithPage(1)
   }

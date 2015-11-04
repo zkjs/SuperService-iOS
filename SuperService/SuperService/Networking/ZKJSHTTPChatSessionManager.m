@@ -7,6 +7,7 @@
 //
 
 #import "ZKJSHTTPChatSessionManager.h"
+#import "SuperService-Swift.h"
 
 
 @implementation ZKJSHTTPChatSessionManager
@@ -21,12 +22,22 @@
 }
 
 - (id)init {
-  self = [super initWithBaseURL:[[NSURL alloc] initWithString:@"http://mmm.zkjinshi.com:9090/"]];
+  self = [super initWithBaseURL:[[NSURL alloc] initWithString:@"http://112.74.205.31:9090/"]];
   if (self) {
     self.requestSerializer = [[AFHTTPRequestSerializer alloc] init];
     self.responseSerializer = [[AFJSONResponseSerializer alloc] init];
   }
   return self;
+}
+
+#pragma mark - Private
+
+- (NSString *)userID {
+  return [AccountManager sharedInstance].userID;
+}
+
+- (NSString *)shopID {
+  return [AccountManager sharedInstance].shopID;
 }
 
 // 上传语音文件
@@ -85,8 +96,8 @@
   
   [self POST:@"msg/find/sessionid" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
     [formData appendPartWithFormData:[sessionID dataUsingEncoding:NSUTF8StringEncoding] name:@"SessionID"];
-//    [formData appendPartWithFormData:[shopID dataUsingEncoding:NSUTF8StringEncoding] name:@"ShopID"];
-//    [formData appendPartWithFormData:[userID dataUsingEncoding:NSUTF8StringEncoding] name:@"UserID"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"ShopID"];
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"UserID"];
     [formData appendPartWithFormData:[[fromTime stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:@"FromTime"];
     [formData appendPartWithFormData:[[count stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:@"Count"];
   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

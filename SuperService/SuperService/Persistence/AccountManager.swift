@@ -50,8 +50,6 @@ class AccountManager: NSObject {
     url = userDefaults.objectForKey("url") as? String ?? ""
   }
   
-  
-  
   func saveAccountWithDict(dict: [String: AnyObject]) {
     if let userID = dict["userid"] as? String {
       self.userID = userID
@@ -64,8 +62,6 @@ class AccountManager: NSObject {
     } else if let shopID = dict["shopid"] as? String {
       self.shopID = shopID
     }
-    
-    
     
     shopName = dict["fullname"] as! String
     token = dict["token"] as! String
@@ -112,9 +108,17 @@ class AccountManager: NSObject {
   func saveDeviceToken(deviceToken: String) {
     self.deviceToken = deviceToken
   }
+  
   func savebeaconLocationIDs(beaconLocationIDs: String) {
     self.beaconLocationIDs = beaconLocationIDs
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(beaconLocationIDs, forKey: "locid")
   }
+  
+  func saveUserName(userName: String) {
+    self.userName = userName
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(userName, forKey: "name")
+  }
+  
 }

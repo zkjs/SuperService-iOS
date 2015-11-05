@@ -126,8 +126,8 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         "shopid":shopID
       ]
       ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
-      self.tabBarController?.selectedIndex = 0
       self.navigationController?.popToRootViewControllerAnimated(true)
+      self.tabBarController?.selectedIndex = 0
       
       }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
         

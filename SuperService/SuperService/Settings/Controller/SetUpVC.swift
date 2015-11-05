@@ -10,35 +10,39 @@ import UIKit
 
 class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
   
-  @IBOutlet weak var uoloadButton: UIButton!  {
+  @IBOutlet weak var avatarButton: UIButton! {
     didSet {
-      uoloadButton.layer.masksToBounds = true
-      uoloadButton.layer.cornerRadius = 20
+      avatarButton.layer.masksToBounds = true
+      avatarButton.layer.cornerRadius = avatarButton.frame.width / 2.0
     }
   }
-
-  @IBOutlet weak var newNameYextFiled: UITextField!
-  @IBOutlet weak var username: UILabel!
-  @IBOutlet weak var userImage: UIImageView!
+  @IBOutlet weak var nameTextFiled: UITextField!
+  @IBOutlet weak var segmentControl: UISegmentedControl!
+  
   var imageData = NSData()
   var sex :String?
-  @IBOutlet weak var segmentControl: UISegmentedControl!
-  @IBAction func uploadImageButton(sender: UIButton) {
-    ZKJSHTTPSessionManager.sharedInstance().uploadDataWithUserName(AccountManager.sharedInstance().userName, sex: sex, imageFile: imageData, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let dict = responseObject as? NSDictionary {
-        if let set = dict["set"] as? Bool {
-          if set {
-            ZKJSTool.showMsg("上传资料成功")
-          }
-        }
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "完善"
+    nameTextFiled.text = AccountManager.sharedInstance().userName
+    sex = "1"
+    
+    let url = NSURL(string: kBaseURL)
+    let userID = AccountManager.sharedInstance().userID
+    if let url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
+      if let data = NSData(contentsOfURL: url),
+        let image = UIImage(data: data) {
+          avatarButton.setImage(UIImage(data: data), forState: .Normal)
+          imageData = UIImageJPEGRepresentation(image, 0.8)!
       }
-      
-      }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
-    })
-
+    }
   }
-
+  
+  
+  // MARK: - Button Actions
+  
   @IBAction func segmentSelectIndex(sender: AnyObject) {
     switch segmentControl.selectedSegmentIndex {
     case 0:
@@ -50,64 +54,68 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
     }
   }
   
- 
   @IBAction func checkoutImage(sender: AnyObject) {
-    let mediaPicker = WPMediaPickerViewController()
-    mediaPicker.delegate = self
-    mediaPicker.filter = WPMediaType.Image
-    mediaPicker.allowMultipleSelection = false
-    presentViewController(mediaPicker, animated: true, completion: nil)
+    showPhotoPicker()
   }
+  
   @IBAction func gobackButton(sender: UIButton) {
     navigationController?.popViewControllerAnimated(true)
     navigationController?.navigationBarHidden = false
   }
   
   @IBAction func goforwardButton(sender: UIButton) {
-    
-    let InformV = InformVC()
-    self.hidesBottomBarWhenPushed = true
-    self.navigationController?.pushViewController(InformV, animated: true)
+    ZKJSTool.showLoading("正在上传资料...")
+    ZKJSHTTPSessionManager.sharedInstance().uploadDataWithUserName(nameTextFiled.text, sex: sex, imageFile: imageData, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      if let dict = responseObject as? NSDictionary {
+        if let set = dict["set"] as? Bool {
+          if set {
+            ZKJSTool.hideHUD()
+            AccountManager.sharedInstance().saveUserName(self.nameTextFiled.text!)
+            let InformV = InformVC()
+            InformV.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(InformV, animated: true)
+          }
+        }
+      }
+      }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        ZKJSTool.hideHUD()
+        ZKJSTool.showMsg("上传失败,请重新上传")
+    })
   }
   
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+  
+  // MARK: - Gesture
+  
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
   }
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title = "完善"
-      username.text = AccountManager.sharedInstance().userName
-      sex = "1"
-      
-    let image =  UIImage(named: "img_hotel_zhanwei")
-     imageData = UIImagePNGRepresentation(image!)!
-      
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {
-    dismissViewControllerAnimated(true, completion: nil)
+  
+  // MARK: - Private
+  
+  func showPhotoPicker() {
+    let mediaPicker = WPMediaPickerViewController()
+    mediaPicker.delegate = self
+    mediaPicker.filter = WPMediaType.Image
+    mediaPicker.allowMultipleSelection = false
+    presentViewController(mediaPicker, animated: true, completion: nil)
   }
-
-
+  
 }
 
 extension SetUpVC: WPMediaPickerViewControllerDelegate {
   
   func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
-    print(assets.first)
     let set = assets.first as! ALAsset
-    print(set)
     let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
-    userImage.image = image
-    imageData = UIImageJPEGRepresentation(image, 1.0)!
+    avatarButton.setImage(image, forState: .Normal)
+    imageData = UIImageJPEGRepresentation(image, 0.8)!
     dismissViewControllerAnimated(true, completion: nil)
-}
+  }
+  
+  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+  
 }

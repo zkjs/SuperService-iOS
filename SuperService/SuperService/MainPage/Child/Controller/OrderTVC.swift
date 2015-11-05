@@ -18,6 +18,18 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     super.viewDidLoad()
     
     setupView()
+    
+//    // 解散会话
+//    // MsgShopDisbandSession
+//    let timestamp = Int64(NSDate().timeIntervalSince1970)
+//    let dictionary: [String: AnyObject] = [
+//      "type": 220,
+//      "timestamp": NSNumber(longLong: timestamp),
+//      "shopid": "120",
+//      "sessionid": "5639a18dc1905_120_DefaultChatRuleType",
+//      "fromid": "5629a1adf119f"
+//    ]
+//    ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
   }
   
   override func viewWillAppear(animated: Bool) {

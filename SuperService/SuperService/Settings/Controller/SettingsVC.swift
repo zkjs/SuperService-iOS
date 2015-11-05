@@ -9,17 +9,27 @@
 import UIKit
 
 class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
-
-    @IBOutlet weak var tableView: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title = "我的"
-      let nibName = UINib(nibName: SettingsCell.nibName(), bundle: nil)
-      tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
-      tableView.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
-    }
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "我的"
+    let nibName = UINib(nibName: SettingsCell.nibName(), bundle: nil)
+    tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
+    tableView.tableFooterView = UIView()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    tableView.reloadData()
+  }
+  
+  
   // MARK: - Table View Data Source
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return 1
   }
@@ -29,8 +39,6 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    
-    
     return SettingsCell.height()
   }
   
@@ -56,18 +64,29 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
       cell.textLabel?.text = "登出"
     }
     
-    
     return cell
   }
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let myView = NSBundle.mainBundle().loadNibNamed("SettingsHeaderView", owner: self, options: nil).first as? SettingsHeaderView
     if myView != nil {
+      let userID = AccountManager.sharedInstance().userID
+      let url = NSURL(string: kBaseURL)
+      if let url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
+        print(url)
+        if let data = NSData(contentsOfURL: url),
+          let image = UIImage(data: data) {
+            myView?.userImage.image = image
+        }
+      }
+      myView?.username.text = AccountManager.sharedInstance().userName
+      myView?.userAddress.text = AccountManager.sharedInstance().shopName
       self.view.addSubview(myView!)
     }
-
     return myView
   }
+  
+  
   //MARK -- Table View Delegate
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -89,10 +108,8 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     }
     if indexPath == setupIndexPath {
       let setupVC = SetUpVC()
-      self.hidesBottomBarWhenPushed = true
-      
+      setupVC.hidesBottomBarWhenPushed = true
       navigationController?.pushViewController(setupVC, animated: true)
-      self.hidesBottomBarWhenPushed = false
     }
   }
   
@@ -109,10 +126,7 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
     nv.navigationBar.translucent = false
     presentViewController(nv, animated: true, completion: nil)
-  
+    
   }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
 }

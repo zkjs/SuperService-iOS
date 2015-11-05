@@ -360,6 +360,7 @@
   self.messageTableView.backgroundColor = [UIColor colorWithHexString:@"#CBCCCA"];
   self.messageSender = @"我";
   self.messageReceiver = self.receiverName;
+  self.shopID = [AccountManager sharedInstance].shopID;
   self.senderID = [AccountManager sharedInstance].userID;
   self.senderName = [AccountManager sharedInstance].userName;
   
@@ -466,12 +467,19 @@
       break;
   }
   
-  if (message[@"clientid"] != message[@"fromid"]) {
+  if ([message[@"fromid"] isEqualToString:self.senderID]) {
     chatMessage.bubbleMessageType = XHBubbleMessageTypeSending;
     chatMessage.avatar = self.senderAvatar;
   } else {
     chatMessage.bubbleMessageType = XHBubbleMessageTypeReceiving;
-    chatMessage.avatar = [[UIImage imageNamed:@"ic_home_nor"] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
+    NSString *urlString = [NSString stringWithFormat:@"%@uploads/users/%@.jpg", kBaseURL, message[@"fromid"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    if (imageData) {
+      chatMessage.avatar = [[UIImage imageWithData:imageData] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
+    } else {
+      chatMessage.avatar = [[UIImage imageNamed:@"ic_home_nor"] resizedImage:CGSizeMake(50, 50) interpolationQuality:kCGInterpolationDefault];
+    }
   }
 
   return chatMessage;
@@ -507,8 +515,6 @@
                                @"timestamp": timestamp,
                                @"fromid": self.senderID,
                                @"fromname": self.senderName,
-                               @"clientid": self.senderID,
-                               @"clientname": self.senderName,
                                @"shopid": self.shopID,
                                @"sessionid": self.sessionID,
                                @"childtype": @0,

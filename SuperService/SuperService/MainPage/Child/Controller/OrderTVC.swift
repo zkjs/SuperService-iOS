@@ -42,7 +42,7 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     
-    deleteRightBarButton()
+    removeRightBarButton()
   }
   
   
@@ -72,7 +72,7 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     baseNC.topViewController?.navigationItem.rightBarButtonItem = addOrderButton
   }
   
-  private func deleteRightBarButton() {
+  private func removeRightBarButton() {
     let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
     let baseNC = mainTBC.selectedViewController as! BaseNavigationController
     baseNC.topViewController?.navigationItem.rightBarButtonItem = nil

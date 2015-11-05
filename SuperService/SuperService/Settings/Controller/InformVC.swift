@@ -11,6 +11,7 @@ import UIKit
 class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   @IBOutlet weak var tableView: UITableView!
+  
   var areaArray = [AreaModel]()
   var locID = (String)()
   var selectedArray = [String]()
@@ -24,11 +25,9 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     tableView.tableFooterView = UIView()
     GetWholeAreaOfTheBusinessList()
     
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
+    let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
+      target: self, action: "nextStep")
+    navigationItem.rightBarButtonItem = nextStepButton
   }
   
   func GetWholeAreaOfTheBusinessList() {
@@ -109,11 +108,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
   }
   
-  @IBAction func backToView(sender: AnyObject) {
-    navigationController?.popViewControllerAnimated(true)
-  }
-  
-  @IBAction func checkinNextTep(sender: AnyObject) {
+  func nextStep() {
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       let timestamp = Int64(NSDate().timeIntervalSince1970)
       let shopID = AccountManager.sharedInstance().shopID

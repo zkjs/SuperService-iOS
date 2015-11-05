@@ -38,6 +38,10 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
           imageData = UIImageJPEGRepresentation(image, 0.8)!
       }
     }
+    
+    let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
+      target: self, action: "nextStep")
+    navigationItem.rightBarButtonItem = nextStepButton
   }
   
   
@@ -58,12 +62,7 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
     showPhotoPicker()
   }
   
-  @IBAction func gobackButton(sender: UIButton) {
-    navigationController?.popViewControllerAnimated(true)
-    navigationController?.navigationBarHidden = false
-  }
-  
-  @IBAction func goforwardButton(sender: UIButton) {
+  func nextStep() {
     ZKJSTool.showLoading("正在上传资料...")
     ZKJSHTTPSessionManager.sharedInstance().uploadDataWithUserName(nameTextFiled.text, sex: sex, imageFile: imageData, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let dict = responseObject as? NSDictionary {

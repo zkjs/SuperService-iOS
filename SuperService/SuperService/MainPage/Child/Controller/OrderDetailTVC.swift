@@ -170,6 +170,10 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     } else if indexPath == NSIndexPath(forRow: 0, inSection: 2) {  // 支付方式
       choosePayment()
     } else if indexPath == NSIndexPath(forRow: 0, inSection: 3) {  // 预定人
+      if type == .Update {
+        // 如果是更新订单，则不能修改预定人
+        return
+      }
       chooseClient()
     } else if indexPath == NSIndexPath(forRow: 1, inSection: 3) {  // 订单状态
       chooseOrderStatus()
@@ -250,17 +254,17 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseClient() {
-//    let vc = ClientListVC()
-//    vc.selection = { [unowned self] (client: ClientModel) ->() in
-//      self.clientNameTextField.text = client.username
-//      // 更新订单
-//      self.order.userid = client.userid
-//      self.order.guest = client.username
-//      self.order.guesttel = client.phone
-//    }
-//    navigationController?.pushViewController(vc, animated: true)
+    let vc = ClientListVC()
+    vc.selection = { [unowned self] (client: ClientModel) ->() in
+      self.clientNameTextField.text = client.username
+      // 更新订单
+      self.order.userid = client.userid
+      self.order.guest = client.username
+      self.order.guesttel = client.phone
+    }
+    navigationController?.pushViewController(vc, animated: true)
     
-    testChooseClient()
+//    testChooseClient()
   }
   
   func testChooseClient() {

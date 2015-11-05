@@ -269,7 +269,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func testChooseClient() {
     let clientArray = [["userid": "5603d8d417392", "guest": "Hanton", "guesttel": "18925232944"],
-      ["userid": "5555ee0c86e4c", "guest": "AlexBang", "guesttel": "15815507102"]]
+      ["userid": "5620c7ee02287", "guest": "AlexBang", "guesttel": "15815507102"]]
     let alertView = UIAlertController(title: "选择订单状态-只供测试", message: "", preferredStyle: .ActionSheet)
     
     for index in 0..<clientArray.count {

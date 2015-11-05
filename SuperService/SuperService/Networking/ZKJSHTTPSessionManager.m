@@ -76,12 +76,13 @@
 
 #pragma mark - 管理员添加客户
 
-- (void)addClientWithPhone:(NSString *)phone username:(NSString *)username  position:(NSString *)position company:(NSString *)company other_desc:(NSString *)other_desc is_bill:(NSString *)is_bill success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void)addClientWithPhone:(NSString *)phone userid:(NSString *)userid username:(NSString *)username  position:(NSString *)position company:(NSString *)company other_desc:(NSString *)other_desc is_bill:(NSString *)is_bill success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"semp/adduser" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+    [formData appendPartWithFormData:[userid dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
     [formData appendPartWithFormData:[username dataUsingEncoding:NSUTF8StringEncoding] name:@"username"];
     [formData appendPartWithFormData:[position dataUsingEncoding:NSUTF8StringEncoding ] name:@"position"];
     [formData appendPartWithFormData:[company dataUsingEncoding:NSUTF8StringEncoding] name:@"company"];
@@ -220,17 +221,12 @@
 
 #pragma mark - 新建成员
 
-- (void)addMemberWithPhone:(NSString *)phone name:(NSString *)name roleid:(NSString *)roleid email:(NSString *)email dept:(NSString *)dept desc:(NSString *)desc success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  [self POST:@"shop/add" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+- (void)addMemberWithUserData:(NSString *)userData success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"shop/importsemp" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
-    [formData appendPartWithFormData:[name dataUsingEncoding:NSUTF8StringEncoding] name:@"name"];
-    [formData appendPartWithFormData:[roleid dataUsingEncoding:NSUTF8StringEncoding] name:@"roleid"];
-    [formData appendPartWithFormData:[email dataUsingEncoding:NSUTF8StringEncoding] name:@"email"];
-    [formData appendPartWithFormData:[dept dataUsingEncoding:NSUTF8StringEncoding] name:@"dept"];
-    [formData appendPartWithFormData:[desc dataUsingEncoding:NSUTF8StringEncoding] name:@"desc"];
+    [formData appendPartWithFormData:[userData dataUsingEncoding:NSUTF8StringEncoding] name:@"userdata"];
     
   } success:^(NSURLSessionDataTask *  task, id responseObject) {
     NSLog(@"==%@",[responseObject description]);

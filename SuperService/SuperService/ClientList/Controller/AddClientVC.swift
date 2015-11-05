@@ -36,52 +36,28 @@ class AddClientVC: UIViewController,UITextViewDelegate{
   var delegate:refreshTableViewDelegate?
   var client = ClientModel()
   @IBAction func sureAdd(sender: UIButton) {
-    //根据角色的区分来判断登陆的是服务员还是管理员，调用不同的接口
-    let roleID = AccountManager.sharedInstance().roleID
-    if roleID == "1" {
-      ZKJSHTTPSessionManager.sharedInstance().addClientWithPhone(phoneTextField.text, username: userNameTextField.text, position: positionTextField.text, company: comapnyTextField.text, other_desc: remarkTextView.text, is_bill: "1", success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        let dic = responseObject as! [String: AnyObject]
-        let client = ClientModel(dic: dic)
-        client.username = self.userNameTextField.text
-        client.phone = self.phoneTextField.text
-        client.position = self.positionTextField.text
-        client.company = self.comapnyTextField.text
-        
-        if let set = dic["set"] as? Bool {
-          if set == true {
-            self.delegate?.refreshTableView(dic ,clientModel: client)
-          } else {
-            if let error = dic["err"] as? NSNumber {
-              if error.integerValue == 300 {
-                ZKJSTool.showMsg("该客户已经被抢, 请重新填写客户资料")
-              }
-            }
-          }
-        }
-        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
-      }
+    ZKJSHTTPSessionManager.sharedInstance().addClientWithPhone(phoneTextField.text, userid:client.userid, username: userNameTextField.text, position: positionTextField.text, company: comapnyTextField.text, other_desc: remarkTextView.text, is_bill: "1", success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      let dic = responseObject as! [String: AnyObject]
+      let client = ClientModel(dic: dic)
+      client.username = self.userNameTextField.text
+      client.phone = self.phoneTextField.text
+      client.position = self.positionTextField.text
+      client.company = self.comapnyTextField.text
       
-    } else {
-      ZKJSHTTPSessionManager.sharedInstance().waiterAddClientWithPhone(phoneTextField.text, tag: remarkTextView.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        let dic = responseObject as! [String: AnyObject]
-        let client = ClientModel(dic: dic)
-        client.username = self.userNameTextField.text
-        client.phone = self.phoneTextField.text
-        if let set = dic["set"] as? Bool {
-          if set == true {
-            self.delegate?.refreshTableView(dic ,clientModel: client)
-          } else {
-            if let error = dic["err"] as? NSNumber {
-              if error.integerValue == 300 {
-                ZKJSTool.showMsg("该客户已经被抢, 请重新填写客户资料")
-              }
+      if let set = dic["set"] as? Bool {
+        if set == true {
+          self.delegate?.refreshTableView(dic ,clientModel: client)
+          self.navigationController?.popViewControllerAnimated(true)
+        } else {
+          if let error = dic["err"] as? NSNumber {
+            if error.integerValue == 300 {
+              ZKJSTool.showMsg("该客户已经被抢, 请重新填写客户资料")
             }
           }
         }
-        }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
-      })
+      }
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
     }
   }
   

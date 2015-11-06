@@ -491,4 +491,38 @@
   }];
 }
 
+#pragma mark - 服务员随机获取一个邀请码
+
+- (void)theWaiterRandomAccessToanInvitationCodeSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"invitation/random" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+    NSLog(@"==%@",[responseObject description]);
+    success(task,responseObject);
+    
+  } failure:^(NSURLSessionDataTask *  task, NSError * error) {
+    NSLog(@"%@",error.description);
+    failure(task,error);
+  }];
+}
+
+#pragma mark - 服务员查看我的邀请码
+
+- (void)theWaiterCheckMyInvitationWithPage:(NSString *)page pageData:(NSString *)pageData success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"invitation/sempcode" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[page dataUsingEncoding:NSUTF8StringEncoding] name:@"page"];
+    [formData appendPartWithFormData:[pageData dataUsingEncoding:NSUTF8StringEncoding] name:@"pagedata"];
+  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+    NSLog(@"==%@",[responseObject description]);
+    success(task,responseObject);
+    
+  } failure:^(NSURLSessionDataTask *  task, NSError * error) {
+    NSLog(@"%@",error.description);
+    failure(task,error);
+  }];
+}
 @end

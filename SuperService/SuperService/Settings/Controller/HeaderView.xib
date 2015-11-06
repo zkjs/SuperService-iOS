@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="SuperService" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄小洋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TP1-VP-q4b">
+                    <rect key="frame" x="30" y="20" width="80" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="1IN-kD-UZ9"/>
+                        <constraint firstAttribute="width" constant="80" id="rwG-XZ-8R5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bjl-HT-kgJ" customClass="headerView">
+                    <rect key="frame" x="485" y="20" width="55" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="09H-Hw-3Vb"/>
+                        <constraint firstAttribute="height" constant="55" id="hEu-wx-ckT"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nz-qS-DvG">
+                    <rect key="frame" x="485" y="20" width="55" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="89U-3A-li6"/>
+                        <constraint firstAttribute="height" constant="55" id="8iA-29-xcB"/>
+                    </constraints>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="TP1-VP-q4b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="DcA-h2-iuH"/>
+                <constraint firstAttribute="trailing" secondItem="9Nz-qS-DvG" secondAttribute="trailing" constant="60" id="Jmp-GL-4RW"/>
+                <constraint firstItem="Bjl-HT-kgJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Xhf-mZ-WFt"/>
+                <constraint firstItem="9Nz-qS-DvG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="if5-xw-4H8"/>
+                <constraint firstAttribute="trailing" secondItem="Bjl-HT-kgJ" secondAttribute="trailing" constant="60" id="ttl-m2-nZ6"/>
+                <constraint firstItem="TP1-VP-q4b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="zsG-uO-qiH"/>
+            </constraints>
+            <connections>
+                <outlet property="selectedImageViewButton" destination="9Nz-qS-DvG" id="LgH-Id-EUp"/>
+                <outlet property="userImageView" destination="Bjl-HT-kgJ" id="TEE-5E-WHF"/>
+                <outlet property="usernameLabel" destination="TP1-VP-q4b" id="329-3h-F2z"/>
+            </connections>
+        </view>
+    </objects>
+</document>

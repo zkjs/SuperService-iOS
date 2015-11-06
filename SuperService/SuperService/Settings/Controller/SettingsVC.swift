@@ -107,9 +107,12 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
       presentViewController(alertController, animated: true, completion: nil)
     }
     if indexPath == setupIndexPath {
-      let setupVC = SetUpVC()
-      setupVC.hidesBottomBarWhenPushed = true
-      navigationController?.pushViewController(setupVC, animated: true)
+      
+      let storyboard = UIStoryboard(name: "SettingUpTVC", bundle: nil)
+      let vc = storyboard.instantiateViewControllerWithIdentifier("SettingUpTVC") as! SettingUpTVC
+      self.hidesBottomBarWhenPushed = true
+      navigationController?.pushViewController(vc, animated: true)
+      self.hidesBottomBarWhenPushed = false
     }
   }
   

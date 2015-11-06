@@ -40,6 +40,7 @@ class AccountManager: NSObject {
   
   override init() {
     let userDefaults = NSUserDefaults()
+    
     userID = userDefaults.objectForKey("userid") as? String ?? ""
     shopID = userDefaults.objectForKey("shopid") as? String ?? ""
     shopName = userDefaults.objectForKey("fullname") as? String ?? ""
@@ -102,6 +103,7 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "roleid")
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.setObject(nil, forKey: "url")
+    
     userDefaults.synchronize()
   }
   

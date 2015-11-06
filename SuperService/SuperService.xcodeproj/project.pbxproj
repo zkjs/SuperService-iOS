@@ -215,6 +215,13 @@
 		FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */; };
 		FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */; };
 		FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */; };
+		FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */; };
+		FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */; };
+		FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */; };
+		FAF1A5E31BEC4CA000B9ACC8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5E21BEC4CA000B9ACC8 /* HeaderView.xib */; };
+		FAF1A5E61BEC852000B9ACC8 /* CodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */; };
+		FAF1A5E71BEC852000B9ACC8 /* CodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */; };
+		FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -539,6 +546,13 @@
 		FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentHeaderView.xib; sourceTree = "<group>"; };
 		FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentFooterView.swift; sourceTree = "<group>"; };
 		FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentFooterView.xib; sourceTree = "<group>"; };
+		FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUpTVC.swift; sourceTree = "<group>"; };
+		FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingUpTVC.storyboard; sourceTree = "<group>"; };
+		FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ../Controller/HeaderView.swift; sourceTree = "<group>"; };
+		FAF1A5E21BEC4CA000B9ACC8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = ../Controller/HeaderView.xib; sourceTree = "<group>"; };
+		FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
+		FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeVC.xib; sourceTree = "<group>"; };
+		FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1076,6 +1090,7 @@
 			isa = PBXGroup;
 			children = (
 				40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */,
+				FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1251,6 +1266,8 @@
 		40F7577A1BE055480053C2BE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */,
+				FAF1A5E21BEC4CA000B9ACC8 /* HeaderView.xib */,
 				40F7575E1BE0553E0053C2BE /* InformCell.swift */,
 				40F7575F1BE0553E0053C2BE /* InformCell.xib */,
 				40F757631BE0553E0053C2BE /* SettingsCell.swift */,
@@ -1322,6 +1339,10 @@
 				40F757611BE0553E0053C2BE /* InformVC.xib */,
 				40F7576A1BE0553E0053C2BE /* SetUpVC.swift */,
 				40F7576B1BE0553E0053C2BE /* SetUpVC.xib */,
+				FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */,
+				FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */,
+				FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */,
+				FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */,
 				40F757681BE0553E0053C2BE /* SettingsVC.swift */,
 				40F757691BE0553E0053C2BE /* SettingsVC.xib */,
 			);
@@ -1520,6 +1541,7 @@
 				FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */,
 				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
 				401AEA6C1BE4B84900E38870 /* avator@2x.png in Resources */,
+				FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */,
 				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
 				401AEA8E1BE4B84900E38870 /* SenderVoiceNodePlaying001@2x.png in Resources */,
 				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
@@ -1530,10 +1552,12 @@
 				40CAA6001BE7810800FAFDA0 /* InquiryVC.xib in Resources */,
 				401AEA971BE4B84900E38870 /* weChatBubble_Sending_Solid@2x.png in Resources */,
 				401AEA8D1BE4B84900E38870 /* SenderVoiceNodePlaying000@2x.png in Resources */,
+				FAF1A5E71BEC852000B9ACC8 /* CodeVC.xib in Resources */,
 				401AEA8C1BE4B84900E38870 /* SECoreTextView.bundle in Resources */,
 				405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */,
 				4084230D1BC68E8600C215CD /* MessageCell.xib in Resources */,
 				40F757771BE0553E0053C2BE /* SettingsVC.xib in Resources */,
+				FAF1A5E31BEC4CA000B9ACC8 /* HeaderView.xib in Resources */,
 				408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */,
 				401AEA6D1BE4B84900E38870 /* MessageDisplayKitString.strings in Resources */,
 				40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */,
@@ -1628,12 +1652,14 @@
 				40E326291BD4C369008344DF /* Persistence.swift in Sources */,
 				401AEA4D1BE4B84900E38870 /* FLAnimatedImage.m in Sources */,
 				401AEA631BE4B84900E38870 /* XHMessageTableViewCell.m in Sources */,
+				FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */,
 				401AEA571BE4B84900E38870 /* SETextGeometry.m in Sources */,
 				40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */,
 				401AEA411BE4B84900E38870 /* XHHTTPClient.m in Sources */,
 				40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */,
 				4084230C1BC68E8600C215CD /* MessageCell.swift in Sources */,
 				401AEA321BE4B84900E38870 /* XHAudioPlayerHelper.m in Sources */,
+				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				40F757501BE054340053C2BE /* MainPageVC.swift in Sources */,
 				401AEA2B1BE4B84900E38870 /* UIImage+Alpha.m in Sources */,
@@ -1694,6 +1720,7 @@
 				40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */,
 				401AEA5E1BE4B84900E38870 /* SETextView.m in Sources */,
 				40F7576E1BE0553E0053C2BE /* InformVC.swift in Sources */,
+				FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */,
 				401AEA5A1BE4B84900E38870 /* SETextMagnifierCaret.m in Sources */,
 				40D733A41BE348AB00266228 /* Conversation.swift in Sources */,
 				401AEA351BE4B84900E38870 /* XHLocationHelper.m in Sources */,
@@ -1746,6 +1773,7 @@
 				401AEA6B1BE4B84900E38870 /* XHShareMenuView.m in Sources */,
 				408423081BC68A7800C215CD /* ArrivalCell.swift in Sources */,
 				401AEA2C1BE4B84900E38870 /* UIImage+Resize.m in Sources */,
+				FAF1A5E61BEC852000B9ACC8 /* CodeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

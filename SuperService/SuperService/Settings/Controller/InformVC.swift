@@ -22,6 +22,10 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "选择通知区域"

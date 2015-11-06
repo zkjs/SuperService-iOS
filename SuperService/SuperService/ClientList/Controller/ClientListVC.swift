@@ -38,6 +38,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("ClientListVC", owner:self, options:nil)
   }
+
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
     self.tableView.reloadData()

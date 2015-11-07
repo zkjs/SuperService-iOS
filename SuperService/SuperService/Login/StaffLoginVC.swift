@@ -148,13 +148,13 @@ extension StaffLoginVC: UITextFieldDelegate {
     if textField == userphoneTextField {
       // 电话号码11位
       if range.location + string.characters.count <= 11 {
-        verificationCodeButton.backgroundColor = UIColor(hexString: "29B6F6")
+        verificationCodeButton.backgroundColor = UIColor.themeColor()
         return true
       }
     } else if textField == identifyingCodeTextField {
       // 验证码6位
       if range.location + string.characters.count <= 6 {
-        loginButton.backgroundColor = UIColor(hexString: "29B6F6")
+        loginButton.backgroundColor = UIColor.themeColor()
         return true
       }
     }

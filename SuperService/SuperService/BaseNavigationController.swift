@@ -22,7 +22,7 @@ class BaseNavigationController: UINavigationController {
   private func setupView() {
     navigationBar.barStyle = UIBarStyle.Black
     navigationBar.translucent = false
-    navigationBar.barTintColor = UIColor(hexString: "03A9F4")
+    navigationBar.barTintColor = UIColor.themeColor()
     navigationBar.tintColor = UIColor.whiteColor()
   }
   

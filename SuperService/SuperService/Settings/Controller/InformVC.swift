@@ -124,7 +124,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     label.frame = CGRectMake(30, 108, 280, 40)
     label.text = "*选择您通知的区域，客人到达时，您将会收到通知，且要作出处理"
     label.numberOfLines = 0
-    label.textColor = UIColor(hexString: "29b6f6")
+    label.textColor = UIColor.themeColor()
     return label
   }
   

@@ -36,6 +36,10 @@ class InquiryVC: UIViewController{
     
   }
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("InquiryVC", owner:self, options:nil)
+  }
+  
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)

@@ -23,6 +23,10 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
   var sex :String?
   
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("SetUpVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "完善"

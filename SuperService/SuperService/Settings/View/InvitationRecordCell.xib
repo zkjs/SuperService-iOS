@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="143" id="KGk-i7-Jjw" customClass="InvitationRecordCell" customModule="SuperService" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="143"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="142"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="A5f-sx-qTI">
+                        <rect key="frame" x="23" y="13" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="1X7-fu-Ckq"/>
+                            <constraint firstAttribute="width" constant="40" id="bcY-SW-cA8"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王先生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qun-Sg-Hu1">
+                        <rect key="frame" x="83" y="14" width="80" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="V5u-Be-JZS"/>
+                            <constraint firstAttribute="height" constant="45" id="sN2-TF-FEs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午6：40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pth-Gf-nwF">
+                        <rect key="frame" x="272" y="14" width="80" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Aew-WK-28Z"/>
+                            <constraint firstAttribute="height" constant="45" id="wAe-WB-Aqo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Qun-Sg-Hu1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="ARX-pL-x4d"/>
+                    <constraint firstItem="A5f-sx-qTI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="MoA-Kg-UA2"/>
+                    <constraint firstItem="Qun-Sg-Hu1" firstAttribute="leading" secondItem="A5f-sx-qTI" secondAttribute="trailing" constant="20" id="NzW-Jy-hCE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pth-Gf-nwF" secondAttribute="trailing" constant="30" id="UyV-Dc-Oey"/>
+                    <constraint firstItem="pth-Gf-nwF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="vIx-NE-z0O"/>
+                    <constraint firstItem="A5f-sx-qTI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="ybX-RY-Wau"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="invitationerImageView" destination="A5f-sx-qTI" id="v0R-Bn-26v"/>
+                <outlet property="invitationerNameLabel" destination="Qun-Sg-Hu1" id="CcC-Ib-AZM"/>
+                <outlet property="useCodetimerLabel" destination="pth-Gf-nwF" id="W1P-ln-yFu"/>
+            </connections>
+            <point key="canvasLocation" x="537" y="522.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_hotel_zhanwei" width="90" height="90"/>
+    </resources>
+</document>

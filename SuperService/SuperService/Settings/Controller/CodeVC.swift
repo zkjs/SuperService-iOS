@@ -68,6 +68,12 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     cell.selectionStyle = UITableViewCellSelectionStyle.None
       return cell
   }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let vc = InvitationRecordVC()
+    vc.code = codeArray[indexPath.row]
+    navigationController?.pushViewController(vc, animated: true)
+  }
 
   func loadMoreData() {
     page++

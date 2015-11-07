@@ -12,22 +12,27 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   var memberListArray = [MemberModel]()
   var newDepartment = UITextField()
   @IBOutlet weak var tableView: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title = "部门列表"
-      ZKJSTool.showLoading("正在加载")
-      ZKJSTool.hideHUD()
-      getMemberListData()
-      let nibName = UINib(nibName: MemberListCell.nibName(), bundle: nil)
-      tableView.registerNib(nibName, forCellReuseIdentifier: MemberListCell.reuseIdentifier())
-      tableView.tableFooterView = UIView()
-      
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-      
-    }
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("MemberListVC", owner:self, options:nil)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "部门列表"
+    ZKJSTool.showLoading("正在加载")
+    ZKJSTool.hideHUD()
+    getMemberListData()
+    let nibName = UINib(nibName: MemberListCell.nibName(), bundle: nil)
+    tableView.registerNib(nibName, forCellReuseIdentifier: MemberListCell.reuseIdentifier())
+    tableView.tableFooterView = UIView()
+    
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    
+  }
   
   func getMemberListData() {
     ZKJSHTTPSessionManager.sharedInstance().getMemberListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
@@ -60,7 +65,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-      return self.memberListArray.count
+    return self.memberListArray.count
     
   }
   
@@ -77,7 +82,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
   }
   
-  //MARK -- Table View Delegate 
+  //MARK -- Table View Delegate
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let member = memberListArray[indexPath.row]
     let vc = navigationController?.viewControllers[1] as! AddMemberVC
@@ -102,7 +107,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     if footerV != nil {
       self.view.addSubview(footerV!)
     }
-
+    
     return footerV
   }
   
@@ -125,6 +130,6 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     self.memberListArray.append(member)
     self.tableView.reloadData()
   }
-
-
+  
+  
 }

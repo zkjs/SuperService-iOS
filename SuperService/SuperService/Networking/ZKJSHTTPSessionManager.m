@@ -508,7 +508,7 @@
   }];
 }
 
-#pragma mark - 服务员查看我的邀请码
+#pragma mark - 服务员查看我的全部邀请码
 
 - (void)theWaiterCheckMyInvitationWithPage:(NSString *)page pageData:(NSString *)pageData success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"invitation/sempcode" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -525,4 +525,24 @@
     failure(task,error);
   }];
 }
+
+#pragma mark - 服务员查看我的单个邀请码记录
+
+- (void)whoUsedMyCodeWithCode:(NSString *)code success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"invitation/codeuserone" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[code dataUsingEncoding:NSUTF8StringEncoding] name:@"code"];
+    
+  } success:^(NSURLSessionDataTask *  task, id responseObject) {
+    NSLog(@"==%@",[responseObject description]);
+    success(task,responseObject);
+    
+  } failure:^(NSURLSessionDataTask *  task, NSError * error) {
+    NSLog(@"%@",error.description);
+    failure(task,error);
+  }];
+
+}
+
 @end

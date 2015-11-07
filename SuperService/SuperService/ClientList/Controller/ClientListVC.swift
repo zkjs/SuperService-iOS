@@ -34,6 +34,11 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   }
   var selection: ClientSelectionBlock?
   
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("ClientListVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     
     super.viewDidLoad()

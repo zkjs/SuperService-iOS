@@ -50,8 +50,14 @@ class SettingUpTVC: UITableViewController {
       if myView != nil {
         let userID = AccountManager.sharedInstance().userID
         let url = NSURL(string: kBaseURL)
-        let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
-        myView?.userImageView.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+        if let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
+          if let data = NSData(contentsOfURL: urlStr),
+            let image = UIImage(data: data) {
+              myView?.userImageView.image = image
+          }
+
+        }
+       
         myView?.selectedImageViewButton.addTarget(self, action: "selectedIamge:", forControlEvents: UIControlEvents.TouchUpInside)
         myView?.usernameLabel.text = AccountManager.sharedInstance().userName
         self.tableView.addSubview(myView!)

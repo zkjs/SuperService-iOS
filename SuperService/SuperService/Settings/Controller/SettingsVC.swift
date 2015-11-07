@@ -13,6 +13,10 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
   @IBOutlet weak var tableView: UITableView!
   
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("SettingsVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "我的"

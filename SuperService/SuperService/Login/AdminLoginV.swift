@@ -9,35 +9,35 @@
 import UIKit
 
 class AdminLoginV: UIViewController {
-
+  
   @IBOutlet weak var loginButton: UIButton!  {
     didSet {
       loginButton.layer.masksToBounds = true
       loginButton.layer.cornerRadius = 20
     }
   }
-
+  
   @IBOutlet weak var passwordTextField: LTBouncyTextField!
   @IBOutlet weak var userphoneTextField: LTBouncyTextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title = "商家登录"
-      navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
-      passwordTextField.secureTextEntry = true
-
-        // Do any additional setup after loading the view.
-    }
   
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("AdminLoginV", owner:self, options:nil)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    title = "商家登录"
+    navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+  }
+  
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
   }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
   // MARK: - Private Method
   
   func isMobileNumber(phone: NSString) -> Bool {
@@ -80,10 +80,10 @@ class AdminLoginV: UIViewController {
     
     return isPhone
   }
-
   
-    
-
+  
+  
+  
   @IBAction func tappedLoginButton(sender: AnyObject) {
     guard let phone = userphoneTextField.text else {
       ZKJSTool.showMsg("请输入手机号码")
@@ -123,7 +123,7 @@ class AdminLoginV: UIViewController {
     }
   }
   
-
+  
 }
 extension AdminLoginV: UITextFieldDelegate {
   

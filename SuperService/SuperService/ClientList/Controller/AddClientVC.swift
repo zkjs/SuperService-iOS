@@ -61,6 +61,11 @@ class AddClientVC: UIViewController,UITextViewDelegate{
     }
   }
   
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("AddClientVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "新建会员"

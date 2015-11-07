@@ -210,6 +210,8 @@
 		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; };
 		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
 		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
+		FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */; };
+		FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */; };
 		FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */; };
@@ -222,6 +224,10 @@
 		FAF1A5E61BEC852000B9ACC8 /* CodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */; };
 		FAF1A5E71BEC852000B9ACC8 /* CodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */; };
 		FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */; };
+		FAF6AB7F1BED99CD006C1370 /* InvitationRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */; };
+		FAF6AB801BED99CD006C1370 /* InvitationRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */; };
+		FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */; };
+		FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -540,6 +546,8 @@
 		842659481BE0A216005E82F2 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		844E329B1BE065810024C678 /* AddMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberVC.swift; sourceTree = "<group>"; };
 		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
+		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
+		FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeHeaderView.xib; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentHeaderView.swift; sourceTree = "<group>"; };
@@ -553,6 +561,10 @@
 		FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
 		FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeVC.xib; sourceTree = "<group>"; };
 		FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
+		FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordVC.swift; sourceTree = "<group>"; };
+		FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordVC.xib; sourceTree = "<group>"; };
+		FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordCell.swift; sourceTree = "<group>"; };
+		FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1269,6 +1281,10 @@
 				FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */,
 				FAF1A5E21BEC4CA000B9ACC8 /* HeaderView.xib */,
 				40F7575E1BE0553E0053C2BE /* InformCell.swift */,
+				FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */,
+				FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */,
+				FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */,
+				FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */,
 				40F7575F1BE0553E0053C2BE /* InformCell.xib */,
 				40F757631BE0553E0053C2BE /* SettingsCell.swift */,
 				40F757641BE0553E0053C2BE /* SettingsCell.xib */,
@@ -1337,6 +1353,8 @@
 			children = (
 				40F757601BE0553E0053C2BE /* InformVC.swift */,
 				40F757611BE0553E0053C2BE /* InformVC.xib */,
+				FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */,
+				FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */,
 				40F7576A1BE0553E0053C2BE /* SetUpVC.swift */,
 				40F7576B1BE0553E0053C2BE /* SetUpVC.xib */,
 				FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */,
@@ -1522,6 +1540,7 @@
 				401AEA7F1BE4B84900E38870 /* ReceiverVoiceNodePlaying002@2x.png in Resources */,
 				40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */,
 				408423091BC68A7800C215CD /* ArrivalCell.xib in Resources */,
+				FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */,
 				401AEA7A1BE4B84900E38870 /* multiMedia@2x.png in Resources */,
 				40DA78991BAFAA8F00956B72 /* Assets.xcassets in Resources */,
 				40F757791BE0553E0053C2BE /* SetUpVC.xib in Resources */,
@@ -1559,12 +1578,14 @@
 				40F757771BE0553E0053C2BE /* SettingsVC.xib in Resources */,
 				FAF1A5E31BEC4CA000B9ACC8 /* HeaderView.xib in Resources */,
 				408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */,
+				FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */,
 				401AEA6D1BE4B84900E38870 /* MessageDisplayKitString.strings in Resources */,
 				40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */,
 				401AEA801BE4B84900E38870 /* ReceiverVoiceNodePlaying003@2x.png in Resources */,
 				401AEA821BE4B84900E38870 /* RecordCancel@2x.png in Resources */,
 				401AEA891BE4B84900E38870 /* RecordingSignal006@2x.png in Resources */,
 				401AEA901BE4B84900E38870 /* SenderVoiceNodePlaying003@2x.png in Resources */,
+				FAF6AB801BED99CD006C1370 /* InvitationRecordVC.xib in Resources */,
 				40F757831BE055A80053C2BE /* TeamListCell.xib in Resources */,
 				401AEA961BE4B84900E38870 /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				401AEA881BE4B84900E38870 /* RecordingSignal005@2x.png in Resources */,
@@ -1675,6 +1696,7 @@
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
 				401AEA511BE4B84900E38870 /* SEConstants.m in Sources */,
+				FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */,
 				404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */,
 				401AEA4C1BE4B84900E38870 /* XHShareMenuItem.m in Sources */,
 				401AEA581BE4B84900E38870 /* SETextInput.m in Sources */,
@@ -1713,9 +1735,11 @@
 				401AEA441BE4B84900E38870 /* XHMessageBubbleFactory.m in Sources */,
 				401AEA551BE4B84900E38870 /* SETextAttachment.m in Sources */,
 				844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */,
+				FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */,
 				401ADD161BE4757D00E38870 /* ZKJSHTTPChatSessionManager.m in Sources */,
 				40CAA5FA1BE705F800FAFDA0 /* StaffLoginVC.swift in Sources */,
 				40F7576C1BE0553E0053C2BE /* InformCell.swift in Sources */,
+				FAF6AB7F1BED99CD006C1370 /* InvitationRecordVC.swift in Sources */,
 				40F757821BE055A80053C2BE /* TeamListCell.swift in Sources */,
 				40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */,
 				401AEA5E1BE4B84900E38870 /* SETextView.m in Sources */,

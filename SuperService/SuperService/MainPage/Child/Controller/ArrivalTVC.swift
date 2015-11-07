@@ -13,6 +13,10 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   var dataArray: [ClientArrivalInfo]?
   
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("ArrivalTVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

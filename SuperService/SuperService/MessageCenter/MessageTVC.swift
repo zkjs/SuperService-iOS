@@ -12,6 +12,11 @@ class MessageTVC: UITableViewController {
   
   var dataArray = [Conversation]()
   
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("MessageTVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

@@ -28,6 +28,11 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
   @IBOutlet weak var photoTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
   var isUncheck = false
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("AddMemberVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "新建成员"

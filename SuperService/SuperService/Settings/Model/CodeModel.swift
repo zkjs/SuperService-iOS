@@ -9,14 +9,18 @@
 import UIKit
 
 class CodeModel: NSObject {
-  var salesid:String?
-  var codeid:NSNumber?
+  
+  
   var salecode:String?
+  var username:String?
+  var created:String?
+  var userid:String?
   init(dic:[String:AnyObject]) {
     
-    salesid = dic["salesid"] as? String
-    codeid = dic["codeid"] as? NSNumber
     salecode = dic["salecode"] as? String
+    username = dic["username"] as? String
+    userid = dic["userid"] as? String
+    created = dic["created"] as? String
     
   }
 

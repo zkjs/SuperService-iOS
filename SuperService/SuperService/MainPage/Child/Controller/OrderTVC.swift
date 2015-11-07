@@ -14,6 +14,10 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   var orderPage = 1
   
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("OrderTVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

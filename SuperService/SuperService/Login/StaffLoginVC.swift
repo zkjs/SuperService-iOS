@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class StaffLoginVC: UIViewController {
   
   @IBOutlet weak var administratorButton: UIButton! {
@@ -36,18 +35,17 @@ class StaffLoginVC: UIViewController {
   var countTimer:NSTimer?
   var count:Int = 30
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    title = "登录"
-    userphoneTextField.keyboardType = UIKeyboardType.NumberPad
-    identifyingCodeTextField.keyboardType = UIKeyboardType.NumberPad
-    identifyingCodeTextField.secureTextEntry = true
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("StaffLoginVC", owner:self, options:nil)
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    title = "登录"
   }
+  
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)

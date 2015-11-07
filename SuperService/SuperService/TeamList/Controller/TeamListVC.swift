@@ -30,6 +30,10 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
   }
   
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("TeamListVC", owner:self, options:nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

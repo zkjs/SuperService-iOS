@@ -24,7 +24,7 @@ class MessageTVC: UITableViewController {
     
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: "refresh",
-      name: refreshConversationListKey,
+      name: kRefreshConversationListNotification,
       object: nil)
   }
   

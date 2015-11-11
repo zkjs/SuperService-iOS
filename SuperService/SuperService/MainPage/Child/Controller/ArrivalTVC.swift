@@ -10,7 +10,7 @@ import UIKit
 
 class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   
-  var dataArray: [ClientArrivalInfo]?
+  var dataArray = [ClientArrivalInfo]()
   
   
   override func loadView() {
@@ -20,10 +20,12 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.tableFooterView = UIView()
+    setupView()
     
-    let nibName = UINib(nibName: ArrivalCell.nibName(), bundle: nil)
-    tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: "refresh",
+      name: kRefreshArrivalTVCNotification,
+      object: nil)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -32,20 +34,42 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     refresh()
   }
   
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
   
   // MARK: - Public
   
   func refresh() {
-    loadData()
-    tableView.reloadData()
+    dataArray = [ClientArrivalInfo]()
+    if let data = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(NSDate()) where data.count > 0 {
+      dataArray = data
+      tableView.reloadData()
+    }
+    tableView.header.endRefreshing()
+  }
+  
+  func loadMoreData() {
+    if let timestamp = dataArray.last?.timestamp,
+      let moreDataArray = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(timestamp) where moreDataArray.count > 0 {
+        dataArray += moreDataArray
+        tableView.reloadData()
+    }
+    tableView.footer.endRefreshing()
   }
   
   
   // MARK: - Private
   
-  func loadData() {
-    dataArray = Persistence.sharedInstance().fetchClientArrivalInfoArray()
-    print(dataArray?.count)
+  func setupView() {
+    let nibName = UINib(nibName: ArrivalCell.nibName(), bundle: nil)
+    tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
+    
+    tableView.tableFooterView = UIView()
+    
+    tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
+    tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
   }
   
   
@@ -63,8 +87,7 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   // MARK: - Table view data source
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let data = dataArray else { return 0}
-    return data.count
+    return dataArray.count
   }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -81,7 +104,7 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
       cell.topLineImageView.hidden = false
     }
     
-    let data = dataArray![indexPath.row]
+    let data = dataArray[indexPath.row]
     cell.setData(data)
     
     return cell

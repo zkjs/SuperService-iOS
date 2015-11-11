@@ -9,16 +9,17 @@
 import UIKit
 import CoreData
 
-let refreshConversationListKey = "refreshConversationListKey"
+let kRefreshConversationListNotification = "refreshConversationListNotification"
+let kRefreshArrivalTVCNotification = "refreshArrivalTVCNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
-
+  
   var window: UIWindow?
   var mainTBC: MainTBC!
   
   // MARK: - Application Delegate
-
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     customizeWindow()
     setupNotification()
@@ -26,12 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     setupWindows()
     return true
   }
-
+  
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
   }
-
+  
   func applicationDidEnterBackground(application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -47,17 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
     ZKJSTCPSessionManager.sharedInstance().deinitNetworkCommunication()
   }
-
+  
   func applicationWillEnterForeground(application: UIApplication) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
     ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
   }
-
+  
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   }
-
+  
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
@@ -82,12 +83,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       completionHandler(.NoData)
       return
     }
-    
+    window?.rootViewController
     if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
       if let clientID = userInfo["userid"] as? String,
-         let clientName = userInfo["username"] as? String,
-         let locationID = userInfo["locid"] as? String,
-         let locationName = userInfo["locdesc"] as? String {
+        let clientName = userInfo["username"] as? String,
+        let locationID = userInfo["locid"] as? String,
+        let locationName = userInfo["locdesc"] as? String {
           ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
               // 缓存到店信息到数据库
@@ -129,35 +130,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
               clientArrivalInfo.timestamp = NSDate()
               Persistence.sharedInstance().saveContext()
               
-              let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(locationName)", preferredStyle: .Alert)
-              alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
-              alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: {[unowned self] (action: UIAlertAction!) -> Void in
-                if let mainTBC = self.window?.rootViewController as? MainTBC {
-                  // 跳转到主页
-                  mainTBC.selectedIndex = 0
-                  if let navigationController = mainTBC.childViewControllers.first as? UINavigationController {
-                    if let mainPageVC = navigationController.viewControllers.first as? XLSegmentedPagerTabStripViewController {
-                      // 跳转到到店通知页面
-                      mainPageVC.moveToViewControllerAtIndex(0)
-                      // Tab Bar角标置0
-                      navigationController.tabBarItem.badgeValue = nil
-                      // App角标置0
-                      UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-                      
-                      if let arrivatTVC = mainPageVC.pagerTabStripChildViewControllers.first as? ArrivalTVC {
-                        arrivatTVC.refresh()
-                      }
-                    }
-                  }
-                }
-                }))
-              self.window?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
+              NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
+              
+              // 发送本地消息推送
+              let notification = UILocalNotification()
+              notification.alertBody = "\(clientName) 已到达 \(locationName)"
+              UIApplication.sharedApplication().presentLocalNotificationNow(notification)
               completionHandler(.NewData)
             }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
               completionHandler(.Failed)
           }
       }
-        
+      
       completionHandler(.NoData)
     }
     
@@ -279,7 +263,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       default:
         break
       }
-      NSNotificationCenter.defaultCenter().postNotificationName(refreshConversationListKey, object: self)
+      NSNotificationCenter.defaultCenter().postNotificationName(kRefreshConversationListNotification, object: self)
       if mainTBC.selectedIndex != 1 {
         let tabArray = mainTBC.tabBar.items as NSArray!
         let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem

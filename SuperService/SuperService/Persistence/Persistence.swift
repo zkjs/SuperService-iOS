@@ -96,8 +96,9 @@ class Persistence: NSObject {
 //    saveContext()
 //  }
   
-  func fetchClientArrivalInfoArray() -> [ClientArrivalInfo]? {
+  func fetchClientArrivalInfoArrayBeforeTimestamp(timestamp: NSDate) -> [ClientArrivalInfo]? {
     let fetchRequest = NSFetchRequest(entityName: "ClientArrivalInfo")
+    fetchRequest.predicate = NSPredicate(format: "timestamp < %@", timestamp)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
     fetchRequest.fetchLimit = 7
     let clientArrivalInfoArray: [ClientArrivalInfo]

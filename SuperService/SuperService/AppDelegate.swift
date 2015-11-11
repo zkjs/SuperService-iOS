@@ -76,84 +76,92 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     print(error)
   }
   
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     print(userInfo)
-    if let childType = userInfo["childtype"] as? NSNumber {
-      if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
-        guard let clientID = userInfo["userid"] as? String else { return }
-        guard let clientName = userInfo["username"] as? String else { return }
-        guard let locationID = userInfo["locid"] as? String else { return }
-        guard let locationName = userInfo["locdesc"] as? String else { return }
-        
-        ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
-          success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-            // 缓存到店信息到数据库
-            let moc = Persistence.sharedInstance().managedObjectContext
-            let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
-              inManagedObjectContext: moc!) as! ClientArrivalInfo
-            // 客户信息
-            let client = NSEntityDescription.insertNewObjectForEntityForName("Client",
-              inManagedObjectContext: moc!) as! Client
-            client.id = responseObject["userid"] as? String
-            client.name = responseObject["username"] as? String
-            client.level = responseObject["user_level"] as? NSNumber
-            client.phone = (responseObject["phone"] as! NSNumber).stringValue
-            clientArrivalInfo.client = client
-            // 位置信息
-            let location = NSEntityDescription.insertNewObjectForEntityForName("Location",
-              inManagedObjectContext: moc!) as! Location
-            location.id = locationID
-            location.name = locationName
-            clientArrivalInfo.location = location
-            // 订单信息
-            if let orderInfo = responseObject["order"] as? [String: AnyObject] {
-              let arrivalDate = orderInfo["arrival_date"] as! String
-              let departureDate = orderInfo["departure_date"] as! String
-              let order = NSEntityDescription.insertNewObjectForEntityForName("Order",
-                inManagedObjectContext: moc!) as! Order
-              order.roomType = orderInfo["room_type"] as? String
-              order.arrivalDate = arrivalDate
-              let days = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
-              if days == 0 {
-                order.duration = 1  // 当天走的也算一天
-              } else if days > 0 {
-                order.duration = days
-              } else {
-                order.duration = 0
+    guard let childType = userInfo["childtype"] as? NSNumber else {
+      completionHandler(.NoData)
+      return
+    }
+    
+    if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
+      if let clientID = userInfo["userid"] as? String,
+         let clientName = userInfo["username"] as? String,
+         let locationID = userInfo["locid"] as? String,
+         let locationName = userInfo["locdesc"] as? String {
+          ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
+            success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+              // 缓存到店信息到数据库
+              let moc = Persistence.sharedInstance().managedObjectContext
+              let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
+                inManagedObjectContext: moc!) as! ClientArrivalInfo
+              // 客户信息
+              let client = NSEntityDescription.insertNewObjectForEntityForName("Client",
+                inManagedObjectContext: moc!) as! Client
+              client.id = responseObject["userid"] as? String
+              client.name = responseObject["username"] as? String
+              client.level = responseObject["user_level"] as? NSNumber
+              client.phone = (responseObject["phone"] as! NSNumber).stringValue
+              clientArrivalInfo.client = client
+              // 位置信息
+              let location = NSEntityDescription.insertNewObjectForEntityForName("Location",
+                inManagedObjectContext: moc!) as! Location
+              location.id = locationID
+              location.name = locationName
+              clientArrivalInfo.location = location
+              // 订单信息
+              if let orderInfo = responseObject["order"] as? [String: AnyObject] {
+                let arrivalDate = orderInfo["arrival_date"] as! String
+                let departureDate = orderInfo["departure_date"] as! String
+                let order = NSEntityDescription.insertNewObjectForEntityForName("Order",
+                  inManagedObjectContext: moc!) as! Order
+                order.roomType = orderInfo["room_type"] as? String
+                order.arrivalDate = arrivalDate
+                let days = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
+                if days == 0 {
+                  order.duration = 1  // 当天走的也算一天
+                } else if days > 0 {
+                  order.duration = days
+                } else {
+                  order.duration = 0
+                }
+                clientArrivalInfo.order = order
               }
-              clientArrivalInfo.order = order
-            }
-            clientArrivalInfo.timestamp = NSDate()
-            Persistence.sharedInstance().saveContext()
-
-            let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(locationName)", preferredStyle: .Alert)
-            alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
-            alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: {[unowned self] (action: UIAlertAction!) -> Void in
-              if let mainTBC = self.window?.rootViewController as? MainTBC {
-                // 跳转到主页
-                mainTBC.selectedIndex = 0
-                if let navigationController = mainTBC.childViewControllers.first as? UINavigationController {
-                  if let mainPageVC = navigationController.viewControllers.first as? XLSegmentedPagerTabStripViewController {
-                    // 跳转到到店通知页面
-                    mainPageVC.moveToViewControllerAtIndex(0)
-                    // Tab Bar角标置0
-                    navigationController.tabBarItem.badgeValue = nil
-                    // App角标置0
-                    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-                    
-                    if let arrivatTVC = mainPageVC.pagerTabStripChildViewControllers.first as? ArrivalTVC {
-                      arrivatTVC.refresh()
+              clientArrivalInfo.timestamp = NSDate()
+              Persistence.sharedInstance().saveContext()
+              
+              let alertView = UIAlertController(title: "到店通知", message: "\(clientName) 已到达 \(locationName)", preferredStyle: .Alert)
+              alertView.addAction(UIAlertAction(title: "忽略", style: .Cancel, handler: nil))
+              alertView.addAction(UIAlertAction(title: "查看", style: .Default, handler: {[unowned self] (action: UIAlertAction!) -> Void in
+                if let mainTBC = self.window?.rootViewController as? MainTBC {
+                  // 跳转到主页
+                  mainTBC.selectedIndex = 0
+                  if let navigationController = mainTBC.childViewControllers.first as? UINavigationController {
+                    if let mainPageVC = navigationController.viewControllers.first as? XLSegmentedPagerTabStripViewController {
+                      // 跳转到到店通知页面
+                      mainPageVC.moveToViewControllerAtIndex(0)
+                      // Tab Bar角标置0
+                      navigationController.tabBarItem.badgeValue = nil
+                      // App角标置0
+                      UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+                      
+                      if let arrivatTVC = mainPageVC.pagerTabStripChildViewControllers.first as? ArrivalTVC {
+                        arrivatTVC.refresh()
+                      }
                     }
                   }
                 }
-              }
-            }))
-            self.window?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
-          }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-            
-        }
+                }))
+              self.window?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
+              completionHandler(.NewData)
+            }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+              completionHandler(.Failed)
+          }
       }
+        
+      completionHandler(.NoData)
     }
+    
+    completionHandler(.NoData)
   }
   
   

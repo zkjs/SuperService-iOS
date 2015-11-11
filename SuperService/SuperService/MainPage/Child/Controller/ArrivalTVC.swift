@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
+class ArrivalTVC: UITableViewController {
   
   var dataArray = [ClientArrivalInfo]()
   
@@ -22,6 +22,7 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     
     setupView()
     
+    // 因为程序退到后台再回到前台时不会触发viewWillAppear，所以需要此方法刷新列表
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: "refresh",
       name: kRefreshArrivalTVCNotification,
@@ -31,7 +32,8 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    refresh()
+    tabBarItem.badgeValue = nil
+    loadData()
   }
   
   deinit {
@@ -42,6 +44,14 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   // MARK: - Public
   
   func refresh() {
+    // 只有当当前VC可见时才刷新数据
+    if isViewLoaded() && (view.window != nil) {
+      tabBarItem.badgeValue = nil
+      loadData()
+    }
+  }
+  
+  func loadData() {
     dataArray = [ClientArrivalInfo]()
     if let data = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(NSDate()) where data.count > 0 {
       dataArray = data
@@ -63,6 +73,8 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
   // MARK: - Private
   
   func setupView() {
+    title = "到店通知"
+    
     let nibName = UINib(nibName: ArrivalCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
     
@@ -70,17 +82,6 @@ class ArrivalTVC: UITableViewController, XLPagerTabStripChildItem {
     
     tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
     tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
-  }
-  
-  
-  // MARK: - XLPagerTabStripChildItem Delegate
-  
-  func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-    return "到店通知"
-  }
-  
-  func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
-    return UIColor.whiteColor()
   }
   
   

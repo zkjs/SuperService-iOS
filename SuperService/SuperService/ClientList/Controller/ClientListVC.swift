@@ -10,7 +10,7 @@ import UIKit
 
 typealias ClientSelectionBlock = (ClientModel) -> ()
 
-class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,refreshTableViewDelegate{
+class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, refreshTableViewDelegate, XLPagerTabStripChildItem {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -62,6 +62,17 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
       target: self, action: "AddClientBtn:")
     self.navigationItem.rightBarButtonItem = add_clientButton
     
+  }
+  
+  
+  // MARK: - XLPagerTabStripChildItem Delegate
+  
+  func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
+    return "客户"
+  }
+  
+  func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
+    return UIColor.whiteColor()
   }
   
   

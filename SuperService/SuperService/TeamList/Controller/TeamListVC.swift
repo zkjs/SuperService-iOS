@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,RefreshTeamListVCDelegate,SWTableViewCellDelegate{
+class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, RefreshTeamListVCDelegate,/*SWTableViewCellDelegate,*/ XLPagerTabStripChildItem {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -28,7 +28,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
 
     }
   }
-  
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("TeamListVC", owner:self, options:nil)
@@ -66,7 +65,18 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
     // Dispose of any resources that can be recreated.
   }
   
+  // MARK: - XLPagerTabStripChildItem Delegate
+  
+  func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
+    return "团队"
+  }
+  
+  func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
+    return UIColor.whiteColor()
+  }
+  
   //RefreshTeamListVCDelegate
+  
   func RefreshTeamListTableView(set: [String : AnyObject],memberModel:TeamModel) {
     let member = memberModel
     self.teamArray.append(member)
@@ -143,24 +153,24 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate ,
   }
   
   
-  //MARK - SWTabelViewDelagate
-  func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
-    switch index {
-    case 0:
-      let indexPath = tableView.indexPathForCell(cell)!
-      let team = teamArray[indexPath.row]
-      
-      teamArray.removeAtIndex(indexPath.row)
-      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-      ZKJSHTTPSessionManager.sharedInstance().deleteMemberWithDeleteList(team.salesid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        
-        }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
-      })
-    default:
-      break
-    }
-  }
+//  //MARK - SWTabelViewDelagate
+//  func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+//    switch index {
+//    case 0:
+//      let indexPath = tableView.indexPathForCell(cell)!
+//      let team = teamArray[indexPath.row]
+//      
+//      teamArray.removeAtIndex(indexPath.row)
+//      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//      ZKJSHTTPSessionManager.sharedInstance().deleteMemberWithDeleteList(team.salesid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//        
+//        }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//          
+//      })
+//    default:
+//      break
+//    }
+//  }
   
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
     return collation.sectionForSectionIndexTitleAtIndex(index)

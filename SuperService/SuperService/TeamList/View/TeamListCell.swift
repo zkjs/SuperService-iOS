@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListCell: SWTableViewCell {
+class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   
   @IBOutlet weak var username: UILabel!
   @IBOutlet weak var userImage: UIImageView!
@@ -27,13 +27,12 @@ class TeamListCell: SWTableViewCell {
   }
   
   class func height() -> CGFloat {
-    return 140
+    return 100
   }
   
   func setData(team:TeamModel) {
     username.text = team.name
-     rightUtilityButtons = rightButtons() as [AnyObject]
-    
+//    rightUtilityButtons = rightButtons() as [AnyObject]
   }
   
   func rightButtons() -> NSArray {

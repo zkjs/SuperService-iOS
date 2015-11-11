@@ -152,6 +152,7 @@
 		40CAA5FB1BE705F800FAFDA0 /* StaffLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5F91BE705F800FAFDA0 /* StaffLoginVC.xib */; };
 		40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */; };
 		40CAA6001BE7810800FAFDA0 /* InquiryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */; };
+		40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF56731BF3417200E20D50 /* ContactVC.swift */; };
 		40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */; };
 		40D733A41BE348AB00266228 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A21BE348AB00266228 /* Conversation.swift */; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
@@ -179,7 +180,6 @@
 		40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F757431BE054160053C2BE /* ClientListVC.xib */; };
 		40F7574B1BE054160053C2BE /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757441BE054160053C2BE /* ClientModel.swift */; };
 		40F7574F1BE054340053C2BE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7574C1BE054340053C2BE /* BaseNavigationController.swift */; };
-		40F757501BE054340053C2BE /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7574D1BE054340053C2BE /* MainPageVC.swift */; };
 		40F757511BE054340053C2BE /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7574E1BE054340053C2BE /* OrderModel.swift */; };
 		40F757561BE054550053C2BE /* OrderDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40F757521BE054550053C2BE /* OrderDetail.storyboard */; };
 		40F757571BE054550053C2BE /* OrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757531BE054550053C2BE /* OrderDetailTVC.swift */; };
@@ -449,10 +449,10 @@
 		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
-		408423021BC689E200C215CD /* ArrivalTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalTVC.swift; sourceTree = "<group>"; };
-		408423031BC689E200C215CD /* ArrivalTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrivalTVC.xib; sourceTree = "<group>"; };
-		408423061BC68A7800C215CD /* ArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalCell.swift; sourceTree = "<group>"; };
-		408423071BC68A7800C215CD /* ArrivalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrivalCell.xib; sourceTree = "<group>"; };
+		408423021BC689E200C215CD /* ArrivalTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrivalTVC.swift; path = MainPage/Child/Controller/ArrivalTVC.swift; sourceTree = "<group>"; };
+		408423031BC689E200C215CD /* ArrivalTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArrivalTVC.xib; path = MainPage/Child/Controller/ArrivalTVC.xib; sourceTree = "<group>"; };
+		408423061BC68A7800C215CD /* ArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrivalCell.swift; path = MainPage/Child/View/ArrivalCell.swift; sourceTree = "<group>"; };
+		408423071BC68A7800C215CD /* ArrivalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArrivalCell.xib; path = MainPage/Child/View/ArrivalCell.xib; sourceTree = "<group>"; };
 		4084230A1BC68E8600C215CD /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		4084230B1BC68E8600C215CD /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		408423121BC68EB000C215CD /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -482,6 +482,7 @@
 		40CAA5F91BE705F800FAFDA0 /* StaffLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffLoginVC.xib; sourceTree = "<group>"; };
 		40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryVC.swift; sourceTree = "<group>"; };
 		40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InquiryVC.xib; sourceTree = "<group>"; };
+		40CF56731BF3417200E20D50 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		40D7339E1BE31FA600266228 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40D733A21BE348AB00266228 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
@@ -516,7 +517,6 @@
 		40F757431BE054160053C2BE /* ClientListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientListVC.xib; sourceTree = "<group>"; };
 		40F757441BE054160053C2BE /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		40F7574C1BE054340053C2BE /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		40F7574D1BE054340053C2BE /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		40F7574E1BE054340053C2BE /* OrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		40F757521BE054550053C2BE /* OrderDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderDetail.storyboard; sourceTree = "<group>"; };
 		40F757531BE054550053C2BE /* OrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailTVC.swift; sourceTree = "<group>"; };
@@ -1035,34 +1035,25 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		40600CAB1BC64579008F8DEC /* MainPage */ = {
-			isa = PBXGroup;
-			children = (
-				40600CB21BC64946008F8DEC /* Child */,
-				40F7574D1BE054340053C2BE /* MainPageVC.swift */,
-			);
-			path = MainPage;
-			sourceTree = "<group>";
-		};
-		40600CB21BC64946008F8DEC /* Child */ = {
+		40600CAB1BC64579008F8DEC /* Order */ = {
 			isa = PBXGroup;
 			children = (
 				FAF019991BE1CF9D00E67ECD /* Controller */,
 				40D7339F1BE3411500266228 /* Model */,
 				40600CBE1BC66DF3008F8DEC /* View */,
 			);
-			path = Child;
+			name = Order;
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		40600CBE1BC66DF3008F8DEC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				408423061BC68A7800C215CD /* ArrivalCell.swift */,
-				408423071BC68A7800C215CD /* ArrivalCell.xib */,
 				40F7575A1BE0546A0053C2BE /* OrderCell.swift */,
 				40F7575B1BE0546A0053C2BE /* OrderCell.xib */,
 			);
-			path = View;
+			name = View;
+			path = Child/View;
 			sourceTree = "<group>";
 		};
 		4068A2D31BBBB13100FF8608 /* Widget */ = {
@@ -1123,6 +1114,33 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		40CF56751BF3453300E20D50 /* ArrivalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				40CF56771BF3456500E20D50 /* Controller */,
+				40CF56761BF3455E00E20D50 /* View */,
+			);
+			name = ArrivalInfo;
+			sourceTree = "<group>";
+		};
+		40CF56761BF3455E00E20D50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				408423061BC68A7800C215CD /* ArrivalCell.swift */,
+				408423071BC68A7800C215CD /* ArrivalCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		40CF56771BF3456500E20D50 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				408423021BC689E200C215CD /* ArrivalTVC.swift */,
+				408423031BC689E200C215CD /* ArrivalTVC.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		40D7339D1BE31E7E00266228 /* MessageCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1142,7 +1160,8 @@
 				40F7574E1BE054340053C2BE /* OrderModel.swift */,
 				40ABA9631BE1B9E000737C6D /* PaymentModel.swift */,
 			);
-			path = Model;
+			name = Model;
+			path = Child/Model;
 			sourceTree = "<group>";
 		};
 		40D733A01BE3414100266228 /* Cell */ = {
@@ -1182,7 +1201,8 @@
 				40F1BA801BC7FBC0006C2B41 /* ClientList */,
 				40E326461BD510C1008344DF /* Extension */,
 				40CAA5FC1BE705FE00FAFDA0 /* Login */,
-				40600CAB1BC64579008F8DEC /* MainPage */,
+				40CF56751BF3453300E20D50 /* ArrivalInfo */,
+				40600CAB1BC64579008F8DEC /* Order */,
 				40D7339D1BE31E7E00266228 /* MessageCenter */,
 				401AE9531BE4B84900E38870 /* MessageDisplayKit */,
 				404FB51E1BCE08840074D205 /* Networking */,
@@ -1192,6 +1212,7 @@
 				40B0DC281BCE367300785D2E /* Tool */,
 				4068A2D31BBBB13100FF8608 /* Widget */,
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
+				40CF56731BF3417200E20D50 /* ContactVC.swift */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
 				40F7574C1BE054340053C2BE /* BaseNavigationController.swift */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
@@ -1376,14 +1397,13 @@
 		FAF019991BE1CF9D00E67ECD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				408423021BC689E200C215CD /* ArrivalTVC.swift */,
-				408423031BC689E200C215CD /* ArrivalTVC.xib */,
-				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
-				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 				40F757541BE054550053C2BE /* OrderTVC.swift */,
 				40F757551BE054550053C2BE /* OrderTVC.xib */,
+				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
+				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 			);
-			path = Controller;
+			name = Controller;
+			path = Child/Controller;
 			sourceTree = "<group>";
 		};
 		FAF0199A1BE1CFB700E67ECD /* View */ = {
@@ -1691,7 +1711,6 @@
 				401AEA321BE4B84900E38870 /* XHAudioPlayerHelper.m in Sources */,
 				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
-				40F757501BE054340053C2BE /* MainPageVC.swift in Sources */,
 				401AEA2B1BE4B84900E38870 /* UIImage+Alpha.m in Sources */,
 				401AEA451BE4B84900E38870 /* XHMessageVideoConverPhotoFactory.m in Sources */,
 				401AEA661BE4B84900E38870 /* XHVoiceRecordHUD.m in Sources */,
@@ -1768,6 +1787,7 @@
 				401AEA481BE4B84900E38870 /* XHAnnotation.m in Sources */,
 				40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */,
 				401ADD131BE4745100E38870 /* JSHChatVC.m in Sources */,
+				40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */,
 				40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */,
 				401AEA3A1BE4B84900E38870 /* XHDisplayEmotionViewController.m in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,

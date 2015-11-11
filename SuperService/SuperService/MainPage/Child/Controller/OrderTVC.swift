@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
+class OrderTVC: UITableViewController {
   
   var orderArray = [OrderModel]()
   var orderPage = 1
@@ -27,14 +27,7 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    addRightBarButton()
     tableView.header.beginRefreshing()
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    removeRightBarButton()
   }
   
   
@@ -59,18 +52,12 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
       style: .Plain,
       target: self,
       action: "addOrder")
-    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
-    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
-    baseNC.topViewController?.navigationItem.rightBarButtonItem = addOrderButton
-  }
-  
-  private func removeRightBarButton() {
-    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
-    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
-    baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
+    navigationItem.rightBarButtonItem = addOrderButton
   }
   
   private func setupView() {
+    title = "订单"
+    
     let nibName = UINib(nibName: OrderCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: OrderCell.reuseIdentifier())
     
@@ -78,6 +65,8 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
     
     tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    
+    addRightBarButton()
   }
   
   private func getDataWithPage(page: Int) {
@@ -100,17 +89,6 @@ class OrderTVC: UITableViewController, XLPagerTabStripChildItem {
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
     }
-  }
-  
-  
-  // MARK: - XLPagerTabStripChildItem Delegate
-  
-  func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-    return "订单处理"
-  }
-  
-  func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
-    return UIColor.whiteColor()
   }
   
   

@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-let kRefreshConversationListNotification = "refreshConversationListNotification"
 let kRefreshArrivalTVCNotification = "refreshArrivalTVCNotification"
+let kRefreshConversationListNotification = "refreshConversationListNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
@@ -31,12 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    print("applicationWillResignActive")
   }
   
   func applicationDidEnterBackground(application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
+    print("applicationDidEnterBackground")
     let timestamp = Int64(NSDate().timeIntervalSince1970)
     let userID = AccountManager.sharedInstance().userID
     let dictionary: [String: AnyObject] = [
@@ -51,16 +52,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func applicationWillEnterForeground(application: UIApplication) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
+    print("applicationWillEnterForeground")
     ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
   }
   
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    print("applicationDidBecomeActive")
   }
   
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    print("applicationWillTerminate")
   }
   
   
@@ -83,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       completionHandler(.NoData)
       return
     }
-    window?.rootViewController
+    
     if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
       if let clientID = userInfo["userid"] as? String,
         let clientName = userInfo["username"] as? String,
@@ -130,12 +133,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
               clientArrivalInfo.timestamp = NSDate()
               Persistence.sharedInstance().saveContext()
               
-              NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
+              // 置到店通知Tab Bar
+              let mainTabIndex = 0
+              if self.mainTBC.selectedIndex != mainTabIndex {
+                let tabArray = self.mainTBC.tabBar.items as NSArray!
+                let tabItem = tabArray.objectAtIndex(mainTabIndex) as! UITabBarItem
+                tabItem.badgeValue = "1"
+              }
               
-              // 发送本地消息推送
-              let notification = UILocalNotification()
-              notification.alertBody = "\(clientName) 已到达 \(locationName)"
-              UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+              NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
               completionHandler(.NewData)
             }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
               completionHandler(.Failed)
@@ -167,27 +173,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   private func setupWindows() {
-    let vc1 = MainPageVC()
+    let vc1 = ArrivalTVC()
     vc1.tabBarItem.image = UIImage(named: "ic_home")
-    vc1.tabBarItem.title = "主页"
+    vc1.tabBarItem.title = "到店通知"
     let nv1 = BaseNavigationController()
     nv1.viewControllers = [vc1]
     
-    let vc2 = MessageTVC()
-    vc2.tabBarItem.title = "消息"
-    vc2.tabBarItem.image = UIImage(named: "ic_duihua_b")
+    let vc2 = OrderTVC()
+    vc2.tabBarItem.title = "订单"
+    vc2.tabBarItem.image = UIImage(named: "ic_dingdan")
     let nv2 = BaseNavigationController()
     nv2.viewControllers = [vc2]
     
-    let vc3 = TeamListVC()
-    vc3.tabBarItem.title = "团队"
-    vc3.tabBarItem.image = UIImage(named: "ic_tuandui_b")
+    let vc3 = MessageTVC()
+    vc3.tabBarItem.title = "消息"
+    vc3.tabBarItem.image = UIImage(named: "ic_duihua_b")
     let nv3 = BaseNavigationController()
     nv3.viewControllers = [vc3]
     
-    let vc4 = ClientListVC()
-    vc4.tabBarItem.title = "客户"
-    vc4.tabBarItem.image = UIImage(named: "ic_kehu_b")
+    let vc4 = ContactVC()
+    vc4.tabBarItem.title = "联系人"
+    vc4.tabBarItem.image = UIImage(named: "ic_tuandui_b")
     let nv4 = BaseNavigationController()
     nv4.viewControllers = [vc4]
     
@@ -264,9 +270,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
         break
       }
       NSNotificationCenter.defaultCenter().postNotificationName(kRefreshConversationListNotification, object: self)
-      if mainTBC.selectedIndex != 1 {
+      let messageTabIndex = 1
+      if mainTBC.selectedIndex != messageTabIndex {
         let tabArray = mainTBC.tabBar.items as NSArray!
-        let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+        let tabItem = tabArray.objectAtIndex(messageTabIndex) as! UITabBarItem
         tabItem.badgeValue = "1"
       }
     }

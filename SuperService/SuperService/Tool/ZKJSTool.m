@@ -8,51 +8,9 @@
 
 #import "ZKJSTool.h"
 #import "MBProgressHUD.h"
-#define APP [UIApplication sharedApplication]
+
 @implementation ZKJSTool
-#pragma mark - HUD
-+ (MBProgressHUD *)Hud
-{
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:APP.keyWindow];
-    if (hud){
-        [hud removeFromSuperview];
-    }else{
-        hud = [[MBProgressHUD alloc] initWithWindow:APP.keyWindow];
-        hud.removeFromSuperViewOnHide = YES;
-    }
-    [APP.keyWindow addSubview:hud];
-    return hud;
-}
 
-+ (void)showMsg:(NSString *)message
-{
-    MBProgressHUD *hud = [self Hud];
-    hud.labelText = message;
-    hud.mode = MBProgressHUDModeText;
-    hud.labelFont = [UIFont systemFontOfSize:13];
-    [hud show:YES];
-    [hud hide:YES afterDelay:1.0];
-}
-
-+ (void)showLoading
-{
-    [self showLoading:@"请稍候..."];
-}
-
-+ (void)showLoading:(NSString *)message
-{
-    MBProgressHUD *hud = [self Hud];
-    hud.labelText = message;
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelFont = [UIFont systemFontOfSize:13];
-    [hud show:YES];
-}
-
-+ (void)hideHUD
-{
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:APP.keyWindow];
-    [hud hide:YES];
-}
 #pragma mark - 
 //检测手机号码是否合法
 + (BOOL)validateMobile:(NSString *)mobileNum
@@ -109,6 +67,7 @@
         return NO;
     }
 }
+
 //检测邮箱格式
 + (BOOL)validateEmail:(NSString *)email
 {

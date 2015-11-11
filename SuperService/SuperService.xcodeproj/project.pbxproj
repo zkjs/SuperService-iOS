@@ -153,6 +153,7 @@
 		40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */; };
 		40CAA6001BE7810800FAFDA0 /* InquiryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */; };
 		40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF56731BF3417200E20D50 /* ContactVC.swift */; };
+		40CF567D1BF3621600E20D50 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF567C1BF3621600E20D50 /* UIViewController+HUD.swift */; };
 		40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */; };
 		40D733A41BE348AB00266228 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A21BE348AB00266228 /* Conversation.swift */; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
@@ -483,6 +484,7 @@
 		40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryVC.swift; sourceTree = "<group>"; };
 		40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InquiryVC.xib; sourceTree = "<group>"; };
 		40CF56731BF3417200E20D50 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
+		40CF567C1BF3621600E20D50 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		40D7339E1BE31FA600266228 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40D733A21BE348AB00266228 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
@@ -1141,6 +1143,16 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		40CF56781BF3612500E20D50 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				40CF56731BF3417200E20D50 /* ContactVC.swift */,
+				40F1BA7F1BC7FBB7006C2B41 /* TeamList */,
+				40F1BA801BC7FBC0006C2B41 /* ClientList */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
 		40D7339D1BE31E7E00266228 /* MessageCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1198,9 +1210,9 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
-				40F1BA801BC7FBC0006C2B41 /* ClientList */,
 				40E326461BD510C1008344DF /* Extension */,
 				40CAA5FC1BE705FE00FAFDA0 /* Login */,
+				40CF56781BF3612500E20D50 /* Contact */,
 				40CF56751BF3453300E20D50 /* ArrivalInfo */,
 				40600CAB1BC64579008F8DEC /* Order */,
 				40D7339D1BE31E7E00266228 /* MessageCenter */,
@@ -1208,11 +1220,9 @@
 				404FB51E1BCE08840074D205 /* Networking */,
 				40E3262A1BD4C36F008344DF /* Persistence */,
 				40F1BA811BC7FBC9006C2B41 /* Settings */,
-				40F1BA7F1BC7FBB7006C2B41 /* TeamList */,
 				40B0DC281BCE367300785D2E /* Tool */,
 				4068A2D31BBBB13100FF8608 /* Widget */,
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
-				40CF56731BF3417200E20D50 /* ContactVC.swift */,
 				40DA78981BAFAA8F00956B72 /* Assets.xcassets */,
 				40F7574C1BE054340053C2BE /* BaseNavigationController.swift */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
@@ -1268,6 +1278,7 @@
 			children = (
 				40E326441BD50B2F008344DF /* NSDate+Days.swift */,
 				40DB677E1BEDDB34008D3BB9 /* UIColor+Theme.swift */,
+				40CF567C1BF3621600E20D50 /* UIViewController+HUD.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1790,6 +1801,7 @@
 				40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */,
 				40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */,
 				401AEA3A1BE4B84900E38870 /* XHDisplayEmotionViewController.m in Sources */,
+				40CF567D1BF3621600E20D50 /* UIViewController+HUD.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
 				401AEA2F1BE4B84900E38870 /* UIImage+XHRounded.m in Sources */,

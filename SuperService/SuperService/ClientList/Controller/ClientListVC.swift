@@ -52,8 +52,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     title = "客户"
     let addVC = AddClientVC()
     addVC.delegate = self
-    ZKJSTool.showLoading("正在加载")
-    ZKJSTool.hideHUD()
+
     let nibName = UINib(nibName: ClientListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
     tableView.tableFooterView = UIView()

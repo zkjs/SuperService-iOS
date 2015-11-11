@@ -20,8 +20,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "部门列表"
-    ZKJSTool.showLoading("正在加载")
-    ZKJSTool.hideHUD()
+
     getMemberListData()
     let nibName = UINib(nibName: MemberListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: MemberListCell.reuseIdentifier())
@@ -120,7 +119,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
       }
       }) { (task:NSURLSessionDataTask!, error:NSError!) -> Void in
-        ZKJSTool.showMsg("请填写部门信息")
+        self.showHint("请填写部门信息")
     }
   }
   

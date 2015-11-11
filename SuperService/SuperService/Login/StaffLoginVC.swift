@@ -58,13 +58,13 @@ class StaffLoginVC: UIViewController {
         if (success == true) {
           self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "refreshCount:", userInfo: nil, repeats: true)
           self.countTimer?.fire()
-          ZKJSTool.showMsg("验证码已发送!")
+          self.showHint("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
           
         }
       }
     }else {
-      ZKJSTool.showMsg("请输入正确的手机号码")
+      self.showHint("请输入正确的手机号码")
     }
     
   }
@@ -98,7 +98,7 @@ class StaffLoginVC: UIViewController {
                 //先判断手机号是不是管理员，要不然返回的数据是空去存数据库时会崩溃
                 let name = dict["name"]
                 if name == nil {
-                  ZKJSTool.showMsg("您还不是管理员")
+                  self.showHint("您还不是管理员")
                 }else {
                   // 缓存用户信息
                   AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
@@ -116,7 +116,7 @@ class StaffLoginVC: UIViewController {
               } else {
                 if let err = dict["err"] as? NSNumber {
                   if err.longLongValue == 406 {
-                    ZKJSTool.showMsg("手机号还不是服务员")
+                    self.showHint("手机号还不是服务员")
                   }
                 }
               }

@@ -39,8 +39,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     title = "团队"
     
     loadData()
-    ZKJSTool.showLoading("正在加载")
-    ZKJSTool.hideHUD()
     
     let nibName = UINib(nibName: TeamListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())

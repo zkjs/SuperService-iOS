@@ -91,7 +91,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
         let member = TeamModel(dic: dic)
             self.delegate?.RefreshTeamListTableView(dic,memberModel:member)
             self.navigationController?.popViewControllerAnimated(true)
-            ZKJSTool.showMsg("添加成员成功")
+            self.showHint("添加成员成功")
         }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
           
           

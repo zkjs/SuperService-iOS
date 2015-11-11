@@ -81,21 +81,20 @@ class AdminLoginV: UIViewController {
     return isPhone
   }
   
-  
-  
-  
   @IBAction func tappedLoginButton(sender: AnyObject) {
-    guard let phone = userphoneTextField.text else {
-      ZKJSTool.showMsg("请输入手机号码")
+    guard let phone = userphoneTextField.text else { return }
+    
+    if phone.isEmpty == true {
+      showHint("请输入手机号码")
       return
     }
     
     if !isMobileNumber(phone as NSString) {
-      ZKJSTool.showMsg("请输入正确的手机格式")
+      showHint("请输入正确的手机格式")
       return
     }
     guard let password = passwordTextField.text else {
-      ZKJSTool.showMsg("请输入密码")
+      showHint("请输入密码")
       return
     }
     
@@ -112,7 +111,7 @@ class AdminLoginV: UIViewController {
           } else {
             if let err = dict["err"] as? NSNumber {
               if err.longLongValue == 408 {
-                ZKJSTool.showMsg("密码或者手机号不正确")
+                self.showHint("密码或者手机号不正确")
               }
             }
           }

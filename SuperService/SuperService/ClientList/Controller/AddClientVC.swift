@@ -51,7 +51,7 @@ class AddClientVC: UIViewController,UITextViewDelegate{
         } else {
           if let error = dic["err"] as? NSNumber {
             if error.integerValue == 300 {
-              ZKJSTool.showMsg("该客户已经被抢, 请重新填写客户资料")
+              self.showHint("该客户已经被抢, 请重新填写客户资料")
             }
           }
         }

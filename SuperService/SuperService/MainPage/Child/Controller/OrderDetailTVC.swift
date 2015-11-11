@@ -84,7 +84,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func loadData() {
     if type == .Update {
-      ZKJSTool.showLoading("正在加载数据...")
+      showHUDInView(view, withLoading: "正在加载数据...")
       ZKJSHTTPSessionManager.sharedInstance().getOrderWithReservationNO(reservationNO, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
         if let dict = responseObject as? [String: AnyObject] {
           if let room = dict["room"] as? [String: AnyObject] {
@@ -108,7 +108,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
           }
         }
         self.setupOrder()
-        ZKJSTool.hideHUD()
+        self.hideHUD()
         }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
           
       }
@@ -338,9 +338,9 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func addOrder() {
-    ZKJSTool.showLoading("正在新增订单...")
+    showHUDInView(view, withLoading: "正在新增订单...")
     ZKJSHTTPSessionManager.sharedInstance().addOrderWithOrder(order, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      ZKJSTool.hideHUD()
+      self.hideHUD()
       self.navigationController?.popViewControllerAnimated(true)
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
@@ -348,9 +348,9 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func updateOrder() {
-    ZKJSTool.showLoading("正在更新订单...")
+    showHUDInView(view, withLoading: "正在更新订单...")
     ZKJSHTTPSessionManager.sharedInstance().updateOrderWithOrder(order, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      ZKJSTool.hideHUD()
+      self.hideHUD()
       self.navigationController?.popViewControllerAnimated(true)
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         

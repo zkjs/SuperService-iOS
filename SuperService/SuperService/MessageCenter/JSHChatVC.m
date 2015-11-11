@@ -97,7 +97,7 @@
           }
         });
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [ZKJSTool showMsg:error.localizedDescription];
+        [self showHint:error.localizedDescription];
       }];
     }
   }
@@ -121,7 +121,7 @@
 }
 
 - (void)didSendPhoto:(UIImage *)photo fromSender:(NSString *)sender onDate:(NSDate *)date {
-  [ZKJSTool showLoading:@"正在发送..."];
+  [self showHUDInView:self.view withLoading:@"正在发送..."];
   NSNumber *timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
   NSString *format = @"jpg";
   // 压缩图片
@@ -175,14 +175,14 @@
       [self addMessage:message];
       [self finishSendMessageWithBubbleMessageType:XHBubbleMessageMediaTypePhoto];
       
-      [ZKJSTool hideHUD];
+      [self hideHUD];
     } else {
-      [ZKJSTool hideHUD];
-      [ZKJSTool showMsg:@"上传失败，请重新发送"];
+      [self hideHUD];
+      [self showHint:@"上传失败，请重新发送"];
     }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    [ZKJSTool hideHUD];
-    [ZKJSTool showMsg:error.localizedDescription];
+    [self hideHUD];
+    [self showHint:error.localizedDescription];
   }];
 }
 
@@ -230,10 +230,10 @@
       [self addMessage:message];
       [self finishSendMessageWithBubbleMessageType:XHBubbleMessageMediaTypeVoice];
     } else {
-      [ZKJSTool showMsg:@"上传失败，请重新发送"];
+      [self showHint:@"上传失败，请重新发送"];
     }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    [ZKJSTool showMsg:error.localizedDescription];
+    [self showHint:error.localizedDescription];
   }];
 }
 
@@ -411,7 +411,7 @@
 }
 
 - (void)loadDataSource {
-  [ZKJSTool showLoading:@"正在加载聊天记录..."];
+  [self showHUDInView:self.view withLoading:@"正在加载聊天记录..."];
 
   [self loadServerMessages];
 }
@@ -501,10 +501,10 @@
     dispatch_async(dispatch_get_main_queue(), ^{
       [weakSelf.messageTableView reloadData];
       [weakSelf scrollToBottomAnimated:NO];
-      [ZKJSTool hideHUD];
+      [self hideHUD];
     });
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    [ZKJSTool showMsg:error.localizedDescription];
+    [self showHint:error.localizedDescription];
   }];
 }
 
@@ -553,7 +553,7 @@
                                    };
       [[ZKJSTCPSessionManager sharedInstance] sendPacketFromDictionary:dictionary];
     } else {
-      [ZKJSTool showMsg:@"发送失败，请重新发送"];
+      [self showHint:@"发送失败，请重新发送"];
     }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     
@@ -741,11 +741,11 @@
   // 0:发送成功 1:发送失败(协议包不正确,不保存消息) 2:会话中仅客人在线(针对客人) 3:客人当前不在线(针对客服)
   // 4:商家所有客服都不在线 5:会话不存在(可能未创建或已解散) 6:发送者不在会话中
   if ([result integerValue] == 1) {
-    [ZKJSTool showMsg:@"消息发送失败"];
+    [self showHint:@"消息发送失败"];
   } else if ([result integerValue] == 3) {
     // 当前会话成员中只有客户自己在线
 //    [self requestWaiterWithRuleType:@"DefaultChatRuleType" andDescription:@""];
-    [ZKJSTool showMsg:@"客人不在线"];
+    [self showHint:@"客人不在线"];
   }
 }
 

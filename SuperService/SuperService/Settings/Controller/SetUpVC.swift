@@ -67,12 +67,12 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
   }
   
   func nextStep() {
-    ZKJSTool.showLoading("正在上传资料...")
+    showHUDInView(view, withLoading: "正在上传资料...")
     ZKJSHTTPSessionManager.sharedInstance().uploadDataWithUserName(nameTextFiled.text, sex: sex, imageFile: imageData, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let dict = responseObject as? NSDictionary {
         if let set = dict["set"] as? Bool {
           if set {
-            ZKJSTool.hideHUD()
+            self.hideHUD()
             AccountManager.sharedInstance().saveUserName(self.nameTextFiled.text!)
             let InformV = InformVC()
             InformV.hidesBottomBarWhenPushed = true
@@ -81,8 +81,8 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
         }
       }
       }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        ZKJSTool.hideHUD()
-        ZKJSTool.showMsg("上传失败,请重新上传")
+        self.hideHUD()
+        self.showHint("上传失败,请重新上传")
     })
   }
   

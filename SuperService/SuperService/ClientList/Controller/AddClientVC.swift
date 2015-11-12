@@ -13,14 +13,7 @@ protocol refreshTableViewDelegate{
 }
 
 class AddClientVC: UIViewController,UITextViewDelegate{
-  
-  @IBOutlet weak var checkButton: UIButton! {
-    didSet {
-      checkButton.layer.masksToBounds = true
-      checkButton.layer.cornerRadius = 20
-    }
-  }
-  
+    
   @IBOutlet weak var remarkTextView: UITextView! {
     didSet {
       remarkTextView.delegate = self

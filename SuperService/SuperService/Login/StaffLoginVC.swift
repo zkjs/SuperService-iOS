@@ -11,22 +11,8 @@ import UIKit
 
 class StaffLoginVC: UIViewController {
   
-  @IBOutlet weak var administratorButton: UIButton! {
-    didSet {
-      administratorButton.layer.masksToBounds = true
-      administratorButton.layer.cornerRadius = 20
-    }
-  }
-  
   @IBOutlet weak var verificationCodeButton: UIButton!
-  
-  @IBOutlet weak var loginButton: UIButton! {
-    didSet {
-      loginButton.layer.masksToBounds = true
-      loginButton.layer.cornerRadius = 20
-    }
-  }
-  
+  @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var identifyingCodeTextField: UITextField!
   @IBOutlet weak var userphoneTextField: UITextField!
   @IBOutlet weak var userImage: UIImageView!

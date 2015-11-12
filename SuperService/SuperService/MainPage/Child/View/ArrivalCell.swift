@@ -10,12 +10,7 @@ import UIKit
 
 class ArrivalCell: UITableViewCell {
   
-  @IBOutlet weak var avatarImageView: UIButton! {
-    didSet {
-      avatarImageView.layer.masksToBounds = true
-      avatarImageView.layer.cornerRadius = 20
-    }
-  }
+  @IBOutlet weak var avatarImageView: UIButton!
   @IBOutlet weak var topLineImageView: UIImageView!
   @IBOutlet weak var clientInfoLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!

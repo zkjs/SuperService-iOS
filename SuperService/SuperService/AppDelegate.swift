@@ -158,7 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   // MARK: - Private Method
   
   private func customizeWindow() {
-    window?.layer.cornerRadius = 5
+    window?.layer.cornerRadius = 6
     window?.layer.masksToBounds = true
   }
   

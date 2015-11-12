@@ -205,6 +205,7 @@
 		40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7577E1BE055A80053C2BE /* TeamListVC.swift */; };
 		40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F7577F1BE055A80053C2BE /* TeamListVC.xib */; };
 		40F757861BE055A80053C2BE /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757801BE055A80053C2BE /* TeamModel.swift */; };
+		40FC3B451BF438B800AEC4E8 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC3B441BF438B800AEC4E8 /* UIView+CornerRadius.swift */; };
 		842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659401BE09C31005E82F2 /* MemberListVC.swift */; };
 		842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659411BE09C31005E82F2 /* MemberListVC.xib */; };
 		842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659441BE09FCF005E82F2 /* MemberListCell.swift */; };
@@ -543,6 +544,7 @@
 		40F7577E1BE055A80053C2BE /* TeamListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListVC.swift; sourceTree = "<group>"; };
 		40F7577F1BE055A80053C2BE /* TeamListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamListVC.xib; sourceTree = "<group>"; };
 		40F757801BE055A80053C2BE /* TeamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
+		40FC3B441BF438B800AEC4E8 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 		842659401BE09C31005E82F2 /* MemberListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListVC.swift; sourceTree = "<group>"; };
 		842659411BE09C31005E82F2 /* MemberListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberListVC.xib; sourceTree = "<group>"; };
@@ -1734,6 +1736,7 @@
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
 				FAF6844E1BF9F34C0090D461 /* NoticeModel.swift in Sources */,
+				40FC3B451BF438B800AEC4E8 /* UIView+CornerRadius.swift in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
 				401AEA511BE4B84900E38870 /* SEConstants.m in Sources */,
 				FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */,

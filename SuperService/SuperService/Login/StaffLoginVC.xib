@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StaffLoginVC" customModule="SuperService" customModuleProvider="target">
             <connections>
-                <outlet property="administratorButton" destination="jIU-3f-47j" id="fRz-2p-le1"/>
                 <outlet property="identifyingCodeTextField" destination="05i-mC-6a8" id="Tds-KY-dDw"/>
                 <outlet property="loginButton" destination="gXp-1z-7iF" id="bV6-a6-Mvc"/>
                 <outlet property="userImage" destination="FBL-GK-IOo" id="GrJ-ab-OLI"/>
@@ -66,6 +65,11 @@
                     <state key="normal" title="确定">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="staffCheckoutLoginButton:" destination="-1" eventType="touchUpInside" id="Jfr-TD-WEy"/>
                     </connections>
@@ -81,6 +85,11 @@
                     <state key="normal" title="验证">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sendVerificationcodeButton:" destination="-1" eventType="touchUpInside" id="N1P-45-svN"/>
                     </connections>
@@ -96,6 +105,11 @@
                     <state key="normal" title="我是商家">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="bussinessManButton:" destination="-1" eventType="touchUpInside" id="N92-iH-6w8"/>
                     </connections>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -17,13 +17,20 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="A5f-sx-qTI">
                         <rect key="frame" x="23" y="13" width="40" height="40"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="1X7-fu-Ckq"/>
                             <constraint firstAttribute="width" constant="40" id="bcY-SW-cA8"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王先生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qun-Sg-Hu1">
                         <rect key="frame" x="83" y="14" width="80" height="45"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="V5u-Be-JZS"/>
                             <constraint firstAttribute="height" constant="45" id="sN2-TF-FEs"/>
@@ -34,6 +41,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午6：40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pth-Gf-nwF">
                         <rect key="frame" x="272" y="14" width="80" height="45"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="Aew-WK-28Z"/>
                             <constraint firstAttribute="height" constant="45" id="wAe-WB-Aqo"/>
@@ -43,6 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="Qun-Sg-Hu1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="ARX-pL-x4d"/>
                     <constraint firstItem="A5f-sx-qTI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="MoA-Kg-UA2"/>
@@ -52,6 +61,7 @@
                     <constraint firstItem="A5f-sx-qTI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="ybX-RY-Wau"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="invitationerImageView" destination="A5f-sx-qTI" id="v0R-Bn-26v"/>
                 <outlet property="invitationerNameLabel" destination="Qun-Sg-Hu1" id="CcC-Ib-AZM"/>

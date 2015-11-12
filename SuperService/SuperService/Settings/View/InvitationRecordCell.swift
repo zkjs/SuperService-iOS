@@ -12,12 +12,7 @@ class InvitationRecordCell: UITableViewCell {
 
   @IBOutlet weak var useCodetimerLabel: UILabel!
   @IBOutlet weak var invitationerNameLabel: UILabel!
-  @IBOutlet weak var invitationerImageView: UIImageView!{
-    didSet {
-      invitationerImageView.layer.masksToBounds = true
-      invitationerImageView.layer.cornerRadius = 20
-    }
-  }
+  @IBOutlet weak var invitationerImageView: UIImageView!
   
   
     override func awakeFromNib() {

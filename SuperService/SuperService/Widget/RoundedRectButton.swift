@@ -21,7 +21,7 @@ class RoundedRectButton: UIButton {
   }
   
   private func setUp() {
-    layer.cornerRadius = 5.0
+    layer.cornerRadius = 6.0
   }
   
 }

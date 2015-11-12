@@ -16,12 +16,7 @@ class OrderCell: UITableViewCell {
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var timeAgoLabel: UILabel!
   @IBOutlet weak var orderButton: UIButton!
-  @IBOutlet weak var avatarButton: UIButton! {
-    didSet {
-      avatarButton.layer.masksToBounds = true
-      avatarButton.layer.cornerRadius = 20
-    }
-  }
+  @IBOutlet weak var avatarButton: UIButton!
   
   class func reuseIdentifier() -> String {
     return "OrderCell"

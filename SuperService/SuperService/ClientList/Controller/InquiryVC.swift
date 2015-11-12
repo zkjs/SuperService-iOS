@@ -18,6 +18,7 @@ class InquiryVC: UIViewController,ABPeoplePickerNavigationControllerDelegate{
       inquiryClientButton.layer.cornerRadius = 20
     }
   }
+  
   @IBOutlet weak var phonrtextField: UITextField!
    @IBAction func inquiryClient(sender: AnyObject) {
     if (phonrtextField.text != nil) {

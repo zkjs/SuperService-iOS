@@ -253,7 +253,7 @@
 #pragma mark - XHMessageTableViewCell delegate
 
 - (void)multiMediaMessageDidSelectedOnMessage:(id<XHMessageModel>)message atIndexPath:(NSIndexPath *)indexPath onMessageTableViewCell:(XHMessageTableViewCell *)messageTableViewCell {
-  UIViewController *disPlayViewController;
+  
   switch (message.messageMediaType) {
     case XHBubbleMessageMediaTypeVideo:
     case XHBubbleMessageMediaTypePhoto: {
@@ -300,21 +300,15 @@
       DLog(@"facePath : %@", message.localPositionPhoto);
       break;
     }
-//    case XHBubbleMessageMediaTypeCard: {
-//      disPlayViewController = [UIViewController new];
-//      disPlayViewController.view.backgroundColor = [UIColor whiteColor];
-//      UILabel *label = [[UILabel alloc] initWithFrame:disPlayViewController.view.bounds];
-//      label.textAlignment = NSTextAlignmentCenter;
-//      label.textColor = [UIColor blackColor];
-//      label.text = @"呵呵";
-//      [disPlayViewController.view addSubview:label];
-//      break;
-//    }
+    case XHBubbleMessageMediaTypeCard: {
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OrderDetail" bundle:nil];
+      OrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"OrderDetailVC"];
+      vc.type = OrderTypeAdd;
+      [self.navigationController pushViewController:vc animated:YES];
+      break;
+    }
     default:
       break;
-  }
-  if (disPlayViewController) {
-    [self.navigationController pushViewController:disPlayViewController animated:YES];
   }
 }
 

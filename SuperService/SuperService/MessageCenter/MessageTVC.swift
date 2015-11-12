@@ -62,8 +62,9 @@ class MessageTVC: UITableViewController {
   }
   
   private func resetTabBadge() {
+    let messageTabIndex = 2
     let tabArray = super.tabBarController?.tabBar.items as NSArray!
-    let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+    let tabItem = tabArray.objectAtIndex(messageTabIndex) as! UITabBarItem
     tabItem.badgeValue = nil
   }
   
@@ -98,10 +99,8 @@ class MessageTVC: UITableViewController {
     vc.sessionID = data.sessionID
     vc.receiverID = data.otherSideID
     vc.receiverName = data.otherSideName
-    
-    hidesBottomBarWhenPushed = true
+    vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
-    hidesBottomBarWhenPushed = false
   }
   
 }

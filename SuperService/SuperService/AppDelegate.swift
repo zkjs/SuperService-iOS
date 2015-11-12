@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   // MARK: - Application Delegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    customizeWindow()
     setupNotification()
     setupTCPSessionManager()
     setupWindows()
@@ -157,11 +156,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   // MARK: - Private Method
   
-  private func customizeWindow() {
-    window?.layer.cornerRadius = 6
-    window?.layer.masksToBounds = true
-  }
-  
   private func setupNotification() {
     let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
     UIApplication.sharedApplication().registerUserNotificationSettings(settings)
@@ -206,6 +200,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     mainTBC = MainTBC()
     mainTBC.viewControllers = [nv1, nv2, nv3, nv4, nv5]
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    window!.layer.cornerRadius = 6
+    window!.layer.masksToBounds = true
     window!.rootViewController = mainTBC
     window?.makeKeyAndVisible()
   }
@@ -249,11 +245,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       let fromName = dictionary["fromname"] as! String
       switch type {
       case .TextChat:
-        Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-          otherSideID: fromID,
-          otherSideName: fromName,
-          lastChat: dictionary["textmsg"] as! String,
-          timestamp: timestamp)
+        let childtype = dictionary["childtype"] as! NSNumber
+        if childtype.integerValue == 1 {
+          Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
+            otherSideID: fromID,
+            otherSideName: fromName,
+            lastChat: "[订单]",
+            timestamp: timestamp)
+        } else {
+          Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
+            otherSideID: fromID,
+            otherSideName: fromName,
+            lastChat: dictionary["textmsg"] as! String,
+            timestamp: timestamp)
+        }
       case .MediaChat:
         Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
           otherSideID: fromID,
@@ -270,7 +275,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
         break
       }
       NSNotificationCenter.defaultCenter().postNotificationName(kRefreshConversationListNotification, object: self)
-      let messageTabIndex = 1
+      let messageTabIndex = 2
       if mainTBC.selectedIndex != messageTabIndex {
         let tabArray = mainTBC.tabBar.items as NSArray!
         let tabItem = tabArray.objectAtIndex(messageTabIndex) as! UITabBarItem

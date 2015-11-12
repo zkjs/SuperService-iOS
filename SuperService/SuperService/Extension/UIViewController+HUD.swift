@@ -34,6 +34,7 @@ extension UIViewController {
   func showHUDInView(view: UIView, withLoading hint: String) {
     let HUD = MBProgressHUD(view: view)
     HUD.labelText = hint
+    HUD.labelFont = UIFont.systemFontOfSize(12)
     view.addSubview(HUD)
     HUD.show(true)
     self.HUD = HUD
@@ -45,6 +46,7 @@ extension UIViewController {
       HUD.userInteractionEnabled = false
       HUD.mode = .Text
       HUD.labelText = hint
+      HUD.labelFont = UIFont.systemFontOfSize(12)
       HUD.margin = 10.0
       HUD.removeFromSuperViewOnHide = true
       HUD.hide(true, afterDelay: 1)

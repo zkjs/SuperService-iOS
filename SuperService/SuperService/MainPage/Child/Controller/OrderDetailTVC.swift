@@ -9,9 +9,9 @@
 import UIKit
 
 
-enum OrderType: Int {
-  case Add = 0
-  case Update = 1
+@objc enum OrderType: Int {
+  case Add
+  case Update
 }
 
 class OrderDetailTVC: UITableViewController, UITextFieldDelegate {

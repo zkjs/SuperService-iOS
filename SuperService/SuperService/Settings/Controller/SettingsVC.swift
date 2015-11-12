@@ -120,7 +120,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func showAdminLogin() {
     let vc = StaffLoginVC()
     let nv = UINavigationController(rootViewController: vc)
-    nv.navigationBar.barTintColor = UIColor.themeColor()
+    nv.navigationBar.barTintColor = UIColor.ZKJS_themeColor()
     nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     nv.navigationBar.translucent = false
     presentViewController(nv, animated: true, completion: nil)

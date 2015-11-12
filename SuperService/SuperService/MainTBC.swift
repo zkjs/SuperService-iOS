@@ -34,14 +34,14 @@ class MainTBC: UITabBarController {
   private func showLogin() {
     let loginVC = StaffLoginVC()
     let nv = UINavigationController(rootViewController: loginVC)
-    nv.navigationBar.barTintColor = UIColor.themeColor()
+    nv.navigationBar.barTintColor = UIColor.ZKJS_themeColor()
     nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     nv.navigationBar.translucent = false
     presentViewController(nv, animated: true, completion: nil)
   }
   
   private func setupView() {
-    tabBar.tintColor = UIColor.themeColor()
+    tabBar.tintColor = UIColor.ZKJS_themeColor()
   }
   
 }

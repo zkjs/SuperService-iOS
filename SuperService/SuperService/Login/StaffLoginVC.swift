@@ -60,7 +60,6 @@ class StaffLoginVC: UIViewController {
           self.countTimer?.fire()
           self.showHint("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
-          
         }
       }
     }else {
@@ -148,13 +147,13 @@ extension StaffLoginVC: UITextFieldDelegate {
     if textField == userphoneTextField {
       // 电话号码11位
       if range.location + string.characters.count <= 11 {
-        verificationCodeButton.backgroundColor = UIColor.themeColor()
+        verificationCodeButton.backgroundColor = UIColor.ZKJS_themeColor()
         return true
       }
     } else if textField == identifyingCodeTextField {
       // 验证码6位
       if range.location + string.characters.count <= 6 {
-        loginButton.backgroundColor = UIColor.themeColor()
+        loginButton.backgroundColor = UIColor.ZKJS_themeColor()
         return true
       }
     }

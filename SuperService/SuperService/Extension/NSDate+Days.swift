@@ -10,7 +10,7 @@ import Foundation
 
 extension NSDate {
   
-  class func daysFromDate(fromDate: NSDate, toDate: NSDate) -> Int {
+  class func ZKJS_daysFromDate(fromDate: NSDate, toDate: NSDate) -> Int {
     var startingDate: NSDate? = nil
     var resultDate: NSDate? = nil
     let calendar = NSCalendar.currentCalendar()
@@ -20,7 +20,7 @@ extension NSDate {
     return dateComponets.day
   }
   
-  class func daysFromDateString(fromDateString: String, toDateString: String) -> Int {
+  class func ZKJS_daysFromDateString(fromDateString: String, toDateString: String) -> Int {
     let dateFormat = NSDateFormatter()
     guard let fromDate = dateFormat.dateFromString(fromDateString) else { return 0 }
     guard let toDate = dateFormat.dateFromString(toDateString) else { return 0}

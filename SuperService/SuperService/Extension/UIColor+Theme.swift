@@ -10,7 +10,7 @@ import Foundation
 
 extension UIColor {
   
-  class func themeColor() -> UIColor {
+  class func ZKJS_themeColor() -> UIColor {
     return UIColor(hexString: "03A9F4")
   }
   

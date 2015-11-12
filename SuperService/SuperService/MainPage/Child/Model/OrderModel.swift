@@ -69,7 +69,7 @@ class OrderModel: NSObject {
   var duration: NSNumber? {
     get {
       if let arrivalDate = arrival_date, let departureDate = departure_date {
-        let days = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
+        let days = NSDate.ZKJS_daysFromDateString(arrivalDate, toDateString: departureDate)
         if days == 0 {
           // 当天走也算一天
           return NSNumber(integer: 1)

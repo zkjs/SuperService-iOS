@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
                   inManagedObjectContext: moc!) as! Order
                 order.roomType = orderInfo["room_type"] as? String
                 order.arrivalDate = arrivalDate
-                let days = NSDate.daysFromDateString(arrivalDate, toDateString: departureDate)
+                let days = NSDate.ZKJS_daysFromDateString(arrivalDate, toDateString: departureDate)
                 if days == 0 {
                   order.duration = 1  // 当天走的也算一天
                 } else if days > 0 {

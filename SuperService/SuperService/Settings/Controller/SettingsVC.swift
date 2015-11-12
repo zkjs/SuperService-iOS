@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -67,7 +67,7 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     if (indexPath.row == 4){
       cell.textLabel?.text = "登出"
     }
-    
+
     return cell
   }
   
@@ -95,6 +95,7 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
     let logoutIndexPath = NSIndexPath(forItem: 4, inSection: 0)
     let setupIndexPath = NSIndexPath(forItem: 1, inSection: 0)
     if indexPath == logoutIndexPath {
@@ -110,13 +111,12 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
       
       presentViewController(alertController, animated: true, completion: nil)
     }
+    
     if indexPath == setupIndexPath {
-      
       let storyboard = UIStoryboard(name: "SettingUpTVC", bundle: nil)
       let vc = storyboard.instantiateViewControllerWithIdentifier("SettingUpTVC") as! SettingUpTVC
-      self.hidesBottomBarWhenPushed = true
+      vc.hidesBottomBarWhenPushed = true
       navigationController?.pushViewController(vc, animated: true)
-      self.hidesBottomBarWhenPushed = false
     }
   }
   
@@ -130,10 +130,8 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     let nv = UINavigationController(rootViewController: vc)
     nv.navigationBar.barTintColor = UIColor.themeColor()
     nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-    
     nv.navigationBar.translucent = false
     presentViewController(nv, animated: true, completion: nil)
-    
   }
   
 }

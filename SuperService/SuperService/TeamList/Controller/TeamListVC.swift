@@ -42,21 +42,22 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     let nibName = UINib(nibName: TeamListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())
-    tableView.tableFooterView = UIView()
-    let  add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "AddMemberBtn:")
     
-    self.navigationItem.rightBarButtonItem = add_clientButton
+    tableView.tableFooterView = UIView()
+    
+    let add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+      target: self, action: "AddMemberBtn:")
+    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
+    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
+    baseNC.topViewController?.navigationItem.rightBarButtonItem = add_clientButton
   
   }
   
   func AddMemberBtn(sender: UIButton) {
     let vc = AddMemberVC()
     vc.delegate = self
-    self.hidesBottomBarWhenPushed = true
+    vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
-    self.hidesBottomBarWhenPushed = false
-  
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

@@ -20,7 +20,8 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   // MARK: - Private
   
   private func setupSubViews() {
-    segmentedControl.sizeToFit()
+    segmentedControl.frame.size = CGSizeMake(150.0, 30.0)
+//    segmentedControl.sizeToFit()
   }
   
   

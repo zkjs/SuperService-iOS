@@ -55,12 +55,14 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
 
     let nibName = UINib(nibName: ClientListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
+    
     tableView.tableFooterView = UIView()
     
     let  add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "AddClientBtn:")
-    self.navigationItem.rightBarButtonItem = add_clientButton
-    
+    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
+    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
+    baseNC.topViewController?.navigationItem.rightBarButtonItem = add_clientButton
   }
   
   

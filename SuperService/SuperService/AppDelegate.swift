@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     
     if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
       if let clientID = userInfo["userid"] as? String,
-        let clientName = userInfo["username"] as? String,
+        let _ = userInfo["username"] as? String,
         let locationID = userInfo["locid"] as? String,
         let locationName = userInfo["locdesc"] as? String {
           ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var avatarButton: UIButton! {
     didSet {
@@ -33,14 +33,9 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
     nameTextFiled.text = AccountManager.sharedInstance().userName
     sex = "1"
     
-    let url = NSURL(string: kBaseURL)
-    let userID = AccountManager.sharedInstance().userID
-    if let url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
-      if let data = NSData(contentsOfURL: url),
-        let image = UIImage(data: data) {
-          avatarButton.setImage(UIImage(data: data), forState: .Normal)
-          imageData = UIImageJPEGRepresentation(image, 0.8)!
-      }
+    if let image = AccountManager.sharedInstance().avatarImage {
+      avatarButton.setImage(image, forState: .Normal)
+      imageData = UIImageJPEGRepresentation(image, 0.8)!
     }
     
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
@@ -73,7 +68,10 @@ class SetUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
         if let set = dict["set"] as? Bool {
           if set {
             self.hideHUD()
-            AccountManager.sharedInstance().saveUserName(self.nameTextFiled.text!)
+            if let name = self.nameTextFiled.text {
+              AccountManager.sharedInstance().saveUserName(name)
+            }
+            AccountManager.sharedInstance().saveAvatarImageData(self.imageData)
             let InformV = InformVC()
             InformV.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(InformV, animated: true)

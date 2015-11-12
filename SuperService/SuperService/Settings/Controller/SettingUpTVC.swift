@@ -15,55 +15,45 @@ class SettingUpTVC: UITableViewController {
   @IBOutlet weak var businessInformationLabel: UILabel!
   @IBOutlet weak var mechanismLabel: UILabel!
   @IBOutlet weak var organizationLabel: UILabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "设置"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int{
-      return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return super.tableView(tableView, numberOfRowsInSection: section)
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "设置"
+  }
   
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 84
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      return cell
-    }
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
   
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-      let myView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil).first as? HeaderView
-      if myView != nil {
-        let userID = AccountManager.sharedInstance().userID
-        let url = NSURL(string: kBaseURL)
-        if let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
-          if let data = NSData(contentsOfURL: urlStr),
-            let image = UIImage(data: data) {
-              myView?.userImageView.image = image
-          }
-
-        }
-       
-        myView?.selectedImageViewButton.addTarget(self, action: "selectedIamge:", forControlEvents: UIControlEvents.TouchUpInside)
-        myView?.usernameLabel.text = AccountManager.sharedInstance().userName
-        self.tableView.addSubview(myView!)
-      }
-      return myView
+  // MARK: - Table view data source
+  override func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+    return 1
+  }
+  
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return super.tableView(tableView, numberOfRowsInSection: section)
+  }
+  
+  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 84
+  }
+  
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
+    return cell
+  }
+  
+  override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let myView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil).first as? HeaderView
+    if myView != nil {
+      myView?.userImageView.image = AccountManager.sharedInstance().avatarImage
+      myView?.selectedImageViewButton.addTarget(self, action: "selectedIamge:", forControlEvents: UIControlEvents.TouchUpInside)
+      myView?.usernameLabel.text = AccountManager.sharedInstance().userName
+      self.tableView.addSubview(myView!)
     }
+    return myView
+  }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
@@ -73,16 +63,15 @@ class SettingUpTVC: UITableViewController {
     }
     if indexPath == NSIndexPath(forRow: 5, inSection: 0) {
       let vc = CodeVC()
-      self.hidesBottomBarWhenPushed = true
+      vc.hidesBottomBarWhenPushed = true
       self.navigationController?.pushViewController(vc, animated: true)
       
     }
   }
   
   func selectedIamge(sender:UIButton) {
-      let vc = SetUpVC()
+    let vc = SetUpVC()
     navigationController?.pushViewController(vc, animated: true)
-    
-    }
-
+  }
+  
 }

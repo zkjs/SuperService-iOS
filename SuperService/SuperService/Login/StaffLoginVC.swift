@@ -99,7 +99,7 @@ class StaffLoginVC: UIViewController {
                 let name = dict["name"]
                 if name == nil {
                   self.showHint("您还不是管理员")
-                }else {
+                } else {
                   // 缓存用户信息
                   AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 }
@@ -115,7 +115,7 @@ class StaffLoginVC: UIViewController {
                 }
               } else {
                 if let err = dict["err"] as? NSNumber {
-                  if err.longLongValue == 406 {
+                  if err.integerValue == 406 {
                     self.showHint("手机号还不是服务员")
                   }
                 }

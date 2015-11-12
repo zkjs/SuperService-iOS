@@ -74,15 +74,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let myView = NSBundle.mainBundle().loadNibNamed("SettingsHeaderView", owner: self, options: nil).first as? SettingsHeaderView
     if myView != nil {
-      let userID = AccountManager.sharedInstance().userID
-      let url = NSURL(string: kBaseURL)
-      if let url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
-        
-        if let data = NSData(contentsOfURL: url),
-          let image = UIImage(data: data) {
-            myView?.userImage.image = image
-        }
-      }
+      myView?.userImage.image = AccountManager.sharedInstance().avatarImage
       myView?.username.text = AccountManager.sharedInstance().userName
       myView?.userAddress.text = AccountManager.sharedInstance().shopName
       self.view.addSubview(myView!)

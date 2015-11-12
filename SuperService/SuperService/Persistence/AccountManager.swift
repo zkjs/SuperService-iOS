@@ -30,6 +30,8 @@ class AccountManager: NSObject {
   private(set) var beaconLocationIDs = ""
   private(set) var deviceToken = ""
   private(set) var url = ""
+  private(set) var avatarImageData = NSData()
+  private(set) var avatarImage = UIImage(named: "ic_home_nor")
 
   class func sharedInstance() -> AccountManager {
     struct Singleton {
@@ -49,6 +51,12 @@ class AccountManager: NSObject {
     roleID = userDefaults.objectForKey("roleid") as? String ?? ""
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
     url = userDefaults.objectForKey("url") as? String ?? ""
+    if let imageData = userDefaults.objectForKey("avatarImageData") as? NSData {
+      avatarImageData = imageData
+      if let image = UIImage(data: avatarImageData) {
+        avatarImage = image
+      }
+    }
   }
   
   func saveAccountWithDict(dict: [String: AnyObject]) {
@@ -56,6 +64,18 @@ class AccountManager: NSObject {
       self.userID = userID
     } else if let salesID = dict["salesid"] as? String {
       self.userID = salesID
+    }
+    
+    let urlString = kBaseURL + "uploads/users/\(userID).jpg"
+    if let url = NSURL(string: urlString) {
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        if let data = NSData(contentsOfURL: url) {
+          self.avatarImageData = data
+          if let image = UIImage(data: self.avatarImageData) {
+            self.avatarImage = image
+          }
+        }
+      }
     }
     
     if let shopID = dict["shopid"] as? NSNumber {
@@ -90,6 +110,7 @@ class AccountManager: NSObject {
     userDefaults.setObject(dict["roleid"], forKey: "roleid")
     userDefaults.setObject(dict["locid"], forKey: "locid")
     userDefaults.setObject(dict["url"], forKey: "url")
+    userDefaults.setObject(avatarImageData, forKey: "avatarImageData")
     userDefaults.synchronize()
   }
   
@@ -103,6 +124,7 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "roleid")
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.setObject(nil, forKey: "url")
+    userDefaults.setObject(nil, forKey: "avatarImageData")
     
     userDefaults.synchronize()
   }
@@ -121,6 +143,16 @@ class AccountManager: NSObject {
     self.userName = userName
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(userName, forKey: "name")
+  }
+  
+  func saveAvatarImageData(imageData: NSData) {
+    avatarImageData = imageData
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(avatarImageData, forKey: "avatarImageData")
+    
+    if let image = UIImage(data: avatarImageData) {
+      self.avatarImage = image
+    }
   }
   
 }

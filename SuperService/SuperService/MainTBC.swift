@@ -24,14 +24,14 @@ class MainTBC: UITabBarController {
     super.viewDidAppear(animated)
     
     if AccountManager.sharedInstance().userID.isEmpty {
-      showAdminLogin()
+      showLogin()
     }
   }
   
   
   // MARK: - Private
   
-  private func showAdminLogin() {
+  private func showLogin() {
     let loginVC = StaffLoginVC()
     let nv = UINavigationController(rootViewController: loginVC)
     nv.navigationBar.barTintColor = UIColor.themeColor()

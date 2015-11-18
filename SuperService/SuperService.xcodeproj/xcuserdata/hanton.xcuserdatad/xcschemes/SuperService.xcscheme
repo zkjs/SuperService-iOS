@@ -84,9 +84,16 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-com.apple.CoreData.SyntaxColoredLogging YES"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OBJC_PRINT_REPLACED_METHODS"
+            value = "YES"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

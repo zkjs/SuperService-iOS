@@ -31,11 +31,11 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var clientNameTextField: UITextField!
   @IBOutlet weak var orderStatusTextField: UITextField!
   
-  var type = OrderType.Add
+  lazy var type = OrderType.Add
   var reservationNO: String!
-  var order = OrderModel()
-  var paymentArray = [PaymentModel]()
-  var goodsArray = [GoodsModel]()
+  lazy var order = OrderModel()
+  lazy var paymentArray = [PaymentModel]()
+  lazy var goodsArray = [GoodsModel]()
   var orderStatusArray = ["待确定", "已取消", "已确定", "已完成", "入住中", "已删除"]
   
   override func viewDidLoad() {

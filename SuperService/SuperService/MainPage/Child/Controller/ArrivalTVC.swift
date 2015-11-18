@@ -10,7 +10,7 @@ import UIKit
 
 class ArrivalTVC: UITableViewController {
   
-  var dataArray = [ClientArrivalInfo]()
+  lazy var dataArray = [ClientArrivalInfo]()
   
   
   override func loadView() {

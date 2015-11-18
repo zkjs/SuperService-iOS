@@ -20,4 +20,4 @@
 #import "JSHChatVC.h"
 #import "SWTableViewCell.h"
 #import "UINavigationBar+Awesome.h"
-
+#import "EaseMob.h"

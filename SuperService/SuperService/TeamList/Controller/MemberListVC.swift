@@ -9,7 +9,7 @@
 import UIKit
 
 class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-  var memberListArray = [MemberModel]()
+  lazy var memberListArray = [MemberModel]()
   var newDepartment = UITextField()
   @IBOutlet weak var tableView: UITableView!
   

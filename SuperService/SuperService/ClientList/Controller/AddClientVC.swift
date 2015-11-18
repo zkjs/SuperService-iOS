@@ -27,7 +27,7 @@ class AddClientVC: UIViewController,UITextViewDelegate{
   @IBOutlet weak var positionTextField: UITextField!
   @IBOutlet weak var comapnyTextField: UITextField!
   var delegate:refreshTableViewDelegate?
-  var client = ClientModel()
+  lazy var client = ClientModel()
   @IBAction func sureAdd(sender: UIButton) {
     ZKJSHTTPSessionManager.sharedInstance().addClientWithPhone(phoneTextField.text, userid:client.userid, username: userNameTextField.text, position: positionTextField.text, company: comapnyTextField.text, other_desc: remarkTextView.text, is_bill: "1", success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       let dic = responseObject as! [String: AnyObject]

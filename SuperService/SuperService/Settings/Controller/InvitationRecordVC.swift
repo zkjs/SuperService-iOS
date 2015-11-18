@@ -11,11 +11,13 @@ import UIKit
 
 
 class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-  var code = String()
-  var userCodeArray = [CodeModel]()
+  
+  lazy var code = String()
+  lazy var userCodeArray = [CodeModel]()
+  
   @IBOutlet weak var tableView: UITableView!
+  
   override func viewDidLoad() {
-    
     super.viewDidLoad()
     loadData()
     self.navigationController!.navigationBar.translucent = true

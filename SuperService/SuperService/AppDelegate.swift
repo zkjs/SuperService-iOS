@@ -18,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   var window: UIWindow?
   var mainTBC: MainTBC!
   
+  
+  func setupEaseMobWithApplication(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+    #if DEBUG
+      let cert = "SuperService_dev"
+    #else
+      let cert = "SuperService"
+    #endif
+    EaseMob.sharedInstance().registerSDKWithAppKey("", apnsCertName: cert)
+    EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+  
   // MARK: - Application Delegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -167,38 +178,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   private func setupWindows() {
-    let vc1 = ArrivalTVC()
-    vc1.tabBarItem.image = UIImage(named: "ic_home")
-    vc1.tabBarItem.title = "到店通知"
-    let nv1 = BaseNavigationController()
-    nv1.viewControllers = [vc1]
-    
-    let vc2 = OrderTVC()
-    vc2.tabBarItem.title = "订单"
-    vc2.tabBarItem.image = UIImage(named: "ic_dingdan")
-    let nv2 = BaseNavigationController()
-    nv2.viewControllers = [vc2]
-    
-    let vc3 = MessageTVC()
-    vc3.tabBarItem.title = "消息"
-    vc3.tabBarItem.image = UIImage(named: "ic_duihua_b")
-    let nv3 = BaseNavigationController()
-    nv3.viewControllers = [vc3]
-    
-    let vc4 = ContactVC()
-    vc4.tabBarItem.title = "联系人"
-    vc4.tabBarItem.image = UIImage(named: "ic_tuandui_b")
-    let nv4 = BaseNavigationController()
-    nv4.viewControllers = [vc4]
-    
-    let vc5 = SettingsVC()
-    vc5.tabBarItem.title = "我的"
-    vc5.tabBarItem.image = UIImage(named: "ic_shezhi")
-    let nv5 = BaseNavigationController()
-    nv5.viewControllers = [vc5]
-    
     mainTBC = MainTBC()
-    mainTBC.viewControllers = [nv1, nv2, nv3, nv4, nv5]
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window!.layer.cornerRadius = 6
     window!.layer.masksToBounds = true

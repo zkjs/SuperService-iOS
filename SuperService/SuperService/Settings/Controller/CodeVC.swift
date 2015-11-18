@@ -10,7 +10,7 @@ import UIKit
 
 class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
    var page = 1
-  var codeArray = [String]()
+  lazy var codeArray = [String]()
   @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,7 +19,7 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
   @IBOutlet weak var nameTextFiled: UITextField!
   @IBOutlet weak var segmentControl: UISegmentedControl!
   
-  var imageData = NSData()
+  lazy var imageData = NSData()
   var sex :String?
   
   

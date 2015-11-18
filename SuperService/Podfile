@@ -3,6 +3,7 @@ platform :ios, '8.0'
 #use_frameworks!
 
 target 'SuperService' do
+  pod 'EaseMobSDKFull', :git => 'https://github.com/easemob/sdk-ios-cocoapods-integration.git'
   pod 'JTSImageViewController', :inhibit_warnings => true
   pod 'ChameleonFramework'
   pod 'MJRefresh'
@@ -15,7 +16,6 @@ target 'SuperService' do
   pod 'MBProgressHUD'
   pod 'SWTableViewCell'
   pod 'LTNavigationBar'
-#  pod 'HexColors'
   pod 'WPMediaPicker', :inhibit_warnings => true
 #  pod 'TKAnimatedCheckButton'
 end

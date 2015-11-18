@@ -10,7 +10,7 @@ import UIKit
 
 class OrderTVC: UITableViewController {
   
-  var orderArray = [OrderModel]()
+  lazy var orderArray = [OrderModel]()
   var orderPage = 1
   
   

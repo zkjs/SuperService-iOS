@@ -24,7 +24,7 @@
 }
 
 - (id)init {
-  self = [super initWithBaseURL:[[NSURL alloc] initWithString:@"http://120.25.241.196/"]];
+  self = [super initWithBaseURL:[[NSURL alloc] initWithString:@"http://tap.zkjinshi.com"]];
   if (self) {
     self.requestSerializer = [[AFHTTPRequestSerializer alloc] init];
     self.responseSerializer = [[AFJSONResponseSerializer alloc] init];
@@ -413,6 +413,22 @@
 
 -  (void)WaiterGetWholeAreaOfTheBusinessListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"semp/shoplocation" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+  } success:^(NSURLSessionDataTask *  task, id   responseObject) {
+    //NSLog(@"11%@", [responseObject description]);
+    success(task, responseObject);
+  } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+    //NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 服务员获取自己的通知区域
+
+- (void)WaiterGetAreaOfTheBusinessListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/semplocation" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];

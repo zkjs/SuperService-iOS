@@ -30,6 +30,10 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     tableView.tableFooterView = UIView()
   }
   
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("InvitationRecordVC", owner:self, options:nil)
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
     

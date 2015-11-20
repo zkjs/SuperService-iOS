@@ -77,7 +77,7 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
       let userID = AccountManager.sharedInstance().userID
       let url = NSURL(string: kBaseURL)
       if let url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg") {
-        print(url)
+        
         if let data = NSData(contentsOfURL: url),
           let image = UIImage(data: data) {
             myView?.userImage.image = image

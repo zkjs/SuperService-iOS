@@ -224,6 +224,7 @@
 		FAF1A5E61BEC852000B9ACC8 /* CodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */; };
 		FAF1A5E71BEC852000B9ACC8 /* CodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */; };
 		FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */; };
+		FAF6844E1BF9F34C0090D461 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6844D1BF9F34C0090D461 /* NoticeModel.swift */; };
 		FAF6AB7F1BED99CD006C1370 /* InvitationRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */; };
 		FAF6AB801BED99CD006C1370 /* InvitationRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */; };
 		FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */; };
@@ -561,6 +562,7 @@
 		FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
 		FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeVC.xib; sourceTree = "<group>"; };
 		FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
+		FAF6844D1BF9F34C0090D461 /* NoticeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordVC.swift; sourceTree = "<group>"; };
 		FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordVC.xib; sourceTree = "<group>"; };
 		FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordCell.swift; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 			isa = PBXGroup;
 			children = (
 				40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */,
+				FAF6844D1BF9F34C0090D461 /* NoticeModel.swift */,
 				FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */,
 			);
 			path = Model;
@@ -1694,6 +1697,7 @@
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
+				FAF6844E1BF9F34C0090D461 /* NoticeModel.swift in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
 				401AEA511BE4B84900E38870 /* SEConstants.m in Sources */,
 				FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */,

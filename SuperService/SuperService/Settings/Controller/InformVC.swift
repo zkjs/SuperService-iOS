@@ -11,11 +11,13 @@ import UIKit
 class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   @IBOutlet weak var tableView: UITableView!
-  
+  var dic:NSDictionary!
+  var noticeArray = [NSNumber]()
+  var str:String!
   var areaArray = [AreaModel]()
   var locID = (String)()
-  var selectedArray = [String]()
-  
+  var selectedArray = [Int]()
+  var areaArr = [String]()
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
@@ -34,6 +36,39 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     navigationItem.rightBarButtonItem = nextStepButton
   }
   
+  override func viewWillAppear(animated: Bool) {
+    
+  }
+  
+  func GetWholeAreaOfTheList() {
+    ZKJSHTTPSessionManager.sharedInstance().WaiterGetAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      if let array = responseObject as? NSArray {
+        var arr = [NSNumber]()
+        for dic in array {
+          let notice = NoticeModel(dic:dic as! [String:AnyObject])
+          arr.append(notice.locid!)
+          
+        }
+        
+        self.noticeArray = arr
+        print(self.noticeArray)
+        self.initSelectedArray()  // Model
+        self.tableView.reloadData()  // UI
+      }
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
+    }
+  }
+  
+  func initSelectedArray() {
+    for index in 0..<areaArray.count {
+      if noticeArray.contains(areaArray[index].locid!) {
+        selectedArray.append(index)
+      }
+    }
+    print(selectedArray)
+  }
+  
   func GetWholeAreaOfTheBusinessList() {
     ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
@@ -43,8 +78,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
           datasource.append(area)
         }
         self.areaArray = datasource
-        print(self.areaArray.count)
-        self.tableView.reloadData()
+        self.GetWholeAreaOfTheList()
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
@@ -59,8 +93,14 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("InformCell", forIndexPath: indexPath) as! InformCell
     let area = areaArray[indexPath.row]
+    
     cell.selectedButton.addTarget(self, action: "tappedCellSelectedButton:", forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
+    
+    if noticeArray.contains(area.locid!) {
+      cell.isUncheck = false
+      cell.selectedButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
+    }
     
     cell.setData(area)
     return cell
@@ -91,9 +131,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! InformCell
     cell.changeSelectedButtonImage()
     updateSelectedArrayWithCell(cell)
-    
-    
-    
   }
   
   func tappedCellSelectedButton(sender: UIButton) {
@@ -103,16 +140,24 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func updateSelectedArrayWithCell(cell: InformCell) {
     if cell.isUncheck == false {
-      let area = self.areaArray[cell.selectedButton.tag]
-      self.selectedArray.append((area.locid?.stringValue)!)
+      self.selectedArray.append(cell.selectedButton.tag)
     } else {
-      selectedArray.removeAtIndex(cell.selectedButton.tag)
+      if let index = selectedArray.indexOf(cell.selectedButton.tag) {
+        selectedArray.removeAtIndex(index)
+      }
     }
-    locID = selectedArray.joinWithSeparator(",")
-    
+    print(selectedArray)
   }
   
   func nextStep() {
+    for index in selectedArray {
+      let area = areaArray[index]
+      str = area.locid?.stringValue
+      areaArr.append(str)
+    }
+    locID = areaArr.joinWithSeparator(",")
+    print(locID)
+    
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       let timestamp = Int64(NSDate().timeIntervalSince1970)
       let shopID = AccountManager.sharedInstance().shopID

@@ -10,6 +10,9 @@
 #import "NSString+ZKJS.h"
 #import "SuperService-Swift.h"
 
+//#define kBaseURL @"http://api.zkjinshi.com/"  // HTTP外网服务器地址
+#define kBaseURL @"http://tap.zkjinshi.com/" // HTTP服务器测试地址
+
 @implementation ZKJSHTTPSessionManager
 
 #pragma mark - Initialization
@@ -24,7 +27,7 @@
 }
 
 - (id)init {
-  self = [super initWithBaseURL:[[NSURL alloc] initWithString:@"http://tap.zkjinshi.com"]];
+  self = [super initWithBaseURL:[[NSURL alloc] initWithString:kBaseURL]];
   if (self) {
     self.requestSerializer = [[AFHTTPRequestSerializer alloc] init];
     self.responseSerializer = [[AFJSONResponseSerializer alloc] init];

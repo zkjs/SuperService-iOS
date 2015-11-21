@@ -25,7 +25,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let nibName = UINib(nibName: MemberListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: MemberListCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    
+  
   }
   
   override func didReceiveMemoryWarning() {

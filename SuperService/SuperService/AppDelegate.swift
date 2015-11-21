@@ -18,23 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   var window: UIWindow?
   var mainTBC: MainTBC!
   
-  
-  func setupEaseMobWithApplication(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
-    #if DEBUG
-      let cert = "SuperService_dev"
-    #else
-      let cert = "SuperService"
-    #endif
-    EaseMob.sharedInstance().registerSDKWithAppKey("", apnsCertName: cert)
-    EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-  }
-  
   // MARK: - Application Delegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     setupNotification()
     setupTCPSessionManager()
     setupWindows()
+    setupEaseMobWithApplication(application, launchOptions: launchOptions)
+    
     return true
   }
   
@@ -207,61 +198,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func didReceivePacket(dictionary: [NSObject : AnyObject]!) {
     print(dictionary)
-    if let type = dictionary["type"] as? NSNumber {
-      if let messageType = MessageServiceChatType(rawValue: type.integerValue) {
-        // 消息类型
-        handleChatMessageWithType(messageType, dictionary: dictionary)
-      }
-    }
   }
   
-  func handleChatMessageWithType(type: MessageServiceChatType, dictionary: [NSObject: AnyObject]) {
-    if [MessageServiceChatType.TextChat, .ImgChat, .MediaChat].contains(type) {
-      // 文本，图片，语音消息
-      let number = dictionary["timestamp"] as! NSNumber
-      let timestamp = NSDate(timeIntervalSince1970: number.doubleValue)
-      let sessionID = dictionary["sessionid"] as! String
-      let fromID = dictionary["fromid"] as! String
-      let fromName = dictionary["fromname"] as! String
-      switch type {
-      case .TextChat:
-        let childtype = dictionary["childtype"] as! NSNumber
-        if childtype.integerValue == 1 {
-          Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-            otherSideID: fromID,
-            otherSideName: fromName,
-            lastChat: "[订单]",
-            timestamp: timestamp)
-        } else {
-          Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-            otherSideID: fromID,
-            otherSideName: fromName,
-            lastChat: dictionary["textmsg"] as! String,
-            timestamp: timestamp)
-        }
-      case .MediaChat:
-        Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-          otherSideID: fromID,
-          otherSideName: fromName,
-          lastChat: "[语音]",
-          timestamp: timestamp)
-      case .ImgChat:
-        Persistence.sharedInstance().saveConversationWithSessionID(sessionID,
-          otherSideID: fromID,
-          otherSideName: fromName,
-          lastChat: "[图片]",
-          timestamp: timestamp)
-      default:
-        break
-      }
-      NSNotificationCenter.defaultCenter().postNotificationName(kRefreshConversationListNotification, object: self)
-      let messageTabIndex = 2
-      if mainTBC.selectedIndex != messageTabIndex {
-        let tabArray = mainTBC.tabBar.items as NSArray!
-        let tabItem = tabArray.objectAtIndex(messageTabIndex) as! UITabBarItem
-        tabItem.badgeValue = "1"
-      }
-    }
+  func setupEaseMobWithApplication(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+    #if DEBUG
+      let cert = "SuperService_dev"
+    #else
+      let cert = "SuperService"
+    #endif
+    EaseMob.sharedInstance().registerSDKWithAppKey("zkjs#svip", apnsCertName: cert)
+    EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
   }
   
 }

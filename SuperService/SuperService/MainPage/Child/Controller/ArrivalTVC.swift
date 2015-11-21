@@ -57,7 +57,7 @@ class ArrivalTVC: UITableViewController {
       dataArray = data
       tableView.reloadData()
     }
-    tableView.header.endRefreshing()
+    tableView.mj_header.endRefreshing()
   }
   
   func loadMoreData() {
@@ -66,7 +66,7 @@ class ArrivalTVC: UITableViewController {
         dataArray += moreDataArray
         tableView.reloadData()
     }
-    tableView.footer.endRefreshing()
+    tableView.mj_footer.endRefreshing()
   }
   
   
@@ -80,8 +80,8 @@ class ArrivalTVC: UITableViewController {
     
     tableView.tableFooterView = UIView()
     
-    tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
-    tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
   }
   
   

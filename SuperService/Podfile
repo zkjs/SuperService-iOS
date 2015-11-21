@@ -8,7 +8,6 @@ target 'SuperService' do
   pod 'ChameleonFramework'
   pod 'MJRefresh'
   pod 'JCTagListView'
-  pod 'SDWebImage', :inhibit_warnings => true
   pod 'DateTools'
   pod 'SocketRocket', :inhibit_warnings => true
   pod 'AFNetworking', :inhibit_warnings => true

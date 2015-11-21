@@ -18,8 +18,8 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
       
       let nibName = UINib(nibName: SettingsCell.nibName(), bundle: nil)
       tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
-      tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
-      tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+      tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
+      tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
       let image = UIImage(named: "ic_tianjia")
       let addCodeButton = UIBarButtonItem(image: image, style:.Plain, target: self, action: "addCode:")
       self.navigationItem.rightBarButtonItem = addCodeButton
@@ -36,7 +36,7 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    tableView.header.beginRefreshing()
+    tableView.mj_header.beginRefreshing()
   }
   
   func addCode(sender:UIButton) {
@@ -95,8 +95,8 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
           self.codeArray.append(code.salecode!)
         }
         self.tableView.reloadData()
-        self.tableView.footer.endRefreshing()
-        self.tableView.header.endRefreshing()
+        self.tableView.mj_footer.endRefreshing()
+        self.tableView.mj_header.endRefreshing()
       }
       }) { (task: NSURLSessionDataTask!, erroe: NSError!) -> Void in
         

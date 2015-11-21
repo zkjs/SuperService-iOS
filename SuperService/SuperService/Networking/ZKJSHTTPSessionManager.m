@@ -36,6 +36,13 @@
 }
 
 
+#pragma mark - Public
+
+- (NSString *)domain {
+  return kBaseURL;
+}
+
+
 #pragma mark - Private
 
 - (NSString *)userID {

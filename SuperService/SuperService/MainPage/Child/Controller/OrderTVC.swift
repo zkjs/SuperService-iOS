@@ -27,7 +27,7 @@ class OrderTVC: UITableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    tableView.header.beginRefreshing()
+    tableView.mj_header.beginRefreshing()
   }
   
   
@@ -63,8 +63,8 @@ class OrderTVC: UITableViewController {
     
     tableView.tableFooterView = UIView()
     
-    tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
-    tableView.footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
     
     addRightBarButton()
   }
@@ -74,16 +74,16 @@ class OrderTVC: UITableViewController {
       success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
         if let array = responseObject as? NSArray {
           if array.count == 0 {
-            self.tableView.footer.endRefreshingWithNoMoreData()
+            self.tableView.mj_footer.endRefreshingWithNoMoreData()
           } else {
             for dic in array {
               let order = OrderModel(dic: dic as! [String:AnyObject])
               self.orderArray.append(order)
             }
             self.tableView.reloadData()
-            self.tableView.footer.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
           }
-          self.tableView.header.endRefreshing()
+          self.tableView.mj_header.endRefreshing()
         }
         
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in

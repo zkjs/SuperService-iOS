@@ -45,7 +45,7 @@
 - (void)requestSmsCodeWithPhoneNumber:(NSString *)phone callback:(void (^)(BOOL succeeded, NSError *error))callback {
   NSString *serverIP = @"app.cloopen.com";
   int serverPort = 8883;
-  NSString *appID = @"aaf98f894d985d36014d9a1e19f702bb";
+  NSString *appID = @"8a48b551511a2cec01511e778f7b0d55";
   NSString *serverVersion = @"2013-12-26";
   NSString *mainAccount = @"8a48b5514d9861c3014d99cf3572024a";
   NSString *mainToken = @"137d18e0111643ffb9e06401f214cc8d";
@@ -59,7 +59,7 @@
   NSDictionary *parameters = @{
                                @"to": phone,
                                @"appId": appID,
-                               @"templateId": @"22143",
+                               @"templateId": @"50158",
                                @"datas": datas
                                };
   

@@ -111,7 +111,7 @@ class OrderModel: NSObject {
   
   var orderStatus: String? {
     get {
-      guard let status = status else { return "未知状态" }
+      guard let status = status else { return nil }
       if let orderEnum = OrderStatus(rawValue: status.integerValue) {
         switch orderEnum {
         case .Pending:
@@ -135,7 +135,7 @@ class OrderModel: NSObject {
   
   var payStatus: String? {
     get {
-      guard let status = pay_status else { return "未知状态" }
+      guard let status = pay_status else { return nil }
       if let payEnum = PayStatus(rawValue: status.integerValue) {
         switch payEnum {
         case .Unpaid:

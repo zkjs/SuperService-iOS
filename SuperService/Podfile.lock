@@ -29,10 +29,7 @@ PODS:
   - JTSImageViewController (1.5.1)
   - LTNavigationBar (2.1.0)
   - MBProgressHUD (0.9.1)
-  - MJRefresh (2.4.12)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - MJRefresh (3.0.4)
   - SocketRocket (0.4.2)
   - SWTableViewCell (0.3.7)
   - WPMediaPicker (0.6.0)
@@ -48,7 +45,6 @@ DEPENDENCIES:
   - LTNavigationBar
   - MBProgressHUD
   - MJRefresh
-  - SDWebImage
   - SocketRocket
   - SWTableViewCell
   - WPMediaPicker
@@ -72,8 +68,7 @@ SPEC CHECKSUMS:
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   LTNavigationBar: 8d2373e61ac08c16b6235c0450051541941f1fec
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  MJRefresh: c95f0d541606ef584dab3fbeda28f4f32b4aca6e
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   WPMediaPicker: 6e7904663b386ad4eea2f2e3dc30fd15babceb66

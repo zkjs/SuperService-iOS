@@ -58,10 +58,10 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     tableView.tableFooterView = UIView()
     
-    let  add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+    let add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "AddClientBtn:")
-    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
-    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
     baseNC.topViewController?.navigationItem.rightBarButtonItem = add_clientButton
   }
   
@@ -140,11 +140,9 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     cell.setData(client)
     
     return cell
-    
   }
   
   
-  // MARK: - Table View Delegate
   // MARK: UITableViewDelegate
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -180,11 +178,18 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
-    if let selection = selection {
-      let section = sections[indexPath.section]
-      let client = section[indexPath.row] as! ClientModel
-      selection(client)
-      navigationController?.popViewControllerAnimated(true)
-    }
+    let section = sections[indexPath.section]
+    let client = section[indexPath.row] as! ClientModel
+    
+    let vc = ChatViewController(conversationChatter: client.userid, conversationType: .eConversationTypeChat)
+    let clientName = client.username!
+    let userName = AccountManager.sharedInstance().userName
+    vc.title = clientName
+    // 扩展字段
+    let ext = ["toName": clientName,
+      "fromName": userName]
+    vc.conversation.ext = ext
+    vc.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
   }
 }

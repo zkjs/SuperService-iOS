@@ -47,10 +47,9 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     let add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "AddMemberBtn:")
-    let mainTBC = UIApplication.sharedApplication().keyWindow?.rootViewController as! MainTBC
-    let baseNC = mainTBC.selectedViewController as! BaseNavigationController
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
     baseNC.topViewController?.navigationItem.rightBarButtonItem = add_clientButton
-  
   }
   
   func AddMemberBtn(sender: UIButton) {

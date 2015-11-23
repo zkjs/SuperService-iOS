@@ -18,9 +18,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var locID = (String)()
   var selectedArray = [Int]()
   var areaArr = [String]()
-  override func loadView() {
-    NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
-  }
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)

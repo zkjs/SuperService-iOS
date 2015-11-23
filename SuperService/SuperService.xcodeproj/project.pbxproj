@@ -38,6 +38,7 @@
 		40CAA5FB1BE705F800FAFDA0 /* StaffLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5F91BE705F800FAFDA0 /* StaffLoginVC.xib */; };
 		40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */; };
 		40CAA6001BE7810800FAFDA0 /* InquiryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */; };
+		40CF18FE1C029D550069C807 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF18FD1C029D550069C807 /* NoticeModel.swift */; };
 		40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF56731BF3417200E20D50 /* ContactVC.swift */; };
 		40CF567D1BF3621600E20D50 /* UIViewController+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF567C1BF3621600E20D50 /* UIViewController+ZKJS.swift */; };
 		40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */; };
@@ -287,6 +288,7 @@
 		40CAA5F91BE705F800FAFDA0 /* StaffLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffLoginVC.xib; sourceTree = "<group>"; };
 		40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryVC.swift; sourceTree = "<group>"; };
 		40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InquiryVC.xib; sourceTree = "<group>"; };
+		40CF18FD1C029D550069C807 /* NoticeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		40CF56731BF3417200E20D50 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		40CF567C1BF3621600E20D50 /* UIViewController+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ZKJS.swift"; sourceTree = "<group>"; };
 		40D7339E1BE31FA600266228 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 			children = (
 				40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */,
 				FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */,
+				40CF18FD1C029D550069C807 /* NoticeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1894,6 +1897,7 @@
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
 				40FB3D5F1C00203900675044 /* EaseFaceView.m in Sources */,
 				842659491BE0A216005E82F2 /* MemberModel.swift in Sources */,
+				40CF18FE1C029D550069C807 /* NoticeModel.swift in Sources */,
 				40FB3D5B1C00203900675044 /* EaseChatToolbar.m in Sources */,
 				40FB3D171C00203900675044 /* MWTapDetectingImageView.m in Sources */,
 				40FB3D2C1C00203900675044 /* PSTCollectionView.m in Sources */,

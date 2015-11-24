@@ -38,15 +38,10 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("ClientListVC", owner:self, options:nil)
   }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(true)
-    self.tableView.reloadData()
-  }
   
   override func viewDidLoad() {
-    
     super.viewDidLoad()
+    
     loadData()
     delegate = self
     title = "客户"
@@ -57,14 +52,33 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
     
     tableView.tableFooterView = UIView()
-    
-    let add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "AddClientBtn:")
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
-    baseNC.topViewController?.navigationItem.rightBarButtonItem = add_clientButton
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    
+    let isAdmin = AccountManager.sharedInstance().isAdmin()
+    if isAdmin == false {
+      // 员工才能添加客户
+      let addClientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+        target: self, action: "AddClientBtn:")
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
+      baseNC.topViewController?.navigationItem.rightBarButtonItem = addClientButton
+    }
+    tableView.reloadData()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    let isAdmin = AccountManager.sharedInstance().isAdmin()
+    if isAdmin == false {
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
+      baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
+    }
+  }
   
   // MARK: - XLPagerTabStripChildItem Delegate
   
@@ -178,18 +192,5 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
-    let section = sections[indexPath.section]
-    let client = section[indexPath.row] as! ClientModel
-    
-    let vc = ChatViewController(conversationChatter: client.userid, conversationType: .eConversationTypeChat)
-    let clientName = client.username!
-    let userName = AccountManager.sharedInstance().userName
-    vc.title = clientName
-    // 扩展字段
-    let ext = ["toName": clientName,
-      "fromName": userName]
-    vc.conversation.ext = ext
-    vc.hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(vc, animated: true)
   }
 }

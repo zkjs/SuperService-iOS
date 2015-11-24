@@ -9,7 +9,7 @@
 import UIKit
 import AddressBookUI
 class InquiryVC: UIViewController,ABPeoplePickerNavigationControllerDelegate{
-//  var addressBook:ABAddressBookRef?
+
   var phone:String!
   var localizedPhoneLabel: String!
   @IBOutlet weak var inquiryClientButton: UIButton! {
@@ -76,7 +76,7 @@ class InquiryVC: UIViewController,ABPeoplePickerNavigationControllerDelegate{
           let phoneLabel = ABMultiValueCopyLabelAtIndex(phoneValues, i).takeRetainedValue()
             as CFStringRef;
           // 转为本地标签名（能看得懂的标签名，比如work、home）
-//          localizedPhoneLabel = ABAddressBookCopyLocalizedLabel(phoneLabel).takeRetainedValue() as String
+          localizedPhoneLabel = ABAddressBookCopyLocalizedLabel(phoneLabel).takeRetainedValue() as String
           
           let  value = ABMultiValueCopyValueAtIndex(phoneValues, i)
           self.phone = value.takeRetainedValue() as! String

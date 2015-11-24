@@ -72,7 +72,6 @@ class StaffLoginVC: UIViewController {
       print(success)
       
       if (success == true) {
-        
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
         
@@ -80,18 +79,14 @@ class StaffLoginVC: UIViewController {
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
-                //先判断手机号是不是管理员，要不然返回的数据是空去存数据库时会崩溃
-                let name = dict["name"]
-                if name == nil {
-                  self.showHint("您还不是管理员")
-                } else {
-                  // 缓存用户信息
-                  AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-                }
+                // 缓存用户信息
+                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
+                // 环信账号自动登录
+                AccountManager.sharedInstance().easeMobAutoLogin()
                 ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
                 let url = AccountManager.sharedInstance().url
-                
-                if url == "" {
+                if url.isEmpty {
+                  // 第一次登录，需要设置一下
                   let setVC = SetUpVC()
                   self.navigationController?.pushViewController(setVC, animated: true)
                 }

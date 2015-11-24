@@ -93,7 +93,7 @@ class MainTBC: UITabBarController {
   
 }
 
-extension MainTBC: IChatManagerDelegate, EMCallManagerDelegate {
+extension MainTBC: EMCallManagerDelegate {
   
   // MARK: - Private
   
@@ -164,8 +164,10 @@ extension MainTBC: IChatManagerDelegate, EMCallManagerDelegate {
   func callControllerClose(notification: NSNotification) {
     EaseMob.sharedInstance().callManager.addDelegate(self, delegateQueue: nil)
   }
-  
-  // MARK: - ICallManagerDelegate
+
+}
+
+extension MainTBC: IChatManagerDelegate {
   
   func callSessionStatusChanged(callSession: EMCallSession!, changeReason reason: EMCallStatusChangedReason, error: EMError!) {
     if callSession.status == EMCallSessionStatus.eCallSessionStatusConnected {
@@ -206,5 +208,32 @@ extension MainTBC: IChatManagerDelegate, EMCallManagerDelegate {
       }
     }
   }
-
+  
+  // MARK: - IChatManagerDelegate 登录状态变化
+  
+  func didLoginWithInfo(loginInfo: [NSObject : AnyObject]!, error: EMError!) {
+    if error != nil {
+      NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+      let messageCenterIndex = 2
+      let vc = childViewControllers[messageCenterIndex] as! ConversationListController
+      vc.isConnect(false)
+    }
+  }
+  
+  func didLoginFromOtherDevice() {
+    NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+  }
+  
+  func didRemovedFromServer() {
+    NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+  }
+  
+  func didServersChanged() {
+    NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+  }
+  
+  func didAppkeyChanged() {
+    NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+  }
+  
 }

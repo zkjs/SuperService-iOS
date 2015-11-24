@@ -114,6 +114,15 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   func logout() {
     AccountManager.sharedInstance().clearAccountCache()
+    showHUDInView(view, withLoading: "正在登出...")
+    EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true, completion: { (info: [NSObject : AnyObject]!, error: EMError!) -> Void in
+      self.hideHUD()
+      if error != nil && error.errorCode != .ServerNotLogin {
+        self.showHint(error.description)
+      } else {
+        NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+      }
+      }, onQueue: nil)
     showAdminLogin()
   }
   

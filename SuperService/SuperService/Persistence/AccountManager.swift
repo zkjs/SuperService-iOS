@@ -103,13 +103,13 @@ class AccountManager: NSObject {
       userDefaults.setObject(salesID, forKey: "userid")
     }
     
-    userDefaults.setObject(dict["shopid"], forKey: "shopid")
-    userDefaults.setObject(dict["fullname"], forKey: "fullname")
-    userDefaults.setObject(dict["token"], forKey: "token")
-    userDefaults.setObject(dict["name"], forKey: "name")
-    userDefaults.setObject(dict["roleid"], forKey: "roleid")
-    userDefaults.setObject(dict["locid"], forKey: "locid")
-    userDefaults.setObject(dict["url"], forKey: "url")
+    userDefaults.setObject(shopID, forKey: "shopid")
+    userDefaults.setObject(shopName, forKey: "fullname")
+    userDefaults.setObject(token, forKey: "token")
+    userDefaults.setObject(userName, forKey: "name")
+    userDefaults.setObject(roleID, forKey: "roleid")
+    userDefaults.setObject(beaconLocationIDs, forKey: "locid")
+    userDefaults.setObject(url, forKey: "url")
     userDefaults.setObject(avatarImageData, forKey: "avatarImageData")
     userDefaults.synchronize()
   }
@@ -153,6 +153,21 @@ class AccountManager: NSObject {
     if let image = UIImage(data: avatarImageData) {
       self.avatarImage = image
     }
+  }
+  
+  func easeMobAutoLogin() {
+    EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456", completion: { (responseObject: [NSObject : AnyObject]!, error: EMError!) -> Void in
+      // 设置是否自动登录
+      EaseMob.sharedInstance().chatManager.enableAutoLogin!()
+      // 获取数据库中数据
+      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+      // 发送自动登录状态通知
+      NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+      }, onQueue: nil)
+  }
+  
+  func isAdmin() -> Bool {
+    return roleID == "1" ? true : false
   }
   
 }

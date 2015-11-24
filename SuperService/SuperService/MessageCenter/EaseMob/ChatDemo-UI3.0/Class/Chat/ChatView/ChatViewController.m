@@ -239,7 +239,7 @@
 {
     id<IMessageModel> model = nil;
     model = [[EaseMessageModel alloc] initWithMessage:message];
-    model.avatarImage = [UIImage imageNamed:@"user"];
+//    model.avatarImage = [UIImage imageNamed:@"user"];
     NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", model.nickname];
     NSString *domain = [ZKJSHTTPSessionManager sharedInstance].domain;
     model.avatarURLPath = [domain stringByAppendingString:url];

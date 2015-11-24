@@ -9,6 +9,7 @@
 #import "ConversationListController.h"
 #import "ChatViewController.h"
 #import "ZKJSHTTPSessionManager.h"
+#import "SuperService-Swift.h"
 
 @interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource,UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -90,10 +91,29 @@
   if (conversationModel) {
     EMConversation *conversation = conversationModel.conversation;
     if (conversation) {
+      EMMessage *latestMessage = conversation.latestMessage;
+      NSString *userName = [AccountManager sharedInstance].userName;
+      NSMutableDictionary *ext = [NSMutableDictionary dictionary];
+      NSString *title;
+      if ([userName isEqualToString:latestMessage.ext[@"fromName"]]) {
+        // 最后一条消息的发送者为自己
+        ext = [conversation.latestMessage.ext mutableCopy];
+        title = ext[@"toName"];
+      } else {
+        // 最后一条消息的发送者为对方
+        ext[@"fromName"] = latestMessage.ext[@"toName"];
+        ext[@"toName"] = latestMessage.ext[@"fromName"];
+        if (latestMessage.ext[@"shopId"] &&
+            latestMessage.ext[@"shopName"]) {
+          ext[@"shopId"] = latestMessage.ext[@"shopId"];
+          ext[@"shopName"] = latestMessage.ext[@"shopName"];
+        }
+        title = ext[@"fromName"];
+      }
       ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType];
-      chatController.title = conversation.ext[@"shopName"];
+      chatController.title = title;
       chatController.hidesBottomBarWhenPushed = YES;
-      chatController.conversation.ext = conversation.ext;
+      chatController.conversation.ext = [ext copy];
       [self.navigationController pushViewController:chatController animated:YES];
     }
   }
@@ -106,19 +126,17 @@
 {
   EaseConversationModel *model = [[EaseConversationModel alloc] initWithConversation:conversation];
   if (model.conversation.conversationType == eConversationTypeChat) {
-    EMMessage *latestOtherMessage = conversation.latestMessageFromOthers;
-    if (latestOtherMessage == nil) {
-      NSString *shopName = conversation.latestMessage.ext[@"shopName"];
-      NSString *toName = conversation.latestMessage.ext[@"toName"];
-      model.title = [NSString stringWithFormat:@"%@-%@", shopName, toName];
+    EMMessage *latestMessage = conversation.latestMessage;
+    NSString *userName = [AccountManager sharedInstance].userName;
+    if ([userName isEqualToString:latestMessage.ext[@"fromName"]]) {
+      // 最后一条消息的发送者为自己
+      model.title = latestMessage.ext[@"toName"];
     } else {
-      NSString *shopName = conversation.latestMessage.ext[@"shopName"];
-      NSString *fromName = conversation.latestMessage.ext[@"fromName"];
-      model.title = [NSString stringWithFormat:@"%@-%@", shopName, fromName];
+      // 最后一条消息的发送者为对方
+      model.title = latestMessage.ext[@"fromName"];
     }
     NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", conversation.chatter];
-    NSString *domain = [ZKJSHTTPSessionManager sharedInstance].domain;
-    model.avatarURLPath = [domain stringByAppendingString:url];
+    model.avatarURLPath = [kBaseURL stringByAppendingString:url];
   }
   return model;
 }

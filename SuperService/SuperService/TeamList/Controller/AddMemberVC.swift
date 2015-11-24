@@ -9,20 +9,20 @@
 import UIKit
 
 protocol RefreshTeamListVCDelegate {
-  func RefreshTeamListTableView(set:[String: AnyObject],memberModel:TeamModel)
+  func RefreshTeamListTableView()
 }
 
 class AddMemberVC: UIViewController,UITextFieldDelegate {
   
-  var delegate:RefreshTeamListVCDelegate?
-  var roleid :String?
+  var delegate: RefreshTeamListVCDelegate?
+  var roleid = "0"  // 初始化值为员工
+  var isUncheck = false
   
   @IBOutlet weak var departmentLabel: UILabel!
   @IBOutlet weak var managerButton: UIButton!
   @IBOutlet weak var remarkTextView: UITextView!
   @IBOutlet weak var photoTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
-  var isUncheck = false
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("AddMemberVC", owner:self, options:nil)
@@ -37,7 +37,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
     // Do any additional setup after loading the view.
   }
   
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
   }
@@ -47,12 +47,10 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
     // Dispose of any resources that can be recreated.
   }
   
-  
   @IBAction func choiceDepartmentButton(sender: AnyObject) {
     let vc = MemberListVC()
-    self.hidesBottomBarWhenPushed = true
+    vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
-    //    self.hidesBottomBarWhenPushed = false
   }
   
   @IBAction func IsManager(sender: AnyObject) {
@@ -69,9 +67,9 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
   
   @IBAction func sureButton(sender: AnyObject) {
     let dictionary: [String: AnyObject] = [
-      "name":usernameTextField.text! ,
-      "phone":photoTextField.text! ,
-      "roleid":roleid! ,
+      "name":usernameTextField.text!,
+      "phone":photoTextField.text!,
+      "roleid":roleid,
       "email": "",
       "deptid": "0",
       "desc":remarkTextView.text
@@ -82,13 +80,10 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
       let strJson = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
       print(strJson)
       ZKJSHTTPSessionManager.sharedInstance().addMemberWithUserData(strJson, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        let dic = responseObject as! [String: AnyObject]
-        let member = TeamModel(dic: dic)
-            self.delegate?.RefreshTeamListTableView(dic,memberModel:member)
-            self.navigationController?.popViewControllerAnimated(true)
-            self.showHint("添加成员成功")
+        self.delegate?.RefreshTeamListTableView()
+        self.navigationController?.popViewControllerAnimated(true)
+        self.showHint("添加成员成功")
         }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
           
       }
     } catch let error as NSError {

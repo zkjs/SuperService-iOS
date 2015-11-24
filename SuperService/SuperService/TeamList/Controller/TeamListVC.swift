@@ -44,20 +44,44 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())
     
     tableView.tableFooterView = UIView()
-    
-    let add_clientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "AddMemberBtn:")
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
-    baseNC.topViewController?.navigationItem.rightBarButtonItem = add_clientButton
   }
   
-  func AddMemberBtn(sender: UIButton) {
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    let isAdmin = AccountManager.sharedInstance().isAdmin()
+    if isAdmin {
+      // 管理员才能添加员工
+      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+        target: self, action: "AddMember")
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
+      baseNC.topViewController?.navigationItem.rightBarButtonItem = addMemberButton
+    }
+    
+    RefreshTeamListTableView()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    let isAdmin = AccountManager.sharedInstance().isAdmin()
+    if isAdmin {
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
+      baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
+    }
+  }
+  
+  // MARK: - Public
+  
+  func AddMember() {
     let vc = AddMemberVC()
     vc.delegate = self
     vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
   }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -75,10 +99,9 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   //RefreshTeamListVCDelegate
   
-  func RefreshTeamListTableView(set: [String : AnyObject],memberModel:TeamModel) {
-    let member = memberModel
-    self.teamArray.append(member)
-    self.tableView.reloadData()
+  func RefreshTeamListTableView() {
+    teamArray.removeAll()
+    loadData()
   }
   
   func loadData() {
@@ -88,11 +111,8 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         for dic in array {
           let team = TeamModel(dic: dic as! [String:AnyObject])
           datasource.append(team)
-          
         }
-        
         self.teamArray = datasource
-      
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
@@ -100,6 +120,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   }
   
   // MARK: - Table View Data Source
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return sections.count
   }
@@ -176,6 +197,20 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+    let section = sections[indexPath.section]
+    let sales = section[indexPath.row] as! TeamModel
+    
+    let vc = ChatViewController(conversationChatter: sales.salesid, conversationType: .eConversationTypeChat)
+    let salesName = sales.name!
+    let userName = AccountManager.sharedInstance().userName
+    vc.title = salesName
+    // 扩展字段
+    let ext = ["toName": salesName,
+      "fromName": userName]
+    vc.conversation.ext = ext
+    vc.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
   }
   
 }

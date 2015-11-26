@@ -110,9 +110,9 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         var datasource = [TeamModel]()
         for dic in array {
           let team = TeamModel(dic: dic as! [String:AnyObject])
-          datasource.append(team)
-        }
-        self.teamArray = datasource
+          datasource.append(team)  
+        }        
+        self.teamArray = datasource      
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
@@ -197,18 +197,21 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    
+    let vc = EmployeeVC()
     let section = sections[indexPath.section]
-    let sales = section[indexPath.row] as! TeamModel
-    
-    let vc = ChatViewController(conversationChatter: sales.salesid, conversationType: .eConversationTypeChat)
-    let salesName = sales.name!
-    let userName = AccountManager.sharedInstance().userName
-    vc.title = salesName
-    // 扩展字段
-    let ext = ["toName": salesName,
-      "fromName": userName]
-    vc.conversation.ext = ext
+	let employee = section[indexPath.row] as! TeamModel
+    print(employee.name)
+    vc.employee = employee
+
+//    let sales = section[indexPath.row] as! TeamModel
+//    let vc = ChatViewController(conversationChatter: sales.salesid, conversationType: .eConversationTypeChat)
+//    let salesName = sales.name!
+//    let userName = AccountManager.sharedInstance().userName
+//    vc.title = salesName
+//    // 扩展字段
+//    let ext = ["toName": salesName,
+//      "fromName": userName]
+//    vc.conversation.ext = ext
     vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
   }

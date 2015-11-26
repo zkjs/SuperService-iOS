@@ -23,6 +23,10 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
     segmentedControl.frame.size = CGSizeMake(150.0, 30.0)
 //    segmentedControl.sizeToFit()
   }
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(true)
+    self.hidesBottomBarWhenPushed = false
+  }
   
   
   // MARK: - XLPagerTabStripViewControllerDataSource

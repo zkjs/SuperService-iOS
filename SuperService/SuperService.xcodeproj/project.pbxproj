@@ -210,6 +210,10 @@
 		FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */; };
 		FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */; };
 		FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */; };
+		FAF101BF1C04029900FC3672 /* EmployeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF101BD1C04029900FC3672 /* EmployeeVC.swift */; };
+		FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101BE1C04029900FC3672 /* EmployeeVC.xib */; };
+		FAF101C31C0409D400FC3672 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF101C11C0409D400FC3672 /* EmployeeCell.swift */; };
+		FAF101C41C0409D400FC3672 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101C21C0409D400FC3672 /* EmployeeCell.xib */; };
 		FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */; };
 		FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */; };
 		FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */; };
@@ -589,6 +593,10 @@
 		FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentHeaderView.xib; sourceTree = "<group>"; };
 		FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentFooterView.swift; sourceTree = "<group>"; };
 		FAF019961BE1B30700E67ECD /* DepartmentFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentFooterView.xib; sourceTree = "<group>"; };
+		FAF101BD1C04029900FC3672 /* EmployeeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVC.swift; sourceTree = "<group>"; };
+		FAF101BE1C04029900FC3672 /* EmployeeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeVC.xib; sourceTree = "<group>"; };
+		FAF101C11C0409D400FC3672 /* EmployeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		FAF101C21C0409D400FC3672 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUpTVC.swift; sourceTree = "<group>"; };
 		FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingUpTVC.storyboard; sourceTree = "<group>"; };
 		FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ../Controller/HeaderView.swift; sourceTree = "<group>"; };
@@ -1516,6 +1524,8 @@
 				842659451BE09FCF005E82F2 /* MemberListCell.xib */,
 				40F7577C1BE055A80053C2BE /* TeamListCell.swift */,
 				40F7577D1BE055A80053C2BE /* TeamListCell.xib */,
+				FAF101C11C0409D400FC3672 /* EmployeeCell.swift */,
+				FAF101C21C0409D400FC3672 /* EmployeeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1529,6 +1539,8 @@
 				842659411BE09C31005E82F2 /* MemberListVC.xib */,
 				40F7577E1BE055A80053C2BE /* TeamListVC.swift */,
 				40F7577F1BE055A80053C2BE /* TeamListVC.xib */,
+				FAF101BD1C04029900FC3672 /* EmployeeVC.swift */,
+				FAF101BE1C04029900FC3672 /* EmployeeVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1765,12 +1777,14 @@
 				FAF1A5E31BEC4CA000B9ACC8 /* HeaderView.xib in Resources */,
 				408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */,
 				FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */,
+				FAF101C41C0409D400FC3672 /* EmployeeCell.xib in Resources */,
 				40F757851BE055A80053C2BE /* TeamListVC.xib in Resources */,
 				FAF6AB801BED99CD006C1370 /* InvitationRecordVC.xib in Resources */,
 				40F757831BE055A80053C2BE /* TeamListCell.xib in Resources */,
 				40F757721BE0553E0053C2BE /* SettingsCell.xib in Resources */,
 				40F757561BE054550053C2BE /* OrderDetail.storyboard in Resources */,
 				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
+				FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */,
 				40CAA5FB1BE705F800FAFDA0 /* StaffLoginVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1831,6 +1845,7 @@
 			files = (
 				40F757581BE054550053C2BE /* OrderTVC.swift in Sources */,
 				40F7574B1BE054160053C2BE /* ClientModel.swift in Sources */,
+				FAF101BF1C04029900FC3672 /* EmployeeVC.swift in Sources */,
 				40F757731BE0553E0053C2BE /* SettingsHeaderView.swift in Sources */,
 				40FB3D0A1C00203900675044 /* EMCDDeviceManager+Remind.m in Sources */,
 				40FB3D3F1C00203900675044 /* NSObject+EaseMob.m in Sources */,
@@ -1872,6 +1887,7 @@
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				40FB3D0E1C00203900675044 /* EMVoiceConverter.mm in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
+				FAF101C31C0409D400FC3672 /* EmployeeCell.swift in Sources */,
 				40FC3B451BF438B800AEC4E8 /* UIView+CornerRadius.swift in Sources */,
 				40FB3D281C00203900675044 /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				40FB3D0C1C00203900675044 /* amrFileCodec.mm in Sources */,
@@ -2148,7 +2164,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2171,7 +2187,7 @@
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "54a73e21-7190-402c-bd79-bc9b6c12e4bc";
+				PROVISIONING_PROFILE = "54dfd3a0-1805-44f1-9cec-c9ca5d287656";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2183,7 +2199,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2207,7 +2223,7 @@
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "63473246-d2ab-4761-b7c4-1f7a7671fc9d";
+				PROVISIONING_PROFILE = "f401adbf-5900-4469-8e29-973a38ba7e0a";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 			};
 			name = Release;

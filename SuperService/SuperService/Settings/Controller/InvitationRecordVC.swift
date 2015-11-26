@@ -107,6 +107,4 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
   }
-  
-  
 }

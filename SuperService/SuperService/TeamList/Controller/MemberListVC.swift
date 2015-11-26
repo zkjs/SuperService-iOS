@@ -104,7 +104,6 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let member = memberListArray[indexPath.row]
     let vc = navigationController?.viewControllers[1] as! AddMemberVC
-    print(member.dept_name)
     vc.departmentLabel.text = member.dept_name
     navigationController?.popToViewController(vc, animated: true)
   }

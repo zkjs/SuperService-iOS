@@ -9,19 +9,23 @@
 import UIKit
 
 class TeamModel: NSObject {
-  
+
   var name:String?
-  var phone:String?
+  var phone:NSNumber?
   var roleid:Int16?
-  var role_name:String?
-  var salesid:String?
-  
+  var dept_name:String?
+  var salesid:NSNumber?
+
   init(dic:[String: AnyObject]){
-    name = dic["name"] as? String
-    phone = dic["phone"] as? String
-    role_name = dic["role_name"] as? String
-    roleid = dic["roleid"] as? Int16
-    salesid = dic["salesid"] as? String
+    name = dic["name"] as?String
+    phone = dic["phone"] as?NSNumber
+    dept_name = dic["dept_name"] as?String
+    roleid = dic["roleid"] as?Int16
+    salesid = dic["salesid"] as?NSNumber    
   }
-  
+
+  override init() {
+    super.init()
+  }
+
 }

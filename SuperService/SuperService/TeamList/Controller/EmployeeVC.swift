@@ -8,45 +8,52 @@
 
 import UIKit
 import MessageUI
-class EmployeeVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MFMessageComposeViewControllerDelegate {
+
+class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate {
+  
   var employee = TeamModel()
   var headerView = CodeHeaderView()
   var originY:CGFloat = 0
+  
   @IBOutlet weak var tableView: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      self.navigationController!.navigationBar.translucent = true
-      self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-      self.navigationController!.navigationBar.shadowImage = UIImage()
-      let item1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: nil)
-      let item2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancle:")
-      self.navigationItem.rightBarButtonItem = item1
-      self.navigationItem.leftBarButtonItem = item2
-      let nibName = UINib(nibName: EmployeeCell.nibName(), bundle: nil)
-      tableView.registerNib(nibName, forCellReuseIdentifier: EmployeeCell.reuseIdentifier())
-      tableView.tableFooterView = UIView()
-      tableView.scrollEnabled = false
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("EmployeeVC", owner:self, options:nil)
   }
-  func cancle(sender:UIButton) {
-    navigationController!.navigationBar.translucent = false
-    navigationController?.popViewControllerAnimated(true)
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    navigationController!.navigationBar.shadowImage = UIImage()
+    let item1 = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: nil)
+    let item2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancle:")
+    navigationItem.rightBarButtonItem = item1
+    navigationItem.leftBarButtonItem = item2
+    let nibName = UINib(nibName: EmployeeCell.nibName(), bundle: nil)
+    tableView.registerNib(nibName, forCellReuseIdentifier: EmployeeCell.reuseIdentifier())
+    tableView.tableFooterView = UIView()
+    tableView.scrollEnabled = false
   }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
+    
+    navigationController!.navigationBar.translucent = true
     tableView.reloadData()
   }
-   //用来指示一条消息能否从用户处发送
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    navigationController!.navigationBar.translucent = false
+  }
+  
+  func cancle(sender:UIButton) {
+    navigationController?.popViewControllerAnimated(true)
+  }
+  
+  //用来指示一条消息能否从用户处发送
   func canSendText() -> Bool{
     return MFMessageComposeViewController.canSendText()
   }
@@ -55,7 +62,7 @@ class EmployeeVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MFM
     let messageComposeVC = MFMessageComposeViewController()
     messageComposeVC.messageComposeDelegate = self
     messageComposeVC.recipients = [(employee.phone?.stringValue)!]
-   // messageComposeVC.body = "HI! \(caipinArray[0].rest) 的 \(caipinArray[0].name) 味道很不错，邀你共享 -来自SoFun的邀请"
+    // messageComposeVC.body = "HI! \(caipinArray[0].rest) 的 \(caipinArray[0].name) 味道很不错，邀你共享 -来自SoFun的邀请"
     return messageComposeVC
     
   }
@@ -87,6 +94,7 @@ class EmployeeVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MFM
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return EmployeeCell.height()
   }
+  
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 200
   }
@@ -108,8 +116,18 @@ class EmployeeVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MFM
   
   //对话
   @IBAction func dialogue(sender: AnyObject) {
-    
+    guard let salesid = employee.salesid,
+      let salesName = employee.name else { return }
+    let vc = ChatViewController(conversationChatter: salesid, conversationType: .eConversationTypeChat)
+    let userName = AccountManager.sharedInstance().userName
+    vc.title = salesName
+    // 扩展字段
+    let ext = ["toName": salesName,
+      "fromName": userName]
+    vc.conversation.ext = ext
+    navigationController?.pushViewController(vc, animated: true)
   }
+  
   //短信
   func sendMessage(sender:UIButton) {
     if self.canSendText(){

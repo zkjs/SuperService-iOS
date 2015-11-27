@@ -33,7 +33,8 @@ class AddClientVC: UIViewController,UITextViewDelegate{
       let dic = responseObject as! [String: AnyObject]
       let client = ClientModel(dic: dic)
       client.username = self.userNameTextField.text
-      client.phone = self.phoneTextField.text
+      client.phone = self.phoneTextField.text!
+      
       client.position = self.positionTextField.text
       client.company = self.comapnyTextField.text
       

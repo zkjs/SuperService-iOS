@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,19 +15,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="387" height="135"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="bpf-OZ-CXB">
-                        <rect key="frame" x="18" y="15" width="50" height="54"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="bpf-OZ-CXB">
+                        <rect key="frame" x="18" y="18" width="54" height="54"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="1wD-1B-AV4"/>
+                            <constraint firstAttribute="height" constant="54" id="6Rn-V8-onC"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="李" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-0Q-kOc">
-                        <rect key="frame" x="98" y="25" width="80" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-0Q-kOc">
+                        <rect key="frame" x="87" y="28" width="150" height="25"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="KfB-HY-HWA"/>
+                            <constraint firstAttribute="height" constant="25" id="r4d-1B-LPm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <animations/>
+                <constraints>
+                    <constraint firstItem="vfv-0Q-kOc" firstAttribute="leading" secondItem="bpf-OZ-CXB" secondAttribute="trailing" constant="15" id="I3z-5R-GFB"/>
+                    <constraint firstItem="bpf-OZ-CXB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Q6U-iV-yDf"/>
+                    <constraint firstItem="bpf-OZ-CXB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Ueg-FP-QpO"/>
+                    <constraint firstItem="vfv-0Q-kOc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="xT1-pV-uTL"/>
+                </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>

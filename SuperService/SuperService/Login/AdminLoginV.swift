@@ -57,6 +57,7 @@ class AdminLoginV: UIViewController {
             AccountManager.sharedInstance().easeMobAutoLogin()
             self.view.endEditing(true)
             ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
+           
             self.dismissViewControllerAnimated(true, completion: nil)
           } else {
             if let err = dict["err"] as? NSNumber {

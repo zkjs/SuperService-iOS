@@ -216,7 +216,7 @@ extension MainTBC: IChatManagerDelegate {
       NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
       let messageCenterIndex = 2
       let vc = childViewControllers[messageCenterIndex] as! ConversationListController
-      vc.isConnect(false)
+      vc.isConnect(false) 
     }
   }
   

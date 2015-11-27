@@ -32,6 +32,10 @@ class EmployeeCell: UITableViewCell {
     phoneLabel.text = employee.phone!.stringValue
     tel = employee.phone!.stringValue
   }
+  func setdata(client:ClientModel) {
+    phoneLabel.text = client.phone!
+    tel = client.phone!
+  }
 
   @IBAction func call(sender: AnyObject) {
     UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(tel)")!)

@@ -18,6 +18,7 @@ class SettingUpTVC: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "设置"
+    
   }
   
   override func didReceiveMemoryWarning() {

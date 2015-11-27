@@ -152,6 +152,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     let section = sections[indexPath.section]
     let client = section[indexPath.row] as! ClientModel
     cell.setData(client)
+  
     
     return cell
   }
@@ -191,6 +192,12 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    
+    let vc = EmployeeVC()
+    let section = sections[indexPath.section]
+    let client = section[indexPath.row] as! ClientModel
+    vc.type = EmployeeVCType.client
+    vc.client = client
+    vc.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
   }
 }

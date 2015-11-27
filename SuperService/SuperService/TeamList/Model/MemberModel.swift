@@ -12,7 +12,6 @@ class MemberModel: NSObject {
   var dept_code: String?
   var dept_name: String?
   var deptid: String?
-  
   var shopid: String?
   
   init(dic:[String: AnyObject]){

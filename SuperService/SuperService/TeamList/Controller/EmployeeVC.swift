@@ -8,12 +8,17 @@
 
 import UIKit
 import MessageUI
-
+@objc enum EmployeeVCType: Int {
+  case team
+  case client
+}
 class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate {
   
   var employee = TeamModel()
+  var client = ClientModel()
   var headerView = CodeHeaderView()
   var originY:CGFloat = 0
+  lazy var type = EmployeeVCType.team
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -23,7 +28,7 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    //print(client)
     navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     navigationController!.navigationBar.shadowImage = UIImage()
     let item1 = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: nil)
@@ -61,8 +66,12 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   func configuredMessageComposeViewController() -> MFMessageComposeViewController{
     let messageComposeVC = MFMessageComposeViewController()
     messageComposeVC.messageComposeDelegate = self
-    messageComposeVC.recipients = [(employee.phone?.stringValue)!]
-    // messageComposeVC.body = "HI! \(caipinArray[0].rest) 的 \(caipinArray[0].name) 味道很不错，邀你共享 -来自SoFun的邀请"
+    if type == EmployeeVCType.team {
+      messageComposeVC.recipients = [(employee.phone?.stringValue)!]
+    }else {
+      messageComposeVC.recipients = [(client.phone)!]
+    }
+    
     return messageComposeVC
     
   }
@@ -103,7 +112,12 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     let cell = tableView.dequeueReusableCellWithIdentifier("EmployeeCell", forIndexPath:indexPath) as! EmployeeCell
     cell.selectionStyle = UITableViewCellSelectionStyle.None
     cell.sendMessageButton.addTarget(self, action: "sendMessage:", forControlEvents: UIControlEvents.TouchUpInside)
-    cell.setData(employee)
+    if type == EmployeeVCType.team {
+     cell.setData(employee)
+    }else {
+      cell.setdata(client)
+    }
+    
     return cell
   }
   

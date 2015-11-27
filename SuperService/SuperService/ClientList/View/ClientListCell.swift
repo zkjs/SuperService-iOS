@@ -23,7 +23,7 @@ class ClientListCell: UITableViewCell {
     return "ClientListCell"
   }
   class func height() -> CGFloat {
-    return 140
+    return 100
   }
 
     override func setSelected(selected: Bool, animated: Bool) {

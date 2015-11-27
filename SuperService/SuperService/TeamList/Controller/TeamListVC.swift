@@ -200,7 +200,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     let vc = EmployeeVC()
     let section = sections[indexPath.section]
     let employee = section[indexPath.row] as! TeamModel
-    print(employee.name)
+    vc.type = EmployeeVCType.team
     vc.employee = employee
     vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)

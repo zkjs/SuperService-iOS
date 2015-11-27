@@ -47,7 +47,7 @@ class ClientModel: NSObject {
     modified = dic["modified"] as?String
     username = dic["username"] as?String
     if let phoneNumber = dic["phone"] {
-      phone = phoneNumber.stringValue
+      phone = phoneNumber as?String
     }
     company = dic["company"] as?String
     position = dic["position"] as?String

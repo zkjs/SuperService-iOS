@@ -32,6 +32,10 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   
   func setData(team:TeamModel) {
     username.text = team.name
+    let url = NSURL(string: kBaseURL)
+    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(team.salesid).jpg")
+    userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+
 //    rightUtilityButtons = rightButtons() as [AnyObject]
   }
   

@@ -15,6 +15,7 @@
 + (BOOL)validateMobile:(NSString *)mobileNum;
 //检测邮箱格式
 + (BOOL)validateEmail:(NSString *)email;
-#pragma mark - 动画
+// JSON String to Dictionary
++ (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString;
 
 @end

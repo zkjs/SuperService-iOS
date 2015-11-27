@@ -110,6 +110,8 @@ extension MainTBC: EMCallManagerDelegate {
   func unregisterNotification() {
     EaseMob.sharedInstance().chatManager.removeDelegate(self)
     EaseMob.sharedInstance().callManager.removeDelegate(self)
+    
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   
   func canRecord() -> Bool {
@@ -153,7 +155,7 @@ extension MainTBC: EMCallManagerDelegate {
         EaseMob.sharedInstance().callManager.removeDelegate(self)
         
         let callVC = CallViewController(session: callSession, isIncoming: false)
-        callVC.modalPresentationStyle = .FullScreen
+        callVC.modalPresentationStyle = .OverFullScreen
         presentViewController(callVC, animated: true, completion: nil)
       } else if error != nil {
         showAlertWithTitle(NSLocalizedString("error", comment: "error"), message: NSLocalizedString("ok", comment:"OK"))
@@ -170,41 +172,37 @@ extension MainTBC: EMCallManagerDelegate {
 extension MainTBC: IChatManagerDelegate {
   
   func callSessionStatusChanged(callSession: EMCallSession!, changeReason reason: EMCallStatusChangedReason, error: EMError!) {
-    if callSession.status == EMCallSessionStatus.eCallSessionStatusConnected {
+    if callSession.status == .eCallSessionStatusConnected {
       var error: EMError? = nil
-      repeat {
-        if let isShowPicker = NSUserDefaults.standardUserDefaults().objectForKey("isShowPicker") as? NSNumber {
-          if isShowPicker.boolValue == true {
-            error = EMError(code: EMErrorType.InitFailure, andDescription: NSLocalizedString("call.initFailed", comment: "Establish call failure"))
-            break;
-          }
-          
-          if canRecord() == false {
-            error = EMError(code: EMErrorType.InitFailure, andDescription: NSLocalizedString("call.initFailed", comment: "Establish call failure"))
-            break;
-          }
-          
-          if callSession.type == EMCallSessionType.eCallSessionTypeVideo &&
-            (UIApplication.sharedApplication().applicationState != UIApplicationState.Active || CallViewController.canVideo() == false) {
-              error = EMError(code: EMErrorType.InitFailure, andDescription: NSLocalizedString("call.initFailed", comment: "Establish call failure"))
-              break;
-          }
-          
-          if isShowPicker.boolValue == false {
-            EaseMob.sharedInstance().callManager.removeDelegate(self)
-            let callVC = CallViewController(session: callSession, isIncoming: true)
-            callVC.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-            presentViewController(callVC, animated: true, completion: nil)
-            if ((navigationController?.topViewController?.isKindOfClass(ChatViewController)) != nil) {
-              let chatVC = navigationController?.topViewController as! ChatViewController
-              chatVC.isViewDidAppear = false
-            }
-          }
-        }
-      } while 1 > 0
+      let isShowPicker = NSUserDefaults.standardUserDefaults().objectForKey("isShowPicker")
+      if isShowPicker != nil && isShowPicker!.boolValue == true {
+        error = EMError(code: EMErrorType.InitFailure, andDescription: NSLocalizedString("call.initFailed", comment: "Establish call failure"))
+        EaseMob.sharedInstance().callManager.asyncEndCall(callSession.sessionId, reason: .eCallReason_Hangup)
+        return
+      }
       
-      if error != nil {
-        EaseMob.sharedInstance().callManager.asyncEndCall(callSession.sessionId, reason: EMCallStatusChangedReason.eCallReason_Hangup)
+      if canRecord() == false {
+        error = EMError(code: EMErrorType.InitFailure, andDescription: NSLocalizedString("call.initFailed", comment: "Establish call failure"))
+        EaseMob.sharedInstance().callManager.asyncEndCall(callSession.sessionId, reason: .eCallReason_Hangup)
+        return
+      }
+      
+      if callSession.type == EMCallSessionType.eCallSessionTypeVideo &&
+        (UIApplication.sharedApplication().applicationState != UIApplicationState.Active || CallViewController.canVideo() == false) {
+          error = EMError(code: EMErrorType.InitFailure, andDescription: NSLocalizedString("call.initFailed", comment: "Establish call failure"))
+          EaseMob.sharedInstance().callManager.asyncEndCall(callSession.sessionId, reason: .eCallReason_Hangup)
+          return
+      }
+      
+      if isShowPicker == nil || isShowPicker!.boolValue == false {
+        EaseMob.sharedInstance().callManager.removeDelegate(self)
+        let callVC = CallViewController(session: callSession, isIncoming: true)
+        callVC.modalPresentationStyle = .OverFullScreen
+        presentViewController(callVC, animated: true, completion: nil)
+        if ((navigationController?.topViewController?.isKindOfClass(ChatViewController)) == true) {
+          let chatVC = navigationController?.topViewController as! ChatViewController
+          chatVC.isViewDidAppear = false
+        }
       }
     }
   }

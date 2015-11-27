@@ -155,6 +155,18 @@ class OrderModel: NSObject {
     }
   }
   
+  var roomInfo: String {
+    get {
+      if let arrivalDateShortStyle = arrivalDateShortStyle,
+         let duration = duration,
+         let room_type = room_type {
+        return "\(room_type) | \(arrivalDateShortStyle) | \(duration.integerValue)晚"
+      } else {
+        return ""
+      }
+    }
+  }
+  
   override var description: String {
     var output = "arrival_date: \(arrival_date)\n"
     output += "departure_date: \(departure_date)\n"
@@ -189,6 +201,18 @@ class OrderModel: NSObject {
   }
   
   init(dic:[String:AnyObject]) {
+    super.init()
+    self.initWithDictionary(dic)
+  }
+  
+  init(json: String) {
+    super.init()
+    if let dictionary = ZKJSTool.convertJSONStringToDictionary(json) as? [String: AnyObject] {
+      initWithDictionary(dictionary)
+    }
+  }
+  
+  func initWithDictionary(dic: [String: AnyObject]) {
     arrival_date = dic["arrival_date"] as? String
     departure_date = dic["departure_date"] as? String
     fullname = dic["fullname"] as? String
@@ -208,6 +232,13 @@ class OrderModel: NSObject {
     status = dic["status"] as? NSNumber
     userid = dic["userid"] as? String
     remark = dic["remark"] as? String
+    if let imageURL = dic["imgurl"] as? String {
+      imgurl = kBaseURL + imageURL
+    } else if let imageURL = dic["image"] as? String {
+      imgurl = kBaseURL + imageURL
+    } else {
+      imgurl = ""
+    }
   }
 
 }

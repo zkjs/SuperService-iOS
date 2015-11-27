@@ -75,5 +75,18 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
     return [emailTest evaluateWithObject:email];
 }
-#pragma mark - 
+
+// JSON String to Dictionary
++ (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString {
+  NSError *jsonError;
+  NSData *objectData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+  NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:objectData
+                                                       options:NSJSONReadingMutableContainers
+                                                         error:&jsonError];
+  if (jsonError) {
+    NSLog(@"%@", jsonError);
+  }
+  return dictionary;
+}
+
 @end

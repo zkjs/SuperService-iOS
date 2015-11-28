@@ -212,4 +212,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
 }
-

@@ -8,12 +8,16 @@
 
 #import "AFNetworking.h"
 
+@protocol HTTPSessionManagerDelegate;
+
 @class OrderModel;
 
 //static NSString *kBaseURL = @"http://172.21.7.54/";  // HTTP内网服务器地址
 static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器地址
 
 @interface ZKJSHTTPSessionManager : AFHTTPSessionManager
+
+@property (nonatomic, weak) id<HTTPSessionManagerDelegate> delegate;
 
 #pragma mark - 单例
 + (instancetype)sharedInstance;
@@ -98,5 +102,12 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 
 #pragma mark - 查询用户(服务员)简单信息
 - (void)getUserInfoWithChatterID:(NSString *)chatterID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+@end
+
+@protocol HTTPSessionManagerDelegate <NSObject>
+
+// error = 400, token失效
+- (void)didReceiveInvalidToken;
 
 @end

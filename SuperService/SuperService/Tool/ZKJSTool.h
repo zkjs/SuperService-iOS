@@ -10,12 +10,16 @@
 
 @interface ZKJSTool : NSObject
 
-#pragma mark - 
-//检测手机号码是否合法
+#pragma mark - HUD
++ (void)showMsg:(NSString *)message;
+
+#pragma mark - 检测手机号码是否合法
 + (BOOL)validateMobile:(NSString *)mobileNum;
-//检测邮箱格式
+
+#pragma mark - 检测邮箱格式
 + (BOOL)validateEmail:(NSString *)email;
-// JSON String to Dictionary
+
+#pragma mark - JSON String to Dictionary
 + (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString;
 
 @end

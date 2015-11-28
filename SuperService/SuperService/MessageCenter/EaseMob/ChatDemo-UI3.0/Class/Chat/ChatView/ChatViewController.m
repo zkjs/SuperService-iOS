@@ -266,7 +266,9 @@
 
 - (void)sendTextMessage:(NSString *)text
 {
-  [self sendTextMessage:text withExt:self.conversation.ext];
+  NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:self.conversation.ext];
+  ext[@"extType"] = @(0);
+  [self sendTextMessage:text withExt:[ext copy]];
 }
 
 - (void)sendLocationMessageLatitude:(double)latitude

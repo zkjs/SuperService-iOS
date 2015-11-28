@@ -17,6 +17,8 @@ class MainTBC: UITabBarController {
       ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
     }
     
+    ZKJSHTTPSessionManager.sharedInstance().delegate = self
+    
     setupView()
     registerNotification()
   }
@@ -232,6 +234,16 @@ extension MainTBC: IChatManagerDelegate {
   
   func didAppkeyChanged() {
     NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+  }
+  
+}
+// MARK: - HTTPSessionManagerDelegate
+
+extension MainTBC: HTTPSessionManagerDelegate {
+  
+  func didReceiveInvalidToken() {
+    showLogin()
+    ZKJSTool.showMsg("账号在别处登录，请重新重录")
   }
   
 }

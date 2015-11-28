@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29B7726F072F98DA115D7278 /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5692D1DD697B52942EE420A3 /* libPods-SuperService.a */; };
-		401ADD161BE4757D00E38870 /* ZKJSHTTPChatSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 401ADD151BE4757D00E38870 /* ZKJSHTTPChatSessionManager.m */; };
 		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; };
 		404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */; };
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
@@ -247,8 +246,6 @@
 
 /* Begin PBXFileReference section */
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
-		401ADD141BE4757D00E38870 /* ZKJSHTTPChatSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPChatSessionManager.h; sourceTree = "<group>"; };
-		401ADD151BE4757D00E38870 /* ZKJSHTTPChatSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPChatSessionManager.m; sourceTree = "<group>"; };
 		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSessionManager.h; sourceTree = "<group>"; };
 		404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -646,8 +643,6 @@
 			children = (
 				404FB5221BCE2A4B0074D205 /* NSString+ZKJS.h */,
 				404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */,
-				401ADD141BE4757D00E38870 /* ZKJSHTTPChatSessionManager.h */,
-				401ADD151BE4757D00E38870 /* ZKJSHTTPChatSessionManager.m */,
 				FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */,
 				FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */,
 				404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */,
@@ -1945,7 +1940,6 @@
 				842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */,
 				844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */,
 				FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */,
-				401ADD161BE4757D00E38870 /* ZKJSHTTPChatSessionManager.m in Sources */,
 				40FB3D1B1C00203900675044 /* EMSDImageCache.m in Sources */,
 				40CAA5FA1BE705F800FAFDA0 /* StaffLoginVC.swift in Sources */,
 				40F7576C1BE0553E0053C2BE /* InformCell.swift in Sources */,

@@ -16,7 +16,6 @@ class BaseNavigationController: UINavigationController {
     setupView()
   }
   
-  
   // MARK: - Private
   
   private func setupView() {

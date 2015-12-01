@@ -11,8 +11,33 @@
 
 @implementation ZKJSTool
 
-#pragma mark - 
-//检测手机号码是否合法
+#pragma mark - HUD
++ (MBProgressHUD *)Hud {
+  UIApplication *application = [UIApplication sharedApplication];
+  MBProgressHUD *hud = [MBProgressHUD HUDForView:application.keyWindow];
+  if (hud){
+    [hud removeFromSuperview];
+  }else{
+    hud = [[MBProgressHUD alloc] initWithWindow:application.keyWindow];
+    hud.removeFromSuperViewOnHide = YES;
+  }
+  [application.keyWindow addSubview:hud];
+  return hud;
+}
+
+#pragma mark - 显示提示信息
+
++ (void)showMsg:(NSString *)message {
+  MBProgressHUD * hud = [MBProgressHUD HUDForView:[UIApplication sharedApplication].keyWindow];
+  hud.removeFromSuperViewOnHide = YES;
+  hud.labelText = message;
+  hud.mode = MBProgressHUDModeText;
+  hud.labelFont = [UIFont systemFontOfSize:12];
+  [hud show:YES];
+  [hud hide:YES afterDelay:2.0];
+}
+
+#pragma mark - 检测手机号码是否合法
 + (BOOL)validateMobile:(NSString *)mobileNum
 {
     /**
@@ -68,12 +93,25 @@
     }
 }
 
-//检测邮箱格式
+#pragma mark - 检测邮箱格式
 + (BOOL)validateEmail:(NSString *)email
 {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
     return [emailTest evaluateWithObject:email];
 }
-#pragma mark - 
+
+#pragma mark - JSON String to Dictionary
++ (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString {
+  NSError *jsonError;
+  NSData *objectData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+  NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:objectData
+                                                       options:NSJSONReadingMutableContainers
+                                                         error:&jsonError];
+  if (jsonError) {
+    NSLog(@"%@", jsonError);
+  }
+  return dictionary;
+}
+
 @end

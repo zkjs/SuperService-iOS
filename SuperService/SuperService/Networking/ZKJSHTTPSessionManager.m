@@ -65,6 +65,19 @@
   return [AccountManager sharedInstance].shopName;
 }
 
+- (BOOL)isValidTokenWithObject:(id)responseObject {
+  if ([responseObject isKindOfClass:[NSDictionary class]] &&
+      responseObject[@"set"] &&
+      [responseObject[@"set"] boolValue] == NO &&
+      [responseObject[@"err"] integerValue] == 400) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didReceiveInvalidToken)]) {
+      [self.delegate didReceiveInvalidToken];
+      return NO;
+    }
+  }
+  return YES;
+}
+
 
 #pragma mark - 管理员登陆
 
@@ -72,11 +85,11 @@
   [self POST:@"semp/semplogin" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
     [formData appendPartWithFormData:[[password MD5String] dataUsingEncoding:NSUTF8StringEncoding] name:@"password"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -98,11 +111,11 @@
     [formData appendPartWithFormData:[company dataUsingEncoding:NSUTF8StringEncoding] name:@"company"];
     [formData appendPartWithFormData:[other_desc dataUsingEncoding:NSUTF8StringEncoding] name:@"other_desc"];
     [formData appendPartWithFormData:[is_bill dataUsingEncoding:NSUTF8StringEncoding] name:@"is_bill"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"失败==%@", error.description);
     failure(task, error);
@@ -118,12 +131,11 @@
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
     [formData appendPartWithFormData:[tag dataUsingEncoding:NSUTF8StringEncoding] name:@"tag"];
-    
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"失败==%@", error.description);
     failure(task, error);
@@ -137,11 +149,11 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"我的客户==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -157,11 +169,11 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[clientID dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -176,11 +188,11 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -200,11 +212,11 @@
     [formData appendPartWithFormData:[page dataUsingEncoding:NSUTF8StringEncoding] name:@"page"];
     [formData appendPartWithFormData:[@"" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagetime"];
     [formData appendPartWithFormData:[@"7" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagedata"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -218,11 +230,11 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[reservationNO dataUsingEncoding:NSUTF8StringEncoding] name:@"reservation_no"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -237,11 +249,11 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[userData dataUsingEncoding:NSUTF8StringEncoding] name:@"userdata"];
-    
   } success:^(NSURLSessionDataTask *  task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError * error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -256,11 +268,11 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[deleteList dataUsingEncoding:NSUTF8StringEncoding] name:@"deletelist"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -274,12 +286,11 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"部门列表==%@", [responseObject description]);
-    success(task, responseObject);
-    
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }  } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
   }];
@@ -293,11 +304,11 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[department dataUsingEncoding:NSUTF8StringEncoding] name:@"dept"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -311,11 +322,11 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -327,9 +338,10 @@
 - (void)getGoodsListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSString *url = [NSString stringWithFormat:@"semp/goods?shopid=%@", [self shopID]];
   [self GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -369,11 +381,11 @@
     if (order.remark) {
       [formData appendPartWithFormData:[order.remark dataUsingEncoding:NSUTF8StringEncoding] name:@"remark"];
     }
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -384,17 +396,15 @@
 
 - (void)loginWithphoneNumber:(NSString *)phoneNumber success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"semp/login" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
-    
     [formData appendPartWithFormData:[phoneNumber dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
-    
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
     NSLog(@"%@", error.description);
     failure(task, error);
-    
   }];
 }
 
@@ -409,10 +419,11 @@
                          };
   [self POST:@"semp/sempupdate" parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFileData:imageFile name:@"file" fileName:@"imageName.jpg" mimeType:@"image/jpeg"];
-    
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -427,10 +438,12 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-    //NSLog(@"11%@", [responseObject description]);
-    success(task, responseObject);
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
-    //NSLog(@"%@", error.description);
+    NSLog(@"%@", error.description);
     failure(task, error);
   }];
 }
@@ -443,8 +456,10 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-    NSLog(@"11%@", [responseObject description]);
-    success(task, responseObject);
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -458,9 +473,10 @@
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[locID dataUsingEncoding:NSUTF8StringEncoding] name:@"locid"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -487,11 +503,11 @@
     [formData appendPartWithFormData:[order.room_rate.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"room_rate"];
     [formData appendPartWithFormData:[order.status.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"status"];
     [formData appendPartWithFormData:[order.pay_id.stringValue dataUsingEncoding:NSUTF8StringEncoding] name:@"payment"];
-    
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"==%@", [responseObject description]);
-    success(task, responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);
     failure(task, error);
@@ -508,9 +524,10 @@
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
     [formData appendPartWithFormData:[@"9" dataUsingEncoding:NSUTF8StringEncoding] name:@"set"];
   } success:^(NSURLSessionDataTask *  task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError * error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -525,9 +542,10 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
   } success:^(NSURLSessionDataTask *  task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError * error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -543,9 +561,10 @@
     [formData appendPartWithFormData:[page dataUsingEncoding:NSUTF8StringEncoding] name:@"page"];
     [formData appendPartWithFormData:[pageData dataUsingEncoding:NSUTF8StringEncoding] name:@"pagedata"];
   } success:^(NSURLSessionDataTask *  task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError * error) {
     NSLog(@"%@",error.description);
     failure(task,error);
@@ -559,16 +578,33 @@
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[code dataUsingEncoding:NSUTF8StringEncoding] name:@"code"];
-    
   } success:^(NSURLSessionDataTask *  task, id responseObject) {
-    NSLog(@"==%@",[responseObject description]);
-    success(task,responseObject);
-    
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *  task, NSError * error) {
     NSLog(@"%@",error.description);
     failure(task,error);
   }];
+}
 
+
+#pragma mark - 查询用户(服务员)简单信息
+- (void)getUserInfoWithChatterID:(NSString *)chatterID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"v10/user" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[chatterID dataUsingEncoding:NSUTF8StringEncoding] name:@"find_userid"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
 }
 
 @end

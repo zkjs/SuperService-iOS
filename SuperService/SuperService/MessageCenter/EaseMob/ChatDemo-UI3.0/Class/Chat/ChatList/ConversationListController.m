@@ -10,6 +10,7 @@
 #import "ChatViewController.h"
 #import "ZKJSHTTPSessionManager.h"
 #import "SuperService-Swift.h"
+#import "EaseUI.h"
 
 @interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource,UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -153,10 +154,14 @@
         latestMessageTitle = NSLocalizedString(@"message.image1", @"[image]");
       } break;
       case eMessageBodyType_Text:{
-        // 表情映射。
-        NSString *didReceiveText = [EaseConvertToCommonEmoticonsHelper
-                                    convertToSystemEmoticons:((EMTextMessageBody *)messageBody).text];
-        latestMessageTitle = didReceiveText;
+        if ([[messageBody.message.ext objectForKey:@"extType"] integerValue] == eTextTxtCard) {
+          // 订单卡片。
+          latestMessageTitle = NSLocalizedString(@"message.card1", @"[card]");
+        } else {
+          NSString *didReceiveText = [EaseConvertToCommonEmoticonsHelper
+                                      convertToSystemEmoticons:((EMTextMessageBody *)messageBody).text];
+          latestMessageTitle = didReceiveText;
+        }
       } break;
       case eMessageBodyType_Voice:{
         latestMessageTitle = NSLocalizedString(@"message.voice1", @"[voice]");

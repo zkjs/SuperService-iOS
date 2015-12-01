@@ -10,6 +10,7 @@
 #import "CustomMessageCell.h"
 //#import "ContactListSelectViewController.h"
 #import "ZKJSHTTPSessionManager.h"
+#import "SuperService-Swift.h"
 
 @interface ChatViewController ()<UIAlertViewDelegate, EaseMessageViewControllerDelegate, EaseMessageViewControllerDataSource>
 {
@@ -80,6 +81,10 @@
             self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
+}
+
+-(void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - setup subviews
@@ -166,6 +171,15 @@
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController didSelectMessageModel:(id<IMessageModel>)messageModel
 {
     BOOL flag = NO;
+    if ([[messageModel.message.ext objectForKey:@"extType"] integerValue] == eTextTxtCard) {
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OrderDetail" bundle:nil];
+      OrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"OrderDetailVC"];
+      vc.type = OrderTypeAdd;
+      OrderModel *order = [[OrderModel alloc] initWithJson:messageModel.text];
+      vc.order = order;
+      [self.navigationController pushViewController:vc animated:true];
+      flag = YES;
+    }
     return flag;
 }
 
@@ -252,7 +266,9 @@
 
 - (void)sendTextMessage:(NSString *)text
 {
-  [self sendTextMessage:text withExt:self.conversation.ext];
+  NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:self.conversation.ext];
+  ext[@"extType"] = @(0);
+  [self sendTextMessage:text withExt:[ext copy]];
 }
 
 - (void)sendLocationMessageLatitude:(double)latitude

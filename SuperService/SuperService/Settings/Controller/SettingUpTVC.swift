@@ -62,11 +62,9 @@ class SettingUpTVC: UITableViewController {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
-    if indexPath == NSIndexPath(forRow: 5, inSection: 0) {
+    if indexPath == NSIndexPath(forRow: 4, inSection: 0) {
       let vc = CodeVC()
-      vc.hidesBottomBarWhenPushed = true
       self.navigationController?.pushViewController(vc, animated: true)
-      
     }
   }
   

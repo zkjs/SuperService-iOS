@@ -116,6 +116,43 @@ extension MainTBC: EMCallManagerDelegate {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   
+  func showCodeAlertWithClientInfo(clientInfo: [String: AnyObject]) {
+    let userName = clientInfo["userName"] as? String ?? ""
+    let mobileNo = clientInfo["mobileNo"] as? String ?? ""
+    var date = NSDate()
+    if let timestamp = clientInfo["date"] as? NSNumber {
+      let timeInterval = Double(timestamp.longLongValue / Int64(1_000))
+      date = NSDate(timeIntervalSince1970: timeInterval)
+    }
+    let alertMessage = "客人\(userName), 手机号\(mobileNo)已绑定验证码-\(date.timeAgoSinceDate(date))"
+    let alertView = UIAlertController(title: "邀请码绑定", message: alertMessage, preferredStyle: .Alert)
+    let okAction = UIAlertAction(title: "知道了", style: .Cancel, handler: nil)
+    alertView.addAction(okAction)
+    presentViewController(alertView, animated: true, completion: nil)
+  }
+  
+  func didReceiveCmdMessage(cmdMessage: EMMessage!) {
+    if let chatObject = cmdMessage.messageBodies.first?.chatObject as? EMChatCommand {
+      if chatObject.cmd == "inviteAdd" {
+        // 客人已绑定验证码
+        self.showCodeAlertWithClientInfo(cmdMessage.ext as! [String: AnyObject])
+      }
+    }
+  }
+  
+  func didReceiveOfflineCmdMessages(offlineCmdMessages: [AnyObject]!) {
+    for cmdMessage in offlineCmdMessages {
+      if let cmdMessage = cmdMessage as? EMMessage {
+        if let chatObject = cmdMessage.messageBodies.first?.chatObject as? EMChatCommand {
+          if chatObject.cmd == "inviteAdd" {
+            // 客人已绑定验证码
+            self.showCodeAlertWithClientInfo(cmdMessage.ext as! [String: AnyObject])
+          }
+        }
+      }
+    }
+  }
+  
   func canRecord() -> Bool {
     var bCanRecord = true
     let audioSession = AVAudioSession.sharedInstance()
@@ -237,6 +274,7 @@ extension MainTBC: IChatManagerDelegate {
   }
   
 }
+
 // MARK: - HTTPSessionManagerDelegate
 
 extension MainTBC: HTTPSessionManagerDelegate {

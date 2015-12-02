@@ -115,7 +115,7 @@ class OrderModel: NSObject {
       if let orderEnum = OrderStatus(rawValue: status.integerValue) {
         switch orderEnum {
         case .Pending:
-          return "未确定"
+          return "待确定"
         case .Canceled:
           return "已取消"
         case .Confirmed:
@@ -223,13 +223,25 @@ class OrderModel: NSObject {
     pay_id = dic["pay_id"] as? NSNumber
     pay_name = dic["pay_name"] as? String
     reservation_no = dic["reservation_no"] as? String
-    pay_status = dic["pay_status"] as? NSNumber
+    if let pay_status = dic["pay_status"] as? NSNumber {
+      self.pay_status = pay_status
+    } else if let pay_status = dic["pay_status"] as? String {
+      self.pay_status = NSNumber(integer: Int(pay_status)!)
+    }
     room_rate = dic["room_rate"] as? NSNumber
     room_type = dic["room_type"] as? String
-    room_typeid = dic["room_typeid"] as? NSNumber
+    if let room_typeid = dic["room_typeid"] as? NSNumber {
+      self.room_typeid = room_typeid
+    } else if let room_typeid = dic["room_typeid"] as? String {
+      self.room_typeid = NSNumber(integer: Int(room_typeid)!)
+    }
     rooms = dic["rooms"] as? NSNumber
     shopid = dic["shopid"] as? NSNumber
-    status = dic["status"] as? NSNumber
+    if let status = dic["status"] as? NSNumber {
+      self.status = status
+    } else if let status = dic["status"] as? String {
+      self.status = NSNumber(integer: Int(status)!)
+    }
     userid = dic["userid"] as? String
     remark = dic["remark"] as? String
     if let imageURL = dic["imgurl"] as? String {

@@ -263,27 +263,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       self.order.guesttel = client.phone
     }
     navigationController?.pushViewController(vc, animated: true)
-    
-//    testChooseClient()
-  }
-  
-  func testChooseClient() {
-    let clientArray = [["userid": "5603d8d417392", "guest": "Hanton", "guesttel": "18925232944"],
-      ["userid": "5620c7ee02287", "guest": "AlexBang", "guesttel": "15815507102"]]
-    let alertView = UIAlertController(title: "选择订单状态-只供测试", message: "", preferredStyle: .ActionSheet)
-    
-    for index in 0..<clientArray.count {
-      let client = clientArray[index]
-      alertView.addAction(UIAlertAction(title: client["guest"], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
-        self.clientNameTextField.text = client["guest"]
-        // 更新订单
-        self.order.userid = client["userid"]
-        self.order.guest = client["guest"]
-        self.order.guesttel = client["guesttel"]
-        }))
-    }
-    alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
-    presentViewController(alertView, animated: true, completion: nil)
   }
   
   @IBAction func doneOrder(sender: AnyObject) {
@@ -339,11 +318,29 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func addOrder() {
     showHUDInView(view, withLoading: "正在新增订单...")
-    ZKJSHTTPSessionManager.sharedInstance().addOrderWithOrder(order, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().addOrderWithOrder(order, success: { [unowned self] (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       self.hideHUD()
+      // 发送环信透传消息
+      if let orderNO = responseObject["reservation_no"] as? String {
+        self.sendNewOrderNotificationToClientWithOrderNO(orderNO)
+      }
       self.navigationController?.popViewControllerAnimated(true)
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
+    }
+  }
+  
+  func sendNewOrderNotificationToClientWithOrderNO(orderNO: String) {
+    let shopID = AccountManager.sharedInstance().shopID
+    if let clientID = order.userid {
+      let cmdChat = EMChatCommand()
+      cmdChat.cmd = "sureOrder"
+      let body = EMCommandMessageBody(chatObject: cmdChat)
+      let message = EMMessage(receiver: clientID, bodies: [body])
+      message.ext = ["shopId": shopID,
+                     "orderNo": orderNO]
+      message.messageType = .eMessageTypeChat
+      EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
     }
   }
   

@@ -77,6 +77,7 @@ class OrderTVC: UITableViewController {
         if let array = responseObject as? NSArray {
           if array.count == 0 {
             self.tableView.mj_footer.endRefreshingWithNoMoreData()
+            self.tableView.mj_header.endRefreshing()
           } else {
             if page == 1 {
               self.orderArray.removeAll()

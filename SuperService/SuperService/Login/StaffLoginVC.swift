@@ -115,11 +115,6 @@ class StaffLoginVC: UIViewController {
     let vc = AdminLoginV()
     navigationController?.pushViewController(vc, animated: true)
   }
-  
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
-    return true
-  }
-  
 }
 
 extension StaffLoginVC: UITextFieldDelegate {
@@ -139,6 +134,19 @@ extension StaffLoginVC: UITextFieldDelegate {
       }
     }
     return false
+  }
+  
+  func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+      textField.layer.masksToBounds=true
+      textField.layer.borderWidth = 2.0
+      textField.layer.borderColor = UIColor.ZKJS_themeColor().CGColor
+      return true
+    
+  }
+  
+  func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+    textField.layer.borderWidth = 0
+    return true
   }
   
 }

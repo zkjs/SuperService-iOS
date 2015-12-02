@@ -11,7 +11,13 @@ import UIKit
 class HeaderView: UIView {
 
   @IBOutlet weak var selectedImageViewButton: UIButton!
-  @IBOutlet weak var userImageView: UIImageView!
+  @IBOutlet weak var userImageView: UIImageView!{
+    didSet {
+      userImageView.layer.masksToBounds = true
+      userImageView.layer.cornerRadius = userImageView.frame.width / 2.0
+    }
+  }
+
   @IBOutlet weak var usernameLabel: UILabel!
   
   /*

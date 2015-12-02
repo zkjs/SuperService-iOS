@@ -11,8 +11,14 @@ import UIKit
 class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   
   @IBOutlet weak var username: UILabel!
-  @IBOutlet weak var userImage: UIImageView!
-  
+  @IBOutlet weak var userImage: UIImageView!{
+    didSet {
+      userImage.layer.masksToBounds = true
+      userImage.layer.cornerRadius = userImage.frame.width / 2.0
+    }
+  }
+
+  var salesid:String!
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -32,8 +38,15 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   
   func setData(team:TeamModel) {
     username.text = team.name
+    
+    if let salesid = team.salesid {
+      self.salesid = salesid
+    }
+    
+    
     let url = NSURL(string: kBaseURL)
-    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(team.salesid).jpg")
+    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(salesid).jpg")
+
     userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
 
 //    rightUtilityButtons = rightButtons() as [AnyObject]

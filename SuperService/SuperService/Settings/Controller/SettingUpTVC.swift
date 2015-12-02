@@ -18,7 +18,7 @@ class SettingUpTVC: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "设置"
-    
+    telphoneLabel.text = AccountManager.sharedInstance().phone
   }
   
   override func didReceiveMemoryWarning() {
@@ -64,6 +64,10 @@ class SettingUpTVC: UITableViewController {
     }
     if indexPath == NSIndexPath(forRow: 4, inSection: 0) {
       let vc = CodeVC()
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
+    if indexPath == NSIndexPath(forRow: 5, inSection: 0) {
+      let vc = AboutUSVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
   }

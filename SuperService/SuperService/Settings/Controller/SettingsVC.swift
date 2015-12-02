@@ -87,7 +87,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    
+    let aboutUSIndexPath = NSIndexPath(forItem: 3, inSection: 0)
     let logoutIndexPath = NSIndexPath(forItem: 4, inSection: 0)
     let setupIndexPath = NSIndexPath(forItem: 1, inSection: 0)
     if indexPath == logoutIndexPath {
@@ -109,6 +109,12 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       let vc = storyboard.instantiateViewControllerWithIdentifier("SettingUpTVC") as! SettingUpTVC
       vc.hidesBottomBarWhenPushed = true
       navigationController?.pushViewController(vc, animated: true)
+    }
+    if indexPath == aboutUSIndexPath {
+      let vc = AboutUSVC()
+      self.hidesBottomBarWhenPushed = true
+      self.navigationController?.pushViewController(vc, animated: true)
+      self.hidesBottomBarWhenPushed = false
     }
   }
   

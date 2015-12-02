@@ -228,6 +228,8 @@
 		FAF6AB801BED99CD006C1370 /* InvitationRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */; };
 		FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */; };
 		FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */; };
+		FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */; };
+		FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -615,6 +617,8 @@
 		FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordVC.xib; sourceTree = "<group>"; };
 		FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordCell.swift; sourceTree = "<group>"; };
 		FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordCell.xib; sourceTree = "<group>"; };
+		FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUSVC.swift; sourceTree = "<group>"; };
+		FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1605,6 +1609,8 @@
 				FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */,
 				40F757681BE0553E0053C2BE /* SettingsVC.swift */,
 				40F757691BE0553E0053C2BE /* SettingsVC.xib */,
+				FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */,
+				FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1777,6 +1783,7 @@
 				40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */,
 				40FB3CFD1C00203900675044 /* callRing.mp3 in Resources */,
 				408423091BC68A7800C215CD /* ArrivalCell.xib in Resources */,
+				FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */,
 				FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */,
 				40F757791BE0553E0053C2BE /* SetUpVC.xib in Resources */,
 				40F757461BE054160053C2BE /* AddClientVC.xib in Resources */,
@@ -1897,6 +1904,7 @@
 				40FB3D4A1C00203900675044 /* EaseConversationListViewController.m in Sources */,
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
 				40FB3D2F1C00203900675044 /* PSTCollectionViewData.m in Sources */,
+				FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */,
 				FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
 				40FB3D431C00203900675044 /* EaseChineseToPinyin.m in Sources */,

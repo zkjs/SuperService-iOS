@@ -73,7 +73,6 @@ class AdminLoginV: UIViewController {
     }
   }
   
-  
 }
 
 extension AdminLoginV: UITextFieldDelegate {

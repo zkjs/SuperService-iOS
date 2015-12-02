@@ -30,6 +30,7 @@ class AccountManager: NSObject {
   private(set) var beaconLocationIDs = ""
   private(set) var deviceToken = ""
   private(set) var url = ""
+  private(set) var phone = ""
   private(set) var avatarImageData = NSData()
   private(set) var avatarImage = UIImage(named: "ic_home_nor")
 
@@ -51,6 +52,7 @@ class AccountManager: NSObject {
     roleID = userDefaults.objectForKey("roleid") as? String ?? ""
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
     url = userDefaults.objectForKey("url") as? String ?? ""
+    phone = userDefaults.objectForKey("phone") as? String ?? ""
     if let imageData = userDefaults.objectForKey("avatarImageData") as? NSData {
       avatarImageData = imageData
       if let image = UIImage(data: avatarImageData) {
@@ -84,6 +86,12 @@ class AccountManager: NSObject {
       self.shopID = shopID
     }
     
+    if let phone = dict["phone"] as? NSNumber {
+      self.phone = phone.stringValue
+    } else if let phone = dict["phone"] as? String {
+      self.phone = phone
+    }
+    
     shopName = dict["fullname"] as! String
     token = dict["token"] as! String
     if dict["name"] as! String != ""{
@@ -114,6 +122,7 @@ class AccountManager: NSObject {
     userDefaults.setObject(beaconLocationIDs, forKey: "locid")
     userDefaults.setObject(url, forKey: "url")
     userDefaults.setObject(avatarImageData, forKey: "avatarImageData")
+    userDefaults.setObject(phone, forKey: "phone")
     userDefaults.synchronize()
   }
   
@@ -123,10 +132,11 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "shopid")
     userDefaults.setObject(nil, forKey: "fullname")
     userDefaults.setObject(nil, forKey: "token")
-   // userDefaults.setObject(nil, forKey: "name")
+    userDefaults.setObject(nil, forKey: "name")
     userDefaults.setObject(nil, forKey: "roleid")
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.setObject(nil, forKey: "url")
+    userDefaults.setObject(nil, forKey: "phone")
     userDefaults.setObject(nil, forKey: "avatarImageData")
     
     userDefaults.synchronize()

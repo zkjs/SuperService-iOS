@@ -70,10 +70,10 @@
                 <mask key="constraints">
                     <exclude reference="QRF-mw-aBZ"/>
                     <exclude reference="tue-Ka-mLa"/>
-                    <exclude reference="1X3-KZ-pvn"/>
-                    <exclude reference="OkD-JD-3Cv"/>
                     <exclude reference="SEA-g6-0to"/>
                     <exclude reference="YzR-Qo-VwU"/>
+                    <exclude reference="1X3-KZ-pvn"/>
+                    <exclude reference="OkD-JD-3Cv"/>
                 </mask>
             </variation>
             <connections>

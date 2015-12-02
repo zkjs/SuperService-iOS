@@ -39,9 +39,9 @@ class OrderTVC: UITableViewController {
   }
   
   func refreshData() {
-    orderArray = [OrderModel]()
     orderPage = 1
     getDataWithPage(1)
+    
   }
   
   
@@ -70,12 +70,17 @@ class OrderTVC: UITableViewController {
   }
   
   private func getDataWithPage(page: Int) {
+    
     ZKJSHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
       success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+        
         if let array = responseObject as? NSArray {
           if array.count == 0 {
             self.tableView.mj_footer.endRefreshingWithNoMoreData()
           } else {
+            if page == 1 {
+              self.orderArray.removeAll()
+            }
             for dic in array {
               let order = OrderModel(dic: dic as! [String:AnyObject])
               self.orderArray.append(order)
@@ -84,6 +89,7 @@ class OrderTVC: UITableViewController {
             self.tableView.mj_footer.endRefreshing()
           }
           self.tableView.mj_header.endRefreshing()
+         
         }
         
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in

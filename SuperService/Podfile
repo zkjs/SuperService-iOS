@@ -16,6 +16,7 @@ target 'SuperService' do
   pod 'SWTableViewCell'
   pod 'LTNavigationBar'
   pod 'WPMediaPicker', :inhibit_warnings => true
+  pod 'HTCopyableLabel'
 #  pod 'TKAnimatedCheckButton'
 end
 

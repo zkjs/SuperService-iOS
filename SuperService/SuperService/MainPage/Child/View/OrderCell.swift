@@ -42,7 +42,7 @@ class OrderCell: UITableViewCell {
     }
     
     // 订单状态 | 支付状态
-    infoLabel.text = "\(order.orderStatus!) | \(order.payStatus!)"
+   // infoLabel.text = "\(order.orderStatus!) | \(order.payStatus!)"
     
     // 订单信息
     let orderInfo = "\(order.room_type!) | \(order.duration!)晚 | \(order.arrivalDateShortStyle!)入住"

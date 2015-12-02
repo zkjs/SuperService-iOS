@@ -86,7 +86,10 @@ class AccountManager: NSObject {
     
     shopName = dict["fullname"] as! String
     token = dict["token"] as! String
-    userName = dict["name"] as! String
+    if dict["name"] as! String != ""{
+       userName = dict["name"] as! String
+    }
+   
     if let roleID = dict["roleid"] as? String {
       self.roleID = roleID
     } else if let roleID = dict["roleID"] as? String {
@@ -120,7 +123,7 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "shopid")
     userDefaults.setObject(nil, forKey: "fullname")
     userDefaults.setObject(nil, forKey: "token")
-    userDefaults.setObject(nil, forKey: "name")
+   // userDefaults.setObject(nil, forKey: "name")
     userDefaults.setObject(nil, forKey: "roleid")
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.setObject(nil, forKey: "url")

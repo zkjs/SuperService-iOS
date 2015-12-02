@@ -16,8 +16,8 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
       tableView.tableFooterView = UIView()
       
-      let nibName = UINib(nibName: SettingsCell.nibName(), bundle: nil)
-      tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
+      let nibName = UINib(nibName: CodeCell.nibName(), bundle: nil)
+      tableView.registerNib(nibName, forCellReuseIdentifier: CodeCell.reuseIdentifier())
       tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
       tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
       let image = UIImage(named: "ic_tianjia")
@@ -59,12 +59,13 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return SettingsCell.height()
+    return CodeCell.height()
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
-    cell.textLabel?.text = codeArray[indexPath.row]
+    let cell = tableView.dequeueReusableCellWithIdentifier("CodeCell", forIndexPath: indexPath) as! CodeCell
+    let string = codeArray[indexPath.row]
+    cell.setData(string)
     cell.selectionStyle = UITableViewCellSelectionStyle.None
       return cell
   }

@@ -203,6 +203,8 @@
 		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; };
 		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
 		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
+		FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */; };
+		FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */; };
 		FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */; };
 		FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
@@ -585,6 +587,8 @@
 		842659481BE0A216005E82F2 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		844E329B1BE065810024C678 /* AddMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberVC.swift; sourceTree = "<group>"; };
 		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
+		FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeCell.swift; sourceTree = "<group>"; };
+		FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeCell.xib; sourceTree = "<group>"; };
 		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
 		FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeHeaderView.xib; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
@@ -930,6 +934,8 @@
 				40F7575F1BE0553E0053C2BE /* InformCell.xib */,
 				40F757631BE0553E0053C2BE /* SettingsCell.swift */,
 				40F757641BE0553E0053C2BE /* SettingsCell.xib */,
+				FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */,
+				FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */,
 				40F757651BE0553E0053C2BE /* SettingsHeaderView.swift */,
 				40F757661BE0553E0053C2BE /* SettingsHeaderView.xib */,
 			);
@@ -1750,6 +1756,7 @@
 			files = (
 				40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */,
 				40F757591BE054550053C2BE /* OrderTVC.xib in Resources */,
+				FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */,
 				40F757741BE0553E0053C2BE /* SettingsHeaderView.xib in Resources */,
 				40F757481BE054160053C2BE /* ClientListCell.xib in Resources */,
 				409EE0A71C0070680074F43C /* Assets.xcassets in Resources */,
@@ -1847,6 +1854,7 @@
 				40F7574B1BE054160053C2BE /* ClientModel.swift in Sources */,
 				FAF101BF1C04029900FC3672 /* EmployeeVC.swift in Sources */,
 				40F757731BE0553E0053C2BE /* SettingsHeaderView.swift in Sources */,
+				FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */,
 				40FB3D0A1C00203900675044 /* EMCDDeviceManager+Remind.m in Sources */,
 				40FB3D3F1C00203900675044 /* NSObject+EaseMob.m in Sources */,
 				40E326291BD4C369008344DF /* Persistence.swift in Sources */,

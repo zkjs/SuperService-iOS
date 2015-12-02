@@ -57,27 +57,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
     
-    let isAdmin = AccountManager.sharedInstance().isAdmin()
-    if isAdmin == false {
-      // 员工才能添加客户
-      let addClientButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "AddClientBtn:")
-      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
-      baseNC.topViewController?.navigationItem.rightBarButtonItem = addClientButton
-    }
     tableView.reloadData()
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    let isAdmin = AccountManager.sharedInstance().isAdmin()
-    if isAdmin == false {
-      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
-      baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
-    }
   }
   
   // MARK: - XLPagerTabStripChildItem Delegate

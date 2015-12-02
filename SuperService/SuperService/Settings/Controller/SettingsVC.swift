@@ -65,7 +65,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       cell.textLabel?.text = "关于我们"
     }
     if (indexPath.row == 4){
-      cell.textLabel?.text = "登出"
+      cell.textLabel?.text = "退出登录"
     }
 
     return cell
@@ -91,9 +91,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let logoutIndexPath = NSIndexPath(forItem: 4, inSection: 0)
     let setupIndexPath = NSIndexPath(forItem: 1, inSection: 0)
     if indexPath == logoutIndexPath {
-      let alertController = UIAlertController(title: "确定要登出吗？", message: "", preferredStyle: .ActionSheet)
+      let alertController = UIAlertController(title: "确定要退出登录吗？", message: "", preferredStyle: .ActionSheet)
       
-      let logoutAction = UIAlertAction(title: "登出", style:.Destructive, handler: { (action: UIAlertAction) -> Void in
+      let logoutAction = UIAlertAction(title: "退出登录", style:.Destructive, handler: { (action: UIAlertAction) -> Void in
         self.logout()
       })
       alertController.addAction(logoutAction)
@@ -112,15 +112,14 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     if indexPath == aboutUSIndexPath {
       let vc = AboutUSVC()
-      self.hidesBottomBarWhenPushed = true
+      vc.hidesBottomBarWhenPushed = true
       self.navigationController?.pushViewController(vc, animated: true)
-      self.hidesBottomBarWhenPushed = false
     }
   }
   
   func logout() {
     AccountManager.sharedInstance().clearAccountCache()
-    showHUDInView(view, withLoading: "正在登出...")
+    showHUDInView(view, withLoading: "正在退出登录...")
     EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true, completion: { (info: [NSObject : AnyObject]!, error: EMError!) -> Void in
       self.hideHUD()
       if error != nil && error.errorCode != .ServerNotLogin {

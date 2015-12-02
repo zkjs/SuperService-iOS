@@ -137,11 +137,11 @@ extension StaffLoginVC: UITextFieldDelegate {
   }
   
   func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-      textField.layer.masksToBounds=true
-      textField.layer.borderWidth = 2.0
-      textField.layer.borderColor = UIColor.ZKJS_themeColor().CGColor
-      return true
-    
+    textField.layer.masksToBounds = true
+    textField.layer.cornerRadius = 3.0
+    textField.layer.borderWidth = 1.0
+    textField.layer.borderColor = UIColor.ZKJS_themeColor().CGColor
+    return true
   }
   
   func textFieldShouldEndEditing(textField: UITextField) -> Bool {

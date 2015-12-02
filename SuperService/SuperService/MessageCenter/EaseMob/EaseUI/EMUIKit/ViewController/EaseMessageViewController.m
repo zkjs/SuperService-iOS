@@ -1198,7 +1198,7 @@
 {
     // 隐藏键盘
     [self.chatToolbar endEditing:YES];
-    
+  
     EaseLocationViewController *locationController = [[EaseLocationViewController alloc] init];
     locationController.delegate = self;
     [self.navigationController pushViewController:locationController animated:YES];

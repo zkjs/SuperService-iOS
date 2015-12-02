@@ -59,6 +59,7 @@
 		40E326431BD50544008344DF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E326401BD50544008344DF /* Client.swift */; };
 		40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E326441BD50B2F008344DF /* NSDate+Days.swift */; };
 		40E569BC1C083F3300FEB528 /* EMBubbleView+Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E569BB1C083F3300FEB528 /* EMBubbleView+Card.m */; };
+		40E6DE2F1C0ED2A300CFF8AF /* ContactListSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E6DE2E1C0ED2A300CFF8AF /* ContactListSelectViewController.m */; };
 		40F757451BE054160053C2BE /* AddClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7573E1BE054160053C2BE /* AddClientVC.swift */; };
 		40F757461BE054160053C2BE /* AddClientVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F7573F1BE054160053C2BE /* AddClientVC.xib */; };
 		40F757471BE054160053C2BE /* ClientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757401BE054160053C2BE /* ClientListCell.swift */; };
@@ -321,6 +322,8 @@
 		40E326441BD50B2F008344DF /* NSDate+Days.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Days.swift"; sourceTree = "<group>"; };
 		40E569BA1C083F3300FEB528 /* EMBubbleView+Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMBubbleView+Card.h"; sourceTree = "<group>"; };
 		40E569BB1C083F3300FEB528 /* EMBubbleView+Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMBubbleView+Card.m"; sourceTree = "<group>"; };
+		40E6DE2D1C0ED2A300CFF8AF /* ContactListSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListSelectViewController.h; sourceTree = "<group>"; };
+		40E6DE2E1C0ED2A300CFF8AF /* ContactListSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListSelectViewController.m; sourceTree = "<group>"; };
 		40F7573E1BE054160053C2BE /* AddClientVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClientVC.swift; sourceTree = "<group>"; };
 		40F7573F1BE054160053C2BE /* AddClientVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClientVC.xib; sourceTree = "<group>"; };
 		40F757401BE054160053C2BE /* ClientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListCell.swift; sourceTree = "<group>"; };
@@ -891,6 +894,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		40E6DE2C1C0ED2A300CFF8AF /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				40E6DE2D1C0ED2A300CFF8AF /* ContactListSelectViewController.h */,
+				40E6DE2E1C0ED2A300CFF8AF /* ContactListSelectViewController.m */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
 		40F1BA7F1BC7FBB7006C2B41 /* TeamList */ = {
 			isa = PBXGroup;
 			children = (
@@ -965,6 +977,7 @@
 				40FB3BF31C00203900675044 /* 3rdparty */,
 				40FB3BF71C00203900675044 /* Call */,
 				40FB3BFB1C00203900675044 /* Category */,
+				40E6DE2C1C0ED2A300CFF8AF /* Contacts */,
 				40FB3BFE1C00203900675044 /* Chat */,
 			);
 			path = Class;
@@ -1901,6 +1914,7 @@
 				40FB3D0C1C00203900675044 /* amrFileCodec.mm in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
 				40FB3D3E1C00203900675044 /* NSDateFormatter+Category.m in Sources */,
+				40E6DE2F1C0ED2A300CFF8AF /* ContactListSelectViewController.m in Sources */,
 				40FB3D061C00203900675044 /* EMAudioRecorderUtil.m in Sources */,
 				40FB3CFE1C00203900675044 /* CallViewController.m in Sources */,
 				40FB3D581C00203900675044 /* EaseBubbleView+Video.m in Sources */,

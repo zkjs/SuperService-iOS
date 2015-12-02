@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 EaseMob. All rights reserved.
 //
 
+#import "EaseUI.h"
+
 @interface ContactListSelectViewController : EaseUsersListViewController
 
 @property (strong ,nonatomic) EaseMessageModel *messageModel;

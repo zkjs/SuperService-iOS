@@ -8,7 +8,7 @@
 
 #import "ChatViewController.h"
 #import "CustomMessageCell.h"
-//#import "ContactListSelectViewController.h"
+#import "ContactListSelectViewController.h"
 #import "ZKJSHTTPSessionManager.h"
 #import "SuperService-Swift.h"
 
@@ -418,11 +418,11 @@
 - (void)transpondMenuAction:(id)sender
 {
     if (self.menuIndexPath && self.menuIndexPath.row > 0) {
-//        id<IMessageModel> model = [self.dataArray objectAtIndex:self.menuIndexPath.row];
-//        ContactListSelectViewController *listViewController = [[ContactListSelectViewController alloc] initWithNibName:nil bundle:nil];
-//        listViewController.messageModel = model;
-//        [listViewController tableViewDidTriggerHeaderRefresh];
-//        [self.navigationController pushViewController:listViewController animated:YES];
+        id<IMessageModel> model = [self.dataArray objectAtIndex:self.menuIndexPath.row];
+        ContactListSelectViewController *listViewController = [[ContactListSelectViewController alloc] initWithNibName:nil bundle:nil];
+        listViewController.messageModel = model;
+        [listViewController tableViewDidTriggerHeaderRefresh];
+        [self.navigationController pushViewController:listViewController animated:YES];
     }
     self.menuIndexPath = nil;
 }

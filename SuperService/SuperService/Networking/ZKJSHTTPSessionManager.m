@@ -210,7 +210,7 @@
     [formData appendPartWithFormData:[@"0,1,2,3,4,5" dataUsingEncoding:NSUTF8StringEncoding] name:@"status"];
     [formData appendPartWithFormData:[@"" dataUsingEncoding:NSUTF8StringEncoding] name:@"userids"];
     [formData appendPartWithFormData:[page dataUsingEncoding:NSUTF8StringEncoding] name:@"page"];
-    [formData appendPartWithFormData:[@"" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagetime"];
+    //[formData appendPartWithFormData:[@"" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagetime"];
     [formData appendPartWithFormData:[@"7" dataUsingEncoding:NSUTF8StringEncoding] name:@"pagedata"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
     //    DDLogInfo(@"%@", [responseObject description]);
@@ -398,7 +398,7 @@
   [self POST:@"semp/login" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
     [formData appendPartWithFormData:[phoneNumber dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-    //    DDLogInfo(@"%@", [responseObject description]);
+        NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
       success(task, responseObject);
     }

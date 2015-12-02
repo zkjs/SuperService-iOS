@@ -20,10 +20,10 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄小洋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5h-f5-wBe">
-                    <rect key="frame" x="273" y="128" width="54" height="22"/>
+                    <rect key="frame" x="200" y="128" width="200" height="22"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="54" id="YtZ-hk-e5Y"/>
+                        <constraint firstAttribute="width" constant="200" id="YtZ-hk-e5Y"/>
                         <constraint firstAttribute="height" constant="22" id="viI-t1-ZA6"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

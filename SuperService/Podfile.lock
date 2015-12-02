@@ -25,6 +25,7 @@ PODS:
   - ChameleonFramework/Default (2.0.4)
   - DateTools (1.7.0)
   - EaseMobSDKFull (2.2.1)
+  - HTCopyableLabel (0.0.7)
   - JCTagListView (0.0.4)
   - JTSImageViewController (1.5.1)
   - LTNavigationBar (2.1.0)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - ChameleonFramework
   - DateTools
   - EaseMobSDKFull (from `https://github.com/easemob/sdk-ios-cocoapods-integration.git`)
+  - HTCopyableLabel
   - JCTagListView
   - JTSImageViewController
   - LTNavigationBar
@@ -64,6 +66,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   EaseMobSDKFull: 4a18d6ad47b4ccca564833963511bddd151e1654
+  HTCopyableLabel: e67c190d2f1f8f03c9d9858a7d8ce33be7fb43fa
   JCTagListView: e267bb1e2f44555093d4d5ff5b95939c12ebd5ad
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   LTNavigationBar: 8d2373e61ac08c16b6235c0450051541941f1fec

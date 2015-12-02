@@ -39,11 +39,11 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午6：40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pth-Gf-nwF">
-                        <rect key="frame" x="272" y="14" width="80" height="45"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午6：40" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pth-Gf-nwF">
+                        <rect key="frame" x="202" y="14" width="150" height="45"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="Aew-WK-28Z"/>
+                            <constraint firstAttribute="width" constant="150" id="Aew-WK-28Z"/>
                             <constraint firstAttribute="height" constant="45" id="wAe-WB-Aqo"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>

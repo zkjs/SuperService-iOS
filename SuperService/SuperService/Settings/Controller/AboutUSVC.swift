@@ -8,24 +8,28 @@
 
 import UIKit
 
-class AboutUSVC: UIViewController{
-
+class AboutUSVC: UIViewController {
+  
   @IBOutlet weak var webView: UIWebView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
-      navigationItem.backBarButtonItem = item;
-      
-      let url = NSURL(string: "http://www.zkjinshi.com/about_us")
-      let req = NSURLRequest(URL: url!)
-      webView.loadRequest(req)
-    }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // 这个设置好像没起作用啊
+    let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+    navigationItem.backBarButtonItem = item
+    
+    let url = NSURL(string: "http://www.zkjinshi.com/about_us")
+    let req = NSURLRequest(URL: url!)
+    webView.loadRequest(req)
+  }
+  
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("AboutUSVC", owner:self, options:nil)
   }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-      
-    }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    
+  }
 }

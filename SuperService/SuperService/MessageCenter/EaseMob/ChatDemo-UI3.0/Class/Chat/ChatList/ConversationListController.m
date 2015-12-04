@@ -11,6 +11,7 @@
 #import "ZKJSHTTPSessionManager.h"
 #import "SuperService-Swift.h"
 #import "EaseUI.h"
+#import "CreateGroupViewController.h"
 
 @interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource,UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -25,6 +26,8 @@
   
   self.title = @"消息";
   
+  [self setupRightBarButton];
+  
   [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
   
   self.showRefreshHeader = YES;
@@ -38,6 +41,20 @@
   [self networkStateView];
   
   [self removeEmptyConversationsFromDB];
+}
+
+#pragma mark - Private
+
+- (void)setupRightBarButton {
+  UIBarButtonItem *createGroupButton = [[UIBarButtonItem alloc] initWithTitle:@"建群" style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
+  self.navigationItem.rightBarButtonItem = createGroupButton;
+}
+
+- (void)createGroup
+{
+  CreateGroupViewController *createChatroom = [[CreateGroupViewController alloc] init];
+  createChatroom.hidesBottomBarWhenPushed = YES;
+  [self.navigationController pushViewController:createChatroom animated:YES];
 }
 
 - (void)removeEmptyConversationsFromDB

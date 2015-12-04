@@ -12,6 +12,8 @@
 
 
 #import "UIImageView+HeadImage.h"
+#import "EaseUI.h"
+#import "ZKJSHTTPSessionManager.h"
 
 @implementation UIImageView (HeadImage)
 
@@ -26,6 +28,12 @@
 //    } else {
 //        [self sd_setImageWithURL:nil placeholderImage:placeholderImage];
 //    }
+  
+  NSString *urlString = [NSString stringWithFormat:@"uploads/users/%@.jpg", username];
+  NSString *domain = [ZKJSHTTPSessionManager sharedInstance].domain;
+  NSString *avatarURLPath = [domain stringByAppendingString:urlString];
+  NSURL *url = [[NSURL alloc] initWithString:avatarURLPath];
+  [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ic_home_nor"]];
 }
 
 @end
@@ -34,6 +42,8 @@
 
 - (void)setTextWithUsername:(NSString *)username
 {
+  [self setText:username];
+  
 //    UserProfileEntity *profileEntity = [[UserProfileManager sharedInstance] getUserProfileByUsername:username];
 //    if (profileEntity) {
 //        if (profileEntity.nickname && profileEntity.nickname.length > 0) {

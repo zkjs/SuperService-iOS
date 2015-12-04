@@ -15,7 +15,7 @@ class AboutUSVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // 这个设置好像没起作用啊
+    // 这个设置好像没起作用
     let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
     navigationItem.backBarButtonItem = item
     

@@ -135,7 +135,6 @@
 {
   __weak typeof(self) weakSelf = self;
   [[ZKJSHTTPSessionManager sharedInstance] getTeamListWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"%@", responseObject);
     [weakSelf.dataArray removeAllObjects];
     for (NSDictionary *sales in responseObject) {
       EMBuddy *buddy = [EMBuddy buddyWithUsername:sales[@"salesid"]];

@@ -53,8 +53,6 @@ class AdminLoginV: UIViewController {
           if set {
             // 缓存用户信息
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-            // 环信账号自动登录
-            AccountManager.sharedInstance().easeMobAutoLogin()
             self.view.endEditing(true)
             ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
            

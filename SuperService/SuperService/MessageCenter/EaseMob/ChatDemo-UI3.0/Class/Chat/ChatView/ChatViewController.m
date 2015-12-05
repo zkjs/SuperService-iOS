@@ -11,9 +11,11 @@
 #import "ContactListSelectViewController.h"
 #import "ZKJSHTTPSessionManager.h"
 #import "SuperService-Swift.h"
-#import "CreateGroupViewController.h"
+#import "EaseUI.h"
+#import "ContactSelectionViewController.h"
+#import "ChatGroupDetailViewController.h"
 
-@interface ChatViewController ()<UIAlertViewDelegate, EaseMessageViewControllerDelegate, EaseMessageViewControllerDataSource>
+@interface ChatViewController ()<UIAlertViewDelegate, EaseMessageViewControllerDelegate, EaseMessageViewControllerDataSource, EMChooseViewDelegate>
 {
   UIMenuItem *_copyMenuItem;
   UIMenuItem *_deleteMenuItem;
@@ -79,10 +81,11 @@
 {
   [super viewWillAppear:animated];
   if (self.conversation.conversationType == eConversationTypeGroupChat) {
-    if ([[self.conversation.ext objectForKey:@"groupSubject"] length])
-      {
-      self.title = [self.conversation.ext objectForKey:@"groupSubject"];
-      }
+    self.title = @"群聊";
+//    if ([[self.conversation.ext objectForKey:@"groupSubject"] length])
+//      {
+//      self.title = [self.conversation.ext objectForKey:@"groupSubject"];
+//      }
   }
 }
 
@@ -96,15 +99,10 @@
 {
   //单聊
   if (self.conversation.conversationType == eConversationTypeChat) {
-    //        UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    //        [clearButton setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
-    //        [clearButton addTarget:self action:@selector(deleteAllMessages:) forControlEvents:UIControlEventTouchUpInside];
-    //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clearButton];
-  } else {//群聊
-    //        UIButton *detailButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
-    //        [detailButton setImage:[UIImage imageNamed:@"group_detail"] forState:UIControlStateNormal];
-    //        [detailButton addTarget:self action:@selector(showGroupDetailAction) forControlEvents:UIControlEventTouchUpInside];
-    //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:detailButton];
+
+  } else if (self.conversation.conversationType == eConversationTypeGroupChat) {
+    // 群聊
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showGroupDetailAction)];
   }
 }
 
@@ -387,8 +385,8 @@
 {
   [self.view endEditing:YES];
   if (self.conversation.conversationType == eConversationTypeGroupChat) {
-    //        ChatGroupDetailViewController *detailController = [[ChatGroupDetailViewController alloc] initWithGroupId:self.conversation.chatter];
-    //        [self.navigationController pushViewController:detailController animated:YES];
+    ChatGroupDetailViewController *detailController = [[ChatGroupDetailViewController alloc] initWithGroupId:self.conversation.chatter];
+    [self.navigationController pushViewController:detailController animated:YES];
   }
 }
 
@@ -502,18 +500,86 @@
   }
 }
 
+#pragma mark - EMChooseViewDelegate
+
+- (BOOL)viewController:(EMChooseViewController *)viewController didFinishSelectedSources:(NSArray *)selectedSources
+{
+  NSInteger maxUsersCount = 200;
+  if ([selectedSources count] > (maxUsersCount - 1)) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"group.maxUserCount", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
+    [alertView show];
+    
+    return NO;
+  }
+  
+  [self showHudInView:self.view hint:NSLocalizedString(@"group.create.ongoing", @"create a group...")];
+  
+  NSMutableArray *source = [NSMutableArray array];
+  NSMutableArray *nameArray = [NSMutableArray array];
+  // 加上自己
+  [source addObject:[AccountManager sharedInstance].userID];
+  [nameArray addObject:[AccountManager sharedInstance].userName];
+  // 加上客户
+  [source addObject:self.conversation.chatter];
+  [nameArray addObject:[self getChatterName]];
+  // 新加入的人
+  for (EaseUserModel *model in selectedSources) {
+    [source addObject:model.buddy.username];
+    [nameArray addObject:model.nickname];
+  }
+  
+  NSString *groupName = [[nameArray copy] componentsJoinedByString:@"、"];
+  NSString *shopID = [AccountManager sharedInstance].shopID;
+  
+  EMGroupStyleSetting *setting = [[EMGroupStyleSetting alloc] init];
+  setting.groupMaxUsersCount = maxUsersCount;
+  setting.groupStyle = eGroupStyle_PrivateMemberCanInvite;
+  
+  __weak ChatViewController *weakSelf = self;
+  NSString *username = [AccountManager sharedInstance].userName;
+  NSString *messageStr = [NSString stringWithFormat:NSLocalizedString(@"group.somebodyInvite", @"%@ invite you to join groups \'%@\'"), username, groupName];
+  [[EaseMob sharedInstance].chatManager asyncCreateGroupWithSubject:groupName description:shopID invitees:source initialWelcomeMessage:messageStr styleSetting:setting completion:^(EMGroup *group, EMError *error) {
+    [weakSelf hideHud];
+    NSLog(@"%@", error);
+    if (group && !error) {
+      [weakSelf showHint:NSLocalizedString(@"group.create.success", @"create group success")];
+      
+      ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:group.groupId
+                                                                                  conversationType:eConversationTypeGroupChat];
+      chatController.title = group.groupSubject;
+      chatController.firstMessage = [NSString stringWithFormat:@"邀请%@加入群聊", group.groupSubject];
+      [self.navigationController pushViewController:chatController animated:YES];
+    }
+    else{
+      [weakSelf showHint:NSLocalizedString(@"group.create.fail", @"Failed to create a group, please operate again")];
+    }
+  } onQueue:nil];
+  
+  return YES;
+}
+
 #pragma mark - private
 
+- (NSString *)getChatterName {
+  return self.conversation.latestMessageFromOthers.ext[@"fromName"];
+}
+
 - (void)setupRightBarButton {
-  UIBarButtonItem *createGroupButton = [[UIBarButtonItem alloc] initWithTitle:@"建群" style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
-  self.navigationItem.rightBarButtonItem = createGroupButton;
+  if (self.conversation.conversationType == eConversationTypeChat) {
+    UIBarButtonItem *createGroupButton = [[UIBarButtonItem alloc] initWithTitle:@"加人" style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
+    self.navigationItem.rightBarButtonItem = createGroupButton;
+  } else if (self.conversation.conversationType == eConversationTypeGroupChat) {
+    
+  }
 }
 
 - (void)createGroup
 {
-  CreateGroupViewController *createChatroom = [[CreateGroupViewController alloc] init];
-  createChatroom.hidesBottomBarWhenPushed = YES;
-  [self.navigationController pushViewController:createChatroom animated:YES];
+  NSString *userID = [AccountManager sharedInstance].userID;
+  ContactSelectionViewController *selectionController = [[ContactSelectionViewController alloc] initWithBlockSelectedUsernames:@[userID, self.conversation.chatter]];
+  selectionController.hidesBottomBarWhenPushed = YES;
+  selectionController.delegate = self;
+  [self.navigationController pushViewController:selectionController animated:YES];
 }
 
 - (void)_showMenuViewController:(UIView *)showInView
@@ -545,6 +611,32 @@
   }
   [self.menuController setTargetRect:showInView.frame inView:showInView.superview];
   [self.menuController setMenuVisible:YES animated:YES];
+}
+
+- (void)_sendFirstMessage {
+  if ([self.firstMessage length] != 0) {
+    [self sendTextMessage:self.firstMessage];
+  }
+}
+
+#pragma mark - public refresh
+
+- (void)tableViewDidFinishTriggerHeader:(BOOL)isHeader reload:(BOOL)reload
+{
+  __weak ChatViewController *weakSelf = self;
+  dispatch_async(dispatch_get_main_queue(), ^{
+    if (reload) {
+      [weakSelf _sendFirstMessage];
+      [weakSelf.tableView reloadData];
+    }
+    
+    if (isHeader) {
+      [weakSelf.tableView.mj_header endRefreshing];
+    }
+    else{
+      [weakSelf.tableView.mj_footer endRefreshing];
+    }
+  });
 }
 
 @end

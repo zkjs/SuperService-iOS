@@ -79,7 +79,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
+
   self.title = NSLocalizedString(@"title.chooseContact", @"select the contact");
   self.navigationItem.rightBarButtonItem = nil;
   
@@ -88,28 +88,6 @@
   self.tableView.editing = YES;
   self.tableView.frame = CGRectMake(0, self.searchBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.searchBar.frame.size.height - self.footerView.frame.size.height);
   [self searchController];
-  
-  if ([_blockSelectedUsernames count] > 0) {
-    for (NSString *username in _blockSelectedUsernames) {
-      NSInteger section = [self sectionForString:username];
-      NSMutableArray *tmpArray = [_dataSource objectAtIndex:section];
-      if (tmpArray && [tmpArray count] > 0) {
-        for (int i = 0; i < [tmpArray count]; i++) {
-          EMBuddy *buddy = [tmpArray objectAtIndex:i];
-          if ([buddy.username isEqualToString:username]) {
-            [self.selectedContacts addObject:buddy];
-            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section] animated:NO scrollPosition:UITableViewScrollPositionNone];
-            
-            break;
-          }
-        }
-      }
-    }
-    
-    if ([_selectedContacts count] > 0) {
-      [self reloadFooterView];
-    }
-  }
 }
 
 - (void)didReceiveMemoryWarning
@@ -214,7 +192,7 @@
   if (_footerView == nil) {
     _footerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)];
     _footerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin;
-    _footerView.backgroundColor = [UIColor colorWithRed:207 / 255.0 green:210 /255.0 blue:213 / 255.0 alpha:0.7];
+    _footerView.backgroundColor = [UIColor colorWithRed:207 / 255.0 green:210 /255.0 blue:213 / 255.0 alpha:1.0];
     
     _footerScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 0, _footerView.frame.size.width - 30 - 70, _footerView.frame.size.height - 5)];
     _footerScrollView.backgroundColor = [UIColor clearColor];
@@ -264,8 +242,10 @@
 {
   // Return NO if you do not want the specified item to be editable.
   if ([_blockSelectedUsernames count] > 0) {
-    EMBuddy *buddy = [[_dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    return ![self isBlockUsername:buddy.username];
+//    EaseUser *buddy = [[_dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+//    return ![self isBlockUsername:buddy.username];
+    EaseUserModel *model = [[_dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    return ![self isBlockUsername:model.buddy.username];
   }
   
   return YES;
@@ -405,6 +385,30 @@
 
 #pragma mark - public
 
+- (void)setupBlockSelectedUserNames {
+  if ([_blockSelectedUsernames count] > 0) {
+    for (NSString *username in _blockSelectedUsernames) {
+      NSInteger section = [self sectionForString:username];
+      NSMutableArray *tmpArray = [_dataSource objectAtIndex:section];
+      if (tmpArray && [tmpArray count] > 0) {
+        for (int i = 0; i < [tmpArray count]; i++) {
+          EMBuddy *buddy = [tmpArray objectAtIndex:i];
+          if ([buddy.username isEqualToString:username]) {
+            [self.selectedContacts addObject:buddy];
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section] animated:NO scrollPosition:UITableViewScrollPositionNone];
+            
+            break;
+          }
+        }
+      }
+    }
+    
+    if ([_selectedContacts count] > 0) {
+      [self reloadFooterView];
+    }
+  }
+}
+
 - (void)loadDataSource
 {
   [self showHudInView:self.view hint:NSLocalizedString(@"loadData", @"Load data...")];
@@ -414,7 +418,14 @@
   __weak typeof(self) weakSelf = self;
   [[ZKJSHTTPSessionManager sharedInstance] getTeamListWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
     for (NSDictionary *sales in responseObject) {
-      EMBuddy *buddy = [EMBuddy buddyWithUsername:sales[@"salesid"]];      
+      NSMutableString *userName = [NSMutableString string];
+      // 如果salesid是全数字时，服务器返回的是number类型的值
+      if ([sales[@"salesid"] isKindOfClass:[NSNumber class]]) {
+        userName = [[sales[@"salesid"] stringValue] mutableCopy];
+      } else {
+        userName = sales[@"salesid"];
+      }
+      EMBuddy *buddy = [EMBuddy buddyWithUsername:[userName copy]];
       id<IUserModel> model = nil;
       model = [[EaseUserModel alloc] initWithBuddy:buddy];
       model.nickname = sales[@"name"];
@@ -428,6 +439,8 @@
     
     [weakSelf hideHud];
     [weakSelf.tableView reloadData];
+    
+    [weakSelf blockSelectedUsernames];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     
   }];
@@ -442,10 +455,10 @@
     }
     else{
       NSMutableArray *resultArray = [NSMutableArray array];
-      for (EMBuddy *buddy in self.selectedContacts) {
-        if(![self isBlockUsername:buddy.username])
+      for (EaseUserModel *model in self.selectedContacts) {
+        if(![self isBlockUsername:model.buddy.username])
           {
-          [resultArray addObject:buddy];
+          [resultArray addObject:model];
           }
       }
       isPop = [_delegate viewController:self didFinishSelectedSources:resultArray];

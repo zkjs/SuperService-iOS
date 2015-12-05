@@ -168,17 +168,6 @@ class AccountManager: NSObject {
     }
   }
   
-  func easeMobAutoLogin() {
-    EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456", completion: { (responseObject: [NSObject : AnyObject]!, error: EMError!) -> Void in
-      // 设置是否自动登录
-      EaseMob.sharedInstance().chatManager.enableAutoLogin!()
-      // 获取数据库中数据
-      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
-      // 发送自动登录状态通知
-      NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
-      }, onQueue: nil)
-  }
-  
   func isAdmin() -> Bool {
     return roleID == "1" ? true : false
   }

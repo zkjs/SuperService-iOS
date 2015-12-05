@@ -12,4 +12,6 @@
 
 @interface ChatViewController : EaseMessageViewController
 
+@property (strong, nonatomic) NSString *firstMessage;
+
 @end

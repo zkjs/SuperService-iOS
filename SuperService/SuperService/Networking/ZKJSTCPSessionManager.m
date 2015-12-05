@@ -47,7 +47,6 @@
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
   NSLog(@"Websocket Connected");
-    
   if (self.delegate && [self.delegate respondsToSelector:@selector(didOpenTCPSocket)]) {
     [self.delegate didOpenTCPSocket];
   }

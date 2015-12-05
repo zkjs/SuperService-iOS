@@ -11,9 +11,9 @@
 #import "ZKJSHTTPSessionManager.h"
 #import "SuperService-Swift.h"
 #import "EaseUI.h"
-#import "CreateGroupViewController.h"
+#import "ContactSelectionViewController.h"
 
-@interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource,UISearchDisplayDelegate, UISearchBarDelegate>
+@interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource,UISearchDisplayDelegate, UISearchBarDelegate, EMChooseViewDelegate>
 
 @property (nonatomic, strong) UIView *networkStateView;
 
@@ -52,9 +52,62 @@
 
 - (void)createGroup
 {
-  CreateGroupViewController *createChatroom = [[CreateGroupViewController alloc] init];
-  createChatroom.hidesBottomBarWhenPushed = YES;
-  [self.navigationController pushViewController:createChatroom animated:YES];
+  ContactSelectionViewController *selectionController = [[ContactSelectionViewController alloc] init];
+  selectionController.hidesBottomBarWhenPushed = YES;
+  selectionController.delegate = self;
+  [self.navigationController pushViewController:selectionController animated:YES];
+}
+
+#pragma mark - EMChooseViewDelegate
+
+- (BOOL)viewController:(EMChooseViewController *)viewController didFinishSelectedSources:(NSArray *)selectedSources
+{
+  NSInteger maxUsersCount = 200;
+  if ([selectedSources count] > (maxUsersCount - 1)) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"group.maxUserCount", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
+    [alertView show];
+    
+    return NO;
+  }
+  
+  [self showHudInView:self.view hint:NSLocalizedString(@"group.create.ongoing", @"create a group...")];
+  
+  NSMutableArray *source = [NSMutableArray array];
+  NSMutableArray *nameArray = [NSMutableArray array];
+  for (EaseUserModel *model in selectedSources) {
+    [source addObject:model.buddy.username];
+    [nameArray addObject:model.nickname];
+  }
+  
+  NSString *groupName = [[nameArray copy] componentsJoinedByString:@"、"];
+  NSString *shopID = [AccountManager sharedInstance].shopID;
+  
+  EMGroupStyleSetting *setting = [[EMGroupStyleSetting alloc] init];
+  setting.groupMaxUsersCount = maxUsersCount;
+  setting.groupStyle = eGroupStyle_PrivateMemberCanInvite;
+  
+  __weak ConversationListController *weakSelf = self;
+  NSString *username = [AccountManager sharedInstance].userName;
+  NSString *messageStr = [NSString stringWithFormat:NSLocalizedString(@"group.somebodyInvite", @"%@ invite you to join groups \'%@\'"), username, groupName];
+  [[EaseMob sharedInstance].chatManager asyncCreateGroupWithSubject:groupName description:shopID invitees:source initialWelcomeMessage:messageStr styleSetting:setting completion:^(EMGroup *group, EMError *error) {
+    [weakSelf hideHud];
+    NSLog(@"%@", error);
+    if (group && !error) {
+      [weakSelf showHint:NSLocalizedString(@"group.create.success", @"create group success")];
+      
+      ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:group.groupId
+                                                                                  conversationType:eConversationTypeGroupChat];
+      chatController.title = group.groupSubject;
+      chatController.hidesBottomBarWhenPushed = YES;
+      chatController.firstMessage = [NSString stringWithFormat:@"邀请%@加入群聊", group.groupSubject];
+      [self.navigationController pushViewController:chatController animated:YES];
+    }
+    else{
+      [weakSelf showHint:NSLocalizedString(@"group.create.fail", @"Failed to create a group, please operate again")];
+    }
+  } onQueue:nil];
+  
+  return YES;
 }
 
 - (void)removeEmptyConversationsFromDB
@@ -155,7 +208,46 @@
     }
     NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", conversation.chatter];
     model.avatarURLPath = [kBaseURL stringByAppendingString:url];
+  } else if (model.conversation.conversationType == eConversationTypeGroupChat) {
+    NSString *imageName = @"groupPublicHeader";
+    if (![conversation.ext objectForKey:@"groupSubject"] || ![conversation.ext objectForKey:@"isPublic"]) {
+      NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
+      for (EMGroup *group in groupArray) {
+        if ([group.groupId isEqualToString:conversation.chatter]) {
+          model.title = group.groupSubject;
+          imageName = group.isPublic ? @"groupPublicHeader" : @"groupPrivateHeader";
+          model.avatarImage = [UIImage imageNamed:imageName];
+          
+          NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:conversation.ext];
+          [ext setObject:group.groupSubject forKey:@"groupSubject"];
+          [ext setObject:[NSNumber numberWithBool:group.isPublic] forKey:@"isPublic"];
+          conversation.ext = ext;
+          break;
+        }
+      }
+    } else {
+      NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
+      for (EMGroup *group in groupArray) {
+        if ([group.groupId isEqualToString:conversation.chatter]) {
+          imageName = group.isPublic ? @"groupPublicHeader" : @"groupPrivateHeader";
+          
+          NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:conversation.ext];
+          [ext setObject:group.groupSubject forKey:@"groupSubject"];
+          [ext setObject:[NSNumber numberWithBool:group.isPublic] forKey:@"isPublic"];
+          NSString *groupSubject = [ext objectForKey:@"groupSubject"];
+          NSString *conversationSubject = [conversation.ext objectForKey:@"groupSubject"];
+          if (groupSubject && conversationSubject && ![groupSubject isEqualToString:conversationSubject]) {
+            conversation.ext = ext;
+          }
+          break;
+        }
+      }
+      model.title = [conversation.ext objectForKey:@"groupSubject"];
+      imageName = [[conversation.ext objectForKey:@"isPublic"] boolValue] ? @"groupPublicHeader" : @"groupPrivateHeader";
+      model.avatarImage = [UIImage imageNamed:imageName];
+    }
   }
+  NSLog(@"%@", model.title);
   return model;
 }
 

@@ -9,6 +9,7 @@
 #import "ZKJSHTTPSessionManager.h"
 #import "NSString+ZKJS.h"
 #import "SuperService-Swift.h"
+#import "EaseMob.h"
 
 //#define kBaseURL @"http://api.zkjinshi.com/"  // HTTP外网服务器地址
 #define kBaseURL @"http://tap.zkjinshi.com/" // HTTP服务器测试地址
@@ -398,14 +399,33 @@
   [self POST:@"semp/login" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
     [formData appendPartWithFormData:[phoneNumber dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
-        NSLog(@"%@", [responseObject description]);
+    NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
+      [self loginEaseMob];
       success(task, responseObject);
     }
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
     NSLog(@"%@", error.description);
     failure(task, error);
   }];
+}
+
+- (void)loginEaseMob {
+  [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[self userID] password:@"123456" completion:^(NSDictionary *loginInfo, EMError *error) {
+    if (loginInfo && !error) {
+      //设置是否自动登录
+      [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+
+      //获取数据库中数据
+      [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+      
+      //获取群组列表
+      [[EaseMob sharedInstance].chatManager asyncFetchMyGroupsList];
+      
+      //发送自动登陆状态通知
+      [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_LOGINCHANGE object:@YES];
+    }
+  } onQueue:nil];
 }
 
 #pragma mark - 上传服务员资料

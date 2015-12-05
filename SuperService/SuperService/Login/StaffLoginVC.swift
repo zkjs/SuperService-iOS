@@ -81,8 +81,6 @@ class StaffLoginVC: UIViewController {
               if set {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-                // 环信账号自动登录
-                AccountManager.sharedInstance().easeMobAutoLogin()
                 ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
                 let url = AccountManager.sharedInstance().url
                 if url.isEmpty {

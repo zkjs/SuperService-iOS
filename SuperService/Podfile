@@ -17,6 +17,8 @@ target 'SuperService' do
   pod 'LTNavigationBar'
   pod 'WPMediaPicker', :inhibit_warnings => true
   pod 'HTCopyableLabel'
+  pod 'JazzHands'
+   pod 'Masonry'
 #  pod 'TKAnimatedCheckButton'
 end
 

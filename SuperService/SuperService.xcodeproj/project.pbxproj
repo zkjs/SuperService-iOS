@@ -231,6 +231,7 @@
 		FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101BE1C04029900FC3672 /* EmployeeVC.xib */; };
 		FAF101C31C0409D400FC3672 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF101C11C0409D400FC3672 /* EmployeeCell.swift */; };
 		FAF101C41C0409D400FC3672 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101C21C0409D400FC3672 /* EmployeeCell.xib */; };
+		FAF19FDE1C0FD80E00F07A93 /* ZKJSGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF19FDD1C0FD80E00F07A93 /* ZKJSGuideVC.swift */; };
 		FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */; };
 		FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */; };
 		FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */; };
@@ -648,6 +649,7 @@
 		FAF101BE1C04029900FC3672 /* EmployeeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeVC.xib; sourceTree = "<group>"; };
 		FAF101C11C0409D400FC3672 /* EmployeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		FAF101C21C0409D400FC3672 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
+		FAF19FDD1C0FD80E00F07A93 /* ZKJSGuideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKJSGuideVC.swift; sourceTree = "<group>"; };
 		FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUpTVC.swift; sourceTree = "<group>"; };
 		FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingUpTVC.storyboard; sourceTree = "<group>"; };
 		FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ../Controller/HeaderView.swift; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 		FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
 		FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeVC.xib; sourceTree = "<group>"; };
 		FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
+		FAF60BD11C11752A00C0AE7C /* RazzleDazzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RazzleDazzle.h; sourceTree = "<group>"; };
 		FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordVC.swift; sourceTree = "<group>"; };
 		FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordVC.xib; sourceTree = "<group>"; };
 		FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordCell.swift; sourceTree = "<group>"; };
@@ -929,6 +932,7 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
+				FAF097351C10398900A7F80B /* GuidePage */,
 				40E326461BD510C1008344DF /* Extension */,
 				40CAA5FC1BE705FE00FAFDA0 /* Login */,
 				40CF56781BF3612500E20D50 /* Contact */,
@@ -1767,6 +1771,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FAF097351C10398900A7F80B /* GuidePage */ = {
+			isa = PBXGroup;
+			children = (
+				FAF19FDD1C0FD80E00F07A93 /* ZKJSGuideVC.swift */,
+				FAF60BD11C11752A00C0AE7C /* RazzleDazzle.h */,
+			);
+			name = GuidePage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2133,6 +2146,7 @@
 				40FB3D071C00203900675044 /* EMCDDeviceManager+Media.m in Sources */,
 				40FB3D5E1C00203900675044 /* EaseTextView.m in Sources */,
 				40FB3D141C00203900675044 /* MWGridViewController.m in Sources */,
+				FAF19FDE1C0FD80E00F07A93 /* ZKJSGuideVC.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
 				40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */,
 				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,

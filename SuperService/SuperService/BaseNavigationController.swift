@@ -23,6 +23,7 @@ class BaseNavigationController: UINavigationController {
     navigationBar.translucent = false
     navigationBar.barTintColor = UIColor.ZKJS_themeColor()
     navigationBar.tintColor = UIColor.whiteColor()
+    
   }
   
 }

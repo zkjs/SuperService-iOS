@@ -112,9 +112,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     if indexPath == aboutUSIndexPath {
       let vc = AboutUSVC()
-      self.hidesBottomBarWhenPushed = true
+      vc.hidesBottomBarWhenPushed = true
       self.navigationController?.pushViewController(vc, animated: true)
-      self.hidesBottomBarWhenPushed = false
+      vc.hidesBottomBarWhenPushed = false
     }
   }
   

@@ -14,7 +14,7 @@ let kRefreshConversationListNotification = "refreshConversationListNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
-  
+  var pages: Int!
   var window: UIWindow?
   var mainTBC: MainTBC!
   
@@ -25,14 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     setupTCPSessionManager()
     setupWindows()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
-    
-    return true
+    EMSDImageCache.sharedImageCache().clearDisk()
+    let  guideViewController = ZKJSGuideVC()
+    pages = guideViewController.page
+    if (!(NSUserDefaults.standardUserDefaults().boolForKey("everLaunched"))) {
+      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"everLaunched")
+      self.window!.rootViewController = guideViewController
+    }
+        return true
   }
   
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    print("applicationWillResignActive")
   }
   
   func applicationDidEnterBackground(application: UIApplication) {
@@ -71,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   // MARK: - Push Notification
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-    print(deviceToken)
+   
     let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
     let cleanToken = trimEnds.stringByReplacingOccurrencesOfString(" ", withString: "", options: .CaseInsensitiveSearch, range: nil)
     AccountManager.sharedInstance().saveDeviceToken(cleanToken)
@@ -169,12 +174,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   private func setupWindows() {
-    mainTBC = MainTBC()
-    window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    window!.layer.cornerRadius = 6
-    window!.layer.masksToBounds = true
-    window!.rootViewController = mainTBC
-    window?.makeKeyAndVisible()
+    
+      mainTBC = MainTBC()
+      window = UIWindow(frame: UIScreen.mainScreen().bounds)
+      window!.layer.cornerRadius = 6
+      window!.layer.masksToBounds = true
+      window!.rootViewController = mainTBC
+      window?.makeKeyAndVisible()
+    
+
+   
   }
   
   

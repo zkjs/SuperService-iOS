@@ -8,6 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		29B7726F072F98DA115D7278 /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5692D1DD697B52942EE420A3 /* libPods-SuperService.a */; };
+		400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62191C151B3C0021E750 /* GuideVC.swift */; };
+		400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62531C1526B50021E750 /* AlphaAnimation.swift */; };
+		400D626F1C1526B50021E750 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62541C1526B50021E750 /* Animatable.swift */; };
+		400D62701C1526B50021E750 /* AnimatedPagingScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62551C1526B50021E750 /* AnimatedPagingScrollViewController.swift */; };
+		400D62711C1526B50021E750 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62561C1526B50021E750 /* Animation.swift */; };
+		400D62721C1526B50021E750 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62571C1526B50021E750 /* Animator.swift */; };
+		400D62731C1526B50021E750 /* BackgroundColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62581C1526B50021E750 /* BackgroundColorAnimation.swift */; };
+		400D62741C1526B50021E750 /* ConstraintConstantAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62591C1526B50021E750 /* ConstraintConstantAnimation.swift */; };
+		400D62751C1526B50021E750 /* ConstraintMultiplierAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D625A1C1526B50021E750 /* ConstraintMultiplierAnimation.swift */; };
+		400D62761C1526B50021E750 /* CornerRadiusAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D625B1C1526B50021E750 /* CornerRadiusAnimation.swift */; };
+		400D62771C1526B50021E750 /* CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D625C1C1526B50021E750 /* CubicBezier.swift */; };
+		400D62781C1526B50021E750 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D625D1C1526B50021E750 /* EasingFunction.swift */; };
+		400D62791C1526B50021E750 /* Filmstrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D625E1C1526B50021E750 /* Filmstrip.swift */; };
+		400D627A1C1526B50021E750 /* HideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D625F1C1526B50021E750 /* HideAnimation.swift */; };
+		400D627C1C1526B50021E750 /* Interpolatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62611C1526B50021E750 /* Interpolatable.swift */; };
+		400D627D1C1526B50021E750 /* LabelTextColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62621C1526B50021E750 /* LabelTextColorAnimation.swift */; };
+		400D627E1C1526B50021E750 /* LayerFillColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62631C1526B50021E750 /* LayerFillColorAnimation.swift */; };
+		400D627F1C1526B50021E750 /* LayerStrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62641C1526B50021E750 /* LayerStrokeColorAnimation.swift */; };
+		400D62801C1526B50021E750 /* LayerStrokeEndAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62651C1526B50021E750 /* LayerStrokeEndAnimation.swift */; };
+		400D62811C1526B50021E750 /* LayerStrokeStartAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62661C1526B50021E750 /* LayerStrokeStartAnimation.swift */; };
+		400D62821C1526B50021E750 /* PathPositionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62671C1526B50021E750 /* PathPositionAnimation.swift */; };
+		400D62831C1526B50021E750 /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62691C1526B50021E750 /* RotationAnimation.swift */; };
+		400D62841C1526B50021E750 /* ScaleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626A1C1526B50021E750 /* ScaleAnimation.swift */; };
+		400D62851C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */; };
+		400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626C1C1526B50021E750 /* TranslationAnimation.swift */; };
+		400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626D1C1526B50021E750 /* UIView+Transform.swift */; };
 		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; };
 		404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */; };
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
@@ -231,7 +257,6 @@
 		FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101BE1C04029900FC3672 /* EmployeeVC.xib */; };
 		FAF101C31C0409D400FC3672 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF101C11C0409D400FC3672 /* EmployeeCell.swift */; };
 		FAF101C41C0409D400FC3672 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101C21C0409D400FC3672 /* EmployeeCell.xib */; };
-		FAF19FDE1C0FD80E00F07A93 /* ZKJSGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF19FDD1C0FD80E00F07A93 /* ZKJSGuideVC.swift */; };
 		FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */; };
 		FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */; };
 		FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */; };
@@ -266,6 +291,33 @@
 
 /* Begin PBXFileReference section */
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
+		400D62191C151B3C0021E750 /* GuideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuideVC.swift; path = GuidePage/GuideVC.swift; sourceTree = "<group>"; };
+		400D62531C1526B50021E750 /* AlphaAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaAnimation.swift; sourceTree = "<group>"; };
+		400D62541C1526B50021E750 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
+		400D62551C1526B50021E750 /* AnimatedPagingScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedPagingScrollViewController.swift; sourceTree = "<group>"; };
+		400D62561C1526B50021E750 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		400D62571C1526B50021E750 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		400D62581C1526B50021E750 /* BackgroundColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundColorAnimation.swift; sourceTree = "<group>"; };
+		400D62591C1526B50021E750 /* ConstraintConstantAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantAnimation.swift; sourceTree = "<group>"; };
+		400D625A1C1526B50021E750 /* ConstraintMultiplierAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierAnimation.swift; sourceTree = "<group>"; };
+		400D625B1C1526B50021E750 /* CornerRadiusAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusAnimation.swift; sourceTree = "<group>"; };
+		400D625C1C1526B50021E750 /* CubicBezier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicBezier.swift; sourceTree = "<group>"; };
+		400D625D1C1526B50021E750 /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
+		400D625E1C1526B50021E750 /* Filmstrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filmstrip.swift; sourceTree = "<group>"; };
+		400D625F1C1526B50021E750 /* HideAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideAnimation.swift; sourceTree = "<group>"; };
+		400D62611C1526B50021E750 /* Interpolatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolatable.swift; sourceTree = "<group>"; };
+		400D62621C1526B50021E750 /* LabelTextColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTextColorAnimation.swift; sourceTree = "<group>"; };
+		400D62631C1526B50021E750 /* LayerFillColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerFillColorAnimation.swift; sourceTree = "<group>"; };
+		400D62641C1526B50021E750 /* LayerStrokeColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerStrokeColorAnimation.swift; sourceTree = "<group>"; };
+		400D62651C1526B50021E750 /* LayerStrokeEndAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerStrokeEndAnimation.swift; sourceTree = "<group>"; };
+		400D62661C1526B50021E750 /* LayerStrokeStartAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerStrokeStartAnimation.swift; sourceTree = "<group>"; };
+		400D62671C1526B50021E750 /* PathPositionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathPositionAnimation.swift; sourceTree = "<group>"; };
+		400D62681C1526B50021E750 /* RazzleDazzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RazzleDazzle.h; sourceTree = "<group>"; };
+		400D62691C1526B50021E750 /* RotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
+		400D626A1C1526B50021E750 /* ScaleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimation.swift; sourceTree = "<group>"; };
+		400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewPageConstraintAnimation.swift; sourceTree = "<group>"; };
+		400D626C1C1526B50021E750 /* TranslationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationAnimation.swift; sourceTree = "<group>"; };
+		400D626D1C1526B50021E750 /* UIView+Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
 		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSessionManager.h; sourceTree = "<group>"; };
 		404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -649,7 +701,6 @@
 		FAF101BE1C04029900FC3672 /* EmployeeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeVC.xib; sourceTree = "<group>"; };
 		FAF101C11C0409D400FC3672 /* EmployeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		FAF101C21C0409D400FC3672 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
-		FAF19FDD1C0FD80E00F07A93 /* ZKJSGuideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKJSGuideVC.swift; sourceTree = "<group>"; };
 		FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUpTVC.swift; sourceTree = "<group>"; };
 		FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingUpTVC.storyboard; sourceTree = "<group>"; };
 		FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ../Controller/HeaderView.swift; sourceTree = "<group>"; };
@@ -657,7 +708,6 @@
 		FAF1A5E41BEC852000B9ACC8 /* CodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
 		FAF1A5E51BEC852000B9ACC8 /* CodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeVC.xib; sourceTree = "<group>"; };
 		FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
-		FAF60BD11C11752A00C0AE7C /* RazzleDazzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RazzleDazzle.h; sourceTree = "<group>"; };
 		FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordVC.swift; sourceTree = "<group>"; };
 		FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordVC.xib; sourceTree = "<group>"; };
 		FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordCell.swift; sourceTree = "<group>"; };
@@ -694,6 +744,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400D621B1C1526240021E750 /* Swift3rdPartyLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				400D62521C1526B50021E750 /* RazzleDazzle */,
+			);
+			name = Swift3rdPartyLibrary;
+			sourceTree = "<group>";
+		};
+		400D62521C1526B50021E750 /* RazzleDazzle */ = {
+			isa = PBXGroup;
+			children = (
+				400D62531C1526B50021E750 /* AlphaAnimation.swift */,
+				400D62541C1526B50021E750 /* Animatable.swift */,
+				400D62551C1526B50021E750 /* AnimatedPagingScrollViewController.swift */,
+				400D62561C1526B50021E750 /* Animation.swift */,
+				400D62571C1526B50021E750 /* Animator.swift */,
+				400D62581C1526B50021E750 /* BackgroundColorAnimation.swift */,
+				400D62591C1526B50021E750 /* ConstraintConstantAnimation.swift */,
+				400D625A1C1526B50021E750 /* ConstraintMultiplierAnimation.swift */,
+				400D625B1C1526B50021E750 /* CornerRadiusAnimation.swift */,
+				400D625C1C1526B50021E750 /* CubicBezier.swift */,
+				400D625D1C1526B50021E750 /* EasingFunction.swift */,
+				400D625E1C1526B50021E750 /* Filmstrip.swift */,
+				400D625F1C1526B50021E750 /* HideAnimation.swift */,
+				400D62611C1526B50021E750 /* Interpolatable.swift */,
+				400D62621C1526B50021E750 /* LabelTextColorAnimation.swift */,
+				400D62631C1526B50021E750 /* LayerFillColorAnimation.swift */,
+				400D62641C1526B50021E750 /* LayerStrokeColorAnimation.swift */,
+				400D62651C1526B50021E750 /* LayerStrokeEndAnimation.swift */,
+				400D62661C1526B50021E750 /* LayerStrokeStartAnimation.swift */,
+				400D62671C1526B50021E750 /* PathPositionAnimation.swift */,
+				400D62681C1526B50021E750 /* RazzleDazzle.h */,
+				400D62691C1526B50021E750 /* RotationAnimation.swift */,
+				400D626A1C1526B50021E750 /* ScaleAnimation.swift */,
+				400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */,
+				400D626C1C1526B50021E750 /* TranslationAnimation.swift */,
+				400D626D1C1526B50021E750 /* UIView+Transform.swift */,
+			);
+			path = RazzleDazzle;
+			sourceTree = "<group>";
+		};
 		404FB51E1BCE08840074D205 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +1023,7 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
+				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
 				FAF097351C10398900A7F80B /* GuidePage */,
 				40E326461BD510C1008344DF /* Extension */,
 				40CAA5FC1BE705FE00FAFDA0 /* Login */,
@@ -1774,8 +1866,7 @@
 		FAF097351C10398900A7F80B /* GuidePage */ = {
 			isa = PBXGroup;
 			children = (
-				FAF19FDD1C0FD80E00F07A93 /* ZKJSGuideVC.swift */,
-				FAF60BD11C11752A00C0AE7C /* RazzleDazzle.h */,
+				400D62191C151B3C0021E750 /* GuideVC.swift */,
 			);
 			name = GuidePage;
 			sourceTree = "<group>";
@@ -2006,16 +2097,20 @@
 				40C8414A1C102784003E8037 /* ContactSelectionViewController.m in Sources */,
 				40FB3D461C00203900675044 /* EaseEmoji.m in Sources */,
 				40FB3CFF1C00203900675044 /* UIImageView+HeadImage.m in Sources */,
+				400D627E1C1526B50021E750 /* LayerFillColorAnimation.swift in Sources */,
 				40C8416E1C102CC3003E8037 /* EMAlertView.m in Sources */,
 				FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */,
+				400D62771C1526B50021E750 /* CubicBezier.swift in Sources */,
 				40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */,
 				40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */,
 				40FB3D561C00203900675044 /* EaseBubbleView+Location.m in Sources */,
+				400D62801C1526B50021E750 /* LayerStrokeEndAnimation.swift in Sources */,
 				40FB3D0B1C00203900675044 /* EMCDDeviceManagerBase.m in Sources */,
 				40FB3D4F1C00203900675044 /* EaseViewController.m in Sources */,
 				40FB3D371C00203900675044 /* PSTGridLayoutSection.m in Sources */,
 				40FB3D531C00203900675044 /* EaseMessageTimeCell.m in Sources */,
 				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
+				400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				40FB3D1E1C00203900675044 /* EMSDWebImageDownloader.m in Sources */,
 				40E3263D1BD50444008344DF /* Order+CoreDataProperties.swift in Sources */,
@@ -2028,11 +2123,16 @@
 				40FB3D231C00203900675044 /* NSData+EMImageContentType.m in Sources */,
 				40FB3D391C00203900675044 /* EaseSDKHelper.m in Sources */,
 				40C841641C102B0C003E8037 /* RealtimeSearchUtil.m in Sources */,
+				400D627C1C1526B50021E750 /* Interpolatable.swift in Sources */,
+				400D62761C1526B50021E750 /* CornerRadiusAnimation.swift in Sources */,
 				40FB3D491C00203900675044 /* EaseEmotionManager.m in Sources */,
+				400D62821C1526B50021E750 /* PathPositionAnimation.swift in Sources */,
 				40FB3D211C00203900675044 /* EMSDWebImagePrefetcher.m in Sources */,
 				40FB3D4A1C00203900675044 /* EaseConversationListViewController.m in Sources */,
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
+				400D62751C1526B50021E750 /* ConstraintMultiplierAnimation.swift in Sources */,
 				40FB3D2F1C00203900675044 /* PSTCollectionViewData.m in Sources */,
+				400D62721C1526B50021E750 /* Animator.swift in Sources */,
 				FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */,
 				FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
@@ -2045,11 +2145,13 @@
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				40FB3D0E1C00203900675044 /* EMVoiceConverter.mm in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
+				400D626F1C1526B50021E750 /* Animatable.swift in Sources */,
 				FAF101C31C0409D400FC3672 /* EmployeeCell.swift in Sources */,
 				40FC3B451BF438B800AEC4E8 /* UIView+CornerRadius.swift in Sources */,
 				40FB3D281C00203900675044 /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				40C841671C102C16003E8037 /* GroupSettingViewController.m in Sources */,
 				40FB3D0C1C00203900675044 /* amrFileCodec.mm in Sources */,
+				400D62851C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift in Sources */,
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
 				40FB3D3E1C00203900675044 /* NSDateFormatter+Category.m in Sources */,
 				40E6DE2F1C0ED2A300CFF8AF /* ContactListSelectViewController.m in Sources */,
@@ -2063,6 +2165,7 @@
 				40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */,
 				40F757451BE054160053C2BE /* AddClientVC.swift in Sources */,
 				40FB3D401C00203900675044 /* NSString+Valid.m in Sources */,
+				400D62741C1526B50021E750 /* ConstraintConstantAnimation.swift in Sources */,
 				40FB3D271C00203900675044 /* UIImage+EMWebP.m in Sources */,
 				40FB3D471C00203900675044 /* EaseEmojiEmoticons.m in Sources */,
 				842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */,
@@ -2077,13 +2180,17 @@
 				40FB3D5B1C00203900675044 /* EaseChatToolbar.m in Sources */,
 				40FB3D171C00203900675044 /* MWTapDetectingImageView.m in Sources */,
 				40FB3D2C1C00203900675044 /* PSTCollectionView.m in Sources */,
+				400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */,
 				40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */,
 				40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */,
+				400D62711C1526B50021E750 /* Animation.swift in Sources */,
 				40FB3D191C00203900675044 /* MWZoomingScrollView.m in Sources */,
 				40FB3D351C00203900675044 /* PSTGridLayoutItem.m in Sources */,
 				40FB3D0D1C00203900675044 /* wav.mm in Sources */,
+				400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */,
 				40FB3D121C00203900675044 /* MWCaptionView.m in Sources */,
 				40FB3D021C00203900675044 /* CustomMessageCell.m in Sources */,
+				400D62841C1526B50021E750 /* ScaleAnimation.swift in Sources */,
 				40F757491BE054160053C2BE /* ClientListVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
 				40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */,
@@ -2094,6 +2201,9 @@
 				40FB3D1C1C00203900675044 /* EMSDWebImageCompat.m in Sources */,
 				FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
+				400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */,
+				400D627A1C1526B50021E750 /* HideAnimation.swift in Sources */,
+				400D62781C1526B50021E750 /* EasingFunction.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,
 				40E569BC1C083F3300FEB528 /* EMBubbleView+Card.m in Sources */,
 				40FB3D451C00203900675044 /* EaseMessageReadManager.m in Sources */,
@@ -2106,6 +2216,7 @@
 				40F7576C1BE0553E0053C2BE /* InformCell.swift in Sources */,
 				40FB3D001C00203900675044 /* ConversationListController.m in Sources */,
 				FAF6AB7F1BED99CD006C1370 /* InvitationRecordVC.swift in Sources */,
+				400D62831C1526B50021E750 /* RotationAnimation.swift in Sources */,
 				40FB3D221C00203900675044 /* MKAnnotationView+EMWebCache.m in Sources */,
 				40F757821BE055A80053C2BE /* TeamListCell.swift in Sources */,
 				40FB3D541C00203900675044 /* EaseBubbleView+File.m in Sources */,
@@ -2126,6 +2237,7 @@
 				40C841491C102784003E8037 /* ChatGroupDetailViewController.m in Sources */,
 				40C841581C1029B0003E8037 /* EMSearchBar.m in Sources */,
 				40F757571BE054550053C2BE /* OrderDetailTVC.swift in Sources */,
+				400D627F1C1526B50021E750 /* LayerStrokeColorAnimation.swift in Sources */,
 				40FB3D151C00203900675044 /* MWPhoto.m in Sources */,
 				40DB677F1BEDDB34008D3BB9 /* UIColor+Theme.swift in Sources */,
 				40FB3D551C00203900675044 /* EaseBubbleView+Image.m in Sources */,
@@ -2137,6 +2249,7 @@
 				40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */,
 				40FB3D291C00203900675044 /* UIImageView+EMWebCache.m in Sources */,
 				40FB3D631C00203900675044 /* EaseConversationCell.m in Sources */,
+				400D62791C1526B50021E750 /* Filmstrip.swift in Sources */,
 				40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */,
 				40C841611C102A31003E8037 /* EMTextView.m in Sources */,
 				40FB3D3C1C00203900675044 /* EaseUserModel.m in Sources */,
@@ -2145,13 +2258,15 @@
 				40FB3D361C00203900675044 /* PSTGridLayoutRow.m in Sources */,
 				40FB3D071C00203900675044 /* EMCDDeviceManager+Media.m in Sources */,
 				40FB3D5E1C00203900675044 /* EaseTextView.m in Sources */,
+				400D62811C1526B50021E750 /* LayerStrokeStartAnimation.swift in Sources */,
 				40FB3D141C00203900675044 /* MWGridViewController.m in Sources */,
-				FAF19FDE1C0FD80E00F07A93 /* ZKJSGuideVC.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
 				40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */,
 				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,
+				400D62701C1526B50021E750 /* AnimatedPagingScrollViewController.swift in Sources */,
 				40FB3D441C00203900675044 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				40C841511C1028CA003E8037 /* EMRemarkImageView.m in Sources */,
+				400D627D1C1526B50021E750 /* LabelTextColorAnimation.swift in Sources */,
 				40FB3D031C00203900675044 /* EMBubbleView+Gif.m in Sources */,
 				40FB3D251C00203900675044 /* UIImage+EMGIF.m in Sources */,
 				40FB3D321C00203900675044 /* PSTCollectionViewLayout.m in Sources */,
@@ -2163,6 +2278,7 @@
 				40E3263B1BD50444008344DF /* Client+CoreDataProperties.swift in Sources */,
 				40E3263C1BD50444008344DF /* Location+CoreDataProperties.swift in Sources */,
 				40CAA5F61BE705DA00FAFDA0 /* AdminLoginV.swift in Sources */,
+				400D62731C1526B50021E750 /* BackgroundColorAnimation.swift in Sources */,
 				40F757471BE054160053C2BE /* ClientListCell.swift in Sources */,
 				40FB3D1F1C00203900675044 /* EMSDWebImageDownloaderOperation.m in Sources */,
 				40FB3D521C00203900675044 /* EaseMessageCell.m in Sources */,

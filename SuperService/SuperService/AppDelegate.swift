@@ -14,7 +14,7 @@ let kRefreshConversationListNotification = "refreshConversationListNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
-  var pages: Int!
+  
   var window: UIWindow?
   var mainTBC: MainTBC!
   
@@ -25,14 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     setupTCPSessionManager()
     setupWindows()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
-    EMSDImageCache.sharedImageCache().clearDisk()
-    let  guideViewController = ZKJSGuideVC()
-    pages = guideViewController.page
-    if (!(NSUserDefaults.standardUserDefaults().boolForKey("everLaunched"))) {
-      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"everLaunched")
-      self.window!.rootViewController = guideViewController
-    }
-        return true
+    clearImageCache()
+    
+    return true
   }
   
   func applicationWillResignActive(application: UIApplication) {
@@ -76,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   // MARK: - Push Notification
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-   
+    
     let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
     let cleanToken = trimEnds.stringByReplacingOccurrencesOfString(" ", withString: "", options: .CaseInsensitiveSearch, range: nil)
     AccountManager.sharedInstance().saveDeviceToken(cleanToken)
@@ -174,16 +169,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   private func setupWindows() {
-    
-      mainTBC = MainTBC()
-      window = UIWindow(frame: UIScreen.mainScreen().bounds)
-      window!.layer.cornerRadius = 6
-      window!.layer.masksToBounds = true
-      window!.rootViewController = mainTBC
-      window?.makeKeyAndVisible()
-    
-
-   
+    mainTBC = MainTBC()
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    window!.layer.cornerRadius = 6
+    window!.layer.masksToBounds = true
+    setupGuideVC()
+//    window!.rootViewController = mainTBC
+    window?.makeKeyAndVisible()
+  }
+  
+  func clearImageCache() {
+    EMSDImageCache.sharedImageCache().clearDisk()
+  }
+  
+  func setupGuideVC() {
+    let  guideViewController = GuideVC()
+//    if (!(NSUserDefaults.standardUserDefaults().boolForKey("everLaunched"))) {
+//      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"everLaunched")
+      self.window!.rootViewController = guideViewController
+//    }
   }
   
   

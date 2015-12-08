@@ -34,7 +34,6 @@ PODS:
   - MBProgressHUD (0.9.1)
   - MJRefresh (3.0.7)
   - SocketRocket (0.4.2)
-  - StitchingImage (1.0)
   - SWTableViewCell (0.3.7)
   - WPMediaPicker (0.7.3)
   - XLPagerTabStrip (2.0.0)
@@ -53,7 +52,6 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - SocketRocket
-  - StitchingImage (from `https://github.com/zhengjinghua/StitchingImage.git`)
   - SWTableViewCell
   - WPMediaPicker
   - XLPagerTabStrip
@@ -61,16 +59,11 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   EaseMobSDKFull:
     :git: https://github.com/easemob/sdk-ios-cocoapods-integration.git
-  StitchingImage:
-    :git: https://github.com/zhengjinghua/StitchingImage.git
 
 CHECKOUT OPTIONS:
   EaseMobSDKFull:
     :commit: c4a63a69518d396309e8d6c267f2756cac3877ee
     :git: https://github.com/easemob/sdk-ios-cocoapods-integration.git
-  StitchingImage:
-    :commit: 2024af71859abcaef0d74104a3af2f63dd98dc5d
-    :git: https://github.com/zhengjinghua/StitchingImage.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -86,7 +79,6 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: f3e1228ec3d38c7ba5208d58032631a52f39f495
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
-  StitchingImage: 2f4a2a30791c97c3cfd38eee0f7bd55eabf3a681
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   WPMediaPicker: 6bbce465f5a5c071267ae28bdf31d0fd6e109721
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb

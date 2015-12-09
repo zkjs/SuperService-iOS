@@ -21,6 +21,7 @@
 #import "EMAlertView.h"
 #import "EaseUI.h"
 #import "UIImageView+HeadImage.h"
+#import "SuperService-Swift.h"
 
 #pragma mark - ChatGroupDetailViewController
 
@@ -130,8 +131,8 @@
     _scrollView.tag = 0;
     
     _addButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kContactSize - 10, kContactSize - 10)];
-    [_addButton setImage:[UIImage imageNamed:@"ic_jia_nor"] forState:UIControlStateNormal];
-    [_addButton setImage:[UIImage imageNamed:@"ic_jia_nor"] forState:UIControlStateHighlighted];
+    [_addButton setImage:[UIImage imageNamed:@"ic_jiatouxiang"] forState:UIControlStateNormal];
+    [_addButton setImage:[UIImage imageNamed:@"ic_jiatouxiang"] forState:UIControlStateHighlighted];
     [_addButton addTarget:self action:@selector(addContact:) forControlEvents:UIControlEventTouchUpInside];
     
     _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(deleteContactBegin:)];
@@ -148,7 +149,9 @@
     [_clearButton setTitle:NSLocalizedString(@"group.removeAllMessages", @"remove all messages") forState:UIControlStateNormal];
     [_clearButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_clearButton addTarget:self action:@selector(clearAction) forControlEvents:UIControlEventTouchUpInside];
-    [_clearButton setBackgroundColor:[UIColor colorWithRed:87 / 255.0 green:186 / 255.0 blue:205 / 255.0 alpha:1.0]];
+    [_clearButton setBackgroundColor:[UIColor ZKJS_themeColor]];
+    _clearButton.layer.masksToBounds = YES;
+    _clearButton.layer.cornerRadius = 6;
   }
   
   return _clearButton;
@@ -162,6 +165,8 @@
     [_dissolveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dissolveButton addTarget:self action:@selector(dissolveAction) forControlEvents:UIControlEventTouchUpInside];
     [_dissolveButton setBackgroundColor: [UIColor colorWithRed:191 / 255.0 green:48 / 255.0 blue:49 / 255.0 alpha:1.0]];
+    _dissolveButton.layer.masksToBounds = YES;
+    _dissolveButton.layer.cornerRadius = 6;
   }
   
   return _dissolveButton;
@@ -175,6 +180,8 @@
     [_exitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_exitButton addTarget:self action:@selector(exitAction) forControlEvents:UIControlEventTouchUpInside];
     [_exitButton setBackgroundColor:[UIColor colorWithRed:191 / 255.0 green:48 / 255.0 blue:49 / 255.0 alpha:1.0]];
+    _exitButton.layer.masksToBounds = YES;
+    _exitButton.layer.cornerRadius = 6;
   }
   
   return _exitButton;
@@ -186,12 +193,12 @@
     _footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 160)];
     _footerView.backgroundColor = [UIColor clearColor];
     
-    self.clearButton.frame = CGRectMake(20, 40, _footerView.frame.size.width - 40, 35);
+    self.clearButton.frame = CGRectMake(20, 40, _footerView.frame.size.width - 40, 44);
     [_footerView addSubview:self.clearButton];
     
-    self.dissolveButton.frame = CGRectMake(20, CGRectGetMaxY(self.clearButton.frame) + 30, _footerView.frame.size.width - 40, 35);
+    self.dissolveButton.frame = CGRectMake(20, CGRectGetMaxY(self.clearButton.frame) + 30, _footerView.frame.size.width - 40, 44);
     
-    self.exitButton.frame = CGRectMake(20, CGRectGetMaxY(self.clearButton.frame) + 30, _footerView.frame.size.width - 40, 35);
+    self.exitButton.frame = CGRectMake(20, CGRectGetMaxY(self.clearButton.frame) + 30, _footerView.frame.size.width - 40, 44);
   }
   
   return _footerView;

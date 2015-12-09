@@ -83,6 +83,9 @@
         cell.timeLabel.text = [self _latestMessageTimeForConversationModel:model];
     }
   
+  cell.avatarView.layer.masksToBounds = YES;
+  cell.avatarView.layer.cornerRadius = cell.avatarView.frame.size.width / 2;
+  
     return cell;
 }
 

@@ -46,7 +46,7 @@
 #pragma mark - Private
 
 - (void)setupRightBarButton {
-  UIBarButtonItem *createGroupButton = [[UIBarButtonItem alloc] initWithTitle:@"建群" style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
+  UIBarButtonItem *createGroupButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_faqiqunliao"] style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
   self.navigationItem.rightBarButtonItem = createGroupButton;
 }
 
@@ -209,14 +209,12 @@
     NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", conversation.chatter];
     model.avatarURLPath = [kBaseURL stringByAppendingString:url];
   } else if (model.conversation.conversationType == eConversationTypeGroupChat) {
-    NSString *imageName = @"groupPublicHeader";
     if (![conversation.ext objectForKey:@"groupSubject"] || ![conversation.ext objectForKey:@"isPublic"]) {
       NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
       for (EMGroup *group in groupArray) {
         if ([group.groupId isEqualToString:conversation.chatter]) {
           model.title = group.groupSubject;
-          imageName = group.isPublic ? @"groupPublicHeader" : @"groupPrivateHeader";
-          model.avatarImage = [UIImage imageNamed:imageName];
+          model.avatarImage = [UIImage imageNamed:@"img_hotel_zhanwei"];
           
           NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:conversation.ext];
           [ext setObject:group.groupSubject forKey:@"groupSubject"];
@@ -229,8 +227,6 @@
       NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
       for (EMGroup *group in groupArray) {
         if ([group.groupId isEqualToString:conversation.chatter]) {
-          imageName = group.isPublic ? @"groupPublicHeader" : @"groupPrivateHeader";
-          
           NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:conversation.ext];
           [ext setObject:group.groupSubject forKey:@"groupSubject"];
           [ext setObject:[NSNumber numberWithBool:group.isPublic] forKey:@"isPublic"];
@@ -243,8 +239,7 @@
         }
       }
       model.title = [conversation.ext objectForKey:@"groupSubject"];
-      imageName = [[conversation.ext objectForKey:@"isPublic"] boolValue] ? @"groupPublicHeader" : @"groupPrivateHeader";
-      model.avatarImage = [UIImage imageNamed:imageName];
+      model.avatarImage = [UIImage imageNamed:@"img_hotel_zhanwei"];
     }
   }
   NSLog(@"%@", model.title);

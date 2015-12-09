@@ -13,6 +13,7 @@
 #import "GroupSubjectChangingViewController.h"
 
 #import "EaseMob.h"
+#import "SuperService-Swift.h"
 
 @interface GroupSubjectChangingViewController () <UITextFieldDelegate>
 {
@@ -52,10 +53,11 @@
     [self.navigationItem setRightBarButtonItem:saveItem];
     }
   
-  CGRect frame = CGRectMake(20, 80, self.view.frame.size.width - 40, 40);
+  CGRect frame = CGRectMake(20, 20, self.view.frame.size.width - 40, 40);
   _subjectField = [[UITextField alloc] initWithFrame:frame];
   _subjectField.layer.cornerRadius = 5.0;
   _subjectField.layer.borderWidth = 1.0;
+  _subjectField.layer.borderColor = [UIColor ZKJS_themeColor].CGColor;
   _subjectField.placeholder = NSLocalizedString(@"group.setting.subject", @"Please input group name");
   _subjectField.text = _group.groupSubject;
   if (!_isOwner)

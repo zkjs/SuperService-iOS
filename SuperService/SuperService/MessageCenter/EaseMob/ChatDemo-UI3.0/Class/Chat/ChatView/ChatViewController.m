@@ -31,8 +31,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self setupRightBarButton];
-  
   self.showRefreshHeader = YES;
   self.delegate = self;
   self.dataSource = self;
@@ -99,10 +97,10 @@
 {
   //单聊
   if (self.conversation.conversationType == eConversationTypeChat) {
-
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_danliao"] style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
   } else if (self.conversation.conversationType == eConversationTypeGroupChat) {
     // 群聊
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showGroupDetailAction)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_qunliao"] style:UIBarButtonItemStylePlain target:self action:@selector(showGroupDetailAction)];
   }
 }
 
@@ -562,15 +560,6 @@
 
 - (NSString *)getChatterName {
   return self.conversation.latestMessageFromOthers.ext[@"fromName"];
-}
-
-- (void)setupRightBarButton {
-  if (self.conversation.conversationType == eConversationTypeChat) {
-    UIBarButtonItem *createGroupButton = [[UIBarButtonItem alloc] initWithTitle:@"加人" style:UIBarButtonItemStylePlain target:self action:@selector(createGroup)];
-    self.navigationItem.rightBarButtonItem = createGroupButton;
-  } else if (self.conversation.conversationType == eConversationTypeGroupChat) {
-    
-  }
 }
 
 - (void)createGroup

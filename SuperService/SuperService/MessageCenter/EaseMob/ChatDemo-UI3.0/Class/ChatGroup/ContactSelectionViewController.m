@@ -18,6 +18,7 @@
 #import "RealtimeSearchUtil.h"
 #import "EaseUI.h"
 #import "ZKJSHTTPSessionManager.h"
+#import "SuperService-Swift.h"
 
 @interface ContactSelectionViewController ()<UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -129,18 +130,18 @@
         cell = [[BaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
       }
       
-      EMBuddy *buddy = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
+      EaseUserModel *model = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
       cell.imageView.image = [UIImage imageNamed:@"chatListCellHead.png"];
-      cell.textLabel.text = buddy.username;
-      cell.username = buddy.username;
+      cell.textLabel.text = model.nickname;
+      cell.username = model.buddy.username;
       
       return cell;
     }];
     
     [_searchController setCanEditRowAtIndexPath:^BOOL(UITableView *tableView, NSIndexPath *indexPath) {
       if ([weakSelf.blockSelectedUsernames count] > 0) {
-        EMBuddy *buddy = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
-        return ![weakSelf isBlockUsername:buddy.username];
+        EaseUserModel *model = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
+        return ![weakSelf isBlockUsername:model.buddy.username];
       }
       
       return YES;
@@ -151,17 +152,17 @@
     }];
     
     [_searchController setDidSelectRowAtIndexPathCompletion:^(UITableView *tableView, NSIndexPath *indexPath) {
-      EMBuddy *buddy = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
-      if (![weakSelf.selectedContacts containsObject:buddy])
+      EaseUserModel *model = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
+      if (![weakSelf.selectedContacts containsObject:model])
         {
-        NSInteger section = [weakSelf sectionForString:buddy.username];
+        NSInteger section = [weakSelf sectionForString:model.nickname];
         if (section >= 0) {
           NSMutableArray *tmpArray = [weakSelf.dataSource objectAtIndex:section];
-          NSInteger row = [tmpArray indexOfObject:buddy];
+          NSInteger row = [tmpArray indexOfObject:model];
           [weakSelf.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] animated:NO scrollPosition:UITableViewScrollPositionNone];
         }
         
-        [weakSelf.selectedContacts addObject:buddy];
+        [weakSelf.selectedContacts addObject:model];
         [weakSelf reloadFooterView];
         }
     }];
@@ -169,16 +170,16 @@
     [_searchController setDidDeselectRowAtIndexPathCompletion:^(UITableView *tableView, NSIndexPath *indexPath) {
       [tableView deselectRowAtIndexPath:indexPath animated:YES];
       
-      EMBuddy *buddy = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
-      if ([weakSelf.selectedContacts containsObject:buddy]) {
-        NSInteger section = [weakSelf sectionForString:buddy.username];
+      EaseUserModel *model = [weakSelf.searchController.resultsSource objectAtIndex:indexPath.row];
+      if ([weakSelf.selectedContacts containsObject:model]) {
+        NSInteger section = [weakSelf sectionForString:model.nickname];
         if (section >= 0) {
           NSMutableArray *tmpArray = [weakSelf.dataSource objectAtIndex:section];
-          NSInteger row = [tmpArray indexOfObject:buddy];
+          NSInteger row = [tmpArray indexOfObject:model];
           [weakSelf.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] animated:NO];
         }
         
-        [weakSelf.selectedContacts removeObject:buddy];
+        [weakSelf.selectedContacts removeObject:model];
         [weakSelf reloadFooterView];
       }
     }];
@@ -199,7 +200,7 @@
     [_footerView addSubview:_footerScrollView];
     
     _doneButton = [[UIButton alloc] initWithFrame:CGRectMake(_footerView.frame.size.width - 80, 8, 70, _footerView.frame.size.height - 16)];
-    [_doneButton setBackgroundColor:[UIColor colorWithRed:10 / 255.0 green:82 / 255.0 blue:104 / 255.0 alpha:1.0]];
+    [_doneButton setBackgroundColor:[UIColor ZKJS_themeColor]];
     [_doneButton setTitle:NSLocalizedString(@"accept", @"Accept") forState:UIControlStateNormal];
     [_doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _doneButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
@@ -286,7 +287,7 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
   [searchBar setShowsCancelButton:YES animated:YES];
-  [self.searchBar setCancelButtonTitle:NSLocalizedString(@"ok", @"OK")];
+//  [self.searchBar setCancelButtonTitle:NSLocalizedString(@"ok", @"OK")];
   
   return YES;
 }
@@ -294,17 +295,17 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
   __weak typeof(self) weakSelf = self;
-  [[RealtimeSearchUtil currentUtil] realtimeSearchWithSource:self.contactsSource searchText:searchText collationStringSelector:@selector(username) resultBlock:^(NSArray *results) {
+  [[RealtimeSearchUtil currentUtil] realtimeSearchWithSource:self.contactsSource searchText:searchText collationStringSelector:@selector(nickname) resultBlock:^(NSArray *results) {
     if (results) {
       dispatch_async(dispatch_get_main_queue(), ^{
         [weakSelf.searchController.resultsSource removeAllObjects];
         [weakSelf.searchController.resultsSource addObjectsFromArray:results];
         [weakSelf.searchController.searchResultsTableView reloadData];
         
-        for (EMBuddy *buddy in results) {
-          if ([weakSelf.selectedContacts containsObject:buddy])
+        for (EaseUserModel *model in results) {
+          if ([weakSelf.selectedContacts containsObject:model])
             {
-            NSInteger row = [results indexOfObject:buddy];
+            NSInteger row = [results indexOfObject:model];
             [weakSelf.searchController.searchResultsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
             }
         }

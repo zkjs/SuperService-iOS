@@ -80,10 +80,8 @@
   [super viewWillAppear:animated];
   if (self.conversation.conversationType == eConversationTypeGroupChat) {
     self.title = @"群聊";
-//    if ([[self.conversation.ext objectForKey:@"groupSubject"] length])
-//      {
-//      self.title = [self.conversation.ext objectForKey:@"groupSubject"];
-//      }
+  } else {
+    self.title = [self getChatterName];
   }
 }
 

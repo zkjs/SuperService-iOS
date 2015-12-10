@@ -10,6 +10,8 @@ import UIKit
 
 class MainTBC: UITabBarController {
   
+  private let conversationListVC = ConversationListController()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -65,11 +67,10 @@ class MainTBC: UITabBarController {
     let nv2 = BaseNavigationController()
     nv2.viewControllers = [vc2]
     
-    let vc3 = ConversationListController()
-    vc3.tabBarItem.title = "消息"
-    vc3.tabBarItem.image = UIImage(named: "ic_xiaoxi")
+    conversationListVC.tabBarItem.title = "消息"
+    conversationListVC.tabBarItem.image = UIImage(named: "ic_xiaoxi")
     let nv3 = BaseNavigationController()
-    nv3.viewControllers = [vc3]
+    nv3.viewControllers = [conversationListVC]
     
     let vc4 = ContactVC()
     vc4.tabBarItem.title = "联系人"
@@ -204,6 +205,34 @@ extension MainTBC: EMCallManagerDelegate {
   
   func callControllerClose(notification: NSNotification) {
     EaseMob.sharedInstance().callManager.addDelegate(self, delegateQueue: nil)
+  }
+  
+  // 未读消息数量变化回调
+  
+  func didUnreadMessagesCountChanged() {
+    setupUnreadMessageCount()
+  }
+  
+  func didFinishedReceiveOfflineMessages() {
+    setupUnreadMessageCount()
+  }
+  
+  func setupUnreadMessageCount() {
+    if let conversations = EaseMob.sharedInstance().chatManager.conversations {
+      var unreadCount = 0
+      for conversation in conversations {
+        if let conversation = conversation as? EMConversation {
+          unreadCount += Int(conversation.unreadMessagesCount())
+        }
+      }
+      
+      if unreadCount > 0 {
+        conversationListVC.tabBarItem.badgeValue = "\(unreadCount)"
+      } else {
+        conversationListVC.tabBarItem.badgeValue = nil
+      }
+      UIApplication.sharedApplication().applicationIconBadgeNumber = unreadCount
+    }
   }
 
 }

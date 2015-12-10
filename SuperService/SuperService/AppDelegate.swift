@@ -221,8 +221,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       let cert = "SuperService"
     #endif
     let appKey = "zkjs#svip"
-    EaseMob.sharedInstance().registerSDKWithAppKey(appKey, apnsCertName: cert, otherConfig: [kSDKConfigEnableConsoleLogger: NSNumber(bool: false)])
-    EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    
+    EaseSDKHelper.shareHelper().easemobApplication(application,
+      didFinishLaunchingWithOptions: launchOptions,
+      appkey: appKey,
+      apnsCertName: cert,
+      otherConfig: [kSDKConfigEnableConsoleLogger: NSNumber(bool: false)])
   }
   
 }

@@ -26,7 +26,7 @@
 "username" = "Username";
 "confirmpassword"="Confirm password";
 
-"sure" = "OK";
+"ok" = "Done";
 "yes" = "YES";
 "cancel" = "Cancel";
 "no" = "NO";

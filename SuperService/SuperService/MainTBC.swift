@@ -54,7 +54,7 @@ class MainTBC: UITabBarController {
     title = "到店通知"
     
     let vc1 = ArrivalTVC()
-    vc1.tabBarItem.image = UIImage(named: "ic_home")
+    vc1.tabBarItem.image = UIImage(named: "ic_daodiantongzhi")
     vc1.tabBarItem.title = "到店通知"
     let nv1 = BaseNavigationController()
     nv1.viewControllers = [vc1]
@@ -67,19 +67,19 @@ class MainTBC: UITabBarController {
     
     let vc3 = ConversationListController()
     vc3.tabBarItem.title = "消息"
-    vc3.tabBarItem.image = UIImage(named: "ic_duihua_b")
+    vc3.tabBarItem.image = UIImage(named: "ic_xiaoxi")
     let nv3 = BaseNavigationController()
     nv3.viewControllers = [vc3]
     
     let vc4 = ContactVC()
     vc4.tabBarItem.title = "联系人"
-    vc4.tabBarItem.image = UIImage(named: "ic_tuandui_b")
+    vc4.tabBarItem.image = UIImage(named: "ic_lianxiren")
     let nv4 = BaseNavigationController()
     nv4.viewControllers = [vc4]
     
     let vc5 = SettingsVC()
     vc5.tabBarItem.title = "我的"
-    vc5.tabBarItem.image = UIImage(named: "ic_shezhi")
+    vc5.tabBarItem.image = UIImage(named: "ic_wo")
     let nv5 = BaseNavigationController()
     nv5.viewControllers = [vc5]
     

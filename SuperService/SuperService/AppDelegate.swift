@@ -174,7 +174,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     window!.layer.cornerRadius = 6
     window!.layer.masksToBounds = true
     setupGuideVC()
-//    window!.rootViewController = mainTBC
     window?.makeKeyAndVisible()
   }
   
@@ -183,11 +182,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   }
   
   func setupGuideVC() {
-    let  guideViewController = GuideVC()
-//    if (!(NSUserDefaults.standardUserDefaults().boolForKey("everLaunched"))) {
-//      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"everLaunched")
+    let guideViewController = GuideVC()
+    if (!(NSUserDefaults.standardUserDefaults().boolForKey("everLaunched"))) {
+      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"everLaunched")
       self.window!.rootViewController = guideViewController
-//    }
+    } else {
+      window!.rootViewController = mainTBC
+    }
   }
   
   

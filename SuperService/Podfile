@@ -3,7 +3,6 @@ platform :ios, '8.0'
 #use_frameworks!
 
 target 'SuperService' do
-  pod 'JazzHands'
   pod 'EaseMobSDKFull', :git => 'https://github.com/easemob/sdk-ios-cocoapods-integration.git'
   pod 'JTSImageViewController', :inhibit_warnings => true
   pod 'ChameleonFramework'

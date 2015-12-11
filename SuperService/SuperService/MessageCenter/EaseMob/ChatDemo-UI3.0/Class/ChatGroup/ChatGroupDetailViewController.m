@@ -22,6 +22,7 @@
 #import "EaseUI.h"
 #import "UIImageView+HeadImage.h"
 #import "SuperService-Swift.h"
+#import "ZKJSHTTPSessionManager.h"
 
 #pragma mark - ChatGroupDetailViewController
 
@@ -396,13 +397,21 @@
     }
   }
   
-  [self.dataSource addObjectsFromArray:self.chatGroup.occupants];
-  
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [self refreshScrollView];
-    [self refreshFooterView];
-    [self hideHud];
-  });
+  NSString *members = [self.chatGroup.occupants componentsJoinedByString:@"\",\""];
+  __weak typeof(self) weakSelf = self;
+  // 再根据userid到后台拿名字
+  [[ZKJSHTTPSessionManager sharedInstance] getMemberInfoWithMemebers:members success:^(NSURLSessionDataTask *task, id responseObject) {
+    for (NSDictionary *member in responseObject) {
+      [weakSelf.dataSource addObject:member[@"username"]];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [weakSelf refreshScrollView];
+      [weakSelf refreshFooterView];
+      [weakSelf hideHud];
+    });
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    
+  }];
 }
 
 - (void)refreshScrollView
@@ -440,11 +449,12 @@
     for (j = 0; j < kColOfRow; j++) {
       NSInteger index = i * kColOfRow + j;
       if (index < [self.dataSource count]) {
+        NSString *userid = [self.chatGroup.occupants objectAtIndex:index];
         NSString *username = [self.dataSource objectAtIndex:index];
         ContactView *contactView = [[ContactView alloc] initWithFrame:CGRectMake(j * kContactSize, i * kContactSize, kContactSize, kContactSize)];
         contactView.index = i * kColOfRow + j;
 //        contactView.image = [UIImage imageNamed:@"chatListCellHead.png"];
-        [contactView.imageView imageWithUsername:username placeholderImage:nil];
+        [contactView.imageView imageWithUsername:userid placeholderImage:nil];
         contactView.remark = username;
         if (![username isEqualToString:loginUsername]) {
           contactView.editing = isEditing;

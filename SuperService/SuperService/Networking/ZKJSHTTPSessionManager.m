@@ -190,7 +190,7 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-        //NSLog(@"%@", [responseObject description]);
+//    NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
       success(task, responseObject);
     }
@@ -609,7 +609,6 @@
   }];
 }
 
-
 #pragma mark - 查询用户(服务员)简单信息
 - (void)getUserInfoWithChatterID:(NSString *)chatterID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self POST:@"v10/user" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -618,6 +617,24 @@
     [formData appendPartWithFormData:[chatterID dataUsingEncoding:NSUTF8StringEncoding] name:@"find_userid"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
     //    DDLogInfo(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 查询用户(服务员)简单信息
+- (void)getMemberInfoWithMemebers:(NSString *)members success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"hxim/member" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    // 服务器接口要["ZZZ", "ZZZ", "ZZZ"]的格式
+    [formData appendPartWithFormData:[[NSString stringWithFormat:@"[\"%@\"]", members] dataUsingEncoding:NSUTF8StringEncoding] name:@"members"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+//    DDLogInfo(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
       success(task, responseObject);
     }

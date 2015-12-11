@@ -23,10 +23,10 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     self.navigationController!.navigationBar.translucent = true
     self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     self.navigationController!.navigationBar.shadowImage = UIImage()
-    let item1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: nil)
-    let item2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancle:")
-    self.navigationItem.rightBarButtonItem = item1
-    self.navigationItem.leftBarButtonItem = item2
+//    let item1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: nil)
+//    let item2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancle:")
+//    self.navigationItem.rightBarButtonItem = item1
+//    self.navigationItem.leftBarButtonItem = item2
     let nibName = UINib(nibName: InvitationRecordCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: InvitationRecordCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
@@ -40,6 +40,13 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     super.viewWillAppear(true)
     
   }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    self.navigationController!.navigationBar.translucent = false
+  }
+  
   func cancle(sender:UIButton) {
     self.navigationController!.navigationBar.translucent = false
     navigationController?.popViewControllerAnimated(true)

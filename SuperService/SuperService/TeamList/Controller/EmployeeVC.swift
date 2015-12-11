@@ -31,10 +31,10 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     //print(client)
     navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     navigationController!.navigationBar.shadowImage = UIImage()
-    let item1 = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: nil)
-    let item2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancle:")
-    navigationItem.rightBarButtonItem = item1
-    navigationItem.leftBarButtonItem = item2
+//    let item1 = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: nil)
+//    let item2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancle:")
+//    navigationItem.rightBarButtonItem = item1
+//    navigationItem.leftBarButtonItem = item2
     let nibName = UINib(nibName: EmployeeCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: EmployeeCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
@@ -124,7 +124,11 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     headerView = (NSBundle.mainBundle().loadNibNamed("CodeHeaderView", owner: self, options: nil).first as? CodeHeaderView)!
     self.view.addSubview(headerView)
-    headerView.employeeNameLabel.text = employee.name
+    if type == EmployeeVCType.team {
+      headerView.employeeNameLabel.text = employee.name
+    } else {
+      headerView.employeeNameLabel.text = client.username
+    }
     return headerView
   }
   

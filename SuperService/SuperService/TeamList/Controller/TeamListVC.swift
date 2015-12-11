@@ -24,8 +24,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         let sectionNumber = collation.sectionForObject(object, collationStringSelector: selector)
         sections[sectionNumber].append(object)
       }
-      self.tableView.reloadData()
-
+      tableView.reloadData()
     }
   }
   
@@ -38,12 +37,13 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     title = "团队"
     
-    loadData()
-    
     let nibName = UINib(nibName: TeamListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())
     
     tableView.tableFooterView = UIView()
+    
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
+    tableView.mj_header.beginRefreshing()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -58,8 +58,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
       let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
       baseNC.topViewController?.navigationItem.rightBarButtonItem = addMemberButton
     }
-    
-    RefreshTeamListTableView()
   }
   
   override func viewWillDisappear(animated: Bool) {
@@ -97,7 +95,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     return UIColor.whiteColor()
   }
   
-  //RefreshTeamListVCDelegate
+  // RefreshTeamListVCDelegate
   
   func RefreshTeamListTableView() {
     teamArray.removeAll()
@@ -111,11 +109,12 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         for dic in array {
           let team = TeamModel(dic: dic as! [String:AnyObject])
           datasource.append(team)  
-        }        
-        self.teamArray = datasource      
+        }
+        self.teamArray = datasource
+        self.tableView.mj_header.endRefreshing()
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
+      self.tableView.mj_header.endRefreshing()
     }
   }
   

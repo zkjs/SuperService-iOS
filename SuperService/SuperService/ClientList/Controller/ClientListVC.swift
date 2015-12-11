@@ -42,7 +42,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    loadData()
     delegate = self
     title = "客户"
     let addVC = AddClientVC()
@@ -52,12 +51,9 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
     
     tableView.tableFooterView = UIView()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(true)
     
-    tableView.reloadData()
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
+    tableView.mj_header.beginRefreshing()
   }
   
   // MARK: - XLPagerTabStripChildItem Delegate
@@ -102,9 +98,10 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
         self.tableView.reloadData()
         self.clientArray = datasource
+        self.tableView.mj_header.endRefreshing()
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
+        self.tableView.mj_header.endRefreshing()
     }
     
   }

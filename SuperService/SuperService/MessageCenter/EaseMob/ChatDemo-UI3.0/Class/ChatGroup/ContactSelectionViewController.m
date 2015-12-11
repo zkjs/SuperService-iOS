@@ -200,6 +200,8 @@
     [_footerView addSubview:_footerScrollView];
     
     _doneButton = [[UIButton alloc] initWithFrame:CGRectMake(_footerView.frame.size.width - 80, 8, 70, _footerView.frame.size.height - 16)];
+    _doneButton.layer.masksToBounds = YES;
+    _doneButton.layer.cornerRadius = 3;
     [_doneButton setBackgroundColor:[UIColor ZKJS_themeColor]];
     [_doneButton setTitle:NSLocalizedString(@"accept", @"Accept") forState:UIControlStateNormal];
     [_doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

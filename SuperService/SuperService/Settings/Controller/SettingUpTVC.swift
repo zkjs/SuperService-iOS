@@ -58,16 +58,12 @@ class SettingUpTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
-    if indexPath == NSIndexPath(forRow: 2, inSection: 0) {
+    if indexPath == NSIndexPath(forRow: 4, inSection: 0) {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
-    if indexPath == NSIndexPath(forRow: 4, inSection: 0) {
-      let vc = CodeVC()
-      self.navigationController?.pushViewController(vc, animated: true)
-    }
     if indexPath == NSIndexPath(forRow: 5, inSection: 0) {
-      let vc = AboutUSVC()
+      let vc = CodeVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
   }

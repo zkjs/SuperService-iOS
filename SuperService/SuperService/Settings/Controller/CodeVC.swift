@@ -79,8 +79,8 @@ class CodeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   func loadMoreData() {
     page++
     setupData(page)
-    
   }
+  
   func refreshData() {
     page = 1
     codeArray.removeAll()

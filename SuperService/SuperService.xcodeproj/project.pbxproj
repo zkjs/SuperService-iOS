@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		29B7726F072F98DA115D7278 /* libPods-SuperService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5692D1DD697B52942EE420A3 /* libPods-SuperService.a */; };
+		4007064A1C1AC06C0017ECA7 /* libYunBa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 400706481C1AC06C0017ECA7 /* libYunBa.a */; };
+		4007064C1C1AC0D60017ECA7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4007064B1C1AC0D60017ECA7 /* SystemConfiguration.framework */; };
 		400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62191C151B3C0021E750 /* GuideVC.swift */; };
 		400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62531C1526B50021E750 /* AlphaAnimation.swift */; };
 		400D626F1C1526B50021E750 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D62541C1526B50021E750 /* Animatable.swift */; };
@@ -291,6 +293,9 @@
 
 /* Begin PBXFileReference section */
 		1BC815522E04791AE335FF27 /* Pods-SuperService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.debug.xcconfig"; sourceTree = "<group>"; };
+		400706481C1AC06C0017ECA7 /* libYunBa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYunBa.a; sourceTree = "<group>"; };
+		400706491C1AC06C0017ECA7 /* YunBaService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YunBaService.h; sourceTree = "<group>"; };
+		4007064B1C1AC0D60017ECA7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		400D62191C151B3C0021E750 /* GuideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuideVC.swift; path = GuidePage/GuideVC.swift; sourceTree = "<group>"; };
 		400D62531C1526B50021E750 /* AlphaAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaAnimation.swift; sourceTree = "<group>"; };
 		400D62541C1526B50021E750 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
@@ -721,9 +726,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4007064C1C1AC0D60017ECA7 /* SystemConfiguration.framework in Frameworks */,
 				40FB3D101C00203900675044 /* libopencore-amrwb.a in Frameworks */,
 				40FB3D0F1C00203900675044 /* libopencore-amrnb.a in Frameworks */,
 				29B7726F072F98DA115D7278 /* libPods-SuperService.a in Frameworks */,
+				4007064A1C1AC06C0017ECA7 /* libYunBa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +751,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400706471C1AC06C0017ECA7 /* YunBaSDK */ = {
+			isa = PBXGroup;
+			children = (
+				400706481C1AC06C0017ECA7 /* libYunBa.a */,
+				400706491C1AC06C0017ECA7 /* YunBaService.h */,
+			);
+			path = YunBaSDK;
+			sourceTree = "<group>";
+		};
 		400D621B1C1526240021E750 /* Swift3rdPartyLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,6 +1039,7 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
+				400706471C1AC06C0017ECA7 /* YunBaSDK */,
 				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
 				FAF097351C10398900A7F80B /* GuidePage */,
 				40E326461BD510C1008344DF /* Extension */,
@@ -1786,6 +1803,7 @@
 		AC027541ADA26D63AB53B25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4007064B1C1AC0D60017ECA7 /* SystemConfiguration.framework */,
 				5692D1DD697B52942EE420A3 /* libPods-SuperService.a */,
 			);
 			name = Frameworks;
@@ -2467,6 +2485,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
+					"$(PROJECT_DIR)/SuperService/YunBaSDK",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
@@ -2503,6 +2522,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
+					"$(PROJECT_DIR)/SuperService/YunBaSDK",
 				);
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;

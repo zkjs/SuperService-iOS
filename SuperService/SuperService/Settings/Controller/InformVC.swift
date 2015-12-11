@@ -48,7 +48,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         for dic in array {
           let notice = NoticeModel(dic:dic as! [String:AnyObject])
           arr.append(notice.locid!)
-          
         }
         
         self.noticeArray = arr
@@ -157,27 +156,40 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
       areaArr.append(str)
     }
     locID = areaArr.joinWithSeparator(",")
-    print(locID)
+    print("locID: \(locID)")
     
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      let timestamp = Int64(NSDate().timeIntervalSince1970)
-      let shopID = AccountManager.sharedInstance().shopID
-      let userID = AccountManager.sharedInstance().userID
-      let dictionary: [String: AnyObject] = [
-        "type":MessagePushType.EmpLocal_E2S.rawValue,
-        "timestamp": NSNumber(longLong: timestamp),
-        "empid": userID,
-        "loc":self.locID,
-        "shopid":shopID
-      ]
-      ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
+      self.updateYunBaTopic()
       self.navigationController?.popToRootViewControllerAnimated(true)
-      self.tabBarController?.selectedIndex = 0
-      
       }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
         
     }
   }
   
+  func updateYunBaTopic() {
+    print("areaArr: \(areaArr)")
+    print("noticeArray: \(noticeArray)")
+    for topic in noticeArray {
+      if areaArr.contains(topic.stringValue) {
+        // 选中则监听区域
+        YunBaService.subscribe(topic.stringValue) { (success: Bool, error: NSError!) -> Void in
+          if success {
+            print("[result] subscribe to topic(\(topic)) succeed")
+          } else {
+            print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+          }
+        }
+      } else {
+        // 没选中则停止监听区域
+        YunBaService.unsubscribe(topic.stringValue) { (success: Bool, error: NSError!) -> Void in
+          if success {
+            print("[result] unsubscribe to topic(\(topic)) succeed")
+          } else {
+            print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+          }
+        }
+      }
+    }
+  }
   
 }

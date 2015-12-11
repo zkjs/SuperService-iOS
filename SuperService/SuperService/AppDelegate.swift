@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     setupNotification()
     setupTCPSessionManager()
     setupWindows()
+    setupYunBa()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
     
@@ -75,6 +76,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
     let cleanToken = trimEnds.stringByReplacingOccurrencesOfString(" ", withString: "", options: .CaseInsensitiveSearch, range: nil)
     AccountManager.sharedInstance().saveDeviceToken(cleanToken)
+    
+    // 将DeviceToken 存储在YunBa的云端，那么可以通过YunBa发送APNs通知
+    YunBaService.storeDeviceToken(deviceToken) { (success: Bool, error: NSError!) -> Void in
+      if success {
+        print("store device token to YunBa success")
+      } else {
+        print("store device token to YunBa failed due to: \(error)")
+      }
+    }
   }
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -227,6 +237,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       appkey: appKey,
       apnsCertName: cert,
       otherConfig: [kSDKConfigEnableConsoleLogger: NSNumber(bool: false)])
+  }
+  
+  func setupYunBa() {
+    let appKey = "566563014407a3cd028aa72f"
+    YunBaService.setupWithAppkey(appKey)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name: kYBDidReceiveMessageNotification, object: nil)
+  }
+  
+  func onMessageReceived(notification: NSNotification) {
+    if let message = notification.object as? YBMessage {
+      if let payloadString = NSString(data:message.data, encoding:NSUTF8StringEncoding) as? String {
+        print("[Message] \(message.topic) -> \(payloadString)")
+      }
+    }
   }
   
 }

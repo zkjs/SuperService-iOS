@@ -36,7 +36,7 @@
                         <constraint firstAttribute="height" constant="45" id="etQ-v9-z7k"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="tIn-X3-i1z"/>
                     </connections>

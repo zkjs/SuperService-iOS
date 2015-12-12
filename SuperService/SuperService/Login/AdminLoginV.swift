@@ -54,7 +54,7 @@ class AdminLoginV: UIViewController {
             // 缓存用户信息
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
             self.view.endEditing(true)
-            ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
+//            ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
            
             self.dismissViewControllerAnimated(true, completion: nil)
           } else {

@@ -644,4 +644,22 @@
   }];
 }
 
+#pragma mark - 获取区域到店客户
+- (void)getArriveUsersWithLocid:(NSString *)locid success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"arrive/users" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"userid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[locid dataUsingEncoding:NSUTF8StringEncoding] name:@"locid"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+//    NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
 @end

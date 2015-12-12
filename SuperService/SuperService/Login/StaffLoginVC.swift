@@ -81,7 +81,7 @@ class StaffLoginVC: UIViewController {
               if set {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-                ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
+//                ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
                 let url = AccountManager.sharedInstance().url
                 if url.isEmpty {
                   // 第一次登录，需要设置一下

@@ -10,7 +10,7 @@ import UIKit
 
 class ArrivalTVC: UITableViewController {
   
-  lazy var dataArray = [ClientArrivalInfo]()
+  lazy var dataArray = [[String: AnyObject]]()
   
   
   override func loadView() {
@@ -32,6 +32,7 @@ class ArrivalTVC: UITableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
     loadData()
   }
@@ -52,21 +53,32 @@ class ArrivalTVC: UITableViewController {
   }
   
   func loadData() {
-    dataArray = [ClientArrivalInfo]()
-    if let data = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(NSDate()) where data.count > 0 {
-      dataArray = data
-      tableView.reloadData()
+//    dataArray = [ClientArrivalInfo]()
+//    if let data = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(NSDate()) where data.count > 0 {
+//      dataArray = data
+//      tableView.reloadData()
+//    }
+    
+    let locid = "1, 2, 3, 6, 8, 11, 14, 16"//AccountManager.sharedInstance().beaconLocationIDs
+    ZKJSHTTPSessionManager.sharedInstance().getArriveUsersWithLocid(locid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      if let data = responseObject as? [[String: AnyObject]] {
+        self.dataArray = data
+        self.tableView.reloadData()
+      }
+      print(responseObject)
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
     }
     tableView.mj_header.endRefreshing()
   }
   
   func loadMoreData() {
-    if let timestamp = dataArray.last?.timestamp,
-      let moreDataArray = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(timestamp) where moreDataArray.count > 0 {
-        dataArray += moreDataArray
-        tableView.reloadData()
-    }
-    tableView.mj_footer.endRefreshing()
+//    if let timestamp = dataArray.last?.timestamp,
+//      let moreDataArray = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(timestamp) where moreDataArray.count > 0 {
+//        dataArray += moreDataArray
+//        tableView.reloadData()
+//    }
+//    tableView.mj_footer.endRefreshing()
   }
   
   
@@ -81,7 +93,7 @@ class ArrivalTVC: UITableViewController {
     tableView.tableFooterView = UIView()
     
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
-    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+//    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
   }
   
   

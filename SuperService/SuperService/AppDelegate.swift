@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-let kRefreshArrivalTVCNotification = "refreshArrivalTVCNotification"
-let kRefreshConversationListNotification = "refreshConversationListNotification"
+let kRefreshArrivalTVCNotification = "kRefreshArrivalTVCNotification"
+let kRefreshConversationListNotification = "kRefreshConversationListNotification"
+let kArrivalInfoBadge = "kArrivalInfoBadge"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     setupNotification()
-    setupTCPSessionManager()
+//    setupTCPSessionManager()
     setupWindows()
     setupYunBa()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
@@ -40,22 +41,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     print("applicationDidEnterBackground")
-    let timestamp = Int64(NSDate().timeIntervalSince1970)
-    let userID = AccountManager.sharedInstance().userID
-    let dictionary: [String: AnyObject] = [
-      "type": MessageIMType.ClientLogout.rawValue,
-      "timestamp": NSNumber(longLong: timestamp),
-      "id": userID,
-      "platform": "I"
-    ]
-    ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
-    ZKJSTCPSessionManager.sharedInstance().deinitNetworkCommunication()
+//    let timestamp = Int64(NSDate().timeIntervalSince1970)
+//    let userID = AccountManager.sharedInstance().userID
+//    let dictionary: [String: AnyObject] = [
+//      "type": MessageIMType.ClientLogout.rawValue,
+//      "timestamp": NSNumber(longLong: timestamp),
+//      "id": userID,
+//      "platform": "I"
+//    ]
+//    ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
+//    ZKJSTCPSessionManager.sharedInstance().deinitNetworkCommunication()
   }
   
   func applicationWillEnterForeground(application: UIApplication) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     print("applicationWillEnterForeground")
-    ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
+//    ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
   }
   
   func applicationDidBecomeActive(application: UIApplication) {
@@ -91,79 +92,98 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     print(error)
   }
   
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-    print(userInfo)
-    guard let childType = userInfo["childtype"] as? NSNumber else {
-      completionHandler(.NoData)
-      return
-    }
-    
-    if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
-      if let clientID = userInfo["userid"] as? String,
-        let _ = userInfo["username"] as? String,
-        let locationID = userInfo["locid"] as? String,
-        let locationName = userInfo["locdesc"] as? String {
-          ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
-            success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-              // 缓存到店信息到数据库
-              let moc = Persistence.sharedInstance().managedObjectContext
-              let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
-                inManagedObjectContext: moc!) as! ClientArrivalInfo
-              // 客户信息
-              let client = NSEntityDescription.insertNewObjectForEntityForName("Client",
-                inManagedObjectContext: moc!) as! Client
-              client.id = responseObject["userid"] as? String
-              client.name = responseObject["username"] as? String
-              client.level = responseObject["user_level"] as? NSNumber
-              client.phone = (responseObject["phone"] as! NSNumber).stringValue
-              clientArrivalInfo.client = client
-              // 位置信息
-              let location = NSEntityDescription.insertNewObjectForEntityForName("Location",
-                inManagedObjectContext: moc!) as! Location
-              location.id = locationID
-              location.name = locationName
-              clientArrivalInfo.location = location
-              // 订单信息
-              if let orderInfo = responseObject["order"] as? [String: AnyObject] {
-                let arrivalDate = orderInfo["arrival_date"] as! String
-                let departureDate = orderInfo["departure_date"] as! String
-                let order = NSEntityDescription.insertNewObjectForEntityForName("Order",
-                  inManagedObjectContext: moc!) as! Order
-                order.roomType = orderInfo["room_type"] as? String
-                order.arrivalDate = arrivalDate
-                let days = NSDate.ZKJS_daysFromDateString(arrivalDate, toDateString: departureDate)
-                if days == 0 {
-                  order.duration = 1  // 当天走的也算一天
-                } else if days > 0 {
-                  order.duration = days
-                } else {
-                  order.duration = 0
-                }
-                clientArrivalInfo.order = order
-              }
-              clientArrivalInfo.timestamp = NSDate()
-              Persistence.sharedInstance().saveContext()
-              
-              // 置到店通知Tab Bar
-              let mainTabIndex = 0
-              if self.mainTBC.selectedIndex != mainTabIndex {
-                let tabArray = self.mainTBC.tabBar.items as NSArray!
-                let tabItem = tabArray.objectAtIndex(mainTabIndex) as! UITabBarItem
-                tabItem.badgeValue = "1"
-              }
-              
-              NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
-              completionHandler(.NewData)
-            }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-              completionHandler(.Failed)
-          }
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    print("didReceiveRemoteNotification: \(userInfo)")
+    let arrivalInfoTabIndex = 0
+    if mainTBC.selectedIndex != arrivalInfoTabIndex {
+      // 当前页不是到店通知页面，则置到店通知Tab Bar badge
+      let tabArray = mainTBC.tabBar.items as NSArray!
+      let tabItem = tabArray.objectAtIndex(arrivalInfoTabIndex) as! UITabBarItem
+      var newBadge = NSNumber(integer: 1)
+      if let badge = NSUserDefaults.standardUserDefaults().objectForKey(kArrivalInfoBadge) as? NSNumber {
+        newBadge = NSNumber(integer: badge.integerValue + 1)
       }
-      
-      completionHandler(.NoData)
+      tabItem.badgeValue = newBadge.stringValue
+      NSUserDefaults.standardUserDefaults().setObject(newBadge, forKey: kArrivalInfoBadge)
+    } else {
+      // 当前页是到店通知页面，则刷新到店通知列表
+      NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
     }
-    
-    completionHandler(.NoData)
   }
+  
+//  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+//    print(userInfo)
+//    guard let childType = userInfo["childtype"] as? NSNumber else {
+//      completionHandler(.NoData)
+//      return
+//    }
+//    
+//    if childType.integerValue == MessageUserDefineType.ClientArrival.rawValue {
+//      if let clientID = userInfo["userid"] as? String,
+//        let _ = userInfo["username"] as? String,
+//        let locationID = userInfo["locid"] as? String,
+//        let locationName = userInfo["locdesc"] as? String {
+//          ZKJSHTTPSessionManager.sharedInstance().clientArrivalInfoWithClientID(clientID,
+//            success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//              // 缓存到店信息到数据库
+//              let moc = Persistence.sharedInstance().managedObjectContext
+//              let clientArrivalInfo = NSEntityDescription.insertNewObjectForEntityForName("ClientArrivalInfo",
+//                inManagedObjectContext: moc!) as! ClientArrivalInfo
+//              // 客户信息
+//              let client = NSEntityDescription.insertNewObjectForEntityForName("Client",
+//                inManagedObjectContext: moc!) as! Client
+//              client.id = responseObject["userid"] as? String
+//              client.name = responseObject["username"] as? String
+//              client.level = responseObject["user_level"] as? NSNumber
+//              client.phone = (responseObject["phone"] as! NSNumber).stringValue
+//              clientArrivalInfo.client = client
+//              // 位置信息
+//              let location = NSEntityDescription.insertNewObjectForEntityForName("Location",
+//                inManagedObjectContext: moc!) as! Location
+//              location.id = locationID
+//              location.name = locationName
+//              clientArrivalInfo.location = location
+//              // 订单信息
+//              if let orderInfo = responseObject["order"] as? [String: AnyObject] {
+//                let arrivalDate = orderInfo["arrival_date"] as! String
+//                let departureDate = orderInfo["departure_date"] as! String
+//                let order = NSEntityDescription.insertNewObjectForEntityForName("Order",
+//                  inManagedObjectContext: moc!) as! Order
+//                order.roomType = orderInfo["room_type"] as? String
+//                order.arrivalDate = arrivalDate
+//                let days = NSDate.ZKJS_daysFromDateString(arrivalDate, toDateString: departureDate)
+//                if days == 0 {
+//                  order.duration = 1  // 当天走的也算一天
+//                } else if days > 0 {
+//                  order.duration = days
+//                } else {
+//                  order.duration = 0
+//                }
+//                clientArrivalInfo.order = order
+//              }
+//              clientArrivalInfo.timestamp = NSDate()
+//              Persistence.sharedInstance().saveContext()
+//              
+//              // 置到店通知Tab Bar
+//              let mainTabIndex = 0
+//              if self.mainTBC.selectedIndex != mainTabIndex {
+//                let tabArray = self.mainTBC.tabBar.items as NSArray!
+//                let tabItem = tabArray.objectAtIndex(mainTabIndex) as! UITabBarItem
+//                tabItem.badgeValue = "1"
+//              }
+//              
+//              NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
+//              completionHandler(.NewData)
+//            }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//              completionHandler(.Failed)
+//          }
+//      }
+//      
+//      completionHandler(.NoData)
+//    }
+//    
+//    completionHandler(.NoData)
+//  }
   
   
   // MARK: - Private Method
@@ -242,13 +262,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   func setupYunBa() {
     let appKey = "566563014407a3cd028aa72f"
     YunBaService.setupWithAppkey(appKey)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name: kYBDidReceiveMessageNotification, object: nil)
+//    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name: kYBDidReceiveMessageNotification, object: nil)
   }
   
   func onMessageReceived(notification: NSNotification) {
     if let message = notification.object as? YBMessage {
       if let payloadString = NSString(data:message.data, encoding:NSUTF8StringEncoding) as? String {
         print("[Message] \(message.topic) -> \(payloadString)")
+        let arrivalInfoTabIndex = 0
+        if self.mainTBC.selectedIndex != arrivalInfoTabIndex {
+          // 当前页不是到店通知页面，则置到店通知Tab Bar badge
+          let tabArray = self.mainTBC.tabBar.items as NSArray!
+          let tabItem = tabArray.objectAtIndex(arrivalInfoTabIndex) as! UITabBarItem
+          var newBadge = NSNumber(integer: 1)
+          if let badge = NSUserDefaults.standardUserDefaults().objectForKey(kArrivalInfoBadge) as? NSNumber {
+            newBadge = NSNumber(integer: badge.integerValue + 1)
+          }
+          tabItem.badgeValue = newBadge.stringValue
+          NSUserDefaults.standardUserDefaults().setObject(newBadge, forKey: kArrivalInfoBadge)
+        } else {
+          // 当前页是到店通知页面，则刷新到店通知列表
+          NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
+        }
       }
     }
   }

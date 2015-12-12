@@ -106,6 +106,9 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 #pragma mark - 查询用户(服务员)简单信息
 - (void)getMemberInfoWithMemebers:(NSString *)members success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+#pragma mark - 获取区域到店客户
+- (void)getArriveUsersWithLocid:(NSString *)locid success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 @end
 
 @protocol HTTPSessionManagerDelegate <NSObject>

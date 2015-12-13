@@ -13,8 +13,8 @@ class StaffLoginVC: UIViewController {
   
   @IBOutlet weak var verificationCodeButton: UIButton!
   @IBOutlet weak var loginButton: UIButton!
-  @IBOutlet weak var identifyingCodeTextField: UITextField!
-  @IBOutlet weak var userphoneTextField: UITextField!
+  @IBOutlet weak var identifyingCodeTextField: LTBouncyTextField!
+  @IBOutlet weak var userphoneTextField: LTBouncyTextField!
   @IBOutlet weak var userImage: UIImageView!
   
   var buttonTitle:UIButton?
@@ -30,6 +30,12 @@ class StaffLoginVC: UIViewController {
     super.viewDidLoad()
     
     title = "登录"
+    
+    userphoneTextField.alwaysBouncePlaceholder = true
+    userphoneTextField.abbreviatedPlaceholder = "手机号"
+    
+    identifyingCodeTextField.alwaysBouncePlaceholder = true
+    identifyingCodeTextField.abbreviatedPlaceholder = "验证码"
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

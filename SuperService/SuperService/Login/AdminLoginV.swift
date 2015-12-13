@@ -23,6 +23,12 @@ class AdminLoginV: UIViewController {
     
     title = "商家登录"
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    
+    passwordTextField.alwaysBouncePlaceholder = true
+    passwordTextField.abbreviatedPlaceholder = "密码"
+    
+    userphoneTextField.alwaysBouncePlaceholder = true
+    userphoneTextField.abbreviatedPlaceholder = "用户名"
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

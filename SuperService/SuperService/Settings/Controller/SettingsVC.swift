@@ -109,8 +109,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   }
   
   func logout() {
-    AccountManager.sharedInstance().clearAccountCache()
     showHUDInView(view, withLoading: "正在退出登录...")
+    AccountManager.sharedInstance().clearAccountCache()
+    self.unregisterYunBaTopic()
     EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true, completion: { (info: [NSObject : AnyObject]!, error: EMError!) -> Void in
       self.hideHUD()
       if error != nil && error.errorCode != .ServerNotLogin {
@@ -120,6 +121,20 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       }
       }, onQueue: nil)
     showAdminLogin()
+  }
+  
+  func unregisterYunBaTopic() {
+    let locid = AccountManager.sharedInstance().beaconLocationIDs
+    let topicArray = locid.componentsSeparatedByString(",")
+    for topic in topicArray {
+      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
+        if success {
+          print("[result] unsubscribe to topic(\(topic)) succeed")
+        } else {
+          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+        }
+      }
+    }
   }
   
   func showAdminLogin() {

@@ -160,6 +160,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       self.updateYunBaTopic()
+      AccountManager.sharedInstance().savebeaconLocationIDs(self.locID)
       self.navigationController?.popToRootViewControllerAnimated(true)
       }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
         

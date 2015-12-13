@@ -145,7 +145,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     let req = SendMessageToWXReq()
     req.bText = false
     req.message = message
-    
     WXApi.sendReq(req)
   }
   

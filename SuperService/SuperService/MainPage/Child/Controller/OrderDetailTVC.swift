@@ -74,6 +74,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     
     clientNameTextField.text = order.guest
     orderStatusTextField.text = order.orderStatus
+    invoiceTextField.text = order.reservation_no
     
     //    invoiceTextField.text = order.
     //    nameTextFields
@@ -89,10 +90,12 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
         if let dict = responseObject as? [String: AnyObject] {
           if let room = dict["room"] as? [String: AnyObject] {
             self.order = OrderModel(dic: room)
+           
+            self.remarkTextView.text = self.order.remark  ?? ""
           }
           
           if let invoice = dict["invoice"] as? String {
-            print(invoice)
+            self.invoiceTextField.text = invoice
           }
           
           if let privilege = dict["privilege"] as? String {

@@ -357,6 +357,10 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   
   // MARK: - UITextFieldDelegate
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return false
+  }
   
   func textFieldDidEndEditing(textField: UITextField) {
     if textField == amountTextField {
@@ -371,5 +375,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       }
     }
   }
+  
+  
   
 }

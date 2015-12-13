@@ -53,12 +53,15 @@ class AccountManager: NSObject {
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
     url = userDefaults.objectForKey("url") as? String ?? ""
     phone = userDefaults.objectForKey("phone") as? String ?? ""
-    if let imageData = userDefaults.objectForKey("avatarImageData") as? NSData {
-      avatarImageData = imageData
-      if let image = UIImage(data: avatarImageData) {
-        avatarImage = image
+    if userDefaults.objectForKey("avatarImageData") != nil {
+      if let imageData = userDefaults.objectForKey("avatarImageData") as? NSData {
+        avatarImageData = imageData
+        if let image = UIImage(data: avatarImageData) {
+          avatarImage = image
+        }
       }
     }
+    
   }
   
   func saveAccountWithDict(dict: [String: AnyObject]) {
@@ -71,6 +74,7 @@ class AccountManager: NSObject {
     
     let urlString = kBaseURL + "uploads/users/\(userID).jpg"
     if let url = NSURL(string: urlString) {
+      print(url)
         if let data = NSData(contentsOfURL: url) {
           self.avatarImageData = data
           if let image = UIImage(data: self.avatarImageData) {
@@ -136,8 +140,14 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.setObject(nil, forKey: "url")
     userDefaults.setObject(nil, forKey: "phone")
-    userDefaults.setObject(nil, forKey: "avatarImageData")
+    //userDefaults.setObject(nil, forKey: "avatarImageData")
     
+    userDefaults.synchronize()
+  }
+  
+  func clearAvatarImageCache() {
+     let userDefaults = NSUserDefaults()
+    userDefaults.setObject(nil, forKey: "avatarImageData")
     userDefaults.synchronize()
   }
   
@@ -160,6 +170,7 @@ class AccountManager: NSObject {
   func saveAvatarImageData(imageData: NSData) {
     avatarImageData = imageData
     let userDefaults = NSUserDefaults()
+    userDefaults.setObject(nil, forKey: "avatarImageData")
     userDefaults.setObject(avatarImageData, forKey: "avatarImageData")
     
     if let image = UIImage(data: avatarImageData) {

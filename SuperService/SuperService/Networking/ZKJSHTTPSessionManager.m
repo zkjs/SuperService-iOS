@@ -11,9 +11,6 @@
 #import "SuperService-Swift.h"
 #import "EaseMob.h"
 
-//#define kBaseURL @"http://api.zkjinshi.com/"  // HTTP外网服务器地址
-#define kBaseURL @"http://tap.zkjinshi.com/" // HTTP服务器测试地址
-
 @implementation ZKJSHTTPSessionManager
 
 #pragma mark - Initialization

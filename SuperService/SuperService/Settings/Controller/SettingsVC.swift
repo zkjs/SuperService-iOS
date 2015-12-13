@@ -66,6 +66,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
      myView = (NSBundle.mainBundle().loadNibNamed("SettingsHeaderView", owner: self, options: nil).first as? SettingsHeaderView)!
+    print(AccountManager.sharedInstance().avatarImage)
     myView.userImage.image = AccountManager.sharedInstance().avatarImage
     myView.username.text = AccountManager.sharedInstance().userName
     myView.userAddress.text = AccountManager.sharedInstance().shopName

@@ -8,10 +8,12 @@
 
 import UIKit
 import MessageUI
+
 @objc enum EmployeeVCType: Int {
   case team
   case client
 }
+
 class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate {
   
   var employee = TeamModel()

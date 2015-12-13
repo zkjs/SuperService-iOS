@@ -36,6 +36,10 @@
 		400D62851C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */; };
 		400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626C1C1526B50021E750 /* TranslationAnimation.swift */; };
 		400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626D1C1526B50021E750 /* UIView+Transform.swift */; };
+		4023F72F1C1D215A0057351E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F72C1C1D215A0057351E /* libWeChatSDK.a */; };
+		4023F7311C1D21B20057351E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F7301C1D21B20057351E /* libz.tbd */; };
+		4023F7331C1D22010057351E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F7321C1D22010057351E /* libsqlite3.tbd */; };
+		4023F7351C1D22110057351E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F7341C1D22110057351E /* libc++.tbd */; };
 		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; };
 		404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */; };
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
@@ -323,6 +327,12 @@
 		400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewPageConstraintAnimation.swift; sourceTree = "<group>"; };
 		400D626C1C1526B50021E750 /* TranslationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationAnimation.swift; sourceTree = "<group>"; };
 		400D626D1C1526B50021E750 /* UIView+Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
+		4023F72C1C1D215A0057351E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		4023F72D1C1D215A0057351E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		4023F72E1C1D215A0057351E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		4023F7301C1D21B20057351E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4023F7321C1D22010057351E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		4023F7341C1D22110057351E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSessionManager.h; sourceTree = "<group>"; };
 		404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -726,8 +736,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4023F7351C1D22110057351E /* libc++.tbd in Frameworks */,
+				4023F7331C1D22010057351E /* libsqlite3.tbd in Frameworks */,
+				4023F7311C1D21B20057351E /* libz.tbd in Frameworks */,
 				4007064C1C1AC0D60017ECA7 /* SystemConfiguration.framework in Frameworks */,
 				40FB3D101C00203900675044 /* libopencore-amrwb.a in Frameworks */,
+				4023F72F1C1D215A0057351E /* libWeChatSDK.a in Frameworks */,
 				40FB3D0F1C00203900675044 /* libopencore-amrnb.a in Frameworks */,
 				29B7726F072F98DA115D7278 /* libPods-SuperService.a in Frameworks */,
 				4007064A1C1AC06C0017ECA7 /* libYunBa.a in Frameworks */,
@@ -799,6 +813,16 @@
 				400D626D1C1526B50021E750 /* UIView+Transform.swift */,
 			);
 			path = RazzleDazzle;
+			sourceTree = "<group>";
+		};
+		4023F72B1C1D215A0057351E /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				4023F72C1C1D215A0057351E /* libWeChatSDK.a */,
+				4023F72D1C1D215A0057351E /* WXApi.h */,
+				4023F72E1C1D215A0057351E /* WXApiObject.h */,
+			);
+			path = WeChatSDK;
 			sourceTree = "<group>";
 		};
 		404FB51E1BCE08840074D205 /* Networking */ = {
@@ -1039,6 +1063,7 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
+				4023F72B1C1D215A0057351E /* WeChatSDK */,
 				400706471C1AC06C0017ECA7 /* YunBaSDK */,
 				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
 				FAF097351C10398900A7F80B /* GuidePage */,
@@ -1803,6 +1828,9 @@
 		AC027541ADA26D63AB53B25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4023F7341C1D22110057351E /* libc++.tbd */,
+				4023F7321C1D22010057351E /* libsqlite3.tbd */,
+				4023F7301C1D21B20057351E /* libz.tbd */,
 				4007064B1C1AC0D60017ECA7 /* SystemConfiguration.framework */,
 				5692D1DD697B52942EE420A3 /* libPods-SuperService.a */,
 			);
@@ -2486,6 +2514,8 @@
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/SuperService/YunBaSDK",
+					"$(PROJECT_DIR)/SuperService",
+					"$(PROJECT_DIR)/SuperService/WeChatSDK",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
@@ -2523,6 +2553,8 @@
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/SuperService/YunBaSDK",
+					"$(PROJECT_DIR)/SuperService",
+					"$(PROJECT_DIR)/SuperService/WeChatSDK",
 				);
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;

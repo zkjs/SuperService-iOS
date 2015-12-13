@@ -14,7 +14,7 @@ let kRefreshConversationListNotification = "kRefreshConversationListNotification
 let kArrivalInfoBadge = "kArrivalInfoBadge"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate, WXApiDelegate {
   
   var window: UIWindow?
   var mainTBC: MainTBC!
@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
 //    setupTCPSessionManager()
     setupWindows()
     setupYunBa()
+    setupWeChat()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
     
@@ -257,6 +258,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
       appkey: appKey,
       apnsCertName: cert,
       otherConfig: [kSDKConfigEnableConsoleLogger: NSNumber(bool: false)])
+  }
+  
+  func setupWeChat() {
+    let appid = "wx55cd1d05f22990a0"
+    WXApi.registerApp(appid)
+  }
+  
+  func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+    return WXApi.handleOpenURL(url, delegate: self)
+  }
+  
+  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    return WXApi.handleOpenURL(url, delegate: self)
+  }
+  
+  func onReq(req: BaseReq!) {
+    if req is GetMessageFromWXReq {
+      // 微信请求App提供内容， 需要app提供内容后使用sendRsp返回
+    } else if req is ShowMessageFromWXReq {
+      // 显示微信传过来的内容
+    } else if req is LaunchFromWXReq {
+      // 从微信启动App
+    }
+  }
+  
+  func onResp(resp: BaseResp!) {
+    if resp is SendMessageToWXResp {
+      // 发送媒体消息结果
+    }
   }
   
   func setupYunBa() {

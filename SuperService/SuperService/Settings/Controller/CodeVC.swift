@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
 class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
   
-  let shareTypes = ["IM分享", "短信分享", "复制分享链接"]
+  let shareTypes = ["短信", "微信好友"]
   
   var page = 1
   lazy var codeArray = [String]()
@@ -81,15 +82,12 @@ class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMe
     for index in 0..<shareTypes.count {
       alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         switch index {
-          case 0: {
-            self.shareByIM()
-          }
-          case 1: {
+          case 0:
             self.shareByMessage()
-          }
-          case 2: {
-            self.copyShareLink()
-          }
+          case 1:
+            self.shareByWeChat()
+        default:
+          print("impossible")
         }
         }))
     }
@@ -99,24 +97,6 @@ class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMe
     //    let vc = InvitationRecordVC()
     //    vc.code = codeArray[indexPath.row]
     //    navigationController?.pushViewController(vc, animated: true)
-  }
-  
-  func shareByIM() {
-    let shopID = AccountManager.sharedInstance().shopID
-    let shopName = AccountManager.sharedInstance().shopName
-    let salesID = AccountManager.sharedInstance().userID
-    let salesName = AccountManager.sharedInstance().userName
-    let cmdChat = EMChatCommand()
-    cmdChat.cmd = "invitationCode"
-    let body = EMCommandMessageBody(chatObject: cmdChat)
-    let message = EMMessage(receiver: clientID, bodies: [body])
-    message.ext = [
-      "shopId": shopID,
-      "shopName": shopName,
-      "salesId": salesID,
-      "salesName": salesName]
-    message.messageType = .eMessageTypeChat
-    EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
   }
   
   func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
@@ -135,10 +115,26 @@ class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMe
     }
   }
   
-  func copyShareLink() {
-    let pasteboard = UIPasteboard()
-    pasteboard.string = "the link"
+  func shareByWeChat() {
+    let message = WXMediaMessage()
+    message.title = "超级服务"
+    message.description = "验证码分享"
+    message.setThumbImage(UIImage(named: "Icon"))
+    let ext = WXWebpageObject()
+    ext.webpageUrl = "http://ww.baidu.com"
+    message.mediaObject = ext
+    
+    let req = SendMessageToWXReq()
+    req.bText = false
+    req.message = message
+    
+    WXApi.sendReq(req)
   }
+  
+//  func copyShareLink() {
+//    let pasteboard = UIPasteboard()
+//    pasteboard.string = "the link"
+//  }
   
   func loadMoreData() {
     page++
@@ -167,6 +163,5 @@ class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMe
         
     }
   }
-  
   
 }

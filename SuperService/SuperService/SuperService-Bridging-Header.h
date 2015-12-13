@@ -27,3 +27,4 @@
 #import "Masonry.h"
 #import "RazzleDazzle.h"
 #import "YunBaService.h"
+#import "WXApi.h"

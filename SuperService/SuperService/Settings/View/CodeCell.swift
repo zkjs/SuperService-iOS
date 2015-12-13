@@ -9,17 +9,20 @@
 import UIKit
 
 class CodeCell: UITableViewCell ,HTCopyableLabelDelegate{
-
+  
   @IBOutlet weak var codeLabel: HTCopyableLabel! {
     didSet {
       codeLabel.userInteractionEnabled = true
       codeLabel.copyableLabelDelegate = self
     }
   }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  @IBOutlet weak var statusLabel: UILabel!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
   class func reuseIdentifier() -> String {
     return "CodeCell"
   }
@@ -31,14 +34,20 @@ class CodeCell: UITableViewCell ,HTCopyableLabelDelegate{
   class func height() -> CGFloat {
     return 60
   }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+  
+  override func setSelected(selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    
+    // Configure the view for the selected state
+  }
+  
+  func setData(code: CodeModel) {
+    codeLabel.text = code.salecode
+    if code.is_validity?.integerValue == 0 {
+      statusLabel.text = "未绑定"
+    } else {
+      statusLabel.text = "已绑定"
     }
-  func setData(string:String) {
-    codeLabel.text = string
   }
   
   func copyMenuTargetRectInCopyableLabelCoordinates(copyableLabel: HTCopyableLabel!) -> CGRect {
@@ -48,5 +57,5 @@ class CodeCell: UITableViewCell ,HTCopyableLabelDelegate{
   func stringToCopyForCopyableLabel(copyableLabel: HTCopyableLabel!) -> String! {
     return copyableLabel.text
   }
-    
+  
 }

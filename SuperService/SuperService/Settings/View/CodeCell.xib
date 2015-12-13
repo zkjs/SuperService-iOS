@@ -26,16 +26,32 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gx-eX-i7Z" userLabel="Status Label">
+                        <rect key="frame" x="318" y="28" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
+                    <constraint firstItem="2gx-eX-i7Z" firstAttribute="baseline" secondItem="CF1-A7-7kH" secondAttribute="baseline" id="2aK-wj-mqs"/>
                     <constraint firstItem="CF1-A7-7kH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="YMg-QH-Pj6"/>
+                    <constraint firstAttribute="trailing" secondItem="2gx-eX-i7Z" secondAttribute="trailing" constant="8" id="bHD-TF-Eyt"/>
+                    <constraint firstItem="2gx-eX-i7Z" firstAttribute="centerY" secondItem="CF1-A7-7kH" secondAttribute="centerY" id="fOO-HL-JG3"/>
                     <constraint firstItem="CF1-A7-7kH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="n9c-GR-4zD"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="2aK-wj-mqs"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="codeLabel" destination="CF1-A7-7kH" id="abx-Na-tVK"/>
+                <outlet property="statusLabel" destination="2gx-eX-i7Z" id="4oq-QI-fBQ"/>
             </connections>
             <point key="canvasLocation" x="526" y="507"/>
         </tableViewCell>

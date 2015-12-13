@@ -10,7 +10,7 @@ import UIKit
 
 class GuideVC: AnimatedPagingScrollViewController {
   
-  private let background = UIImageView(image: UIImage(named: "bg"))
+  private let background = UIImageView(image: UIImage(named: "guide_bg"))
   
   private let comment0 = UIImageView(image: UIImage(named: "rounded_rectangle_0"))
   private let people0 = UIImageView(image: UIImage(named: "p_0"))

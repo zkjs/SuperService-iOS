@@ -32,14 +32,14 @@ class InvitationRecordCell: UITableViewCell {
   }
   
   func setupData(user:CodeModel) {
-    invitationerNameLabel.text = user.username
-    useCodetimerLabel.text = user.created
-    let userID = user.userid
+//    invitationerNameLabel.text = user.username
+//    useCodetimerLabel.text = user.created
+//    let userID = user.userid
    
-    let url = NSURL(string: kBaseURL)
-    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID!).jpg")
-     print(urlStr)
-    invitationerImageView.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+//    let url = NSURL(string: kBaseURL)
+//    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID!).jpg")
+//     print(urlStr)
+//    invitationerImageView.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
   
   }
 

@@ -19,7 +19,7 @@ class MainTBC: UITabBarController {
 //      ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
 //    }
     
-//    ZKJSHTTPSessionManager.sharedInstance().delegate = self
+    ZKJSHTTPSessionManager.sharedInstance().delegate = self
     
     setupView()
     registerNotification()

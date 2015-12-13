@@ -109,6 +109,14 @@ static NSString *kBaseURL = @"http://120.25.241.196/";  // HTTP外网服务器�
 #pragma mark - 获取区域到店客户
 - (void)getArriveUsersWithLocid:(NSString *)locid success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+#pragma mark - 邀请码列表带是否被使用
+- (void)getInvitationCodeWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void)getInvitationLinkWithCode:(NSString *)code success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+#pragma mark - 服务员获取所有受邀者
+- (void)getAllCodeUserWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 @end
 
 @protocol HTTPSessionManagerDelegate <NSObject>

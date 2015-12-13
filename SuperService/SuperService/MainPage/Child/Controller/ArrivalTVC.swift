@@ -54,23 +54,16 @@ class ArrivalTVC: UITableViewController {
   }
   
   func loadData() {
-//    dataArray = [ClientArrivalInfo]()
-//    if let data = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(NSDate()) where data.count > 0 {
-//      dataArray = data
-//      tableView.reloadData()
-//    }
-    
-    let locid = "1, 2, 3, 6, 8, 11, 14, 16"//AccountManager.sharedInstance().beaconLocationIDs
-    ZKJSHTTPSessionManager.sharedInstance().getArriveUsersWithLocid(locid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let data = responseObject as? [[String: AnyObject]] {
         self.dataArray = data
         self.tableView.reloadData()
       }
       print(responseObject)
+      self.tableView.mj_header.endRefreshing()
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
+        self.tableView.mj_header.endRefreshing()
     }
-    tableView.mj_header.endRefreshing()
   }
   
   func loadMoreData() {

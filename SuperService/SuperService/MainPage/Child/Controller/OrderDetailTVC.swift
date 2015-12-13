@@ -255,6 +255,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func chooseClient() {
     let vc = ClientListVC()
+    vc.type = ClientListVCType.order
     vc.selection = { [unowned self] (client: ClientModel) ->() in
       self.clientNameTextField.text = client.username
       // 更新订单
@@ -356,6 +357,10 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   
   // MARK: - UITextFieldDelegate
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return false
+  }
   
   func textFieldDidEndEditing(textField: UITextField) {
     if textField == amountTextField {
@@ -370,5 +375,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       }
     }
   }
+  
+  
   
 }

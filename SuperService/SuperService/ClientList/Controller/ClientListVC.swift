@@ -7,11 +7,14 @@
 //
 
 import UIKit
-
+@objc enum ClientListVCType: Int {
+  case order
+  case detail
+}
 typealias ClientSelectionBlock = (ClientModel) -> ()
 
 class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, refreshTableViewDelegate, XLPagerTabStripChildItem {
-  
+  var type = ClientListVCType.detail
   @IBOutlet weak var tableView: UITableView!
   
   //根据名字的首字母自动归类 使用UILocalizedIndexedCollation类
@@ -41,7 +44,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     delegate = self
     title = "客户"
     let addVC = AddClientVC()
@@ -51,9 +53,17 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
     
     tableView.tableFooterView = UIView()
+
     
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
     tableView.mj_header.beginRefreshing()
+
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    loadData()
+
   }
   
   // MARK: - XLPagerTabStripChildItem Delegate
@@ -74,6 +84,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   }
   
   @IBAction func AddClientBtn(sender: UIButton) {
+    
     let addVC = InquiryVC()
     addVC.hidesBottomBarWhenPushed = true
     self.navigationController?.pushViewController(addVC, animated: true)
@@ -169,12 +180,22 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    let vc = EmployeeVC()
-    let section = sections[indexPath.section]
-    let client = section[indexPath.row] as! ClientModel
-    vc.type = EmployeeVCType.client
-    vc.client = client
-    vc.hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(vc, animated: true)
+    if type == ClientListVCType.detail {
+      let vc = EmployeeVC()
+      let section = sections[indexPath.section]
+      let client = section[indexPath.row] as! ClientModel
+      vc.type = EmployeeVCType.client
+      vc.client = client
+      vc.hidesBottomBarWhenPushed = true
+      navigationController?.pushViewController(vc, animated: true)
+    } else {
+      let client = clientArray[indexPath.row]
+      if (selection != nil){
+        selection!(client)
+        self.navigationController?.popViewControllerAnimated(true)
+      }
+    }
+    
+    
   }
 }

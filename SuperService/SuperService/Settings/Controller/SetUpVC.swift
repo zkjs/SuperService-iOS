@@ -70,6 +70,7 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
             self.hideHUD()
             if let name = self.nameTextFiled.text {
               AccountManager.sharedInstance().saveUserName(name)
+//              AccountManager.sharedInstance().clearAvatarImageCache()
             }
             AccountManager.sharedInstance().saveAvatarImageData(self.imageData)
             let InformV = InformVC()

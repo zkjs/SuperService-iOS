@@ -69,12 +69,9 @@ class StaffLoginVC: UIViewController {
   
   @IBAction func staffCheckoutLoginButton(sender: AnyObject) {
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
-      print(success)
-      
       if (success == true) {
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
-        
         ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
@@ -84,6 +81,7 @@ class StaffLoginVC: UIViewController {
 //                ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
                 let url = AccountManager.sharedInstance().url
                 if url.isEmpty {
+                  
                   // 第一次登录，需要设置一下
                   let setVC = SetUpVC()
                   self.navigationController?.pushViewController(setVC, animated: true)

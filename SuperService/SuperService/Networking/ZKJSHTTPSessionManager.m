@@ -11,9 +11,6 @@
 #import "SuperService-Swift.h"
 #import "EaseMob.h"
 
-//#define kBaseURL @"http://api.zkjinshi.com/"  // HTTP外网服务器地址
-#define kBaseURL @"http://tap.zkjinshi.com/" // HTTP服务器测试地址
-
 @implementation ZKJSHTTPSessionManager
 
 #pragma mark - Initialization
@@ -232,7 +229,7 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[reservationNO dataUsingEncoding:NSUTF8StringEncoding] name:@"reservation_no"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    //    DDLogInfo(@"%@", [responseObject description]);
+        NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
       success(task, responseObject);
     }
@@ -324,7 +321,7 @@
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    //    DDLogInfo(@"%@", [responseObject description]);
+        //NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
       success(task, responseObject);
     }

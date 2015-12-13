@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  
+  var myView = SettingsHeaderView()
   @IBOutlet weak var tableView: UITableView!
   
   
@@ -27,7 +27,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     tableView.reloadData()
   }
   
@@ -66,13 +65,11 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let myView = NSBundle.mainBundle().loadNibNamed("SettingsHeaderView", owner: self, options: nil).first as? SettingsHeaderView
-    if myView != nil {
-      myView?.userImage.image = AccountManager.sharedInstance().avatarImage
-      myView?.username.text = AccountManager.sharedInstance().userName
-      myView?.userAddress.text = AccountManager.sharedInstance().shopName
-      self.view.addSubview(myView!)
-    }
+     myView = (NSBundle.mainBundle().loadNibNamed("SettingsHeaderView", owner: self, options: nil).first as? SettingsHeaderView)!
+    print(AccountManager.sharedInstance().avatarImage)
+    myView.userImage.image = AccountManager.sharedInstance().avatarImage
+    myView.username.text = AccountManager.sharedInstance().userName
+    myView.userAddress.text = AccountManager.sharedInstance().shopName
     return myView
   }
   

@@ -34,6 +34,7 @@ class ArrivalTVC: UITableViewController {
     
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
+    NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
     loadData()
   }
   

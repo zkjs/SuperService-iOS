@@ -11,8 +11,6 @@ import MessageUI
 
 class BindCodeTVC: UITableViewController {
   
-  let shareTypes = ["短信", "微信好友"]
-  
   var page = 1
   lazy var codeArray = [BindCodeModel]()
   
@@ -21,8 +19,8 @@ class BindCodeTVC: UITableViewController {
     
     tableView.tableFooterView = UIView()
     
-    let nibName = UINib(nibName: CodeCell.nibName(), bundle: nil)
-    tableView.registerNib(nibName, forCellReuseIdentifier: CodeCell.reuseIdentifier())
+    let nibName = UINib(nibName: BindCodeCell.nibName(), bundle: nil)
+    tableView.registerNib(nibName, forCellReuseIdentifier: BindCodeCell.reuseIdentifier())
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
     

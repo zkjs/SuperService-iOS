@@ -29,11 +29,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     tableView.mj_header.beginRefreshing()
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -61,7 +56,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
             "is_validity": NSNumber(integer: 0)
           ]
           let code = CodeModel(dic: dic)
-          self.codeArray.append(code)
+          self.codeArray.insert(code, atIndex: 0)
           self.tableView.reloadData()
         }
       }
@@ -88,7 +83,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     let cell = tableView.dequeueReusableCellWithIdentifier(CodeCell.reuseIdentifier(), forIndexPath: indexPath) as! CodeCell
     let code = codeArray[indexPath.row]
     cell.setData(code)
-    cell.selectionStyle = UITableViewCellSelectionStyle.None
     return cell
   }
   
@@ -166,7 +160,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   
   func refreshData() {
     page = 1
-    codeArray.removeAll()
     loadData(page)
   }
   
@@ -175,6 +168,9 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
       print(responseObject)
       if let data = responseObject {
         if let array = data["code_data"] as? [[String: AnyObject]] {
+          if self.page == 1 {
+            self.codeArray.removeAll()
+          }
           for dict in array {
             let code = CodeModel(dic: dict)
             self.codeArray.append(code)

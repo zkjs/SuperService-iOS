@@ -43,11 +43,7 @@ class CodeCell: UITableViewCell ,HTCopyableLabelDelegate{
   
   func setData(code: CodeModel) {
     codeLabel.text = code.salecode
-    if code.is_validity?.integerValue == 0 {
-      statusLabel.text = "未绑定"
-    } else {
-      statusLabel.text = "已绑定"
-    }
+    statusLabel.text = "未绑定"
   }
   
   func copyMenuTargetRectInCopyableLabelCoordinates(copyableLabel: HTCopyableLabel!) -> CGRect {

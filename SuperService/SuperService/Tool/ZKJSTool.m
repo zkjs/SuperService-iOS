@@ -32,7 +32,7 @@
   hud.removeFromSuperViewOnHide = YES;
   hud.labelText = message;
   hud.mode = MBProgressHUDModeText;
-  hud.labelFont = [UIFont systemFontOfSize:12];
+  hud.labelFont = [UIFont systemFontOfSize:17];
   [hud show:YES];
   [hud hide:YES afterDelay:2.0];
 }

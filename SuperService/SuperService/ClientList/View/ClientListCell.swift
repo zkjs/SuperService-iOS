@@ -45,7 +45,6 @@ var salesid:String!
     
     let url = NSURL(string: kBaseURL)
     let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(salesid).jpg")
-    
     userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
 
   }

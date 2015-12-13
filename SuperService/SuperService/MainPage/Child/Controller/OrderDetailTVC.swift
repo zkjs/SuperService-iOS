@@ -255,6 +255,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func chooseClient() {
     let vc = ClientListVC()
+    vc.type = ClientListVCType.order
     vc.selection = { [unowned self] (client: ClientModel) ->() in
       self.clientNameTextField.text = client.username
       // 更新订单

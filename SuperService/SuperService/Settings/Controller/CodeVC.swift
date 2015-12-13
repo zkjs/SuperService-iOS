@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
+class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{//MFMessageComposeViewControllerDelegate {
   
   let shareTypes = ["IM分享", "短信分享", "复制分享链接"]
   
@@ -78,21 +78,21 @@ class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMe
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: .ActionSheet)
     
-    for index in 0..<shareTypes.count {
-      alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
-        switch index {
-          case 0: {
-            self.shareByIM()
-          }
-          case 1: {
-            self.shareByMessage()
-          }
-          case 2: {
-            self.copyShareLink()
-          }
-        }
-        }))
-    }
+//    for index in 0..<shareTypes.count {
+//      alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
+//        switch index {
+//          case 0: {
+//            self.shareByIM()
+//          }
+//          case 1: {
+//            self.shareByMessage()
+//          }
+//          case 2: {
+//            self.copyShareLink()
+//          }
+//        }
+//        }))
+//    }
     alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
     presentViewController(alertView, animated: true, completion: nil)
     
@@ -102,38 +102,38 @@ class CodeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMe
   }
   
   func shareByIM() {
-    let shopID = AccountManager.sharedInstance().shopID
-    let shopName = AccountManager.sharedInstance().shopName
-    let salesID = AccountManager.sharedInstance().userID
-    let salesName = AccountManager.sharedInstance().userName
-    let cmdChat = EMChatCommand()
-    cmdChat.cmd = "invitationCode"
-    let body = EMCommandMessageBody(chatObject: cmdChat)
-    let message = EMMessage(receiver: clientID, bodies: [body])
-    message.ext = [
-      "shopId": shopID,
-      "shopName": shopName,
-      "salesId": salesID,
-      "salesName": salesName]
-    message.messageType = .eMessageTypeChat
-    EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
+//    let shopID = AccountManager.sharedInstance().shopID
+//    let shopName = AccountManager.sharedInstance().shopName
+//    let salesID = AccountManager.sharedInstance().userID
+//    let salesName = AccountManager.sharedInstance().userName
+//    let cmdChat = EMChatCommand()
+//    cmdChat.cmd = "invitationCode"
+//    let body = EMCommandMessageBody(chatObject: cmdChat)
+//    let message = EMMessage(receiver: clientID, bodies: [body])
+//    message.ext = [
+//      "shopId": shopID,
+//      "shopName": shopName,
+//      "salesId": salesID,
+//      "salesName": salesName]
+//    message.messageType = .eMessageTypeChat
+//    EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
   }
   
-  func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-    controller.dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  func shareByMessage() {
-    if MFMessageComposeViewController.canSendText() {
-      let messageComposeVC = MFMessageComposeViewController()
-      messageComposeVC.messageComposeDelegate = self
-      messageComposeVC.body = "XX酒店的XXX邀请您成为VIP会员，请点击链接激活。"
-      presentViewController(messageComposeVC, animated: true, completion: nil)
-    } else {
-      let errorAlert = UIAlertView(title: "不能发送", message: "你的设备没有短信功能", delegate: self, cancelButtonTitle: "确定")
-      errorAlert.show()
-    }
-  }
+//  func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+//    controller.dismissViewControllerAnimated(true, completion: nil)
+//  }
+//  
+//  func shareByMessage() {
+//    if MFMessageComposeViewController.canSendText() {
+//      let messageComposeVC = MFMessageComposeViewController()
+//      messageComposeVC.messageComposeDelegate = self
+//      messageComposeVC.body = "XX酒店的XXX邀请您成为VIP会员，请点击链接激活。"
+//      presentViewController(messageComposeVC, animated: true, completion: nil)
+//    } else {
+//      let errorAlert = UIAlertView(title: "不能发送", message: "你的设备没有短信功能", delegate: self, cancelButtonTitle: "确定")
+//      errorAlert.show()
+//    }
+//  }
   
   func copyShareLink() {
     let pasteboard = UIPasteboard()

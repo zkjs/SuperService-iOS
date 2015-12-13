@@ -62,6 +62,7 @@ class AccountManager: NSObject {
   }
   
   func saveAccountWithDict(dict: [String: AnyObject]) {
+    
     if let userID = dict["userid"] as? String {
       self.userID = userID
     } else if let salesID = dict["salesid"] as? String {
@@ -70,12 +71,10 @@ class AccountManager: NSObject {
     
     let urlString = kBaseURL + "uploads/users/\(userID).jpg"
     if let url = NSURL(string: urlString) {
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
         if let data = NSData(contentsOfURL: url) {
           self.avatarImageData = data
           if let image = UIImage(data: self.avatarImageData) {
             self.avatarImage = image
-          }
         }
       }
     }

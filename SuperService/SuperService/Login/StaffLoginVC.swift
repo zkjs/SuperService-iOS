@@ -107,7 +107,8 @@ class StaffLoginVC: UIViewController {
           }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
             
         }
-        
+      } else {
+        self.showHint("验证码不正确")
       }
     }
     

@@ -59,7 +59,6 @@ class ArrivalTVC: UITableViewController {
         self.dataArray = data
         self.tableView.reloadData()
       }
-      print(responseObject)
       self.tableView.mj_header.endRefreshing()
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         self.tableView.mj_header.endRefreshing()

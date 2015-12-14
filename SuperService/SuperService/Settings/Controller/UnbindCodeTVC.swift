@@ -124,7 +124,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
       let userName = AccountManager.sharedInstance().userName
       let messageComposeVC = MFMessageComposeViewController()
       messageComposeVC.messageComposeDelegate = self
-      messageComposeVC.body = "\(userName) 邀请您激活超级身份。激活超级身份，把您在某商家的会员保障扩展至全国，超过百家顶级商户和1000*名真人客服将竭诚为您服务。请点击链接激活\(url)，或在超级身份App中输入邀请码\(code)激活。"
+      messageComposeVC.body = "\(userName) 邀请您激活超级身份。激活超级身份，把您在某商家的会员保障扩展至全国，超过百家顶级商户和1000+名人工客服将竭诚为您服务。请点击链接激活\(url)，或在超级身份App中输入邀请码\(code)激活。"
       presentViewController(messageComposeVC, animated: true, completion: nil)
     } else {
       let errorAlert = UIAlertView(title: "不能发送", message: "你的设备没有短信功能", delegate: self, cancelButtonTitle: "确定")
@@ -136,7 +136,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     let userName = AccountManager.sharedInstance().userName
     let message = WXMediaMessage()
     message.title = "\(userName) 邀请您激活超级身份"
-    message.description = "激活超级身份，把您在某商家的会员保障扩展至全国，超过百家顶级商户和1000*名真人客服将竭诚为您服务。"
+    message.description = "激活超级身份，把您在某商家的会员保障扩展至全国，超过百家顶级商户和1000+名人工客服将竭诚为您服务。"
     message.setThumbImage(UIImage(named: "mainIcon"))
     let ext = WXWebpageObject()
     ext.webpageUrl = url

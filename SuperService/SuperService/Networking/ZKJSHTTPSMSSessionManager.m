@@ -76,6 +76,7 @@
 // 检查短信验证码
 - (void)verifySmsCode:(NSString *)code mobilePhoneNumber:(NSString *)phone callback:(void (^)(BOOL succeeded, NSError *error))callback {
   NSString *verifycode = self.phoneSMS[phone];
+  NSLog(@"%@", verifycode);
   if ([code isEqualToString:verifycode]) {
     callback(YES, nil);
   } else {

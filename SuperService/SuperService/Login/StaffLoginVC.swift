@@ -84,10 +84,9 @@ class StaffLoginVC: UIViewController {
               if set {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-//                ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
+                self.easeMobAutoLogin()
                 let url = AccountManager.sharedInstance().url
                 if url.isEmpty {
-                  
                   // 第一次登录，需要设置一下
                   let setVC = SetUpVC()
                   self.navigationController?.pushViewController(setVC, animated: true)
@@ -112,6 +111,17 @@ class StaffLoginVC: UIViewController {
       }
     }
     
+  }
+  
+  private func easeMobAutoLogin() {
+    // 自动登录
+    let isAutoLogin = EaseMob.sharedInstance().chatManager.isAutoLoginEnabled
+    if isAutoLogin == false {
+      let userID = AccountManager.sharedInstance().userID
+      EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456", completion: { (responseObject: [NSObject : AnyObject]!, error: EMError!) -> Void in
+        EaseMob.sharedInstance().chatManager.enableAutoLogin!()
+        }, onQueue: nil)
+    }
   }
   
   @IBAction func bussinessManButton(sender: AnyObject) {

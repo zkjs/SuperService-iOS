@@ -22,6 +22,7 @@ extension NSDate {
   
   class func ZKJS_daysFromDateString(fromDateString: String, toDateString: String) -> Int {
     let dateFormat = NSDateFormatter()
+    dateFormat.dateFormat = "yyyy-MM-dd"
     guard let fromDate = dateFormat.dateFromString(fromDateString) else { return 0 }
     guard let toDate = dateFormat.dateFromString(toDateString) else { return 0}
     var startingDate: NSDate? = nil

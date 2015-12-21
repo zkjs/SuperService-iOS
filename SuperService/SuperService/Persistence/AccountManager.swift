@@ -97,8 +97,8 @@ class AccountManager: NSObject {
     
     shopName = dict["fullname"] as! String
     token = dict["token"] as! String
-    if dict["name"] as! String != ""{
-       userName = dict["name"] as! String
+    if let userName = dict["name"] as? String {
+       self.userName = userName
     }
    
     if let roleID = dict["roleid"] as? String {

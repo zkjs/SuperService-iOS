@@ -235,7 +235,11 @@ class OrderModel: NSObject {
     } else if let room_typeid = dic["room_typeid"] as? String {
       self.room_typeid = NSNumber(integer: Int(room_typeid)!)
     }
-    rooms = dic["rooms"] as? NSNumber
+    if let rooms = dic["rooms"] as? NSNumber {
+      self.rooms = rooms
+    } else if let rooms = dic["rooms"] as? String {
+      self.rooms = NSNumber(integer: Int(rooms)!)
+    }
     shopid = dic["shopid"] as? NSNumber
     if let status = dic["status"] as? NSNumber {
       self.status = status

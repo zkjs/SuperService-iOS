@@ -257,14 +257,15 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseClient() {
+  
     let vc = ClientListVC()
     vc.type = ClientListVCType.order
     vc.selection = { [unowned self] (client: ClientModel) ->() in
       self.clientNameTextField.text = client.username
       // 更新订单
-      self.order.userid = client.userid
-      self.order.guest = client.username
-      self.order.guesttel = client.phone
+      self.order.userid = client.userid//"5620c7ee02287"
+      self.order.guest = client.username//"徐伟"
+      self.order.guesttel = client.phone//"15815507102"
     }
     navigationController?.pushViewController(vc, animated: true)
   }

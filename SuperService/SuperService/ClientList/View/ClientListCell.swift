@@ -39,14 +39,14 @@ var salesid:String!
     }
   func setData(client: ClientModel) {
     userNameLabel.text = client.username
-    if let salesid = client.salesid {
+    if let salesid = client.userid {
+      print(salesid)
       self.salesid = salesid
-    }
-    
-    let url = NSURL(string: kBaseURL)
-    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(salesid).jpg")
-    userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+      let url = NSURL(string: kBaseURL)
+      let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(salesid).jpg")
+      userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
 
+    }
   }
   
 }

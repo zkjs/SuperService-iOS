@@ -20,6 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ASIHTTPRequest:
+    - Reachability (~> 3.2)
   - ChameleonFramework (2.0.6):
     - ChameleonFramework/Default (= 2.0.6)
   - ChameleonFramework/Default (2.0.6)
@@ -33,6 +35,7 @@ PODS:
   - Masonry (0.6.3)
   - MBProgressHUD (0.9.1)
   - MJRefresh (3.0.7)
+  - Reachability (3.2)
   - SocketRocket (0.4.2)
   - SWTableViewCell (0.3.7)
   - WPMediaPicker (0.7.3)
@@ -40,6 +43,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - ASIHTTPRequest (from `https://github.com/hanton/asi-http-request`)
   - ChameleonFramework
   - DateTools
   - EaseMobSDKFull (from `https://github.com/easemob/sdk-ios-cocoapods-integration.git`)
@@ -57,16 +61,22 @@ DEPENDENCIES:
   - XLPagerTabStrip
 
 EXTERNAL SOURCES:
+  ASIHTTPRequest:
+    :git: https://github.com/hanton/asi-http-request
   EaseMobSDKFull:
     :git: https://github.com/easemob/sdk-ios-cocoapods-integration.git
 
 CHECKOUT OPTIONS:
+  ASIHTTPRequest:
+    :commit: ab2ddd63a6f33d55cfb8ece1a5d026b52445dfab
+    :git: https://github.com/hanton/asi-http-request
   EaseMobSDKFull:
     :commit: c4a63a69518d396309e8d6c267f2756cac3877ee
     :git: https://github.com/easemob/sdk-ios-cocoapods-integration.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  ASIHTTPRequest: b2fb6b7703472faf6571f128ef5d4ed0bd21a563
   ChameleonFramework: a6b466873ff9a4ce3a5196c20bccf1a97ad9f446
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   EaseMobSDKFull: 4a18d6ad47b4ccca564833963511bddd151e1654
@@ -78,6 +88,7 @@ SPEC CHECKSUMS:
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: f3e1228ec3d38c7ba5208d58032631a52f39f495
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   WPMediaPicker: 6bbce465f5a5c071267ae28bdf31d0fd6e109721

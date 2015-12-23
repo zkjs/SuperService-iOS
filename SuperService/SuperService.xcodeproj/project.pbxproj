@@ -36,6 +36,8 @@
 		400D62851C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */; };
 		400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626C1C1526B50021E750 /* TranslationAnimation.swift */; };
 		400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626D1C1526B50021E750 /* UIView+Transform.swift */; };
+		401C1FA31C2A4B3D003B9E69 /* CCPRestSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */; };
+		401C1FA41C2A4B3D003B9E69 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C1FA21C2A4B3D003B9E69 /* XMLReader.m */; };
 		4023F72F1C1D215A0057351E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F72C1C1D215A0057351E /* libWeChatSDK.a */; };
 		4023F7311C1D21B20057351E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F7301C1D21B20057351E /* libz.tbd */; };
 		4023F7331C1D22010057351E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F7321C1D22010057351E /* libsqlite3.tbd */; };
@@ -334,6 +336,11 @@
 		400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewPageConstraintAnimation.swift; sourceTree = "<group>"; };
 		400D626C1C1526B50021E750 /* TranslationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationAnimation.swift; sourceTree = "<group>"; };
 		400D626D1C1526B50021E750 /* UIView+Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
+		401C1F9D1C2A4B3D003B9E69 /* CCPRestSDK-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPRestSDK-Prefix.pch"; sourceTree = "<group>"; };
+		401C1F9E1C2A4B3D003B9E69 /* CCPRestSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPRestSDK.h; sourceTree = "<group>"; };
+		401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPRestSDK.m; sourceTree = "<group>"; };
+		401C1FA11C2A4B3D003B9E69 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		401C1FA21C2A4B3D003B9E69 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		4023F72C1C1D215A0057351E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		4023F72D1C1D215A0057351E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		4023F72E1C1D215A0057351E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -830,6 +837,26 @@
 			path = RazzleDazzle;
 			sourceTree = "<group>";
 		};
+		401C1F9C1C2A4B3D003B9E69 /* CCPRestSDK */ = {
+			isa = PBXGroup;
+			children = (
+				401C1F9D1C2A4B3D003B9E69 /* CCPRestSDK-Prefix.pch */,
+				401C1F9E1C2A4B3D003B9E69 /* CCPRestSDK.h */,
+				401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */,
+				401C1FA01C2A4B3D003B9E69 /* xml */,
+			);
+			path = CCPRestSDK;
+			sourceTree = "<group>";
+		};
+		401C1FA01C2A4B3D003B9E69 /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				401C1FA11C2A4B3D003B9E69 /* XMLReader.h */,
+				401C1FA21C2A4B3D003B9E69 /* XMLReader.m */,
+			);
+			path = xml;
+			sourceTree = "<group>";
+		};
 		4023F72B1C1D215A0057351E /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,6 +1108,7 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
+				401C1F9C1C2A4B3D003B9E69 /* CCPRestSDK */,
 				4023F72B1C1D215A0057351E /* WeChatSDK */,
 				400706471C1AC06C0017ECA7 /* YunBaSDK */,
 				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
@@ -2162,6 +2190,7 @@
 				FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */,
 				40FB3D0A1C00203900675044 /* EMCDDeviceManager+Remind.m in Sources */,
 				40FB3D3F1C00203900675044 /* NSObject+EaseMob.m in Sources */,
+				401C1FA41C2A4B3D003B9E69 /* XMLReader.m in Sources */,
 				40E326291BD4C369008344DF /* Persistence.swift in Sources */,
 				40C8415B1C1029EC003E8037 /* EMSearchDisplayController.m in Sources */,
 				40C8414C1C102784003E8037 /* CreateGroupViewController.m in Sources */,
@@ -2344,6 +2373,7 @@
 				400D627D1C1526B50021E750 /* LabelTextColorAnimation.swift in Sources */,
 				40FB3D031C00203900675044 /* EMBubbleView+Gif.m in Sources */,
 				40FB3D251C00203900675044 /* UIImage+EMGIF.m in Sources */,
+				401C1FA31C2A4B3D003B9E69 /* CCPRestSDK.m in Sources */,
 				40FB3D321C00203900675044 /* PSTCollectionViewLayout.m in Sources */,
 				4023F7431C1D619A0057351E /* BindCodeModel.swift in Sources */,
 				40F7575C1BE0546A0053C2BE /* OrderCell.swift in Sources */,

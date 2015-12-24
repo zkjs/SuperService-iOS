@@ -52,9 +52,13 @@ class StaffLoginVC: UIViewController {
           self.countTimer?.fire()
           self.showHint("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
+        } else {
+          if let userInfo = error.userInfo.first {
+            self.showHint(userInfo.1 as! String)
+          }
         }
       }
-    }else {
+    } else {
       self.showHint("请输入正确的手机号码")
     }
     
@@ -62,16 +66,14 @@ class StaffLoginVC: UIViewController {
   
   func refreshCount(sender:UIButton) {
     count--
-    verificationCodeButton.setTitle("\(count)", forState:UIControlState.Normal)
+    verificationCodeButton.setTitle("\(count)", forState:.Normal)
     if (count == 0) {
-      verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
+      verificationCodeButton.setTitle("验证码", forState: .Normal)
       count = 30
       self.countTimer?.invalidate()
       self.countTimer = nil
     }
-    
   }
-  
   
   @IBAction func staffCheckoutLoginButton(sender: AnyObject) {
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in

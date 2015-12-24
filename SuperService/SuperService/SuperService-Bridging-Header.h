@@ -9,7 +9,6 @@
 #import "AFNetworking.h"
 #import "ZKJSHTTPSessionManager.h"
 #import "ZKJSTool.h"
-#import "ZKJSTCPSessionManager.h"
 #import "DateTools.h"
 #import "JCTagListView.h"
 #import "MJRefresh.h"

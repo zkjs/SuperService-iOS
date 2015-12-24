@@ -15,10 +15,6 @@ class MainTBC: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    if AccountManager.sharedInstance().userID.isEmpty == false {
-//      ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
-//    }
-    
     ZKJSHTTPSessionManager.sharedInstance().delegate = self
     
     setupView()
@@ -37,7 +33,6 @@ class MainTBC: UITabBarController {
     unregisterNotification()
   }
   
-  
   // MARK: - Private
   
   private func showLogin() {
@@ -50,7 +45,6 @@ class MainTBC: UITabBarController {
   }
   
   private func setupView() {
-    
     view.backgroundColor = UIColor.whiteColor()
     tabBar.tintColor = UIColor.ZKJS_themeColor()
     title = "到店通知"

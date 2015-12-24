@@ -71,7 +71,6 @@
 		40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */; };
 		40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC261BCE366E00785D2E /* ZKJSTool.m */; };
 		40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC291BCE395300785D2E /* AccountManager.swift */; };
-		40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */; };
 		40C841491C102784003E8037 /* ChatGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841421C102784003E8037 /* ChatGroupDetailViewController.m */; };
 		40C8414A1C102784003E8037 /* ContactSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841441C102784003E8037 /* ContactSelectionViewController.m */; };
 		40C8414B1C102784003E8037 /* ContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841461C102784003E8037 /* ContactView.m */; };
@@ -390,8 +389,6 @@
 		40B0DC251BCE366E00785D2E /* ZKJSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTool.h; sourceTree = "<group>"; };
 		40B0DC261BCE366E00785D2E /* ZKJSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTool.m; sourceTree = "<group>"; };
 		40B0DC291BCE395300785D2E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTCPSessionManager.h; sourceTree = "<group>"; };
-		40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTCPSessionManager.m; sourceTree = "<group>"; };
 		40C841411C102784003E8037 /* ChatGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatGroupDetailViewController.h; sourceTree = "<group>"; };
 		40C841421C102784003E8037 /* ChatGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatGroupDetailViewController.m; sourceTree = "<group>"; };
 		40C841431C102784003E8037 /* ContactSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSelectionViewController.h; sourceTree = "<group>"; };
@@ -878,8 +875,6 @@
 				404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */,
 				4023F7441C1D764D0057351E /* ZKJSJavaHTTPSessionManager.h */,
 				4023F7451C1D764D0057351E /* ZKJSJavaHTTPSessionManager.m */,
-				40B0DC2B1BCE54F500785D2E /* ZKJSTCPSessionManager.h */,
-				40B0DC2C1BCE54F500785D2E /* ZKJSTCPSessionManager.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2296,7 +2291,6 @@
 				40F757491BE054160053C2BE /* ClientListVC.swift in Sources */,
 				4023F73C1C1D59B20057351E /* BindCodeTVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
-				40B0DC2D1BCE54F500785D2E /* ZKJSTCPSessionManager.m in Sources */,
 				40F757781BE0553E0053C2BE /* SetUpVC.swift in Sources */,
 				FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */,
 				40F757711BE0553E0053C2BE /* SettingsCell.swift in Sources */,
@@ -2580,7 +2574,7 @@
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "54dfd3a0-1805-44f1-9cec-c9ca5d287656";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2619,7 +2613,7 @@
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f401adbf-5900-4469-8e29-973a38ba7e0a";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
 			};
 			name = Release;

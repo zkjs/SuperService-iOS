@@ -14,7 +14,7 @@ let kRefreshConversationListNotification = "kRefreshConversationListNotification
 let kArrivalInfoBadge = "kArrivalInfoBadge"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate, WXApiDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
   var window: UIWindow?
   var mainTBC: MainTBC!
@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     setupNotification()
-//    setupTCPSessionManager()
     setupWindows()
     setupYunBa()
     setupWeChat()
@@ -42,22 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     print("applicationDidEnterBackground")
-//    let timestamp = Int64(NSDate().timeIntervalSince1970)
-//    let userID = AccountManager.sharedInstance().userID
-//    let dictionary: [String: AnyObject] = [
-//      "type": MessageIMType.ClientLogout.rawValue,
-//      "timestamp": NSNumber(longLong: timestamp),
-//      "id": userID,
-//      "platform": "I"
-//    ]
-//    ZKJSTCPSessionManager.sharedInstance().sendPacketFromDictionary(dictionary)
-//    ZKJSTCPSessionManager.sharedInstance().deinitNetworkCommunication()
   }
   
   func applicationWillEnterForeground(application: UIApplication) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     print("applicationWillEnterForeground")
-//    ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
   }
   
   func applicationDidBecomeActive(application: UIApplication) {
@@ -195,10 +183,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     UIApplication.sharedApplication().registerForRemoteNotifications()
   }
   
-  private func setupTCPSessionManager() {
-    ZKJSTCPSessionManager.sharedInstance().delegate = self
-  }
-  
   private func setupWindows() {
     mainTBC = MainTBC()
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -220,29 +204,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TCPSessionManagerDelegate
     } else {
       window!.rootViewController = mainTBC
     }
-  }
-  
-  
-  // MARK: - TCPSessionManagerDelegate
-  
-  func didOpenTCPSocket() {
-    // 端口连接后发登陆包
-    let userID = AccountManager.sharedInstance().userID
-    let userName = AccountManager.sharedInstance().userName
-    let deviceToken = AccountManager.sharedInstance().deviceToken
-    let shopID = AccountManager.sharedInstance().shopID
-    let beaconLocationIDs = AccountManager.sharedInstance().beaconLocationIDs
-    if userID.isEmpty == false {
-      ZKJSTCPSessionManager.sharedInstance().loginWithUserID(userID,
-        userName: userName,
-        deviceToken: deviceToken,
-        shopID: shopID,
-        beaconLocationIDs: beaconLocationIDs)
-    }
-  }
-  
-  func didReceivePacket(dictionary: [NSObject : AnyObject]!) {
-    print(dictionary)
   }
   
   func setupEaseMobWithApplication(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {

@@ -10,9 +10,9 @@ import UIKit
 
 class DepartmentFooterView: UIView {
 
-    /*
-  @IBAction func addDepartmentButton(sender: AnyObject) {
-  }
+  @IBOutlet weak var okButton: UIButton!
+  
+  /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {

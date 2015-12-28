@@ -14,13 +14,14 @@ import UIKit
 typealias ClientSelectionBlock = (ClientModel) -> ()
 
 class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, XLPagerTabStripChildItem {
-  var type = ClientListVCType.detail
-  var emptyLabel = UILabel()
+  
+  // 根据名字的首字母自动归类 使用UILocalizedIndexedCollation类
+  let collation = UILocalizedIndexedCollation.currentCollation()
+  
   @IBOutlet weak var tableView: UITableView!
   
-  //根据名字的首字母自动归类 使用UILocalizedIndexedCollation类
-
-  let collation = UILocalizedIndexedCollation.currentCollation()
+  var type = ClientListVCType.detail
+  var emptyLabel = UILabel()
   var sections = [[AnyObject]]()
   var clientArray = [ClientModel]() {
     didSet {
@@ -45,6 +46,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     title = "客户"
     let nibName = UINib(nibName: ClientListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
@@ -63,12 +65,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
     tableView.mj_header.beginRefreshing()
 
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(true)
     loadData()
-
   }
   
   // MARK: - XLPagerTabStripChildItem Delegate
@@ -80,7 +77,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor{
     return UIColor.whiteColor()
   }
-  
   
   // MARK: - Button Action
   
@@ -94,7 +90,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     addVC.hidesBottomBarWhenPushed = true
     self.navigationController?.pushViewController(addVC, animated: true)
   }
-  
   
   //MARK - delegate
   
@@ -131,7 +126,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
   }
   
-  
   // MARK: - Table View Data Source
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return sections.count
@@ -152,7 +146,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     cell.setData(client)
     return cell
   }
-  
   
   // MARK: UITableViewDelegate
   
@@ -178,13 +171,11 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     titleArray.append(collation.sectionTitles[26])
     return titleArray
-    
   }
   
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
     return collation.sectionForSectionIndexTitleAtIndex(index)
   }
-  
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -203,7 +194,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         self.navigationController?.popViewControllerAnimated(true)
       }
     }
-    
-    
   }
+  
 }

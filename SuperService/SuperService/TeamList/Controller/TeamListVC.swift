@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, RefreshTeamListVCDelegate,/*SWTableViewCellDelegate,*/ XLPagerTabStripChildItem {
+class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/*SWTableViewCellDelegate,*/ XLPagerTabStripChildItem {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -42,43 +42,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     tableView.mj_header.beginRefreshing()
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    let isAdmin = AccountManager.sharedInstance().isAdmin()
-    if isAdmin {
-      // 管理员才能添加员工
-      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "AddMember")
-      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
-      baseNC.topViewController?.navigationItem.rightBarButtonItem = addMemberButton
-    }
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    let isAdmin = AccountManager.sharedInstance().isAdmin()
-    if isAdmin {
-      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-      let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
-      baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
-    }
-  }
-  
-  // MARK: - Public
-  
-  func AddMember() {
-    let vc = AddMemberVC()
-    vc.delegate = self
-    vc.hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(vc, animated: true)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   // MARK: - XLPagerTabStripChildItem Delegate
   
   func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
@@ -89,9 +52,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     return UIColor.whiteColor()
   }
   
-  // RefreshTeamListVCDelegate
-  
-  func RefreshTeamListTableView() {
+  func refresh() {
     teamArray.removeAll()
     loadData()
   }

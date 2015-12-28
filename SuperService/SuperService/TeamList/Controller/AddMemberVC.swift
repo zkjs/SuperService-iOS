@@ -12,7 +12,7 @@ protocol RefreshTeamListVCDelegate {
   func RefreshTeamListTableView()
 }
 
-class AddMemberVC: UIViewController,UITextFieldDelegate {
+class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   var delegate: RefreshTeamListVCDelegate?
   var isUncheck = false
@@ -28,10 +28,18 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     title = "新建成员"
-    departmentLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
+    
+    departmentLabel.layer.borderColor = UIColor(white: 204.0/255.0, alpha: 1.0).CGColor
     departmentLabel.layer.borderWidth = 0.5
-
+    departmentLabel.layer.masksToBounds = true
+    departmentLabel.layer.cornerRadius = 3
+    
+    remarkTextView.layer.borderColor = UIColor(white: 204.0/255.0, alpha: 1.0).CGColor
+    remarkTextView.layer.borderWidth = 0.5
+    remarkTextView.layer.masksToBounds = true
+    remarkTextView.layer.cornerRadius = 3
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
@@ -49,7 +57,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
     let dictionary: [String: AnyObject] = [
       "name":usernameTextField.text!,
       "phone":photoTextField.text!,
-      "roleid":"0",  // 初始化值为员工
+      "roleid":"0",  // 员工
       "email": "",
       "deptid": "0",
       "desc":remarkTextView.text
@@ -69,6 +77,28 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
     } catch let error as NSError {
       print(error)
     }
+  }
+  
+}
+
+extension AddMemberVC: UITextViewDelegate {
+  
+  func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    var frame = view.frame
+    frame.origin.y -= 100
+    UIView.animateWithDuration(0.4) { () -> Void in
+      self.view.frame = frame
+    }
+    return true
+  }
+  
+  func textViewShouldEndEditing(textView: UITextView) -> Bool {
+    var frame = view.frame
+    frame.origin.y += 100
+    UIView.animateWithDuration(0.4) { () -> Void in
+      self.view.frame = frame
+    }
+    return true
   }
   
 }

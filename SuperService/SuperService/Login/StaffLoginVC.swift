@@ -75,6 +75,7 @@ class StaffLoginVC: UIViewController {
     }
   }
   
+  
   @IBAction func staffCheckoutLoginButton(sender: AnyObject) {
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
       if (success == true) {
@@ -133,7 +134,6 @@ class StaffLoginVC: UIViewController {
 }
 
 extension StaffLoginVC: UITextFieldDelegate {
-  
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
     if textField == userphoneTextField {
       // 电话号码11位

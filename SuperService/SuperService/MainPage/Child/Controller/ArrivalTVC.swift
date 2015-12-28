@@ -19,9 +19,7 @@ class ArrivalTVC: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     setupView()
-    
     // 因为程序退到后台再回到前台时不会触发viewWillAppear，所以需要此方法刷新列表
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: "refresh",
@@ -31,7 +29,6 @@ class ArrivalTVC: UITableViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
@@ -79,12 +76,9 @@ class ArrivalTVC: UITableViewController {
   
   func setupView() {
     title = "到店通知"
-    
     let nibName = UINib(nibName: ArrivalCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
-    
     tableView.tableFooterView = UIView()
-    
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
 //    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
   }
@@ -102,17 +96,14 @@ class ArrivalTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(ArrivalCell.reuseIdentifier(), forIndexPath: indexPath) as! ArrivalCell
-
     let firstRow = NSIndexPath(forRow: 0, inSection: 0)
     if indexPath == firstRow {
       cell.topLineImageView.hidden = true
     } else {
       cell.topLineImageView.hidden = false
     }
-    
     let data = dataArray[indexPath.row]
     cell.setData(data)
-    
     return cell
   }
   

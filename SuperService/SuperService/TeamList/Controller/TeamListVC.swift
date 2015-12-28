@@ -34,21 +34,16 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = "团队"
-    
     let nibName = UINib(nibName: TeamListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())
-    
     tableView.tableFooterView = UIView()
-    
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
     tableView.mj_header.beginRefreshing()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     let isAdmin = AccountManager.sharedInstance().isAdmin()
     if isAdmin {
       // 管理员才能添加员工
@@ -62,7 +57,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    
     let isAdmin = AccountManager.sharedInstance().isAdmin()
     if isAdmin {
       let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -155,19 +149,14 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     if (sections.count == 0){
       return nil
     }
-    
     var titleArray = [String]()
-    
     for (var i = 0 ; i < collation.sectionTitles.count; i++) {
       if (sections[i].count != 0){
         titleArray.append(collation.sectionTitles[i])
-        
-      }
+       }
     }
-    
-    titleArray.append(collation.sectionTitles[26])
+     titleArray.append(collation.sectionTitles[26])
     return titleArray
-    
   }
   
   

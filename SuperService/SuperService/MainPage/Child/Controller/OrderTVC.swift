@@ -57,15 +57,11 @@ class OrderTVC: UITableViewController {
   
   private func setupView() {
     title = "订单"
-    
     let nibName = UINib(nibName: OrderCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: OrderCell.reuseIdentifier())
-    
     tableView.tableFooterView = UIView()
-    
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
-    
     addRightBarButton()
   }
   
@@ -73,7 +69,6 @@ class OrderTVC: UITableViewController {
     
     ZKJSHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
       success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        
         if let array = responseObject as? NSArray {
           if array.count == 0 {
             self.tableView.mj_footer.endRefreshingWithNoMoreData()
@@ -89,10 +84,8 @@ class OrderTVC: UITableViewController {
             self.tableView.reloadData()
             self.tableView.mj_footer.endRefreshing()
           }
-          self.tableView.mj_header.endRefreshing()
-         
+            self.tableView.mj_header.endRefreshing()
         }
-        
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
     }
@@ -115,13 +108,11 @@ class OrderTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(OrderCell.reuseIdentifier(), forIndexPath: indexPath) as! OrderCell
-    
     if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
       cell.topLineImageView.hidden = true
     } else {
       cell.topLineImageView.hidden = false
     }
-    
     let order = orderArray[indexPath.row]
     cell.setData(order)
     cell.orderButton.tag = indexPath.row

@@ -33,8 +33,7 @@ class AddMemberVC: UIViewController,UITextFieldDelegate {
     title = "新建成员"
     departmentLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
     departmentLabel.layer.borderWidth = 0.5
-    
-    // Do any additional setup after loading the view.
+
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

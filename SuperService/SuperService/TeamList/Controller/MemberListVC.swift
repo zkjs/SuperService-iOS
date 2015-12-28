@@ -121,7 +121,6 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     if footerV != nil {
       self.view.addSubview(footerV!)
     }
-    
     return footerV
   }
   

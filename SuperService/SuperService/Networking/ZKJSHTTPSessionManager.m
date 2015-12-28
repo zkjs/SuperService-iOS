@@ -142,13 +142,13 @@
 
 #pragma mark - 获取我的客户
 
-- (void)getClientListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  [self POST:@"semp/showuserlist" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+- (void)getClientListWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"invitation/codeuserall" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
-    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[page dataUsingEncoding:NSUTF8StringEncoding] name:@"page"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
-    //    DDLogInfo(@"%@", [responseObject description]);
+        NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
       success(task, responseObject);
     }

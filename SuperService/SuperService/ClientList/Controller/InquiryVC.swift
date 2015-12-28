@@ -24,19 +24,6 @@ class InquiryVC: UIViewController,ABPeoplePickerNavigationControllerDelegate{
   
   @IBOutlet weak var phonrtextField: UITextField!
    @IBAction func inquiryClient(sender: AnyObject) {
-    if (phonrtextField.text != nil) {
-      view.endEditing(true)
-      ZKJSHTTPSessionManager.sharedInstance().inquiryClientWithPhoneNumber(phonrtextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        let dic = responseObject as! [String: AnyObject]
-        let client = ClientModel(dic: dic)
-        let vc = AddClientVC()
-        vc.client = client
-        self.navigationController?.pushViewController(vc, animated: true)
-        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
-      }
-      
-    }
     
   }
   

@@ -22,7 +22,7 @@
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="UjS-OC-A37" userLabel="Footer View">
-                            <rect key="frame" x="0.0" y="789" width="375" height="83"/>
+                            <rect key="frame" x="0.0" y="745" width="375" height="83"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6c-Um-N55">
@@ -320,43 +320,12 @@
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="QDG-Va-qOf">
-                                        <rect key="frame" x="0.0" y="435" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDG-Va-qOf" id="cJt-eC-bTi">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单状态" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-fR-QEF">
-                                                    <rect key="frame" x="15" y="15" width="68" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择订单状态" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXB-Td-3dL">
-                                                    <rect key="frame" x="239" y="18" width="88" height="17"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="oXB-Td-3dL" secondAttribute="trailing" constant="15" id="Dsz-UQ-Vlg"/>
-                                                <constraint firstItem="oXB-Td-3dL" firstAttribute="baseline" secondItem="d3f-fR-QEF" secondAttribute="baseline" id="IrI-um-FrL"/>
-                                                <constraint firstItem="d3f-fR-QEF" firstAttribute="top" secondItem="cJt-eC-bTi" secondAttribute="top" constant="15" id="SuM-71-UAT"/>
-                                                <constraint firstItem="d3f-fR-QEF" firstAttribute="leading" secondItem="cJt-eC-bTi" secondAttribute="leading" constant="15" id="daI-JB-3Vd"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="NsG-MF-7Kg">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="AHk-Lr-9h0">
-                                        <rect key="frame" x="0.0" y="499" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="455" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AHk-Lr-9h0" id="mRC-Gm-bg2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -380,7 +349,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="QUx-Pv-6MK">
-                                        <rect key="frame" x="0.0" y="543" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="499" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QUx-Pv-6MK" id="gn9-Eg-y99">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -424,7 +393,7 @@
                             <tableViewSection id="4Qe-Kz-pMy">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="z6T-1B-JW9">
-                                        <rect key="frame" x="0.0" y="647" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z6T-1B-JW9" id="6Uo-7r-H2Y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -447,7 +416,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="8Qz-dC-h84">
-                                        <rect key="frame" x="0.0" y="691" width="375" height="88"/>
+                                        <rect key="frame" x="0.0" y="647" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Qz-dC-h84" id="WgT-cw-mLT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -487,7 +456,6 @@
                         <outlet property="dateInfoTextField" destination="Dov-7O-U9t" id="beP-8l-FHm"/>
                         <outlet property="endDateLabel" destination="DMh-yu-5dB" id="GD2-hH-Dvx"/>
                         <outlet property="invoiceTextField" destination="nfp-ls-OyH" id="bfr-ch-K4Y"/>
-                        <outlet property="orderStatusTextField" destination="oXB-Td-3dL" id="P3r-lJ-X0v"/>
                         <outlet property="paymentTextField" destination="lkm-vh-s3s" id="N5a-93-LJZ"/>
                         <outlet property="remarkTextView" destination="QiW-fI-1go" id="z1K-CJ-t8I"/>
                         <outlet property="roomCountTextField" destination="PZj-0E-joZ" id="1Uo-Bq-urJ"/>

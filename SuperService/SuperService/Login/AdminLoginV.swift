@@ -20,7 +20,6 @@ class AdminLoginV: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = "商家登录"
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
   }
@@ -35,7 +34,6 @@ class AdminLoginV: UIViewController {
   
   @IBAction func tappedLoginButton(sender: AnyObject) {
     guard let phone = userphoneTextField.text else { return }
-    
     if phone.isEmpty == true {
       showHint("请输入手机号码")
       return
@@ -54,8 +52,6 @@ class AdminLoginV: UIViewController {
             // 缓存用户信息
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
             self.view.endEditing(true)
-//            ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
-           
             self.dismissViewControllerAnimated(true, completion: nil)
           } else {
             if let err = dict["err"] as? NSNumber {

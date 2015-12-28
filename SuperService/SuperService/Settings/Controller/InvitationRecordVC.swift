@@ -40,7 +40,6 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    
     self.navigationController!.navigationBar.translucent = false
   }
   
@@ -55,9 +54,7 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     let offsetY = scrollView.contentOffset.y
     if (offsetY > 50) {
       let alpha = min(1, 1 - ((50 + 64 - offsetY) / 64))
-      //print(alpha)
       self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(alpha))
-      
     } else {
       self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(0))
     }

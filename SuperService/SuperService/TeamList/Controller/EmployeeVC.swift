@@ -45,14 +45,12 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
-    
-    navigationController!.navigationBar.translucent = true
+     navigationController!.navigationBar.translucent = true
     tableView.reloadData()
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    
     navigationController!.navigationBar.translucent = false
   }
   
@@ -88,7 +86,6 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     if (offsetY > 50) {
       let alpha = min(1, 1 - ((50 + 64 - offsetY) / 64))
       self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(alpha))
-      
     } else {
       self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(0))
     }
@@ -119,7 +116,6 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }else {
       cell.setdata(client)
     }
-    
     return cell
   }
   

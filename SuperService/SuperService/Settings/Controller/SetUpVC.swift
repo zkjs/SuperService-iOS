@@ -95,7 +95,6 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
   
   
   // MARK: - Private
-  
   func showPhotoPicker() {
     let mediaPicker = WPMediaPickerViewController()
     mediaPicker.delegate = self

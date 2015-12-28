@@ -40,30 +40,23 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = "订单处理"
     loadData()
   }
   
-  
   func setupOrder() {
     startDateLabel.text = order.arrivalDateShortStyle
     endDateLabel.text = order.departureDateShortStyle
-    
     if let duration = order.duration, let departureDate = order.departureDateShortStyle {
       dateInfoTextField.text = "共\(duration.stringValue)晚 在\(departureDate) 13点前退房"
     }
-    
     roomTypeTextField.text = order.room_type
-    
     if let rooms = order.rooms {
       roomCountTextField.text = rooms.stringValue
     } else {
       roomCountTextField.text = ""
     }
-    
     paymentTextField.text = order.pay_name
-    
     if let room_rate = order.room_rate {
       amountTextField.text = room_rate.stringValue
     } else {
@@ -71,16 +64,10 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       order.room_rate = NSNumber(integer: 0)
     }
     amountTextField.delegate = self
-    
     clientNameTextField.text = order.guest
     orderStatusTextField.text = order.orderStatus
     invoiceTextField.text = order.reservation_no
-    
-    //    invoiceTextField.text = order.
-    //    nameTextFields
-    //    roomTagView
-    //    serviceTagView
-    //    remarkTextView.text = order.remar
+
   }
   
   func loadData() {
@@ -90,22 +77,17 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
         if let dict = responseObject as? [String: AnyObject] {
           if let room = dict["room"] as? [String: AnyObject] {
             self.order = OrderModel(dic: room)
-           
             self.remarkTextView.text = self.order.remark  ?? ""
           }
-          
           if let invoice = dict["invoice"] as? String {
             self.invoiceTextField.text = invoice
           }
-          
           if let privilege = dict["privilege"] as? String {
             print(privilege)
           }
-          
           if let room_tag = dict["room_tag"] as? String {
             print(room_tag)
           }
-          
           if let users = dict["users"] as? String {
             print(users)
           }
@@ -118,7 +100,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     } else if type == .Add {
       setupOrder()
     }
-    
     // 获取支付方式
     ZKJSHTTPSessionManager.sharedInstance().getPaymentListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? [[String: AnyObject]] {
@@ -130,7 +111,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
     }
-    
     // 获取房型列表
     ZKJSHTTPSessionManager.sharedInstance().getGoodsListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? [[String: AnyObject]] {
@@ -157,13 +137,11 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-    
     return cell
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    
     if indexPath == NSIndexPath(forRow: 2, inSection: 0) {  // 入住/离店时间
       chooseDate()
     } else if indexPath == NSIndexPath(forRow: 0, inSection: 1) {  // 房间类型
@@ -179,9 +157,9 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       }
       chooseClient()
     } else if indexPath == NSIndexPath(forRow: 1, inSection: 3) {  // 订单状态
-      chooseOrderStatus()
+      //chooseOrderStatus()
     }
-  }
+}
   
   func chooseDate() {
     let vc = BookDateSelectionViewController()
@@ -244,7 +222,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func chooseOrderStatus() {
     let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: .ActionSheet)
-    
     for index in 0..<orderStatusArray.count {
       alertView.addAction(UIAlertAction(title: orderStatusArray[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.orderStatusTextField.text = self.orderStatusArray[index]
@@ -257,7 +234,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseClient() {
-  
     let vc = ClientListVC()
     vc.type = ClientListVCType.order
     vc.selection = { [unowned self] (client: ClientModel) ->() in
@@ -274,9 +250,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     if checkOrder() == false {
       return
     }
-    
-    print(order)
-    
     switch type {
     case .Add:
       addOrder()
@@ -310,7 +283,6 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       showAlert = true
       alertContent = "订单状态"
     }
-    
     if showAlert {
       let alertView = UIAlertController(title: "\(alertContent)不能为空", message: "", preferredStyle: .Alert)
       alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
@@ -379,7 +351,5 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       }
     }
   }
-  
-  
   
 }

@@ -60,7 +60,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     if (indexPath.row == 2){
       cell.textLabel?.text = "退出登录"
     }
-
     return cell
   }
   
@@ -83,15 +82,12 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let logoutIndexPath = NSIndexPath(forItem: 2, inSection: 0)
     if indexPath == logoutIndexPath {
       let alertController = UIAlertController(title: "确定要退出登录吗？", message: "", preferredStyle: .ActionSheet)
-      
       let logoutAction = UIAlertAction(title: "退出登录", style:.Destructive, handler: { (action: UIAlertAction) -> Void in
         self.logout()
       })
       alertController.addAction(logoutAction)
-      
       let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
       alertController.addAction(cancelAction)
-      
       presentViewController(alertController, animated: true, completion: nil)
     }
     

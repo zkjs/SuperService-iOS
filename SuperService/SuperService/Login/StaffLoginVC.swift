@@ -28,7 +28,6 @@ class StaffLoginVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = "登录"
   }
   
@@ -51,8 +50,7 @@ class StaffLoginVC: UIViewController {
     }else {
       self.showHint("请输入正确的手机号码")
     }
-    
-  }
+}
   
   func refreshCount(sender:UIButton) {
     count--
@@ -63,8 +61,7 @@ class StaffLoginVC: UIViewController {
       self.countTimer?.invalidate()
       self.countTimer = nil
     }
-    
-  }
+}
   
   
   @IBAction func staffCheckoutLoginButton(sender: AnyObject) {
@@ -78,10 +75,8 @@ class StaffLoginVC: UIViewController {
               if set {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-//                ZKJSTCPSessionManager.sharedInstance().initNetworkCommunication()
                 let url = AccountManager.sharedInstance().url
                 if url.isEmpty {
-                  
                   // 第一次登录，需要设置一下
                   let setVC = SetUpVC()
                   self.navigationController?.pushViewController(setVC, animated: true)
@@ -105,7 +100,7 @@ class StaffLoginVC: UIViewController {
       }
     }
     
-  }
+}
   
   @IBAction func bussinessManButton(sender: AnyObject) {
     let vc = AdminLoginV()
@@ -114,7 +109,6 @@ class StaffLoginVC: UIViewController {
 }
 
 extension StaffLoginVC: UITextFieldDelegate {
-  
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
     if textField == userphoneTextField {
       // 电话号码11位

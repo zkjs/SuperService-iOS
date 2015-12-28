@@ -12,26 +12,21 @@ import MessageUI
 class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelegate {
   
   let shareTypes = ["短信", "微信好友"]
-  
   var page = 1
   lazy var codeArray = [CodeModel]()
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     tableView.tableFooterView = UIView()
-    
     let nibName = UINib(nibName: CodeCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: CodeCell.reuseIdentifier())
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
-    
     tableView.mj_header.beginRefreshing()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     let addCodeButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "addCode:")
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -41,7 +36,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let baseNC = appDelegate.mainTBC.selectedViewController as! BaseNavigationController
     baseNC.topViewController?.navigationItem.rightBarButtonItem = nil
@@ -71,7 +65,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
     return codeArray.count
   }
   
@@ -89,7 +82,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let code = codeArray[indexPath.row]
     let alertView = UIAlertController(title: "选择分享方式", message: "", preferredStyle: .ActionSheet)
-    
     for index in 0..<shareTypes.count {
       alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         guard let salecode = code.salecode else { return }
@@ -141,7 +133,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     let ext = WXWebpageObject()
     ext.webpageUrl = url
     message.mediaObject = ext
-    
     let req = SendMessageToWXReq()
     req.bText = false
     req.message = message

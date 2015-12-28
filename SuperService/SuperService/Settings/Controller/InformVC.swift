@@ -31,7 +31,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     tableView.registerNib(nibName, forCellReuseIdentifier: InformCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
     GetWholeAreaOfTheBusinessList()
-    
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "nextStep")
     navigationItem.rightBarButtonItem = nextStepButton
@@ -49,8 +48,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
           let notice = NoticeModel(dic:dic as! [String:AnyObject])
           arr.append(notice.locid!)
         }
-        
-        self.noticeArray = arr
+         self.noticeArray = arr
         print(self.noticeArray)
         self.initSelectedArray()  // Model
         self.tableView.reloadData()  // UI
@@ -66,7 +64,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         selectedArray.append(index)
       }
     }
-    print(selectedArray)
   }
   
   func GetWholeAreaOfTheBusinessList() {
@@ -93,10 +90,8 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("InformCell", forIndexPath: indexPath) as! InformCell
     let area = areaArray[indexPath.row]
-    
     cell.selectedButton.addTarget(self, action: "tappedCellSelectedButton:", forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
-    
     if noticeArray.contains(area.locid!) {
       cell.isUncheck = false
       cell.selectedButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
@@ -127,7 +122,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: false)
-    
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! InformCell
     cell.changeSelectedButtonImage()
     updateSelectedArrayWithCell(cell)
@@ -146,7 +140,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         selectedArray.removeAtIndex(index)
       }
     }
-    print(selectedArray)
   }
   
   func nextStep() {
@@ -157,7 +150,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
     locID = areaArr.joinWithSeparator(",")
     print("locID: \(locID)")
-    
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       self.updateYunBaTopic()
       self.navigationController?.popToRootViewControllerAnimated(true)

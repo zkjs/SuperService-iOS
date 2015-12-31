@@ -21,7 +21,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>201512301</string>
+	<string>201512310</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.zkjinshi.SuperService.WatchOpenApp</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -31,9 +35,5 @@
 	<string>com.zkjinshi.SuperService</string>
 	<key>WKWatchKitApp</key>
 	<true/>
-	<key>NSUserActivityTypes</key>
-	<array>
-		<string>com.zkjinshi.SuperService.WatchOpenApp</string>
-	</array>
 </dict>
 </plist>

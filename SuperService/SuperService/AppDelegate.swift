@@ -12,6 +12,8 @@ import CoreData
 let kRefreshArrivalTVCNotification = "kRefreshArrivalTVCNotification"
 let kRefreshConversationListNotification = "kRefreshConversationListNotification"
 let kArrivalInfoBadge = "kArrivalInfoBadge"
+let sharedUserActivityType = "com.zkjinshi.SuperService.WatchOpenApp"
+let sharedIdentifierKey = "identifier"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
@@ -29,7 +31,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
     
+//    #if DEBUG
+//      subscribeTestTopic()
+//    #endif
     return true
+  }
+  
+  func subscribeTestTopic() {
+    let topic = NSNumber(integer: 30)
+    YunBaService.subscribe(topic.stringValue) { (success: Bool, error: NSError!) -> Void in
+      if success {
+        print("[result] subscribe to topic 30 succeed")
+      } else {
+        print("[result] subscribe to topic 30 failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+      }
+    }
   }
   
   func applicationWillResignActive(application: UIApplication) {
@@ -58,6 +74,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     print("applicationWillTerminate")
   }
   
+  // MARK: - Handoff
+  
+  func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+    if (userActivityType == sharedUserActivityType) {
+      return true
+    }
+    return false
+  }
+
+  func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    if (userActivity.activityType == sharedUserActivityType) {
+      if let userInfo = userActivity.userInfo as? [String : AnyObject] {
+        if let identifier = userInfo[sharedIdentifierKey] as? Int {
+          //Do something
+          let alert = UIAlertView(title: "Handoff", message: "Handoff has been triggered for identifier \(identifier)" , delegate: nil, cancelButtonTitle: "Thanks for the info!")
+          alert.show()
+          return true
+        }
+      }
+    }
+    return false
+  }
   
   // MARK: - Push Notification
   
@@ -174,11 +212,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 //    completionHandler(.NoData)
 //  }
   
-  
   // MARK: - Private Method
   
   private func setupNotification() {
-    let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+    let checkDetailAction = UIMutableUserNotificationAction()
+    checkDetailAction.title = "查看详情"
+    checkDetailAction.identifier = "checkDetail"
+    checkDetailAction.activationMode = .Foreground
+    checkDetailAction.authenticationRequired = false
+    
+    let arrivalInfoCategory = UIMutableUserNotificationCategory()
+    arrivalInfoCategory.setActions([checkDetailAction],
+      forContext: .Default)
+    arrivalInfoCategory.identifier = "arrivalInfo"
+    
+    let categories = NSSet(array: [arrivalInfoCategory]) as? Set<UIUserNotificationCategory>
+    
+    let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: categories)
     UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     UIApplication.sharedApplication().registerForRemoteNotifications()
   }

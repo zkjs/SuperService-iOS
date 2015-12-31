@@ -71,6 +71,7 @@
 		40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */; };
 		40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC261BCE366E00785D2E /* ZKJSTool.m */; };
 		40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC291BCE395300785D2E /* AccountManager.swift */; };
+		40BBCED51C34BBEE003732FF /* ArrivalInfo.apns in Resources */ = {isa = PBXBuildFile; fileRef = 40BBCED41C34BBEE003732FF /* ArrivalInfo.apns */; };
 		40C841491C102784003E8037 /* ChatGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841421C102784003E8037 /* ChatGroupDetailViewController.m */; };
 		40C8414A1C102784003E8037 /* ContactSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841441C102784003E8037 /* ContactSelectionViewController.m */; };
 		40C8414B1C102784003E8037 /* ContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841461C102784003E8037 /* ContactView.m */; };
@@ -123,6 +124,7 @@
 		40F3CD2C1C3277500044845D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3CD2B1C3277500044845D /* NotificationController.swift */; };
 		40F3CD2E1C3277500044845D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40F3CD2D1C3277500044845D /* Assets.xcassets */; };
 		40F3CD321C3277500044845D /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 40F3CD141C3277500044845D /* Watch.app */; };
+		40F567781C338B42000282D6 /* ArrivalInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F567771C338B42000282D6 /* ArrivalInfoInterfaceController.swift */; };
 		40F757471BE054160053C2BE /* ClientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757401BE054160053C2BE /* ClientListCell.swift */; };
 		40F757491BE054160053C2BE /* ClientListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F757421BE054160053C2BE /* ClientListVC.swift */; };
 		40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F757431BE054160053C2BE /* ClientListVC.xib */; };
@@ -434,6 +436,7 @@
 		40B0DC251BCE366E00785D2E /* ZKJSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTool.h; sourceTree = "<group>"; };
 		40B0DC261BCE366E00785D2E /* ZKJSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTool.m; sourceTree = "<group>"; };
 		40B0DC291BCE395300785D2E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		40BBCED41C34BBEE003732FF /* ArrivalInfo.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArrivalInfo.apns; sourceTree = "<group>"; };
 		40C841411C102784003E8037 /* ChatGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatGroupDetailViewController.h; sourceTree = "<group>"; };
 		40C841421C102784003E8037 /* ChatGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatGroupDetailViewController.m; sourceTree = "<group>"; };
 		40C841431C102784003E8037 /* ContactSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSelectionViewController.h; sourceTree = "<group>"; };
@@ -512,6 +515,7 @@
 		40F3CD2B1C3277500044845D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		40F3CD2D1C3277500044845D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40F3CD2F1C3277500044845D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40F567771C338B42000282D6 /* ArrivalInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalInfoInterfaceController.swift; sourceTree = "<group>"; };
 		40F757401BE054160053C2BE /* ClientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListCell.swift; sourceTree = "<group>"; };
 		40F757421BE054160053C2BE /* ClientListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListVC.swift; sourceTree = "<group>"; };
 		40F757431BE054160053C2BE /* ClientListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientListVC.xib; sourceTree = "<group>"; };
@@ -1302,6 +1306,7 @@
 			isa = PBXGroup;
 			children = (
 				40F3CD271C3277500044845D /* InterfaceController.swift */,
+				40F567771C338B42000282D6 /* ArrivalInfoInterfaceController.swift */,
 				40F3CD291C3277500044845D /* ExtensionDelegate.swift */,
 				40F3CD2B1C3277500044845D /* NotificationController.swift */,
 				40F3CD2D1C3277500044845D /* Assets.xcassets */,
@@ -1314,6 +1319,7 @@
 		40F3CD251C3277500044845D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40BBCED41C34BBEE003732FF /* ArrivalInfo.apns */,
 				40F3CD261C3277500044845D /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
@@ -2291,6 +2297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F3CD2E1C3277500044845D /* Assets.xcassets in Resources */,
+				40BBCED51C34BBEE003732FF /* ArrivalInfo.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2581,6 +2588,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F3CD2C1C3277500044845D /* NotificationController.swift in Sources */,
+				40F567781C338B42000282D6 /* ArrivalInfoInterfaceController.swift in Sources */,
 				40F3CD2A1C3277500044845D /* ExtensionDelegate.swift in Sources */,
 				40F3CD281C3277500044845D /* InterfaceController.swift in Sources */,
 			);
@@ -2660,6 +2668,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2704,7 +2713,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2889,10 +2899,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2904,10 +2917,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2961,6 +2976,7 @@
 				40F3CD361C3277500044845D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40F3CD391C3277500044845D /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
@@ -2969,6 +2985,7 @@
 				40F3CD341C3277500044845D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

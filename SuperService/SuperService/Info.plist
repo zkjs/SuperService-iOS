@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>201512290</string>
+	<string>201512301</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>wechat</string>
@@ -49,6 +49,10 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>请允许我们使用您的位置信息</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.zkjinshi.SuperService.WatchOpenApp</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

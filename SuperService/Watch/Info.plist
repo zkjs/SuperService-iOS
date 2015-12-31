@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>SuperService</string>
+	<string>超级服务</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>201512290</string>
+	<string>201512301</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -31,5 +31,9 @@
 	<string>com.zkjinshi.SuperService</string>
 	<key>WKWatchKitApp</key>
 	<true/>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.zkjinshi.SuperService.WatchOpenApp</string>
+	</array>
 </dict>
 </plist>

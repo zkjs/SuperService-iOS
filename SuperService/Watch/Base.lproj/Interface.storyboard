@@ -1,42 +1,159 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--超级服务-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
+                <controller identifier="default" title="超级服务" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
-                        <group width="1" alignment="center" layout="vertical" id="XbO-f0-k23">
+                        <group width="1" alignment="left" id="AVx-zO-Ur8">
                             <items>
-                                <label alignment="center" text="服务，如影随形" id="mh8-8O-rTo">
-                                    <color key="textColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                                </label>
+                                <group width="80" height="80" alignment="center" layout="vertical" radius="40" id="XbO-f0-k23">
+                                    <items>
+                                        <imageView width="80" height="80" alignment="center" image="ic_home_nor" id="DAc-fi-q6B"/>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="20" bottom="16"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="8" bottom="8"/>
                         </group>
-                        <button width="1" alignment="left" title="打开App" id="Ftm-0t-wng">
-                            <connections>
-                                <action selector="openParentApp" destination="AgC-eL-Hgc" id="snC-4b-Hfz"/>
-                            </connections>
-                        </button>
+                        <group width="1" alignment="left" id="fwr-WG-Iz1">
+                            <items>
+                                <label alignment="center" text="Label" minimumScaleFactor="0.5" id="0jH-gT-sKR"/>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="8"/>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="fnq-NL-eUP">
+                            <items>
+                                <label alignment="left" text="订单信息" id="MS0-va-Q2a">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <group width="1" alignment="left" id="bFF-Q7-Ks8">
+                                    <items>
+                                        <label alignment="left" text="订单号:" id="2mP-LR-FOx">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" verticalAlignment="bottom" text="Label" minimumScaleFactor="0.10000000000000001" id="6Gu-o8-VwG">
+                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="TR8-PE-BlV">
+                                    <items>
+                                        <label alignment="left" text="商家:" id="aUb-pD-P1H">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="OUj-vY-5Kc">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="nNB-8r-Buy">
+                                    <items>
+                                        <label alignment="left" text="订单状态:" id="4Jl-Ml-SX1">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="v6b-z3-xmH">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="6zR-I6-Xlz">
+                                    <items>
+                                        <label alignment="left" text="入住时间:" id="QRR-yb-Mu2">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZvE-g7-t2d">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="jHa-A5-PuV">
+                                    <items>
+                                        <label alignment="left" text="入住天数:" id="LrA-EQ-n3b">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZV5-yD-Fv9">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="s6n-es-V9q">
+                                    <items>
+                                        <label alignment="left" text="入住人:" id="uCY-Ze-Sos">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="wbH-bu-7Q1">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="8sp-ob-LBc">
+                                    <items>
+                                        <label alignment="left" text="房型:" id="WgE-A9-xVP">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="fNT-cE-dRK">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="QTV-Ig-B0W">
+                                    <items>
+                                        <label alignment="left" text="房间数量:" id="2D8-6H-atY">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="Mjn-VN-6bV">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="fkk-Jg-FKy">
+                                    <items>
+                                        <label alignment="left" text="价格:" id="W4N-s3-kIV">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="koI-so-x6L">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                            <edgeInsets key="margins" left="2" right="2" top="2" bottom="8"/>
+                        </group>
                     </items>
+                    <connections>
+                        <outlet property="alertLabel" destination="0jH-gT-sKR" id="Npi-Kr-Qlh"/>
+                        <outlet property="arrivalDateLabel" destination="ZvE-g7-t2d" id="HgT-D9-cnw"/>
+                        <outlet property="avatarImage" destination="DAc-fi-q6B" id="MQd-hw-ilA"/>
+                        <outlet property="daysLabel" destination="ZV5-yD-Fv9" id="aKH-58-b9n"/>
+                        <outlet property="guestLabel" destination="wbH-bu-7Q1" id="ZYE-8M-awc"/>
+                        <outlet property="orderGroup" destination="fnq-NL-eUP" id="2Le-u3-ZT6"/>
+                        <outlet property="orderNOLabel" destination="6Gu-o8-VwG" id="fom-sq-5x8"/>
+                        <outlet property="orderStatusLabel" destination="v6b-z3-xmH" id="26A-Dj-dga"/>
+                        <outlet property="roomRateLabel" destination="koI-so-x6L" id="fBz-qx-vtX"/>
+                        <outlet property="roomTypeLabel" destination="fNT-cE-dRK" id="KuN-QZ-Esx"/>
+                        <outlet property="roomsLabel" destination="Mjn-VN-6bV" id="qgm-GF-hbx"/>
+                        <outlet property="shopNameLabel" destination="OUj-vY-5Kc" id="z2H-uE-fi8"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="53" y="413.25"/>
         </scene>
         <!--到店通知-->
         <scene sceneID="KcW-Fc-0wV">
             <objects>
-                <controller identifier="ArrivalInfo" title="到店通知" id="wKW-sL-hm0">
+                <controller identifier="ArrivalInfo" title="到店通知" id="wKW-sL-hm0" customClass="ArrivalInfoInterfaceController" customModule="Watch_Extension">
                     <items>
                         <table alignment="left" id="TPP-Ve-yUv">
                             <items>
-                                <tableRow id="WB0-Ki-BvD">
+                                <tableRow identifier="ArrivalInfoRow" id="WB0-Ki-BvD">
                                     <group key="rootItem" width="1" alignment="left" id="oq8-O3-4dX">
                                         <items>
                                             <separator alignment="left" verticalAlignment="center" id="Jp1-9b-Qwx">
@@ -56,9 +173,12 @@
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="arrivalInfoTable" destination="TPP-Ve-yUv" id="8kH-OF-yWt"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="457" y="345"/>
+            <point key="canvasLocation" x="252" y="311"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -67,21 +187,46 @@
                     <items>
                         <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" identifier="arrivalInfo" id="JfB-70-Muf"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="53" y="757"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="dyy-7e-zEX">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" id="fa9-32-nYD">
+                                    <items>
+                                        <label alignment="center" text="到店通知" id="nfN-H2-0OB">
+                                            <color key="textColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="6" bottom="6"/>
+                                </group>
+                                <group width="1" alignment="left" id="zsW-9u-gJh">
+                                    <items>
+                                        <label alignment="center" text="Hanton先生 到达 大堂" minimumScaleFactor="0.59999999999999998" id="bhE-aP-Ktr"/>
+                                    </items>
+                                    <edgeInsets key="margins" left="2" right="2" top="0.0" bottom="6"/>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="bodyLabel" destination="bhE-aP-Ktr" id="fr2-ZM-6e5"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="252" y="757"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

@@ -10,6 +10,9 @@ import WatchKit
 import Foundation
 
 
+let ArrivalInfoKey = "ArrivalInfoKey"
+
+
 class NotificationController: WKUserNotificationInterfaceController {
   
   @IBOutlet var avatarImage: WKInterfaceImage!
@@ -55,21 +58,11 @@ class NotificationController: WKUserNotificationInterfaceController {
         }
       }
     }
-//    if let avatarBase64 = remoteNotification["avatar"] as? String {
-////      if let avatarData = NSData(base64EncodedString: avatarBase64, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
-////        if let image = UIImage(data: avatarData) {
-////          avatarImage.setImage(image)
-////        }
-////      }
-//      let urlString = avatarBase64
-//      if let url = NSURL(string: urlString) {
-//        if let data = NSData(contentsOfURL: url) {
-//          if let image = UIImage(data: data) {
-//            avatarImage.setImage(image)
-//          }
-//        }
-//      }
-//    }
+    
+    // Cache ArrivalInfo Notification
+    if let extra = remoteNotification["extra"] as? [String: AnyObject] {
+      NSUserDefaults.standardUserDefaults().setObject(extra, forKey: ArrivalInfoKey)
+    }
     completionHandler(.Custom)
   }
 }

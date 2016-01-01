@@ -42,8 +42,12 @@ class InterfaceController: WKInterfaceController {
     super.awakeWithContext(context)
     
     // Configure interface objects here.
-    alertLabel.setText("")
-    orderGroup.setHidden(true)
+    if let extra = NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey) as? [String: AnyObject] {
+      setupViewWithInfo(extra)
+    } else {
+      alertLabel.setText("")
+      orderGroup.setHidden(true)
+    }
   }
   
   func imageRequest(url:NSURL) {
@@ -78,69 +82,76 @@ class InterfaceController: WKInterfaceController {
     if let action = identifier {
       if action == "checkDetail" {
         if let extra = remoteNotification["extra"] as? [String: AnyObject] {
-          // 用户头像
-          if let userID = extra["userid"] {
-            if let url = NSURL(string: "http://tap.zkjinshi.com/uploads/users/\(userID).jpg") {
-              imageRequest(url)
-            }
-          }
-          
-          // 到店信息
-          if let username = extra["username"] as? String,
-             let locdesc = extra["locdesc"] as? String {
-            alertLabel.setText("\(username) 到达 \(locdesc)")
-          }
-          
-          // 订单信息
-          if let order = extra["order"] as? [String: AnyObject] {
-            orderGroup.setHidden(false)
-            if let reservation_no = order["reservation_no"] as? String {
-              orderNOLabel.setText(reservation_no)
-            }
-            if let fullname = order["fullname"] as? String {
-              shopNameLabel.setText(fullname)
-            }
-            if let status = order["status"] as? NSNumber {
-              if let orderEnum = OrderStatus(rawValue: status.integerValue) {
-                var statusString = ""
-                switch orderEnum {
-                case .Pending:
-                  statusString = "待确定"
-                case .Canceled:
-                  statusString = "已取消"
-                case .Confirmed:
-                  statusString = "已确定"
-                case .Finised:
-                  statusString = "已完成"
-                case .Checkin:
-                  statusString = "已入住"
-                case .Deleted:
-                  statusString = "已删除"
-                }
-                orderStatusLabel.setText(statusString)
-              }
-            }
-            if let arrival_date = order["arrival_date"] as? String {
-              arrivalDateLabel.setText(arrival_date)
-            }
-            if let dayInt = order["dayInt"] as? NSNumber {
-              daysLabel.setText(dayInt.stringValue)
-            }
-            if let guest = order["guest"] as? String {
-              guestLabel.setText(guest)
-            }
-            if let room_type = order["room_type"] as? String {
-              roomTypeLabel.setText(room_type)
-            }
-            if let rooms = order["rooms"] as? NSNumber {
-              roomsLabel.setText(rooms.stringValue)
-            }
-            if let room_rate = order["room_rate"] as? NSNumber {
-              roomRateLabel.setText(room_rate.stringValue)
-            }
-          }
+          setupViewWithInfo(extra)
         }
       }
+    }
+  }
+  
+  func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
+    // 用户头像
+    if let userID = arrivalInfo["userid"] {
+      if let url = NSURL(string: "http://tap.zkjinshi.com/uploads/users/\(userID).jpg") {
+        imageRequest(url)
+      }
+    }
+    
+    // 到店信息
+    if let username = arrivalInfo["username"] as? String,
+      let locdesc = arrivalInfo["locdesc"] as? String {
+        alertLabel.setText("\(username) 到达 \(locdesc)")
+    }
+    
+    // 订单信息
+    if let order = arrivalInfo["order"] as? [String: AnyObject] {
+      orderGroup.setHidden(false)
+      if let reservation_no = order["reservation_no"] as? String {
+        orderNOLabel.setText(reservation_no)
+      }
+      if let fullname = order["fullname"] as? String {
+        shopNameLabel.setText(fullname)
+      }
+      if let status = order["status"] as? NSNumber {
+        if let orderEnum = OrderStatus(rawValue: status.integerValue) {
+          var statusString = ""
+          switch orderEnum {
+          case .Pending:
+            statusString = "待确定"
+          case .Canceled:
+            statusString = "已取消"
+          case .Confirmed:
+            statusString = "已确定"
+          case .Finised:
+            statusString = "已完成"
+          case .Checkin:
+            statusString = "已入住"
+          case .Deleted:
+            statusString = "已删除"
+          }
+          orderStatusLabel.setText(statusString)
+        }
+      }
+      if let arrival_date = order["arrival_date"] as? String {
+        arrivalDateLabel.setText(arrival_date)
+      }
+      if let dayInt = order["dayInt"] as? NSNumber {
+        daysLabel.setText(dayInt.stringValue)
+      }
+      if let guest = order["guest"] as? String {
+        guestLabel.setText(guest)
+      }
+      if let room_type = order["room_type"] as? String {
+        roomTypeLabel.setText(room_type)
+      }
+      if let rooms = order["rooms"] as? NSNumber {
+        roomsLabel.setText(rooms.stringValue)
+      }
+      if let room_rate = order["room_rate"] as? NSNumber {
+        roomRateLabel.setText(room_rate.stringValue)
+      }
+    } else {
+      // 无订单
+      orderGroup.setHidden(true)
     }
   }
   

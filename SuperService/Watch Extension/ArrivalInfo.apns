@@ -1,13 +1,36 @@
 {
-    "aps": {
-        "alert": {
-            "body": "Hanton先生 到达 大堂",
-            "title": "到店通知"
-        },
-        "category": "arrivalInfo"
-    },
+  "aps": {
+    "alert" =     {
+      "body" = "Hanton先生 到达 中科金石"
+      "title" = "到店通知"
+    }
+    "badge" = 1;
+    "category" = "arrivalInfo"
+    "sound" = "default"
+  },
   
-    "avatar": "value",
-    
-    "customKey": "Use this file to define a testing payload for your notifications. The aps dictionary specifies the category, alert text and title. The WatchKit Simulator Actions array can provide info for one or more action buttons in addition to the standard Dismiss button. Any other top level keys are custom payload. If you have multiple such JSON files in your project, you'll be able to select them when choosing to debug the notification interface of your Watch App."
+  "extra": {
+    "locdesc" = "中科金石"
+    "locid" = 30
+    "order" =     {
+      "arrival_date" = "2015-11-30"
+      "created" = "2015-12-01 16:15:16"
+      "dayInt" = 1
+      "departure_date" = "2015-12-01"
+      "fullname" = "长沙豪廷大酒店"
+      "guest" = "Hanton"
+      "reservation_no" = "H20151201041516"
+      "room_rate" = 222
+      "room_type" = "豪华大床无早"
+      "rooms" = 2
+      "shopid" = 120
+      "status" = 3
+    };
+    "sex" = 1
+    "shopid" = 123
+    "userid" = "5603d8d417392"
+    "username" = "Hanton"
+  },
+  
+  "customKey": "Use this file to define a testing payload for your notifications. The aps dictionary specifies the category, alert text and title. The WatchKit Simulator Actions array can provide info for one or more action buttons in addition to the standard Dismiss button. Any other top level keys are custom payload. If you have multiple such JSON files in your project, you'll be able to select them when choosing to debug the notification interface of your Watch App."
 }

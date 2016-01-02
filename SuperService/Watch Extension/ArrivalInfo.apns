@@ -1,34 +1,34 @@
 {
   "aps": {
     "alert" =     {
-      "body" = "Hanton先生 到达 中科金石"
+      "body" = "Hanton先生 到达 中科金石",
       "title" = "到店通知"
-    }
-    "badge" = 1;
-    "category" = "arrivalInfo"
+    },
+    "badge" = 1,
+    "category" = "arrivalInfo",
     "sound" = "default"
   },
   
   "extra": {
-    "locdesc" = "中科金石"
-    "locid" = 30
+    "locdesc" = "中科金石",
+    "locid" = 30,
     "order" =     {
-      "arrival_date" = "2015-11-30"
-      "created" = "2015-12-01 16:15:16"
-      "dayInt" = 1
-      "departure_date" = "2015-12-01"
-      "fullname" = "长沙豪廷大酒店"
-      "guest" = "Hanton"
-      "reservation_no" = "H20151201041516"
-      "room_rate" = 222
-      "room_type" = "豪华大床无早"
-      "rooms" = 2
-      "shopid" = 120
+      "arrival_date" = "2015-11-30",
+      "created" = "2015-12-01 16:15:16",
+      "dayInt" = 1,
+      "departure_date" = "2015-12-01",
+      "fullname" = "长沙豪廷大酒店",
+      "guest" = "Hanton",
+      "reservation_no" = "H20151201041516",
+      "room_rate" = 222,
+      "room_type" = "豪华大床无早",
+      "rooms" = 2,
+      "shopid" = 120,
       "status" = 3
-    };
-    "sex" = 1
-    "shopid" = 123
-    "userid" = "5603d8d417392"
+    },
+    "sex" = 1,
+    "shopid" = 123,
+    "userid" = "5603d8d417392",
     "username" = "Hanton"
   },
   

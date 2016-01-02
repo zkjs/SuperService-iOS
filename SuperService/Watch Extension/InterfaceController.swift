@@ -27,6 +27,7 @@ class InterfaceController: WKInterfaceController {
   
   @IBOutlet var avatarImage: WKInterfaceImage!
   @IBOutlet var alertLabel: WKInterfaceLabel!
+  @IBOutlet var orderTitleLabel: WKInterfaceLabel!
   @IBOutlet var orderGroup: WKInterfaceGroup!
   @IBOutlet var orderNOLabel: WKInterfaceLabel!
   @IBOutlet var shopNameLabel: WKInterfaceLabel!
@@ -42,12 +43,9 @@ class InterfaceController: WKInterfaceController {
     super.awakeWithContext(context)
     
     // Configure interface objects here.
-    if let extra = NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey) as? [String: AnyObject] {
-      setupViewWithInfo(extra)
-    } else {
-      alertLabel.setText("")
-      orderGroup.setHidden(true)
-    }
+    alertLabel.setText("暂无到店客人")
+    orderGroup.setHidden(true)
+    orderTitleLabel.setText("")
   }
   
   func imageRequest(url:NSURL) {
@@ -68,6 +66,15 @@ class InterfaceController: WKInterfaceController {
   override func willActivate() {
     // This method is called when watch view controller is about to be visible to user
     super.willActivate()
+    
+    alertLabel.setText("正在加载中...")
+    if let extra = NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey) as? [String: AnyObject] {
+      setupViewWithInfo(extra)
+    } else {
+      alertLabel.setText("暂无到店客人")
+      orderGroup.setHidden(true)
+      orderTitleLabel.setText("")
+    }
   }
   
   override func didDeactivate() {
@@ -104,7 +111,13 @@ class InterfaceController: WKInterfaceController {
     
     // 订单信息
     if let order = arrivalInfo["order"] as? [String: AnyObject] {
-      orderGroup.setHidden(false)
+      if order.count == 0 {
+        orderGroup.setHidden(true)
+        orderTitleLabel.setText("暂无订单")
+        return
+      } else {
+        orderGroup.setHidden(false)
+      }
       if let reservation_no = order["reservation_no"] as? String {
         orderNOLabel.setText(reservation_no)
       }

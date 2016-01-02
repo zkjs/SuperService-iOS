@@ -29,98 +29,102 @@
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="fnq-NL-eUP">
                             <items>
-                                <label alignment="left" text="订单信息" id="MS0-va-Q2a">
+                                <label alignment="center" text="订单信息" id="MS0-va-Q2a">
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                 </label>
-                                <group width="1" alignment="left" id="bFF-Q7-Ks8">
+                                <group width="1" alignment="left" layout="vertical" id="amR-aG-fsh">
                                     <items>
-                                        <label alignment="left" text="订单号:" id="2mP-LR-FOx">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" verticalAlignment="bottom" text="Label" minimumScaleFactor="0.10000000000000001" id="6Gu-o8-VwG">
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="TR8-PE-BlV">
-                                    <items>
-                                        <label alignment="left" text="商家:" id="aUb-pD-P1H">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="OUj-vY-5Kc">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="nNB-8r-Buy">
-                                    <items>
-                                        <label alignment="left" text="订单状态:" id="4Jl-Ml-SX1">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="v6b-z3-xmH">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="6zR-I6-Xlz">
-                                    <items>
-                                        <label alignment="left" text="入住时间:" id="QRR-yb-Mu2">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZvE-g7-t2d">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="jHa-A5-PuV">
-                                    <items>
-                                        <label alignment="left" text="入住天数:" id="LrA-EQ-n3b">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZV5-yD-Fv9">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="s6n-es-V9q">
-                                    <items>
-                                        <label alignment="left" text="入住人:" id="uCY-Ze-Sos">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="wbH-bu-7Q1">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="8sp-ob-LBc">
-                                    <items>
-                                        <label alignment="left" text="房型:" id="WgE-A9-xVP">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="fNT-cE-dRK">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="QTV-Ig-B0W">
-                                    <items>
-                                        <label alignment="left" text="房间数量:" id="2D8-6H-atY">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="Mjn-VN-6bV">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="fkk-Jg-FKy">
-                                    <items>
-                                        <label alignment="left" text="价格:" id="W4N-s3-kIV">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
-                                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="koI-so-x6L">
-                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                        </label>
+                                        <group width="1" alignment="left" id="bFF-Q7-Ks8">
+                                            <items>
+                                                <label alignment="left" text="订单号:" id="2mP-LR-FOx">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" verticalAlignment="bottom" text="Label" minimumScaleFactor="0.10000000000000001" id="6Gu-o8-VwG">
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="TR8-PE-BlV">
+                                            <items>
+                                                <label alignment="left" text="商家:" id="aUb-pD-P1H">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="OUj-vY-5Kc">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="nNB-8r-Buy">
+                                            <items>
+                                                <label alignment="left" text="订单状态:" id="4Jl-Ml-SX1">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="v6b-z3-xmH">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="6zR-I6-Xlz">
+                                            <items>
+                                                <label alignment="left" text="入住时间:" id="QRR-yb-Mu2">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZvE-g7-t2d">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="jHa-A5-PuV">
+                                            <items>
+                                                <label alignment="left" text="入住天数:" id="LrA-EQ-n3b">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZV5-yD-Fv9">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="s6n-es-V9q">
+                                            <items>
+                                                <label alignment="left" text="入住人:" id="uCY-Ze-Sos">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="wbH-bu-7Q1">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="8sp-ob-LBc">
+                                            <items>
+                                                <label alignment="left" text="房型:" id="WgE-A9-xVP">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="fNT-cE-dRK">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="QTV-Ig-B0W">
+                                            <items>
+                                                <label alignment="left" text="房间数量:" id="2D8-6H-atY">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="Mjn-VN-6bV">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="fkk-Jg-FKy">
+                                            <items>
+                                                <label alignment="left" text="价格:" id="W4N-s3-kIV">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                                <label alignment="left" text="Label" minimumScaleFactor="0.5" id="koI-so-x6L">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                </label>
+                                            </items>
+                                        </group>
                                     </items>
                                 </group>
                             </items>
@@ -134,9 +138,10 @@
                         <outlet property="avatarImage" destination="DAc-fi-q6B" id="MQd-hw-ilA"/>
                         <outlet property="daysLabel" destination="ZV5-yD-Fv9" id="aKH-58-b9n"/>
                         <outlet property="guestLabel" destination="wbH-bu-7Q1" id="ZYE-8M-awc"/>
-                        <outlet property="orderGroup" destination="fnq-NL-eUP" id="2Le-u3-ZT6"/>
+                        <outlet property="orderGroup" destination="amR-aG-fsh" id="96d-fr-dQd"/>
                         <outlet property="orderNOLabel" destination="6Gu-o8-VwG" id="fom-sq-5x8"/>
                         <outlet property="orderStatusLabel" destination="v6b-z3-xmH" id="26A-Dj-dga"/>
+                        <outlet property="orderTitleLabel" destination="MS0-va-Q2a" id="trc-Ba-GiF"/>
                         <outlet property="roomRateLabel" destination="koI-so-x6L" id="fBz-qx-vtX"/>
                         <outlet property="roomTypeLabel" destination="fNT-cE-dRK" id="KuN-QZ-Esx"/>
                         <outlet property="roomsLabel" destination="Mjn-VN-6bV" id="qgm-GF-hbx"/>
@@ -185,7 +190,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                        <label alignment="left" text="Alert Label" minimumScaleFactor="0.59999999999999998" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="arrivalInfo" id="JfB-70-Muf"/>
                     <connections>

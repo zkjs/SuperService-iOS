@@ -9,6 +9,7 @@
 import UIKit
 
 class ClientModel: NSObject {
+  
   var userid: String?
   var code: String?
   var created: String?
@@ -19,16 +20,19 @@ class ClientModel: NSObject {
   
   override init() {
     super.init()
+
   }
+  
   init(dic:[String: AnyObject]){
     userid = dic["userid"] as?String
     created = dic["created"] as?String
     username = dic["username"] as?String
-    if let phoneNumber = dic["phone"] {
-      phone = phoneNumber as?String
+    if let phoneNumber = dic["phone"] as? NSNumber {
+      phone = phoneNumber.stringValue
     }
     code = dic["code"] as? String
     user_applevel = dic["user_applevel"] as?Int16
     sex = dic["sex"] as?Int16
   }
+  
 }

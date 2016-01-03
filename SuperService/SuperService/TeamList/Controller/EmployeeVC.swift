@@ -132,13 +132,30 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
   
   //对话
   @IBAction func dialogue(sender: AnyObject) {
-    guard let salesid = employee.salesid,
-      let salesName = employee.name else { return }
-    let vc = ChatViewController(conversationChatter: salesid, conversationType: .eConversationTypeChat)
+    var chatterID = ""
+    var chatterName = ""
+    if type == EmployeeVCType.team {
+      if let salesid = employee.salesid,
+        let salesname = employee.name {
+        chatterID = salesid
+        chatterName = salesname
+      } else {
+        return
+      }
+    } else {
+      if let userid = client.userid,
+        let username = client.username {
+          chatterID = userid
+          chatterName = username
+      } else {
+        return
+      }
+    }
+    let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
     let userName = AccountManager.sharedInstance().userName
-    vc.title = salesName
+    vc.title = chatterName
     // 扩展字段
-    let ext = ["toName": salesName,
+    let ext = ["toName": chatterName,
       "fromName": userName]
     vc.conversation.ext = ext
     navigationController?.pushViewController(vc, animated: true)

@@ -171,7 +171,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       let duration = NSDate.ZKJS_daysFromDate(startDate, toDate: endDate)
       self.dateInfoTextField.text = "共\(duration)晚 在\(self.endDateLabel.text!) 13点前退房"
       // 更新订单
-      dateFormatter.dateFormat = "yyyy-MM-dd"
+      dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
       self.order.arrival_date = dateFormatter.stringFromDate(startDate)
       self.order.departure_date = dateFormatter.stringFromDate(endDate)
     }

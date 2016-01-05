@@ -28,7 +28,7 @@
 - (id)init {
   self = [super initWithBaseURL:[[NSURL alloc] initWithString:kJavaBaseURL]];
   if (self) {
-    self.requestSerializer = [[AFHTTPRequestSerializer alloc] init];
+    self.requestSerializer = [[AFJSONRequestSerializer alloc] init];
     self.responseSerializer = [[AFJSONResponseSerializer alloc] init];
   }
   return self;
@@ -127,6 +127,20 @@
   NSString *urlString = [NSString stringWithFormat:@"order/goods?shopid=%@", shopID];
   [self GET:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
 //    NSLog(@"%@", [responseObject description]);
+    success(task, responseObject);
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - APP升级检查
+- (void)checkVersionWithVersion:(NSNumber *)version success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary * dict = @{@"verno":version,
+                          @"devicetype": @"ios",
+                          @"appid": [NSNumber numberWithInt:2]};  //  应用编号(1:超级身份 2 超级服务)
+  [self POST:@"app/upgrade" parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    NSLog(@"%@", [responseObject description]);
     success(task, responseObject);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error.description);

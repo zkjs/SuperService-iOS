@@ -50,23 +50,23 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     if let duration = order.duration, let departureDate = order.departureDateShortStyle {
       dateInfoTextField.text = "共\(duration.stringValue)晚 在\(departureDate) 13点前退房"
     }
-    roomTypeTextField.text = order.room_type
-    if let rooms = order.rooms {
-      roomCountTextField.text = rooms.stringValue
-    } else {
-      roomCountTextField.text = ""
-    }
-    paymentTextField.text = order.pay_name
-    if let room_rate = order.room_rate {
-      amountTextField.text = room_rate.stringValue
-    } else {
-      amountTextField.text = ""
-      order.room_rate = NSNumber(integer: 0)
-    }
-    amountTextField.delegate = self
-    clientNameTextField.text = order.guest
-    orderStatusTextField.text = order.orderStatus
-    invoiceTextField.text = order.reservation_no
+//    roomTypeTextField.text = order.room_type
+//    if let rooms = order.rooms {
+//      roomCountTextField.text = rooms.stringValue
+//    } else {
+//      roomCountTextField.text = ""
+//    }
+//    paymentTextField.text = order.pay_name
+//    if let room_rate = order.room_rate {
+//      amountTextField.text = room_rate.stringValue
+//    } else {
+//      amountTextField.text = ""
+//      order.room_rate = NSNumber(integer: 0)
+//    }
+//    amountTextField.delegate = self
+//    clientNameTextField.text = order.guest
+//    orderStatusTextField.text = order.orderStatus
+//    invoiceTextField.text = order.reservation_no
 
   }
   
@@ -172,8 +172,8 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       self.dateInfoTextField.text = "共\(duration)晚 在\(self.endDateLabel.text!) 13点前退房"
       // 更新订单
       dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-      self.order.arrival_date = dateFormatter.stringFromDate(startDate)
-      self.order.departure_date = dateFormatter.stringFromDate(endDate)
+//      self.order.arrival_date = dateFormatter.stringFromDate(startDate)
+//      self.order.departure_date = dateFormatter.stringFromDate(endDate)
     }
     navigationController?.pushViewController(vc, animated: true)
   }
@@ -184,8 +184,8 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       alertView.addAction(UIAlertAction(title: room.name!, style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.roomTypeTextField.text = room.name!
         // 更新订单
-        self.order.room_typeid = room.id
-        self.order.room_type = room.name
+//        self.order.room_typeid = room.id
+//        self.order.room_type = room.name
         self.order.imgurl = room.imgurl
         }))
     }
@@ -199,7 +199,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       alertView.addAction(UIAlertAction(title: "\(i)间", style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.roomCountTextField.text = "\(i)"
         // 更新订单
-        self.order.rooms = NSNumber(integer: i)
+//        self.order.rooms = NSNumber(integer: i)
         }))
     }
     alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
@@ -212,8 +212,8 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       alertView.addAction(UIAlertAction(title: payment.pay_name!, style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.paymentTextField.text = payment.pay_name!
         // 更新订单
-        self.order.pay_id = payment.pay_id
-        self.order.pay_name = payment.pay_name
+//        self.order.pay_id = payment.pay_id
+//        self.order.pay_name = payment.pay_name
         }))
     }
     alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
@@ -226,7 +226,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       alertView.addAction(UIAlertAction(title: orderStatusArray[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.orderStatusTextField.text = self.orderStatusArray[index]
         // 更新订单
-        self.order.status = NSNumber(integer: index)
+//        self.order.status = NSNumber(integer: index)
         }))
     }
     alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
@@ -240,8 +240,8 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       self.clientNameTextField.text = client.username
       // 更新订单
       self.order.userid = client.userid
-      self.order.guest = client.username
-      self.order.guesttel = client.phone
+//      self.order.guest = client.username
+//      self.order.guesttel = client.phone
     }
     navigationController?.pushViewController(vc, animated: true)
   }
@@ -342,12 +342,12 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
     if textField == amountTextField {
       if let amountText = amountTextField.text {
         if let amount = Double(amountText) {
-          order.room_rate = NSNumber(double: amount)
+//          order.room_rate = NSNumber(double: amount)
         } else {
-          order.room_rate = NSNumber(double: 0)
+//          order.room_rate = NSNumber(double: 0)
         }
       } else {
-        order.room_rate = NSNumber(double: 0)
+//        order.room_rate = NSNumber(double: 0)
       }
     }
   }

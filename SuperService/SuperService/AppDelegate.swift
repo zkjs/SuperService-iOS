@@ -268,7 +268,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
       didFinishLaunchingWithOptions: launchOptions,
       appkey: appKey,
       apnsCertName: cert,
-      otherConfig: [kSDKConfigEnableConsoleLogger: NSNumber(bool: true)])
+      otherConfig: [kSDKConfigEnableConsoleLogger: NSNumber(bool: false)])
   }
   
   func setupWeChat() {

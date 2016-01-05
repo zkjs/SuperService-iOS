@@ -30,9 +30,9 @@ class OrderCell: UITableViewCell {
     return 140
   }
   
-  func setData(order: OrderModel) {
+  func setData(order: OrderListModel) {
     // 客户信息
-    clientInfoLabel.text = order.guest
+    clientInfoLabel.text = order.username
     
     // 客户头像
     if let userID = order.userid {
@@ -42,17 +42,14 @@ class OrderCell: UITableViewCell {
     }
     
     // 订单状态 | 支付状态
-    if let orderStatus = order.orderStatus,
-       let payStatus = order.payStatus {
-        infoLabel.text = "\(orderStatus) | \(payStatus)"
-    }
+    infoLabel.text = order.orderstatus
     
     // 订单信息
-    let orderInfo = "\(order.room_type!) | \(order.duration!)晚 | \(order.arrivalDateShortStyle!)入住"
+    let orderInfo = "\(order.roomtype!) | \(order.duration!)晚 | \(order.arrivalDateShortStyle!)入住"
     orderButton.setTitle(orderInfo, forState: .Normal)
     
     // 订单创建时间
-    timeAgoLabel.text = order.created
+    timeAgoLabel.text = order.createdDateString
     
     // 随机颜色的小图标
     statusImageView.backgroundColor = UIColor(randomFlatColorOfShadeStyle: .Light)

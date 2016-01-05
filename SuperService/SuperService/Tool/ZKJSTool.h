@@ -21,5 +21,6 @@
 
 #pragma mark - JSON String to Dictionary
 + (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString;
++ (NSString *)convertJSONStringFromDictionary:(NSDictionary *)dictionary;
 
 @end

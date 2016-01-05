@@ -114,4 +114,19 @@
   return dictionary;
 }
 
++ (NSString *)convertJSONStringFromDictionary:(NSDictionary *)dictionary {
+  NSError *error;
+  NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                     options:0 //NSJSONWritingPrettyPrinted
+                                                       error:&error];
+  NSString *jsonString = @"";
+  if (jsonData) {
+    jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+  } else {
+    NSLog(@"Got an error: %@", error);
+  }
+  
+  return jsonString;
+}
+
 @end

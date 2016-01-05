@@ -8,68 +8,38 @@
 
 import UIKit
 
-// http://doc.zkjinshi.com/index.php?action=artikel&cat=17&id=67&artlang=zh&highlight=pay_status
-// status 订单状态 默认0可取消订单 1已取消订单 2已确认订单 3已经完成的订单 4正在入住中 5已删除订单 int
-enum OrderStatus: Int {
-  case Pending = 0
-  case Canceled = 1
-  case Confirmed = 2
-  case Finised = 3
-  case Checkin = 4
-  case Deleted = 5
-}
-
-// pay_status 支付状态 0未支付,1已支付,3支付一部分,4已退款, 5已挂账   int
-enum PayStatus: Int {
-  case Unpaid = 0
-  case Paid = 1
-  case PayPartial = 3
-  case Refund = 4
-  case OnAccount = 5
-}
 
 class OrderModel: NSObject {
   
-  var arrival_date: String?
-  var departure_date: String?
-  var fullname: String?
-  var created: String?
-  var guest: String?
-  var guesttel: String?
-  var nologin: NSNumber?
-  var pay_id: NSNumber?
-  var pay_name: String?
-  var pay_status: NSNumber?
-  var reservation_no: String?
-  var room_rate: NSNumber?
-  var room_type: String?
-  var room_typeid: NSNumber?
-  var rooms: NSNumber?
-  var shopid: NSNumber?
-  var status: NSNumber?
-  var userid: String?
-  var remark: String?
-  var imgurl: String?
-  
-//  users 多维[入住人] 必须是已保存用户
-//  简化模式:入住人id,入住人id,入住人id...
-//  invoice [发票信息] 必须是已保存发票
-//  格式:
-//  invoice[invoice_title]=  发票抬头
-//  invoice[invoice_get_id]=1 取票方式 1到店自取,2邮寄(目前不能用)
-//  privilege   商家特权 必须是级别够的特权 有没有权限自己根据代码要求和用户等级\用户会员等级判断
-//  简化模式:特权id,特权id,特权id,...
-//  room_tags [房间选项] 英文逗号隔开中文标签
-//  格式 大床,安静,无烟
-  var users: String?
-  var invoice: String?
-  var privilege: String?
-  var room_tags: String?
+  var arrivaldate: NSDate!
+  var company: String!
+  var doublebreakfeast: NSNumber!
+  var imgurl: String!
+  var isinvoice: NSNumber!
+  var leavedate: NSDate!
+  var nosmoking: NSNumber!
+  var orderedby: String!
+  var orderno: String!
+  var orderstatus: String!
+  var paytype: NSNumber!
+  var personcount: String!
+  var productid: String!
+  var remark: String!
+  var roomcount: NSNumber!
+  var roomno: String!
+  var roomprice: double_t!
+  var roomtype: String!
+  var saleid: String!
+  var shopid: String!
+  var shopname: String!
+  var telephone: String!
+  var userid: String!
+  var username: String!
   
   var duration: NSNumber? {
     get {
-      if let arrivalDate = arrival_date, let departureDate = departure_date {
-        let days = NSDate.ZKJS_daysFromDateString(arrivalDate, toDateString: departureDate)
+      if let arrivalDate = arrivaldate, let departureDate = leavedate {
+        let days = NSDate.ZKJS_daysFromDate(arrivalDate, toDate: departureDate)
         if days == 0 {
           // 当天走也算一天
           return NSNumber(integer: 1)
@@ -83,7 +53,7 @@ class OrderModel: NSObject {
   
   var arrivalDateShortStyle: String? {
     get {
-      if let arrivalDateString = arrival_date {
+      if let arrivalDateString = arrivalDateString {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let arrivalDate = dateFormatter.dateFromString(arrivalDateString)!
@@ -97,7 +67,7 @@ class OrderModel: NSObject {
   
   var departureDateShortStyle: String? {
     get {
-      if let departureDateString = departure_date {
+      if let departureDateString = departureDateString {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let departureDate = dateFormatter.dateFromString(departureDateString)!
@@ -109,48 +79,26 @@ class OrderModel: NSObject {
     }
   }
   
-  var orderStatus: String? {
+  var arrivalDateString: String? {
     get {
-      guard let status = status else { return nil }
-      if let orderEnum = OrderStatus(rawValue: status.integerValue) {
-        switch orderEnum {
-        case .Pending:
-          return "待确定"
-        case .Canceled:
-          return "已取消"
-        case .Confirmed:
-          return "已确定"
-        case .Finised:
-          return "已完成"
-        case .Checkin:
-          return "已入住"
-        case .Deleted:
-          return "已删除"
-        }
+      if let arrivalDate = arrivaldate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.stringFromDate(arrivalDate)
       } else {
-        return "未知状态"
+        return nil
       }
     }
   }
   
-  var payStatus: String? {
+  var departureDateString: String? {
     get {
-      guard let status = pay_status else { return nil }
-      if let payEnum = PayStatus(rawValue: status.integerValue) {
-        switch payEnum {
-        case .Unpaid:
-          return "未支付"
-        case .Paid:
-          return "已支付"
-        case .PayPartial:
-          return "已支付一部分"
-        case .Refund:
-          return "已退款"
-        case .OnAccount:
-          return "已挂帐"
-        }
+      if let departureDate = leavedate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.stringFromDate(departureDate)
       } else {
-        return "未知状态"
+        return nil
       }
     }
   }
@@ -159,7 +107,7 @@ class OrderModel: NSObject {
     get {
       if let arrivalDateShortStyle = arrivalDateShortStyle,
          let duration = duration,
-         let room_type = room_type {
+         let room_type = roomtype {
         return "\(room_type) | \(arrivalDateShortStyle) | \(duration.integerValue)晚"
       } else {
         return ""
@@ -167,33 +115,33 @@ class OrderModel: NSObject {
     }
   }
   
-  override var description: String {
-    var output = "arrival_date: \(arrival_date)\n"
-    output += "departure_date: \(departure_date)\n"
-    output += "fullname: \(fullname)\n"
-    output += "created: \(created)\n"
-    output += "guest: \(guest)\n"
-    output += "guesttel: \(guesttel)\n"
-    output += "nologin: \(nologin)\n"
-    output += "pay_id: \(pay_id)\n"
-    output += "pay_name: \(pay_name)\n"
-    output += "reservation_no: \(reservation_no)\n"
-    output += "pay_status: \(pay_status)\n"
-    output += "room_rate: \(room_rate)\n"
-    output += "room_type: \(room_type)\n"
-    output += "room_typeid: \(room_typeid)\n"
-    output += "rooms: \(rooms)\n"
-    output += "shopid: \(shopid)\n"
-    output += "status: \(status)\n"
-    output += "userid: \(userid)\n"
-    output += "duration: \(duration)\n"
-    output += "arrivalDateShortStyle: \(arrivalDateShortStyle)\n"
-    output += "departureDateShortStyle: \(departureDateShortStyle)\n"
-    output += "orderStatus: \(orderStatus)\n"
-    output += "payStatus: \(payStatus)\n"
-    output += "remark: \(remark)\n"
-    return output
-  }
+//  override var description: String {
+//    var output = "arrival_date: \(arrival_date)\n"
+//    output += "departure_date: \(departure_date)\n"
+//    output += "fullname: \(fullname)\n"
+//    output += "created: \(created)\n"
+//    output += "guest: \(guest)\n"
+//    output += "guesttel: \(guesttel)\n"
+//    output += "nologin: \(nologin)\n"
+//    output += "pay_id: \(pay_id)\n"
+//    output += "pay_name: \(pay_name)\n"
+//    output += "reservation_no: \(reservation_no)\n"
+//    output += "pay_status: \(pay_status)\n"
+//    output += "room_rate: \(room_rate)\n"
+//    output += "room_type: \(room_type)\n"
+//    output += "room_typeid: \(room_typeid)\n"
+//    output += "rooms: \(rooms)\n"
+//    output += "shopid: \(shopid)\n"
+//    output += "status: \(status)\n"
+//    output += "userid: \(userid)\n"
+//    output += "duration: \(duration)\n"
+//    output += "arrivalDateShortStyle: \(arrivalDateShortStyle)\n"
+//    output += "departureDateShortStyle: \(departureDateShortStyle)\n"
+//    output += "orderStatus: \(orderStatus)\n"
+//    output += "payStatus: \(payStatus)\n"
+//    output += "remark: \(remark)\n"
+//    return output
+//  }
   
   override init() {
     super.init()
@@ -213,48 +161,29 @@ class OrderModel: NSObject {
   }
   
   func initWithDictionary(dic: [String: AnyObject]) {
-    arrival_date = dic["arrival_date"] as? String
-    departure_date = dic["departure_date"] as? String
-    fullname = dic["fullname"] as? String
-    created = dic["created"] as? String
-    guest = dic["guest"] as? String
-    guesttel = dic["guesttel"] as? String
-    nologin = dic["nologin"] as? NSNumber
-    pay_id = dic["pay_id"] as? NSNumber
-    pay_name = dic["pay_name"] as? String
-    reservation_no = dic["reservation_no"] as? String
-    if let pay_status = dic["pay_status"] as? NSNumber {
-      self.pay_status = pay_status
-    } else if let pay_status = dic["pay_status"] as? String {
-      self.pay_status = NSNumber(integer: Int(pay_status)!)
-    }
-    room_rate = dic["room_rate"] as? NSNumber
-    room_type = dic["room_type"] as? String
-    if let room_typeid = dic["room_typeid"] as? NSNumber {
-      self.room_typeid = room_typeid
-    } else if let room_typeid = dic["room_typeid"] as? String {
-      self.room_typeid = NSNumber(integer: Int(room_typeid)!)
-    }
-    if let rooms = dic["rooms"] as? NSNumber {
-      self.rooms = rooms
-    } else if let rooms = dic["rooms"] as? String {
-      self.rooms = NSNumber(integer: Int(rooms)!)
-    }
-    shopid = dic["shopid"] as? NSNumber
-    if let status = dic["status"] as? NSNumber {
-      self.status = status
-    } else if let status = dic["status"] as? String {
-      self.status = NSNumber(integer: Int(status)!)
-    }
-    userid = dic["userid"] as? String
-    remark = dic["remark"] as? String
-    if let imageURL = dic["imgurl"] as? String {
-      imgurl = kBaseURL + imageURL
-    } else if let imageURL = dic["image"] as? String {
-      imgurl = kBaseURL + imageURL
-    } else {
-      imgurl = ""
-    }
+    arrivaldate = dic["arrivaldate"] as? NSDate ?? NSDate()
+    company = dic["company"] as? String ?? ""
+    doublebreakfeast = dic["doublebreakfeast"] as? NSNumber ?? NSNumber(double: 0.0)
+    imgurl = dic["imgurl"] as? String ?? ""
+    isinvoice = dic["isinvoice"] as? NSNumber ?? NSNumber(double: 0.0)
+    leavedate = dic["leavedate"] as? NSDate ?? NSDate()
+    nosmoking = dic["nosmoking"] as? NSNumber ?? NSNumber(double: 0.0)
+    orderedby = dic["orderedby"] as? String ?? ""
+    orderno = dic["orderno"] as? String ?? ""
+    orderstatus = dic["orderstatus"] as? String ?? ""
+    paytype = dic["paytype"] as? NSNumber ?? NSNumber(double: 0.0)
+    personcount = dic["personcount"] as? String ?? ""
+    remark = dic["remark"] as? String ?? ""
+    roomcount = dic["roomcount"] as? NSNumber ?? NSNumber(double: 0.0)
+    roomno = dic["roomno"] as? String ?? ""
+    roomprice = dic["roomprice"] as? double_t ?? double_t(0.0)
+    roomtype = dic["roomtype"] as? String ?? ""
+    saleid = dic["saleid"] as? String ?? ""
+    shopid = dic["shopid"] as? String ?? ""
+    shopname = dic["shopname"] as? String ?? ""
+    telephone = dic["telephone"] as? String ?? ""
+    userid = dic["userid"] as? String ?? ""
+    username = dic["username"] as? String ?? ""
   }
 
 }

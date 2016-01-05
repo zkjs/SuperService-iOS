@@ -54,13 +54,22 @@ class AdminLoginV: UIViewController {
     
     // 14000800924:123456
     ZKJSHTTPSessionManager.sharedInstance().adminLoginWithPhone(phone, password: password,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      print(responseObject)
       if let dict = responseObject as? NSDictionary {
         if let set = dict["set"] as? Bool {
           if set {
             // 缓存用户信息
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-            self.view.endEditing(true)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+              print(responseObject)
+              if let category = responseObject["category"] as? String {
+                AccountManager.sharedInstance().saveCategory(category)
+                self.view.endEditing(true)
+                self.dismissViewControllerAnimated(true, completion: nil)
+              }
+              }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+                
+            })
           } else {
             if let err = dict["err"] as? NSNumber {
               if err.longLongValue == 408 {

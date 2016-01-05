@@ -60,6 +60,18 @@
 		408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408423031BC689E200C215CD /* ArrivalTVC.xib */; };
 		408423081BC68A7800C215CD /* ArrivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408423061BC68A7800C215CD /* ArrivalCell.swift */; };
 		408423091BC68A7800C215CD /* ArrivalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408423071BC68A7800C215CD /* ArrivalCell.xib */; };
+		408693FE1C390F7F00BE1709 /* OrderListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408693FD1C390F7F00BE1709 /* OrderListModel.swift */; };
+		408694021C39162F00BE1709 /* HotelOrderTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */; };
+		408694031C39162F00BE1709 /* KTVTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408694001C39162F00BE1709 /* KTVTableView.storyboard */; };
+		408694041C39162F00BE1709 /* LeisureTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408694011C39162F00BE1709 /* LeisureTVC.storyboard */; };
+		408694081C39164B00BE1709 /* HotelOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694051C39164B00BE1709 /* HotelOrderTVC.swift */; };
+		408694091C39164B00BE1709 /* KTVTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694061C39164B00BE1709 /* KTVTableView.swift */; };
+		4086940A1C39164B00BE1709 /* LeisureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694071C39164B00BE1709 /* LeisureTVC.swift */; };
+		4086940C1C39179F00BE1709 /* RoomGoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086940B1C39179F00BE1709 /* RoomGoods.swift */; };
+		4086940E1C3918A700BE1709 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086940D1C3918A700BE1709 /* BookVC.swift */; };
+		408694101C3918B100BE1709 /* BookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4086940F1C3918B100BE1709 /* BookVC.xib */; };
+		408694131C391A2E00BE1709 /* BookRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694111C391A2E00BE1709 /* BookRoomCell.swift */; };
+		408694141C391A2E00BE1709 /* BookRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408694121C391A2E00BE1709 /* BookRoomCell.xib */; };
 		409EE0A71C0070680074F43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0A61C0070680074F43C /* Assets.xcassets */; };
 		409EE0AA1C0071390074F43C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0AC1C0071390074F43C /* Localizable.strings */; };
 		40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9631BE1B9E000737C6D /* PaymentModel.swift */; };
@@ -416,6 +428,18 @@
 		408423031BC689E200C215CD /* ArrivalTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArrivalTVC.xib; path = MainPage/Child/Controller/ArrivalTVC.xib; sourceTree = "<group>"; };
 		408423061BC68A7800C215CD /* ArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrivalCell.swift; path = MainPage/Child/View/ArrivalCell.swift; sourceTree = "<group>"; };
 		408423071BC68A7800C215CD /* ArrivalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArrivalCell.xib; path = MainPage/Child/View/ArrivalCell.xib; sourceTree = "<group>"; };
+		408693FD1C390F7F00BE1709 /* OrderListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListModel.swift; sourceTree = "<group>"; };
+		408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HotelOrderTVC.storyboard; sourceTree = "<group>"; };
+		408694001C39162F00BE1709 /* KTVTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KTVTableView.storyboard; sourceTree = "<group>"; };
+		408694011C39162F00BE1709 /* LeisureTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeisureTVC.storyboard; sourceTree = "<group>"; };
+		408694051C39164B00BE1709 /* HotelOrderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelOrderTVC.swift; sourceTree = "<group>"; };
+		408694061C39164B00BE1709 /* KTVTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVTableView.swift; sourceTree = "<group>"; };
+		408694071C39164B00BE1709 /* LeisureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeisureTVC.swift; sourceTree = "<group>"; };
+		4086940B1C39179F00BE1709 /* RoomGoods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomGoods.swift; sourceTree = "<group>"; };
+		4086940D1C3918A700BE1709 /* BookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
+		4086940F1C3918B100BE1709 /* BookVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookVC.xib; sourceTree = "<group>"; };
+		408694111C391A2E00BE1709 /* BookRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRoomCell.swift; sourceTree = "<group>"; };
+		408694121C391A2E00BE1709 /* BookRoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookRoomCell.xib; sourceTree = "<group>"; };
 		409EE0A61C0070680074F43C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		409EE0AB1C0071390074F43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		409EE0AD1C00713C0074F43C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1136,8 +1160,10 @@
 			isa = PBXGroup;
 			children = (
 				40ABA9651BE1BE4700737C6D /* GoodsModel.swift */,
+				408693FD1C390F7F00BE1709 /* OrderListModel.swift */,
 				40F7574E1BE054340053C2BE /* OrderModel.swift */,
 				40ABA9631BE1B9E000737C6D /* PaymentModel.swift */,
+				4086940B1C39179F00BE1709 /* RoomGoods.swift */,
 			);
 			name = Model;
 			path = Child/Model;
@@ -2022,6 +2048,16 @@
 				40F757551BE054550053C2BE /* OrderTVC.xib */,
 				40F757531BE054550053C2BE /* OrderDetailTVC.swift */,
 				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
+				408694051C39164B00BE1709 /* HotelOrderTVC.swift */,
+				408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */,
+				408694061C39164B00BE1709 /* KTVTableView.swift */,
+				408694001C39162F00BE1709 /* KTVTableView.storyboard */,
+				408694071C39164B00BE1709 /* LeisureTVC.swift */,
+				408694011C39162F00BE1709 /* LeisureTVC.storyboard */,
+				4086940D1C3918A700BE1709 /* BookVC.swift */,
+				4086940F1C3918B100BE1709 /* BookVC.xib */,
+				408694111C391A2E00BE1709 /* BookRoomCell.swift */,
+				408694121C391A2E00BE1709 /* BookRoomCell.xib */,
 			);
 			name = Controller;
 			path = Child/Controller;
@@ -2231,10 +2267,14 @@
 				FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */,
 				40F757741BE0553E0053C2BE /* SettingsHeaderView.xib in Resources */,
 				409EE0A71C0070680074F43C /* Assets.xcassets in Resources */,
+				408694031C39162F00BE1709 /* KTVTableView.storyboard in Resources */,
 				40F7576F1BE0553E0053C2BE /* InformVC.xib in Resources */,
 				40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */,
+				408694141C391A2E00BE1709 /* BookRoomCell.xib in Resources */,
 				40FB3CFD1C00203900675044 /* callRing.mp3 in Resources */,
+				408694041C39162F00BE1709 /* LeisureTVC.storyboard in Resources */,
 				408423091BC68A7800C215CD /* ArrivalCell.xib in Resources */,
+				408694021C39162F00BE1709 /* HotelOrderTVC.storyboard in Resources */,
 				FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */,
 				FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */,
 				40F757791BE0553E0053C2BE /* SetUpVC.xib in Resources */,
@@ -2245,6 +2285,7 @@
 				4023F7411C1D61310057351E /* BindCodeCell.xib in Resources */,
 				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
 				FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */,
+				408694101C3918B100BE1709 /* BookVC.xib in Resources */,
 				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
 				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
 				40F7575D1BE0546A0053C2BE /* OrderCell.xib in Resources */,
@@ -2351,6 +2392,7 @@
 				401C1FA41C2A4B3D003B9E69 /* XMLReader.m in Sources */,
 				40E326291BD4C369008344DF /* Persistence.swift in Sources */,
 				40C8415B1C1029EC003E8037 /* EMSearchDisplayController.m in Sources */,
+				4086940E1C3918A700BE1709 /* BookVC.swift in Sources */,
 				40C8414C1C102784003E8037 /* CreateGroupViewController.m in Sources */,
 				40C8414A1C102784003E8037 /* ContactSelectionViewController.m in Sources */,
 				40FB3D461C00203900675044 /* EaseEmoji.m in Sources */,
@@ -2429,6 +2471,7 @@
 				40FB3D471C00203900675044 /* EaseEmojiEmoticons.m in Sources */,
 				842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */,
 				40FB3D601C00203900675044 /* EaseFacialView.m in Sources */,
+				408693FE1C390F7F00BE1709 /* OrderListModel.swift in Sources */,
 				40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */,
 				40FB3D011C00203900675044 /* ChatViewController.m in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,
@@ -2454,9 +2497,12 @@
 				4023F73C1C1D59B20057351E /* BindCodeTVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
 				40F757781BE0553E0053C2BE /* SetUpVC.swift in Sources */,
+				408694081C39164B00BE1709 /* HotelOrderTVC.swift in Sources */,
 				FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */,
 				40F757711BE0553E0053C2BE /* SettingsCell.swift in Sources */,
 				40FB3D2B1C00203900675044 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				4086940A1C39164B00BE1709 /* LeisureTVC.swift in Sources */,
+				4086940C1C39179F00BE1709 /* RoomGoods.swift in Sources */,
 				40FB3D1C1C00203900675044 /* EMSDWebImageCompat.m in Sources */,
 				FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
@@ -2553,9 +2599,11 @@
 				40FB3D241C00203900675044 /* UIButton+EMWebCache.m in Sources */,
 				40FB3D111C00203900675044 /* MBProgressHUD+Add.m in Sources */,
 				40FB3D481C00203900675044 /* EaseEmotionEscape.m in Sources */,
+				408694131C391A2E00BE1709 /* BookRoomCell.swift in Sources */,
 				40E326431BD50544008344DF /* Client.swift in Sources */,
 				408423081BC68A7800C215CD /* ArrivalCell.swift in Sources */,
 				40FB3D091C00203900675044 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
+				408694091C39164B00BE1709 /* KTVTableView.swift in Sources */,
 				40FB3D591C00203900675044 /* EaseBubbleView+Voice.m in Sources */,
 				40FB3D501C00203900675044 /* EaseUserCell.m in Sources */,
 				40FB3D2D1C00203900675044 /* PSTCollectionViewCell.m in Sources */,

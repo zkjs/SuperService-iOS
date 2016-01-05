@@ -33,6 +33,7 @@ class AccountManager: NSObject {
   private(set) var phone = ""
   private(set) var avatarImageData = NSData()
   private(set) var avatarImage = UIImage(named: "ic_home_nor")
+  private(set) var category = ""
 
   class func sharedInstance() -> AccountManager {
     struct Singleton {
@@ -43,7 +44,6 @@ class AccountManager: NSObject {
   
   override init() {
     let userDefaults = NSUserDefaults()
-    
     userID = userDefaults.objectForKey("userid") as? String ?? ""
     shopID = userDefaults.objectForKey("shopid") as? String ?? ""
     shopName = userDefaults.objectForKey("fullname") as? String ?? ""
@@ -61,7 +61,7 @@ class AccountManager: NSObject {
         }
       }
     }
-    
+    category = userDefaults.objectForKey("category") as? String ?? ""
   }
   
   func saveAccountWithDict(dict: [String: AnyObject]) {
@@ -140,6 +140,7 @@ class AccountManager: NSObject {
     userDefaults.setObject(nil, forKey: "locid")
     userDefaults.setObject(nil, forKey: "url")
     userDefaults.setObject(nil, forKey: "phone")
+    userDefaults.setObject(nil, forKey: "category")
     //userDefaults.setObject(nil, forKey: "avatarImageData")
     
     userDefaults.synchronize()
@@ -170,12 +171,18 @@ class AccountManager: NSObject {
   func saveAvatarImageData(imageData: NSData) {
     avatarImageData = imageData
     let userDefaults = NSUserDefaults()
-    userDefaults.setObject(nil, forKey: "avatarImageData")
+//    userDefaults.setObject(nil, forKey: "avatarImageData")
     userDefaults.setObject(avatarImageData, forKey: "avatarImageData")
     
     if let image = UIImage(data: avatarImageData) {
       self.avatarImage = image
     }
+  }
+  
+  func saveCategory(category: String) {
+    self.category = category
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(category, forKey: "category")
   }
   
   func isAdmin() -> Bool {

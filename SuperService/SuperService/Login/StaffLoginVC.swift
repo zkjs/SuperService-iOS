@@ -88,15 +88,21 @@ class StaffLoginVC: UIViewController {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 self.easeMobAutoLogin()
-                let url = AccountManager.sharedInstance().url
-                if url.isEmpty {
-                  // 第一次登录，需要设置一下
-                  let setVC = SetUpVC()
-                  self.navigationController?.pushViewController(setVC, animated: true)
-                }
-                else {
-                  self.dismissViewControllerAnimated(true, completion: nil)
-                }
+                ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+                  if let category = responseObject["category"] as? String {
+                    AccountManager.sharedInstance().saveCategory(category)
+                    let url = AccountManager.sharedInstance().url
+                    if url.isEmpty {
+                      // 第一次登录，需要设置一下
+                      let setVC = SetUpVC()
+                      self.navigationController?.pushViewController(setVC, animated: true)
+                    } else {
+                      self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                  }
+                  }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+                    
+                })
               } else {
                 if let err = dict["err"] as? NSNumber {
                   if err.integerValue == 406 {

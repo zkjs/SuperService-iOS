@@ -48,7 +48,6 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   var arrivaldate: String!
   var type = HotelOrderType.Update
   var orderno = ""
-  var clientID = ""
   var order = OrderModel()
   var paytypeArray = ["未设置", "在线支付", "到店支付", "挂帐"]
   
@@ -99,21 +98,24 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func setUpUI() {
-    let urlString = kBaseURL + order.imgurl
-    roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
-    daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
-    roomsTypeLabel.text = order.roomtype
-    roomsTextField.text = order.roomcount.stringValue
-    contactTextField.text = order.username
-    telphoneTextField.text = order.telephone
-    paymentLabel.text = paytypeArray[order.paytype.integerValue]
-    breakfeastSwitch.on = order.doublebreakfeast.boolValue
-    isSmokingSwitch.on = order.nosmoking.boolValue
-    remarkTextView.text = order.remark
-    invoiceTextField.text = order.company
-    clientLabel.text = order.username
-    amountTextField.text = String(order.roomprice)
+    if let _ = order.orderno {
+      let urlString = kBaseURL + order.imgurl
+      roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
+      daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
+      roomsTypeLabel.text = order.roomtype
+      roomsTextField.text = order.roomcount.stringValue
+      contactTextField.text = order.username
+      telphoneTextField.text = order.telephone
+      paymentLabel.text = paytypeArray[order.paytype.integerValue]
+      breakfeastSwitch.on = order.doublebreakfeast.boolValue
+      isSmokingSwitch.on = order.nosmoking.boolValue
+      remarkTextView.text = order.remark
+      invoiceTextField.text = order.company
+      clientLabel.text = order.username
+      amountTextField.text = String(order.roomprice)
+    }
   }
+  
   // MARK: - Table view data source
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -167,7 +169,8 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     vc.selection = { [unowned self] (client: ClientModel) ->() in
       self.clientLabel.text = client.username
       // 更新订单
-      self.clientID = client.userid!
+      self.order.userid = client.userid!
+      self.order.username = client.username!
     }
     navigationController?.pushViewController(vc, animated: true)
   }
@@ -196,6 +199,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     vc.shopid = shopID
     vc.selection = { (goods:RoomGoods ) ->() in
       self.roomsTypeLabel.text = goods.room
+      self.order.roomtype = goods.room
       self.order.productid = goods.goodsid
       self.order.imgurl = goods.image
       let urlString = kBaseURL + goods.image
@@ -236,17 +240,16 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func submitOrder() {
-    if roomsTypeLabel.text!.isEmpty == true {
-      ZKJSTool.showMsg("请填写时间")
+    if arrivaldate == nil {
+      showHint("请填写时间")
       return
     }
-    if self.roomsTypeLabel.text == "请选择房型" {
-      ZKJSTool.showMsg("请选择房型")
+    if order.roomtype == nil {
+      showHint("请选择房型")
       return
     }
     
     var orderDict = [String: AnyObject]()
-    orderDict["orderno"] = order.orderno
     orderDict["shopid"] = AccountManager.sharedInstance().shopID
     orderDict["userid"] = order.userid
     orderDict["saleid"] = AccountManager.sharedInstance().userID
@@ -292,6 +295,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
           
       })
     } else if type == .Add {
+      orderDict["orderno"] = order.orderno
       ZKJSJavaHTTPSessionManager.sharedInstance().addOrderWithCategory("0", data: orderDict, success: { (task:NSURLSessionDataTask!, responObjects:AnyObject!) -> Void in
         print(responObjects)
         self.navigationController?.popViewControllerAnimated(true)

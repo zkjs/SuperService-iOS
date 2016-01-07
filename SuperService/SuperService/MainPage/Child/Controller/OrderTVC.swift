@@ -41,7 +41,6 @@ class OrderTVC: UITableViewController {
   func refreshData() {
     orderPage = 1
     getDataWithPage(1)
-    
   }
   
   
@@ -62,7 +61,7 @@ class OrderTVC: UITableViewController {
     tableView.tableFooterView = UIView()
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
-//    addRightBarButton()
+    addRightBarButton()
   }
   
   private func getDataWithPage(page: Int) {
@@ -124,9 +123,10 @@ class OrderTVC: UITableViewController {
   // MARK: - Button Action
   
   func addOrder() {
-    let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
-    let vc = storyboard.instantiateViewControllerWithIdentifier("OrderDetailVC") as! OrderDetailTVC
+    let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
     vc.type = .Add
+    vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
   }
   

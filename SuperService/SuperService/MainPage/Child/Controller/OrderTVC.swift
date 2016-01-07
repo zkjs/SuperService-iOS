@@ -139,12 +139,20 @@ class OrderTVC: UITableViewController {
     let order = orderArray[sender.tag]
     let category = AccountManager.sharedInstance().category
     if category == "酒店行业" {
-      let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
-      let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
-      vc.hidesBottomBarWhenPushed = true
-      vc.orderno = order.orderno
-      vc.type = .Update
-      navigationController?.pushViewController(vc, animated: true)
+      if order.orderstatus == "已确认" || order.orderstatus == "已取消" {
+        let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
+        vc.hidesBottomBarWhenPushed = true
+        vc.orderno = order.orderno
+        navigationController?.pushViewController(vc, animated: true)
+      } else {
+        let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
+        vc.hidesBottomBarWhenPushed = true
+        vc.orderno = order.orderno
+        vc.type = .Update
+        navigationController?.pushViewController(vc, animated: true)
+      }
     } else if category == "餐饮行业" {
       let storyboard = UIStoryboard(name: "LeisureTVC", bundle: nil)
       let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureTVC") as! LeisureTVC

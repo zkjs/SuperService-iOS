@@ -64,10 +64,15 @@
   return [AccountManager sharedInstance].shopName;
 }
 
+- (NSString *)locid {
+  return [AccountManager sharedInstance].beaconLocationIDs;
+}
+
 #pragma mark - 到店通知
 - (void)getArrivalInfoWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  NSString *url = [NSString stringWithFormat:@"arrive/users/%@/%@/%@", [self shopID], [self userID], [self token]];
-  [self GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+  NSDictionary * dict = @{@"shopid": [self shopID],
+                          @"locid": [self locid]};
+  [self POST:@"arrive/users" parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
     success(task, responseObject);
 //    NSLog(@"%@", [responseObject description]);
   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -52,12 +52,14 @@ class ArrivalTVC: UITableViewController {
   
   func loadData() {
     ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      print(responseObject)
       if let data = responseObject as? [[String: AnyObject]] {
         self.dataArray = data
         self.tableView.reloadData()
       }
       self.tableView.mj_header.endRefreshing()
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        print(error)
         self.tableView.mj_header.endRefreshing()
     }
   }

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+
 @objc enum ClientListVCType: Int {
   case order
   case detail
 }
+
 typealias ClientSelectionBlock = (ClientModel) -> ()
 
 class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, XLPagerTabStripChildItem {

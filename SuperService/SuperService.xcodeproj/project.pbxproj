@@ -68,8 +68,6 @@
 		408694091C39164B00BE1709 /* KTVTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694061C39164B00BE1709 /* KTVTableView.swift */; };
 		4086940A1C39164B00BE1709 /* LeisureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694071C39164B00BE1709 /* LeisureTVC.swift */; };
 		4086940C1C39179F00BE1709 /* RoomGoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086940B1C39179F00BE1709 /* RoomGoods.swift */; };
-		4086940E1C3918A700BE1709 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086940D1C3918A700BE1709 /* BookVC.swift */; };
-		408694101C3918B100BE1709 /* BookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4086940F1C3918B100BE1709 /* BookVC.xib */; };
 		408694131C391A2E00BE1709 /* BookRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408694111C391A2E00BE1709 /* BookRoomCell.swift */; };
 		408694141C391A2E00BE1709 /* BookRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408694121C391A2E00BE1709 /* BookRoomCell.xib */; };
 		409EE0A71C0070680074F43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0A61C0070680074F43C /* Assets.xcassets */; };
@@ -108,6 +106,8 @@
 		40CF18FE1C029D550069C807 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF18FD1C029D550069C807 /* NoticeModel.swift */; };
 		40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF56731BF3417200E20D50 /* ContactVC.swift */; };
 		40CF567D1BF3621600E20D50 /* UIViewController+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF567C1BF3621600E20D50 /* UIViewController+ZKJS.swift */; };
+		40CFC18C1C3E17FA002DF0C7 /* BookRoomListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC18A1C3E17FA002DF0C7 /* BookRoomListVC.swift */; };
+		40CFC18D1C3E17FA002DF0C7 /* BookRoomListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CFC18B1C3E17FA002DF0C7 /* BookRoomListVC.xib */; };
 		40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */; };
 		40D733A41BE348AB00266228 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D733A21BE348AB00266228 /* Conversation.swift */; };
 		40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78911BAFAA8F00956B72 /* AppDelegate.swift */; };
@@ -436,8 +436,6 @@
 		408694061C39164B00BE1709 /* KTVTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVTableView.swift; sourceTree = "<group>"; };
 		408694071C39164B00BE1709 /* LeisureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeisureTVC.swift; sourceTree = "<group>"; };
 		4086940B1C39179F00BE1709 /* RoomGoods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomGoods.swift; sourceTree = "<group>"; };
-		4086940D1C3918A700BE1709 /* BookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
-		4086940F1C3918B100BE1709 /* BookVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookVC.xib; sourceTree = "<group>"; };
 		408694111C391A2E00BE1709 /* BookRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRoomCell.swift; sourceTree = "<group>"; };
 		408694121C391A2E00BE1709 /* BookRoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookRoomCell.xib; sourceTree = "<group>"; };
 		409EE0A61C0070680074F43C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -499,6 +497,8 @@
 		40CF18FD1C029D550069C807 /* NoticeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		40CF56731BF3417200E20D50 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		40CF567C1BF3621600E20D50 /* UIViewController+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ZKJS.swift"; sourceTree = "<group>"; };
+		40CFC18A1C3E17FA002DF0C7 /* BookRoomListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRoomListVC.swift; sourceTree = "<group>"; };
+		40CFC18B1C3E17FA002DF0C7 /* BookRoomListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookRoomListVC.xib; sourceTree = "<group>"; };
 		40D7339E1BE31FA600266228 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		40D733A11BE348AB00266228 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40D733A21BE348AB00266228 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
@@ -2054,8 +2054,8 @@
 				408694001C39162F00BE1709 /* KTVTableView.storyboard */,
 				408694071C39164B00BE1709 /* LeisureTVC.swift */,
 				408694011C39162F00BE1709 /* LeisureTVC.storyboard */,
-				4086940D1C3918A700BE1709 /* BookVC.swift */,
-				4086940F1C3918B100BE1709 /* BookVC.xib */,
+				40CFC18A1C3E17FA002DF0C7 /* BookRoomListVC.swift */,
+				40CFC18B1C3E17FA002DF0C7 /* BookRoomListVC.xib */,
 				408694111C391A2E00BE1709 /* BookRoomCell.swift */,
 				408694121C391A2E00BE1709 /* BookRoomCell.xib */,
 			);
@@ -2277,6 +2277,7 @@
 				408694021C39162F00BE1709 /* HotelOrderTVC.storyboard in Resources */,
 				FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */,
 				FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */,
+				40CFC18D1C3E17FA002DF0C7 /* BookRoomListVC.xib in Resources */,
 				40F757791BE0553E0053C2BE /* SetUpVC.xib in Resources */,
 				40CAA5F71BE705DA00FAFDA0 /* AdminLoginV.xib in Resources */,
 				409EE0AA1C0071390074F43C /* Localizable.strings in Resources */,
@@ -2285,7 +2286,6 @@
 				4023F7411C1D61310057351E /* BindCodeCell.xib in Resources */,
 				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
 				FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */,
-				408694101C3918B100BE1709 /* BookVC.xib in Resources */,
 				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
 				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
 				40F7575D1BE0546A0053C2BE /* OrderCell.xib in Resources */,
@@ -2392,7 +2392,6 @@
 				401C1FA41C2A4B3D003B9E69 /* XMLReader.m in Sources */,
 				40E326291BD4C369008344DF /* Persistence.swift in Sources */,
 				40C8415B1C1029EC003E8037 /* EMSearchDisplayController.m in Sources */,
-				4086940E1C3918A700BE1709 /* BookVC.swift in Sources */,
 				40C8414C1C102784003E8037 /* CreateGroupViewController.m in Sources */,
 				40C8414A1C102784003E8037 /* ContactSelectionViewController.m in Sources */,
 				40FB3D461C00203900675044 /* EaseEmoji.m in Sources */,
@@ -2561,6 +2560,7 @@
 				40FB3D3C1C00203900675044 /* EaseUserModel.m in Sources */,
 				40CF567D1BF3621600E20D50 /* UIViewController+ZKJS.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
+				40CFC18C1C3E17FA002DF0C7 /* BookRoomListVC.swift in Sources */,
 				40FB3D361C00203900675044 /* PSTGridLayoutRow.m in Sources */,
 				40FB3D071C00203900675044 /* EMCDDeviceManager+Media.m in Sources */,
 				40FB3D5E1C00203900675044 /* EaseTextView.m in Sources */,

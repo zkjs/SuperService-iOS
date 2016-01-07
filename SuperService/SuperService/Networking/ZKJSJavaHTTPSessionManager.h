@@ -11,7 +11,7 @@
 #import "AFNetworking.h"
 
 #define kJavaBaseURL @"http://mmm.zkjinshi.com/" // Java HTTP服务器测试地址
-//#define kJavaBaseURL @"app.zkjinshi.com/japi" // Java服务器正式地址
+//#define kJavaBaseURL @"http://app.zkjinshi.com/japi" // Java服务器正式地址
 
 @interface ZKJSJavaHTTPSessionManager : AFHTTPSessionManager
 
@@ -41,5 +41,8 @@
 
 #pragma mark - APP升级检查
 - (void)checkVersionWithVersion:(NSNumber *)version success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+#pragma mark - 订单修改
+- (void)updateOrderWithOrder:(NSDictionary *)order success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end

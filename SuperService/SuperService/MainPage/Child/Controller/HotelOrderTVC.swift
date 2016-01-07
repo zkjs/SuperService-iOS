@@ -46,11 +46,11 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   var roomsCount = 1
   var leavedate:String!
   var arrivaldate: String!
-  var goods: RoomGoods!
   var type = HotelOrderType.Update
   var orderno = ""
   var clientID = ""
   var order = OrderModel()
+  var paytypeArray = ["未设置", "在线支付", "到店支付", "挂帐"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -63,6 +63,8 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     } else if type == .Add {
       setUpUI()
     }
+    
+    print(order)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -98,13 +100,13 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func setUpUI() {
     let urlString = kBaseURL + order.imgurl
-    roomImage.sd_setImageWithURL(NSURL(string: urlString))
-    daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration)晚"
+    roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
+    daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
     roomsTypeLabel.text = order.roomtype
     roomsTextField.text = order.roomcount.stringValue
     contactTextField.text = order.username
     telphoneTextField.text = order.telephone
-//    paymentLabel.text = ""
+    paymentLabel.text = paytypeArray[order.paytype.integerValue]
     breakfeastSwitch.on = order.doublebreakfeast.boolValue
     isSmokingSwitch.on = order.nosmoking.boolValue
     remarkTextView.text = order.remark
@@ -121,6 +123,8 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    print(indexPath)
+    
     if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
       chooseDate()
     }
@@ -134,14 +138,27 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       }
       chooseClient()
     }
-    if indexPath == NSIndexPath(forRow: 0, inSection: 5) {
-      
+    if indexPath == NSIndexPath(forRow: 0, inSection: 2) {
+      choosePayStatus()
     }
     
   }
   
   @IBAction func submitOrder(sender: AnyObject) {
     submitOrder()
+  }
+  
+  func choosePayStatus() {
+    let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: .ActionSheet)
+    for index in 1..<paytypeArray.count {
+      alertView.addAction(UIAlertAction(title: paytypeArray[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
+        self.paymentLabel.text = self.paytypeArray[index]
+        // 更新订单
+        self.order.paytype = NSNumber(integer: index)
+        }))
+    }
+    alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+    presentViewController(alertView, animated: true, completion: nil)
   }
   
   func chooseClient() {
@@ -174,21 +191,21 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func chooseRoomType() {
-    let vc = BookVC()
-    let shopIDString = AccountManager.sharedInstance().shopID
-    vc.shopid = NSNumber(integer: Int(shopIDString)!)
+    let vc = BookRoomListVC()
+    let shopID = AccountManager.sharedInstance().shopID
+    vc.shopid = shopID
     vc.selection = { (goods:RoomGoods ) ->() in
-      self.roomsTypeLabel.text = goods.room + goods.type
-      self.goods = goods
+      self.roomsTypeLabel.text = goods.room
+      self.order.productid = goods.goodsid
+      self.order.imgurl = goods.image
       let urlString = kBaseURL + goods.image
-      self.roomImage.sd_setImageWithURL(NSURL(string: urlString))
+      self.roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
     }
     navigationController?.pushViewController(vc, animated: true)
   }
   
-  
   @IBAction func switchBreakfast(sender: AnyObject) {
-    if  breakfeastSwitch.on == true {
+    if breakfeastSwitch.on == true {
       
     }
   }
@@ -204,30 +221,22 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     return false
   }
   
+  func sendNewOrderNotificationToClientWithOrderNO(orderNO: String) {
+    let shopID = AccountManager.sharedInstance().shopID
+    if let clientID = order.userid {
+      let cmdChat = EMChatCommand()
+      cmdChat.cmd = "sureOrder"
+      let body = EMCommandMessageBody(chatObject: cmdChat)
+      let message = EMMessage(receiver: clientID, bodies: [body])
+      message.ext = ["shopId": shopID,
+        "orderNo": orderNO]
+      message.messageType = .eMessageTypeChat
+      EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
+    }
+  }
+  
   func submitOrder() {
-    var dic = [String: AnyObject]()
-    dic["saleid"] = AccountManager.sharedInstance().userID
-    dic["arrivaldate"] = arrivaldate
-    dic["leavedate"] = leavedate
-    dic["roomtype"] = roomsTypeLabel.text!
-    dic["roomcount"] = Int(roomsTextField.text!)
-    dic["orderedby"] = contactTextField.text
-    dic["telephone"] = telphoneTextField.text
-    dic["shopid"] = AccountManager.sharedInstance().shopID
-    dic["userid"] = clientID
-    dic["imgurl"] = goods.image
-    dic["productid"] = goods.goodsid
-    dic["roomno"] = ""
-    dic["paytype"] = 1
-    dic["roomprice"] = amountTextField.text
-    dic["telephone"] = telphoneTextField.text
-    dic["personcount"] = 1
-    dic["doublebreakfeast"] = breakfeastSwitch.on ? 1 : 0
-    dic["nosmoking"] = isSmokingSwitch.on ? 1 : 0
-    dic["company"] = ""
-    dic["remark"] = remarkTextView.text
-    
-    if arrivaldate == nil || arrivaldate.isEmpty == true {
+    if roomsTypeLabel.text!.isEmpty == true {
       ZKJSTool.showMsg("请填写时间")
       return
     }
@@ -236,10 +245,54 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       return
     }
     
+    var orderDict = [String: AnyObject]()
+    orderDict["orderno"] = order.orderno
+    orderDict["shopid"] = AccountManager.sharedInstance().shopID
+    orderDict["userid"] = order.userid
+    orderDict["saleid"] = AccountManager.sharedInstance().userID
+    orderDict["shopname"] = AccountManager.sharedInstance().shopName
+    orderDict["imgurl"] = order.imgurl
+    orderDict["productid"] = order.productid
+    orderDict["roomno"] = ""
+    orderDict["roomcount"] = Int(roomsTextField.text!)
+    orderDict["roomtype"] = roomsTypeLabel.text!
+    orderDict["paytype"] = order.paytype
+    orderDict["roomprice"] = amountTextField.text
+    orderDict["orderedby"] = contactTextField.text
+    orderDict["telephone"] = telphoneTextField.text
+    orderDict["arrivaldate"] = arrivaldate
+    orderDict["leavedate"] = leavedate
+    orderDict["personcount"] = 1
+    orderDict["doublebreakfeast"] = breakfeastSwitch.on ? 1 : 0
+    orderDict["nosmoking"] = isSmokingSwitch.on ? 1 : 0
+    orderDict["company"] = ""
+    orderDict["isinvoice"] = 0
+    orderDict["remark"] = remarkTextView.text
+    orderDict["username"] = order.username
+//    orderDict["orderstatus"] = ""
+    
+    print(orderDict)
     if type == .Update {
-      
+      if self.order.paytype.integerValue < 1 {
+        ZKJSTool.showMsg("请选择支付方式")
+        return
+      }
+      ZKJSJavaHTTPSessionManager.sharedInstance().updateOrderWithOrder(orderDict, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+        if let result = responseObject["result"] as? NSNumber {
+          if result.boolValue == true {
+            self.sendNewOrderNotificationToClientWithOrderNO(self.order.orderno)
+            self.showHint("订单已更新成功")
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+              self.navigationController?.popViewControllerAnimated(true)
+            }
+          }
+        }
+        }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+          
+      })
     } else if type == .Add {
-      ZKJSJavaHTTPSessionManager.sharedInstance().addOrderWithCategory("0", data: dic, success: { (task:NSURLSessionDataTask!, responObjects:AnyObject!) -> Void in
+      ZKJSJavaHTTPSessionManager.sharedInstance().addOrderWithCategory("0", data: orderDict, success: { (task:NSURLSessionDataTask!, responObjects:AnyObject!) -> Void in
         print(responObjects)
         self.navigationController?.popViewControllerAnimated(true)
         }) { (task:NSURLSessionDataTask!, error:NSError!) -> Void in

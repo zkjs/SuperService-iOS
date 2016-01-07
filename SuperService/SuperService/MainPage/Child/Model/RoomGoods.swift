@@ -62,13 +62,15 @@ class RoomGoods: NSObject {
   var price: String!
   var logo: String?
   var fullname: String?
-
+  
   init(dic: NSDictionary) {
-      goodsid = dic["id"] as? String ?? ""
-      room = dic["room"] as? String ?? ""
-      image = dic["imgurl"] as? String ?? ""
-      type = dic["type"] as? String ?? ""
-      meat = dic["meat"] as? String ?? "无早"  //避免服务器返回空值
-      price = dic["price"] as? String ?? ""
+    if let goodsid = dic["id"] as? NSNumber {
+      self.goodsid = goodsid.stringValue
+    }
+    room = dic["room"] as? String ?? ""
+    image = dic["imgurl"] as? String ?? ""
+    type = dic["type"] as? String ?? ""
+    meat = dic["meat"] as? String ?? "无早"  //避免服务器返回空值
+    price = dic["price"] as? String ?? ""
   }
 }

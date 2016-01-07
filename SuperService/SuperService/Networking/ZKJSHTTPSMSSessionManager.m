@@ -59,6 +59,7 @@ static NSString* const templateID = @"50158";
   NSMutableDictionary *dict = [self.ccpRestSdk sendTemplateSMSWithTo:phone andTemplateId:templateID andDatas:datas];
   NSLog(@"%@", verifyCode);
   self.phoneSMS[phone] = verifyCode;
+  
   if ([dict[@"statusCode"] isEqualToString:@"000000"]) {
     // statusMsg = "成功"
     callback(YES, nil);

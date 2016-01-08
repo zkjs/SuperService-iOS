@@ -8,7 +8,7 @@
         <!--LeisureTVC-->
         <scene sceneID="2j5-sw-me4">
             <objects>
-                <tableViewController storyboardIdentifier="LeisureTVC" id="jHd-Mv-9DP" customClass="LeisureTVC" customModule="SVIP" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LeisureTVC" id="jHd-Mv-9DP" customClass="LeisureTVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7vs-Jd-RqN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

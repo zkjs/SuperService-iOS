@@ -8,7 +8,7 @@
         <!--Table View-->
         <scene sceneID="AJM-h7-PMS">
             <objects>
-                <tableViewController storyboardIdentifier="KTVTableView" id="cfV-x8-11K" customClass="KTVTableView" customModule="SVIP" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="KTVTableView" id="cfV-x8-11K" customClass="KTVTableView" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="q3d-1r-06C">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,6 +403,9 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1500"/>
+                    <connections>
+                        <outlet property="daysLabel" destination="csn-lT-UKU" id="6g3-B4-DmK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rH4-ex-Rc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

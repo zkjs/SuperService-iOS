@@ -61,7 +61,7 @@ class OrderTVC: UITableViewController {
     tableView.tableFooterView = UIView()
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
-    addRightBarButton()
+//    addRightBarButton()
   }
   
   private func getDataWithPage(page: Int) {
@@ -135,33 +135,58 @@ class OrderTVC: UITableViewController {
     if orderArray.count == 0 {
       return
     }
-    
     let order = orderArray[sender.tag]
-    let category = AccountManager.sharedInstance().category
-    if category == "酒店行业" {
-      if order.orderstatus == "已确认" || order.orderstatus == "已取消" {
-        let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
-        vc.hidesBottomBarWhenPushed = true
-        vc.orderno = order.orderno
-        navigationController?.pushViewController(vc, animated: true)
-      } else {
+    let index = order.orderno.startIndex.advancedBy(1)
+    let type = order.orderno.substringToIndex(index)
+    if type == "H" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待确认" {
         let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
-        vc.hidesBottomBarWhenPushed = true
         vc.orderno = order.orderno
-        vc.type = .Update
-        navigationController?.pushViewController(vc, animated: true)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+      } else {
+        let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
+        vc.orderno = order.orderno
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
       }
-    } else if category == "餐饮行业" {
-      let storyboard = UIStoryboard(name: "LeisureTVC", bundle: nil)
-      let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureTVC") as! LeisureTVC
-      navigationController?.pushViewController(vc, animated: true)
-    } else if category == "KTV" {
-      let storyboard = UIStoryboard(name: "KTVTableView", bundle: nil)
-      let vc = storyboard.instantiateViewControllerWithIdentifier("KTVTableView") as! KTVTableView
-      navigationController?.pushViewController(vc, animated: true)
+      
     }
-  }
+    if type == "O" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待确认" {
+        let storyboard = UIStoryboard(name: "LeisureTVC", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureTVC") as! LeisureTVC
+        vc.orderno = order.orderno
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+      } else {
+        let storyboard = UIStoryboard(name: "LeisureOrderDetailTVC", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureOrderDetailTVC") as! LeisureOrderDetailTVC
+        vc.orderno = order.orderno
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+     
+    }
+    if type == "K" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待确认" {
+        let storyboard = UIStoryboard(name: "KTVTableView", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("KTVTableView") as! KTVTableView
+        vc.orderno = order.orderno
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+      } else {
+        let storyboard = UIStoryboard(name: "KTVOrderDetailTVC", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("KTVOrderDetailTVC") as! KTVOrderDetailTVC
+        vc.orderno = order.orderno
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+      
+    }
+  
+        }
   
 }

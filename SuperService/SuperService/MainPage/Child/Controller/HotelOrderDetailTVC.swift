@@ -57,6 +57,10 @@ class HotelOrderDetailTVC:  UITableViewController {
     }
   }
   
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    view.endEditing(true)
+  }
+  
   func setUI() {
     arrivateLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
     roomTypeLabel.text = order.roomtype
@@ -66,60 +70,15 @@ class HotelOrderDetailTVC:  UITableViewController {
     invoiceLabel.text = order.company
     if order.paytype == 1 {
       payTypeLabel.text = "在线支付"
-      payButton.setTitle("￥\(order.roomprice)立即支付", forState: .Normal)
-      payButton.addTarget(self, action: "pay:", forControlEvents: .TouchUpInside)
-      cancleButton.addTarget(self, action: "cancle:", forControlEvents: .TouchUpInside)
-    } else if order.paytype == 2 {
+    }
+    if order.paytype == 2 {
       payTypeLabel.text = "到店支付"
-    } else if order.paytype == 3 {
-      payTypeLabel.text = "挂帐"
     }
-    if order.paytype == 0 {
-      payButton.hidden = true
-      pendingConfirmationLabel.text = "  请您核对订单，并确认。如需修改，请联系客服"
-    }
-    if order.orderstatus == "待确认" {
-      payButton.addTarget(self, action: "confirm:", forControlEvents: .TouchUpInside)
-      cancleButton.addTarget(self, action: "cancle:", forControlEvents: .TouchUpInside)
-    }
-  }
-  
-  func confirm(sender:UIButton) {
-    
-  }
-  
-  func cancle(sender:UIButton) {
-
-  }
-  
-  func pay(sender:UIButton) {
-    
-  }
-  
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    // 确定
-    if indexPath.section == 5 {
-      if order.orderstatus != nil {
-        if order.orderstatus == "已确认" || order.orderstatus == "已取消" {
-          return 0.0
-        }
-      }
-      
-      if order.paytype != nil && order.paytype.integerValue == 0 {
-        return 0.0
-      }
+    if order.paytype == 3 {
+      payTypeLabel.text = "挂账"
     }
     
-    // 取消
-    if indexPath.section == 6 {
-      if order.orderstatus != nil {
-        if order.orderstatus == "已确认" || order.orderstatus == "已取消" {
-          return 0.0
-        }
-      }
-    }
-    
-    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-  }
+     }
   
+ 
 }

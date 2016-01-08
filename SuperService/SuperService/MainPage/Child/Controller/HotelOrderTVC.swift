@@ -125,8 +125,6 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print(indexPath)
-    
     if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
       chooseDate()
     }
@@ -143,6 +141,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     if indexPath == NSIndexPath(forRow: 0, inSection: 2) {
       choosePayStatus()
     }
+    view.endEditing(true)
     
   }
   

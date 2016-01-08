@@ -284,6 +284,10 @@
 		FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */; };
 		FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */; };
 		FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */; };
+		FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */; };
+		FA63908D1C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */; };
+		FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */; };
+		FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */; };
 		FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */; };
@@ -433,10 +437,10 @@
 		408609C21C3E5F94009CAED0 /* HotelOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HotelOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		408609C31C3E5F94009CAED0 /* HotelOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelOrderDetailTVC.swift; sourceTree = "<group>"; };
 		408693FD1C390F7F00BE1709 /* OrderListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListModel.swift; sourceTree = "<group>"; };
-		408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HotelOrderTVC.storyboard; sourceTree = "<group>"; };
+		408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HotelOrderTVC.storyboard; path = Child/Controller/HotelOrderTVC.storyboard; sourceTree = "<group>"; };
 		408694001C39162F00BE1709 /* KTVTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KTVTableView.storyboard; sourceTree = "<group>"; };
 		408694011C39162F00BE1709 /* LeisureTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeisureTVC.storyboard; sourceTree = "<group>"; };
-		408694051C39164B00BE1709 /* HotelOrderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelOrderTVC.swift; sourceTree = "<group>"; };
+		408694051C39164B00BE1709 /* HotelOrderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotelOrderTVC.swift; path = Child/Controller/HotelOrderTVC.swift; sourceTree = "<group>"; };
 		408694061C39164B00BE1709 /* KTVTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVTableView.swift; sourceTree = "<group>"; };
 		408694071C39164B00BE1709 /* LeisureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeisureTVC.swift; sourceTree = "<group>"; };
 		4086940B1C39179F00BE1709 /* RoomGoods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomGoods.swift; sourceTree = "<group>"; };
@@ -811,6 +815,10 @@
 		FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeCell.xib; sourceTree = "<group>"; };
 		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
 		FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeHeaderView.xib; sourceTree = "<group>"; };
+		FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVOrderDetailTVC.swift; sourceTree = "<group>"; };
+		FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeisureOrderDetailTVC.swift; sourceTree = "<group>"; };
+		FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KTVOrderDetailTVC.storyboard; sourceTree = "<group>"; };
+		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentHeaderView.swift; sourceTree = "<group>"; };
@@ -975,6 +983,12 @@
 		40600CAB1BC64579008F8DEC /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */,
+				FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */,
+				FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */,
+				FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */,
+				408694051C39164B00BE1709 /* HotelOrderTVC.swift */,
+				408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */,
 				FAF019991BE1CF9D00E67ECD /* Controller */,
 				40D7339F1BE3411500266228 /* Model */,
 				40600CBE1BC66DF3008F8DEC /* View */,
@@ -2054,8 +2068,6 @@
 				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 				408609C31C3E5F94009CAED0 /* HotelOrderDetailTVC.swift */,
 				408609C21C3E5F94009CAED0 /* HotelOrderDetailTVC.storyboard */,
-				408694051C39164B00BE1709 /* HotelOrderTVC.swift */,
-				408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */,
 				408694061C39164B00BE1709 /* KTVTableView.swift */,
 				408694001C39162F00BE1709 /* KTVTableView.storyboard */,
 				408694071C39164B00BE1709 /* LeisureTVC.swift */,
@@ -2285,6 +2297,7 @@
 				FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */,
 				40CFC18D1C3E17FA002DF0C7 /* BookRoomListVC.xib in Resources */,
 				40F757791BE0553E0053C2BE /* SetUpVC.xib in Resources */,
+				FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */,
 				40CAA5F71BE705DA00FAFDA0 /* AdminLoginV.xib in Resources */,
 				409EE0AA1C0071390074F43C /* Localizable.strings in Resources */,
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
@@ -2311,6 +2324,7 @@
 				40F757721BE0553E0053C2BE /* SettingsCell.xib in Resources */,
 				40F757561BE054550053C2BE /* OrderDetail.storyboard in Resources */,
 				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
+				FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */,
 				FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */,
 				FAF7B9101C1D0CFF00F8B3C8 /* ClientListCell.xib in Resources */,
 				40CAA5FB1BE705F800FAFDA0 /* StaffLoginVC.xib in Resources */,
@@ -2515,6 +2529,7 @@
 				400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */,
 				400D627A1C1526B50021E750 /* HideAnimation.swift in Sources */,
 				400D62781C1526B50021E750 /* EasingFunction.swift in Sources */,
+				FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,
 				40E569BC1C083F3300FEB528 /* EMBubbleView+Card.m in Sources */,
 				40FB3D451C00203900675044 /* EaseMessageReadManager.m in Sources */,
@@ -2570,6 +2585,7 @@
 				40CFC18C1C3E17FA002DF0C7 /* BookRoomListVC.swift in Sources */,
 				40FB3D361C00203900675044 /* PSTGridLayoutRow.m in Sources */,
 				40FB3D071C00203900675044 /* EMCDDeviceManager+Media.m in Sources */,
+				FA63908D1C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift in Sources */,
 				40FB3D5E1C00203900675044 /* EaseTextView.m in Sources */,
 				400D62811C1526B50021E750 /* LayerStrokeStartAnimation.swift in Sources */,
 				40FB3D141C00203900675044 /* MWGridViewController.m in Sources */,

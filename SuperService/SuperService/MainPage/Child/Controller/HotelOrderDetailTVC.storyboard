@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Hotel Order DetailTVC-->
@@ -505,21 +505,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzd-Xr-Pc6" id="dYm-e5-zGZ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akT-TS-xPI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
-                                                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="取消">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="akT-TS-xPI" firstAttribute="leading" secondItem="dYm-e5-zGZ" secondAttribute="leading" id="D9X-3Z-dgj"/>
-                                                <constraint firstItem="akT-TS-xPI" firstAttribute="top" secondItem="dYm-e5-zGZ" secondAttribute="top" id="Fte-t7-7vc"/>
-                                                <constraint firstAttribute="bottom" secondItem="akT-TS-xPI" secondAttribute="bottom" id="Ivv-XX-DlW"/>
-                                                <constraint firstAttribute="trailing" secondItem="akT-TS-xPI" secondAttribute="trailing" id="bkR-7R-0FE"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -531,10 +516,8 @@
                     <connections>
                         <outlet property="arrivateLabel" destination="Djw-en-Bj8" id="LfF-eO-heg"/>
                         <outlet property="breakbreastLabel" destination="eTv-WA-lmZ" id="vkU-fI-ckH"/>
-                        <outlet property="cancleButton" destination="akT-TS-xPI" id="hZ7-aI-fLj"/>
                         <outlet property="contacterLabel" destination="MWt-BP-Ouf" id="2lL-zT-l8e"/>
                         <outlet property="invoiceLabel" destination="ypF-5F-bqI" id="51R-Qu-wlV"/>
-                        <outlet property="payButton" destination="dq2-su-Iax" id="dGQ-mO-EtZ"/>
                         <outlet property="payTypeLabel" destination="YRW-yw-SYv" id="SdQ-tT-d2d"/>
                         <outlet property="roomTypeLabel" destination="qZI-9I-90G" id="T93-yK-jEF"/>
                         <outlet property="roomsCountLabel" destination="61w-x3-h1g" id="taO-YW-FwH"/>

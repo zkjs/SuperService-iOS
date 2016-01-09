@@ -80,5 +80,7 @@ class HotelOrderDetailTVC:  UITableViewController {
     
      }
   
+  @IBAction func orderEnd(sender: AnyObject) {
+  }
  
 }

@@ -10,8 +10,8 @@
 
 #import "AFNetworking.h"
 
-#define kJavaBaseURL @"http://mmm.zkjinshi.com/" // Java HTTP服务器测试地址
-//#define kJavaBaseURL @"http://app.zkjinshi.com/japi" // Java服务器正式地址
+//#define kJavaBaseURL @"http://mmm.zkjinshi.com/" // Java HTTP服务器测试地址
+#define kJavaBaseURL @"http://test.zkjinshi.com/japi" // Java服务器正式地址
 
 @interface ZKJSJavaHTTPSessionManager : AFHTTPSessionManager
 
@@ -24,8 +24,11 @@
 #pragma mark - 到店通知
 - (void)getArrivalInfoWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-#pragma mark - 获取订单列表
+#pragma mark - 获取订单列表(服务员)
 - (void)getOrderListWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+#pragma mark - 获取订单列表(商家)
+- (void)bussinessGetOrderListWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 # pragma mark - 获取商家详情
 - (void)getShopDetailWithShopID:(NSString *)shopID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;

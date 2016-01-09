@@ -29,6 +29,7 @@ class OrderListModel: NSObject {
   var created: NSDate!
   var saleid:String!
   var username:String!
+  var priviledgename: String!
   
   var duration: NSNumber? {
     get {
@@ -144,6 +145,7 @@ class OrderListModel: NSObject {
     arrivaldate = dic["arrivaldate"] as? NSDate ?? NSDate()
     leavedate = dic["leavedate"] as? NSDate ?? NSDate()
     created = dic["created"] as? NSDate ?? NSDate()
+    priviledgename = dic["priviledgename"] as? String ?? ""
     
   }
 

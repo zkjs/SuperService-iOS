@@ -310,6 +310,8 @@
 		FAF7B9101C1D0CFF00F8B3C8 /* ClientListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF7B90F1C1D0CFF00F8B3C8 /* ClientListCell.xib */; };
 		FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */; };
 		FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */; };
+		FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */; };
+		FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -438,11 +440,11 @@
 		408609C31C3E5F94009CAED0 /* HotelOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelOrderDetailTVC.swift; sourceTree = "<group>"; };
 		408693FD1C390F7F00BE1709 /* OrderListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListModel.swift; sourceTree = "<group>"; };
 		408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HotelOrderTVC.storyboard; path = Child/Controller/HotelOrderTVC.storyboard; sourceTree = "<group>"; };
-		408694001C39162F00BE1709 /* KTVTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KTVTableView.storyboard; sourceTree = "<group>"; };
-		408694011C39162F00BE1709 /* LeisureTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeisureTVC.storyboard; sourceTree = "<group>"; };
+		408694001C39162F00BE1709 /* KTVTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KTVTableView.storyboard; path = Child/Controller/KTVTableView.storyboard; sourceTree = "<group>"; };
+		408694011C39162F00BE1709 /* LeisureTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureTVC.storyboard; path = Child/Controller/LeisureTVC.storyboard; sourceTree = "<group>"; };
 		408694051C39164B00BE1709 /* HotelOrderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotelOrderTVC.swift; path = Child/Controller/HotelOrderTVC.swift; sourceTree = "<group>"; };
-		408694061C39164B00BE1709 /* KTVTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVTableView.swift; sourceTree = "<group>"; };
-		408694071C39164B00BE1709 /* LeisureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeisureTVC.swift; sourceTree = "<group>"; };
+		408694061C39164B00BE1709 /* KTVTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTVTableView.swift; path = Child/Controller/KTVTableView.swift; sourceTree = "<group>"; };
+		408694071C39164B00BE1709 /* LeisureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeisureTVC.swift; path = Child/Controller/LeisureTVC.swift; sourceTree = "<group>"; };
 		4086940B1C39179F00BE1709 /* RoomGoods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomGoods.swift; sourceTree = "<group>"; };
 		408694111C391A2E00BE1709 /* BookRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRoomCell.swift; sourceTree = "<group>"; };
 		408694121C391A2E00BE1709 /* BookRoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookRoomCell.xib; sourceTree = "<group>"; };
@@ -815,10 +817,10 @@
 		FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeCell.xib; sourceTree = "<group>"; };
 		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
 		FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeHeaderView.xib; sourceTree = "<group>"; };
-		FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVOrderDetailTVC.swift; sourceTree = "<group>"; };
-		FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeisureOrderDetailTVC.swift; sourceTree = "<group>"; };
-		FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KTVOrderDetailTVC.storyboard; sourceTree = "<group>"; };
-		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
+		FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTVOrderDetailTVC.swift; path = ../../KTVOrderDetailTVC.swift; sourceTree = "<group>"; };
+		FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeisureOrderDetailTVC.swift; path = ../../LeisureOrderDetailTVC.swift; sourceTree = "<group>"; };
+		FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KTVOrderDetailTVC.storyboard; path = ../../KTVOrderDetailTVC.storyboard; sourceTree = "<group>"; };
+		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureOrderDetailTVC.storyboard; path = ../../LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentHeaderView.swift; sourceTree = "<group>"; };
@@ -842,6 +844,8 @@
 		FAF7B90F1C1D0CFF00F8B3C8 /* ClientListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientListCell.xib; sourceTree = "<group>"; };
 		FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUSVC.swift; sourceTree = "<group>"; };
 		FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSVC.xib; sourceTree = "<group>"; };
+		FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTypeVC.swift; sourceTree = "<group>"; };
+		FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayTypeVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -983,12 +987,12 @@
 		40600CAB1BC64579008F8DEC /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */,
-				FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */,
-				FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */,
-				FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */,
 				408694051C39164B00BE1709 /* HotelOrderTVC.swift */,
 				408693FF1C39162F00BE1709 /* HotelOrderTVC.storyboard */,
+				408694061C39164B00BE1709 /* KTVTableView.swift */,
+				408694001C39162F00BE1709 /* KTVTableView.storyboard */,
+				408694071C39164B00BE1709 /* LeisureTVC.swift */,
+				408694011C39162F00BE1709 /* LeisureTVC.storyboard */,
 				FAF019991BE1CF9D00E67ECD /* Controller */,
 				40D7339F1BE3411500266228 /* Model */,
 				40600CBE1BC66DF3008F8DEC /* View */,
@@ -2068,10 +2072,12 @@
 				40F757521BE054550053C2BE /* OrderDetail.storyboard */,
 				408609C31C3E5F94009CAED0 /* HotelOrderDetailTVC.swift */,
 				408609C21C3E5F94009CAED0 /* HotelOrderDetailTVC.storyboard */,
-				408694061C39164B00BE1709 /* KTVTableView.swift */,
-				408694001C39162F00BE1709 /* KTVTableView.storyboard */,
-				408694071C39164B00BE1709 /* LeisureTVC.swift */,
-				408694011C39162F00BE1709 /* LeisureTVC.storyboard */,
+				FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */,
+				FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */,
+				FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */,
+				FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */,
+				FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */,
+				FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */,
 				40CFC18A1C3E17FA002DF0C7 /* BookRoomListVC.swift */,
 				40CFC18B1C3E17FA002DF0C7 /* BookRoomListVC.xib */,
 				408694111C391A2E00BE1709 /* BookRoomCell.swift */,
@@ -2282,6 +2288,7 @@
 				40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */,
 				40F757591BE054550053C2BE /* OrderTVC.xib in Resources */,
 				4023F7391C1D598D0057351E /* UnbindCodeTVC.xib in Resources */,
+				FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */,
 				FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */,
 				40F757741BE0553E0053C2BE /* SettingsHeaderView.xib in Resources */,
 				409EE0A71C0070680074F43C /* Assets.xcassets in Resources */,
@@ -2450,6 +2457,7 @@
 				400D62821C1526B50021E750 /* PathPositionAnimation.swift in Sources */,
 				40FB3D211C00203900675044 /* EMSDWebImagePrefetcher.m in Sources */,
 				40FB3D4A1C00203900675044 /* EaseConversationListViewController.m in Sources */,
+				FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */,
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
 				400D62751C1526B50021E750 /* ConstraintMultiplierAnimation.swift in Sources */,
 				40FB3D2F1C00203900675044 /* PSTCollectionViewData.m in Sources */,

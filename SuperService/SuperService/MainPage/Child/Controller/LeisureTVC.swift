@@ -9,6 +9,14 @@
 import UIKit
 
 class LeisureTVC: UITableViewController {
+  @IBOutlet weak var arriveLabel: UILabel!
+
+  @IBOutlet weak var invoinceTextField: UITextField!
+  @IBOutlet weak var telphotoTextFiled: UITextField!
+  @IBOutlet weak var contacterTextField: UITextField!
+  @IBOutlet weak var remarkTextView: UITextView!
+  
+  
   var orderno: String!
   var order = OrderModel()
 

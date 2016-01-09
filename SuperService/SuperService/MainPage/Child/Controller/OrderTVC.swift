@@ -65,29 +65,56 @@ class OrderTVC: UITableViewController {
   }
   
   private func getDataWithPage(page: Int) {
-    
-    ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
-      success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        if let array = responseObject as? NSArray {
-          if array.count == 0 {
-            self.tableView.mj_footer.endRefreshingWithNoMoreData()
+   let userID =  AccountManager.sharedInstance().userID
+    if userID != "" {
+      ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
+        success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+          if let array = responseObject as? NSArray {
+            if array.count == 0 {
+              self.tableView.mj_footer.endRefreshingWithNoMoreData()
+              self.tableView.mj_header.endRefreshing()
+            } else {
+              if page == 1 {
+                self.orderArray.removeAll()
+              }
+              for dic in array {
+                let order = OrderListModel(dic: dic as! [String:AnyObject])
+                self.orderArray.append(order)
+              }
+              self.tableView.reloadData()
+              self.tableView.mj_footer.endRefreshing()
+            }
             self.tableView.mj_header.endRefreshing()
-          } else {
-            if page == 1 {
-              self.orderArray.removeAll()
-            }
-            for dic in array {
-              let order = OrderListModel(dic: dic as! [String:AnyObject])
-              self.orderArray.append(order)
-            }
-            self.tableView.reloadData()
-            self.tableView.mj_footer.endRefreshing()
           }
+        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+          
+      }
+    } else {
+      ZKJSJavaHTTPSessionManager.sharedInstance().bussinessGetOrderListWithPage(String(page),
+        success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+          if let array = responseObject as? NSArray {
+            if array.count == 0 {
+              self.tableView.mj_footer.endRefreshingWithNoMoreData()
+              self.tableView.mj_header.endRefreshing()
+            } else {
+              if page == 1 {
+                self.orderArray.removeAll()
+              }
+              for dic in array {
+                let order = OrderListModel(dic: dic as! [String:AnyObject])
+                self.orderArray.append(order)
+              }
+              self.tableView.reloadData()
+              self.tableView.mj_footer.endRefreshing()
+            }
             self.tableView.mj_header.endRefreshing()
-        }
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
+          }
+        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+          
+      }
+
     }
+    
   }
   
   
@@ -139,7 +166,7 @@ class OrderTVC: UITableViewController {
     let index = order.orderno.startIndex.advancedBy(1)
     let type = order.orderno.substringToIndex(index)
     if type == "H" {
-      if order.orderstatus == "待支付" || order.orderstatus == "待确认" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待处理" || order.orderstatus == "待确认"{
         let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
         vc.orderno = order.orderno
@@ -155,7 +182,7 @@ class OrderTVC: UITableViewController {
       
     }
     if type == "O" {
-      if order.orderstatus == "待支付" || order.orderstatus == "待确认" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待处理" || order.orderstatus == "待确认"{
         let storyboard = UIStoryboard(name: "LeisureTVC", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureTVC") as! LeisureTVC
         vc.orderno = order.orderno
@@ -171,7 +198,7 @@ class OrderTVC: UITableViewController {
      
     }
     if type == "K" {
-      if order.orderstatus == "待支付" || order.orderstatus == "待确认" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待处理" || order.orderstatus == "待确认"{
         let storyboard = UIStoryboard(name: "KTVTableView", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("KTVTableView") as! KTVTableView
         vc.orderno = order.orderno

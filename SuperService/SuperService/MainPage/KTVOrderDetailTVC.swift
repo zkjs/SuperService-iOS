@@ -74,7 +74,6 @@ class KTVOrderDetailTVC: UITableViewController {
       alertController.addAction(bill)
       let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
       alertController.addAction(cancelAction)
-      
       presentViewController(alertController, animated: true, completion: nil)
     }
     

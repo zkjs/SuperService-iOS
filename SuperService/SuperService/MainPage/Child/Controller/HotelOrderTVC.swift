@@ -17,7 +17,8 @@ import UIKit
 
 class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
 
-  @IBOutlet weak var roomImage: UIImageView!
+  @IBOutlet weak var privilageLabel: UILabel!
+  @IBOutlet weak var orderNoLabel: UILabel!
   @IBOutlet weak var daysLabel: UILabel!
   @IBOutlet weak var roomsTypeLabel: UILabel!
   @IBOutlet weak var roomsTextField: UITextField!
@@ -47,7 +48,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   var leavedate:String!
   var arrivaldate: String!
   var type = HotelOrderType.Update
-  var orderno = ""
+  var orderno:String!
   var order = OrderModel()
   var paytypeArray = ["未设置", "在线支付", "到店支付", "挂帐"]
   
@@ -55,7 +56,6 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     super.viewDidLoad()
     
     title = shopName
-    roomImage.image = UIImage(named: "bg_dingdanzhuangtai")
   
     if type == .Update {
       loadData()
@@ -99,8 +99,8 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func setUpUI() {
     if let _ = order.orderno {
-      let urlString = kBaseURL + order.imgurl
-      roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
+//      let urlString = kBaseURL + order.imgurl
+//      roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
       daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
       roomsTypeLabel.text = order.roomtype
       roomsTextField.text = order.roomcount.stringValue
@@ -111,8 +111,9 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       isSmokingSwitch.on = order.nosmoking.boolValue
       remarkTextView.text = order.remark
       invoiceTextField.text = order.company
-      clientLabel.text = order.username
       amountTextField.text = String(order.roomprice)
+      orderNoLabel.text = order.orderno
+      privilageLabel.text = order.priviledgename
     }
   }
   
@@ -125,10 +126,10 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
+    if indexPath == NSIndexPath(forRow: 0, inSection: 1) {
       chooseDate()
     }
-    if indexPath == NSIndexPath(forRow: 2, inSection: 0) {
+    if indexPath == NSIndexPath(forRow: 1, inSection: 1) {
       chooseRoomType()
     }
     if indexPath == NSIndexPath(forRow: 4, inSection: 0) {
@@ -138,7 +139,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       }
       chooseClient()
     }
-    if indexPath == NSIndexPath(forRow: 0, inSection: 2) {
+    if indexPath == NSIndexPath(forRow: 0, inSection: 3) {
       choosePayStatus()
     }
     view.endEditing(true)
@@ -201,8 +202,8 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       self.order.roomtype = goods.room
       self.order.productid = goods.goodsid
       self.order.imgurl = goods.image
-      let urlString = kBaseURL + goods.image
-      self.roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
+//      let urlString = kBaseURL + goods.image
+//      self.roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
     }
     navigationController?.pushViewController(vc, animated: true)
   }
@@ -279,7 +280,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
         ZKJSTool.showMsg("请选择支付方式")
         return
       }
-      ZKJSJavaHTTPSessionManager.sharedInstance().updateOrderWithOrder(orderDict, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      ZKJSJavaHTTPSessionManager.sharedInstance().updateOrderWithOrder(orderDict,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
         if let result = responseObject["result"] as? NSNumber {
           if result.boolValue == true {
             self.sendNewOrderNotificationToClientWithOrderNO(self.order.orderno)

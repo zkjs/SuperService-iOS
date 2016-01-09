@@ -18,6 +18,7 @@ class KTVTableView: UITableViewController {
   @IBOutlet weak var telphoneTextField: UITextField!
   @IBOutlet weak var paymentLabel: UILabel!
   @IBOutlet weak var invoinceLabel: UILabel!
+  @IBOutlet weak var invoinceTextField: UITextField!
   @IBOutlet weak var breakfeastSwitch: UISwitch!
   @IBOutlet weak var isSmokingSwitch: UISwitch!
   @IBOutlet weak var remarkTextView: UITextView!

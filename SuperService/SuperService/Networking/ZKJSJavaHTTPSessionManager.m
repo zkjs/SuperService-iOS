@@ -91,6 +91,18 @@
   }];
 }
 
+#pragma mark - 获取订单列表(商家)
+- (void)bussinessGetOrderListWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSString *url = [NSString stringWithFormat:@"order/list/shop/%@/%@/7", [self shopID], page];
+  [self GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    success(task, responseObject);
+    //    NSLog(@"%@", [responseObject description]);
+  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    failure(task, error);
+  }];
+
+}
+
 # pragma mark - 获取商家详情
 - (void)getShopDetailWithShopID:(NSString *)shopID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSString * url = [NSString stringWithFormat:@"shop/get/%@", shopID];

@@ -500,18 +500,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="O2C-3O-59l">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="bzd-Xr-Pc6">
-                                        <rect key="frame" x="0.0" y="1185" width="600" height="48"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzd-Xr-Pc6" id="dYm-e5-zGZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -521,6 +509,7 @@
                         <outlet property="breakbreastLabel" destination="eTv-WA-lmZ" id="vkU-fI-ckH"/>
                         <outlet property="contacterLabel" destination="MWt-BP-Ouf" id="2lL-zT-l8e"/>
                         <outlet property="invoiceLabel" destination="ypF-5F-bqI" id="51R-Qu-wlV"/>
+                        <outlet property="orderEndButton" destination="dq2-su-Iax" id="J6h-ML-HGD"/>
                         <outlet property="payTypeLabel" destination="YRW-yw-SYv" id="SdQ-tT-d2d"/>
                         <outlet property="roomTypeLabel" destination="qZI-9I-90G" id="T93-yK-jEF"/>
                         <outlet property="roomsCountLabel" destination="61w-x3-h1g" id="taO-YW-FwH"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StaffLoginVC" customModule="SuperService" customModuleProvider="target">
@@ -22,15 +22,13 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-GK-IOo">
                     <rect key="frame" x="255" y="30" width="90" height="90"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="DVJ-zV-ehB"/>
                         <constraint firstAttribute="height" constant="90" id="OXF-3n-41I"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-re-aI1" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                    <rect key="frame" x="155" y="170" width="220" height="45"/>
-                    <animations/>
+                    <rect key="frame" x="155" y="140" width="220" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="220" id="Nmz-Gm-TTV"/>
                         <constraint firstAttribute="height" constant="45" id="etQ-v9-z7k"/>
@@ -42,21 +40,19 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05i-mC-6a8" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                    <rect key="frame" x="155" y="235" width="290" height="45"/>
-                    <animations/>
+                    <rect key="frame" x="155" y="205" width="290" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Tei-mc-vgV"/>
                         <constraint firstAttribute="width" constant="290" id="hDs-nQ-k7p"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="FNj-Ta-IJE"/>
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXp-1z-7iF">
-                    <rect key="frame" x="155" y="340" width="290" height="45"/>
-                    <animations/>
+                    <rect key="frame" x="155" y="310" width="290" height="45"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="290" id="EYQ-55-uaQ"/>
@@ -75,8 +71,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgR-nB-HDZ">
-                    <rect key="frame" x="383" y="170" width="62" height="45"/>
-                    <animations/>
+                    <rect key="frame" x="383" y="140" width="62" height="45"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="8s8-03-wcH"/>
@@ -96,7 +91,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIU-3f-47j">
                     <rect key="frame" x="260" y="505" width="80" height="45"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="Xa6-Bf-HYw"/>
                         <constraint firstAttribute="height" constant="45" id="caX-qD-NlP"/>
@@ -114,7 +108,6 @@
                     </connections>
                 </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="jIU-3f-47j" secondAttribute="bottom" constant="50" id="H46-rI-0fz"/>
@@ -123,8 +116,8 @@
                 <constraint firstItem="FBL-GK-IOo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Mts-Pz-vEg"/>
                 <constraint firstItem="05i-mC-6a8" firstAttribute="top" secondItem="dh6-re-aI1" secondAttribute="bottom" constant="20" id="YQD-Rr-193"/>
                 <constraint firstItem="FBL-GK-IOo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="bYD-a9-7l3"/>
-                <constraint firstItem="cgR-nB-HDZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="170" id="hjY-LY-dQn"/>
-                <constraint firstItem="dh6-re-aI1" firstAttribute="top" secondItem="FBL-GK-IOo" secondAttribute="bottom" constant="50" id="j1S-Bi-xtV"/>
+                <constraint firstItem="cgR-nB-HDZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="hjY-LY-dQn"/>
+                <constraint firstItem="dh6-re-aI1" firstAttribute="top" secondItem="FBL-GK-IOo" secondAttribute="bottom" constant="20" id="j1S-Bi-xtV"/>
                 <constraint firstItem="jIU-3f-47j" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="neF-dr-aUP"/>
                 <constraint firstItem="gXp-1z-7iF" firstAttribute="top" secondItem="05i-mC-6a8" secondAttribute="bottom" constant="60" id="t42-sa-KU0"/>
                 <constraint firstItem="cgR-nB-HDZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="114" id="y9R-k3-JX7"/>

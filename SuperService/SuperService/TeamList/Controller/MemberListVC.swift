@@ -11,7 +11,7 @@ import UIKit
 class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
   lazy var memberListArray = [MemberModel]()
-  var newDepartment = UITextField()
+  var headerView = DepartmentHeaderView()
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -34,10 +34,12 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   // MARK: - Public
   
   func AddDepartment(sender:UIButton) {
-    ZKJSHTTPSessionManager.sharedInstance().addDepartmentWithDepartment(newDepartment.text, success: { (task:NSURLSessionDataTask!, responObject:AnyObject!) -> Void in
+    guard let department = headerView.departmentTextField.text else { return }
+    ZKJSHTTPSessionManager.sharedInstance().addDepartmentWithDepartment(department, success: { (task:NSURLSessionDataTask!, responObject:AnyObject!) -> Void in
       let dic = responObject as! [String: AnyObject]
       if let set = dic["set"] as? Bool {
         if set == true {
+          self.showHint("添加成功")
           self.addNewdepartment()
         }
       }
@@ -48,7 +50,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
   func addNewdepartment() {
     let member = MemberModel()
-    member.dept_name = newDepartment.text
+    member.dept_name = headerView.departmentTextField.text
     self.memberListArray.append(member)
     self.tableView.reloadData()
   }
@@ -105,15 +107,15 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let member = memberListArray[indexPath.row]
     let vc = navigationController?.viewControllers[1] as! AddMemberVC
     vc.departmentLabel.text = member.dept_name
+    vc.deptid = member.deptid!
     navigationController?.popToViewController(vc, animated: true)
   }
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerV = NSBundle.mainBundle().loadNibNamed("DepartmentHeaderView", owner: self, options: nil).first as? DepartmentHeaderView
-    if headerV != nil {
-      self.view.addSubview(headerV!)
-    }
-    return headerV
+    headerView = NSBundle.mainBundle().loadNibNamed("DepartmentHeaderView", owner: self, options: nil).first as! DepartmentHeaderView
+    headerView.departmentTextField.delegate = self
+    self.view.addSubview(headerView)
+    return headerView
   }
   
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -123,6 +125,15 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
       self.view.addSubview(footerV!)
     }
     return footerV
+  }
+  
+}
+
+extension MemberListVC: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
   }
   
 }

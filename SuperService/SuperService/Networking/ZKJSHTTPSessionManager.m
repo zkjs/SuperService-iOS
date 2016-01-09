@@ -10,6 +10,7 @@
 #import "NSString+ZKJS.h"
 #import "SuperService-Swift.h"
 #import "EaseMob.h"
+#import "ZKJSTool.h"
 
 @implementation ZKJSHTTPSessionManager
 
@@ -297,11 +298,13 @@
 #pragma mark - 新增部门
 
 - (void)addDepartmentWithDepartment:(NSString *)department success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary *dict = @{@"dept_name": department, @"description": department};
+  NSString *deptJSON = [ZKJSTool convertJSONStringFromDictionary:dict];
   [self POST:@"shop/adddept" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
     [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
     [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
-    [formData appendPartWithFormData:[department dataUsingEncoding:NSUTF8StringEncoding] name:@"dept"];
+    [formData appendPartWithFormData:[[NSString stringWithFormat:@"[%@]", deptJSON] dataUsingEncoding:NSUTF8StringEncoding] name:@"dept"];
   } success:^(NSURLSessionDataTask *task, id responseObject) {
     //    DDLogInfo(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {

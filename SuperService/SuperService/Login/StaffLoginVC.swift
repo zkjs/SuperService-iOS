@@ -130,7 +130,13 @@ class StaffLoginVC: UIViewController {
   
   
   @IBAction func staffCheckoutLoginButton(sender: AnyObject) {
+    login()
+  }
+  
+  func login() {
+    showHint("")
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
+      self.hideHUD()
       if (success == true) {
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
@@ -172,7 +178,6 @@ class StaffLoginVC: UIViewController {
         self.showHint("验证码不正确")
       }
     }
-    
   }
   
   private func easeMobAutoLogin() {
@@ -220,6 +225,11 @@ extension StaffLoginVC: UITextFieldDelegate {
   
   func textFieldShouldEndEditing(textField: UITextField) -> Bool {
     textField.layer.borderWidth = 0
+    return true
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    login()
     return true
   }
   

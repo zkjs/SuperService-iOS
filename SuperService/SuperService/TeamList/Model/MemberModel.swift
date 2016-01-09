@@ -17,10 +17,10 @@ class MemberModel: NSObject {
   init(dic:[String: AnyObject]){
     dept_code = dic["dept_code"] as?String
     dept_name = dic["dept_name"] as?String
-    deptid = dic["deptid"] as?String
+    if let deptid = dic["deptid"] as? NSNumber {
+      self.deptid = deptid.stringValue
+    }
     shopid = dic["shopid"] as?String
-    
-    
   }
   
   override init() {

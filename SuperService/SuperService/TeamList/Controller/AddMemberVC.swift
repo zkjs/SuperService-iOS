@@ -16,6 +16,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   var delegate: RefreshTeamListVCDelegate?
   var isUncheck = false
+  var deptid = ""
   
   @IBOutlet weak var departmentLabel: UILabel!
   @IBOutlet weak var remarkTextView: UITextView!
@@ -58,8 +59,8 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
       "name":usernameTextField.text!,
       "phone":photoTextField.text!,
       "roleid":"0",  // 员工
-      "email": "",
-      "deptid": "0",
+//      "email": "",
+      "deptid": deptid,
       "desc":remarkTextView.text
     ]
     let userData = [dictionary]

@@ -40,6 +40,10 @@ class AdminLoginV: UIViewController {
   // MARK: - Button Action
   
   @IBAction func tappedLoginButton(sender: AnyObject) {
+    login()
+  }
+  
+  func login() {
     guard let phone = userphoneTextField.text else { return }
     
     if phone.isEmpty == true {
@@ -53,6 +57,7 @@ class AdminLoginV: UIViewController {
     }
     
     // 14000800924:123456
+    showHint("")
     ZKJSHTTPSessionManager.sharedInstance().adminLoginWithPhone(phone, password: password,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       print(responseObject)
       if let dict = responseObject as? NSDictionary {
@@ -101,6 +106,11 @@ extension AdminLoginV: UITextFieldDelegate {
       }
     }
     return false
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    login()
+    return true
   }
   
 }

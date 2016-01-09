@@ -57,15 +57,19 @@ class AdminLoginV: UIViewController {
     }
     
     // 14000800924:123456
-    showHint("")
+    showHUDInView(view, withLoading: "")
     ZKJSHTTPSessionManager.sharedInstance().adminLoginWithPhone(phone, password: password,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+      self.hideHUD()
       print(responseObject)
       if let dict = responseObject as? NSDictionary {
         if let set = dict["set"] as? Bool {
           if set {
             // 缓存用户信息
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
+            self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
+            self.showHUDInView(self.view, withLoading: "")
             ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+              self.hideHUD()
               print(responseObject)
               if let category = responseObject["category"] as? String {
                 AccountManager.sharedInstance().saveCategory(category)
@@ -86,6 +90,21 @@ class AdminLoginV: UIViewController {
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
+    }
+  }
+  
+  func updateYunBaWithLocid(locid: String) {
+    let areaArray = locid.componentsSeparatedByString(",")
+    print("areaArr: \(areaArray)")
+    for topic in areaArray {
+      // 选中则监听区域
+      YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
+        if success {
+          print("[result] subscribe to topic(\(topic)) succeed")
+        } else {
+          print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+        }
+      }
     }
   }
   

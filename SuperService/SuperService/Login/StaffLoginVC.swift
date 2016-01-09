@@ -134,20 +134,24 @@ class StaffLoginVC: UIViewController {
   }
   
   func login() {
-    showHint("")
+    showHUDInView(view, withLoading: "")
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
       self.hideHUD()
       if (success == true) {
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
         ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+          print(responseObject)
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 self.easeMobAutoLogin()
+                self.showHUDInView(self.view, withLoading: "")
+                self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
                 ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+                  self.hideHUD()
                   if let category = responseObject["category"] as? String {
                     AccountManager.sharedInstance().saveCategory(category)
                     let url = AccountManager.sharedInstance().url
@@ -177,6 +181,21 @@ class StaffLoginVC: UIViewController {
       } else {
         self.showHint("验证码不正确")
       }
+    }
+  }
+  
+  func updateYunBaWithLocid(locid: String) {
+    let areaArray = locid.componentsSeparatedByString(",")
+    print("areaArr: \(areaArray)")
+    for topic in areaArray {
+        // 选中则监听区域
+        YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
+          if success {
+            print("[result] subscribe to topic(\(topic)) succeed")
+          } else {
+            print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+          }
+        }
     }
   }
   

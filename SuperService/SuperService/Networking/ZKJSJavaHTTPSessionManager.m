@@ -182,4 +182,15 @@
   }];
 }
 
+# pragma mark - 订单确认
+- (void)confirmOrderWithOrderNo:(NSString *)orderno status:(int)status Success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary * dic = @{@"orderno":orderno,@"status":[NSNumber numberWithInt:status]};
+  [self POST:@"order/confirm" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    success(task, responseObject);
+    NSLog(@"%@", [responseObject description]);
+  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    failure(task, error);
+  }];
+}
+
 @end

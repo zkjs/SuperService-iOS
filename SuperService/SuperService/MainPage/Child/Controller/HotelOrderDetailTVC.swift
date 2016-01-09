@@ -80,7 +80,32 @@ class HotelOrderDetailTVC:  UITableViewController {
     
      }
   
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //待评价
+    if indexPath.section == 5 {
+      if order.orderstatus != nil {
+        if  order.orderstatus != "已完成"  {
+          return 0.0
+        }
+      }
+    }
+    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+  }
+
+  
   @IBAction func orderEnd(sender: AnyObject) {
+    
+    ZKJSJavaHTTPSessionManager.sharedInstance().confirmOrderWithOrderNo(order.orderno, status: 4, success: { (task:NSURLSessionDataTask!, responsObject:AnyObject!) -> Void in
+      if let result = responsObject["result"] as? NSNumber {
+        if result.boolValue == true {
+          self.showHint("订单已更新成功")
+          self.navigationController?.popViewControllerAnimated(true)
+        }
+      }
+
+      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
+    }
   }
  
 }

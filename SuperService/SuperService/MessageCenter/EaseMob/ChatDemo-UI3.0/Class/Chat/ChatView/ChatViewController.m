@@ -169,12 +169,34 @@
 {
   BOOL flag = NO;
   if ([[messageModel.message.ext objectForKey:@"extType"] integerValue] == eTextTxtCard) {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OrderDetail" bundle:nil];
-    OrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"OrderDetailVC"];
-    vc.type = OrderTypeAdd;
-    OrderModel *order = [[OrderModel alloc] initWithJson:messageModel.text];
-    vc.order = order;
-    [self.navigationController pushViewController:vc animated:true];
+    OrderModel *order = [[OrderModel alloc] initWithJson: [messageModel text]];
+    NSLog(@"%@", order);
+    NSString *type = [[order.orderno substringToIndex:1] uppercaseString];
+    if ([type isEqualToString:@"H"]) {
+
+      if ([order.orderstatus isEqualToString:@"待支付"] || [order.orderstatus isEqualToString:@"待处理"] || [order.orderstatus isEqualToString:@"待确认"] ) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HotelOrderTVC" bundle:nil];
+        HotelOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"HotelOrderTVC"];
+        vc.orderno = order.orderno;
+        [self.navigationController pushViewController:vc animated:YES];
+      } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HotelOrderDetailTVC" bundle:nil];
+        HotelOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"HotelOrderDetailTVC"];
+        vc.orderno = order.orderno;
+        [self.navigationController pushViewController:vc animated:YES];
+      }
+     
+    } else if ([type isEqualToString:@"O"]) {
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LeisureOrderDetailTVC" bundle:nil];
+      LeisureOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"LeisureOrderDetailTVC"];
+      vc.orderno = order.orderno;
+      [self.navigationController pushViewController:vc animated:YES];
+    } else if ([type isEqualToString:@"K"]) {
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"KTVOrderDetailTVC" bundle:nil];
+      KTVOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"KTVOrderDetailTVC"];
+      vc.orderno = order.orderno;
+      [self.navigationController pushViewController:vc animated:YES];
+    }
     flag = YES;
   }
   return flag;

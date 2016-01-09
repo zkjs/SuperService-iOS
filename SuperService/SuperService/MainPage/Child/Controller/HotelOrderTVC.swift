@@ -240,11 +240,11 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func submitOrder() {
-    if arrivaldate == nil {
+    if daysLabel.text == "" {
       showHint("请填写时间")
       return
     }
-    if order.roomtype == nil {
+    if roomsTypeLabel.text == "" {
       showHint("请选择房型")
       return
     }
@@ -256,11 +256,11 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     orderDict["shopname"] = AccountManager.sharedInstance().shopName
     orderDict["imgurl"] = order.imgurl
     orderDict["productid"] = order.productid
-    orderDict["roomno"] = ""
+    orderDict["orderno"] = order.orderno
     orderDict["roomcount"] = Int(roomsTextField.text!)
     orderDict["roomtype"] = roomsTypeLabel.text!
     orderDict["paytype"] = order.paytype
-    orderDict["roomprice"] = amountTextField.text
+    orderDict["roomprice"] = self.amountTextField.text
     orderDict["orderedby"] = contactTextField.text
     orderDict["telephone"] = telphoneTextField.text
     orderDict["arrivaldate"] = arrivaldate
@@ -272,7 +272,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     orderDict["isinvoice"] = 0
     orderDict["remark"] = remarkTextView.text
     orderDict["username"] = order.username
-//    orderDict["orderstatus"] = ""
+    orderDict["orderstatus"] = 1
     
     print(orderDict)
     if type == .Update {

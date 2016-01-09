@@ -39,14 +39,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5h-nk-fvp">
-                                                    <rect key="frame" x="180" y="10" width="380" height="35"/>
+                                                    <rect key="frame" x="150" y="10" width="410" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Y5h-nk-fvp" secondAttribute="trailing" constant="40" id="1z8-mH-ISR"/>
-                                                <constraint firstItem="Y5h-nk-fvp" firstAttribute="leading" secondItem="neb-fP-Fss" secondAttribute="trailing" constant="50" id="CwR-C5-D5v"/>
+                                                <constraint firstItem="Y5h-nk-fvp" firstAttribute="leading" secondItem="neb-fP-Fss" secondAttribute="trailing" constant="20" id="CwR-C5-D5v"/>
                                                 <constraint firstItem="Y5h-nk-fvp" firstAttribute="top" secondItem="yWU-qi-KUN" secondAttribute="top" constant="10" id="VtR-uM-hep"/>
                                                 <constraint firstItem="neb-fP-Fss" firstAttribute="leading" secondItem="yWU-qi-KUN" secondAttribute="leading" constant="30" id="huF-rJ-8t9"/>
                                                 <constraint firstAttribute="bottom" secondItem="Y5h-nk-fvp" secondAttribute="bottom" constant="10" id="tQB-7r-ae0"/>

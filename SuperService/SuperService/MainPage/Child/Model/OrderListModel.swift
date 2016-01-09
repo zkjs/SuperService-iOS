@@ -142,9 +142,15 @@ class OrderListModel: NSObject {
     telephone = dic["telephone"] as? String ?? ""
     username = dic["username"] as? String ?? ""
     saleid = dic["saleid"] as? String ?? ""
-    arrivaldate = dic["arrivaldate"] as? NSDate ?? NSDate()
-    leavedate = dic["leavedate"] as? NSDate ?? NSDate()
-    created = dic["created"] as? NSDate ?? NSDate()
+    if let timestamp =  dic["arrivaldate"] as? NSNumber {
+      arrivaldate = NSDate(timeIntervalSince1970: timestamp.doubleValue / 1000.0)
+    }
+    if let timestamp =  dic["leavedate"] as? NSNumber {
+      leavedate = NSDate(timeIntervalSince1970: timestamp.doubleValue / 1000.0)
+    }
+    if let timestamp =  dic["created"] as? NSNumber {
+      created = NSDate(timeIntervalSince1970: timestamp.doubleValue / 1000.0)
+    }
     priviledgename = dic["priviledgename"] as? String ?? ""
     
   }

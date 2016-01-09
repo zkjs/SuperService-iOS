@@ -80,6 +80,19 @@ class HotelOrderDetailTVC:  UITableViewController {
     
      }
   
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //待评价
+    if indexPath.section == 5 {
+      if order.orderstatus != nil {
+        if  order.orderstatus != "已完成"  {
+          return 0.0
+        }
+      }
+    }
+    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+  }
+
+  
   @IBAction func orderEnd(sender: AnyObject) {
     
     ZKJSJavaHTTPSessionManager.sharedInstance().confirmOrderWithOrderNo(order.orderno, status: 4, success: { (task:NSURLSessionDataTask!, responsObject:AnyObject!) -> Void in

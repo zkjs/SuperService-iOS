@@ -11,12 +11,12 @@ import UIKit
 
 class OrderModel: NSObject {
   
-  var arrivaldate: NSDate!
+  var arrivaldate: String!
   var company: String!
   var doublebreakfeast: NSNumber!
   var imgurl: String!
   var isinvoice: NSNumber!
-  var leavedate: NSDate!
+  var leavedate: String!
   var nosmoking: NSNumber!
   var orderedby: String!
   var orderno: String!
@@ -39,7 +39,7 @@ class OrderModel: NSObject {
   var duration: NSNumber? {
     get {
       if let arrivalDate = arrivaldate, let departureDate = leavedate {
-        let days = NSDate.ZKJS_daysFromDate(arrivalDate, toDate: departureDate)
+        let days = NSDate.ZKJS_daysFromDateString(arrivalDate, toDateString: departureDate)
         if days == 0 {
           // 当天走也算一天
           return NSNumber(integer: 1)
@@ -53,7 +53,7 @@ class OrderModel: NSObject {
   
   var arrivalDateShortStyle: String? {
     get {
-      if let arrivalDateString = arrivalDateString {
+      if let arrivalDateString = arrivaldate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let arrivalDate = dateFormatter.dateFromString(arrivalDateString)!
@@ -67,35 +67,11 @@ class OrderModel: NSObject {
   
   var departureDateShortStyle: String? {
     get {
-      if let departureDateString = departureDateString {
+      if let departureDateString = leavedate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let departureDate = dateFormatter.dateFromString(departureDateString)!
         dateFormatter.dateFormat = "M/dd"
-        return dateFormatter.stringFromDate(departureDate)
-      } else {
-        return nil
-      }
-    }
-  }
-  
-  var arrivalDateString: String? {
-    get {
-      if let arrivalDate = arrivaldate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter.stringFromDate(arrivalDate)
-      } else {
-        return nil
-      }
-    }
-  }
-  
-  var departureDateString: String? {
-    get {
-      if let departureDate = leavedate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.stringFromDate(departureDate)
       } else {
         return nil
@@ -161,12 +137,12 @@ class OrderModel: NSObject {
   }
   
   func initWithDictionary(dic: [String: AnyObject]) {
-    arrivaldate = dic["arrivaldate"] as? NSDate ?? NSDate()
+    arrivaldate = dic["arrivaldate"] as? String ?? ""
     company = dic["company"] as? String ?? ""
     doublebreakfeast = dic["doublebreakfeast"] as? NSNumber ?? NSNumber(double: 0.0)
     imgurl = dic["imgurl"] as? String ?? ""
     isinvoice = dic["isinvoice"] as? NSNumber ?? NSNumber(double: 0.0)
-    leavedate = dic["leavedate"] as? NSDate ?? NSDate()
+    leavedate = dic["leavedate"] as? String ?? ""
     nosmoking = dic["nosmoking"] as? NSNumber ?? NSNumber(double: 0.0)
     orderedby = dic["orderedby"] as? String ?? ""
     orderno = dic["orderno"] as? String ?? ""

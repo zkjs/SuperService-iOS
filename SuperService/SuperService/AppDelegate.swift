@@ -100,10 +100,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   // MARK: - Push Notification
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    EaseMob.sharedInstance().application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
     
     let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
     let cleanToken = trimEnds.stringByReplacingOccurrencesOfString(" ", withString: "", options: .CaseInsensitiveSearch, range: nil)
     AccountManager.sharedInstance().saveDeviceToken(cleanToken)
+    print("Device Token: \(cleanToken)")
     
     // 将DeviceToken 存储在YunBa的云端，那么可以通过YunBa发送APNs通知
     YunBaService.storeDeviceToken(deviceToken) { (success: Bool, error: NSError!) -> Void in
@@ -116,6 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   }
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    EaseMob.sharedInstance().application(application, didFailToRegisterForRemoteNotificationsWithError: error)
     print(error)
   }
   

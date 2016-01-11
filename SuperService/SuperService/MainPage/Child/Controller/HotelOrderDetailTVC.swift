@@ -11,6 +11,7 @@ import UIKit
 class HotelOrderDetailTVC:  UITableViewController {
   
   @IBOutlet weak var pendingConfirmationLabel: UILabel!
+  @IBOutlet weak var remark: UITextView!
   @IBOutlet weak var invoiceLabel: UILabel!
   @IBOutlet weak var contacterLabel: UILabel!
   @IBOutlet weak var telphotoLabel: UILabel!
@@ -78,15 +79,18 @@ class HotelOrderDetailTVC:  UITableViewController {
     if order.paytype == 3 {
       payTypeLabel.text = "挂账"
     }
-//    orderEndButton.backgroundColor = UIColor.lightGrayColor()
-//    orderEndButton.enabled = false
+    
+    remark.text = order.remark
+    remark.editable = false
+  
+
      }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //待评价
     if indexPath.section == 5 {
       if order.orderstatus != nil {
-        if  order.orderstatus == "已完成"  {
+        if  order.orderstatus == "已完成" || order.orderstatus == "待评价"  {
           return 0.0
         }
       }

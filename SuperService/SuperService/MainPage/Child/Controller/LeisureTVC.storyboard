@@ -174,11 +174,11 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="k1C-10-qRL"/>
-                                                    <exclude reference="pg5-VC-cXH"/>
                                                     <exclude reference="1O9-4M-F63"/>
                                                     <exclude reference="SBr-jY-sBG"/>
                                                     <exclude reference="mWA-zm-lSI"/>
+                                                    <exclude reference="k1C-10-qRL"/>
+                                                    <exclude reference="pg5-VC-cXH"/>
                                                     <exclude reference="zka-oc-cft"/>
                                                 </mask>
                                             </variation>

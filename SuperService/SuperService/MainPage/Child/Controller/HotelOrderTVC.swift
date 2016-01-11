@@ -17,6 +17,7 @@ import UIKit
 
 class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
 
+  @IBOutlet weak var invoiceLabel: UILabel!
   @IBOutlet weak var privilageLabel: UILabel!
   @IBOutlet weak var orderNoLabel: UILabel!
   @IBOutlet weak var daysLabel: UILabel!
@@ -104,16 +105,27 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
       roomsTypeLabel.text = order.roomtype
       roomsTextField.text = order.roomcount.stringValue
-      contactTextField.text = order.username
+      contactTextField.text = order.orderedby
       telphoneTextField.text = order.telephone
+      if order.paytype == 1 {
+        paymentLabel.text = "在线支付"
+      }
+      if order.paytype == 2 {
+        paymentLabel.text = "到店支付"
+      }
+      if order.paytype == 2 {
+        paymentLabel.text = "挂账"
+      }
       paymentLabel.text = paytypeArray[order.paytype.integerValue]
-      breakfeastSwitch.on = order.doublebreakfeast.boolValue
       isSmokingSwitch.on = order.nosmoking.boolValue
       remarkTextView.text = order.remark
-      invoiceTextField.text = order.company
+      if order.company != "" {
+        invoiceLabel.text = order.company
+      }
       amountTextField.text = String(order.roomprice)
       orderNoLabel.text = order.orderno
       privilageLabel.text = order.priviledgename
+      
     }
   }
   
@@ -142,6 +154,14 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     if indexPath == NSIndexPath(forRow: 0, inSection: 3) {
       choosePayStatus()
     }
+    if indexPath == NSIndexPath(forRow: 1, inSection: 3) {
+      let vc = InvoiceVC()
+      vc.selection = { [unowned self] (invoice:  InvoiceModel) ->() in
+        self.invoiceLabel.text = invoice.title
+      }
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
+   
     view.endEditing(true)
     
   }
@@ -248,6 +268,17 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       showHint("请选择房型")
       return
     }
+    if roomsTextField.text < "1" {
+      showHint("请选择房间数量")
+    }
+    if amountTextField.text == "0.0" {
+      showHint("请填写价格")
+      return
+    }
+    if paymentLabel.text == "未设置" {
+      showHint("请选择支付方式")
+      return
+    }
     
     var orderDict = [String: AnyObject]()
     orderDict["shopid"] = AccountManager.sharedInstance().shopID
@@ -268,7 +299,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     orderDict["personcount"] = 1
     orderDict["doublebreakfeast"] = breakfeastSwitch.on ? 1 : 0
     orderDict["nosmoking"] = isSmokingSwitch.on ? 1 : 0
-    orderDict["company"] = ""
+    orderDict["company"] = invoiceLabel.text
     orderDict["isinvoice"] = 0
     orderDict["remark"] = remarkTextView.text
     orderDict["username"] = order.username

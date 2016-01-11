@@ -78,21 +78,21 @@ class HotelOrderDetailTVC:  UITableViewController {
     if order.paytype == 3 {
       payTypeLabel.text = "挂账"
     }
-    orderEndButton.backgroundColor = UIColor.lightGrayColor()
-    orderEndButton.enabled = false
+//    orderEndButton.backgroundColor = UIColor.lightGrayColor()
+//    orderEndButton.enabled = false
      }
   
-//  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//    //待评价
-//    if indexPath.section == 5 {
-//      if order.orderstatus != nil {
-//        if  order.orderstatus == "已完成"  {
-//          return 0.0
-//        }
-//      }
-//    }
-//    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-//  }
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //待评价
+    if indexPath.section == 5 {
+      if order.orderstatus != nil {
+        if  order.orderstatus == "已完成"  {
+          return 0.0
+        }
+      }
+    }
+    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+  }
 
   
   @IBAction func orderEnd(sender: AnyObject) {

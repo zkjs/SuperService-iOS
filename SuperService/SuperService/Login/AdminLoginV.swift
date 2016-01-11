@@ -65,6 +65,7 @@ class AdminLoginV: UIViewController {
         if let set = dict["set"] as? Bool {
           if set {
             // 缓存用户信息
+            self.easeMobAutoLogin()
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
             self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
             self.showHUDInView(self.view, withLoading: "")
@@ -90,6 +91,17 @@ class AdminLoginV: UIViewController {
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
+    }
+  }
+  
+  private func easeMobAutoLogin() {
+    // 自动登录
+    let isAutoLogin = EaseMob.sharedInstance().chatManager.isAutoLoginEnabled
+    if isAutoLogin == false {
+      let userID = AccountManager.sharedInstance().userID
+      EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456", completion: { (responseObject: [NSObject : AnyObject]!, error: EMError!) -> Void in
+        EaseMob.sharedInstance().chatManager.enableAutoLogin!()
+        }, onQueue: nil)
     }
   }
   

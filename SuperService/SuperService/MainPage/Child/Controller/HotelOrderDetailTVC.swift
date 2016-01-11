@@ -10,6 +10,7 @@ import UIKit
 
 class HotelOrderDetailTVC:  UITableViewController {
   
+  @IBOutlet weak var ordernoLabel: UILabel!
   @IBOutlet weak var privilageLabel: UILabel!
   @IBOutlet weak var pendingConfirmationLabel: UILabel!
   @IBOutlet weak var remark: UITextView!
@@ -65,6 +66,7 @@ class HotelOrderDetailTVC:  UITableViewController {
   }
   
   func setUI() {
+    ordernoLabel.text = order.orderno
     arrivateLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
     roomTypeLabel.text = order.roomtype
     roomsCountLabel.text = String(order.roomcount)

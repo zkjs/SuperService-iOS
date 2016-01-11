@@ -91,10 +91,12 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     self.roomsTextField.text = String(roomsCount)
   }
   func countSubtract(sender: AnyObject) {
-    roomsCount--
-    if roomsCount < 1 {
+    
+    if roomsCount < 2 {
       self.countSubtractButton.enabled = false
+      return
     }
+    roomsCount--
     self.roomsTextField.text = String(roomsCount)
   }
   
@@ -105,6 +107,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       daysLabel.text = "\(order.arrivalDateShortStyle!)-\(order.departureDateShortStyle!)共\(order.duration!)晚"
       roomsTypeLabel.text = order.roomtype
       roomsTextField.text = order.roomcount.stringValue
+      roomsCount = order.roomcount.integerValue
       contactTextField.text = order.orderedby
       telphoneTextField.text = order.telephone
       if order.paytype == 1 {
@@ -283,6 +286,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     }
     if roomsTextField.text < "1" {
       showHint("请选择房间数量")
+      return
     }
     if amountTextField.text == "0.0" {
       showHint("请填写价格")

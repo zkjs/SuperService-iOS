@@ -171,32 +171,36 @@
   if ([[messageModel.message.ext objectForKey:@"extType"] integerValue] == eTextTxtCard) {
     OrderModel *order = [[OrderModel alloc] initWithJson: [messageModel text]];
     NSLog(@"%@", order);
-    NSString *type = [[order.orderno substringToIndex:1] uppercaseString];
-    if ([type isEqualToString:@"H"]) {
-
-      if ([order.orderstatus isEqualToString:@"待支付"] || [order.orderstatus isEqualToString:@"待处理"] || [order.orderstatus isEqualToString:@"待确认"] ) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HotelOrderTVC" bundle:nil];
-        HotelOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"HotelOrderTVC"];
+    [[ZKJSJavaHTTPSessionManager sharedInstance] getOrderDetailWithOrderNo:order.orderno Success:^(NSURLSessionDataTask *task, id responseObject) {
+      NSString *orderstatus = responseObject[@"orderstatus"];
+      NSString *type = [[order.orderno substringToIndex:1] uppercaseString];
+      if ([type isEqualToString:@"H"]) {
+        if ([orderstatus isEqualToString:@"待支付"] || [orderstatus isEqualToString:@"待处理"] || [orderstatus isEqualToString:@"待确认"] ) {
+          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HotelOrderTVC" bundle:nil];
+          HotelOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"HotelOrderTVC"];
+          vc.orderno = order.orderno;
+          [self.navigationController pushViewController:vc animated:YES];
+        } else {
+          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HotelOrderDetailTVC" bundle:nil];
+          HotelOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"HotelOrderDetailTVC"];
+          vc.orderno = order.orderno;
+          [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+      } else if ([type isEqualToString:@"O"]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LeisureOrderDetailTVC" bundle:nil];
+        LeisureOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"LeisureOrderDetailTVC"];
         vc.orderno = order.orderno;
         [self.navigationController pushViewController:vc animated:YES];
-      } else {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HotelOrderDetailTVC" bundle:nil];
-        HotelOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"HotelOrderDetailTVC"];
+      } else if ([type isEqualToString:@"K"]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"KTVOrderDetailTVC" bundle:nil];
+        KTVOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"KTVOrderDetailTVC"];
         vc.orderno = order.orderno;
         [self.navigationController pushViewController:vc animated:YES];
       }
-     
-    } else if ([type isEqualToString:@"O"]) {
-      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LeisureOrderDetailTVC" bundle:nil];
-      LeisureOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"LeisureOrderDetailTVC"];
-      vc.orderno = order.orderno;
-      [self.navigationController pushViewController:vc animated:YES];
-    } else if ([type isEqualToString:@"K"]) {
-      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"KTVOrderDetailTVC" bundle:nil];
-      KTVOrderDetailTVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"KTVOrderDetailTVC"];
-      vc.orderno = order.orderno;
-      [self.navigationController pushViewController:vc animated:YES];
-    }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      
+    }];
     flag = YES;
   }
   return flag;

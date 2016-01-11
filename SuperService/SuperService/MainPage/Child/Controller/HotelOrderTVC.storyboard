@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Hotel OrderTVC-->
@@ -29,17 +29,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neb-fP-Fss">
-                                                    <rect key="frame" x="30" y="17" width="100" height="21"/>
+                                                    <rect key="frame" x="30" y="17" width="60" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="0az-nk-dCM"/>
-                                                        <constraint firstAttribute="width" constant="100" id="3BW-0e-lpj"/>
+                                                        <constraint firstAttribute="width" constant="60" id="3BW-0e-lpj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5h-nk-fvp">
-                                                    <rect key="frame" x="150" y="10" width="410" height="35"/>
+                                                    <rect key="frame" x="110" y="10" width="450" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -284,11 +284,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="价格" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3p-F3-JSQ">
-                                                    <rect key="frame" x="447" y="13" width="100" height="30"/>
+                                                    <rect key="frame" x="417" y="13" width="130" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="YhE-qZ-UaX"/>
                                                         <constraint firstAttribute="height" constant="30" id="jfH-wN-XWC"/>
-                                                        <constraint firstAttribute="width" constant="100" id="k09-mL-Zmb"/>
+                                                        <constraint firstAttribute="width" constant="130" id="k09-mL-Zmb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -334,9 +334,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9JJ-Ns-W7p">
-                                                    <rect key="frame" x="447" y="15" width="100" height="30"/>
+                                                    <rect key="frame" x="417" y="15" width="130" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="0Mb-BC-IvK"/>
+                                                        <constraint firstAttribute="width" constant="130" id="0Mb-BC-IvK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -372,9 +372,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJu-Gj-ITM">
-                                                    <rect key="frame" x="447" y="15" width="100" height="32"/>
+                                                    <rect key="frame" x="417" y="15" width="130" height="32"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="N4E-fH-Dtl"/>
+                                                        <constraint firstAttribute="width" constant="130" id="N4E-fH-Dtl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -536,10 +536,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx7-xY-uKn">
-                                                    <rect key="frame" x="80" y="20" width="150" height="21"/>
+                                                    <rect key="frame" x="80" y="20" width="50" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="OjW-vX-QzS"/>
-                                                        <constraint firstAttribute="width" constant="150" id="oz3-Sb-jwd"/>
+                                                        <constraint firstAttribute="width" constant="50" id="oz3-Sb-jwd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -553,7 +553,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCR-Pv-FPv">
-                                                    <rect key="frame" x="280" y="15" width="290" height="37"/>
+                                                    <rect key="frame" x="150" y="15" width="420" height="37"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -561,7 +561,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fx7-xY-uKn" firstAttribute="top" secondItem="AjJ-ZI-Ol1" secondAttribute="top" constant="20" id="788-QO-Gdc"/>
-                                                <constraint firstItem="cCR-Pv-FPv" firstAttribute="leading" secondItem="fx7-xY-uKn" secondAttribute="trailing" constant="50" id="7d6-mv-Lss"/>
+                                                <constraint firstItem="cCR-Pv-FPv" firstAttribute="leading" secondItem="fx7-xY-uKn" secondAttribute="trailing" constant="20" id="7d6-mv-Lss"/>
                                                 <constraint firstItem="fx7-xY-uKn" firstAttribute="leading" secondItem="AjJ-ZI-Ol1" secondAttribute="leading" constant="80" id="GO3-Dh-v3e"/>
                                                 <constraint firstAttribute="bottom" secondItem="cCR-Pv-FPv" secondAttribute="bottom" constant="10" id="UPw-nb-Hv6"/>
                                                 <constraint firstItem="Mgz-4v-FWQ" firstAttribute="top" secondItem="AjJ-ZI-Ol1" secondAttribute="top" constant="22" id="bx7-Fh-44P"/>

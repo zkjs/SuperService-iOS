@@ -73,7 +73,7 @@ class HotelOrderDetailTVC:  UITableViewController {
     contacterLabel.text = order.orderedby
     telphotoLabel.text = order.telephone
     invoiceLabel.text = order.company
-    privilageLabel.text = order.priviledgename
+    privilageLabel.text = order.privilegeName
     if order.paytype == 1 {
       payTypeLabel.text = "在线支付"
     }

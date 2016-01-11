@@ -35,7 +35,7 @@ class OrderModel: NSObject {
   var telephone: String!
   var userid: String!
   var username: String!
-  var priviledgename: String!
+  var privilegeName: String!
   var duration: NSNumber? {
     get {
       if let arrivalDate = arrivaldate, let departureDate = leavedate {
@@ -160,7 +160,7 @@ class OrderModel: NSObject {
     telephone = dic["telephone"] as? String ?? ""
     userid = dic["userid"] as? String ?? ""
     username = dic["username"] as? String ?? ""
-    priviledgename = dic["priviledgename"] as? String ?? ""
+    privilegeName = dic["privilegeName"] as? String ?? ""
   }
 
 }

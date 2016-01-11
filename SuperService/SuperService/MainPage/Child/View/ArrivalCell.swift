@@ -91,12 +91,15 @@ class ArrivalCell: UITableViewCell {
     locationLabel.text = "到达 \(userLocation)"
     
     // 订单信息
-    if let order = data["orderForNotice"] {
-      if let orderRoom = order["orderRoom"] as? String,
-         let checkIn = order["checkIn"] as? String,
-        let checkInDate = order["checkInDate"] as? String {
-          let orderInfo = "\(orderRoom) | \(checkIn) | \(checkInDate)"
-          orderButton.setTitle(orderInfo, forState: .Normal)
+    if let order = data["orderForNotice"] as? [[String: AnyObject]] {
+      print(order)
+      if let firstOrder = order.first {
+        if let orderRoom = firstOrder["orderRoom"] as? String,
+          let checkIn = firstOrder["checkIn"] as? String,
+          let checkInDate = firstOrder["checkInDate"] as? String {
+            let orderInfo = "\(orderRoom) | \(checkIn) | \(checkInDate)"
+            orderButton.setTitle(orderInfo, forState: .Normal)
+        }
       }
     } else {
       orderButton.setTitle("无订单", forState: .Normal)

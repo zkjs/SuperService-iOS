@@ -211,9 +211,7 @@ class OrderTVC: UITableViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
       }
-      
     }
-  
-        }
+  }
   
 }

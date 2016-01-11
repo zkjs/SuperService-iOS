@@ -19,6 +19,9 @@ class MainTBC: UITabBarController {
     
     setupView()
     registerNotification()
+    
+    print("userID: \(AccountManager.sharedInstance().userID)")
+    print("Token: \(AccountManager.sharedInstance().token)")
   }
   
   override func viewDidAppear(animated: Bool) {

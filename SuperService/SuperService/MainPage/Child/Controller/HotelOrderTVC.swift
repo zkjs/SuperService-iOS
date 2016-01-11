@@ -137,6 +137,19 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     return cell
   }
   
+  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    if section == 0 || section == 7{
+      return 0
+    }
+    return 20
+  }
+  
+  override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let header = UIView()
+    header.backgroundColor = UIColor.clearColor()
+    return header
+  }
+  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath == NSIndexPath(forRow: 0, inSection: 1) {
       chooseDate()
@@ -297,7 +310,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     orderDict["arrivaldate"] = arrivaldate
     orderDict["leavedate"] = leavedate
     orderDict["personcount"] = 1
-    orderDict["doublebreakfeast"] = breakfeastSwitch.on ? 1 : 0
+    orderDict["doublebreakfeast"] = ""
     orderDict["nosmoking"] = isSmokingSwitch.on ? 1 : 0
     orderDict["company"] = invoiceLabel.text
     orderDict["isinvoice"] = 0

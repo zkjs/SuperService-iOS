@@ -10,6 +10,7 @@ import UIKit
 
 class HotelOrderDetailTVC:  UITableViewController {
   
+  @IBOutlet weak var privilageLabel: UILabel!
   @IBOutlet weak var pendingConfirmationLabel: UILabel!
   @IBOutlet weak var remark: UITextView!
   @IBOutlet weak var invoiceLabel: UILabel!
@@ -70,6 +71,7 @@ class HotelOrderDetailTVC:  UITableViewController {
     contacterLabel.text = order.orderedby
     telphotoLabel.text = order.telephone
     invoiceLabel.text = order.company
+    privilageLabel.text = order.priviledgename
     if order.paytype == 1 {
       payTypeLabel.text = "在线支付"
     }
@@ -90,12 +92,25 @@ class HotelOrderDetailTVC:  UITableViewController {
     //待评价
     if indexPath.section == 5 {
       if order.orderstatus != nil {
-        if  order.orderstatus == "已完成" || order.orderstatus == "待评价"  {
+        if  order.orderstatus == "已完成" || order.orderstatus == "待评价" || order.orderstatus == "已取消"  {
           return 0.0
         }
       }
     }
     return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+  }
+  
+  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    if section == 0 || section == 5{
+      return 0
+    }
+    return 20
+  }
+  
+  override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let header = UIView()
+    header.backgroundColor = UIColor.clearColor()
+    return header
   }
 
   

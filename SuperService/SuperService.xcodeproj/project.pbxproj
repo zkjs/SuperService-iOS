@@ -308,6 +308,13 @@
 		FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */; };
 		FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */; };
 		FAF7B9101C1D0CFF00F8B3C8 /* ClientListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF7B90F1C1D0CFF00F8B3C8 /* ClientListCell.xib */; };
+		FAF92CAB1C43594F00671300 /* InvoiceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92CA71C43594F00671300 /* InvoiceDetailVC.swift */; };
+		FAF92CAC1C43594F00671300 /* InvoiceDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF92CA81C43594F00671300 /* InvoiceDetailVC.xib */; };
+		FAF92CAD1C43594F00671300 /* InvoiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92CA91C43594F00671300 /* InvoiceVC.swift */; };
+		FAF92CAE1C43594F00671300 /* InvoiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF92CAA1C43594F00671300 /* InvoiceVC.xib */; };
+		FAF92CB01C435A5800671300 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92CAF1C435A5800671300 /* InvoiceModel.swift */; };
+		FAF92CB31C435C2700671300 /* InvoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92CB11C435C2700671300 /* InvoiceCell.swift */; };
+		FAF92CB41C435C2700671300 /* InvoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF92CB21C435C2700671300 /* InvoiceCell.xib */; };
 		FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */; };
 		FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */; };
 		FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */; };
@@ -842,6 +849,13 @@
 		FAF6AB811BEDA34E006C1370 /* InvitationRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationRecordCell.swift; sourceTree = "<group>"; };
 		FAF6AB821BEDA34E006C1370 /* InvitationRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationRecordCell.xib; sourceTree = "<group>"; };
 		FAF7B90F1C1D0CFF00F8B3C8 /* ClientListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientListCell.xib; sourceTree = "<group>"; };
+		FAF92CA71C43594F00671300 /* InvoiceDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceDetailVC.swift; sourceTree = "<group>"; };
+		FAF92CA81C43594F00671300 /* InvoiceDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceDetailVC.xib; sourceTree = "<group>"; };
+		FAF92CA91C43594F00671300 /* InvoiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceVC.swift; sourceTree = "<group>"; };
+		FAF92CAA1C43594F00671300 /* InvoiceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceVC.xib; sourceTree = "<group>"; };
+		FAF92CAF1C435A5800671300 /* InvoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
+		FAF92CB11C435C2700671300 /* InvoiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceCell.swift; sourceTree = "<group>"; };
+		FAF92CB21C435C2700671300 /* InvoiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceCell.xib; sourceTree = "<group>"; };
 		FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUSVC.swift; sourceTree = "<group>"; };
 		FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSVC.xib; sourceTree = "<group>"; };
 		FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTypeVC.swift; sourceTree = "<group>"; };
@@ -993,6 +1007,11 @@
 				408694001C39162F00BE1709 /* KTVTableView.storyboard */,
 				408694071C39164B00BE1709 /* LeisureTVC.swift */,
 				408694011C39162F00BE1709 /* LeisureTVC.storyboard */,
+				FAF92CA71C43594F00671300 /* InvoiceDetailVC.swift */,
+				FAF92CA81C43594F00671300 /* InvoiceDetailVC.xib */,
+				FAF92CA91C43594F00671300 /* InvoiceVC.swift */,
+				FAF92CAA1C43594F00671300 /* InvoiceVC.xib */,
+				FAF92CAF1C435A5800671300 /* InvoiceModel.swift */,
 				FAF019991BE1CF9D00E67ECD /* Controller */,
 				40D7339F1BE3411500266228 /* Model */,
 				40600CBE1BC66DF3008F8DEC /* View */,
@@ -1004,6 +1023,8 @@
 		40600CBE1BC66DF3008F8DEC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF92CB11C435C2700671300 /* InvoiceCell.swift */,
+				FAF92CB21C435C2700671300 /* InvoiceCell.xib */,
 				40F7575A1BE0546A0053C2BE /* OrderCell.swift */,
 				40F7575B1BE0546A0053C2BE /* OrderCell.xib */,
 			);
@@ -2310,8 +2331,10 @@
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
 				FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */,
 				4023F7411C1D61310057351E /* BindCodeCell.xib in Resources */,
+				FAF92CAC1C43594F00671300 /* InvoiceDetailVC.xib in Resources */,
 				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
 				FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */,
+				FAF92CAE1C43594F00671300 /* InvoiceVC.xib in Resources */,
 				408609C41C3E5F94009CAED0 /* HotelOrderDetailTVC.storyboard in Resources */,
 				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
 				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
@@ -2333,6 +2356,7 @@
 				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
 				FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */,
 				FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */,
+				FAF92CB41C435C2700671300 /* InvoiceCell.xib in Resources */,
 				FAF7B9101C1D0CFF00F8B3C8 /* ClientListCell.xib in Resources */,
 				40CAA5FB1BE705F800FAFDA0 /* StaffLoginVC.xib in Resources */,
 			);
@@ -2439,6 +2463,7 @@
 				40FB3D531C00203900675044 /* EaseMessageTimeCell.m in Sources */,
 				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
 				400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */,
+				FAF92CAB1C43594F00671300 /* InvoiceDetailVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				40FB3D1E1C00203900675044 /* EMSDWebImageDownloader.m in Sources */,
 				40E3263D1BD50444008344DF /* Order+CoreDataProperties.swift in Sources */,
@@ -2549,6 +2574,7 @@
 				40FB3D1B1C00203900675044 /* EMSDImageCache.m in Sources */,
 				40CAA5FA1BE705F800FAFDA0 /* StaffLoginVC.swift in Sources */,
 				40F7576C1BE0553E0053C2BE /* InformCell.swift in Sources */,
+				FAF92CB01C435A5800671300 /* InvoiceModel.swift in Sources */,
 				40FB3D001C00203900675044 /* ConversationListController.m in Sources */,
 				FAF6AB7F1BED99CD006C1370 /* InvitationRecordVC.swift in Sources */,
 				400D62831C1526B50021E750 /* RotationAnimation.swift in Sources */,
@@ -2613,6 +2639,7 @@
 				40C8415E1C102A12003E8037 /* BaseTableViewCell.m in Sources */,
 				40F757511BE054340053C2BE /* OrderModel.swift in Sources */,
 				40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */,
+				FAF92CAD1C43594F00671300 /* InvoiceVC.swift in Sources */,
 				408609C51C3E5F94009CAED0 /* HotelOrderDetailTVC.swift in Sources */,
 				40FB3D1A1C00203900675044 /* DACircularProgressView.m in Sources */,
 				40E3263B1BD50444008344DF /* Client+CoreDataProperties.swift in Sources */,
@@ -2640,6 +2667,7 @@
 				40FB3D501C00203900675044 /* EaseUserCell.m in Sources */,
 				40FB3D2D1C00203900675044 /* PSTCollectionViewCell.m in Sources */,
 				40FB3D181C00203900675044 /* MWTapDetectingView.m in Sources */,
+				FAF92CB31C435C2700671300 /* InvoiceCell.swift in Sources */,
 				40FB3D161C00203900675044 /* MWPhotoBrowser.m in Sources */,
 				40FB3D051C00203900675044 /* EMAudioPlayerUtil.m in Sources */,
 				FAF1A5E61BEC852000B9ACC8 /* CodeVC.swift in Sources */,

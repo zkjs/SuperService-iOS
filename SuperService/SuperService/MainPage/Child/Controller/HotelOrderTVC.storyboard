@@ -461,31 +461,20 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入发票信息,离店时向商家索取" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEh-fN-knh">
-                                                    <rect key="frame" x="76" y="16" width="471" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="9o6-Uy-4wA"/>
-                                                        <constraint firstAttribute="width" constant="217" id="BSB-xe-qtm"/>
-                                                    </constraints>
-                                                    <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="BSB-xe-qtm"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="lIT-AT-yFN" id="5HV-EG-lmo"/>
-                                                    </connections>
-                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写发票信息" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEo-05-XUh">
+                                                    <rect key="frame" x="110" y="15" width="437" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="scU-si-vhA" firstAttribute="leading" secondItem="AjW-Qq-gei" secondAttribute="leading" constant="30" id="4Mh-oy-9cU"/>
-                                                <constraint firstAttribute="trailing" secondItem="AEh-fN-knh" secondAttribute="trailing" constant="20" id="Jb4-wd-eCC"/>
+                                                <constraint firstAttribute="trailing" secondItem="NEo-05-XUh" secondAttribute="trailing" constant="20" id="L7R-No-viA"/>
+                                                <constraint firstItem="NEo-05-XUh" firstAttribute="top" secondItem="AjW-Qq-gei" secondAttribute="top" constant="15" id="N2l-Qm-DUv"/>
                                                 <constraint firstItem="scU-si-vhA" firstAttribute="top" secondItem="AjW-Qq-gei" secondAttribute="top" constant="20" id="beH-Wj-NWX"/>
-                                                <constraint firstItem="AEh-fN-knh" firstAttribute="leading" secondItem="scU-si-vhA" secondAttribute="trailing" constant="16" id="rq4-GA-eeQ"/>
-                                                <constraint firstItem="AEh-fN-knh" firstAttribute="centerY" secondItem="AjW-Qq-gei" secondAttribute="centerY" id="uHW-Ju-tp0"/>
+                                                <constraint firstAttribute="bottom" secondItem="NEo-05-XUh" secondAttribute="bottom" constant="10" id="eEr-cg-c0S"/>
+                                                <constraint firstItem="NEo-05-XUh" firstAttribute="leading" secondItem="scU-si-vhA" secondAttribute="trailing" constant="50" id="pXE-hG-Kl8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -493,54 +482,8 @@
                             </tableViewSection>
                             <tableViewSection id="chu-QE-Evk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="YSu-ij-VDZ">
-                                        <rect key="frame" x="0.0" y="677" width="600" height="63"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YSu-ij-VDZ" id="nNU-eU-xW5">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双份早餐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoM-ul-LFU">
-                                                    <rect key="frame" x="80" y="17" width="100" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="WUJ-7I-5cF"/>
-                                                        <constraint firstAttribute="width" constant="100" id="fbc-cu-bVv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_zaocan_gary" translatesAutoresizingMaskIntoConstraints="NO" id="RPv-35-NbQ">
-                                                    <rect key="frame" x="30" y="20" width="13" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="OXJ-4w-eYh"/>
-                                                        <constraint firstAttribute="width" constant="13" id="i3W-J0-RC0"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJ4-1g-y5M">
-                                                    <rect key="frame" x="511" y="15" width="51" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="49" id="4ik-MH-84H"/>
-                                                    </constraints>
-                                                    <color key="onTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <connections>
-                                                        <action selector="switchBreakfast:" destination="lIT-AT-yFN" eventType="valueChanged" id="Hhx-ps-LUA"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="RPv-35-NbQ" firstAttribute="leading" secondItem="nNU-eU-xW5" secondAttribute="leading" constant="30" id="Aep-5a-GlZ"/>
-                                                <constraint firstItem="RPv-35-NbQ" firstAttribute="top" secondItem="nNU-eU-xW5" secondAttribute="top" constant="20" id="GOF-gI-ZVY"/>
-                                                <constraint firstItem="MJ4-1g-y5M" firstAttribute="top" secondItem="nNU-eU-xW5" secondAttribute="top" constant="15" id="MOp-57-Rgo"/>
-                                                <constraint firstItem="HoM-ul-LFU" firstAttribute="top" secondItem="nNU-eU-xW5" secondAttribute="top" constant="17" id="R0Y-Iz-PKy"/>
-                                                <constraint firstAttribute="bottom" secondItem="MJ4-1g-y5M" secondAttribute="bottom" constant="16" id="Svf-Wf-jgj"/>
-                                                <constraint firstAttribute="trailing" secondItem="MJ4-1g-y5M" secondAttribute="trailing" constant="40" id="U8Y-VJ-zZR"/>
-                                                <constraint firstItem="HoM-ul-LFU" firstAttribute="leading" secondItem="nNU-eU-xW5" secondAttribute="leading" constant="80" id="zb2-ES-ZJ7"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="2bX-8B-su6">
-                                        <rect key="frame" x="0.0" y="740" width="600" height="63"/>
+                                        <rect key="frame" x="0.0" y="677" width="600" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bX-8B-su6" id="noo-KE-EON">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
@@ -563,7 +506,7 @@
                                                         <constraint firstAttribute="width" constant="12" id="y7o-bj-LLm"/>
                                                     </constraints>
                                                 </imageView>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GAF-Xi-CEB">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GAF-Xi-CEB">
                                                     <rect key="frame" x="511" y="17" width="51" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="hN7-Kb-UPi"/>
@@ -590,7 +533,7 @@
                             <tableViewSection id="59J-uV-LR2">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="iD8-kZ-j3y">
-                                        <rect key="frame" x="0.0" y="839" width="600" height="164"/>
+                                        <rect key="frame" x="0.0" y="776" width="600" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iD8-kZ-j3y" id="HYF-2y-vPi">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="163"/>
@@ -634,7 +577,7 @@
                             <tableViewSection id="31E-AF-Dww">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="56" id="pmC-sH-WnA">
-                                        <rect key="frame" x="0.0" y="1039" width="600" height="56"/>
+                                        <rect key="frame" x="0.0" y="976" width="600" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmC-sH-WnA" id="Ktu-eb-qis">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
@@ -660,7 +603,7 @@
                             <tableViewSection id="3CF-27-MgJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="48" id="xOQ-4q-kzh">
-                                        <rect key="frame" x="0.0" y="1131" width="600" height="48"/>
+                                        <rect key="frame" x="0.0" y="1068" width="600" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xOQ-4q-kzh" id="Mzq-gs-L3H">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
@@ -697,12 +640,11 @@
                     <size key="freeformSize" width="600" height="1500"/>
                     <connections>
                         <outlet property="amountTextField" destination="g3p-F3-JSQ" id="UX5-ga-rGs"/>
-                        <outlet property="breakfeastSwitch" destination="MJ4-1g-y5M" id="fbF-c7-igk"/>
                         <outlet property="contactTextField" destination="9JJ-Ns-W7p" id="ach-c9-gz6"/>
                         <outlet property="countAddButton" destination="OPu-kl-EHK" id="Pd5-Wp-F5b"/>
                         <outlet property="countSubtractButton" destination="OQd-yA-Rw5" id="kic-8o-BDi"/>
                         <outlet property="daysLabel" destination="Xx0-Pi-mND" id="rl1-eh-V3M"/>
-                        <outlet property="invoiceTextField" destination="AEh-fN-knh" id="Fxp-r9-M0z"/>
+                        <outlet property="invoiceLabel" destination="NEo-05-XUh" id="vfT-B8-HP4"/>
                         <outlet property="isSmokingSwitch" destination="GAF-Xi-CEB" id="Hm7-gg-4uG"/>
                         <outlet property="orderNoLabel" destination="Y5h-nk-fvp" id="gDc-Ci-0l5"/>
                         <outlet property="paymentLabel" destination="sTO-JH-Zl5" id="MZg-e4-Qmy"/>
@@ -720,6 +662,5 @@
     </scenes>
     <resources>
         <image name="ic_wuyan_gary" width="12" height="16"/>
-        <image name="ic_zaocan_gary" width="12" height="16"/>
     </resources>
 </document>

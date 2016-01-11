@@ -239,6 +239,95 @@
     failure(task,error);
   }];
 }
+#pragma mark - 获取默认发票
+- (void)getDefaultInvoiceWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary *dic = @{@"userid" : [self userID],
+                        @"token" : [self token],
+                        @"set" : @1
+                        };
+  [self POST:@"user/fplist" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 获取发票列表
+- (void)getInvoiceListWithSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary *dic = @{@"userid" : [self userID],
+                        @"token" : [self token],
+                        @"set" : @0
+                        };
+  [self POST:@"user/fplist" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 添加发票
+- (void)addInvoiceWithTitle:(NSString *)title isDefault:(BOOL)isDefault Success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary *dic = @{@"userid" : [self userID],
+                        @"token" : [self token],
+                        @"invoice_title" : title,
+                        @"is_default" : [NSNumber numberWithBool:isDefault]
+                        };
+  [self POST:@"user/fpadd" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 修改发票
+- (void)modifyInvoiceWithInvoiceid:(NSString *)invoiceid title:(NSString *)title isDefault:(BOOL)isDefault Success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSDictionary *dic = @{@"userid" : [self userID],
+                        @"token" : [self token],
+                        @"id" : invoiceid,
+                        @"set" : @2,
+                        @"invoice_title" : title,
+                        @"is_default" : [NSNumber numberWithBool:isDefault]
+                        };
+  [self POST:@"user/fpupdate" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 删除发票
+- (void)deleteInvoiceWithInvoiceid:(NSString *)invoiceid Success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
+  NSDictionary *dic = @{@"userid" : [self userID],
+                        @"token" : [self token],
+                        @"id" : invoiceid,
+                        @"set" : @3
+                        };
+  [self POST:@"user/fpupdate" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
 
 #pragma mark - 新建成员
 

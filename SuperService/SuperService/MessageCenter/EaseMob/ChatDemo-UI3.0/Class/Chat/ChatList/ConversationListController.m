@@ -276,7 +276,7 @@
       model.title = latestMessage.ext[@"fromName"];
     }
     NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", conversation.chatter];
-    model.avatarURLPath = [kBaseURL stringByAppendingString:url];
+    model.avatarURLPath = [kImageURL stringByAppendingString:url];
   } else if (model.conversation.conversationType == eConversationTypeGroupChat) {
     if (![conversation.ext objectForKey:@"groupSubject"] || ![conversation.ext objectForKey:@"isPublic"]) {
       NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];

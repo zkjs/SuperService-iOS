@@ -43,7 +43,7 @@ class BindCodeCell: UITableViewCell {
     nameLabel.text = code.username
     phoneLabel.text = code.phone?.stringValue
     if let userID = code.userid {
-      var url = NSURL(string: kBaseURL)
+      var url = NSURL(string: kImageURL)
       url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
       avatarImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
     }

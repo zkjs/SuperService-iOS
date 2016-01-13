@@ -36,7 +36,7 @@ class InvitationRecordCell: UITableViewCell {
 //    useCodetimerLabel.text = user.created
 //    let userID = user.userid
    
-//    let url = NSURL(string: kBaseURL)
+//    let url = NSURL(string: kImageURL)
 //    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID!).jpg")
 //     print(urlStr)
 //    invitationerImageView.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))

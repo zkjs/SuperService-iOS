@@ -102,7 +102,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func setUpUI() {
     if let _ = order.orderno {
-//      let urlString = kBaseURL + order.imgurl
+//      let urlString = kImageURL + order.imgurl
 //      roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
       daysLabel.text = order.roomInfo
       roomsTypeLabel.text = order.roomtype
@@ -239,7 +239,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       self.order.roomtype = goods.room
       self.order.productid = goods.goodsid
       self.order.imgurl = goods.image
-//      let urlString = kBaseURL + goods.image
+//      let urlString = kImageURL + goods.image
 //      self.roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
     }
     navigationController?.pushViewController(vc, animated: true)

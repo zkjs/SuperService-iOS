@@ -32,11 +32,15 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   @IBOutlet weak var countSubtractButton: UIButton! {
     didSet {
       countSubtractButton.addTarget(self, action: "countSubtract:", forControlEvents: UIControlEvents.TouchUpInside)
+      countSubtractButton.layer.borderWidth = 1
+      countSubtractButton.layer.borderColor = UIColor.ZKJS_lineColor().CGColor
     }
   }
   @IBOutlet weak var countAddButton: UIButton! {
     didSet {
       countAddButton.addTarget(self, action: "countAdd:", forControlEvents: UIControlEvents.TouchUpInside)
+      countAddButton.layer.borderWidth = 1
+      countAddButton.layer.borderColor = UIColor.ZKJS_lineColor().CGColor
     }
   }
   @IBOutlet weak var invoiceTextField: UITextField!
@@ -57,7 +61,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     super.viewDidLoad()
     
     title = shopName
-  
+  tableView.bounces = false
     if type == .Update {
       loadData()
     } else if type == .Add {
@@ -112,14 +116,19 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       telphoneTextField.text = order.telephone
       if order.paytype == 1 {
         paymentLabel.text = "在线支付"
+        paymentLabel.textColor = UIColor.ZKJS_navTitleColor()
       }
       if order.paytype == 2 {
         paymentLabel.text = "到店支付"
+        paymentLabel.textColor = UIColor.ZKJS_navTitleColor()
       }
       if order.paytype == 2 {
         paymentLabel.text = "挂账"
+        paymentLabel.textColor = UIColor.ZKJS_navTitleColor()
       }
+      
       paymentLabel.text = paytypeArray[order.paytype.integerValue]
+      paymentLabel.textColor = UIColor.ZKJS_navTitleColor()
       isSmokingSwitch.on = order.nosmoking.boolValue
       remarkTextView.text = order.remark
       if order.company != "" {
@@ -175,6 +184,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       let vc = InvoiceVC()
       vc.selection = { [unowned self] (invoice:  InvoiceModel) ->() in
         self.invoiceLabel.text = invoice.title
+        self.invoiceLabel.textColor = UIColor.ZKJS_navTitleColor()
       }
       self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -192,6 +202,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     for index in 1..<paytypeArray.count {
       alertView.addAction(UIAlertAction(title: paytypeArray[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.paymentLabel.text = self.paytypeArray[index]
+        self.paymentLabel.textColor = UIColor.ZKJS_navTitleColor()
         // 更新订单
         self.order.paytype = NSNumber(integer: index)
         }))

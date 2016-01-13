@@ -89,7 +89,6 @@ class HotelOrderDetailTVC:  UITableViewController {
     } else {
       smokingLabel.text = "是"
     }
-
     
     remark.text = order.remark
     remark.editable = false

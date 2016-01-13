@@ -84,6 +84,12 @@ class HotelOrderDetailTVC:  UITableViewController {
       payTypeLabel.text = "挂账"
     }
     
+    if order.nosmoking == 0 {
+      smokingLabel.text = "否"
+    } else {
+      smokingLabel.text = "是"
+    }
+    
     remark.text = order.remark
     remark.editable = false
   

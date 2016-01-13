@@ -128,6 +128,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       amountTextField.text = String(order.roomprice)
       orderNoLabel.text = order.orderno
       privilageLabel.text = order.privilegeName
+      invoiceLabel.text = order.company
       
     }
   }

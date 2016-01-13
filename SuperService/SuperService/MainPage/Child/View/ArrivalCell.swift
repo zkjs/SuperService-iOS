@@ -108,7 +108,7 @@ class ArrivalCell: UITableViewCell {
     // 多久以前
     if let dateString = data["created"] as? String {
       let dateFormat = NSDateFormatter()
-      dateFormat.dateFormat = "yyyy-MM-dd hh:mm:ss"
+      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
       if let date = dateFormat.dateFromString(dateString) {
         timeAgoLabel.text = date.timeAgoSinceNow()
       }

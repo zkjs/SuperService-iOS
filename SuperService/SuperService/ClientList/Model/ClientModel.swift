@@ -15,8 +15,8 @@ class ClientModel: NSObject {
   var created: String?
   var username: String?
   var phone: String?
-  var sex: Int16?
-  var user_applevel: Int16?
+  var sex: Int?
+  var user_applevel: Int?
   
   override init() {
     super.init()
@@ -24,15 +24,23 @@ class ClientModel: NSObject {
   }
   
   init(dic:[String: AnyObject]){
-    userid = dic["userid"] as?String
-    created = dic["created"] as?String
-    username = dic["username"] as?String
+    userid = dic["userid"] as? String
+    created = dic["created"] as? String
+    if let name = dic["username"] as? String {
+      username = name
+    } else if let name = dic["username"] as? NSNumber {
+      username = name.stringValue
+    }
     if let phoneNumber = dic["phone"] as? NSNumber {
       phone = phoneNumber.stringValue
     }
     code = dic["code"] as? String
-    user_applevel = dic["user_applevel"] as?Int16
-    sex = dic["sex"] as?Int16
+    if let userLevel = dic["user_applevel"] as? NSNumber {
+      user_applevel = userLevel.integerValue
+    }
+    if let clientSex = dic["sex"] as? NSNumber {
+      sex = clientSex.integerValue
+    }
   }
   
 }

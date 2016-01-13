@@ -10,8 +10,9 @@
 
 #import "AFNetworking.h"
 
-//#define kJavaBaseURL @"http://mmm.zkjinshi.com/" // Java HTTP服务器测试地址
-#define kJavaBaseURL @"http://test.zkjinshi.com/japi" // Java服务器正式地址
+//#define kJavaBaseURL @"http://mmm.zkjinshi.com/" // Java HTTP服务器product地址
+#define kJavaBaseURL @"http://test.zkjinshi.com/japi/" // Java服务器test地址
+//#define kJavaBaseURL @"http://p.zkjinshi.com/japi/"    // J server pre product
 
 @interface ZKJSJavaHTTPSessionManager : AFHTTPSessionManager
 

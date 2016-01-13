@@ -46,7 +46,7 @@ class OrderModel: NSObject {
         }
         return NSNumber(integer: days)
       } else {
-        return nil
+        return NSNumber(integer: 0)
       }
     }
   }
@@ -83,8 +83,8 @@ class OrderModel: NSObject {
     get {
       if let arrivalDateShortStyle = arrivalDateShortStyle,
          let duration = duration,
-         let room_type = roomtype {
-        return "\(room_type) | \(arrivalDateShortStyle) | \(duration.integerValue)晚"
+         let departureDateShortStyle = departureDateShortStyle {
+        return "\(arrivalDateShortStyle) | \(departureDateShortStyle) | \(duration.integerValue)晚"
       } else {
         return ""
       }

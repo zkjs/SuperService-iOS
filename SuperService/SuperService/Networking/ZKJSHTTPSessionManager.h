@@ -11,9 +11,9 @@
 @protocol HTTPSessionManagerDelegate;
 
 @class OrderModel;
-
-//#define kBaseURL @"http://api.zkjinshi.com/"  // HTTP外网服务器地址
-#define kBaseURL @"http://tst.zkjinshi.com/" // HTTP服务器测试地址
+//#define kBaseURL @"http://api.zkjinshi.com/"  // HTTP外网服务器地址this is production env
+#define kBaseURL @"http://tst.zkjinshi.com/" // HTTP服务器测试地址=test env
+//#define kBaseURL @"http://rap.zkjinshi.com/"   //this is pre production server;
 
 @interface ZKJSHTTPSessionManager : AFHTTPSessionManager
 

@@ -28,4 +28,5 @@
 #import "YunBaService.h"
 #import "WXApi.h"
 #import "ZKJSJavaHTTPSessionManager.h"
+#import "HexColors.h"
 #import "Configure.h"

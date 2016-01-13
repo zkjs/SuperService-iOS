@@ -39,8 +39,8 @@ class HotelOrderDetailTVC:  UITableViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     navigationController?.navigationBar.translucent = false
+    tableView.bounces = false
   }
   
   func loadData() {
@@ -92,15 +92,31 @@ class HotelOrderDetailTVC:  UITableViewController {
     
     remark.text = order.remark
     remark.editable = false
-  
+    if order.orderstatus == "待评价" {
+      orderEndButton.setTitle("待评价", forState: .Normal)
+      orderEndButton.enabled = false
+      orderEndButton.backgroundColor = UIColor.ZKJS_navegationTextColor()
+    }
+    if order.orderstatus == "已完成" {
+      orderEndButton.setTitle("订单已完成", forState: .Normal)
+      orderEndButton.enabled = false
+      orderEndButton.backgroundColor = UIColor.ZKJS_navegationTextColor()
+    }
 
      }
+  
+//  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//    let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+//    cell.selectionStyle = UITableViewCellSelectionStyle.None
+//   
+//    return cell
+//  }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //待评价
     if indexPath.section == 5 {
       if order.orderstatus != nil {
-        if  order.orderstatus == "已完成" || order.orderstatus == "待评价" || order.orderstatus == "已取消"  {
+        if  order.orderstatus == "已取消"  {
           return 0.0
         }
       }
@@ -109,7 +125,7 @@ class HotelOrderDetailTVC:  UITableViewController {
   }
   
   override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    if section == 0 || section == 5{
+    if section == 0 || section == 5 {
       return 0
     }
     return 20
@@ -123,7 +139,9 @@ class HotelOrderDetailTVC:  UITableViewController {
 
   
   @IBAction func orderEnd(sender: AnyObject) {
-    
+    if order.orderno == nil {
+      return
+    }
     ZKJSJavaHTTPSessionManager.sharedInstance().confirmOrderWithOrderNo(order.orderno, status: 4, success: { (task:NSURLSessionDataTask!, responsObject:AnyObject!) -> Void in
       if let result = responsObject["result"] as? NSNumber {
         if result.boolValue == true {

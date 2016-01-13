@@ -27,6 +27,7 @@ PODS:
   - ChameleonFramework/Default (2.0.6)
   - DateTools (1.7.0)
   - EaseMobSDKFull (2.2.1)
+  - HexColors (3.0.0)
   - HTCopyableLabel (0.0.7)
   - JazzHands (2.0.8)
   - JCTagListView (0.0.4)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - ChameleonFramework
   - DateTools
   - EaseMobSDKFull (from `https://github.com/easemob/sdk-ios-cocoapods-integration.git`)
+  - HexColors
   - HTCopyableLabel
   - JazzHands
   - JCTagListView
@@ -80,6 +82,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: a6b466873ff9a4ce3a5196c20bccf1a97ad9f446
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   EaseMobSDKFull: 4a18d6ad47b4ccca564833963511bddd151e1654
+  HexColors: 8b83e3fe90c0d466dae7b98c9d22da95799f99cb
   HTCopyableLabel: e67c190d2f1f8f03c9d9858a7d8ce33be7fb43fa
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
   JCTagListView: e267bb1e2f44555093d4d5ff5b95939c12ebd5ad

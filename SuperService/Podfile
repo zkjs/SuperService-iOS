@@ -20,6 +20,7 @@ target 'SuperService' do
   pod 'HTCopyableLabel'
   pod 'JazzHands'
    pod 'Masonry'
+   pod 'HexColors'
 #  pod 'TKAnimatedCheckButton'
 end
 

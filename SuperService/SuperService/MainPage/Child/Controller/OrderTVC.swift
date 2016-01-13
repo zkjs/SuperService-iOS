@@ -134,6 +134,7 @@ class OrderTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(OrderCell.reuseIdentifier(), forIndexPath: indexPath) as! OrderCell
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
     if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
       cell.topLineImageView.hidden = true
     } else {
@@ -144,6 +145,12 @@ class OrderTVC: UITableViewController {
     cell.orderButton.tag = indexPath.row
     cell.orderButton.addTarget(self, action: "showOrder:", forControlEvents: .TouchUpInside)
     return cell
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! OrderCell
+    cell.orderButton.tag = indexPath.row
+    self.showOrder(cell.orderButton)
   }
   
   

@@ -12,9 +12,6 @@
 
 @class OrderModel;
 
-#define kBaseURL @"http://tst.zkjinshi.com/"  // HTTP外网服务器测试地址
-//#define kBaseURL @"http://rap.zkjinshi.com/" // HTTP服务器预上线地址
-//#define kBaseURL @"http://api.zkjinshi.com/" // HTTP服务器生产地址
 
 @interface ZKJSHTTPSessionManager : AFHTTPSessionManager
 

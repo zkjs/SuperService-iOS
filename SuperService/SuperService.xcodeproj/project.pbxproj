@@ -530,6 +530,7 @@
 		40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperServiceUITests.swift; sourceTree = "<group>"; };
 		40DA78B31BAFAA8F00956B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40DB677E1BEDDB34008D3BB9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
+		40DCE2511C46255C00C44E89 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		40E326281BD4C369008344DF /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		40E3262C1BD4C621008344DF /* SuperService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SuperService.xcdatamodel; sourceTree = "<group>"; };
 		40E3262E1BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClientArrivalInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -986,6 +987,7 @@
 		404FB51E1BCE08840074D205 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				40DCE2511C46255C00C44E89 /* Configure.h */,
 				404FB5221BCE2A4B0074D205 /* NSString+ZKJS.h */,
 				404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */,
 				FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */,

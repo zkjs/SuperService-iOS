@@ -43,7 +43,7 @@ var salesid:String!
       print(salesid)
       self.salesid = salesid
       let url = NSURL(string: kImageURL)
-      let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(salesid).jpg")
+      let urlStr = url?.URLByAppendingPathComponent("/uploads/users/\(salesid).jpg")
       userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
 
     }

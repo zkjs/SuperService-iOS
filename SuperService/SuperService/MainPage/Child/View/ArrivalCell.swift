@@ -78,7 +78,7 @@ class ArrivalCell: UITableViewCell {
     
     if let userID = data["userId"] as? String {
       var url = NSURL(string: kImageURL)
-      url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
+      url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
       avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
     }
     clientInfoLabel.text = userLevel + " " + userName

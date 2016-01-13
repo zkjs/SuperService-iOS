@@ -37,7 +37,7 @@ class OrderCell: UITableViewCell {
     // 客户头像
     if let userID = order.userid {
       var url = NSURL(string: kImageURL)
-      url = url?.URLByAppendingPathComponent("uploads/users/\(userID).jpg")
+      url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
       avatarButton.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
     }
     

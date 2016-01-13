@@ -275,8 +275,9 @@
       // 最后一条消息的发送者为对方
       model.title = latestMessage.ext[@"fromName"];
     }
-    NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", conversation.chatter];
+    NSString *url = [NSString stringWithFormat:@"/uploads/users/%@.jpg", conversation.chatter];
     model.avatarURLPath = [kImageURL stringByAppendingString:url];
+    NSLog(@"%@", model.avatarURLPath);
   } else if (model.conversation.conversationType == eConversationTypeGroupChat) {
     if (![conversation.ext objectForKey:@"groupSubject"] || ![conversation.ext objectForKey:@"isPublic"]) {
       NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];

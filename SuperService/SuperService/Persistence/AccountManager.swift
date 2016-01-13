@@ -72,7 +72,7 @@ class AccountManager: NSObject {
       self.userID = salesID
     }
     
-    let urlString = kImageURL + "uploads/users/\(userID).jpg"
+    let urlString = kImageURL + "/uploads/users/\(userID).jpg"
     if let url = NSURL(string: urlString) {
       print(url)
         if let data = NSData(contentsOfURL: url) {

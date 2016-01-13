@@ -14,6 +14,7 @@
 #import "UIImageView+HeadImage.h"
 #import "EaseUI.h"
 #import "ZKJSHTTPSessionManager.h"
+#import "Configure.h"
 
 @implementation UIImageView (HeadImage)
 
@@ -29,8 +30,8 @@
 //        [self sd_setImageWithURL:nil placeholderImage:placeholderImage];
 //    }
   
-  NSString *urlString = [NSString stringWithFormat:@"uploads/users/%@.jpg", username];
-  NSString *domain = [ZKJSHTTPSessionManager sharedInstance].domain;
+  NSString *urlString = [NSString stringWithFormat:@"/uploads/users/%@.jpg", username];
+  NSString *domain = kImageURL;
   NSString *avatarURLPath = [domain stringByAppendingString:urlString];
   NSURL *url = [[NSURL alloc] initWithString:avatarURLPath];
   [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ic_home_nor"]];

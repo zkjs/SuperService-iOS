@@ -98,7 +98,7 @@ class InterfaceController: WKInterfaceController {
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
     // 用户头像
     if let userID = arrivalInfo["userid"] {
-      if let url = NSURL(string: "http://tap.zkjinshi.com/uploads/users/\(userID).jpg") {
+      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userID).jpg") {
         imageRequest(url)
       }
     }

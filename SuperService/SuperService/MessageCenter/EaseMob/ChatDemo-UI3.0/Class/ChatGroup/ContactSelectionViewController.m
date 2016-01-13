@@ -432,8 +432,8 @@
       id<IUserModel> model = nil;
       model = [[EaseUserModel alloc] initWithBuddy:buddy];
       model.nickname = sales[@"name"];
-      NSString *url = [NSString stringWithFormat:@"uploads/users/%@.jpg", model.buddy.username];
-      NSString *domain = [ZKJSHTTPSessionManager sharedInstance].domain;
+      NSString *url = [NSString stringWithFormat:@"/uploads/users/%@.jpg", model.buddy.username];
+      NSString *domain = kImageURL;
       model.avatarURLPath = [domain stringByAppendingString:url];
       [weakSelf.contactsSource addObject:model];
     }

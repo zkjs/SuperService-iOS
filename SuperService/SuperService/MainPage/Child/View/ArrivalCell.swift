@@ -81,11 +81,11 @@ class ArrivalCell: UITableViewCell {
       url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
       avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
     }
-    clientInfoLabel.text = userLevel + " " + userName
+    clientInfoLabel.text = userName
     
     
     // 客户位置信息
-    if let location = data["city"] as? String {
+    if let location = data["locname"] as? String {
       userLocation = location
     }
     locationLabel.text = "到达 \(userLocation)"

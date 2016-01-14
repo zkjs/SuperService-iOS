@@ -279,7 +279,13 @@
     for (id object in recordArray) {
       //getUserName是实现中文拼音检索的核心，见NameIndex类
       NSString *objStr = _objectComparisonStringBlock(object);
-      NSInteger section = [_indexCollation sectionForObject:objStr collationStringSelector:@selector(uppercaseString)];
+      NSInteger section = 0;
+      if ([objStr isKindOfClass:[NSNumber class]]) {
+        NSNumber *objNumber = (NSNumber *)objStr;
+        section = [_indexCollation sectionForObject:[objNumber stringValue] collationStringSelector:@selector(uppercaseString)];
+      } else {
+        section = [_indexCollation sectionForObject:objStr collationStringSelector:@selector(uppercaseString)];
+      }
       
       NSMutableArray *array = [sortedArray objectAtIndex:section];
       [array addObject:object];

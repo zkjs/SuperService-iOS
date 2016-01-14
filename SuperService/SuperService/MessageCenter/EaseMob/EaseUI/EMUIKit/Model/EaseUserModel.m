@@ -17,7 +17,12 @@
     self = [super init];
     if (self) {
         _buddy = buddy;
+      if ([_buddy.username isKindOfClass:[NSNumber class]]) {
+        NSNumber *usernameNumber = (NSNumber *)_buddy.username;
+        _nickname = [usernameNumber stringValue];
+      } else {
         _nickname = _buddy.username;
+      }
         _avatarImage = [UIImage imageNamed:@"user"];
     }
     

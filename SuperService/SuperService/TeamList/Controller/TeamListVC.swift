@@ -85,7 +85,10 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TeamListCell", forIndexPath: indexPath) as! TeamListCell
-    
+    let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("avatarTapped:"))
+    cell.userImage.addGestureRecognizer(tapGestureRecognizer)
+    cell.userImage.tag = indexPath.section*1000 + indexPath.row
+    cell.userImage.userInteractionEnabled = true
     let section = sections[indexPath.section]
     let team = section[indexPath.row] as! TeamModel
     cell.setData(team)
@@ -144,14 +147,36 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     return collation.sectionForSectionIndexTitleAtIndex(index)
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  func avatarTapped(sender: UIGestureRecognizer) {
+    guard let tag = sender.view?.tag else { return }
+    let indexSection = tag/1000
+    let indexRow = tag - indexSection*1000
     let vc = EmployeeVC()
-    let section = sections[indexPath.section]
-    let employee = section[indexPath.row] as! TeamModel
+    let section = sections[indexSection]
+    let employee = section[indexRow] as! TeamModel
     vc.type = EmployeeVCType.team
     vc.employee = employee
     vc.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let section = sections[indexPath.section]
+    let employee = section[indexPath.row] as! TeamModel
+    var chatterName = ""
+    guard let chatterID = employee.salesid else { return }
+    if let name = employee.name {
+      chatterName = name
+    }
+    let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
+    let userName = AccountManager.sharedInstance().userName
+    vc.title = chatterName
+    vc.hidesBottomBarWhenPushed = true
+    // 扩展字段
+    let ext = ["toName": chatterName,
+      "fromName": userName]
+    vc.conversation.ext = ext
     navigationController?.pushViewController(vc, animated: true)
   }
   

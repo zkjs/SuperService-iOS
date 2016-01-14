@@ -60,7 +60,21 @@
       EaseUserModel *model1 = (EaseUserModel *)object1;
       EaseUserModel *model2 = (EaseUserModel *)object2;
       
-      return [model1.nickname caseInsensitiveCompare:model2.nickname];
+      NSString *name1;
+      NSString *name2;
+      if ([model1.nickname isKindOfClass:[NSNumber class]]) {
+        NSNumber *number = (NSNumber *)model1.nickname;
+        name1 = [number stringValue];
+      } else {
+        name1 = model1.nickname;
+      }
+      if ([model2.nickname isKindOfClass:[NSNumber class]]) {
+        NSNumber *number = (NSNumber *)model2.nickname;
+        name2 = [number stringValue];
+      } else {
+        name2 = model2.nickname;
+      }
+      return [name1 caseInsensitiveCompare:name2];
     }];
   }
   return self;

@@ -17,7 +17,11 @@ class TeamModel: NSObject {
   var salesid: String?
 
   init(dic:[String: AnyObject]){
-    name = dic["name"] as? String
+    if let name = dic["name"] as? String {
+      self.name = name
+    } else if let name = dic["name"] as? NSNumber {
+      self.name = name.stringValue
+    }
     phone = dic["phone"] as? NSNumber
     dept_name = dic["dept_name"] as? String
     roleid = dic["roleid"] as? Int16

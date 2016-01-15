@@ -40,7 +40,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
       if let set = dic["set"] as? Bool {
         if set == true {
           self.showHint("添加成功")
-          self.addNewdepartment()
+          self.getMemberListData()
         }
       }
       }) { (task:NSURLSessionDataTask!, error:NSError!) -> Void in
@@ -48,14 +48,8 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
   }
   
-  func addNewdepartment() {
-    let member = MemberModel()
-    member.dept_name = headerView.departmentTextField.text
-    self.memberListArray.append(member)
-    self.tableView.reloadData()
-  }
-  
   func getMemberListData() {
+    showHUDInView(view, withLoading: "")
     ZKJSHTTPSessionManager.sharedInstance().getMemberListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let array = responseObject as? NSArray {
         var datasource = [MemberModel]()
@@ -63,6 +57,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
           let member = MemberModel(dic: dic as! [String: AnyObject])
           datasource.append(member)
         }
+        self.hideHUD()
         self.memberListArray = datasource
         self.tableView.reloadData()
       }

@@ -18,7 +18,9 @@ class SettingUpTVC: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "设置"
+   
     telphoneLabel.text = AccountManager.sharedInstance().phone
+    
   }
   
   override func didReceiveMemoryWarning() {

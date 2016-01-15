@@ -74,6 +74,7 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
             }
             AccountManager.sharedInstance().saveAvatarImageData(self.imageData)
             let InformV = InformVC()
+            InformV.dismissWhenFinished = true
             InformV.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(InformV, animated: true)
           }

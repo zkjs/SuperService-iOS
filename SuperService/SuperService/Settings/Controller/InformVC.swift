@@ -18,6 +18,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var locID = (String)()
   var selectedArray = [Int]()
   var areaArr = [String]()
+  var dismissWhenFinished = false
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
@@ -153,7 +154,11 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       self.updateYunBaTopic()
       AccountManager.sharedInstance().savebeaconLocationIDs(self.locID)
-      self.navigationController?.popToRootViewControllerAnimated(true)
+      if self.dismissWhenFinished == true {
+        self.dismissViewControllerAnimated(true, completion: nil)
+      } else {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+      }
       }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
         
     }

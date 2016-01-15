@@ -103,8 +103,8 @@ class AccountManager: NSObject {
    
     if let roleID = dict["roleid"] as? String {
       self.roleID = roleID
-    } else if let roleID = dict["roleID"] as? String {
-      self.roleID = roleID
+    } else if let roleID = dict["roleID"] as? NSNumber {
+      self.roleID = roleID.stringValue
     }
     
     beaconLocationIDs = dict["locid"] as? String ?? ""

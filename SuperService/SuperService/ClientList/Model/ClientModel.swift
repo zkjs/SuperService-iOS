@@ -24,8 +24,14 @@ class ClientModel: NSObject {
   }
   
   init(dic:[String: AnyObject]){
-    userid = dic["userid"] as? String
+    
+    if let userID = dic["userid"] as? String {
+      userid = userID
+    } else if let userID = dic["userid"] as? NSNumber {
+      userid = userID.stringValue
+    }
     created = dic["created"] as? String
+    
     if let name = dic["username"] as? String {
       username = name
     } else if let name = dic["username"] as? NSNumber {

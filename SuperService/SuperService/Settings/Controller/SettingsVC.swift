@@ -108,6 +108,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     showHUDInView(view, withLoading: "正在退出登录...")
     AccountManager.sharedInstance().clearAccountCache()
     self.unregisterYunBaTopic()
+    EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
     EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true, completion: { (info: [NSObject : AnyObject]!, error: EMError!) -> Void in
       self.hideHUD()
       if error != nil && error.errorCode != .ServerNotLogin {

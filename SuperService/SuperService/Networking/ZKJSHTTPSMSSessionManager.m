@@ -72,12 +72,16 @@ static NSString* const templateID = @"50158";
 
 // 检查短信验证码
 - (void)verifySmsCode:(NSString *)code mobilePhoneNumber:(NSString *)phone callback:(void (^)(BOOL succeeded, NSError *error))callback {
+#if DEBUG
+  callback(YES, nil);
+#else
   NSString *verifycode = self.phoneSMS[phone];
   if ([code isEqualToString:verifycode]) {
     callback(YES, nil);
   } else {
     callback(NO, nil);
   }
+#endif
 }
 
 @end

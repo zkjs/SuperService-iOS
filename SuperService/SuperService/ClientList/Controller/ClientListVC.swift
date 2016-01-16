@@ -69,7 +69,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     loadData()
   }
   
-  
   // MARK: - XLPagerTabStripChildItem Delegate
   
   func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {

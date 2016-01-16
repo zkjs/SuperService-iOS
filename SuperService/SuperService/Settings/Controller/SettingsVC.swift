@@ -107,6 +107,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func logout() {
     showHUDInView(view, withLoading: "正在退出登录...")
     AccountManager.sharedInstance().clearAccountCache()
+    AccountManager.sharedInstance().clearAvatarImageCache()
     self.unregisterYunBaTopic()
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
     EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true, completion: { (info: [NSObject : AnyObject]!, error: EMError!) -> Void in

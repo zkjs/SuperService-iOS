@@ -106,17 +106,24 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   func logout() {
     showHUDInView(view, withLoading: "正在退出登录...")
+    // 清理系统缓存
     AccountManager.sharedInstance().clearAccountCache()
-    self.unregisterYunBaTopic()
+    
+    // 消除订阅云巴频道
+    unregisterYunBaTopic()
+    
+    // 登出环信
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
-    EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true, completion: { (info: [NSObject : AnyObject]!, error: EMError!) -> Void in
-      self.hideHUD()
-      if error != nil && error.errorCode != .ServerNotLogin {
-        self.showHint(error.description)
-      } else {
-        NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
-      }
-      }, onQueue: nil)
+    let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+    print("登出前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    EaseMob.sharedInstance().chatManager.logoffWithUnbindDeviceToken(true, error: error)
+    print("登出后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    self.hideHUD()
+    if error != nil {
+      self.showHint(error.debugDescription)
+    } else {
+      NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+    }
     showAdminLogin()
   }
   

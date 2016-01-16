@@ -66,8 +66,8 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
           datasource.append(team)  
         }
         self.teamArray = datasource
-        self.tableView.mj_header.endRefreshing()
       }
+      self.tableView.mj_header.endRefreshing()
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
       self.tableView.mj_header.endRefreshing()
     }

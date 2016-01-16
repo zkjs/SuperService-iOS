@@ -103,7 +103,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func loadData() {
     ZKJSHTTPSessionManager.sharedInstance().getClientListWithPage("1", success:{ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-     
       let dic = responseObject as! NSDictionary
       self.tableView.mj_header.endRefreshing()
       let headDic = dic["head"] as! NSDictionary
@@ -120,8 +119,8 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
           }
           self.tableView.reloadData()
           self.clientArray = datasource
-          self.tableView.mj_header.endRefreshing()
       }
+      self.tableView.mj_header.endRefreshing()
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         self.tableView.mj_header.endRefreshing()
     }

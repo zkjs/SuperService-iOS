@@ -141,13 +141,13 @@ class StaffLoginVC: UIViewController {
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
         ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-          print(responseObject)
+//          print(responseObject)
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-                self.easeMobAutoLogin()
+                self.loginEaseMob()
                 self.showHUDInView(self.view, withLoading: "")
                 self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
                 ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
@@ -199,15 +199,17 @@ class StaffLoginVC: UIViewController {
     }
   }
   
-  private func easeMobAutoLogin() {
-    // 自动登录
-    let isAutoLogin = EaseMob.sharedInstance().chatManager.isAutoLoginEnabled
-    if isAutoLogin == false {
+  private func loginEaseMob() {
       let userID = AccountManager.sharedInstance().userID
-      EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456", completion: { (responseObject: [NSObject : AnyObject]!, error: EMError!) -> Void in
-        EaseMob.sharedInstance().chatManager.enableAutoLogin!()
-        }, onQueue: nil)
-    }
+      print("Username: \(userID)")
+      let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+      print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+      EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
+      print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+      if error != nil {
+        showHint(error.debugDescription)
+      }
+      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
   }
   
   @IBAction func bussinessManButton(sender: AnyObject) {

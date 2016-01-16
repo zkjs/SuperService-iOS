@@ -144,6 +144,19 @@ class AccountManager: NSObject {
     //userDefaults.setObject(nil, forKey: "avatarImageData")
     
     userDefaults.synchronize()
+    
+    userID = ""
+    shopID = ""
+    shopName = ""
+    token = ""
+    userName = ""
+    roleID = ""
+    beaconLocationIDs = ""
+    url = ""
+    phone = ""
+    avatarImageData = NSData()
+    avatarImage = UIImage(named: "ic_home_nor")
+    category = ""
   }
   
   func clearAvatarImageCache() {

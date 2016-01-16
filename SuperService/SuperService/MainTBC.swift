@@ -30,6 +30,17 @@ class MainTBC: UITabBarController {
     if AccountManager.sharedInstance().userID.isEmpty {
       showLogin()
     } else {
+      let userID = AccountManager.sharedInstance().userID
+      print("EaseMob Login Name: \(userID)")
+      let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+      print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+      EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
+      print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+      if error != nil {
+        showHint(error.debugDescription)
+      }
+//      EaseMob.sharedInstance().chatManager.enableAutoLogin!()
+      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
       checkVersion()
     }
   }
@@ -41,12 +52,42 @@ class MainTBC: UITabBarController {
   // MARK: - Private
   
   private func showLogin() {
+    // 清理系统缓存
+    AccountManager.sharedInstance().clearAccountCache()
+    
+    // 消除订阅云巴频道
+    unregisterYunBaTopic()
+    
+    // 登出环信
+    EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
+    let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+    print("登出前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    EaseMob.sharedInstance().chatManager.logoffWithUnbindDeviceToken(true, error: error)
+    print("登出后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    self.hideHUD()
+    if error != nil {
+      self.showHint(error.debugDescription)
+    } else {
+      NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+    }
+    
     let loginVC = StaffLoginVC()
     let nv = BaseNavigationController(rootViewController: loginVC)
-//    nv.navigationBar.barTintColor = UIColor.ZKJS_themeColor()
-//    nv.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//    nv.navigationBar.translucent = false
     presentViewController(nv, animated: true, completion: nil)
+  }
+  
+  private func unregisterYunBaTopic() {
+    let locid = AccountManager.sharedInstance().beaconLocationIDs
+    let topicArray = locid.componentsSeparatedByString(",")
+    for topic in topicArray {
+      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
+        if success {
+          print("[result] unsubscribe to topic(\(topic)) succeed")
+        } else {
+          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+        }
+      }
+    }
   }
   
   private func setupView() {
@@ -327,6 +368,8 @@ extension MainTBC: IChatManagerDelegate {
   
   func didLoginFromOtherDevice() {
     NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+    showLogin()
+    ZKJSTool.showMsg("账号在别处登录，请重新重录。")
   }
   
   func didRemovedFromServer() {

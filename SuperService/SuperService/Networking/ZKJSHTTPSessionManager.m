@@ -490,7 +490,7 @@
   } success:^(NSURLSessionDataTask *  task, id   responseObject) {
     NSLog(@"%@", [responseObject description]);
     if ([self isValidTokenWithObject:responseObject]) {
-      [self loginEaseMob];
+//      [self loginEaseMob];
       success(task, responseObject);
     }
   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {

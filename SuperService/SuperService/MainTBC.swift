@@ -39,10 +39,9 @@ class MainTBC: UITabBarController {
       if error != nil {
         showHint(error.debugDescription)
       }
-//      EaseMob.sharedInstance().chatManager.enableAutoLogin!()
       EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
-      checkVersion()
     }
+    checkVersion()
   }
   
   deinit {

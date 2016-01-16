@@ -108,6 +108,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     showHUDInView(view, withLoading: "正在退出登录...")
     // 清理系统缓存
     AccountManager.sharedInstance().clearAccountCache()
+    AccountManager.sharedInstance().clearAvatarImageCache()
     
     // 消除订阅云巴频道
     unregisterYunBaTopic()

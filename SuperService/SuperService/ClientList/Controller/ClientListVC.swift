@@ -64,7 +64,6 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     view.addSubview(emptyLabel)
     
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
-    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
     tableView.mj_header.beginRefreshing()
 
     loadData()

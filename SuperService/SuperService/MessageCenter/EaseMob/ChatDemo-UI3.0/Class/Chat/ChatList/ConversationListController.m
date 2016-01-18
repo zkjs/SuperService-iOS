@@ -32,7 +32,7 @@
   
   self.title = @"消息";
   
-  [self setupRightBarButton];
+//  [self setupRightBarButton];
   
   [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
   

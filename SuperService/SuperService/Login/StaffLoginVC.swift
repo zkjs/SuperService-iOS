@@ -145,12 +145,13 @@ class StaffLoginVC: UIViewController {
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
+                self.showHUDInView(self.view, withLoading: "")
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 self.loginEaseMob()
-                self.showHUDInView(self.view, withLoading: "")
                 self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
                 ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+                  print(responseObject)
                   self.hideHUD()
                   if let category = responseObject["category"] as? String {
                     AccountManager.sharedInstance().saveCategory(category)

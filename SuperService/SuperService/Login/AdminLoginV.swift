@@ -64,11 +64,11 @@ class AdminLoginV: UIViewController {
       if let dict = responseObject as? NSDictionary {
         if let set = dict["set"] as? Bool {
           if set {
+            self.showHUDInView(self.view, withLoading: "")
             // 缓存用户信息
             self.loginEaseMob()
             AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
             self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
-            self.showHUDInView(self.view, withLoading: "")
             ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
               self.hideHUD()
               print(responseObject)

@@ -100,6 +100,8 @@ class ArrivalCell: UITableViewCell {
             let orderInfo = "\(orderRoom) | \(checkIn) | \(checkInDate)"
             orderButton.setTitle(orderInfo, forState: .Normal)
         }
+      } else {
+        orderButton.setTitle("无订单", forState: .Normal)
       }
     } else {
       orderButton.setTitle("无订单", forState: .Normal)

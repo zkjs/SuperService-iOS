@@ -169,6 +169,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     if let name = employee.name {
       chatterName = name
     }
+    print(chatterID)
     let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
     let userName = AccountManager.sharedInstance().userName
     vc.title = chatterName

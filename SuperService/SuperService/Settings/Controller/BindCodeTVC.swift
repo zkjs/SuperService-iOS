@@ -27,6 +27,13 @@ class BindCodeTVC: UITableViewController {
     tableView.mj_header.beginRefreshing()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    page = 1
+    codeArray.removeAll()
+    loadData(page)
+  }
+  
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return 1
   }

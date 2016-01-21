@@ -57,16 +57,16 @@ class ArrivalCell: UITableViewCell {
   // MARK: - Private
   
   func setData(data: [String: AnyObject]) {
-    var userLevel = ""
+//    var userLevel = ""
     var userName = ""
     var userLocation = ""
     
     // 客户信息
-    if let level = data["userApplevel"] as? NSNumber {
-      userLevel = "VIP\((level.integerValue + 1))"
-    } else {
-      userLevel = "新客户"
-    }
+//    if let level = data["userApplevel"] as? NSNumber {
+//      userLevel = "VIP\((level.integerValue + 1))"
+//    } else {
+//      userLevel = "新客户"
+//    }
     
     if let name = data["userName"] as? String {
       userName = name

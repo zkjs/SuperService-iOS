@@ -340,15 +340,15 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   
   func textFieldDidEndEditing(textField: UITextField) {
     if textField == amountTextField {
-      if let amountText = amountTextField.text {
-        if let amount = Double(amountText) {
+//      if let amountText = amountTextField.text {
+//        if let amount = Double(amountText) {
 //          order.room_rate = NSNumber(double: amount)
-        } else {
+//        } else {
 //          order.room_rate = NSNumber(double: 0)
-        }
-      } else {
+//        }
+//      } else {
 //        order.room_rate = NSNumber(double: 0)
-      }
+//      }
     }
   }
   

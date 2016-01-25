@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StaffLoginVC" customModule="SuperService" customModuleProvider="target">
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hotel_zhanwei" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-GK-IOo">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-GK-IOo">
                     <rect key="frame" x="255" y="30" width="90" height="90"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="DVJ-zV-ehB"/>
@@ -126,6 +126,6 @@
         </view>
     </objects>
     <resources>
-        <image name="img_hotel_zhanwei" width="90" height="90"/>
+        <image name="default_logo" width="77" height="64"/>
     </resources>
 </document>

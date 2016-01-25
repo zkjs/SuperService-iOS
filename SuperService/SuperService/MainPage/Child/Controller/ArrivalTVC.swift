@@ -109,4 +109,100 @@ class ArrivalTVC: UITableViewController {
     return cell
   }
   
+  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return true
+  }
+  
+  override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    let data = dataArray[indexPath.row]
+    let chatterID = data["userId"] as! String
+    let chatterName = data["userName"] as! String
+    let phoneNumber = data["phone"] as! String
+//    let orderNO = data["orderno"] as! String
+//    let orderstatus = data["orderstatus"] as! String
+    
+    let chat = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "聊天", handler: {
+      Void in
+      
+      let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
+      let userName = AccountManager.sharedInstance().userName
+      vc.title = chatterName
+      vc.hidesBottomBarWhenPushed = true
+      // 扩展字段
+      let ext = ["toName": chatterName,
+        "fromName": userName]
+      vc.conversation.ext = ext
+      self.navigationController?.pushViewController(vc, animated: true)
+    })
+   
+    
+    let phone = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "电话", handler: {
+      Void in
+      let phoneURL = NSURL(string: "tel://\(phoneNumber)")
+      UIApplication.sharedApplication().openURL(phoneURL!)
+      
+    })
+      
+      let detail = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "订单详情", handler: {
+        Void in
+        print("Click the OrderDetailView ")
+//        let index = orderNO.startIndex.advancedBy(1)
+//        let type = orderNO.substringToIndex(index)
+//        if type == "H" {
+//          if orderstatus == "待支付" || orderstatus == "待处理" || orderstatus == "待确认"{
+//            let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
+//            vc.orderno = orderNO
+//            vc.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(vc, animated: true)
+//          } else {
+//            let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
+//            vc.orderno = orderNO
+//            vc.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(vc, animated: true)
+//          }
+//          
+//        }
+//        if type == "O" {
+//          if orderstatus == "待支付" || orderstatus == "待处理" || orderstatus == "待确认"{
+//            let storyboard = UIStoryboard(name: "LeisureTVC", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureTVC") as! LeisureTVC
+//            vc.orderno = orderNO
+//            vc.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(vc, animated: true)
+//          } else {
+//            let storyboard = UIStoryboard(name: "LeisureOrderDetailTVC", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureOrderDetailTVC") as! LeisureOrderDetailTVC
+//            vc.orderno = orderNO
+//            vc.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(vc, animated: true)
+//          }
+//          
+//        }
+//        if type == "K" {
+//          if orderstatus == "待支付" || orderstatus == "待处理" || orderstatus == "待确认"{
+//            let storyboard = UIStoryboard(name: "KTVTableView", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("KTVTableView") as! KTVTableView
+//            vc.orderno = orderNO
+//            vc.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(vc, animated: true)
+//          } else {
+//            let storyboard = UIStoryboard(name: "KTVOrderDetailTVC", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("KTVOrderDetailTVC") as! KTVOrderDetailTVC
+//            vc.orderno = orderNO
+//            vc.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(vc, animated: true)
+//          }
+//        }
+      
+    })
+    chat.backgroundColor = UIColor.hx_colorWithHexString("#7AD1F9")
+    phone.backgroundColor = UIColor.hx_colorWithHexString("#5EC3F8")
+    detail.backgroundColor = UIColor.hx_colorWithHexString("#03A9F4")
+  
+    return [chat, phone,detail]
+  }
+  
+  
 }

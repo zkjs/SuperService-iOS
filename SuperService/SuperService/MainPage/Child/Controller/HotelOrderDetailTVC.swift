@@ -29,7 +29,7 @@ class HotelOrderDetailTVC:  UITableViewController {
   
   var orderno: String!
   var order = OrderModel()
-  
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -137,6 +137,7 @@ class HotelOrderDetailTVC:  UITableViewController {
     return header
   }
 
+  
   
   @IBAction func orderEnd(sender: AnyObject) {
     if order.orderno == nil {

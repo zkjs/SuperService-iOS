@@ -19,8 +19,10 @@ class ArrivalCell: UITableViewCell {
   @IBOutlet weak var orderButton: UIButton!
   @IBOutlet weak var statusImageView: UIImageView!
   
+  @IBOutlet weak var chatButton: UIButton!
+  @IBOutlet weak var PhoneCall: UIButton!
   var phone = ""
-  
+  var sex = ""
   
   class func reuseIdentifier() -> String {
     return "ArrivalCell"
@@ -31,7 +33,7 @@ class ArrivalCell: UITableViewCell {
   }
   
   class func height() -> CGFloat {
-    return 140
+    return 167
   }
   
   override func awakeFromNib() {
@@ -61,6 +63,7 @@ class ArrivalCell: UITableViewCell {
     var userName = ""
     var userLocation = ""
     
+    
     // 客户信息
     if let level = data["userApplevel"] as? NSNumber {
       userLevel = "VIP\((level.integerValue + 1))"
@@ -74,6 +77,10 @@ class ArrivalCell: UITableViewCell {
     
     if let phone = data["phone"] as? String {
       self.phone = phone
+    }
+    
+    if let sex = data["sex"] as? String {
+      self.sex = sex
     }
     
     if let userID = data["userId"] as? String {
@@ -107,20 +114,21 @@ class ArrivalCell: UITableViewCell {
       orderButton.setTitle("无订单", forState: .Normal)
     }
     
-    // 多久以前
+    
     if let dateString = data["created"] as? String {
       let dateFormat = NSDateFormatter()
       dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
       if let date = dateFormat.dateFromString(dateString) {
-        timeAgoLabel.text = date.timeAgoSinceNow()
+        dateFormat.dateFormat = "HH:mm"
+        timeAgoLabel.text = dateFormat.stringFromDate(date)
       }
     }
+
     
-    // 提示信息
-    infoLabel.text = "请准备好为其服务"
+    
     
     // 随机颜色的小图标
-    statusImageView.backgroundColor = UIColor(randomFlatColorOfShadeStyle: .Light)
+//    statusImageView.backgroundColor = UIColor(randomFlatColorOfShadeStyle: .Light)
   }
   
 }

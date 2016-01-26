@@ -14,7 +14,7 @@
                             <items>
                                 <group width="80" height="80" alignment="center" layout="vertical" radius="40" id="XbO-f0-k23">
                                     <items>
-                                        <imageView width="80" height="80" alignment="center" image="ic_home_nor" id="DAc-fi-q6B"/>
+                                        <imageView width="80" height="80" alignment="center" image="default_logo" contentMode="scaleAspectFit" id="DAc-fi-q6B"/>
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>

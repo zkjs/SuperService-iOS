@@ -34,7 +34,7 @@
   NSString *domain = kImageURL;
   NSString *avatarURLPath = [domain stringByAppendingString:urlString];
   NSURL *url = [[NSURL alloc] initWithString:avatarURLPath];
-  [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ic_home_nor"]];
+  [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_logo"]];
 }
 
 @end

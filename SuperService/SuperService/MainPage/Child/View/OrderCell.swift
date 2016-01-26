@@ -38,7 +38,7 @@ class OrderCell: UITableViewCell {
     if let userID = order.userid {
       var url = NSURL(string: kImageURL)
       url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
-      avatarButton.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+      avatarButton.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
     }
     
     // 订单状态 | 支付状态

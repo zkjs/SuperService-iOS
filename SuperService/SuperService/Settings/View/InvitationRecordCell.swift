@@ -39,7 +39,7 @@ class InvitationRecordCell: UITableViewCell {
 //    let url = NSURL(string: kImageURL)
 //    let urlStr = url?.URLByAppendingPathComponent("uploads/users/\(userID!).jpg")
 //     print(urlStr)
-//    invitationerImageView.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "img_hotel_zhanwei"))
+//    invitationerImageView.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "default_logo"))
   
   }
 

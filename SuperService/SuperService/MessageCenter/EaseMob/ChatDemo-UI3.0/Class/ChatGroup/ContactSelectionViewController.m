@@ -247,7 +247,7 @@
   
   EaseUserModel *model = [[_dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 //  NSURL *url = [[NSURL alloc] initWithString:model.avatarURLPath];
-//  [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ic_home_nor"]];
+//  [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_logo"]];
 //  cell.textLabel.text = model.nickname;
   cell.username = model.buddy.username;
   cell.nickname = model.nickname;
@@ -387,7 +387,7 @@
     EaseUserModel *model = [self.selectedContacts objectAtIndex:i];
     EMRemarkImageView *remarkView = [[EMRemarkImageView alloc] initWithFrame:CGRectMake(i * imageSize, 0, imageSize, imageSize)];
     NSURL *url = [[NSURL alloc] initWithString:model.avatarURLPath];
-    [remarkView.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ic_home_nor"]];
+    [remarkView.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_logo"]];
     remarkView.remark = model.nickname;
     [self.footerScrollView addSubview:remarkView];
   }

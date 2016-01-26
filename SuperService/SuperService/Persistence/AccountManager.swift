@@ -32,7 +32,7 @@ class AccountManager: NSObject {
   private(set) var url = ""
   private(set) var phone = ""
   private(set) var avatarImageData = NSData()
-  private(set) var avatarImage = UIImage(named: "ic_home_nor")
+  private(set) var avatarImage = UIImage(named: "default_logo")
   private(set) var category = ""
 
   class func sharedInstance() -> AccountManager {
@@ -155,7 +155,7 @@ class AccountManager: NSObject {
     url = ""
     phone = ""
     avatarImageData = NSData()
-    avatarImage = UIImage(named: "ic_home_nor")
+    avatarImage = UIImage(named: "default_logo")
     category = ""
   }
   

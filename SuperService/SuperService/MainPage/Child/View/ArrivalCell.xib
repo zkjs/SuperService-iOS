@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,7 +16,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E07-XU-cWl" userLabel="Top Line Image View">
                         <rect key="frame" x="18" y="0.0" width="1" height="60"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.87450980392156863" green="0.87058823529411766" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="0QV-5O-xWN"/>
@@ -24,7 +23,6 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_right" translatesAutoresizingMaskIntoConstraints="NO" id="hqM-Mz-hz0" userLabel="Status Image View">
                         <rect key="frame" x="8" y="60" width="20" height="20"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="K9V-kz-EdT"/>
@@ -38,7 +36,6 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Axp-8v-4KB" userLabel="Bottom Line Image View">
                         <rect key="frame" x="18" y="80" width="1" height="59"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="S58-JM-91b"/>
@@ -49,7 +46,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP3 林先生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uII-aj-A9K" userLabel="Client Info Label">
                                 <rect key="frame" x="56" y="8" width="77" height="17"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="FJ3-Y3-8Ai"/>
                                 </constraints>
@@ -59,7 +55,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到达大堂" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-lb-VRW" userLabel="Location Label">
                                 <rect key="frame" x="141" y="8" width="56" height="17"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="DhH-B0-C1k"/>
                                 </constraints>
@@ -69,7 +64,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要办理免前台入住" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeG-bp-zZn">
                                 <rect key="frame" x="56" y="29" width="126" height="17"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="IOZ-oB-0t7"/>
                                 </constraints>
@@ -79,7 +73,6 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="qWY-SR-Uur" userLabel="Time Ago Image View">
                                 <rect key="frame" x="13" y="102" width="12" height="12"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="IHb-qs-N1h"/>
                                     <constraint firstAttribute="width" constant="12" id="fq6-pt-q7I"/>
@@ -87,7 +80,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15分钟前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtI-fP-5hz" userLabel="Time Ago Label">
                                 <rect key="frame" x="33" y="100" width="53" height="16"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="Uih-DD-a1Q"/>
                                 </constraints>
@@ -97,7 +89,6 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcC-1r-qDQ" userLabel="Phone Call Button">
                                 <rect key="frame" x="259" y="93" width="30" height="30"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="MxC-VJ-dsy"/>
                                     <constraint firstAttribute="height" constant="30" id="ce3-Kw-cTz"/>
@@ -109,7 +100,6 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjQ-QH-5VM" userLabel="Chat Button">
                                 <rect key="frame" x="289" y="93" width="0.0" height="30"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="t4T-zN-WlK"/>
                                     <constraint firstAttribute="height" constant="30" id="zqY-Y8-aVn"/>
@@ -118,7 +108,6 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMY-T1-ezj" userLabel="Forward Button">
                                 <rect key="frame" x="289" y="93" width="0.0" height="30"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8yB-co-2SN"/>
                                     <constraint firstAttribute="width" id="Kuc-tJ-UFv"/>
@@ -127,12 +116,11 @@
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-qv-urQ" userLabel="Avatar Button">
                                 <rect key="frame" x="8" y="8" width="40" height="40"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="4Sh-Sz-6BU"/>
                                     <constraint firstAttribute="height" constant="40" id="Nwc-Lv-tJW"/>
                                 </constraints>
-                                <state key="normal" image="img_hotel_zhanwei"/>
+                                <state key="normal" image="default_logo"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
@@ -140,7 +128,6 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MMY-T1-ezj" secondAttribute="bottom" id="4jj-5h-kTB"/>
@@ -165,7 +152,6 @@
                     </view>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cue-tX-dOZ" userLabel="Order Button">
                         <rect key="frame" x="92" y="64" width="168" height="33"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="d0o-FV-crX"/>
@@ -182,7 +168,6 @@
                         </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
-                <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="hqM-Mz-hz0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2im-X8-Kk6"/>
@@ -202,7 +187,6 @@
                     <constraint firstItem="E07-XU-cWl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="x77-qb-dvj"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="avatarImageView" destination="PSV-qv-urQ" id="Dnu-cR-QYH"/>
@@ -218,11 +202,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="default_logo" width="77" height="64"/>
         <image name="ic_clock" width="12" height="12"/>
         <image name="ic_dianhua_b" width="10" height="15"/>
         <image name="ic_duihua_b" width="16" height="16"/>
         <image name="ic_right" width="12" height="8"/>
         <image name="ic_zhuanfa" width="15" height="13"/>
-        <image name="img_hotel_zhanwei" width="90" height="90"/>
     </resources>
 </document>

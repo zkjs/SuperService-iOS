@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SetUpVC" customModule="SuperService" customModuleProvider="target">
@@ -20,7 +20,6 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="或取个新昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mJD-Ku-Aak">
                     <rect key="frame" x="174" y="159" width="144" height="44"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="RSg-0A-vCJ"/>
                         <constraint firstAttribute="width" constant="144" id="eLV-YA-Okb"/>
@@ -30,19 +29,17 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cA-kb-xeY">
                     <rect key="frame" x="255" y="30" width="90" height="90"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="XAg-5d-GAI"/>
                         <constraint firstAttribute="width" constant="90" id="ief-oT-es9"/>
                     </constraints>
-                    <state key="normal" image="img_hotel_zhanwei"/>
+                    <state key="normal" image="default_logo"/>
                     <connections>
                         <action selector="checkoutImage:" destination="-1" eventType="touchUpInside" id="XmD-oy-DJc"/>
                     </connections>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7dB-uH-3o6">
                     <rect key="frame" x="341" y="167" width="89" height="29"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="89" id="lpO-0A-CAc"/>
                         <constraint firstAttribute="height" constant="28" id="nGa-wd-Q6r"/>
@@ -57,7 +54,6 @@
                     </connections>
                 </segmentedControl>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3cA-kb-xeY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="75T-SS-Had"/>
@@ -71,6 +67,6 @@
         </view>
     </objects>
     <resources>
-        <image name="img_hotel_zhanwei" width="90" height="90"/>
+        <image name="default_logo" width="77" height="64"/>
     </resources>
 </document>

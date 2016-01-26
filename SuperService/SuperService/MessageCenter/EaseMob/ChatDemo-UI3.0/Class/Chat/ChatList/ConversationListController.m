@@ -284,7 +284,7 @@
       for (EMGroup *group in groupArray) {
         if ([group.groupId isEqualToString:conversation.chatter]) {
           model.title = group.groupSubject;
-          model.avatarImage = [UIImage imageNamed:@"img_hotel_zhanwei"];
+          model.avatarImage = [UIImage imageNamed:@"default_logo"];
           
           NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:conversation.ext];
           [ext setObject:group.groupSubject forKey:@"groupSubject"];
@@ -309,7 +309,7 @@
         }
       }
       model.title = [conversation.ext objectForKey:@"groupSubject"];
-      model.avatarImage = [UIImage imageNamed:@"img_hotel_zhanwei"];
+      model.avatarImage = [UIImage imageNamed:@"default_logo"];
     }
   }
   NSLog(@"%@", model.title);

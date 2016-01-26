@@ -197,6 +197,39 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     submitOrder()
   }
   
+  @IBAction func cancleOrder(sender: AnyObject) {
+    ZKJSJavaHTTPSessionManager.sharedInstance().cancleOrderWithOrderNo(order.orderno, success: { (task: NSURLSessionDataTask!, responsObjects:AnyObject!)-> Void in
+      if let dic = responsObjects as? NSDictionary {
+        self.orderno = dic["data"] as! String
+        if let result = dic["result"] as? NSNumber {
+          if result.boolValue == true {
+            self.sendMessageNotificationWithOderNO(self.order.orderno)
+            self.navigationController?.popViewControllerAnimated(true)
+          }
+        }
+      }
+      }) { (task: NSURLSessionDataTask!, eeror: NSError!) -> Void in
+        
+    }
+
+  }
+  
+  func sendMessageNotificationWithOderNO(orderno: String) {
+    let shopID = AccountManager.sharedInstance().shopID
+    if let clientID = order.userid {
+      let cmdChat = EMChatCommand()
+      cmdChat.cmd = "cancleOrder"
+      let body = EMCommandMessageBody(chatObject: cmdChat)
+      let message = EMMessage(receiver: clientID, bodies: [body])
+      message.ext = ["shopId": shopID,
+        "orderNo": orderno]
+      message.messageType = .eMessageTypeChat
+      EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
+    }
+    
+  }
+
+  
   func choosePayStatus() {
     let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: .ActionSheet)
     for index in 1..<paytypeArray.count {

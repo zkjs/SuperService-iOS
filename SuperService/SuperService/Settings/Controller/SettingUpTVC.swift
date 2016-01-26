@@ -20,6 +20,7 @@ class SettingUpTVC: UITableViewController {
     title = "设置"
    
     telphoneLabel.text = AccountManager.sharedInstance().phone
+    organizationLabel.text = AccountManager.sharedInstance().shopName
     
   }
   

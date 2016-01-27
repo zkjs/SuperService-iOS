@@ -56,7 +56,6 @@ class AdminLoginV: UIViewController {
       return
     }
     
-    // 14000800924:123456
     showHUDInView(view, withLoading: "")
     ZKJSHTTPSessionManager.sharedInstance().adminLoginWithPhone(phone, password: password,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       self.hideHUD()
@@ -133,8 +132,8 @@ extension AdminLoginV: UITextFieldDelegate {
         return true
       }
     } else if textField == passwordTextField {
-      // 验证码6位
-      if range.location + string.characters.count <= 6 {
+      // 密码最多20位
+      if range.location + string.characters.count <= 20 {
         return true
       }
     }

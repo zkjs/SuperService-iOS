@@ -42,6 +42,12 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     tableView.mj_header.beginRefreshing()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    refresh()
+  }
+  
   // MARK: - XLPagerTabStripChildItem Delegate
   
   func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {

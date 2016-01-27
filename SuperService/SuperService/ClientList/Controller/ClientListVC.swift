@@ -65,7 +65,12 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
     tableView.mj_header.beginRefreshing()
-
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    clientArray.removeAll()
     loadData()
   }
   
@@ -108,6 +113,8 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
       if let set = headDic["set"] as? NSNumber {
         if set.boolValue == false {
           self.emptyLabel.hidden = false
+        } else {
+          self.emptyLabel.hidden = true
         }
       }
       if let array = dic["data"] as? NSArray {

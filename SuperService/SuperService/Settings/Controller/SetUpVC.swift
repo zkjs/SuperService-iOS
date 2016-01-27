@@ -109,10 +109,11 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 extension SetUpVC: WPMediaPickerViewControllerDelegate {
   
   func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
-    let set = assets.first as! ALAsset
-    let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
-    avatarButton.setImage(image, forState: .Normal)
-    imageData = UIImageJPEGRepresentation(image, 0.8)!
+    if let set = assets.first as? ALAsset {
+      let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
+      avatarButton.setImage(image, forState: .Normal)
+      imageData = UIImageJPEGRepresentation(image, 0.8)!
+    }
     dismissViewControllerAnimated(true, completion: nil)
   }
   

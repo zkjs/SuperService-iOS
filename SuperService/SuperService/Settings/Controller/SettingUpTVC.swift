@@ -72,8 +72,35 @@ class SettingUpTVC: UITableViewController {
   }
   
   func selectedIamge(sender:UIButton) {
-    let vc = SetUpVC()
-    navigationController?.pushViewController(vc, animated: true)
+//    let vc = SetUpVC()
+//    navigationController?.pushViewController(vc, animated: true)
+    showPhotoPicker()
+  }
+  
+  func showPhotoPicker() {
+    let mediaPicker = WPMediaPickerViewController()
+    mediaPicker.delegate = self
+    mediaPicker.filter = WPMediaType.Image
+    mediaPicker.allowMultipleSelection = false
+    presentViewController(mediaPicker, animated: true, completion: nil)
+  }
+  
+}
+
+extension SettingUpTVC: WPMediaPickerViewControllerDelegate {
+  
+  func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
+    if let set = assets.first as? ALAsset {
+      let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
+      let imageData = UIImageJPEGRepresentation(image, 0.8)!
+      AccountManager.sharedInstance().saveAvatarImageData(imageData)
+      self.tableView.reloadData()
+    }
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
 }

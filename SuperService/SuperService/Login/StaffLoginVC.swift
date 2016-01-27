@@ -137,7 +137,6 @@ class StaffLoginVC: UIViewController {
   func login() {
     showHUDInView(view, withLoading: "")
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
-      self.hideHUD()
       if (success == true) {
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
@@ -146,14 +145,12 @@ class StaffLoginVC: UIViewController {
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
-                self.showHUDInView(self.view, withLoading: "")
                 // 缓存用户信息
                 AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 self.loginEaseMob()
                 self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
                 ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                   print(responseObject)
-                  self.hideHUD()
                   if let category = responseObject["category"] as? String {
                     AccountManager.sharedInstance().saveCategory(category)
                     let url = AccountManager.sharedInstance().url
@@ -164,13 +161,15 @@ class StaffLoginVC: UIViewController {
                     } else {
                       self.dismissViewControllerAnimated(true, completion: nil)
                     }
+                    self.hideHUD()
                   }
                   }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-                    
+                    self.hideHUD()
                 })
               } else {
                 if let err = dict["err"] as? NSNumber {
                   if err.integerValue == 406 {
+                    self.hideHUD()
                     self.showHint("手机号还不是服务员")
                   }
                 }
@@ -181,6 +180,7 @@ class StaffLoginVC: UIViewController {
             
         }
       } else {
+        self.hideHUD()
         self.showHint("验证码不正确")
       }
     }

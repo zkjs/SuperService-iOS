@@ -41,6 +41,7 @@ class StaffLoginVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    unregisterYunBaTopic()
     checkVersion()
   }
   
@@ -197,6 +198,20 @@ class StaffLoginVC: UIViewController {
             print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
           }
         }
+    }
+  }
+  
+  func unregisterYunBaTopic() {
+    let locid = AccountManager.sharedInstance().beaconLocationIDs
+    let topicArray = locid.componentsSeparatedByString(",")
+    for topic in topicArray {
+      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
+        if success {
+          print("[result] unsubscribe to topic(\(topic)) succeed")
+        } else {
+          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+        }
+      }
     }
   }
   

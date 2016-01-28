@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddSalesVC" customModule="SVIP" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddSalesVC" customModule="SuperService" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="1MF-3i-JDQ" id="VKe-sv-2qj"/>
                 <outlet property="lastLoginLabel" destination="Xgm-jE-j3M" id="aWu-fX-UBy"/>
@@ -52,7 +52,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEI-6f-y2l">
                     <rect key="frame" x="0.0" y="552" width="600" height="48"/>
-                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="LA1-2a-ev7"/>
                     </constraints>
@@ -106,6 +106,6 @@
         </view>
     </objects>
     <resources>
-        <image name="default_logo" width="51" height="42"/>
+        <image name="default_logo" width="77" height="64"/>
     </resources>
 </document>

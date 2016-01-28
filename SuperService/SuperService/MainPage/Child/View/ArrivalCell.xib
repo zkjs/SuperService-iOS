@@ -97,7 +97,7 @@
                                     <constraint firstAttribute="width" constant="40" id="4Sh-Sz-6BU"/>
                                     <constraint firstAttribute="height" constant="40" id="Nwc-Lv-tJW"/>
                                 </constraints>
-                                <state key="normal" image="img_hotel_zhanwei"/>
+                                <state key="normal" image="default_logo"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
@@ -255,11 +255,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="default_logo" width="77" height="64"/>
         <image name="ic_phone_blue" width="11" height="11"/>
         <image name="ic_right_blue" width="9" height="16"/>
         <image name="ic_xiaoxi_blue" width="12" height="11"/>
         <image name="ic_zhuanfa" width="15" height="13"/>
-        <image name="img_hotel_zhanwei" width="90" height="90"/>
         <image name="list_gou_blue" width="18" height="18"/>
     </resources>
 </document>

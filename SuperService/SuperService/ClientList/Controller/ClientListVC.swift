@@ -65,9 +65,15 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
     tableView.mj_header.beginRefreshing()
+    
+   
 
     loadData()
   }
+  
+
+
+
   
   // MARK: - XLPagerTabStripChildItem Delegate
   

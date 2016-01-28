@@ -289,6 +289,9 @@
 		FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */; };
 		FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
+		FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */; };
+		FAEDFD481C58B84B00AAEEEF /* AddSalesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */; };
+		FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */; };
 		FAF019911BE1B09100E67ECD /* DepartmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */; };
 		FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */; };
 		FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */; };
@@ -831,6 +834,9 @@
 		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureOrderDetailTVC.storyboard; path = ../../LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
+		FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesVC.swift; sourceTree = "<group>"; };
+		FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSalesVC.xib; sourceTree = "<group>"; };
+		FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GusterModel.swift; sourceTree = "<group>"; };
 		FAF019901BE1B09100E67ECD /* DepartmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentHeaderView.swift; sourceTree = "<group>"; };
 		FAF019921BE1B0B500E67ECD /* DepartmentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentHeaderView.xib; sourceTree = "<group>"; };
 		FAF019941BE1B2F200E67ECD /* DepartmentFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentFooterView.swift; sourceTree = "<group>"; };
@@ -2124,6 +2130,8 @@
 			children = (
 				40F757421BE054160053C2BE /* ClientListVC.swift */,
 				40F757431BE054160053C2BE /* ClientListVC.xib */,
+				FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */,
+				FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */,
 				40CAA5FD1BE7810800FAFDA0 /* InquiryVC.swift */,
 				40CAA5FE1BE7810800FAFDA0 /* InquiryVC.xib */,
 			);
@@ -2134,6 +2142,7 @@
 			isa = PBXGroup;
 			children = (
 				40F757441BE054160053C2BE /* ClientModel.swift */,
+				FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2309,6 +2318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */,
+				FAEDFD481C58B84B00AAEEEF /* AddSalesVC.xib in Resources */,
 				40F757591BE054550053C2BE /* OrderTVC.xib in Resources */,
 				4023F7391C1D598D0057351E /* UnbindCodeTVC.xib in Resources */,
 				FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */,
@@ -2439,6 +2449,7 @@
 				40F757581BE054550053C2BE /* OrderTVC.swift in Sources */,
 				40F7574B1BE054160053C2BE /* ClientModel.swift in Sources */,
 				FAF101BF1C04029900FC3672 /* EmployeeVC.swift in Sources */,
+				FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */,
 				40F757731BE0553E0053C2BE /* SettingsHeaderView.swift in Sources */,
 				FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */,
 				40FB3D0A1C00203900675044 /* EMCDDeviceManager+Remind.m in Sources */,
@@ -2474,6 +2485,7 @@
 				40FB3D1D1C00203900675044 /* EMSDWebImageDecoder.m in Sources */,
 				40FB3D2A1C00203900675044 /* UIView+EMWebCacheOperation.m in Sources */,
 				40C8416A1C102C3D003E8037 /* GroupSubjectChangingViewController.m in Sources */,
+				FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */,
 				40FB3D4B1C00203900675044 /* EaseLocationViewController.m in Sources */,
 				40FB3D231C00203900675044 /* NSData+EMImageContentType.m in Sources */,
 				40FB3D391C00203900675044 /* EaseSDKHelper.m in Sources */,

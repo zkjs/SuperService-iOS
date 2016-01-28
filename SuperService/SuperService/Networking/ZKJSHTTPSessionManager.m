@@ -816,4 +816,40 @@
   }];
 }
 
+#pragma mark - 根据电话查询用户
+- (void)checkGusterWithPhone:(NSString *)phone Success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self POST:@"semp/aubdts" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    //  NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+}
+
+#pragma mark - 服务员发起绑定客人
+- (void)userAddwaiterWithSalesID:(NSString *) salesID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  
+  [self POST:@"semp/addfuser" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [formData appendPartWithFormData:[[self userID] dataUsingEncoding:NSUTF8StringEncoding] name:@"salesid"];
+    [formData appendPartWithFormData:[salesID dataUsingEncoding:NSUTF8StringEncoding] name:@"fuid"];
+    [formData appendPartWithFormData:[[self shopID] dataUsingEncoding:NSUTF8StringEncoding] name:@"shopid"];
+    [formData appendPartWithFormData:[[self token] dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
+  } success:^(NSURLSessionDataTask *task, id responseObject) {
+    //  NSLog(@"%@", [responseObject description]);
+    if ([self isValidTokenWithObject:responseObject]) {
+      success(task, responseObject);
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error.description);
+    failure(task, error);
+  }];
+  
+}
+
 @end

@@ -189,7 +189,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     let indexRow = tag - indexSection*1000
     let vc = EmployeeVC()
     let section = sections[indexSection]
-    let client = section[indexRow] as! ClientModel
+    let client = section[indexRow] as! AddClientModel
     vc.type = EmployeeVCType.client
     vc.client = client
     vc.hidesBottomBarWhenPushed = true
@@ -200,7 +200,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     if type == ClientListVCType.detail {
       let section = sections[indexPath.section]
-      let client = section[indexPath.row] as! ClientModel
+      let client = section[indexPath.row] as! AddClientModel
       var chatterName = ""
       guard let chatterID = client.userid else { return }
       if let name = client.username {

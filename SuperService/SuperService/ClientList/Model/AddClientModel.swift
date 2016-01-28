@@ -34,10 +34,12 @@ class AddClientModel: NSObject {
     } else if let name = dic["username"] as? NSNumber {
       username = name.stringValue
     }
-    if let phoneNumber = dic["phone"] as? NSNumber {
+    
+    if let phoneNumber = dic["phone"] as? String {
+      phone = phoneNumber
+    } else if let phoneNumber = dic["phone"] as? NSNumber {
       phone = phoneNumber.stringValue
     }
-    
       sex = dic["sex"] as? String
       id = dic["id"] as? String
     

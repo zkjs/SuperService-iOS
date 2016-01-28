@@ -211,11 +211,23 @@ extension MainTBC: EMCallManagerDelegate {
     presentViewController(alertView, animated: true, completion: nil)
   }
   
+  func showAddSalesAlertWithClientInfo(clientInfo: [String: AnyObject]) {
+    let userName = clientInfo["userName"] as? String ?? ""
+    let alertMessage = "客人\(userName)已添加你为联系人."
+    let alertView = UIAlertController(title: "专属客服绑定", message: alertMessage, preferredStyle: .Alert)
+    let okAction = UIAlertAction(title: "确定", style: .Cancel, handler: nil)
+    alertView.addAction(okAction)
+    presentViewController(alertView, animated: true, completion: nil)
+  }
+  
   func didReceiveCmdMessage(cmdMessage: EMMessage!) {
     if let chatObject = cmdMessage.messageBodies.first?.chatObject as? EMChatCommand {
       if chatObject.cmd == "inviteAdd" {
         // 客人已绑定验证码
         self.showCodeAlertWithClientInfo(cmdMessage.ext as! [String: AnyObject])
+      } else if chatObject.cmd == "addSales" {
+        // 客人已添加销售
+        self.showAddSalesAlertWithClientInfo(cmdMessage.ext as! [String: AnyObject])
       }
     }
   }
@@ -227,6 +239,9 @@ extension MainTBC: EMCallManagerDelegate {
           if chatObject.cmd == "inviteAdd" {
             // 客人已绑定验证码
             self.showCodeAlertWithClientInfo(cmdMessage.ext as! [String: AnyObject])
+          } else if chatObject.cmd == "addSales" {
+            // 客人已添加销售
+            self.showAddSalesAlertWithClientInfo(cmdMessage.ext as! [String: AnyObject])
           }
         }
       }

@@ -93,38 +93,37 @@ class AddSalesVC: UIViewController {
         if let set = data["set"] as? Bool {
           if set == true {
             NSNotificationCenter.defaultCenter().postNotificationName("addWaiterSuccess", object: self)
+            self.hideHUD()
             self.showHint("添加成功")
             self.navigationController?.popViewControllerAnimated(true)
-            self.hideHUD()
           }
           else {
+            self.hideHUD()
             self.showHint("您已经添加过商家的服务员")
             self.navigationController?.popViewControllerAnimated(true)
-            self.hideHUD()
           }
         }
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        self.hideHUD()
         self.showHint("您已经添加过该服务员")
         self.navigationController?.popViewControllerAnimated(true)
-        self.hideHUD()
     }
   }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
+  func sendInvitationCodeNotification() {
+    // 发送环信透传消息
+    let userID = AccountManager.sharedInstance().userID
+    let userName = AccountManager.sharedInstance().userName
+    let cmdChat = EMChatCommand()
+    cmdChat.cmd = "addGuest"
+    let body = EMCommandMessageBody(chatObject: cmdChat)
+    let message = EMMessage(receiver: salesid, bodies: [body])
+    message.ext = [
+      "salesId": userID,
+      "salesName": userName]
+    message.messageType = .eMessageTypeChat
+    EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
+  }
 
 }

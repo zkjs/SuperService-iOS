@@ -245,15 +245,15 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func chooseClient() {
-    let vc = ClientListVC()
-    vc.type = ClientListVCType.order
-    vc.selection = { [unowned self] (client: ClientModel) ->() in
-      self.clientLabel.text = client.username
-      // 更新订单
-      self.order.userid = client.userid!
-      self.order.username = client.username!
-    }
-    navigationController?.pushViewController(vc, animated: true)
+//    let vc = ClientListVC()
+//    vc.type = ClientListVCType.order
+//    vc.selection = { [unowned self] (client: ClientModel) ->() in
+//      self.clientLabel.text = client.username
+//      // 更新订单
+//      self.order.userid = client.userid!
+//      self.order.username = client.username!
+//    }
+//    navigationController?.pushViewController(vc, animated: true)
   }
   
   func chooseDate() {

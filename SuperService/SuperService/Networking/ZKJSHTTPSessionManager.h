@@ -132,6 +132,14 @@
 #pragma mark - 获取指定商家的商品列表
 - (void)getShopGoodsListWithShopID:(NSString *)shopID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+#pragma mark - 根据电话查询用户
+- (void)checkGusterWithPhone:(NSString *)phone Success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+#pragma mark - 服务员发起绑定客人
+- (void)userAddwaiterWithSalesID:(NSString *) salesID success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+
+
 @end
 
 @protocol HTTPSessionManagerDelegate <NSObject>

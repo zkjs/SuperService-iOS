@@ -32,7 +32,7 @@ class EmployeeCell: UITableViewCell {
     phoneLabel.text = employee.phone!.stringValue
     tel = employee.phone!.stringValue
   }
-  func setdata(client:ClientModel) {
+  func setdata(client:AddClientModel) {
     phoneLabel.text = client.phone!
     tel = client.phone!
   }

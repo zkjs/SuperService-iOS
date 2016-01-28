@@ -280,6 +280,7 @@
 		842659491BE0A216005E82F2 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659481BE0A216005E82F2 /* MemberModel.swift */; };
 		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
 		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
+		FA0B7E151C5A05A200266615 /* AddClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0B7E141C5A05A200266615 /* AddClientModel.swift */; };
 		FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */; };
 		FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */; };
 		FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */; };
@@ -824,6 +825,7 @@
 		842659481BE0A216005E82F2 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		844E329B1BE065810024C678 /* AddMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberVC.swift; sourceTree = "<group>"; };
 		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
+		FA0B7E141C5A05A200266615 /* AddClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClientModel.swift; sourceTree = "<group>"; };
 		FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeCell.swift; sourceTree = "<group>"; };
 		FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeCell.xib; sourceTree = "<group>"; };
 		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
@@ -2142,6 +2144,7 @@
 			isa = PBXGroup;
 			children = (
 				40F757441BE054160053C2BE /* ClientModel.swift */,
+				FA0B7E141C5A05A200266615 /* AddClientModel.swift */,
 				FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */,
 			);
 			path = Model;
@@ -2658,6 +2661,7 @@
 				40FB3D1A1C00203900675044 /* DACircularProgressView.m in Sources */,
 				40E3263B1BD50444008344DF /* Client+CoreDataProperties.swift in Sources */,
 				40E3263C1BD50444008344DF /* Location+CoreDataProperties.swift in Sources */,
+				FA0B7E151C5A05A200266615 /* AddClientModel.swift in Sources */,
 				40CAA5F61BE705DA00FAFDA0 /* AdminLoginV.swift in Sources */,
 				400D62731C1526B50021E750 /* BackgroundColorAnimation.swift in Sources */,
 				40F757471BE054160053C2BE /* ClientListCell.swift in Sources */,

@@ -17,7 +17,7 @@ import MessageUI
 class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate {
   
   var employee = TeamModel()
-  var client = ClientModel()
+  var client = AddClientModel()
   var headerView = CodeHeaderView()
   var originY:CGFloat = 0
   lazy var type = EmployeeVCType.team

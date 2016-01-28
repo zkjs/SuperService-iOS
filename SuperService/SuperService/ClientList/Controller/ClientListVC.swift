@@ -13,7 +13,7 @@ import UIKit
   case detail
 }
 
-typealias ClientSelectionBlock = (ClientModel) -> ()
+typealias ClientSelectionBlock = (AddClientModel) -> ()
 
 class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, XLPagerTabStripChildItem {
   
@@ -25,7 +25,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   var type = ClientListVCType.detail
   var emptyLabel = UILabel()
   var sections = [[AnyObject]]()
-  var clientArray = [ClientModel]() {
+  var clientArray = [AddClientModel]() {
     didSet {
       let selector: Selector = "username"
       sections = Array(count: collation.sectionTitles.count, repeatedValue: [])
@@ -101,7 +101,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   //MARK - delegate
   
-  func refreshTableView(set: [String : AnyObject], clientModel: ClientModel) {
+  func refreshTableView(set: [String : AnyObject], clientModel: AddClientModel) {
     let client = clientModel
     self.clientArray.append(client)
     self.tableView.reloadData()
@@ -109,26 +109,21 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func loadData() {
     ZKJSHTTPSessionManager.sharedInstance().getClientListWithPage("1", success:{ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      let dic = responseObject as! NSDictionary
       self.tableView.mj_header.endRefreshing()
-      let headDic = dic["head"] as! NSDictionary
-      if let set = headDic["set"] as? NSNumber {
-        if set.boolValue == false {
+      if  let array = responseObject as? NSArray {
+        if array.count == 0 {
           self.emptyLabel.hidden = false
         } else {
           self.emptyLabel.hidden = true
-        }
-      }
-      if let array = dic["data"] as? NSArray {
-          var datasource = [ClientModel]()
-          for dic1 in array{
-            let client = ClientModel(dic: dic1 as! [String: AnyObject])
+          var datasource = [AddClientModel]()
+          for dict in array {
+            let client = AddClientModel(dic: dict as! [String: AnyObject])
             datasource.append(client)
           }
-          self.tableView.reloadData()
           self.clientArray = datasource
+          self.tableView.reloadData()
+        }
       }
-      self.tableView.mj_header.endRefreshing()
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         self.tableView.mj_header.endRefreshing()
     }
@@ -155,7 +150,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     cell.userImage.tag = indexPath.section*1000 + indexPath.row
     cell.userImage.userInteractionEnabled = true
     let section = sections[indexPath.section]
-    let client = section[indexPath.row] as! ClientModel
+    let client = section[indexPath.row] as! AddClientModel
     cell.setData(client)
     return cell
   }
@@ -196,7 +191,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     let indexRow = tag - indexSection*1000
     let vc = EmployeeVC()
     let section = sections[indexSection]
-    let client = section[indexRow] as! ClientModel
+    let client = section[indexRow] as! AddClientModel
     vc.type = EmployeeVCType.client
     vc.client = client
     vc.hidesBottomBarWhenPushed = true
@@ -207,7 +202,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     if type == ClientListVCType.detail {
       let section = sections[indexPath.section]
-      let client = section[indexPath.row] as! ClientModel
+      let client = section[indexPath.row] as! AddClientModel
       var chatterName = ""
       guard let chatterID = client.userid else { return }
       if let name = client.username {

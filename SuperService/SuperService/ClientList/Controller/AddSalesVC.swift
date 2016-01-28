@@ -85,9 +85,9 @@ class AddSalesVC: UIViewController {
   }
 
   @IBAction func addWaiter(sender: AnyObject) {
+    guard let userid = guster?.userid else { return }
     showHUDInView(view, withLoading: "")
-    
-    ZKJSHTTPSessionManager.sharedInstance().userAddwaiterWithSalesID(salesid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    ZKJSHTTPSessionManager.sharedInstance().userAddwaiterWithSalesID(userid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       print(responseObject)
       if let data = responseObject as? [String: AnyObject] {
         if let set = data["set"] as? Bool {
@@ -99,7 +99,7 @@ class AddSalesVC: UIViewController {
           }
           else {
             self.hideHUD()
-            self.showHint("您已经添加过商家的服务员")
+            self.showHint("客人已经添加过商家的服务员")
             self.navigationController?.popViewControllerAnimated(true)
           }
         }

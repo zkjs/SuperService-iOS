@@ -65,6 +65,8 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
     tableView.mj_header.beginRefreshing()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadData", name: "addWaiterSuccess", object: nil)
   }
   
   override func viewWillAppear(animated: Bool) {

@@ -78,25 +78,26 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
           if let data = responseObject as? [String: AnyObject] {
             if let set = data["is_bd"] as? Bool {
               if set == false {
+                self.hideHUD()
                 self.showHint("该客人未激活,请使用邀请码绑定")
                 self.view.endEditing(true)
-                self.hideHUD()
                 return
               }
             }
             if let set = data["set"] as? NSNumber {
               if set.boolValue == false {
-               self.showHint("此客人不存在")
+                self.hideHUD()
+                self.showHint("此客人不存在")
               } else {
                 self.guster = GusterModel(dic: data)
                 if let salesid = self.guster?.salesid {
+                  self.hideHUD()
                   if salesid == "" {
                     let vc = AddSalesVC()
                     vc.guster = self.guster
                     vc.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(vc, animated: true)
                   } else {
-                    self.hideHUD()
                     self.showHint("此客人已经被其他销售员添加过")
                   }
                 }
@@ -106,7 +107,6 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
           }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
             print(error)
             self.hideHUD()
-            
         }
       }
     checkAction.enabled = false

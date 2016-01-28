@@ -37,7 +37,7 @@ var salesid:String!
 
         // Configure the view for the selected state
     }
-  func setData(client: ClientModel) {
+  func setData(client: AddClientModel) {
     userNameLabel.text = client.username
     if let salesid = client.userid {
       print(salesid)

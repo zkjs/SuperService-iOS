@@ -101,14 +101,14 @@ class AddSalesVC: UIViewController {
           }
           else {
             self.hideHUD()
-            self.showHint("客人已经添加过商家的服务员")
+            self.showHint("客人已被销售添加")
             self.navigationController?.popViewControllerAnimated(true)
           }
         }
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         self.hideHUD()
-        self.showHint("您已经添加过该服务员")
+        self.showHint("客人已被销售添加")
         self.navigationController?.popViewControllerAnimated(true)
     }
   }

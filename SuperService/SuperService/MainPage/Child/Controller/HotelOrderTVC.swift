@@ -326,10 +326,11 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     let txtChat = EMChatText(text: "您的订单已处理，请确认")
     let body = EMTextMessageBody(chatObject: txtChat)
     let message = EMMessage(receiver: order.userid, bodies: [body])
-    let ext = ["shopId": order.shopid,
+    let ext: [String: AnyObject] = ["shopId": order.shopid,
       "shopName": order.shopname,
       "toName": order.username,
-      "fromName": userName]
+      "fromName": userName,
+      "extType": 0]
     message.ext = ext
     message.messageType = .eMessageTypeChat
     EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)

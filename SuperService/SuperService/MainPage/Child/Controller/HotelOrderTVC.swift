@@ -320,6 +320,21 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     }
   }
   
+  func sendNewOrderMessage() {
+    // 发送环信消息
+    let userName = AccountManager.sharedInstance().userName
+    let txtChat = EMChatText(text: "您的订单已处理，请确认")
+    let body = EMTextMessageBody(chatObject: txtChat)
+    let message = EMMessage(receiver: order.userid, bodies: [body])
+    let ext = ["shopId": order.shopid,
+      "shopName": order.shopname,
+      "toName": order.username,
+      "fromName": userName]
+    message.ext = ext
+    message.messageType = .eMessageTypeChat
+    EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
+  }
+  
   func submitOrder() {
     if daysLabel.text == "" {
       showHint("请填写时间")
@@ -377,6 +392,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
         if let result = responseObject["result"] as? NSNumber {
           if result.boolValue == true {
             self.sendNewOrderNotificationToClientWithOrderNO(self.order.orderno)
+            self.sendNewOrderMessage()
             self.showHint("订单已更新成功")
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {

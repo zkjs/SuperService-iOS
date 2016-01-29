@@ -95,6 +95,8 @@ class AddSalesVC: UIViewController {
             NSNotificationCenter.defaultCenter().postNotificationName("addWaiterSuccess", object: self)
             self.hideHUD()
             self.showHint("添加成功")
+            self.sendAddSalesCmdMessage()
+            self.sendAddSalesMessage()
             self.navigationController?.popViewControllerAnimated(true)
           }
           else {
@@ -111,17 +113,37 @@ class AddSalesVC: UIViewController {
     }
   }
   
-  func sendInvitationCodeNotification() {
+  func sendAddSalesCmdMessage() {
     // 发送环信透传消息
+    guard let clientid = guster?.userid else { return }
     let userID = AccountManager.sharedInstance().userID
     let userName = AccountManager.sharedInstance().userName
     let cmdChat = EMChatCommand()
     cmdChat.cmd = "addGuest"
     let body = EMCommandMessageBody(chatObject: cmdChat)
-    let message = EMMessage(receiver: salesid, bodies: [body])
+    let message = EMMessage(receiver: clientid, bodies: [body])
     message.ext = [
       "salesId": userID,
       "salesName": userName]
+    message.messageType = .eMessageTypeChat
+    EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
+  }
+  
+  func sendAddSalesMessage() {
+    // 发送环信消息
+    guard let clientid = guster?.userid else { return }
+    let clientname = guster?.username ?? ""
+    let shopid = AccountManager.sharedInstance().shopID
+    let shopname = AccountManager.sharedInstance().shopName
+    let userName = AccountManager.sharedInstance().userName
+    let txtChat = EMChatText(text: "我已添加您为专属客人")
+    let body = EMTextMessageBody(chatObject: txtChat)
+    let message = EMMessage(receiver: clientid, bodies: [body])
+    let ext = ["shopId": shopid,
+      "shopName": shopname,
+      "toName": clientname,
+      "fromName": userName]
+    message.ext = ext
     message.messageType = .eMessageTypeChat
     EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
   }

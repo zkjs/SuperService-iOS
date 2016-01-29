@@ -108,7 +108,13 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     if let _ = order.orderno {
 //      let urlString = kImageURL + order.imgurl
 //      roomImage.sd_setImageWithURL(NSURL(string: urlString), placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
-      daysLabel.text = order.roomInfo
+      var daysInfo = ""
+      if let arrivalDateShortStyle = order.arrivalDateShortStyle,
+        let departureDateShortStyle = order.departureDateShortStyle,
+        let duration = order.duration {
+          daysInfo = "\(arrivalDateShortStyle)-\(departureDateShortStyle)共\(duration.stringValue)晚"
+      }
+      daysLabel.text = daysInfo
       roomsTypeLabel.text = order.roomtype
       roomsTextField.text = order.roomcount.stringValue
       roomsCount = order.roomcount.integerValue

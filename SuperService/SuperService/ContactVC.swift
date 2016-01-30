@@ -17,6 +17,16 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
     
     setupView()
     setupRightBarButton()
+    
+    let bGotoContactList = NSUserDefaults.standardUserDefaults().boolForKey(kGotoContactList)
+    if bGotoContactList == true {
+      segmentedControl.selectedSegmentIndex = 1
+      moveToViewControllerAtIndex(1, animated: false)
+      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+        target: self, action: "Addguest")
+      navigationItem.rightBarButtonItem = addMemberButton
+      NSUserDefaults.standardUserDefaults().setBool(false, forKey: kGotoContactList)
+    }
   }
   
   // MARK: - Private
@@ -32,6 +42,8 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
         target: self, action: "AddMember")
       navigationItem.rightBarButtonItem = addMemberButton
+    } else {
+      navigationItem.rightBarButtonItem = nil
     }
   }
   
@@ -114,7 +126,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
       self.view.endEditing(true)
     }
     alertController.addTextFieldWithConfigurationHandler { (textField) in
-      textField.placeholder = "请输入销售人员的手机号码"
+      textField.placeholder = "请输入客户的手机号码"
       textField.keyboardType = UIKeyboardType.NumberPad
       NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
         checkAction.enabled = (textField.text != "")

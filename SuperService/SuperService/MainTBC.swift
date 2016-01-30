@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kGotoContactList = "kGotoContactList"
+
 class MainTBC: UITabBarController {
   
   private let conversationListVC = ConversationListController()
@@ -209,7 +211,7 @@ extension MainTBC: EMCallManagerDelegate {
 //    }
     let alertMessage = "客人\(userName), 手机号\(mobileNo)已绑定验证码"
     let alertView = UIAlertController(title: "邀请码绑定", message: alertMessage, preferredStyle: .Alert)
-    let okAction = UIAlertAction(title: "知道了", style: .Cancel, handler: nil)
+    let okAction = UIAlertAction(title: "确定", style: .Cancel, handler: nil)
     alertView.addAction(okAction)
     presentViewController(alertView, animated: true, completion: nil)
   }
@@ -218,7 +220,13 @@ extension MainTBC: EMCallManagerDelegate {
     let userName = clientInfo["userName"] as? String ?? ""
     let alertMessage = "客人\(userName)已添加你为联系人."
     let alertView = UIAlertController(title: "专属客服绑定", message: alertMessage, preferredStyle: .Alert)
-    let okAction = UIAlertAction(title: "确定", style: .Cancel, handler: nil)
+    let okAction = UIAlertAction(title: "确定", style: .Default) { (action: UIAlertAction) -> Void in
+      let appWindow = UIApplication.sharedApplication().keyWindow
+      let mainTBC = MainTBC()
+      mainTBC.selectedIndex = 3
+      NSUserDefaults.standardUserDefaults().setBool(true, forKey: kGotoContactList)
+      appWindow?.rootViewController = mainTBC
+    }
     alertView.addAction(okAction)
     presentViewController(alertView, animated: true, completion: nil)
   }

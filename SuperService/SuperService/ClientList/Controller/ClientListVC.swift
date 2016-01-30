@@ -52,7 +52,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     title = "客户"
     let nibName = UINib(nibName: ClientListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ClientListCell.reuseIdentifier())
-    tableView.tableFooterView = UIView()
+    tableView.tableFooterView = UIView(frame: CGRectMake(0, 0, 100, 48))
     emptyLabel.frame = CGRectMake(0.0, 0.0, 150.0, 30.0)
     let screenSize = UIScreen.mainScreen().bounds
     emptyLabel.textAlignment = .Center

@@ -18,11 +18,13 @@ class ArrivalCell: UITableViewCell {
   @IBOutlet weak var timeAgoLabel: UILabel!
   @IBOutlet weak var orderButton: UIButton!
   @IBOutlet weak var statusImageView: UIImageView!
-  
   @IBOutlet weak var chatButton: UIButton!
   @IBOutlet weak var PhoneCall: UIButton!
+  @IBOutlet weak var arrowButton: UIButton!
+  
   var phone = ""
   var sex = ""
+  
   
   class func reuseIdentifier() -> String {
     return "ArrivalCell"
@@ -101,6 +103,9 @@ class ArrivalCell: UITableViewCell {
     if let order = data["orderForNotice"] as? [[String: AnyObject]] {
       print(order)
       if let firstOrder = order.first {
+        orderButton.hidden = false
+        arrowButton.hidden = false
+        
         if let orderRoom = firstOrder["orderRoom"] as? String,
           let checkIn = firstOrder["checkIn"] as? String,
           let checkInDate = firstOrder["checkInDate"] as? String {
@@ -108,12 +113,14 @@ class ArrivalCell: UITableViewCell {
             orderButton.setTitle(orderInfo, forState: .Normal)
         }
       } else {
-        orderButton.setTitle("无订单", forState: .Normal)
+        orderButton.hidden = true
+        arrowButton.hidden = true
       }
     } else {
-      orderButton.setTitle("无订单", forState: .Normal)
+      orderButton.hidden = true
+      arrowButton.hidden = true
     }
-    
+  
     
     if let dateString = data["created"] as? String {
       let dateFormat = NSDateFormatter()

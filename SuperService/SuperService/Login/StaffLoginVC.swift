@@ -141,7 +141,7 @@ class StaffLoginVC: UIViewController {
         //当验证码接收到后按钮恢复状态
         self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
         ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//          print(responseObject)
+          //          print(responseObject)
           if let dict = responseObject as? NSDictionary {
             if let set = dict["set"] as? Bool {
               if set {
@@ -190,14 +190,14 @@ class StaffLoginVC: UIViewController {
     let areaArray = locid.componentsSeparatedByString(",")
     print("areaArr: \(areaArray)")
     for topic in areaArray {
-        // 选中则监听区域
-        YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
-          if success {
-            print("[result] subscribe to topic(\(topic)) succeed")
-          } else {
-            print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-          }
+      // 选中则监听区域
+      YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
+        if success {
+          print("[result] subscribe to topic(\(topic)) succeed")
+        } else {
+          print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
         }
+      }
     }
   }
   
@@ -216,16 +216,19 @@ class StaffLoginVC: UIViewController {
   }
   
   private func loginEaseMob() {
-      let userID = AccountManager.sharedInstance().userID
-      print("Username: \(userID)")
-      let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
-      print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-      EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
-      print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-      if error != nil {
-        showHint(error.debugDescription)
-      }
-      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+    let userID = AccountManager.sharedInstance().userID
+    print("Username: \(userID)")
+    let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+    print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
+    print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    if error != nil {
+      showHint(error.debugDescription)
+    }
+    EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+    let options = EaseMob.sharedInstance().chatManager.pushNotificationOptions
+    options.displayStyle = .ePushNotificationDisplayStyle_simpleBanner
+    EaseMob.sharedInstance().chatManager.asyncUpdatePushOptions(options)
   }
   
   @IBAction func bussinessManButton(sender: AnyObject) {

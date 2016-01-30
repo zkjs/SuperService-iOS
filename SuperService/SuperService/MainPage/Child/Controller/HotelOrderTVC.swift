@@ -56,6 +56,8 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   var orderno:String!
   var order = OrderModel()
   var paytypeArray = ["未设置", "在线支付", "到店支付", "挂帐"]
+  var startDate: NSDate?
+  var endDate: NSDate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -264,7 +266,12 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func chooseDate() {
     let vc = BookDateSelectionViewController()
+    vc.startDate = startDate
+    vc.endDate = endDate
     vc.selection = { [unowned self] (startDate: NSDate, endDate: NSDate) ->() in
+      self.startDate = startDate
+      self.endDate = endDate
+      
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "M/dd"
       

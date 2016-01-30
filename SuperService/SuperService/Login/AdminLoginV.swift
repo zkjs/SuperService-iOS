@@ -35,7 +35,7 @@ class AdminLoginV: UIViewController {
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
   }
-
+  
   
   // MARK: - Button Action
   
@@ -94,16 +94,19 @@ class AdminLoginV: UIViewController {
   }
   
   private func loginEaseMob() {
-      let userID = AccountManager.sharedInstance().userID
-      let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
-      print("Username: \(userID)")
-      print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-      EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
-      print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-      if error != nil {
-        showHint(error.debugDescription)
-      }
-      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+    let userID = AccountManager.sharedInstance().userID
+    let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+    print("Username: \(userID)")
+    print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
+    print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
+    if error != nil {
+      showHint(error.debugDescription)
+    }
+    EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+    let options = EaseMob.sharedInstance().chatManager.pushNotificationOptions
+    options.displayStyle = .ePushNotificationDisplayStyle_simpleBanner
+    EaseMob.sharedInstance().chatManager.asyncUpdatePushOptions(options)
   }
   
   func updateYunBaWithLocid(locid: String) {

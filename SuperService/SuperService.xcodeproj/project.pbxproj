@@ -1164,6 +1164,22 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		40CBC0551C5EF05B00AFCC39 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4068A2D31BBBB13100FF8608 /* Widget */,
+				40B0DC281BCE367300785D2E /* Tool */,
+				404FB51E1BCE08840074D205 /* Networking */,
+				401C1F9C1C2A4B3D003B9E69 /* CCPRestSDK */,
+				4023F72B1C1D215A0057351E /* WeChatSDK */,
+				400706471C1AC06C0017ECA7 /* YunBaSDK */,
+				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
+				40E326461BD510C1008344DF /* Extension */,
+				40E3262A1BD4C36F008344DF /* Persistence */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		40CF56751BF3453300E20D50 /* ArrivalInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1251,29 +1267,21 @@
 		40DA78901BAFAA8F00956B72 /* SuperService */ = {
 			isa = PBXGroup;
 			children = (
-				404FB51E1BCE08840074D205 /* Networking */,
-				401C1F9C1C2A4B3D003B9E69 /* CCPRestSDK */,
-				4023F72B1C1D215A0057351E /* WeChatSDK */,
-				400706471C1AC06C0017ECA7 /* YunBaSDK */,
-				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
+				40CBC0551C5EF05B00AFCC39 /* Common */,
 				FAF097351C10398900A7F80B /* GuidePage */,
-				40E326461BD510C1008344DF /* Extension */,
 				40CAA5FC1BE705FE00FAFDA0 /* Login */,
-				40CF56781BF3612500E20D50 /* Contact */,
 				40CF56751BF3453300E20D50 /* ArrivalInfo */,
 				40600CAB1BC64579008F8DEC /* Order */,
 				40D7339D1BE31E7E00266228 /* MessageCenter */,
-				40E3262A1BD4C36F008344DF /* Persistence */,
+				40CF56781BF3612500E20D50 /* Contact */,
 				40F1BA811BC7FBC9006C2B41 /* Settings */,
-				40B0DC281BCE367300785D2E /* Tool */,
-				4068A2D31BBBB13100FF8608 /* Widget */,
 				40DA78911BAFAA8F00956B72 /* AppDelegate.swift */,
 				40F7574C1BE054340053C2BE /* BaseNavigationController.swift */,
+				404FB51A1BCE01AE0074D205 /* MainTBC.swift */,
 				40DA789D1BAFAA8F00956B72 /* Info.plist */,
 				409EE0A61C0070680074F43C /* Assets.xcassets */,
 				409EE0AC1C0071390074F43C /* Localizable.strings */,
 				40DA789A1BAFAA8F00956B72 /* LaunchScreen.storyboard */,
-				404FB51A1BCE01AE0074D205 /* MainTBC.swift */,
 				40D7339E1BE31FA600266228 /* PrefixHeader.pch */,
 				4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */,
 				405F4CA81BCF3FCC00BBBF47 /* server.der */,

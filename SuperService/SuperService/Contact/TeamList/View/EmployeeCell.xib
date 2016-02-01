@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="KGk-i7-Jjw" customClass="EmployeeCell" customModule="SuperService" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="426" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="426" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNt-BI-cdh">
+                        <rect key="frame" x="16" y="18" width="50" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="9kS-Py-wvg"/>
+                            <constraint firstAttribute="width" constant="50" id="qsc-Vb-J6s"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRl-GA-fv5">
+                        <rect key="frame" x="76" y="18" width="100" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="76v-Lq-GoH"/>
+                            <constraint firstAttribute="width" constant="100" id="cDs-rC-8ro"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAm-J6-jY2">
+                        <rect key="frame" x="348" y="18" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="6w6-zB-qmV"/>
+                            <constraint firstAttribute="width" constant="20" id="H62-gd-nfz"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="ic_duihua_b"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7h-h4-YAS">
+                        <rect key="frame" x="298" y="18" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="itS-rt-GdB"/>
+                            <constraint firstAttribute="height" constant="20" id="ptf-Xx-Xil"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="ic_dianhua_b"/>
+                        <connections>
+                            <action selector="call:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TdW-Iu-4oz"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XAm-J6-jY2" firstAttribute="leading" secondItem="A7h-h4-YAS" secondAttribute="trailing" constant="30" id="8uw-zv-859"/>
+                    <constraint firstItem="XAm-J6-jY2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="B84-6y-tj4"/>
+                    <constraint firstItem="LNt-BI-cdh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="FbV-39-OCY"/>
+                    <constraint firstItem="uRl-GA-fv5" firstAttribute="leading" secondItem="LNt-BI-cdh" secondAttribute="trailing" constant="10" id="UqD-ne-buZ"/>
+                    <constraint firstItem="A7h-h4-YAS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="dGC-CX-X9o"/>
+                    <constraint firstItem="uRl-GA-fv5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="iaW-ct-y3z"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="XAm-J6-jY2" secondAttribute="trailing" constant="50" id="joc-To-5xO"/>
+                    <constraint firstItem="LNt-BI-cdh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="saD-Ow-jON"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="callButton" destination="A7h-h4-YAS" id="Goc-R1-QFI"/>
+                <outlet property="phoneLabel" destination="uRl-GA-fv5" id="9gi-Dq-xYK"/>
+                <outlet property="sendMessageButton" destination="XAm-J6-jY2" id="QiU-9O-g3X"/>
+            </connections>
+            <point key="canvasLocation" x="555" y="494"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_dianhua_b" width="10" height="15"/>
+        <image name="ic_duihua_b" width="16" height="16"/>
+    </resources>
+</document>

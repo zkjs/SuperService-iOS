@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Client" representedClassName=".Client" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientArrivalInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClientArrivalInfo" inverseName="client" inverseEntity="ClientArrivalInfo" syncable="YES"/>
+    </entity>
+    <entity name="ClientArrivalInfo" representedClassName=".ClientArrivalInfo" syncable="YES">
+        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
+        <relationship name="client" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="clientArrivalInfo" inverseEntity="Client" syncable="YES"/>
+        <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="clientArrivalInfo" inverseEntity="Location" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="clientArrivalInfo" inverseEntity="Order" syncable="YES"/>
+    </entity>
+    <entity name="Conversation" representedClassName=".Conversation" syncable="YES">
+        <attribute name="lastChat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherSideID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherSideName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="unread" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName=".Location" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientArrivalInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClientArrivalInfo" inverseName="location" inverseEntity="ClientArrivalInfo" syncable="YES"/>
+    </entity>
+    <entity name="Order" representedClassName=".Order" syncable="YES">
+        <attribute name="arrivalDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="roomType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientArrivalInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClientArrivalInfo" inverseName="order" inverseEntity="ClientArrivalInfo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Client" positionX="-36" positionY="63" width="128" height="120"/>
+        <element name="ClientArrivalInfo" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Conversation" positionX="-54" positionY="63" width="128" height="150"/>
+        <element name="Location" positionX="-27" positionY="81" width="128" height="90"/>
+        <element name="Order" positionX="-54" positionY="54" width="128" height="105"/>
+    </elements>
+</model>

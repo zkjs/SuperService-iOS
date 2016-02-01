@@ -17,6 +17,8 @@ class NotificationController: WKUserNotificationInterfaceController {
   
   @IBOutlet var avatarImage: WKInterfaceImage!
   @IBOutlet var nameLabel: WKInterfaceLabel!
+  @IBOutlet var roomTypeLabel: WKInterfaceLabel!
+  @IBOutlet var durationLabel: WKInterfaceLabel!
   @IBOutlet var locationLabel: WKInterfaceLabel!
   
   override init() {
@@ -64,8 +66,41 @@ class NotificationController: WKUserNotificationInterfaceController {
     
     // Cache ArrivalInfo Notification
     if let extra = remoteNotification["extra"] as? [String: AnyObject] {
+      if let order = extra["order"] as? [String: AnyObject] {
+        // 房型
+        if let room_type = order["room_type"] as? String {
+          roomTypeLabel.setText(room_type)
+        }
+        // 天数
+        if let duration = order["dayInt"] as? NSNumber {
+          durationLabel.setText("\(duration.stringValue)晚")
+        }
+      }
+      
+      if let userid = extra["userid"] as? String {
+        // 用户头像
+        if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg") {
+          imageRequest(url)
+        }
+      }
       NSUserDefaults.standardUserDefaults().setObject(extra, forKey: ArrivalInfoKey)
     }
     completionHandler(.Custom)
   }
+  
+  func imageRequest(url:NSURL) {
+    let requestURL: NSURL = url
+    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(urlRequest) {
+      (data, response, error) -> Void in
+      if error == nil {
+        self.avatarImage.setImage(UIImage(data:data!))
+      } else {
+        print(error)
+      }
+    }
+    task.resume()
+  }
+  
 }

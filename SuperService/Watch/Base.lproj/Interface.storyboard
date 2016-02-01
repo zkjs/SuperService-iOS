@@ -212,53 +212,23 @@
                         <group width="1" alignment="left" layout="vertical" id="dyy-7e-zEX">
                             <items>
                                 <label alignment="left" text="姓名" id="bhE-aP-Ktr"/>
-                                <label alignment="left" text="Label" id="UG7-B1-Wow" userLabel="RoomType Label">
-                                    <variation key="device=watch42mm" text="房型"/>
-                                </label>
-                                <label alignment="left" text="Label" id="LUb-u4-ymH">
-                                    <variation key="device=watch42mm" text="晚数"/>
-                                </label>
+                                <label alignment="left" text="房型" id="UG7-B1-Wow" userLabel="RoomType Label"/>
+                                <label alignment="left" text="天数" id="LUb-u4-ymH"/>
                                 <label alignment="left" text="已到达" id="Svr-as-Hje"/>
                             </items>
                             <edgeInsets key="margins" left="3" right="0.0" top="3" bottom="8"/>
-                            <variation key="default">
-                                <mask key="items">
-                                    <exclude reference="bhE-aP-Ktr"/>
-                                    <exclude reference="UG7-B1-Wow"/>
-                                    <exclude reference="LUb-u4-ymH"/>
-                                    <exclude reference="Svr-as-Hje"/>
-                                </mask>
-                            </variation>
-                            <variation key="device=watch42mm">
-                                <mask key="items">
-                                    <include reference="bhE-aP-Ktr"/>
-                                    <include reference="UG7-B1-Wow"/>
-                                    <include reference="LUb-u4-ymH"/>
-                                    <include reference="Svr-as-Hje"/>
-                                </mask>
-                            </variation>
                         </group>
                     </items>
-                    <variation key="default">
-                        <mask key="items">
-                            <exclude reference="AUL-ZL-MB2"/>
-                        </mask>
-                    </variation>
-                    <variation key="device=watch42mm">
-                        <mask key="items">
-                            <include reference="AUL-ZL-MB2"/>
-                        </mask>
-                    </variation>
                     <connections>
-                        <outlet property="avatarImage" destination="AUL-ZL-MB2" id="z7a-Ol-zCM"/>
-                        <outlet property="durationLabel" destination="LUb-u4-ymH" id="rVD-8i-aHL"/>
-                        <outlet property="locationLabel" destination="Svr-as-Hje" id="RVJ-ai-Veq"/>
-                        <outlet property="nameLabel" destination="bhE-aP-Ktr" id="nby-96-BER"/>
-                        <outlet property="roomTypeLabel" destination="UG7-B1-Wow" id="lpS-8F-0sZ"/>
+                        <outlet property="avatarImage" destination="AUL-ZL-MB2" id="6Ru-4t-7RF"/>
+                        <outlet property="durationLabel" destination="LUb-u4-ymH" id="dGp-dv-VJI"/>
+                        <outlet property="locationLabel" destination="Svr-as-Hje" id="WSN-f1-hvB"/>
+                        <outlet property="nameLabel" destination="bhE-aP-Ktr" id="RrY-Kn-bXv"/>
+                        <outlet property="roomTypeLabel" destination="UG7-B1-Wow" id="pdR-oa-gsS"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="274.61538461538464" y="702.23076923076928"/>
+            <point key="canvasLocation" x="251.94871794871796" y="756.28205128205138"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

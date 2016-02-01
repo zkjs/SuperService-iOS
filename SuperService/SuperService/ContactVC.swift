@@ -110,7 +110,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
                     vc.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(vc, animated: true)
                   } else {
-                    self.showHint("此客人已经被其他销售员添加过")
+                    self.showHint("客人已被销售添加")
                   }
                 }
               }

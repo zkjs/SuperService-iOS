@@ -124,7 +124,8 @@ class AddSalesVC: UIViewController {
     let message = EMMessage(receiver: clientid, bodies: [body])
     message.ext = [
       "salesId": userID,
-      "salesName": userName]
+      "salesName": userName,
+      "bindClient": true]
     message.messageType = .eMessageTypeChat
     EaseMob.sharedInstance().chatManager.asyncSendMessage(message, progress: nil)
   }

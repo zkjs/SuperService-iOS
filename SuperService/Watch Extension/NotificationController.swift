@@ -16,7 +16,8 @@ let ArrivalInfoKey = "ArrivalInfoKey"
 class NotificationController: WKUserNotificationInterfaceController {
   
   @IBOutlet var avatarImage: WKInterfaceImage!
-  @IBOutlet var bodyLabel: WKInterfaceLabel!
+  @IBOutlet var nameLabel: WKInterfaceLabel!
+  @IBOutlet var locationLabel: WKInterfaceLabel!
   
   override init() {
     // Initialize variables here.
@@ -54,7 +55,9 @@ class NotificationController: WKUserNotificationInterfaceController {
     if let aps = remoteNotification["aps"] {
       if let alert = aps["alert"] as? [String: AnyObject] {
         if let body = alert["body"] as? String {
-          bodyLabel.setText(body)
+          let array = body.componentsSeparatedByString(" ")
+          nameLabel.setText(array[0])
+          locationLabel.setText("已到达\(array[2])")
         }
       }
     }

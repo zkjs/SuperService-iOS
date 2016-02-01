@@ -208,26 +208,27 @@
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="dyy-7e-zEX">
                             <items>
-                                <group width="1" alignment="left" layout="vertical" id="fa9-32-nYD">
-                                    <items>
-                                        <label alignment="center" text="到店通知" id="nfN-H2-0OB">
-                                            <color key="textColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                        </label>
-                                    </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="6" bottom="6"/>
-                                </group>
-                                <group width="1" alignment="left" id="zsW-9u-gJh">
-                                    <items>
-                                        <label alignment="center" text="Hanton先生 到达 大堂" minimumScaleFactor="0.59999999999999998" id="bhE-aP-Ktr"/>
-                                    </items>
-                                    <edgeInsets key="margins" left="2" right="2" top="0.0" bottom="6"/>
-                                </group>
+                                <label alignment="left" text="Hanton" id="bhE-aP-Ktr"/>
+                                <label alignment="left" text="已到达大堂" id="Svr-as-Hje"/>
                             </items>
+                            <edgeInsets key="margins" left="3" right="0.0" top="3" bottom="8"/>
+                            <variation key="default">
+                                <mask key="items">
+                                    <exclude reference="bhE-aP-Ktr"/>
+                                    <exclude reference="Svr-as-Hje"/>
+                                </mask>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <mask key="items">
+                                    <include reference="bhE-aP-Ktr"/>
+                                    <include reference="Svr-as-Hje"/>
+                                </mask>
+                            </variation>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="bodyLabel" destination="bhE-aP-Ktr" id="fr2-ZM-6e5"/>
+                        <outlet property="locationLabel" destination="Svr-as-Hje" id="RVJ-ai-Veq"/>
+                        <outlet property="nameLabel" destination="bhE-aP-Ktr" id="nby-96-BER"/>
                     </connections>
                 </controller>
             </objects>

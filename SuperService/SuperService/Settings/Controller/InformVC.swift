@@ -134,13 +134,22 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   }
   
   func updateSelectedArrayWithCell(cell: InformCell) {
+    let area = areaArray[cell.selectedButton.tag]
     if cell.isUncheck == false {
       self.selectedArray.append(cell.selectedButton.tag)
+      noticeArray.append(area.locid!)
     } else {
       if let index = selectedArray.indexOf(cell.selectedButton.tag) {
         selectedArray.removeAtIndex(index)
+        for (index, value) in noticeArray.enumerate() {
+          print("Found \(value) at position \(index)")
+          if case area.locid! = value {
+            noticeArray.removeAtIndex(index)
+          }
+        }
       }
     }
+    print(noticeArray)
   }
   
   func nextStep() {

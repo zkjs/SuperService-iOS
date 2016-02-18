@@ -96,6 +96,9 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     if noticeArray.contains(area.locid!) {
       cell.isUncheck = false
       cell.selectedButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
+    } else {
+      cell.isUncheck = true
+      cell.selectedButton.setImage(UIImage(named: "ic_jia_nor"), forState:UIControlState.Normal)
     }
     
     cell.setData(area)

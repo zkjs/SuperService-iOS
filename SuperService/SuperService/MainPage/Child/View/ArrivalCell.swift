@@ -107,9 +107,10 @@ class ArrivalCell: UITableViewCell {
         arrowButton.hidden = false
         
         if let orderRoom = firstOrder["orderRoom"] as? String,
-          let checkIn = firstOrder["checkIn"] as? String,
-          let checkInDate = firstOrder["checkInDate"] as? String {
-            let orderInfo = "\(orderRoom) | \(checkIn) | \(checkInDate)"
+          let checkIn = firstOrder["checkIn"] as? String
+//          let checkInDate = firstOrder["checkInDate"] as? String 
+        {
+            let orderInfo = "\(orderRoom) | \(checkIn)"
             orderButton.setTitle(orderInfo, forState: .Normal)
         }
       } else {

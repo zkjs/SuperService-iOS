@@ -1,0 +1,203 @@
+//
+//  HttpService.swift
+//  SuperService
+//  API数据 HTTP请求 service
+//  Created by Qin Yejun on 3/1/16.
+//  Copyright © 2016 ZKJS. All rights reserved.
+//
+
+import Foundation
+
+struct HttpService {
+  private static let ImageURL = "http://svip02.oss-cn-shenzhen.aliyuncs.com"  // 图片服务器
+  
+  // 测试
+  private static let baseURL = "http://tst.zkjinshi.com/"  // PHP服务器
+  private static let baseURLJava = "http://test.zkjinshi.com/japi/"  // Java服务器
+  private static let EaseMobAppKey = "zkjs#svip"  // 环信
+  
+  // 预上线
+  /*
+  private static let baseURL = "http://rap.zkjinshi.com/"  // PHP服务器
+  private static let baseURLJava = "http://p.zkjinshi.com/japi/"  // Java服务器
+  private static let EaseMobAppKey = "zkjs#sid"  // 环信
+  */
+  
+  // 正式
+  /*
+  private static let baseURL = "http://api.zkjinshi.com/"  // PHP服务器
+  private static let baseURLJava = "http://mmm.zkjinshi.com/"  // Java服务器
+  private static let EaseMobAppKey = "zkjs#prosvip"  // 环信
+  */
+  
+  private static let baseCodeURL = "http://120.25.80.143:8080" //获取code
+  //  private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
+  
+  
+  private enum ResourcePath: CustomStringConvertible {
+    case ApiURL(path:String)
+    case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
+    case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
+    
+    var description: String {
+      switch self {
+      case .ApiURL(let path): return "/api/\(path)"
+      case .LoginPhone: return "/sso/token/v1/phone/ss"
+      case .LoginUserName: return "/sso/token/v1/name/ss"
+      }
+    }
+  }
+  
+  static func jsonFromData(jsonData:NSData?) -> NSDictionary?  {
+    guard let jsonData = jsonData else {
+      return nil
+    }
+    guard let parsed = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions(rawValue: 0)) as? NSDictionary else {
+      return nil
+    }
+    return parsed
+  }
+  
+  static func put(urlString: String, parameters: [String : AnyObject]? , completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.PUT, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+      if let err = err {
+        completionHandler(json, err)
+      } else {
+        completionHandler(json, nil)
+      }
+    }
+  }
+  static func post(urlString: String, parameters: [String : AnyObject]? , completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.POST, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+      if let err = err {
+        completionHandler(json, err)
+      } else {
+        completionHandler(json, nil)
+      }
+    }
+  }
+  
+  static func get(urlString: String, parameters: [String : AnyObject]? , completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.GET, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+      if let err = err {
+        completionHandler(json, err)
+      } else {
+        completionHandler(json, nil)
+      }
+    }
+  }
+  
+  //HTTP REQUEST
+  static func requestAPI(method: Method, urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
+    
+    var headers = ["Content-Type":"application/json"]
+    if let token = TokenPayload.sharedInstance.token {
+      headers["Token"] = token
+    } else {
+      if tokenRequired {
+        return
+      }
+    }
+    
+    print(urlString)
+    print(parameters)
+    
+    request(method, urlString, parameters: parameters, encoding: .JSON, headers: headers).response { (req, res, data, error) -> Void in
+      if let error = error {
+        print("api request fail:\(error)")
+        completionHandler(nil,error)
+      } else {
+        print(jsonFromData(data))
+        
+        if let data = data {
+          let json = JSON(data: data)
+          if json["res"].int == 0 {
+            completionHandler(json,nil)
+            print(json["resDesc"].string)
+          } else {
+            let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+              code: -1,
+              userInfo: ["res":"\(json["res"].int)","resDesc":json["resDesc"].string ?? ""])
+            completionHandler(json,e)
+            print("error with reason: \(json["resDesc"].string)")
+            if let key = json["res"].int {
+              ZKJSTool.showMsg("\(key)")
+            }
+          }
+        } else {
+          let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+            code: -2,
+            userInfo: ["res":"-2","resDesc": "no data from server"])
+          completionHandler(nil,e)
+          print("error with reason: \(e)")
+        }
+      }
+    }
+  }
+  
+  static func demo(param1:String, param2:String, completionHandler:(JSON?,NSError?) -> ()){
+    let urlString = baseURL + ResourcePath.ApiURL(path: "test").description
+    
+    let parameters = ["param1":param1,"param2":param2]
+    
+    requestAPI(.POST, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+      completionHandler(json,err)
+    }
+  }
+  
+  //// PAVO 认证服务API : 使用手机验证码创建Token : HEADER不需要Token
+  static func loginWithPhone(code:String,phone:String,completionHandler:(JSON?,NSError?) -> ()) {
+    let urlString = baseCodeURL + ResourcePath.LoginPhone.description
+    
+    let dict = ["phone":"\(phone)","code":"\(code)"]
+    post(urlString, parameters: dict) { (json, error) -> Void in
+      if let json = json {
+        guard let token = json["token"].string else {
+          print("no token")
+          return
+        }
+        let tokenPayload = TokenPayload.sharedInstance
+        tokenPayload.saveTokenPayload(token)
+        
+        //登录成功后订阅云巴推送
+        if let userID = tokenPayload.userID {
+          print("userID:\(userID)")
+          YunbaSubscribeService.sharedInstance.subscribeAllChannels()
+          YunbaSubscribeService.sharedInstance.setAlias(userID)
+        }
+      } else {
+        
+      }
+      
+      completionHandler(json, error)
+    }
+  }
+  
+  //// PAVO 认证服务API : 使用用户名和密码 : HEADER不需要Token
+  static func loginWithUserName(username:String,password:String,completionHandler:(JSON?,NSError?) -> ()) {
+    let urlString = baseCodeURL + ResourcePath.LoginUserName.description
+    
+    let dict = ["username":"\(username)","password":"\(password)"]
+    post(urlString, parameters: dict) { (json, error) -> Void in
+      if let json = json {
+        guard let token = json["token"].string else {
+          print("no token")
+          return
+        }
+        let tokenPayload = TokenPayload.sharedInstance
+        tokenPayload.saveTokenPayload(token)
+        
+        //登录成功后订阅云巴推送
+        if let userID = tokenPayload.userID {
+          print("userID:\(userID)")
+          YunbaSubscribeService.sharedInstance.subscribeAllChannels()
+          YunbaSubscribeService.sharedInstance.setAlias(userID)
+        }
+      } else {
+        
+      }
+      
+      completionHandler(json, error)
+    }
+  }
+}

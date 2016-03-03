@@ -30,20 +30,22 @@ struct HttpService {
   private static let EaseMobAppKey = "zkjs#prosvip"  // 环信
   */
   
-  private static let baseCodeURL = "http://120.25.80.143:8080" //获取code
-  //  private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
+//  private static let baseCodeURL = "http://120.25.80.143:8080" //获取code
+    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
   
   
   private enum ResourcePath: CustomStringConvertible {
     case ApiURL(path:String)
     case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
     case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
+    case Code                             // PAVO 认证服务API : 验证码 : HEADER不需要Token
     
     var description: String {
       switch self {
       case .ApiURL(let path): return "/api/\(path)"
       case .LoginPhone: return "/sso/token/v1/phone/ss"
       case .LoginUserName: return "/sso/token/v1/name/ss"
+        case .Code : return "/sso/vcode/v1/ss"
       }
     }
   }
@@ -58,8 +60,8 @@ struct HttpService {
     return parsed
   }
   
-  static func put(urlString: String, parameters: [String : AnyObject]? , completionHandler: ((JSON?, NSError?) -> Void)) {
-    requestAPI(.PUT, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+  static func put(urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.PUT, urlString: urlString, parameters: parameters, tokenRequired: tokenRequired) { (json, err) -> Void in
       if let err = err {
         completionHandler(json, err)
       } else {
@@ -67,8 +69,8 @@ struct HttpService {
       }
     }
   }
-  static func post(urlString: String, parameters: [String : AnyObject]? , completionHandler: ((JSON?, NSError?) -> Void)) {
-    requestAPI(.POST, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+  static func post(urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.POST, urlString: urlString, parameters: parameters, tokenRequired: tokenRequired) { (json, err) -> Void in
       if let err = err {
         completionHandler(json, err)
       } else {
@@ -77,8 +79,8 @@ struct HttpService {
     }
   }
   
-  static func get(urlString: String, parameters: [String : AnyObject]? , completionHandler: ((JSON?, NSError?) -> Void)) {
-    requestAPI(.GET, urlString: urlString, parameters: parameters) { (json, err) -> Void in
+  static func get(urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.GET, urlString: urlString, parameters: parameters, tokenRequired: tokenRequired) { (json, err) -> Void in
       if let err = err {
         completionHandler(json, err)
       } else {
@@ -95,6 +97,7 @@ struct HttpService {
       headers["Token"] = token
     } else {
       if tokenRequired {
+        print("Token is required")
         return
       }
     }
@@ -145,17 +148,33 @@ struct HttpService {
     }
   }
   
+  
+  //// PAVO 认证服务API : 验证码 : HEADER不需要Token
+  static func requestSmsCodeWithPhoneNumber(phone:String,completionHandler:(JSON?, NSError?) -> ()){
+    let urlString = baseCodeURL + ResourcePath.Code.description
+    let key = "X2VOV0+W7szslb+@kd7d44Im&JUAWO0y"
+    let data: NSData = phone.dataUsingEncoding(NSUTF8StringEncoding)!
+    let encryptedData = data.AES256EncryptWithKey(key).base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+    let dict = ["phone":"\(encryptedData)"]
+    post(urlString, parameters: dict,tokenRequired: false) { (json, error) -> Void in
+      completionHandler(json,error)
+    }
+    
+  }
+
+  
   //// PAVO 认证服务API : 使用手机验证码创建Token : HEADER不需要Token
   static func loginWithPhone(code:String,phone:String,completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = baseCodeURL + ResourcePath.LoginPhone.description
     
     let dict = ["phone":"\(phone)","code":"\(code)"]
-    post(urlString, parameters: dict) { (json, error) -> Void in
+    post(urlString, parameters: dict,tokenRequired: false) { (json, error) -> Void in
       if let json = json {
         guard let token = json["token"].string else {
           print("no token")
           return
         }
+        print("success token:\(token)")
         let tokenPayload = TokenPayload.sharedInstance
         tokenPayload.saveTokenPayload(token)
         
@@ -178,7 +197,7 @@ struct HttpService {
     let urlString = baseCodeURL + ResourcePath.LoginUserName.description
     
     let dict = ["username":"\(username)","password":"\(password)"]
-    post(urlString, parameters: dict) { (json, error) -> Void in
+    post(urlString, parameters: dict, tokenRequired: false) { (json, error) -> Void in
       if let json = json {
         guard let token = json["token"].string else {
           print("no token")

@@ -98,24 +98,35 @@ class StaffLoginVC: UIViewController {
   }
   
   @IBAction func sendVerificationcodeButton(sender: AnyObject) {
+    
     //验证手机号码合法后在发验证码并启动计时器
     if (ZKJSTool.validateMobile(userphoneTextField.text) == true) {
-      ZKJSHTTPSMSSessionManager.sharedInstance().requestSmsCodeWithPhoneNumber(userphoneTextField.text) { (success: Bool, error: NSError!) -> Void in
-        if (success == true) {
+      HttpService.requestSmsCodeWithPhoneNumber(userphoneTextField.text!) { (json, error) -> () in
+        if (error == nil) {
           self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "refreshCount:", userInfo: nil, repeats: true)
           self.countTimer?.fire()
           self.showHint("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
         } else {
-          if let userInfo = error.userInfo.first {
-            self.showHint(userInfo.1 as! String)
-          }
+       
         }
       }
-    } else {
-      self.showHint("请输入正确的手机号码")
+//      ZKJSHTTPSMSSessionManager.sharedInstance().requestSmsCodeWithPhoneNumber(userphoneTextField.text) { (success: Bool, error: NSError!) -> Void in
+//        if (success == true) {
+//          self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "refreshCount:", userInfo: nil, repeats: true)
+//          self.countTimer?.fire()
+//          self.showHint("验证码已发送!")
+//          self.identifyingCodeTextField.becomeFirstResponder()
+//        } else {
+//          if let userInfo = error.userInfo.first {
+//            self.showHint(userInfo.1 as! String)
+//          }
+//        }
+//      }
+//    } else {
+//      self.showHint("请输入正确的手机号码")
+//    }
     }
-    
   }
   
   func refreshCount(sender:UIButton) {
@@ -136,6 +147,10 @@ class StaffLoginVC: UIViewController {
   
   func login() {
     showHUDInView(view, withLoading: "")
+    //////登录获取新的token
+    HttpService.loginWithPhone(self.identifyingCodeTextField.text!, phone: self.userphoneTextField.text!) { (json, error) -> () in
+      
+    }
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
       if (success == true) {
         //当验证码接收到后按钮恢复状态

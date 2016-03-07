@@ -23,6 +23,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let nibName = UINib(nibName: SettingsCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
+    tableView.scrollEnabled = false
   }
   
   override func viewWillAppear(animated: Bool) {

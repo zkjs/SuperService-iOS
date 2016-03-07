@@ -38,11 +38,8 @@
   BOOL flag = YES;
   if (self.messageModel) {
     if (self.messageModel.bodyType == eMessageBodyType_Text) {
-//      NSDictionary * ext = @{@""}
       NSData *data = [self.messageModel.text  dataUsingEncoding:NSUTF8StringEncoding];
-      NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
-                                                                   options:kNilOptions
-                                                                     error:nil];
+      NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
       NSString * username = userModel.buddy.username;
       ChatViewController * vc = [[ChatViewController alloc]initWithConversationChatter:username conversationType:eConversationTypeChat];
       vc.conversation.ext = dic;

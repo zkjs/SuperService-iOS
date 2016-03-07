@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.2.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>201602242</string>
+	<string>201603071</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.zkjinshi.SuperService.WatchOpenApp</string>

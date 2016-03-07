@@ -636,7 +636,7 @@
       content[@"roomtype"] = self.conversation.ext[@"roomtype"];
       content[@"arrivaldate"] = self.conversation.ext[@"arrivaldate"];
       content[@"leavedate"] = self.conversation.ext[@"leavedate"];
-      content[@"content"] = @"有个订单请注意";
+      content[@"content"] = @"有订单请注意跟进";
       content[@"imgurl"] = self.conversation.ext[@"imgurl"];
       content[@"orderno"] = self.conversation.ext[@"orderno"];
       content[@"orderstatus"] = self.conversation.ext[@"orderstatus"];
@@ -651,7 +651,7 @@
         NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:self.conversation.ext];
         ext[@"extType"] = @(1);
         [self sendTextMessage:jsonString withExt:ext];
-        [self sendTextMessage:@"有个订单请注意"];
+        [self sendTextMessage:@"有订单请注意跟进"];
       }
     } else {
       [self sendTextMessage:self.cancleMessage];

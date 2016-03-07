@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
   var window: UIWindow?
   var mainTBC: MainTBC!
-  
+  var orderArray = [OrderListModel]()
   // MARK: - Application Delegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -30,12 +30,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     setupWeChat()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
+    setupBackgroundFetch()
     
 //    #if DEBUG
 //      subscribeTestTopic()
 //    #endif
     return true
   }
+  
+  
+    func setupBackgroundFetch() {
+      UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+      ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(10),
+        success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+          print("Background Fetch: \(responseObject)")
+          if let array = responseObject as? NSArray {
+            for dic in array {
+              let order = OrderListModel(dic: dic as! [String:AnyObject])
+              if let userid = order.userid {
+                if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg") {
+                  let requestURL: NSURL = url
+                  let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+                  let session = NSURLSession.sharedSession()
+                  let task = session.dataTaskWithRequest(urlRequest) {
+                    (data, response, error) -> Void in
+                    if error == nil {
+                      if let Data = data {
+                        if  let  image = UIImage(data: Data) {
+                          StorageManager.sharedInstance().saveHomeImages(image, userID: order.userid)
+                        }
+                      }
+                    } else {
+                      print(error)
+                    }
+                  }
+                  task.resume()
+                }
+              }
+            }
+            
+          }
+          
+        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+          
+      }
+          }
   
   func subscribeTestTopic() {
     let topic = NSNumber(integer: 30)
@@ -97,8 +136,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     return false
   }
   
-  // MARK: - Push Notification
   
+  // MARK: - Background Fetch
+  
+  func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    
+  }
+
+  // MARK: - Push Notification
+
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
     EaseMob.sharedInstance().application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
     
@@ -141,7 +187,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     }
   }
   
-//  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    
+    
 //    print(userInfo)
 //    guard let childType = userInfo["childtype"] as? NSNumber else {
 //      completionHandler(.NoData)
@@ -213,7 +261,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 //    }
 //    
 //    completionHandler(.NoData)
-//  }
+  }
   
   // MARK: - Private Method
   

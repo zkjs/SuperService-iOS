@@ -48,19 +48,34 @@ class InterfaceController: WKInterfaceController {
     orderTitleLabel.setText("")
   }
   
-  func imageRequest(url:NSURL) {
-    let requestURL: NSURL = url
+  func documentDirectory() -> NSString {
+    return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+  }
+  
+  func userImage(userID:String) {
+    let path = documentDirectory().stringByAppendingPathComponent(userID)
+    let image = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UIImage
+    self.avatarImage.setImage(image)
+  }
+  
+  func imageRequest(userid:String) {
+    let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg")
+    if let requestURL: NSURL = url {
     let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
     let session = NSURLSession.sharedSession()
     let task = session.dataTaskWithRequest(urlRequest) {
       (data, response, error) -> Void in
       if error == nil {
-        self.avatarImage.setImage(UIImage(data:data!))
+        if let Data = data {
+          self.avatarImage.setImage(UIImage(data:Data))
+        }
       } else {
+        self.userImage(userid)
         print(error)
       }
     }
     task.resume()
+    }
   }
   
   override func willActivate() {
@@ -83,7 +98,6 @@ class InterfaceController: WKInterfaceController {
   }
   
   override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
-    
     print(remoteNotification)
     
     if let action = identifier {
@@ -98,10 +112,10 @@ class InterfaceController: WKInterfaceController {
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
     // 用户头像
     if let userID = arrivalInfo["userid"] {
-      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userID).jpg") {
-        imageRequest(url)
+      self.userImage(userID as! String)
+//      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userID).jpg") {
+//        imageRequest(userID as! String)
       }
-    }
     
     // 到店信息
     if let username = arrivalInfo["username"] as? String,

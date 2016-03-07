@@ -140,6 +140,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   // MARK: - Background Fetch
   
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    print("BackGround Fetch success")
+      setupBackgroundFetch()
     
   }
 

@@ -114,7 +114,7 @@ class InterfaceController: WKInterfaceController {
     if let userID = arrivalInfo["userid"] {
       self.userImage(userID as! String)
 //      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userID).jpg") {
-//        imageRequest(userID as! String)
+        imageRequest(userID as! String)
       }
     
     // 到店信息

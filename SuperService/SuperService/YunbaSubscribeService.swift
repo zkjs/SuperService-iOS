@@ -20,9 +20,10 @@ struct YunbaSubscribeService {
     
     for roleID in roles {
       let topic = "\(shopID)_\(roleID)"
+      print("subscribe:\(topic)")
       YunBaService.subscribe(topic, resultBlock: { (succ, err) -> Void in
         if succ {
-          print("Yunba subscribe success")
+          print("Yunba subscribe success:\(topic)")
         } else {
           print("Yunba subscribe fail.\(err)")
         }
@@ -31,9 +32,10 @@ struct YunbaSubscribeService {
   }
   
   func setAlias(alias:String) {
+    print("set alias:\(alias)")
     YunBaService.setAlias(alias) { (succ, err) -> Void in
       if succ {
-        print("Yunba setAlias success")
+        print("Yunba setAlias success:\(alias)")
       } else {
         print("Yunba setAlias fail.\(err)")
       }

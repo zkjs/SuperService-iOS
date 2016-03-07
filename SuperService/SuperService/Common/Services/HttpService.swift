@@ -118,21 +118,22 @@ struct HttpService {
             completionHandler(json,nil)
             print(json["resDesc"].string)
           } else {
-            let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
-              code: -1,
-              userInfo: ["res":"\(json["res"].int)","resDesc":json["resDesc"].string ?? ""])
-            completionHandler(json,e)
-            print("error with reason: \(json["resDesc"].string)")
+            var resDesc = ""
             if let key = json["res"].int {
-              ZKJSTool.showMsg("\(key)")
+              resDesc = ZKJSErrorMessages.sharedInstance.errorString("\(key)") ?? "错误码:\(key)"
             }
+            let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+              code: json["res"].int ?? -1,
+              userInfo: ["res":"\(json["res"].int)","resDesc":resDesc])
+            completionHandler(json,e)
+            print("api request error with reason: \(json["res"].int):\(json["resDesc"].string)")
           }
         } else {
           let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
             code: -2,
-            userInfo: ["res":"-2","resDesc": "no data from server"])
+            userInfo: ["res":"-2","resDesc": "服务器未返回数据"])
           completionHandler(nil,e)
-          print("error with reason: \(e)")
+          print("api request error with reason: \(e)")
         }
       }
     }

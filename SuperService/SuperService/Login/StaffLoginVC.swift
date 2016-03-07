@@ -149,7 +149,10 @@ class StaffLoginVC: UIViewController {
     showHUDInView(view, withLoading: "")
     //////登录获取新的token
     HttpService.loginWithPhone(self.identifyingCodeTextField.text!, phone: self.userphoneTextField.text!) { (json, error) -> () in
-      
+      if let errInfo = error?.userInfo["resDesc"] as? String {
+        self.hideHUD()
+        self.showHint(errInfo)
+      }
     }
     ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
       if (success == true) {

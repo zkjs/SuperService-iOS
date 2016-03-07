@@ -630,6 +630,34 @@
   if ([self.firstMessage length] != 0) {
     [self sendTextMessage:self.firstMessage];
   }
+  if ([self.cancleMessage length] != 0) {
+    if ([self.cancleMessage isEqualToString:@"Transpon"] ) {
+      NSMutableDictionary *content = [NSMutableDictionary dictionary];
+      content[@"roomtype"] = self.conversation.ext[@"roomtype"];
+      content[@"arrivaldate"] = self.conversation.ext[@"arrivaldate"];
+      content[@"leavedate"] = self.conversation.ext[@"leavedate"];
+      content[@"content"] = @"有个订单请注意";
+      content[@"imgurl"] = self.conversation.ext[@"imgurl"];
+      content[@"orderno"] = self.conversation.ext[@"orderno"];
+      content[@"orderstatus"] = self.conversation.ext[@"orderstatus"];
+      NSError *error;
+      NSData *jsonData = [NSJSONSerialization dataWithJSONObject:content
+                                                         options:0
+                                                           error:&error];
+      if (!jsonData) {
+        NSLog(@"Got an error: %@", error);
+      } else {
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:self.conversation.ext];
+        ext[@"extType"] = @(1);
+        [self sendTextMessage:jsonString withExt:ext];
+        [self sendTextMessage:@"有个订单请注意"];
+      }
+    } else {
+      [self sendTextMessage:self.cancleMessage];
+    }
+  }
+
 }
 
 

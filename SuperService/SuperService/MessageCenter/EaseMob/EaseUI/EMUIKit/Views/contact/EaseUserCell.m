@@ -110,9 +110,9 @@ CGFloat const EaseUserCellPadding = 10;
 - (void)setModel:(id<IUserModel>)model
 {
     _model = model;
-    
-    if ([_model.nickname length] > 0) {
-        self.titleLabel.text = _model.nickname;
+  NSString * nickName = [NSString stringWithFormat:@"%@",_model.nickname];
+    if ([nickName length] > 0) {
+        self.titleLabel.text = nickName;
     }
     else{
        self.titleLabel.text = _model.buddy.username;

@@ -7,11 +7,14 @@
 //
 
 #import "EaseUI.h"
-
+@class OrderDetailModel;
 #define KNOTIFICATIONNAME_DELETEALLMESSAGE @"RemoveAllMessages"
 
 @interface ChatViewController : EaseMessageViewController
 
 @property (strong, nonatomic) NSString *firstMessage;
+@property(strong,nonatomic)NSString * chatter;
+@property (strong, nonatomic) OrderDetailModel *order;
+@property (strong, nonatomic) NSString *cancleMessage;
 
 @end

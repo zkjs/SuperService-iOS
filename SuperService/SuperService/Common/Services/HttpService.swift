@@ -30,8 +30,8 @@ struct HttpService {
   private static let EaseMobAppKey = "zkjs#prosvip"  // 环信
   */
   
-//  private static let baseCodeURL = "http://120.25.80.143:8080" //获取code
-    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
+  private static let baseCodeURL = "http://120.25.80.143:8080" //获取code
+//    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
   
   
   private enum ResourcePath: CustomStringConvertible {

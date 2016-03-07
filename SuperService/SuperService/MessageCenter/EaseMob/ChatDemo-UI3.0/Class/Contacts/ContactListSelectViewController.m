@@ -24,7 +24,6 @@
   self.dataSource = self;
   
   self.title = NSLocalizedString(@"title.chooseContact", @"select the contact");
-  
   UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
   [backButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
   [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
@@ -39,7 +38,17 @@
   BOOL flag = YES;
   if (self.messageModel) {
     if (self.messageModel.bodyType == eMessageBodyType_Text) {
-      [EaseSDKHelper sendTextMessage:self.messageModel.text to:userModel.buddy.username messageType:eMessageTypeChat requireEncryption:NO messageExt:nil];
+//      NSDictionary * ext = @{@""}
+      NSData *data = [self.messageModel.text  dataUsingEncoding:NSUTF8StringEncoding];
+      NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
+                                                                   options:kNilOptions
+                                                                     error:nil];
+      NSString * username = userModel.buddy.username;
+      ChatViewController * vc = [[ChatViewController alloc]initWithConversationChatter:username conversationType:eConversationTypeChat];
+      vc.conversation.ext = dic;
+      vc.cancleMessage = @"Transpon";
+      [self.navigationController pushViewController:vc animated:NO];
+
     } else if (self.messageModel.bodyType == eMessageBodyType_Image) {
       flag = NO;
       [self showHudInView:self.view hint:NSLocalizedString(@"transponding", @"transpondFailing...")];

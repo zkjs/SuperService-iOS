@@ -82,7 +82,11 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
     let alertController = UIAlertController(title: "添加客户", message: "", preferredStyle: UIAlertControllerStyle.Alert)
     let checkAction = UIAlertAction(title: "查询", style: .Default) { (_) in
       let phoneTextField = alertController.textFields![0] as UITextField
+      if phoneTextField.text!.characters.count > 11 {
+        return
+      }
       guard let phone = phoneTextField.text else { return }
+      
       phoneTextField.resignFirstResponder()
       self.showHUDInView(self.view, withLoading: "正在查找...")
         ZKJSHTTPSessionManager.sharedInstance().checkGusterWithPhone(phone, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
@@ -149,4 +153,14 @@ extension ContactVC: RefreshTeamListVCDelegate {
     }
   }
   
+}
+
+extension ContactVC: UITextFieldDelegate {
+  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    if (range.location + string.characters.count <= 11) {
+      return true
+    } else {
+      return false
+    }
+  }
 }

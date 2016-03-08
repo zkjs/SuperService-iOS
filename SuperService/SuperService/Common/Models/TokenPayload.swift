@@ -31,7 +31,7 @@ class TokenPayload:NSObject {
     return json?["shopid"].string
   }
   var roles:[String]? {
-    return json?["roles"].array?.map{$0.string}.filter{$0 != nil}.map{$0!}
+    return json?["roles"].array?.flatMap{$0.string}
   }
   
   private var json: JSON? {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
@@ -213,6 +213,7 @@
                             <items>
                                 <label alignment="left" text="姓名" id="bhE-aP-Ktr"/>
                                 <label alignment="left" text="房型" id="UG7-B1-Wow" userLabel="RoomType Label"/>
+                                <label alignment="left" text="订单状态" id="X6d-UI-pA5"/>
                                 <label alignment="left" text="天数" id="LUb-u4-ymH"/>
                                 <label alignment="left" text="已到达" id="Svr-as-Hje"/>
                             </items>
@@ -224,11 +225,12 @@
                         <outlet property="durationLabel" destination="LUb-u4-ymH" id="dGp-dv-VJI"/>
                         <outlet property="locationLabel" destination="Svr-as-Hje" id="WSN-f1-hvB"/>
                         <outlet property="nameLabel" destination="bhE-aP-Ktr" id="RrY-Kn-bXv"/>
+                        <outlet property="orderStatus" destination="X6d-UI-pA5" id="C1P-bj-onx"/>
                         <outlet property="roomTypeLabel" destination="UG7-B1-Wow" id="pdR-oa-gsS"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="251.94871794871796" y="756.28205128205138"/>
+            <point key="canvasLocation" x="252" y="756"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

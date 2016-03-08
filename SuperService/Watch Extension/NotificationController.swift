@@ -20,6 +20,7 @@ class NotificationController: WKUserNotificationInterfaceController {
   @IBOutlet var roomTypeLabel: WKInterfaceLabel!
   @IBOutlet var durationLabel: WKInterfaceLabel!
   @IBOutlet var locationLabel: WKInterfaceLabel!
+  @IBOutlet var orderStatus: WKInterfaceLabel!
   
   override init() {
     // Initialize variables here.
@@ -79,6 +80,10 @@ class NotificationController: WKUserNotificationInterfaceController {
       if let locdesc = extra["locdesc"] as? String {
         locationLabel.setText(locdesc)
       }
+      
+//      if let orderstatus = extra["orderStatus"] as? String {
+//        orderStatus.setText(orderstatus)
+//      }
       // Cache ArrivalInfo Notification
       NSUserDefaults.standardUserDefaults().setObject(extra, forKey: ArrivalInfoKey)
     }

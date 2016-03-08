@@ -172,19 +172,19 @@ class ArrivalTVC: UITableViewController {
     let index = self.orderno.startIndex.advancedBy(1)
     let type = self.orderno.substringToIndex(index)
     if type == "H" {
-      if self.orderstatus == "待支付" || self.orderstatus == "待处理" || self.orderstatus == "待确认" || self.orderstatus == "已确认" {
-        let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
-        vc.orderno = self.orderno
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-      } else {
+//      if self.orderstatus == "待支付" || self.orderstatus == "待处理" || self.orderstatus == "待确认" || self.orderstatus == "已确认" {
+//        let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
+//        vc.orderno = self.orderno
+//        vc.hidesBottomBarWhenPushed = true
+//        self.navigationController?.pushViewController(vc, animated: true)
+//      } else {
         let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
         vc.orderno = self.orderno
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
-      }
+    //  }
       
     }
     if type == "O" {

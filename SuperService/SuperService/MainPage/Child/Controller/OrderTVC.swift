@@ -173,7 +173,7 @@ class OrderTVC: UITableViewController {
     let index = order.orderno.startIndex.advancedBy(1)
     let type = order.orderno.substringToIndex(index)
     if type == "H" {
-      if order.orderstatus == "待支付" || order.orderstatus == "待处理" || order.orderstatus == "待确认" || order.orderstatus == "已确认" {
+      if order.orderstatus == "待支付" || order.orderstatus == "待处理" || order.orderstatus == "待确认" {
         let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
         vc.orderno = order.orderno

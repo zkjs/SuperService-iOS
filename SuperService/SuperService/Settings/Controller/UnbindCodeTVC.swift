@@ -116,7 +116,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
       let userName = AccountManager.sharedInstance().userName
       let messageComposeVC = MFMessageComposeViewController()
       messageComposeVC.messageComposeDelegate = self
-      messageComposeVC.body = "\(userName) 邀请您激活超级身份。激活超级身份，把您在某商家的会员保障扩展至全国，100+顶级商户和1000＋客服将竭诚为您服务。"
+      messageComposeVC.body = "\(userName): \(code)  邀请您激活超级身份。激活超级身份，把您在某商家的会员保障扩展至全国，100+顶级商户和1000＋客服将竭诚为您服务。"
       presentViewController(messageComposeVC, animated: true, completion: nil)
     } else {
       let errorAlert = UIAlertView(title: "不能发送", message: "你的设备没有短信功能", delegate: self, cancelButtonTitle: "确定")

@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     setupWeChat()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
-    setupBackgroundFetch()
+//    setupBackgroundFetch()
     
 //    #if DEBUG
 //      subscribeTestTopic()

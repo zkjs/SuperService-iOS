@@ -58,9 +58,10 @@ class NotificationController: WKUserNotificationInterfaceController {
     if let extra = remoteNotification["extra"] as? [String: AnyObject] {
       // 用户头像
       if let userid = extra["userid"] as? String {
-        if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg") {
-          imageRequest(url)
-        }
+        self.userImage(userid)
+//        if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg") {
+//          imageRequest(url)
+//        }
       }
       // 姓名
       if let username = extra["username"] as? String {
@@ -103,6 +104,16 @@ class NotificationController: WKUserNotificationInterfaceController {
       }
     }
     task.resume()
+  }
+  
+  func documentDirectory() -> NSString {
+    return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+  }
+  
+  func userImage(userID:String) {
+    let path = documentDirectory().stringByAppendingPathComponent(userID)
+    let image = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UIImage
+    self.avatarImage.setImage(image)
   }
   
 }

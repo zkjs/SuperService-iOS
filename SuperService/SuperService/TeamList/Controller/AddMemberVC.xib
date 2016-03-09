@@ -118,6 +118,20 @@
                         <action selector="choiceDepartmentButton:" destination="-1" eventType="touchUpInside" id="Ery-mf-n2d"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-MH-Emv">
+                    <rect key="frame" x="200" y="542" width="200" height="48"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="bom-lY-pWC"/>
+                        <constraint firstAttribute="height" constant="48" id="p6G-zT-tpe"/>
+                    </constraints>
+                    <state key="normal" title="批量导入">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addFromMailList:" destination="-1" eventType="touchUpInside" id="CtJ-qV-NC5"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -148,10 +162,12 @@
                 <constraint firstAttribute="trailing" secondItem="bcs-hk-CbE" secondAttribute="trailing" constant="30" id="XTi-27-rJl"/>
                 <constraint firstAttribute="trailing" secondItem="XXb-dZ-wvN" secondAttribute="trailing" constant="30" id="XcW-GH-ah4"/>
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="top" secondItem="w6U-GC-diP" secondAttribute="bottom" constant="30" id="ZJk-mr-2DZ"/>
+                <constraint firstItem="h6B-MH-Emv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZZm-zU-Kst"/>
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="top" secondItem="w6U-GC-diP" secondAttribute="bottom" constant="20" id="agQ-R9-wqK"/>
                 <constraint firstItem="gt6-Cu-hW9" firstAttribute="top" secondItem="XXb-dZ-wvN" secondAttribute="bottom" constant="17" id="d3U-ih-fkd"/>
                 <constraint firstItem="bcs-hk-CbE" firstAttribute="top" secondItem="XXb-dZ-wvN" secondAttribute="bottom" constant="17" id="dJW-wN-Oqe"/>
                 <constraint firstItem="w6U-GC-diP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="eFj-YP-kTK"/>
+                <constraint firstAttribute="bottom" secondItem="h6B-MH-Emv" secondAttribute="bottom" constant="10" id="eQp-tu-RBa"/>
                 <constraint firstItem="gt6-Cu-hW9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="gVa-4P-xAj"/>
                 <constraint firstAttribute="bottom" secondItem="iD6-SD-Hj6" secondAttribute="bottom" constant="68" id="l4B-2D-KgK"/>
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="155" id="muo-Vu-ilP"/>

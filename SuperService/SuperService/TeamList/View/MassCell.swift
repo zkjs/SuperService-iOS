@@ -1,55 +1,46 @@
 //
-//  InformCell.swift
+//  MassCell.swift
 //  SuperService
 //
-//  Created by admin on 15/10/24.
-//  Copyright © 2015年 ZKJS. All rights reserved.
+//  Created by AlexBang on 16/3/9.
+//  Copyright © 2016年 ZKJS. All rights reserved.
 //
 
 import UIKit
 
-class InformCell: UITableViewCell {
-
+class MassCell: UITableViewCell {
   @IBOutlet weak var selectedButton: UIButton!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var ImageView: UIImageView!
   @IBOutlet weak var phoneLabel: UILabel!
   var isUncheck = true
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-      
-//      selectedButton.selected  = true
-    }
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+    
+    //      selectedButton.selected  = true
+  }
   class func reuseIdentifier() -> String {
-    return "InformCell"
+    return "MassCell"
   }
   
   class func nibName() -> String {
-    return "InformCell"
+    return "MassCell"
   }
   
   class func height() -> CGFloat {
-    return 120
-  }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-      //changeSelectedButtonImage()
-    }
-  func setData(area: AreaModel) {
-    locationLabel.text = area.locdesc
-    
+    return 80
   }
   
-  func setContact(contact: [String:String]) {
-    locationLabel.text = contact["username"]
-    phoneLabel.text = contact["phone"]
-  }
+  override func setSelected(selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
     
+    // Configure the view for the selected state
+    //changeSelectedButtonImage()
+  }
+
+  
   @IBAction func tappedCheckedButton(sender: UIButton) {
     changeSelectedButtonImage()
   }

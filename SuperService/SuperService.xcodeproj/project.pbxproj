@@ -332,6 +332,10 @@
 		FA0B7E151C5A05A200266615 /* AddClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0B7E141C5A05A200266615 /* AddClientModel.swift */; };
 		FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */; };
 		FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */; };
+		FA3E504F1C8FCB7700011433 /* MassAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E504D1C8FCB7700011433 /* MassAddVC.swift */; };
+		FA3E50501C8FCB7700011433 /* MassAddVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E504E1C8FCB7700011433 /* MassAddVC.xib */; };
+		FA3E50531C90049900011433 /* MassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E50511C90049900011433 /* MassCell.swift */; };
+		FA3E50541C90049900011433 /* MassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E50521C90049900011433 /* MassCell.xib */; };
 		FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */; };
 		FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */; };
 		FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */; };
@@ -907,6 +911,10 @@
 		FA0B7E141C5A05A200266615 /* AddClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClientModel.swift; sourceTree = "<group>"; };
 		FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeCell.swift; sourceTree = "<group>"; };
 		FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeCell.xib; sourceTree = "<group>"; };
+		FA3E504D1C8FCB7700011433 /* MassAddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassAddVC.swift; sourceTree = "<group>"; };
+		FA3E504E1C8FCB7700011433 /* MassAddVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MassAddVC.xib; sourceTree = "<group>"; };
+		FA3E50511C90049900011433 /* MassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassCell.swift; sourceTree = "<group>"; };
+		FA3E50521C90049900011433 /* MassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MassCell.xib; sourceTree = "<group>"; };
 		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
 		FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeHeaderView.xib; sourceTree = "<group>"; };
 		FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTVOrderDetailTVC.swift; path = ../../KTVOrderDetailTVC.swift; sourceTree = "<group>"; };
@@ -2173,6 +2181,8 @@
 				40F7577D1BE055A80053C2BE /* TeamListCell.xib */,
 				FAF101C11C0409D400FC3672 /* EmployeeCell.swift */,
 				FAF101C21C0409D400FC3672 /* EmployeeCell.xib */,
+				FA3E50511C90049900011433 /* MassCell.swift */,
+				FA3E50521C90049900011433 /* MassCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2188,6 +2198,8 @@
 				40F7577F1BE055A80053C2BE /* TeamListVC.xib */,
 				FAF101BD1C04029900FC3672 /* EmployeeVC.swift */,
 				FAF101BE1C04029900FC3672 /* EmployeeVC.xib */,
+				FA3E504D1C8FCB7700011433 /* MassAddVC.swift */,
+				FA3E504E1C8FCB7700011433 /* MassAddVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2516,6 +2528,7 @@
 				40FB3D381C00203900675044 /* MWPhotoBrowser.bundle in Resources */,
 				FAF1A5E31BEC4CA000B9ACC8 /* HeaderView.xib in Resources */,
 				408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */,
+				FA3E50541C90049900011433 /* MassCell.xib in Resources */,
 				FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */,
 				FAF101C41C0409D400FC3672 /* EmployeeCell.xib in Resources */,
 				4023F73D1C1D59B20057351E /* BindCodeTVC.xib in Resources */,
@@ -2527,6 +2540,7 @@
 				406B0B021C85B5E0006C9C73 /* Info.plist in Resources */,
 				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
 				FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */,
+				FA3E50501C8FCB7700011433 /* MassAddVC.xib in Resources */,
 				406B0AFF1C85B5E0006C9C73 /* Info-tvOS.plist in Resources */,
 				FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */,
 				FAF92CB41C435C2700671300 /* InvoiceCell.xib in Resources */,
@@ -2679,6 +2693,7 @@
 				406B0B241C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */,
 				40FB3D431C00203900675044 /* EaseChineseToPinyin.m in Sources */,
 				40FB3D331C00203900675044 /* PSTCollectionViewUpdateItem.m in Sources */,
+				FA3E504F1C8FCB7700011433 /* MassAddVC.swift in Sources */,
 				40FB3D311C00203900675044 /* PSTCollectionViewItemKey.m in Sources */,
 				40FB3D571C00203900675044 /* EaseBubbleView+Text.m in Sources */,
 				40FB3D041C00203900675044 /* EaseUI.m in Sources */,
@@ -2868,6 +2883,7 @@
 				40FB3D2D1C00203900675044 /* PSTCollectionViewCell.m in Sources */,
 				406B0AFB1C85B5E0006C9C73 /* Download.swift in Sources */,
 				40FB3D181C00203900675044 /* MWTapDetectingView.m in Sources */,
+				FA3E50531C90049900011433 /* MassCell.swift in Sources */,
 				FAF92CB31C435C2700671300 /* InvoiceCell.swift in Sources */,
 				40FB3D161C00203900675044 /* MWPhotoBrowser.m in Sources */,
 				40FB3D051C00203900675044 /* EMAudioPlayerUtil.m in Sources */,

@@ -32,3 +32,5 @@
 #import "Configure.h"
 #import "NSData+AES256.h"
 #import <CommonCrypto/CommonCryptor.h>
+
+#import <AddressBook/AddressBook.h>

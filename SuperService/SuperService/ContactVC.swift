@@ -50,10 +50,15 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   // MARK: - Public
   
   func AddMember() {
-    let vc = AddMemberVC()
-    vc.delegate = self
-    vc.hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(vc, animated: true)
+    if #available(iOS 9.0, *) {
+      let vc = AddMemberVC()
+      vc.delegate = self
+      vc.hidesBottomBarWhenPushed = true
+      navigationController?.pushViewController(vc, animated: true)
+    } else {
+        // Fallback on earlier versions
+    }
+    
   }
   
   // MARK: - XLPagerTabStripViewControllerDataSource
@@ -86,7 +91,6 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
         return
       }
       guard let phone = phoneTextField.text else { return }
-      
       phoneTextField.resignFirstResponder()
       self.showHUDInView(self.view, withLoading: "正在查找...")
         ZKJSHTTPSessionManager.sharedInstance().checkGusterWithPhone(phone, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in

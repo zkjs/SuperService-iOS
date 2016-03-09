@@ -14,7 +14,7 @@ let kRefreshConversationListNotification = "kRefreshConversationListNotification
 let kArrivalInfoBadge = "kArrivalInfoBadge"
 let sharedUserActivityType = "com.zkjinshi.SuperService.WatchOpenApp"
 let sharedIdentifierKey = "identifier"
-
+var page = 1
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     setupWeChat()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
+    UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 //    setupBackgroundFetch()
     
 //    #if DEBUG
@@ -40,8 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
   
     func setupBackgroundFetch() {
-      UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-      ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(10),
+      page++
+      ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
         success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
           print("Background Fetch: \(responseObject)")
           if let array = responseObject as? NSArray {
@@ -141,9 +142,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     print("BackGround Fetch success")
-      setupBackgroundFetch()
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5  * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
+      completionHandler(UIBackgroundFetchResult.NewData)
+      self.setupBackgroundFetch()
+    }
     
   }
+  
 
   // MARK: - Push Notification
 

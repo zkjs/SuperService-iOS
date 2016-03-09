@@ -1,0 +1,99 @@
+//
+//  HttpService+FacePay.swift
+//  SuperService
+//
+//  Created by Qin Yejun on 3/9/16.
+//  Copyright © 2016 ZKJS. All rights reserved.
+//
+
+import Foundation
+
+extension HttpService {
+  static let baseURLFacepay = "http://p.zkjinshi.com"
+  
+  private enum ResourcePathFacePay: CustomStringConvertible {
+    case NearbyCustomers(shopid:String, locids:String)
+    case Payment
+    case PaymentList
+    case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
+    case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
+    case Code                             // PAVO 认证服务API : 验证码 : HEADER不需要Token
+    
+    var description: String {
+      switch self {
+      case .NearbyCustomers(let shopid,let locids): return "/pyx/lbs/v1/loc/beacon/\(shopid)/\(locids)"
+      case .Payment: return "/for/res/v1/payment"
+      case .PaymentList: return "/for/res/v1/payment/ss"
+      case .LoginPhone: return "/sso/token/v1/phone/ss"
+      case .LoginUserName: return "/sso/token/v1/name/ss"
+      case .Code : return "/sso/vcode/v1/ss"
+      }
+    }
+  }
+  
+  
+  static func getNearbyCustomers(shopid shopid:String,locids:String,completionHandler:([NearbyCustomer]?,NSError?) -> ()) {
+    let urlString = baseURLFacepay + ResourcePathFacePay.NearbyCustomers(shopid: shopid, locids: locids).description
+    
+    let dict = ["page":"0","page_size":"40"]
+    
+    get(urlString, parameters: dict) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        if let data = json?["data"].array where data.count > 0 {
+          var users = [NearbyCustomer]()
+          for userData in data {
+            let user = NearbyCustomer(data: userData)
+            users.append(user)
+          }
+          print(users.count)
+          completionHandler(users,nil)
+        }
+      }
+    }
+  }
+  
+  static func chargeCustomer(amount:Int, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
+    let urlString = baseURLFacepay + ResourcePathFacePay.Payment.description
+    var dict = ["amount":"\(amount)","target":userid]
+    if let orderNo = orderNo {
+      dict["orderno"] = orderNo
+    }
+    
+    post(urlString, parameters: dict) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        if let orderno = json?["orderno"].string {
+          completionHandler(orderno,nil)
+        }
+      }
+    }
+  }
+  
+  static func getPaymentList(page:Int = 0, pageSize:Int = 20, status:Int?, completionHandler:([PaymentListItem]?,NSError?) -> Void) {
+    let urlString = baseURLFacepay + ResourcePathFacePay.PaymentList.description
+    var dict = ["page":"\(page)","page_size":"\(pageSize)"]
+    if let status = status {
+      dict["status"] = "\(status)"
+    }
+    
+    get(urlString, parameters: dict) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        if let data = json?["data"].array where data.count > 0 {
+          var results = [PaymentListItem]()
+          for d in data {
+            let item = PaymentListItem(json: d)
+            results.append(item)
+          }
+          print(results.count)
+          completionHandler(results,nil)
+        }
+      }
+    }
+  }
+
+}

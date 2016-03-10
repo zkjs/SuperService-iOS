@@ -9,7 +9,10 @@
 import UIKit
 
 class PaymentListVC: UITableViewController {
+  let pageSize = 20
   var paymentList = [PaymentListItem]()
+  var currentPage = 0
+  var nomoreData = false
 
   override func viewDidLoad() {
     self.title = "收款记录"
@@ -18,15 +21,22 @@ class PaymentListVC: UITableViewController {
   }
   
   private func loadData() {
-    HttpService.getPaymentList(0, status: nil) {[unowned self] (list, error) -> Void in
+    if currentPage == 0 {
+      showHUDInView(view, withLoading: "")
+    }
+    print("page:\(currentPage)")
+    HttpService.getPaymentList(currentPage, pageSize: pageSize, status: nil) {[unowned self] (list, error) -> Void in
+      self.hideHUD()
       if let error = error {
         self.showHint("\(error.code)")
       } else {
         if let list = list where list.count > 0 {
-          self.paymentList = list
+          self.paymentList += list
           self.tableView.reloadData()
+          self.nomoreData = list.count < self.pageSize
         } else {
           self.showHint("没有收款记录")
+          self.nomoreData = true
         }
       }
     }
@@ -49,5 +59,14 @@ class PaymentListVC: UITableViewController {
     return cell
   }
   
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
   
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.row == paymentList.count - 1 && !nomoreData {
+      ++currentPage
+      loadData()
+    }
+  }
 }

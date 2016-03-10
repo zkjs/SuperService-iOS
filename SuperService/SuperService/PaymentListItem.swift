@@ -12,6 +12,7 @@ struct PaymentListItem {
   
   let userid:String
   let username:String
+  let userimage:String
   let createtime:String
   let amount:Double
   let orderno:String
@@ -22,6 +23,7 @@ struct PaymentListItem {
   
   init(userid:String,
     username:String,
+    userimage:String,
     createtime:String,
     amount:Double,
     orderno:String,
@@ -32,6 +34,7 @@ struct PaymentListItem {
     ) {
       self.userid = userid
       self.username = username
+      self.userimage = userimage
       self.createtime = createtime
       self.amount = amount
       self.orderno = orderno
@@ -44,6 +47,7 @@ struct PaymentListItem {
   init(json:JSON) {
     userid = json["userid"].string ?? ""
     username = json["username"].string ?? ""
+    userimage = json["userimage"].string.map{ $0.isEmpty ? "" : kImageURL + $0 } ?? ""
     createtime = json["createtime"].string ?? ""
     amount = json["amount"].double ?? 0
     orderno = json["orderno"].string ?? ""

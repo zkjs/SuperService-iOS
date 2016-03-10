@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -234,8 +234,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatars_default_white" translatesAutoresizingMaskIntoConstraints="NO" id="H9x-Gd-68X">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatars_default_white" translatesAutoresizingMaskIntoConstraints="NO" id="H9x-Gd-68X">
                                             <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="DLW-Fl-IEj"/>
+                                                <constraint firstAttribute="height" constant="60" id="WMj-B0-eOg"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-kx-cCF">
                                             <rect key="frame" x="80" y="10" width="76" height="21"/>
@@ -324,28 +334,55 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nN-qw-R0c">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nN-qw-R0c">
                                 <rect key="frame" x="100" y="189" width="120" height="30"/>
                                 <state key="normal" title="重新发起收款信息"/>
                                 <connections>
                                     <action selector="sendAgain:" destination="mZH-hr-u46" eventType="touchUpInside" id="NN4-DL-4Uh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易单号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1s-uK-vKU">
+                                <rect key="frame" x="126" y="465" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-1J-MRe">
+                                <rect key="frame" x="126" y="496" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn5-jt-U2E">
+                                <rect key="frame" x="126" y="527" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4nN-qw-R0c" firstAttribute="centerX" secondItem="1oh-3M-OC3" secondAttribute="centerX" id="2fR-e3-cfI"/>
+                            <constraint firstItem="0Xq-1J-MRe" firstAttribute="leading" secondItem="Tn5-jt-U2E" secondAttribute="leading" id="4Pw-ow-f3e"/>
                             <constraint firstItem="1oh-3M-OC3" firstAttribute="top" secondItem="lgE-74-KRK" secondAttribute="bottom" constant="64" id="4ro-C6-Qy7"/>
                             <constraint firstItem="1oh-3M-OC3" firstAttribute="centerX" secondItem="MjT-CF-xoK" secondAttribute="centerX" id="Ear-l4-THH"/>
                             <constraint firstItem="iFU-eR-FBB" firstAttribute="centerX" secondItem="1oh-3M-OC3" secondAttribute="centerX" id="FJs-GK-R8J"/>
+                            <constraint firstItem="0Xq-1J-MRe" firstAttribute="top" secondItem="w1s-uK-vKU" secondAttribute="bottom" constant="10" id="NqU-ga-0HH"/>
                             <constraint firstItem="p1S-bU-dZ9" firstAttribute="top" secondItem="1oh-3M-OC3" secondAttribute="bottom" constant="8" id="PIJ-nq-oXR"/>
                             <constraint firstItem="4nN-qw-R0c" firstAttribute="top" secondItem="iFU-eR-FBB" secondAttribute="bottom" constant="8" id="QhD-oX-INn"/>
+                            <constraint firstItem="w1s-uK-vKU" firstAttribute="leading" secondItem="0Xq-1J-MRe" secondAttribute="leading" id="dVi-d4-aEx"/>
+                            <constraint firstItem="Tn5-jt-U2E" firstAttribute="top" secondItem="0Xq-1J-MRe" secondAttribute="bottom" constant="10" id="jFI-V7-CBY"/>
                             <constraint firstItem="p1S-bU-dZ9" firstAttribute="centerX" secondItem="1oh-3M-OC3" secondAttribute="centerX" id="ndN-hc-PgK"/>
+                            <constraint firstItem="w1s-uK-vKU" firstAttribute="centerX" secondItem="MjT-CF-xoK" secondAttribute="centerX" id="uij-oD-II6"/>
                             <constraint firstItem="iFU-eR-FBB" firstAttribute="top" secondItem="p1S-bU-dZ9" secondAttribute="bottom" constant="10" id="v1U-nJ-rO6"/>
+                            <constraint firstItem="A4J-Qd-hJp" firstAttribute="top" secondItem="Tn5-jt-U2E" secondAttribute="bottom" constant="20" id="yoD-jv-FRe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="amountLabel" destination="p1S-bU-dZ9" id="rhx-e8-ePm"/>
+                        <outlet property="confirmTimeLabel" destination="Tn5-jt-U2E" id="cWS-77-iRV"/>
+                        <outlet property="createdTimeLabel" destination="0Xq-1J-MRe" id="ykz-vJ-FLa"/>
+                        <outlet property="orderNoLabel" destination="w1s-uK-vKU" id="ZdJ-gT-KsZ"/>
                         <outlet property="refusedLabel" destination="iFU-eR-FBB" id="A6C-aQ-Luc"/>
                         <outlet property="sendAgainButton" destination="4nN-qw-R0c" id="vNT-rS-a1h"/>
                         <outlet property="statusLabel" destination="1oh-3M-OC3" id="Xy1-I3-oyh"/>

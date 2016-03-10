@@ -53,6 +53,14 @@ class OrderTVC: UITableViewController {
     navigationItem.rightBarButtonItem = addOrderButton
   }
   
+  private func addBarButtons() {
+    let buttonCounter = UIBarButtonItem(image: UIImage(named: "ic_till"),
+      style: .Plain,
+      target: self,
+      action: "gotoCkeckoutCounter")
+    navigationItem.rightBarButtonItem = buttonCounter
+  }
+  
   private func setupView() {
     title = "订单"
     let nibName = UINib(nibName: OrderCell.nibName(), bundle: nil)
@@ -61,6 +69,7 @@ class OrderTVC: UITableViewController {
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
 //    addRightBarButton()
+    addBarButtons()
   }
   
   private func getDataWithPage(page: Int) {
@@ -154,6 +163,13 @@ class OrderTVC: UITableViewController {
   
   
   // MARK: - Button Action
+  
+  func gotoCkeckoutCounter() {
+    let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("CheckoutCounterVC") as! CheckoutCounterVC
+    vc.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
+  }
   
   func addOrder() {
     let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)

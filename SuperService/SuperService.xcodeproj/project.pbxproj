@@ -36,6 +36,12 @@
 		400D62851C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */; };
 		400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626C1C1526B50021E750 /* TranslationAnimation.swift */; };
 		400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626D1C1526B50021E750 /* UIView+Transform.swift */; };
+		40111DEE1C8FC15100DD2AE1 /* CheckoutCounter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40111DED1C8FC15100DD2AE1 /* CheckoutCounter.storyboard */; };
+		40111DF01C8FCBF600DD2AE1 /* CheckoutCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DEF1C8FCBF600DD2AE1 /* CheckoutCounterVC.swift */; };
+		40111DF21C8FCE7600DD2AE1 /* CustomerHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DF11C8FCE7600DD2AE1 /* CustomerHeaderCell.swift */; };
+		40111DF41C8FF5F200DD2AE1 /* HttpService+FacePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */; };
+		40111DFA1C90047700DD2AE1 /* NearbyCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DF91C90047700DD2AE1 /* NearbyCustomer.swift */; };
+		40111DFC1C90079300DD2AE1 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DFB1C90079300DD2AE1 /* CustomerOrder.swift */; };
 		401C1FA31C2A4B3D003B9E69 /* CCPRestSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */; };
 		401C1FA41C2A4B3D003B9E69 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C1FA21C2A4B3D003B9E69 /* XMLReader.m */; };
 		4023F72F1C1D215A0057351E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F72C1C1D215A0057351E /* libWeChatSDK.a */; };
@@ -165,6 +171,17 @@
 		40DA78A71BAFAA8F00956B72 /* SuperServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78A61BAFAA8F00956B72 /* SuperServiceTests.swift */; };
 		40DA78B21BAFAA8F00956B72 /* SuperServiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */; };
 		40DB677F1BEDDB34008D3BB9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DB677E1BEDDB34008D3BB9 /* UIColor+Theme.swift */; };
+		40DC2D4C1C901FD3007D9A3F /* ChargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D4B1C901FD3007D9A3F /* ChargeVC.swift */; };
+		40DC2D571C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D501C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.m */; };
+		40DC2D581C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D521C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.m */; };
+		40DC2D591C902D9C007D9A3F /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D541C902D9C007D9A3F /* TPKeyboardAvoidingTableView.m */; };
+		40DC2D5A1C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D561C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		40DC2D5C1C904A83007D9A3F /* PaymentResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D5B1C904A83007D9A3F /* PaymentResultVC.swift */; };
+		40DC2D5E1C904E3F007D9A3F /* FacePayResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D5D1C904E3F007D9A3F /* FacePayResult.swift */; };
+		40DC2D601C9055F2007D9A3F /* PaymentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D5F1C9055F2007D9A3F /* PaymentListVC.swift */; };
+		40DC2D621C905A80007D9A3F /* PaymentListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D611C905A80007D9A3F /* PaymentListItem.swift */; };
+		40DC2D641C905E87007D9A3F /* PaymentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D631C905E87007D9A3F /* PaymentListCell.swift */; };
+		40DC2D661C912202007D9A3F /* FacePayPushResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D651C912202007D9A3F /* FacePayPushResult.swift */; };
 		40E326291BD4C369008344DF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E326281BD4C369008344DF /* Persistence.swift */; };
 		40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40E3262B1BD4C621008344DF /* SuperService.xcdatamodeld */; };
 		40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E3262E1BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift */; };
@@ -343,6 +360,7 @@
 		FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */; };
 		FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
+		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
 		FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */; };
 		FAEDFD481C58B84B00AAEEEF /* AddSalesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */; };
 		FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */; };
@@ -467,6 +485,12 @@
 		400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewPageConstraintAnimation.swift; sourceTree = "<group>"; };
 		400D626C1C1526B50021E750 /* TranslationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationAnimation.swift; sourceTree = "<group>"; };
 		400D626D1C1526B50021E750 /* UIView+Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
+		40111DED1C8FC15100DD2AE1 /* CheckoutCounter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CheckoutCounter.storyboard; path = MainPage/Child/Controller/CheckoutCounter.storyboard; sourceTree = "<group>"; };
+		40111DEF1C8FCBF600DD2AE1 /* CheckoutCounterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutCounterVC.swift; path = MainPage/Child/Controller/CheckoutCounterVC.swift; sourceTree = "<group>"; };
+		40111DF11C8FCE7600DD2AE1 /* CustomerHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerHeaderCell.swift; path = MainPage/Child/View/CustomerHeaderCell.swift; sourceTree = "<group>"; };
+		40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HttpService+FacePay.swift"; path = "Common/Services/HttpService+FacePay.swift"; sourceTree = "<group>"; };
+		40111DF91C90047700DD2AE1 /* NearbyCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCustomer.swift; sourceTree = "<group>"; };
+		40111DFB1C90079300DD2AE1 /* CustomerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 		401C1F9D1C2A4B3D003B9E69 /* CCPRestSDK-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPRestSDK-Prefix.pch"; sourceTree = "<group>"; };
 		401C1F9E1C2A4B3D003B9E69 /* CCPRestSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPRestSDK.h; sourceTree = "<group>"; };
 		401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPRestSDK.m; sourceTree = "<group>"; };
@@ -615,6 +639,21 @@
 		40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperServiceUITests.swift; sourceTree = "<group>"; };
 		40DA78B31BAFAA8F00956B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40DB677E1BEDDB34008D3BB9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
+		40DC2D4B1C901FD3007D9A3F /* ChargeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChargeVC.swift; path = FacePay/ChargeVC.swift; sourceTree = "<group>"; };
+		40DC2D4F1C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		40DC2D501C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		40DC2D511C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		40DC2D521C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		40DC2D531C902D9C007D9A3F /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		40DC2D541C902D9C007D9A3F /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		40DC2D551C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		40DC2D561C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		40DC2D5B1C904A83007D9A3F /* PaymentResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentResultVC.swift; path = FacePay/PaymentResultVC.swift; sourceTree = "<group>"; };
+		40DC2D5D1C904E3F007D9A3F /* FacePayResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacePayResult.swift; path = FacePay/FacePayResult.swift; sourceTree = "<group>"; };
+		40DC2D5F1C9055F2007D9A3F /* PaymentListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentListVC.swift; path = FacePay/PaymentListVC.swift; sourceTree = "<group>"; };
+		40DC2D611C905A80007D9A3F /* PaymentListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentListItem.swift; sourceTree = "<group>"; };
+		40DC2D631C905E87007D9A3F /* PaymentListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentListCell.swift; path = FacePay/PaymentListCell.swift; sourceTree = "<group>"; };
+		40DC2D651C912202007D9A3F /* FacePayPushResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacePayPushResult.swift; path = FacePay/FacePayPushResult.swift; sourceTree = "<group>"; };
 		40DCE2511C46255C00C44E89 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		40E326281BD4C369008344DF /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		40E3262C1BD4C621008344DF /* SuperService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SuperService.xcdatamodel; sourceTree = "<group>"; };
@@ -923,6 +962,7 @@
 		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureOrderDetailTVC.storyboard; path = ../../LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
+		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
 		FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesVC.swift; sourceTree = "<group>"; };
 		FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSalesVC.xib; sourceTree = "<group>"; };
 		FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GusterModel.swift; sourceTree = "<group>"; };
@@ -1053,6 +1093,50 @@
 			path = RazzleDazzle;
 			sourceTree = "<group>";
 		};
+		40111DF51C8FF8FC00DD2AE1 /* FacePay */ = {
+			isa = PBXGroup;
+			children = (
+				40111DF81C8FF9FC00DD2AE1 /* Models */,
+				40111DF71C8FF9DC00DD2AE1 /* Views */,
+				40111DF61C8FF9C500DD2AE1 /* Controllers */,
+			);
+			name = FacePay;
+			sourceTree = "<group>";
+		};
+		40111DF61C8FF9C500DD2AE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40111DED1C8FC15100DD2AE1 /* CheckoutCounter.storyboard */,
+				40111DEF1C8FCBF600DD2AE1 /* CheckoutCounterVC.swift */,
+				40DC2D4B1C901FD3007D9A3F /* ChargeVC.swift */,
+				40DC2D5B1C904A83007D9A3F /* PaymentResultVC.swift */,
+				40DC2D5F1C9055F2007D9A3F /* PaymentListVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		40111DF71C8FF9DC00DD2AE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40111DF11C8FCE7600DD2AE1 /* CustomerHeaderCell.swift */,
+				40DC2D631C905E87007D9A3F /* PaymentListCell.swift */,
+				FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		40111DF81C8FF9FC00DD2AE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40111DF91C90047700DD2AE1 /* NearbyCustomer.swift */,
+				40DC2D611C905A80007D9A3F /* PaymentListItem.swift */,
+				40111DFB1C90079300DD2AE1 /* CustomerOrder.swift */,
+				40DC2D5D1C904E3F007D9A3F /* FacePayResult.swift */,
+				40DC2D651C912202007D9A3F /* FacePayPushResult.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		401C1F9C1C2A4B3D003B9E69 /* CCPRestSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,6 +1233,7 @@
 			children = (
 				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				406B0B2A1C85B692006C9C73 /* HttpService.swift */,
+				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 			);
@@ -1313,6 +1398,7 @@
 		40CBC0551C5EF05B00AFCC39 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				40DC2D4D1C902D86007D9A3F /* Libraries */,
 				406B0B261C85B611006C9C73 /* Models */,
 				406B0AE11C85B356006C9C73 /* Services */,
 				4068A2D31BBBB13100FF8608 /* Widget */,
@@ -1418,6 +1504,7 @@
 				FAF6B0EF1C8D6BB600D1192A /* SuperService.entitlements */,
 				40CBC0551C5EF05B00AFCC39 /* Common */,
 				FAF097351C10398900A7F80B /* GuidePage */,
+				40111DF51C8FF8FC00DD2AE1 /* FacePay */,
 				40CAA5FC1BE705FE00FAFDA0 /* Login */,
 				40CF56751BF3453300E20D50 /* ArrivalInfo */,
 				40600CAB1BC64579008F8DEC /* Order */,
@@ -1454,6 +1541,29 @@
 				40DA78B11BAFAA8F00956B72 /* SuperServiceUITests.swift */,
 			);
 			path = SuperServiceUITests;
+			sourceTree = "<group>";
+		};
+		40DC2D4D1C902D86007D9A3F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				40DC2D4E1C902D9C007D9A3F /* TPKeyboardAvoiding */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		40DC2D4E1C902D9C007D9A3F /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				40DC2D4F1C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.h */,
+				40DC2D501C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.m */,
+				40DC2D511C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.h */,
+				40DC2D521C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.m */,
+				40DC2D531C902D9C007D9A3F /* TPKeyboardAvoidingTableView.h */,
+				40DC2D541C902D9C007D9A3F /* TPKeyboardAvoidingTableView.m */,
+				40DC2D551C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				40DC2D561C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		40E3262A1BD4C36F008344DF /* Persistence */ = {
@@ -2518,6 +2628,7 @@
 				FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */,
 				FAF92CAE1C43594F00671300 /* InvoiceVC.xib in Resources */,
 				408609C41C3E5F94009CAED0 /* HotelOrderDetailTVC.storyboard in Resources */,
+				40111DEE1C8FC15100DD2AE1 /* CheckoutCounter.storyboard in Resources */,
 				842659471BE09FCF005E82F2 /* MemberListCell.xib in Resources */,
 				842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */,
 				40F7575D1BE0546A0053C2BE /* OrderCell.xib in Resources */,
@@ -2625,6 +2736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40DC2D581C902D9C007D9A3F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				40F757581BE054550053C2BE /* OrderTVC.swift in Sources */,
 				40F7574B1BE054160053C2BE /* ClientModel.swift in Sources */,
 				FAF101BF1C04029900FC3672 /* EmployeeVC.swift in Sources */,
@@ -2643,13 +2755,16 @@
 				40FB3CFF1C00203900675044 /* UIImageView+HeadImage.m in Sources */,
 				400D627E1C1526B50021E750 /* LayerFillColorAnimation.swift in Sources */,
 				40C8416E1C102CC3003E8037 /* EMAlertView.m in Sources */,
+				40DC2D571C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */,
 				400D62771C1526B50021E750 /* CubicBezier.swift in Sources */,
 				406B0B131C85B5E0006C9C73 /* ResponseSerialization.swift in Sources */,
 				40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */,
 				FA06ADEA1C87EA820060DD33 /* NSData+AES256.m in Sources */,
+				40DC2D641C905E87007D9A3F /* PaymentListCell.swift in Sources */,
 				40F757841BE055A80053C2BE /* TeamListVC.swift in Sources */,
 				40FB3D561C00203900675044 /* EaseBubbleView+Location.m in Sources */,
+				40DC2D601C9055F2007D9A3F /* PaymentListVC.swift in Sources */,
 				400D62801C1526B50021E750 /* LayerStrokeEndAnimation.swift in Sources */,
 				40FB3D0B1C00203900675044 /* EMCDDeviceManagerBase.m in Sources */,
 				406B0B0B1C85B5E0006C9C73 /* Notifications.swift in Sources */,
@@ -2660,6 +2775,7 @@
 				40FB3D531C00203900675044 /* EaseMessageTimeCell.m in Sources */,
 				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
 				400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */,
+				40DC2D621C905A80007D9A3F /* PaymentListItem.swift in Sources */,
 				FAF92CAB1C43594F00671300 /* InvoiceDetailVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				40FB3D1E1C00203900675044 /* EMSDWebImageDownloader.m in Sources */,
@@ -2669,6 +2785,7 @@
 				40FB3CFC1C00203900675044 /* EMGifImage.m in Sources */,
 				40FB3D1D1C00203900675044 /* EMSDWebImageDecoder.m in Sources */,
 				40FB3D2A1C00203900675044 /* UIView+EMWebCacheOperation.m in Sources */,
+				40DC2D5C1C904A83007D9A3F /* PaymentResultVC.swift in Sources */,
 				40C8416A1C102C3D003E8037 /* GroupSubjectChangingViewController.m in Sources */,
 				FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */,
 				40FB3D4B1C00203900675044 /* EaseLocationViewController.m in Sources */,
@@ -2695,6 +2812,7 @@
 				40FB3D331C00203900675044 /* PSTCollectionViewUpdateItem.m in Sources */,
 				FA3E504F1C8FCB7700011433 /* MassAddVC.swift in Sources */,
 				40FB3D311C00203900675044 /* PSTCollectionViewItemKey.m in Sources */,
+				40DC2D661C912202007D9A3F /* FacePayPushResult.swift in Sources */,
 				40FB3D571C00203900675044 /* EaseBubbleView+Text.m in Sources */,
 				40FB3D041C00203900675044 /* EaseUI.m in Sources */,
 				40FB3D341C00203900675044 /* PSTGridLayoutInfo.m in Sources */,
@@ -2725,15 +2843,18 @@
 				40FB3D271C00203900675044 /* UIImage+EMWebP.m in Sources */,
 				40FB3D471C00203900675044 /* EaseEmojiEmoticons.m in Sources */,
 				842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */,
+				FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */,
 				40FB3D601C00203900675044 /* EaseFacialView.m in Sources */,
 				408693FE1C390F7F00BE1709 /* OrderListModel.swift in Sources */,
 				40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */,
+				40DC2D5A1C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				40FB3D011C00203900675044 /* ChatViewController.m in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
 				40FB3D5F1C00203900675044 /* EaseFaceView.m in Sources */,
 				842659491BE0A216005E82F2 /* MemberModel.swift in Sources */,
 				40CF18FE1C029D550069C807 /* NoticeModel.swift in Sources */,
+				40111DF21C8FCE7600DD2AE1 /* CustomerHeaderCell.swift in Sources */,
 				40FB3D5B1C00203900675044 /* EaseChatToolbar.m in Sources */,
 				40FB3D171C00203900675044 /* MWTapDetectingImageView.m in Sources */,
 				40FB3D2C1C00203900675044 /* PSTCollectionView.m in Sources */,
@@ -2836,6 +2957,7 @@
 				406B0B051C85B5E0006C9C73 /* Manager.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
 				40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */,
+				40DC2D4C1C901FD3007D9A3F /* ChargeVC.swift in Sources */,
 				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,
 				400D62701C1526B50021E750 /* AnimatedPagingScrollViewController.swift in Sources */,
 				40FB3D441C00203900675044 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
@@ -2865,10 +2987,14 @@
 				40FB3D4D1C00203900675044 /* EaseRefreshTableViewController.m in Sources */,
 				40FB3D621C00203900675044 /* EaseRecordView.m in Sources */,
 				40FB3D2E1C00203900675044 /* PSTCollectionViewController.m in Sources */,
+				40111DF01C8FCBF600DD2AE1 /* CheckoutCounterVC.swift in Sources */,
+				40111DF41C8FF5F200DD2AE1 /* HttpService+FacePay.swift in Sources */,
 				40FB3D261C00203900675044 /* UIImage+EMMultiFormat.m in Sources */,
 				406B0B1D1C85B5E0006C9C73 /* Upload.swift in Sources */,
 				40F7574F1BE054340053C2BE /* BaseNavigationController.swift in Sources */,
 				40E326421BD50544008344DF /* Order.swift in Sources */,
+				40DC2D5E1C904E3F007D9A3F /* FacePayResult.swift in Sources */,
+				40DC2D591C902D9C007D9A3F /* TPKeyboardAvoidingTableView.m in Sources */,
 				40FB3D241C00203900675044 /* UIButton+EMWebCache.m in Sources */,
 				40FB3D111C00203900675044 /* MBProgressHUD+Add.m in Sources */,
 				40FB3D481C00203900675044 /* EaseEmotionEscape.m in Sources */,
@@ -2877,6 +3003,7 @@
 				408423081BC68A7800C215CD /* ArrivalCell.swift in Sources */,
 				40FB3D091C00203900675044 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				408694091C39164B00BE1709 /* KTVTableView.swift in Sources */,
+				40111DFA1C90047700DD2AE1 /* NearbyCustomer.swift in Sources */,
 				40FB3D591C00203900675044 /* EaseBubbleView+Voice.m in Sources */,
 				406B0B071C85B5E0006C9C73 /* MultipartFormData.swift in Sources */,
 				40FB3D501C00203900675044 /* EaseUserCell.m in Sources */,
@@ -2885,6 +3012,7 @@
 				40FB3D181C00203900675044 /* MWTapDetectingView.m in Sources */,
 				FA3E50531C90049900011433 /* MassCell.swift in Sources */,
 				FAF92CB31C435C2700671300 /* InvoiceCell.swift in Sources */,
+				40111DFC1C90079300DD2AE1 /* CustomerOrder.swift in Sources */,
 				40FB3D161C00203900675044 /* MWPhotoBrowser.m in Sources */,
 				40FB3D051C00203900675044 /* EMAudioPlayerUtil.m in Sources */,
 				406B0B2B1C85B692006C9C73 /* HttpService.swift in Sources */,

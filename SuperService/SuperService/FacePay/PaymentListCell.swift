@@ -18,6 +18,7 @@ class PaymentListCell: UITableViewCell {
   
   func configCell(item:PaymentListItem) {
     usernameLabel.text = item.username
+    avatarsImageView.sd_setImageWithURL(NSURL(string: item.userimage), placeholderImage: UIImage(named: "avatars_default_white"))
     timeLabel.text = item.createtime
     amountLabel.text = "￥\(item.amount)"
     statusLabel.text = item.statusdesc

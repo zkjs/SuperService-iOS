@@ -181,6 +181,7 @@
 		40DC2D601C9055F2007D9A3F /* PaymentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D5F1C9055F2007D9A3F /* PaymentListVC.swift */; };
 		40DC2D621C905A80007D9A3F /* PaymentListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D611C905A80007D9A3F /* PaymentListItem.swift */; };
 		40DC2D641C905E87007D9A3F /* PaymentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D631C905E87007D9A3F /* PaymentListCell.swift */; };
+		40DC2D661C912202007D9A3F /* FacePayPushResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC2D651C912202007D9A3F /* FacePayPushResult.swift */; };
 		40E326291BD4C369008344DF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E326281BD4C369008344DF /* Persistence.swift */; };
 		40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40E3262B1BD4C621008344DF /* SuperService.xcdatamodeld */; };
 		40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E3262E1BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift */; };
@@ -648,6 +649,7 @@
 		40DC2D5F1C9055F2007D9A3F /* PaymentListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentListVC.swift; path = FacePay/PaymentListVC.swift; sourceTree = "<group>"; };
 		40DC2D611C905A80007D9A3F /* PaymentListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentListItem.swift; sourceTree = "<group>"; };
 		40DC2D631C905E87007D9A3F /* PaymentListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentListCell.swift; path = FacePay/PaymentListCell.swift; sourceTree = "<group>"; };
+		40DC2D651C912202007D9A3F /* FacePayPushResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacePayPushResult.swift; path = FacePay/FacePayPushResult.swift; sourceTree = "<group>"; };
 		40DCE2511C46255C00C44E89 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		40E326281BD4C369008344DF /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		40E3262C1BD4C621008344DF /* SuperService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SuperService.xcdatamodel; sourceTree = "<group>"; };
@@ -1122,6 +1124,7 @@
 				40DC2D611C905A80007D9A3F /* PaymentListItem.swift */,
 				40111DFB1C90079300DD2AE1 /* CustomerOrder.swift */,
 				40DC2D5D1C904E3F007D9A3F /* FacePayResult.swift */,
+				40DC2D651C912202007D9A3F /* FacePayPushResult.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2794,6 +2797,7 @@
 				40FB3D431C00203900675044 /* EaseChineseToPinyin.m in Sources */,
 				40FB3D331C00203900675044 /* PSTCollectionViewUpdateItem.m in Sources */,
 				40FB3D311C00203900675044 /* PSTCollectionViewItemKey.m in Sources */,
+				40DC2D661C912202007D9A3F /* FacePayPushResult.swift in Sources */,
 				40FB3D571C00203900675044 /* EaseBubbleView+Text.m in Sources */,
 				40FB3D041C00203900675044 /* EaseUI.m in Sources */,
 				40FB3D341C00203900675044 /* PSTGridLayoutInfo.m in Sources */,

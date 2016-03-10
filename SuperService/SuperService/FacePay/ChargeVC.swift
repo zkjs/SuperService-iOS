@@ -39,11 +39,11 @@ class ChargeVC: UIViewController {
     guard let amount = Int(moneyField.text!) else {return}
     confirmButton.enabled = false
     HttpService.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (orderno, error) -> Void in
+      self.confirmButton.enabled = true
       if let orderno = orderno {
         self.payResult = FacePayResult(customer: self.customer, amount: amount, succ: true, orderNo: orderno, errorCode: 0, waiting: amount > 100)
         self.performSegueWithIdentifier("PaymentResultSegue", sender: nil)
       } else {
-        self.confirmButton.enabled = true
         if error?.code == 30101 {//余额不足
           self.showHint("用户账户余额不足,请使用其它收款方式!")
         } else {//错误

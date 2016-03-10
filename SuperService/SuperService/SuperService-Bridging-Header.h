@@ -32,3 +32,4 @@
 #import "Configure.h"
 #import "NSData+AES256.h"
 #import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonDigest.h>//MD5加密

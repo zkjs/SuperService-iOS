@@ -82,7 +82,7 @@
 
 #pragma mark - 获取订单列表
 - (void)getOrderListWithPage:(NSString *)page success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  NSString *url = [NSString stringWithFormat:@"order/list/%@/%@/%@/7", [self shopID], [self userID], page];
+  NSString *url = [NSString stringWithFormat:@"order/list/%@/%@/%@/20", [self shopID], [self userID], page];
   [self GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
     success(task, responseObject);
 //    NSLog(@"%@", [responseObject description]);

@@ -86,6 +86,7 @@ class CheckoutCounterVC: UICollectionViewController {
     self.performSegueWithIdentifier("ChargeSegue", sender: indexPath)
   }
   
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "ChargeSegue" {
       if let vc = segue.destinationViewController as? ChargeVC,

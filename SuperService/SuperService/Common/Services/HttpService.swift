@@ -45,7 +45,7 @@ struct HttpService {
       case .ApiURL(let path): return "/api/\(path)"
       case .LoginPhone: return "/sso/token/v1/phone/ss"
       case .LoginUserName: return "/sso/token/v1/name/ss"
-        case .Code : return "/sso/vcode/v1/ss"
+        case .Code : return "/sso/vcode/v1/ss?source=login"
       }
     }
   }
@@ -89,7 +89,7 @@ struct HttpService {
     }
   }
   
-  static let TokenForTest = "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJiXzE5MjU0MWI3OWU3OWE0OWUiLCJ0eXBlIjoyLCJleHBpcmUiOjE0NTc1OTIyNzc3NDMsInJvbGVzIjpbXSwiZmVhdHVyZXMiOltdLCJzaG9waWQiOiI4ODg4In0.i-B1RcKkas8NAH-F8DiDVz925VKEtB_iELACKbWmt1jW6h3HTE9gXZx47kyjsuFwQGWW7NNcFLO87CUL16EqmKXLlLSjDxm92CQ5SIL3d4FwFrYwy5kYB6U_IIE-qeXAAT1x1V2aHfwOtdOxPMA6-xowpVZo1R_vtQ679FaV5tU"
+//  static let TokenForTest = "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJiXzE5MjU0MWI3OWU3OWE0OWUiLCJ0eXBlIjoyLCJleHBpcmUiOjE0NTc1OTIyNzc3NDMsInJvbGVzIjpbXSwiZmVhdHVyZXMiOltdLCJzaG9waWQiOiI4ODg4In0.i-B1RcKkas8NAH-F8DiDVz925VKEtB_iELACKbWmt1jW6h3HTE9gXZx47kyjsuFwQGWW7NNcFLO87CUL16EqmKXLlLSjDxm92CQ5SIL3d4FwFrYwy5kYB6U_IIE-qeXAAT1x1V2aHfwOtdOxPMA6-xowpVZo1R_vtQ679FaV5tU"
   
   //HTTP REQUEST
   static func requestAPI(method: Method, urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
@@ -97,7 +97,7 @@ struct HttpService {
     var headers = ["Content-Type":"application/json"]
     if let token = TokenPayload.sharedInstance.token {
       print("request with token:\(token)")
-      headers["Token"] = token.isEmpty ? TokenForTest : token
+      headers["Token"] = token//.isEmpty ? TokenForTest : token
     } else {
       if tokenRequired {
         print("Token is required")

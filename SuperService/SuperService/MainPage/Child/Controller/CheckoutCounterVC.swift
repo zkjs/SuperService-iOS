@@ -9,9 +9,12 @@
 import UIKit
 
 private let reuseIdentifier = "CustomerHeaderCell"
-
+private let headID = "PayheadReusableView"
 class CheckoutCounterVC: UICollectionViewController {
   
+
+  @IBOutlet weak var search: UICollectionReusableView!
+
     var nearbyCustomers = [NearbyCustomer]()
 
     override func viewDidLoad() {
@@ -27,7 +30,7 @@ class CheckoutCounterVC: UICollectionViewController {
       let width = CGRectGetWidth(collectionView!.frame) / 2
       let layout = collectionViewLayout as! UICollectionViewFlowLayout
       layout.itemSize = CGSize(width: width, height: width + 40)
-      
+    
       loadData()
     }
 
@@ -59,6 +62,8 @@ class CheckoutCounterVC: UICollectionViewController {
   func gotoPaymentList() {
     self.performSegueWithIdentifier("PaymentListSegue", sender: nil)
   }
+  
+  
 
 
     // MARK: UICollectionViewDataSource
@@ -87,6 +92,36 @@ class CheckoutCounterVC: UICollectionViewController {
   }
   
   
+  override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    let reusableview = PayheadReusableView()
+    if (kind == UICollectionElementKindSectionHeader) {
+      let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader , withReuseIdentifier: headID, forIndexPath:NSIndexPath(index: 0)) as! PayheadReusableView
+        view.customClosure = { [unowned self](phone) ->Void in
+        self.searchByphonenumber(phone)
+      }
+      return view
+    }
+      return reusableview
+  }
+  
+  func searchByphonenumber(phone:String) {
+    HttpService.getUserInfo(phone) { (json, error) -> Void in
+      if  let error = error {
+        self.showHint("\(error)")
+      } else {
+        self.nearbyCustomers.removeAll()
+        if let data = json?["data"].array where data.count > 0 {
+          for userData in data {
+            let user = NearbyCustomer(data: userData)
+            self.nearbyCustomers.append(user)
+          }
+          self.collectionView?.reloadData()
+         }
+      }
+    }
+  }
+  
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "ChargeSegue" {
       if let vc = segue.destinationViewController as? ChargeVC,

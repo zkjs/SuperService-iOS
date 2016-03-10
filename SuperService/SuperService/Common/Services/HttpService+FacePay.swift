@@ -18,6 +18,7 @@ extension HttpService {
     case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
     case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
     case Code                             // PAVO 认证服务API : 验证码 : HEADER不需要Token
+    case GetInfo
     
     var description: String {
       switch self {
@@ -27,6 +28,7 @@ extension HttpService {
       case .LoginPhone: return "/sso/token/v1/phone/ss"
       case .LoginUserName: return "/sso/token/v1/name/ss"
       case .Code : return "/sso/vcode/v1/ss"
+      case.GetInfo: return "/for/res/v1/query/user/all?phone="
       }
     }
   }
@@ -68,6 +70,18 @@ extension HttpService {
         if let orderno = json?["orderno"].string {
           completionHandler(orderno,nil)
         }
+      }
+    }
+  }
+  
+  static func getUserInfo(phone:String,completionHandler:(JSON?,NSError?) -> Void) {
+    let urlString = baseURLFacepay + ResourcePathFacePay.GetInfo.description + "\(phone)"
+//    let dict = ["phone":phone]
+    get(urlString, parameters: nil) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+       completionHandler(json,error)
       }
     }
   }

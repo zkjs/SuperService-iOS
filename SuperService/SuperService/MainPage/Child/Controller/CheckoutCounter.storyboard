@@ -16,13 +16,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LcC-ba-fuC">
                             <size key="itemSize" width="200" height="240"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomerHeaderCell" id="VZ6-hp-vKk" customClass="CustomerHeaderCell" customModule="SuperService" customModuleProvider="target">
-                                <rect key="frame" x="60" y="0.0" width="200" height="240"/>
+                                <rect key="frame" x="60" y="50" width="200" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="240"/>
@@ -56,6 +56,30 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PayheadReusableView" id="gLS-ma-UxZ" customClass="PayheadReusableView" customModule="SuperService" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" placeholder="输入手机号查询客户" translatesAutoresizingMaskIntoConstraints="NO" id="fhy-yS-j63">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="gLS-ma-UxZ" id="IDO-dq-KnO"/>
+                                    </connections>
+                                </searchBar>
+                            </subviews>
+                            <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="fhy-yS-j63" secondAttribute="trailing" id="VlX-5T-NcK"/>
+                                <constraint firstItem="fhy-yS-j63" firstAttribute="top" secondItem="gLS-ma-UxZ" secondAttribute="top" id="dkJ-NA-Dvv"/>
+                                <constraint firstItem="fhy-yS-j63" firstAttribute="leading" secondItem="gLS-ma-UxZ" secondAttribute="leading" id="sgq-pm-Kgf"/>
+                                <constraint firstAttribute="bottom" secondItem="fhy-yS-j63" secondAttribute="bottom" id="ug3-6V-Ke9"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="searchPhone" destination="fhy-yS-j63" id="6uP-r3-QvI"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="5kc-WB-x6c" id="tYU-2s-JnJ"/>
                             <outlet property="delegate" destination="5kc-WB-x6c" id="VgH-E5-bKd"/>
@@ -63,13 +87,38 @@
                     </collectionView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="HP8-Sd-dyo" id="r8l-fv-G1G"/>
                         <segue destination="vYp-sz-OeA" kind="show" identifier="ChargeSegue" id="o3j-SG-wel"/>
                         <segue destination="Ovx-t3-ZeI" kind="show" identifier="PaymentListSegue" id="n5r-4K-0U0"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CF-3V-0UY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7Ye-tm-Oam">
+                    <connections>
+                        <outlet property="delegate" destination="5kc-WB-x6c" id="TXL-A6-FPc"/>
+                        <outlet property="searchContentsController" destination="5kc-WB-x6c" id="VLh-Tm-8ho"/>
+                        <outlet property="searchResultsDataSource" destination="5kc-WB-x6c" id="5Qk-qU-wag"/>
+                        <outlet property="searchResultsDelegate" destination="5kc-WB-x6c" id="2Mp-HO-tx9"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="KFl-N9-k7C">
+                    <connections>
+                        <outlet property="delegate" destination="5kc-WB-x6c" id="x4Z-wV-dLg"/>
+                        <outlet property="searchContentsController" destination="5kc-WB-x6c" id="YrU-0C-HKA"/>
+                        <outlet property="searchResultsDataSource" destination="5kc-WB-x6c" id="rlg-3t-Og3"/>
+                        <outlet property="searchResultsDelegate" destination="5kc-WB-x6c" id="dsT-bZ-ncM"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="HP8-Sd-dyo">
+                    <connections>
+                        <outlet property="delegate" destination="5kc-WB-x6c" id="Zek-IO-9hw"/>
+                        <outlet property="searchContentsController" destination="5kc-WB-x6c" id="DJ7-Ht-Tih"/>
+                        <outlet property="searchResultsDataSource" destination="5kc-WB-x6c" id="Smw-Wo-7hW"/>
+                        <outlet property="searchResultsDelegate" destination="5kc-WB-x6c" id="Dq8-Fr-z6h"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="886" y="471"/>
+            <point key="canvasLocation" x="884" y="471"/>
         </scene>
         <!--ChargeVC-->
         <scene sceneID="uBu-sy-4uo">

@@ -59,7 +59,9 @@ class AdminLoginV: UIViewController {
     showHUDInView(view, withLoading: "")
     
     HttpService.loginWithUserName(phone, password: password.md5) { (json, error) -> () in
-      
+      self.hideHUD()
+      self.dismissViewControllerAnimated(true, completion: nil)
+      print(json)
     }
     
     ZKJSHTTPSessionManager.sharedInstance().adminLoginWithPhone(phone, password: password,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in

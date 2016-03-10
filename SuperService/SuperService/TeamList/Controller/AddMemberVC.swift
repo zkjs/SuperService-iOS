@@ -113,7 +113,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
       dispatch_semaphore_wait(authorizedSingal, DISPATCH_TIME_FOREVER)
     }
     
-    func analyzeSysContacts(sysContacts:NSArray) -> [[String:String]] {
+  func analyzeSysContacts(sysContacts:NSArray) -> [[String:String]] {
       var allContacts:Array = [[String:String]]()
       func analyzeContactProperty(contact:ABRecordRef, property:ABPropertyID, keySuffix:String) -> [String:String]? {
         let propertyValues:ABMultiValueRef? = ABRecordCopyValue(contact, property)?.takeRetainedValue()

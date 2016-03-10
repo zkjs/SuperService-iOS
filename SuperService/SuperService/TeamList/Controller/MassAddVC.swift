@@ -12,9 +12,9 @@ class MassAddVC: UIViewController {
   var ContactsArray = [[String:String]]()
   var phoneArray = [String]()
   var usernameArray = [String]()
-  var massPhoneArray = [String]()
-  var massusernameArray = [String]()
-  var massDicArray = [[String:String]]()
+  var massPhoneArray = [String]()//批量选择联系人的手机号
+  var massusernameArray = [String]()//批量选择联系人的名字
+  var massDicArray = [[String:String]]()//批量选择联系人的手机和名字的数组集合
   var dic = [String:String]()
   @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -30,6 +30,10 @@ class MassAddVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("MassAddVC", owner:self, options:nil)
+  }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
@@ -83,7 +87,7 @@ class MassAddVC: UIViewController {
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let label = UILabel()
     label.frame = CGRectMake(30, 108, 280, 40)
-    label.text = "  *选择您通知的区域，客人到达时，您将会收到通知，且要作出处理"
+    label.text = "  *选择您需要批量添加的员工"
     label.numberOfLines = 0
     label.textColor = UIColor.ZKJS_themeColor()
     return label
@@ -105,14 +109,12 @@ class MassAddVC: UIViewController {
   func updateSelectedArrayWithCell(cell: MassCell) {
    let phone = phoneArray[cell.selectedButton.tag]
     let username = usernameArray[cell.selectedButton.tag]
-
     if cell.isUncheck == true {
       if massPhoneArray.contains(phone) {
         if let idx = massPhoneArray.indexOf(phone) {
           massPhoneArray.removeAtIndex(idx)
           massusernameArray.removeAtIndex(idx)
         }
-        
       }
     } else {
       if massPhoneArray.contains(phone)  {
@@ -122,10 +124,14 @@ class MassAddVC: UIViewController {
       self.massusernameArray.append(username)
       }
     }
+    print(massPhoneArray,massusernameArray)
 
   }
   
    func nextStep() {
+    if massDicArray.count != 0 {
+      massDicArray.removeAll()
+    }
     for phone in massPhoneArray {
       if let idx = massPhoneArray.indexOf(phone) {
         let username = massusernameArray[idx]
@@ -136,16 +142,5 @@ class MassAddVC: UIViewController {
         print(massDicArray)
   }
 
-  
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

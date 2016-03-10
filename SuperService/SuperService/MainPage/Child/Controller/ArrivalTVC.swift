@@ -56,13 +56,12 @@ class ArrivalTVC: UITableViewController {
   
   func loadData() {
     ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      print(responseObject)
       if let data = responseObject as? [[String: AnyObject]] {
         self.dataArray = data
         for dic in data {
           if let array = dic["orderForNotice"] as? NSArray {
           var orderno = ""
-            var orderstatus = ""
+          var orderstatus = ""
             for dict in array {
                orderno = dict["orderNo"] as! String
                orderstatus = dict["orderStatus"] as! String

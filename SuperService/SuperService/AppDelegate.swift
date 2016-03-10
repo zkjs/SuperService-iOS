@@ -69,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                 }
               }
             }
-            
           }
           
         }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in

@@ -105,7 +105,7 @@ class CheckoutCounterVC: UICollectionViewController {
   }
   
   func searchByphonenumber(phone:String) {
-    HttpService.getUserInfo(phone) { (json, error) -> Void in
+    HttpService.searchUserByPhone(phone) { (json, error) -> Void in
       if  let error = error {
         self.showHint("\(error)")
       } else {

@@ -111,6 +111,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     AccountManager.sharedInstance().clearAccountCache()
     AccountManager.sharedInstance().clearAvatarImageCache()
     
+    TokenPayload.sharedInstance.clearCacheTokenPayload()
+    
     // 消除订阅云巴频道
     unregisterYunBaTopic()
     

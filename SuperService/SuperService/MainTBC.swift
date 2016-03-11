@@ -29,7 +29,7 @@ class MainTBC: UITabBarController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    if TokenPayload.sharedInstance.userID!.isEmpty {
+    if !TokenPayload.sharedInstance.isLogin {
       showLogin()
     } else {
       let userID = TokenPayload.sharedInstance.userID!
@@ -399,9 +399,9 @@ extension MainTBC: IChatManagerDelegate {
   }
   
   func didLoginFromOtherDevice() {
-    NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
-    showLogin()
-    ZKJSTool.showMsg("账号在别处登录，请重新重录。")
+    //NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+    //showLogin()
+    //ZKJSTool.showMsg("账号在别处登录，请重新重录。")
   }
   
   func didRemovedFromServer() {

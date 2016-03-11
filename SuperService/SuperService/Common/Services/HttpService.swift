@@ -8,13 +8,15 @@
 
 import Foundation
 
+typealias HttpCompletionHandler = (JSON?, NSError?) -> Void
+
 struct HttpService {
-  private static let ImageURL = "http://svip02.oss-cn-shenzhen.aliyuncs.com"  // 图片服务器
+  static let ImageURL = "http://svip02.oss-cn-shenzhen.aliyuncs.com"  // 图片服务器
   
   // 测试
-  private static let baseURL = "http://tst.zkjinshi.com/"  // PHP服务器
-  private static let baseURLJava = "http://test.zkjinshi.com/japi/"  // Java服务器
-  private static let EaseMobAppKey = "zkjs#svip"  // 环信
+  static let baseURL = "http://tst.zkjinshi.com/"  // PHP服务器
+  static let baseURLJava = "http://test.zkjinshi.com/japi/"  // Java服务器
+  static let EaseMobAppKey = "zkjs#svip"  // 环信
   
   // 预上线
   /*
@@ -30,8 +32,9 @@ struct HttpService {
   private static let EaseMobAppKey = "zkjs#prosvip"  // 环信
   */
   
-  private static let baseCodeURL = "http://120.25.80.143:8080" //获取code
+  static let baseCodeURL = "http://120.25.80.143:8080" //获取code
 //    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
+  static let baseRegisterURL = "http://120.25.80.143:8083" // 注册地址
   
   
   private enum ResourcePath: CustomStringConvertible {
@@ -130,6 +133,10 @@ struct HttpService {
               userInfo: ["res":"\(json["res"].int)","resDesc":resDesc])
             completionHandler(json,e)
             print("api request error with reason: \(json["res"].int):\(json["resDesc"].string)")
+            if let key = json["res"].int,
+              let msg = ZKJSErrorMessages.sharedInstance.errorString("\(key)") {
+                ZKJSTool.showMsg(msg)
+            }
           }
         } else {
           let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",

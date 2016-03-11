@@ -338,6 +338,16 @@
 		40FB3D621C00203900675044 /* EaseRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB3CF81C00203900675044 /* EaseRecordView.m */; };
 		40FB3D631C00203900675044 /* EaseConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB3CFB1C00203900675044 /* EaseConversationCell.m */; };
 		40FC3B451BF438B800AEC4E8 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC3B441BF438B800AEC4E8 /* UIView+CornerRadius.swift */; };
+		40FD34251C926DF50019A8CA /* String+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34241C926DF50019A8CA /* String+Extension+ZKJS.swift */; };
+		40FD34271C926E570019A8CA /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34261C926E570019A8CA /* RegexHelper.swift */; };
+		40FD34291C926E7D0019A8CA /* Double+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34281C926E7D0019A8CA /* Double+Extension+ZKJS.swift */; };
+		40FD342B1C926EA30019A8CA /* ZKJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD342A1C926EA30019A8CA /* ZKJSHelper.swift */; };
+		40FD34321C926F7D0019A8CA /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD342D1C926F7D0019A8CA /* AsyncImageView.swift */; };
+		40FD34331C926F7D0019A8CA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD342E1C926F7D0019A8CA /* ImageLoader.swift */; };
+		40FD34341C926F7D0019A8CA /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD342F1C926F7D0019A8CA /* Misc.swift */; };
+		40FD34351C926F7D0019A8CA /* SpringCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34311C926F7D0019A8CA /* SpringCombination.swift */; };
+		40FD34371C92862A0019A8CA /* HttpService+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34361C92862A0019A8CA /* HttpService+Account.swift */; };
+		40FD34391C929A090019A8CA /* AccountInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34381C929A090019A8CA /* AccountInfoManager.swift */; };
 		842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659401BE09C31005E82F2 /* MemberListVC.swift */; };
 		842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659411BE09C31005E82F2 /* MemberListVC.xib */; };
 		842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659441BE09FCF005E82F2 /* MemberListCell.swift */; };
@@ -936,6 +946,17 @@
 		40FB3CFA1C00203900675044 /* EaseConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseConversationCell.h; sourceTree = "<group>"; };
 		40FB3CFB1C00203900675044 /* EaseConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseConversationCell.m; sourceTree = "<group>"; };
 		40FC3B441BF438B800AEC4E8 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		40FD34241C926DF50019A8CA /* String+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension+ZKJS.swift"; sourceTree = "<group>"; };
+		40FD34261C926E570019A8CA /* RegexHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
+		40FD34281C926E7D0019A8CA /* Double+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension+ZKJS.swift"; sourceTree = "<group>"; };
+		40FD342A1C926EA30019A8CA /* ZKJSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKJSHelper.swift; sourceTree = "<group>"; };
+		40FD342D1C926F7D0019A8CA /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		40FD342E1C926F7D0019A8CA /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		40FD342F1C926F7D0019A8CA /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		40FD34301C926F7D0019A8CA /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
+		40FD34311C926F7D0019A8CA /* SpringCombination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringCombination.swift; sourceTree = "<group>"; };
+		40FD34361C92862A0019A8CA /* HttpService+Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HttpService+Account.swift"; path = "Common/Services/HttpService+Account.swift"; sourceTree = "<group>"; };
+		40FD34381C929A090019A8CA /* AccountInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountInfoManager.swift; path = SuperService/Common/Persistence/AccountInfoManager.swift; sourceTree = SOURCE_ROOT; };
 		5692D1DD697B52942EE420A3 /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 		842659401BE09C31005E82F2 /* MemberListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListVC.swift; sourceTree = "<group>"; };
@@ -1234,6 +1255,7 @@
 				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				406B0B2A1C85B692006C9C73 /* HttpService.swift */,
 				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
+				40FD34361C92862A0019A8CA /* HttpService+Account.swift */,
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 			);
@@ -1546,6 +1568,7 @@
 		40DC2D4D1C902D86007D9A3F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				40FD342C1C926F7D0019A8CA /* Spring */,
 				40DC2D4E1C902D9C007D9A3F /* TPKeyboardAvoiding */,
 			);
 			name = Libraries;
@@ -1569,6 +1592,7 @@
 		40E3262A1BD4C36F008344DF /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				40FD34381C929A090019A8CA /* AccountInfoManager.swift */,
 				40B0DC291BCE395300785D2E /* AccountManager.swift */,
 				40E326381BD50444008344DF /* Client+CoreDataProperties.swift */,
 				40E326401BD50544008344DF /* Client.swift */,
@@ -1596,6 +1620,10 @@
 				40FC3B441BF438B800AEC4E8 /* UIView+CornerRadius.swift */,
 				FA06ADE81C87EA820060DD33 /* NSData+AES256.h */,
 				FA06ADE91C87EA820060DD33 /* NSData+AES256.m */,
+				40FD34241C926DF50019A8CA /* String+Extension+ZKJS.swift */,
+				40FD34261C926E570019A8CA /* RegexHelper.swift */,
+				40FD34281C926E7D0019A8CA /* Double+Extension+ZKJS.swift */,
+				40FD342A1C926EA30019A8CA /* ZKJSHelper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2278,6 +2306,18 @@
 			path = conversationList;
 			sourceTree = "<group>";
 		};
+		40FD342C1C926F7D0019A8CA /* Spring */ = {
+			isa = PBXGroup;
+			children = (
+				40FD342D1C926F7D0019A8CA /* AsyncImageView.swift */,
+				40FD342E1C926F7D0019A8CA /* ImageLoader.swift */,
+				40FD342F1C926F7D0019A8CA /* Misc.swift */,
+				40FD34301C926F7D0019A8CA /* Spring.h */,
+				40FD34311C926F7D0019A8CA /* SpringCombination.swift */,
+			);
+			path = Spring;
+			sourceTree = "<group>";
+		};
 		8426594A1BE0BE8A005E82F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2768,6 +2808,7 @@
 				400D62801C1526B50021E750 /* LayerStrokeEndAnimation.swift in Sources */,
 				40FB3D0B1C00203900675044 /* EMCDDeviceManagerBase.m in Sources */,
 				406B0B0B1C85B5E0006C9C73 /* Notifications.swift in Sources */,
+				40FD34331C926F7D0019A8CA /* ImageLoader.swift in Sources */,
 				40FB3D4F1C00203900675044 /* EaseViewController.m in Sources */,
 				40FB3D371C00203900675044 /* PSTGridLayoutSection.m in Sources */,
 				406B0B091C85B5E0006C9C73 /* NetworkReachabilityManager.swift in Sources */,
@@ -2789,6 +2830,7 @@
 				40C8416A1C102C3D003E8037 /* GroupSubjectChangingViewController.m in Sources */,
 				FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */,
 				40FB3D4B1C00203900675044 /* EaseLocationViewController.m in Sources */,
+				40FD34251C926DF50019A8CA /* String+Extension+ZKJS.swift in Sources */,
 				40FB3D231C00203900675044 /* NSData+EMImageContentType.m in Sources */,
 				40FB3D391C00203900675044 /* EaseSDKHelper.m in Sources */,
 				40C841641C102B0C003E8037 /* RealtimeSearchUtil.m in Sources */,
@@ -2800,11 +2842,13 @@
 				40FB3D4A1C00203900675044 /* EaseConversationListViewController.m in Sources */,
 				FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */,
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
+				40FD34291C926E7D0019A8CA /* Double+Extension+ZKJS.swift in Sources */,
 				400D62751C1526B50021E750 /* ConstraintMultiplierAnimation.swift in Sources */,
 				40FB3D2F1C00203900675044 /* PSTCollectionViewData.m in Sources */,
 				400D62721C1526B50021E750 /* Animator.swift in Sources */,
 				FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */,
 				4023F7381C1D598D0057351E /* UnbindCodeTVC.swift in Sources */,
+				40FD34341C926F7D0019A8CA /* Misc.swift in Sources */,
 				FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
 				406B0B241C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */,
@@ -2831,6 +2875,7 @@
 				40FB3D3E1C00203900675044 /* NSDateFormatter+Category.m in Sources */,
 				40E6DE2F1C0ED2A300CFF8AF /* ContactListSelectViewController.m in Sources */,
 				40FB3D061C00203900675044 /* EMAudioRecorderUtil.m in Sources */,
+				40FD34391C929A090019A8CA /* AccountInfoManager.swift in Sources */,
 				40FB3CFE1C00203900675044 /* CallViewController.m in Sources */,
 				40FB3D581C00203900675044 /* EaseBubbleView+Video.m in Sources */,
 				FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */,
@@ -2843,6 +2888,7 @@
 				40FB3D271C00203900675044 /* UIImage+EMWebP.m in Sources */,
 				40FB3D471C00203900675044 /* EaseEmojiEmoticons.m in Sources */,
 				842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */,
+				40FD342B1C926EA30019A8CA /* ZKJSHelper.swift in Sources */,
 				FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */,
 				40FB3D601C00203900675044 /* EaseFacialView.m in Sources */,
 				408693FE1C390F7F00BE1709 /* OrderListModel.swift in Sources */,
@@ -2863,6 +2909,7 @@
 				40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */,
 				40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */,
 				400D62711C1526B50021E750 /* Animation.swift in Sources */,
+				40FD34371C92862A0019A8CA /* HttpService+Account.swift in Sources */,
 				40FB3D191C00203900675044 /* MWZoomingScrollView.m in Sources */,
 				40FB3D351C00203900675044 /* PSTGridLayoutItem.m in Sources */,
 				40FB3D0D1C00203900675044 /* wav.mm in Sources */,
@@ -2882,6 +2929,7 @@
 				4086940A1C39164B00BE1709 /* LeisureTVC.swift in Sources */,
 				4086940C1C39179F00BE1709 /* RoomGoods.swift in Sources */,
 				40FB3D1C1C00203900675044 /* EMSDWebImageCompat.m in Sources */,
+				40FD34321C926F7D0019A8CA /* AsyncImageView.swift in Sources */,
 				FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
 				400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */,
@@ -2890,6 +2938,7 @@
 				FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,
 				40E569BC1C083F3300FEB528 /* EMBubbleView+Card.m in Sources */,
+				40FD34351C926F7D0019A8CA /* SpringCombination.swift in Sources */,
 				40FB3D451C00203900675044 /* EaseMessageReadManager.m in Sources */,
 				842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */,
 				844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */,
@@ -2932,6 +2981,7 @@
 				40DB677F1BEDDB34008D3BB9 /* UIColor+Theme.swift in Sources */,
 				40FB3D551C00203900675044 /* EaseBubbleView+Image.m in Sources */,
 				40FB3D5C1C00203900675044 /* EaseChatToolbarItem.m in Sources */,
+				40FD34271C926E570019A8CA /* RegexHelper.swift in Sources */,
 				40FB3D081C00203900675044 /* EMCDDeviceManager+Microphone.m in Sources */,
 				40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */,
 				40FB3D3B1C00203900675044 /* EaseMessageModel.m in Sources */,

@@ -15,20 +15,14 @@ extension HttpService {
     case NearbyCustomers(shopid:String, locids:String)
     case Payment
     case PaymentList
-    case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
-    case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
-    case Code                             // PAVO 认证服务API : 验证码 : HEADER不需要Token
-    case GetInfo
+    case SearchUserByPhone
     
     var description: String {
       switch self {
       case .NearbyCustomers(let shopid,let locids): return "/pyx/lbs/v1/loc/beacon/\(shopid)/\(locids)"
-      case .Payment: return "/for/res/v1/payment"
-      case .PaymentList: return "/for/res/v1/payment/ss"
-      case .LoginPhone: return "/sso/token/v1/phone/ss"
-      case .LoginUserName: return "/sso/token/v1/name/ss"
-      case .Code : return "/sso/vcode/v1/ss"
-      case.GetInfo: return "/for/res/v1/query/user/all?phone="
+      case .Payment:            return "/for/res/v1/payment"
+      case .PaymentList:        return "/for/res/v1/payment/ss"
+      case .SearchUserByPhone:  return "/for/res/v1/query/user/all?phone="
       }
     }
   }
@@ -74,8 +68,8 @@ extension HttpService {
     }
   }
   
-  static func getUserInfo(phone:String,completionHandler:(JSON?,NSError?) -> Void) {
-    let urlString = baseURLFacepay + ResourcePathFacePay.GetInfo.description + "\(phone)"
+  static func searchUserByPhone(phone:String,completionHandler:(JSON?,NSError?) -> Void) {
+    let urlString = baseURLFacepay + ResourcePathFacePay.SearchUserByPhone.description + "\(phone)"
 //    let dict = ["phone":phone]
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {

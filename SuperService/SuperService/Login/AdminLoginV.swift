@@ -68,7 +68,7 @@ class AdminLoginV: UIViewController {
       } else {
         
         print(json)
-        HttpService.getUserinfo({ (json, error) -> Void in
+        HttpService.getUserInfo({ (json, error) -> Void in
           print(json)
           if let _ = error {
             if let desc = error?.userInfo["resDesc"] as? String {

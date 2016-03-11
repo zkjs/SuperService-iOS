@@ -27,6 +27,7 @@ class AccountInfoManager: NSObject {
   private(set) var password = ""
   private(set) var shopid = ""
   private(set) var fullname = ""
+
   var avatarURL : String {
     let userDefaults = NSUserDefaults()
     if let url = userDefaults.objectForKey("avatarURL") as? String {
@@ -53,7 +54,7 @@ class AccountInfoManager: NSObject {
     let userDefaults = NSUserDefaults()
     userID = userDefaults.objectForKey("userID") as? String ?? ""
     token = userDefaults.objectForKey("token") as? String ?? ""
-    userName = userDefaults.objectForKey("userName") as? String ?? ""
+    userName = userDefaults.objectForKey("username") as? String ?? ""
     sex = userDefaults.objectForKey("sex") as? Int ?? 0
     email = userDefaults.objectForKey("email") as? String ?? ""
     phone = userDefaults.objectForKey("phone") as? String ?? ""
@@ -84,7 +85,7 @@ class AccountInfoManager: NSObject {
     realname = json["realname"]?.string ?? ""
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(imgURL, forKey: "avatarURL")
-    userDefaults.setObject(userName, forKey: "userName")
+    userDefaults.setObject(userName, forKey: "username")
     userDefaults.setObject(sex, forKey: "sex")
     userDefaults.setObject(email, forKey: "email")
     userDefaults.setObject(phone, forKey: "phone")
@@ -107,7 +108,7 @@ class AccountInfoManager: NSObject {
   func saveUserName(userName: String) {
     self.userName = userName
     let userDefaults = NSUserDefaults()
-    userDefaults.setObject(userName, forKey: "userName")
+    userDefaults.setObject(userName, forKey: "username")
   }
   
   func saveInvoice(invoice: String) {
@@ -148,7 +149,7 @@ class AccountInfoManager: NSObject {
     userDefaults.setObject(nil, forKey: "userID")
     userDefaults.setObject(nil, forKey: "token")
     userDefaults.setObject(nil, forKey: "avatarURL")
-    userDefaults.setObject(nil, forKey: "userName")
+    userDefaults.setObject(nil, forKey: "username")
     userDefaults.setObject(nil, forKey: "sex")
     userDefaults.setObject(nil, forKey: "email")
     userDefaults.setObject(nil, forKey: "phone")

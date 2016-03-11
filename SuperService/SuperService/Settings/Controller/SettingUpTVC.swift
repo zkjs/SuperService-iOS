@@ -51,9 +51,9 @@ class SettingUpTVC: UITableViewController {
   override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let myView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil).first as? HeaderView
     if myView != nil {
-      myView?.userImageView.image = AccountManager.sharedInstance().avatarImage
+      myView?.userImageView.sd_setImageWithURL(NSURL(string: AccountInfoManager.sharedInstance.avatarURL), placeholderImage: UIImage(named: "logo_white"))
       myView?.selectedImageViewButton.addTarget(self, action: "selectedIamge:", forControlEvents: UIControlEvents.TouchUpInside)
-      myView?.usernameLabel.text = AccountManager.sharedInstance().userName
+      myView?.usernameLabel.text = AccountInfoManager.sharedInstance.userName
       self.tableView.addSubview(myView!)
     }
     return myView

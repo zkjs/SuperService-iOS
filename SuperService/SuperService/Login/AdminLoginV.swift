@@ -57,6 +57,7 @@ class AdminLoginV: UIViewController {
       return
     }
     
+    view.endEditing(true)
     showHUDInView(view, withLoading: "")
     
     HttpService.loginWithUserName(phone, password: password.md5) { (json, error) -> () in

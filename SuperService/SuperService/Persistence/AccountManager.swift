@@ -34,6 +34,9 @@ class AccountManager: NSObject {
   private(set) var avatarImageData = NSData()
   private(set) var avatarImage = UIImage(named: "default_logo")
   private(set) var category = ""
+  private(set) var realname = ""
+  private(set) var userimage = ""
+  private(set) var fullname = ""
 
   class func sharedInstance() -> AccountManager {
     struct Singleton {
@@ -48,7 +51,7 @@ class AccountManager: NSObject {
     shopID = userDefaults.objectForKey("shopid") as? String ?? ""
     shopName = userDefaults.objectForKey("fullname") as? String ?? ""
     token = userDefaults.objectForKey("token") as? String ?? ""
-    userName = userDefaults.objectForKey("name") as? String ?? ""
+    userName = userDefaults.objectForKey("username") as? String ?? ""
     roleID = userDefaults.objectForKey("roleid") as? String ?? ""
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
     url = userDefaults.objectForKey("url") as? String ?? ""
@@ -64,11 +67,11 @@ class AccountManager: NSObject {
     category = userDefaults.objectForKey("category") as? String ?? ""
   }
   
-  func saveAccountWithDict(dict: [String: AnyObject]) {
+  func saveAccountWithDict(dict: JSON) {
     
-    if let userID = dict["userid"] as? String {
+    if let userID = dict["userid"].string{
       self.userID = userID
-    } else if let salesID = dict["salesid"] as? String {
+    } else if let salesID = dict["salesid"].string {
       self.userID = salesID
     }
     
@@ -83,37 +86,28 @@ class AccountManager: NSObject {
       }
     }
     
-    if let shopID = dict["shopid"] as? NSNumber {
+    if let shopID = dict["shopid"].number{
       self.shopID = shopID.stringValue
-    } else if let shopID = dict["shopid"] as? String {
+    } else if let shopID = dict["shopid"].string {
       self.shopID = shopID
     }
     
-    if let phone = dict["phone"] as? NSNumber {
+    if let phone = dict["phone"].number {
       self.phone = phone.stringValue
-    } else if let phone = dict["phone"] as? String {
+    } else if let phone = dict["phone"].string{
       self.phone = phone
     }
     
-    shopName = dict["fullname"] as! String
-    token = dict["token"] as! String
-    if let userName = dict["name"] as? String {
+    shopName = dict["fullname"].string ?? ""
+    if let userName = dict["username"].string {
        self.userName = userName
     }
+    
    
-    if let roleID = dict["roleid"] as? String {
-      self.roleID = roleID
-    } else if let roleID = dict["roleID"] as? NSNumber {
-      self.roleID = roleID.stringValue
-    }
-    
-    beaconLocationIDs = dict["locid"] as? String ?? ""
-    url = dict["url"] as? String ?? ""
-    
     let userDefaults = NSUserDefaults()
-    if let userID = dict["userid"] as? String {
+    if let userID = dict["userid"].string {
       userDefaults.setObject(userID, forKey: "userid")
-    } else if let salesID = dict["salesid"] as? String {
+    } else if let salesID = dict["salesid"].string {
       userDefaults.setObject(salesID, forKey: "userid")
     }
     

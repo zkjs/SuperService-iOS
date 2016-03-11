@@ -23,28 +23,29 @@ class ClientModel: NSObject {
 
   }
   
-  init(dic:[String: AnyObject]){
+  init(dic:JSON){
     
-    if let userID = dic["userid"] as? String {
+    if let userID = dic["userid"].string  {
       userid = userID
-    } else if let userID = dic["userid"] as? NSNumber {
+    } else if let userID = dic["userid"].number {
       userid = userID.stringValue
     }
-    created = dic["created"] as? String
+    created = dic["created"].string ?? ""
     
-    if let name = dic["username"] as? String {
+    if let name = dic["username"].string {
       username = name
-    } else if let name = dic["username"] as? NSNumber {
+    } else if let name = dic["username"].number {
       username = name.stringValue
     }
-    if let phoneNumber = dic["phone"] as? NSNumber {
+    if let phoneNumber = dic["phone"].number{
       phone = phoneNumber.stringValue
     }
-    code = dic["code"] as? String
-    if let userLevel = dic["user_applevel"] as? NSNumber {
+    code = dic["code"].string ?? ""
+    if let userLevel = dic["user_applevel"].number {
       user_applevel = userLevel.integerValue
     }
-    if let clientSex = dic["sex"] as? NSNumber {
+
+    if let clientSex = dic["sex"].number{
       sex = clientSex.integerValue
     }
   }

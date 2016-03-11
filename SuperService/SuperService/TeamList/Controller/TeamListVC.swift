@@ -64,19 +64,19 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func loadData() {
-    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let array = responseObject as? NSArray {
-        var datasource = [TeamModel]()
-        for dic in array {
-          let team = TeamModel(dic: dic as! [String:AnyObject])
-          datasource.append(team)  
-        }
-        self.teamArray = datasource
-      }
-      self.tableView.mj_header.endRefreshing()
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-      self.tableView.mj_header.endRefreshing()
-    }
+//    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      if let array = responseObject as? NSArray {
+//        var datasource = [TeamModel]()
+//        for dic in array {
+//          let team = TeamModel(dic: dic as! [String:AnyObject])
+//          datasource.append(team)  
+//        }
+//        self.teamArray = datasource
+//      }
+//      self.tableView.mj_header.endRefreshing()
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//      self.tableView.mj_header.endRefreshing()
+//    }
   }
   
   // MARK: - Table View Data Source

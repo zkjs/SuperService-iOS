@@ -15,34 +15,41 @@ class AddClientModel: NSObject {
   var username: String?
   var phone: String?
   var sex: String?
+  var email:String?
+  var userstatus:Int?
+  var userimage:String?
+  var realname:String?
   
   override init() {
     super.init()
   }
   
-  init(dic:[String: AnyObject]){
+  init(dic:JSON){
     
-    if let userID = dic["userid"] as? String {
+    if let userID = dic["userid"].string {
       userid = userID
-    } else if let userID = dic["userid"] as? NSNumber {
+    } else if let userID = dic["userid"].number {
       userid = userID.stringValue
     }
-    created = dic["created"] as? String
+    created = dic["created"].string
     
-    if let name = dic["username"] as? String {
+    if let name = dic["username"].string {
       username = name
-    } else if let name = dic["username"] as? NSNumber {
+    } else if let name = dic["username"].number {
       username = name.stringValue
     }
     
-    if let phoneNumber = dic["phone"] as? String {
+    if let phoneNumber = dic["phone"].string{
       phone = phoneNumber
-    } else if let phoneNumber = dic["phone"] as? NSNumber {
+    } else if let phoneNumber = dic["phone"].number {
       phone = phoneNumber.stringValue
     }
-      sex = dic["sex"] as? String
-      id = dic["id"] as? String
-    
+      sex = dic["sex"].string ?? ""
+      id = dic["id"].string ?? ""
+    userstatus = dic["userstatus"].int
+    email = dic["email"].string
+    userimage = dic["userimage"].string ?? ""
+    realname = dic["realname"].string ?? ""
     
       }
 

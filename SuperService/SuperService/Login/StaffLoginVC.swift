@@ -164,7 +164,7 @@ class StaffLoginVC: UIViewController {
             if let set = dict["set"] as? Bool {
               if set {
                 // 缓存用户信息
-                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
+//                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 self.loginEaseMob()
                 self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
                 ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in

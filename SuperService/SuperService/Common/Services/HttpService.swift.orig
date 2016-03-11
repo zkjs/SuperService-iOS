@@ -32,7 +32,11 @@ struct HttpService {
   private static let EaseMobAppKey = "zkjs#prosvip"  // 环信
   */
   
+<<<<<<< Updated upstream
+  static let baseCodeURL = "http://120.25.80.143:8080" //获取code
+=======
   private static let baseCodeURL = "http://p.zkjinshi.com/test/pav"
+>>>>>>> Stashed changes
 //    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
   static let baseRegisterURL = "http://120.25.80.143:8083" // 注册地址
   
@@ -232,7 +236,24 @@ struct HttpService {
       completionHandler(json, error)
     }
   }
-  
+  //获取登录用户的资料
+  static func getUsersInfo(completionHandler:(JSON?,NSError?) -> ()) {
+    let urlString = baseURLContacts + ResourcePath.QueryUserInfo.description
+    guard let userid = TokenPayload.sharedInstance.userID else {return}
+    let dic = ["userids":userid]
+    get(urlString, parameters: dic) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        if let json = json!["data"].array {
+          for dic in json {
+            AccountManager.sharedInstance().saveAccountWithDict(dic)
+          }
+        }
+        completionHandler(json,nil)
+    }
 
+    }
+  }
 
 }

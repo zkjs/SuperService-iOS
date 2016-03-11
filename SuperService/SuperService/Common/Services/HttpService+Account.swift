@@ -19,7 +19,8 @@ extension HttpService {
     }
   }
   
-  static func getUserinfo(completionHandler:HttpCompletionHandler){
+  //获取登录用户的资料
+  static func getUserInfo(completionHandler:HttpCompletionHandler){
     let urlString = baseRegisterURL + ResourcePathAccount.UserInfo.description
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {

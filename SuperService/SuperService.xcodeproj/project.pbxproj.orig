@@ -1257,8 +1257,11 @@
 				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				406B0B2A1C85B692006C9C73 /* HttpService.swift */,
 				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
+<<<<<<< Updated upstream
 				40FD34361C92862A0019A8CA /* HttpService+Account.swift */,
+=======
 				FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */,
+>>>>>>> Stashed changes
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 			);

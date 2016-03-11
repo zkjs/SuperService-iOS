@@ -24,11 +24,19 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
     tableView.scrollEnabled = false
+    loadData()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
+
+  }
+  
+  func loadData() {
+    HttpService.getUserInfo { (json, error) -> () in
+      self.tableView.reloadData()
+    }
   }
   
   

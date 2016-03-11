@@ -108,25 +108,37 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   }
   
   func loadData() {
-    ZKJSHTTPSessionManager.sharedInstance().getClientListWithPage("1", success:{ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      self.tableView.mj_header.endRefreshing()
-      if  let array = responseObject as? NSArray {
-        if array.count == 0 {
-          self.emptyLabel.hidden = false
-        } else {
-          self.emptyLabel.hidden = true
-          var datasource = [AddClientModel]()
-          for dict in array {
-            let client = AddClientModel(dic: dict as! [String: AnyObject])
-            datasource.append(client)
-          }
-          self.clientArray = datasource
-          self.tableView.reloadData()
+    HttpService.queryUserInfo{ (clients, error) -> () in
+      if let _ = error {
+        
+      } else {
+        if let users = clients where users.count > 0 {
+          self.clientArray = users
+          self.tableView?.reloadData()
         }
       }
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        self.tableView.mj_header.endRefreshing()
-    }
+       self.tableView.mj_header.endRefreshing()
+  }
+    
+//    ZKJSHTTPSessionManager.sharedInstance().getClientListWithPage("1", success:{ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      self.tableView.mj_header.endRefreshing()
+//      if  let array = responseObject as? NSArray {
+//        if array.count == 0 {
+//          self.emptyLabel.hidden = false
+//        } else {
+//          self.emptyLabel.hidden = true
+//          var datasource = [AddClientModel]()
+//          for dict in array {
+//            let client = AddClientModel(dic: dict as! [String: AnyObject])
+//            datasource.append(client)
+//          }
+//          self.clientArray = datasource
+//          self.tableView.reloadData()
+//        }
+//      }
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//        self.tableView.mj_header.endRefreshing()
+//    }
     
   }
   

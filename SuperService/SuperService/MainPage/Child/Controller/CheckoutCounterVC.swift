@@ -113,6 +113,9 @@ class CheckoutCounterVC: UICollectionViewController {
         if let data = json?["data"].array where data.count > 0 {
           for userData in data {
             let user = NearbyCustomer(data: userData)
+            if userData["userid"].string == nil ||  userData["userid"].string == "" {
+              continue
+            }
             self.nearbyCustomers.append(user)
           }
           self.collectionView?.reloadData()

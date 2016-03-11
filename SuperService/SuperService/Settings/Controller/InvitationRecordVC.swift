@@ -95,17 +95,17 @@ class InvitationRecordVC: UIViewController,UITableViewDelegate,UITableViewDataSo
   //Private
   
   func loadData() {
-    ZKJSHTTPSessionManager.sharedInstance().whoUsedMyCodeWithCode(code, success: { (task: NSURLSessionDataTask!,responseObject: AnyObject!) -> Void in
-      let dic = responseObject as! NSDictionary
-      if let array = dic["data"] as? NSArray {
-        for dict in array {
-          let code = CodeModel(dic: dict as! [String:AnyObject])
-          self.userCodeArray.append(code)
-        }
-        self.tableView.reloadData()
-      }
-      }) { (task: NSURLSessionDataTask!,error: NSError!) -> Void in
-        
-    }
+//    ZKJSHTTPSessionManager.sharedInstance().whoUsedMyCodeWithCode(code, success: { (task: NSURLSessionDataTask!,responseObject: AnyObject!) -> Void in
+//      let dic = responseObject as! NSDictionary
+//      if let array = dic["data"] as? NSArray {
+//        for dict in array {
+//          let code = CodeModel(dic: dict as! [String:AnyObject])
+//          self.userCodeArray.append(code)
+//        }
+//        self.tableView.reloadData()
+//      }
+//      }) { (task: NSURLSessionDataTask!,error: NSError!) -> Void in
+//        
+//    }
   }
 }

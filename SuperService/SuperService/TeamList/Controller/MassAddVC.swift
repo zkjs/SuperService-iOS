@@ -140,6 +140,22 @@ class MassAddVC: UIViewController {
        massDicArray.append(dic)
     }
         print(massDicArray)
+    HttpService.AddMember(massDicArray) { (json, error) -> () in
+      if let _ = error {
+        self.showHint("添加失败")
+      } else {
+        if let json = json {
+          if let res = json["res"].int {
+            if res == 0 {
+                self.showHint("添加成功")
+              self.navigationController?.popViewControllerAnimated(true)
+            } else {
+              self.showHint("\(json["resDesc"].string)")
+            }
+          }
+        }
+      }
+    }
   }
 
 

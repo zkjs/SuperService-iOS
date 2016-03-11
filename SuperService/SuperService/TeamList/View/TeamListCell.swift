@@ -38,8 +38,8 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   
   func setData(team:TeamModel) {
     
-    username.text = team.name
-    if let salesid = team.salesid {
+    username.text = team.username
+    if let salesid = team.userid {
       self.salesid = salesid
       let url = NSURL(string: kImageURL)
       let urlStr = url?.URLByAppendingPathComponent("/uploads/users/\(salesid).jpg")

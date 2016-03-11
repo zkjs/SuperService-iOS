@@ -13,13 +13,18 @@ class BindCodeModel: NSObject {
   var code: String?
   var userid: String?
   var username: String?
-  var phone: NSNumber?
+  var phone: String?
+  var userimage: String?
+  var userstatus: String?
+
   
-  init(dic: [String:AnyObject]) {
-    code = dic["code"] as? String
-    userid = dic["userid"] as? String
-    username = dic["username"] as? String
-    phone = dic["phone"] as? NSNumber
+  init(dic:JSON) {
+    code = dic["code"].string
+    userid = dic["userid"].string
+    username = dic["username"].string
+    phone = dic["phone"].string
+    userimage = dic["userimage"].string
+    userstatus = dic["userstatus"].string
   }
   
 }

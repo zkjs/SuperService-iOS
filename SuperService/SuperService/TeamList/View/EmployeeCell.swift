@@ -29,8 +29,8 @@ class EmployeeCell: UITableViewCell {
     return 48
   }
   func setData(employee:TeamModel) {
-    phoneLabel.text = employee.phone!.stringValue
-    tel = employee.phone!.stringValue
+    phoneLabel.text = employee.phone!
+    tel = employee.phone!
   }
   func setdata(client:AddClientModel) {
     phoneLabel.text = client.phone!

@@ -372,6 +372,7 @@
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
+		FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */; };
 		FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */; };
 		FAEDFD481C58B84B00AAEEEF /* AddSalesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */; };
 		FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */; };
@@ -986,6 +987,7 @@
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
 		FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Contacts.swift"; sourceTree = "<group>"; };
+		FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+GetCode.swift"; sourceTree = "<group>"; };
 		FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesVC.swift; sourceTree = "<group>"; };
 		FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSalesVC.xib; sourceTree = "<group>"; };
 		FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GusterModel.swift; sourceTree = "<group>"; };
@@ -1259,6 +1261,7 @@
 				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
 				40FD34361C92862A0019A8CA /* HttpService+Account.swift */,
 				FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */,
+				FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */,
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 			);
@@ -2910,6 +2913,7 @@
 				400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */,
 				FAF6B0F11C8D6EF400D1192A /* StorageManager.swift in Sources */,
 				40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */,
+				FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */,
 				40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */,
 				400D62711C1526B50021E750 /* Animation.swift in Sources */,
 				40FD34371C92862A0019A8CA /* HttpService+Account.swift in Sources */,

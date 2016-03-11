@@ -41,7 +41,7 @@ class BindCodeCell: UITableViewCell {
   func setData(code: BindCodeModel) {
     codeLabel.text = code.code
     nameLabel.text = code.username
-    phoneLabel.text = code.phone?.stringValue
+    phoneLabel.text = code.phone
     if let userID = code.userid {
       var url = NSURL(string: kImageURL)
       url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")

@@ -67,7 +67,7 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     let messageComposeVC = MFMessageComposeViewController()
     messageComposeVC.messageComposeDelegate = self
     if type == EmployeeVCType.team {
-      messageComposeVC.recipients = [(employee.phone?.stringValue)!]
+      messageComposeVC.recipients = [(employee.phone)!]
     }else {
       messageComposeVC.recipients = [(client.phone)!]
     }
@@ -123,7 +123,7 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     headerView = (NSBundle.mainBundle().loadNibNamed("CodeHeaderView", owner: self, options: nil).first as? CodeHeaderView)!
     self.view.addSubview(headerView)
     if type == EmployeeVCType.team {
-      headerView.employeeNameLabel.text = employee.name
+      headerView.employeeNameLabel.text = employee.username
     } else {
       headerView.employeeNameLabel.text = client.username
     }
@@ -135,8 +135,8 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     var chatterID = ""
     var chatterName = ""
     if type == EmployeeVCType.team {
-      if let salesid = employee.salesid,
-        let salesname = employee.name {
+      if let salesid = employee.userid,
+        let salesname = employee.username {
         chatterID = salesid
         chatterName = salesname
       } else {

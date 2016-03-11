@@ -50,7 +50,7 @@ class ArrivalTVC: UITableViewController {
     // 只有当当前VC可见时才刷新数据
     if isViewLoaded() && (view.window != nil) {
       tabBarItem.badgeValue = nil
-      loadData()
+//      loadData()
     }
   }
   

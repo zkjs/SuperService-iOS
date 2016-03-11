@@ -93,10 +93,23 @@ extension SettingUpTVC: WPMediaPickerViewControllerDelegate {
     if let set = assets.first as? ALAsset {
       let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
       let imageData = UIImageJPEGRepresentation(image, 0.8)!
-      AccountManager.sharedInstance().saveAvatarImageData(imageData)
-      self.tableView.reloadData()
+      AccountInfoManager.sharedInstance.saveAvatarImageData(imageData)
+      let name = AccountInfoManager.sharedInstance.userName
+      HttpService.updateUserInfo(true, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
+        if let _ = error {
+          self.hideHUD()
+          self.showHint("上传头像失败")
+        } else {
+          self.hideHUD()
+          self.showHint("上传头像成功")
+          self.tableView.reloadData()
+          self.dismissViewControllerAnimated(true, completion: nil)
+          
+        }
+      })
+      
     }
-    dismissViewControllerAnimated(true, completion: nil)
+    
   }
   
   func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {

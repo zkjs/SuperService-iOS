@@ -64,6 +64,18 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func loadData() {
+    HttpService.queryTeamsInfo { (teams, error) -> () in
+      if let _ = error {
+        
+      } else {
+        if let users = teams where users.count > 0 {
+          self.teamArray = users
+          self.tableView?.reloadData()
+        }
+      }
+      self.tableView.mj_header.endRefreshing()
+
+    }
 //    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
 //      if let array = responseObject as? NSArray {
 //        var datasource = [TeamModel]()
@@ -171,8 +183,8 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     let section = sections[indexPath.section]
     let employee = section[indexPath.row] as! TeamModel
     var chatterName = ""
-    guard let chatterID = employee.salesid else { return }
-    if let name = employee.name {
+    guard let chatterID = employee.userid else { return }
+    if let name = employee.username {
       chatterName = name
     }
     print(chatterID)

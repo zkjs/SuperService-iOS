@@ -10,22 +10,34 @@ import UIKit
 
 class TeamModel: NSObject {
 
-  var name: String?
-  var phone: NSNumber?
+  var username: String?
+  
+  var phone: String?
   var roleid: Int16?
-  var dept_name: String?
-  var salesid: String?
+  var realname: String?
+  var email: String?
+  var rolename: String?
+  var sex:Int?
+  var userimage: String?
+  var roledesc: String?
+  var userid: String?
 
-  init(dic:[String: AnyObject]){
-    if let name = dic["name"] as? String {
-      self.name = name
-    } else if let name = dic["name"] as? NSNumber {
-      self.name = name.stringValue
+  init(dic:JSON){
+    if let name = dic["username"].string {
+      self.username = name
+    } else if let name = dic["username"].number {
+      self.username = name.stringValue
     }
-    phone = dic["phone"] as? NSNumber
-    dept_name = dic["dept_name"] as? String
-    roleid = dic["roleid"] as? Int16
-    salesid = dic["salesid"] as? String
+    phone = dic["phone"].string ?? ""
+    realname = dic["realname"].string ?? ""
+    sex = dic["sex"].int
+    userimage = dic["userimage"].string ?? ""
+    userid = dic["userid"].string ?? ""
+    roledesc = dic["roledesc"].string ?? ""
+    email = dic["email"].string ?? ""
+    rolename = dic["rolename"].string ?? ""
+    
+   
   }
 
   override init() {

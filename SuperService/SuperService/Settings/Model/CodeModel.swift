@@ -10,10 +10,17 @@ import UIKit
 
 class CodeModel: NSObject {
 
-  var salecode: String?
+  var salecode:String?
   
-  init(dic:[String:AnyObject]) {
-    salecode = dic["salecode"] as? String
+  init(dic:JSON) {
+    if let json = dic["data"].dictionary {
+      if let  saleCode = json["saleCode"]!.int  {
+        salecode = String(saleCode)
+      } else {
+        salecode = json["saleCode"]!.string
+      }
+    }
+    
   }
 
 }

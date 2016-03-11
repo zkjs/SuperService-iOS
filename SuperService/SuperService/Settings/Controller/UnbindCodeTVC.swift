@@ -12,7 +12,7 @@ import MessageUI
 class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelegate {
   
   let shareTypes = ["短信", "微信好友"]
-  var page = 1
+  var page:Int = 1
   lazy var codeArray = [CodeModel]()
     
   override func viewDidLoad() {
@@ -42,21 +42,18 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func addCode(sender:UIButton) {
-    ZKJSHTTPSessionManager.sharedInstance().theWaiterRandomAccessToanInvitationCodeSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let data = responseObject as? [String: AnyObject] {
-        if let salecode = data["code"] as? String {
-          let dic = [
-            "salecode": salecode,
-            "is_validity": NSNumber(integer: 0)
-          ]
-          let code = CodeModel(dic: dic)
-          self.codeArray.insert(code, atIndex: 0)
-          self.tableView.reloadData()
-        }
-      }
-      }) { (task: NSURLSessionDataTask!, erroe: NSError!) -> Void in
+    HttpService.addSingleCode("nihao") { (json, error) -> () in
+      if let _ = error {
         
+      } else {
+        if let json = json {
+            let code = CodeModel(dic: json)
+            self.codeArray.insert(code, atIndex: 0)
+            self.tableView.reloadData()
+          }
+      }
     }
+
   }
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int{
@@ -76,6 +73,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     let cell = tableView.dequeueReusableCellWithIdentifier(CodeCell.reuseIdentifier(), forIndexPath: indexPath) as! CodeCell
     let code = codeArray[indexPath.row]
     cell.setData(code)
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
     return cell
   }
   
@@ -85,22 +83,26 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     for index in 0..<shareTypes.count {
       alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         guard let salecode = code.salecode else { return }
-        ZKJSHTTPSessionManager.sharedInstance().getInvitationLinkWithCode(salecode, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-          if let data = responseObject as? [String: AnyObject] {
-            if let url = data["url"] as? String {
-              switch index {
-              case 0:
-                self.shareByMessageWithURL(url, code: salecode)
-              case 1:
-                self.shareByWeChatWithURL(url,code: salecode)
-              default:
-                print("impossible")
-              }
-            }
-          }
-          }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+        
+        HttpService.generateCodeLink({ (json, error) -> () in
+          if let _ = error {
             
+          } else {
+            if let dic = json!["data"].dictionary {
+              if let url = dic["joinpage"]?.string {
+                switch index {
+                case 0:
+                  self.shareByMessageWithURL(url, code: salecode)
+                case 1:
+                  self.shareByWeChatWithURL(url,code: salecode)
+                default:
+                  print("impossible")
+                }
+              }
+              }
+          }
         })
+
         }))
     }
     alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
@@ -154,30 +156,53 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func loadData(page:AnyObject) {
-    ZKJSHTTPSessionManager.sharedInstance().getInvitationCodeWithPage(String(page), success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      print(responseObject)
-      if let data = responseObject {
-        if let array = data["code_data"] as? [[String: AnyObject]] {
+//    ZKJSHTTPSessionManager.sharedInstance().getInvitationCodeWithPage(String(page), success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      print(responseObject)
+//      if let data = responseObject {
+//        if let array = data["code_data"] as? [[String: AnyObject]] {
+//          if self.page == 1 {
+//            self.codeArray.removeAll()
+//          }
+//          for dict in array {
+//            let code = CodeModel(dic: dict)
+//            self.codeArray.append(code)
+//          }
+//          self.tableView.reloadData()
+//          self.page++
+//        }
+//      }
+//      self.tableView.mj_footer.endRefreshing()
+//      self.tableView.mj_header.endRefreshing()
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//        self.tableView.mj_footer.endRefreshing()
+//        self.tableView.mj_header.endRefreshing()
+//    }
+    
+    HttpService.getCodeList(0, page:Int(page as! NSNumber)) { (json, error) -> () in
+      if let _ = error {
+        self.tableView.mj_footer.endRefreshing()
+        self.tableView.mj_header.endRefreshing()
+      } else {
+        if let data = json?["data"].array where data.count > 0 {
           if self.page == 1 {
-            self.codeArray.removeAll()
+               self.codeArray.removeAll()
           }
-          for dict in array {
-            let code = CodeModel(dic: dict)
-            self.codeArray.append(code)
+          for userData in data {
+            let user = CodeModel(dic: userData)
+            self.codeArray.append(user)
           }
           self.tableView.reloadData()
           self.page++
         }
-      }
-      self.tableView.mj_footer.endRefreshing()
-      self.tableView.mj_header.endRefreshing()
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()
+      }
+      
+    }
     }
   }
-  
-}
+
+
 
 extension UnbindCodeTVC: XLPagerTabStripChildItem {
   

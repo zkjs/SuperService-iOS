@@ -33,6 +33,7 @@ struct HttpService {
   */
   
   static let baseCodeURL = "http://p.zkjinshi.com/test/pav"
+  static let BaseURL = "http://p.zkjinshi.com/test/for"
 //    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
   static let baseRegisterURL = "http://120.25.80.143:8083" // 注册地址
   

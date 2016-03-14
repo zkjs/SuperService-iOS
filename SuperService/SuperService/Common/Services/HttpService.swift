@@ -32,18 +32,19 @@ struct HttpService {
   private static let EaseMobAppKey = "zkjs#prosvip"  // 环信
   */
   
-  private static let baseCodeURL = "http://p.zkjinshi.com/test/pav"
-   static let BaseURL = "http://p.zkjinshi.com/test/for/"
+  static let baseCodeURL = "http://p.zkjinshi.com/test/pav"
+  static let BaseURL = "http://p.zkjinshi.com/test/for"
 //    private static let baseCodeURL = "http://192.168.199.112:8082" //局域网测试IP
   static let baseRegisterURL = "http://120.25.80.143:8083" // 注册地址
   
   
-  private enum ResourcePath: CustomStringConvertible {
+  enum ResourcePath: CustomStringConvertible {
     case ApiURL(path:String)
     case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
     case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
-    case Code                             // PAVO 认证服务API : 验证码 : HEADER不需要Token
-    
+    case Token                                  //// PAVO 认证服务API : Token管理 :
+    case DeleteToken                            //// PAVO 认证服务API : 删除Token :
+    case Code                                   //// PAVO 认证服务API : 验证码 : HEADER不需要Token
     case QueryUserInfo
     
     var description: String {
@@ -51,9 +52,10 @@ struct HttpService {
       case .ApiURL(let path): return "/api/\(path)"
       case .LoginPhone: return "/sso/token/v1/phone/ss"
       case .LoginUserName: return "/sso/token/v1/name/ss"
-        case .Code : return "/sso/vcode/v1/ss?source=login"
-        case.QueryUserInfo: return "/res/v1/query/si/all"
-     
+      case .Token: return "/sso/token/v1"
+      case .DeleteToken: return "/sso/token/v1"
+      case .Code : return "/sso/vcode/v1/ss?source=login"
+      case.QueryUserInfo: return "/res/v1/query/si/all"
       }
     }
   }
@@ -235,8 +237,6 @@ struct HttpService {
       completionHandler(json, error)
     }
   }
-  
-
   
 
 

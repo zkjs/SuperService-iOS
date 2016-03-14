@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     setupWeChat()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
+    refreshToken()
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 //    setupBackgroundFetch()
     
@@ -191,6 +192,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
       // 当前页是到店通知页面，则刷新到店通知列表
       NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
     }
+  }
+  
+  func refreshToken() {
+    HttpService.refreshToken(nil)
   }
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {

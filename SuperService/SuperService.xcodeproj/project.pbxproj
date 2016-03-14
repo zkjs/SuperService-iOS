@@ -348,6 +348,7 @@
 		40FD34351C926F7D0019A8CA /* SpringCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34311C926F7D0019A8CA /* SpringCombination.swift */; };
 		40FD34371C92862A0019A8CA /* HttpService+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34361C92862A0019A8CA /* HttpService+Account.swift */; };
 		40FD34391C929A090019A8CA /* AccountInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD34381C929A090019A8CA /* AccountInfoManager.swift */; };
+		40FD343B1C92B0780019A8CA /* Httpservice+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD343A1C92B0780019A8CA /* Httpservice+Token.swift */; };
 		842659421BE09C31005E82F2 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659401BE09C31005E82F2 /* MemberListVC.swift */; };
 		842659431BE09C31005E82F2 /* MemberListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842659411BE09C31005E82F2 /* MemberListVC.xib */; };
 		842659461BE09FCF005E82F2 /* MemberListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842659441BE09FCF005E82F2 /* MemberListCell.swift */; };
@@ -960,6 +961,7 @@
 		40FD34311C926F7D0019A8CA /* SpringCombination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringCombination.swift; sourceTree = "<group>"; };
 		40FD34361C92862A0019A8CA /* HttpService+Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HttpService+Account.swift"; path = "Common/Services/HttpService+Account.swift"; sourceTree = "<group>"; };
 		40FD34381C929A090019A8CA /* AccountInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountInfoManager.swift; path = SuperService/Common/Persistence/AccountInfoManager.swift; sourceTree = SOURCE_ROOT; };
+		40FD343A1C92B0780019A8CA /* Httpservice+Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Httpservice+Token.swift"; path = "Common/Services/Httpservice+Token.swift"; sourceTree = "<group>"; };
 		5692D1DD697B52942EE420A3 /* libPods-SuperService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperService.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperService/Pods-SuperService.release.xcconfig"; sourceTree = "<group>"; };
 		842659401BE09C31005E82F2 /* MemberListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListVC.swift; sourceTree = "<group>"; };
@@ -1260,6 +1262,7 @@
 			children = (
 				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				406B0B2A1C85B692006C9C73 /* HttpService.swift */,
+				40FD343A1C92B0780019A8CA /* Httpservice+Token.swift */,
 				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
 				40FD34361C92862A0019A8CA /* HttpService+Account.swift */,
 				FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */,
@@ -2954,6 +2957,7 @@
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
 				400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */,
 				400D627A1C1526B50021E750 /* HideAnimation.swift in Sources */,
+				40FD343B1C92B0780019A8CA /* Httpservice+Token.swift in Sources */,
 				400D62781C1526B50021E750 /* EasingFunction.swift in Sources */,
 				FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,

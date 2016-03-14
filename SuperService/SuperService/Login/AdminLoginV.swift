@@ -118,7 +118,7 @@ class AdminLoginV: UIViewController {
   }
   
   private func loginEaseMob() {
-    let userID = AccountManager.sharedInstance().userID
+    let userID = TokenPayload.sharedInstance.userID
     let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
     print("Username: \(userID)")
     print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")

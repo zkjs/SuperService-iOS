@@ -41,8 +41,8 @@ class CodeCell: UITableViewCell ,HTCopyableLabelDelegate{
     // Configure the view for the selected state
   }
   
-  func setData(code: CodeModel) {
-    codeLabel.text = code.salecode
+  func setData(code: String) {
+    codeLabel.text = code
     statusLabel.text = "未绑定"
   }
   

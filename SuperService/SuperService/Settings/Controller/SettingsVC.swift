@@ -24,12 +24,13 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
     tableView.scrollEnabled = false
-    loadData()
+    
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
+//    loadData()
 
   }
   
@@ -74,7 +75,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
      myView = (NSBundle.mainBundle().loadNibNamed("SettingsHeaderView", owner: self, options: nil).first as? SettingsHeaderView)!
-    print(AccountManager.sharedInstance().avatarImage)
     myView.userImage.sd_setImageWithURL(NSURL(string: AccountInfoManager.sharedInstance.avatarURL), placeholderImage: UIImage(named: "logo_white"))
     myView.username.text = AccountInfoManager.sharedInstance.userName
     myView.userAddress.text = AccountInfoManager.sharedInstance.fullname
@@ -116,8 +116,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func logout() {
     showHUDInView(view, withLoading: "正在退出登录...")
     // 清理系统缓存
-    AccountManager.sharedInstance().clearAccountCache()
-    AccountManager.sharedInstance().clearAvatarImageCache()
+    AccountInfoManager.sharedInstance.clearAccountCache()
+//    AccountInfoManager.sharedInstance.clearAvatarImageCache()
     
     TokenPayload.sharedInstance.clearCacheTokenPayload()
     
@@ -140,7 +140,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   }
   
   func unregisterYunBaTopic() {
-    let locid = AccountManager.sharedInstance().beaconLocationIDs
+    let locid = AccountInfoManager.sharedInstance.beaconLocationIDs
     let topicArray = locid.componentsSeparatedByString(",")
     for topic in topicArray {
       YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in

@@ -152,7 +152,7 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
       }
     }
     let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
-    let userName = AccountManager.sharedInstance().userName
+    let userName = AccountInfoManager.sharedInstance.userName
     vc.title = chatterName
     // 扩展字段
     let ext = ["toName": chatterName,

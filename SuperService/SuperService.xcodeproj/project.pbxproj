@@ -356,6 +356,7 @@
 		844E329D1BE065810024C678 /* AddMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E329B1BE065810024C678 /* AddMemberVC.swift */; };
 		844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E329C1BE065810024C678 /* AddMemberVC.xib */; };
 		FA06ADEA1C87EA820060DD33 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = FA06ADE91C87EA820060DD33 /* NSData+AES256.m */; };
+		FA07ABD71C966AD3009CCC3E /* ArrivateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07ABD61C966AD3009CCC3E /* ArrivateModel.swift */; };
 		FA0B7E151C5A05A200266615 /* AddClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0B7E141C5A05A200266615 /* AddClientModel.swift */; };
 		FA1B4A801C0D4F9000D57DB2 /* CodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */; };
 		FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */; };
@@ -970,6 +971,7 @@
 		844E329C1BE065810024C678 /* AddMemberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMemberVC.xib; sourceTree = "<group>"; };
 		FA06ADE81C87EA820060DD33 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
 		FA06ADE91C87EA820060DD33 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		FA07ABD61C966AD3009CCC3E /* ArrivateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivateModel.swift; sourceTree = "<group>"; };
 		FA0B7E141C5A05A200266615 /* AddClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClientModel.swift; sourceTree = "<group>"; };
 		FA1B4A7E1C0D4F9000D57DB2 /* CodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeCell.swift; sourceTree = "<group>"; };
 		FA1B4A7F1C0D4F9000D57DB2 /* CodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeCell.xib; sourceTree = "<group>"; };
@@ -1445,6 +1447,7 @@
 		40CF56751BF3453300E20D50 /* ArrivalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				FA07ABD51C966A8B009CCC3E /* Model */,
 				40CF56771BF3456500E20D50 /* Controller */,
 				40CF56761BF3455E00E20D50 /* View */,
 			);
@@ -2390,6 +2393,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FA07ABD51C966A8B009CCC3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA07ABD61C966AD3009CCC3E /* ArrivateModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FAF019981BE1CF7800E67ECD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2847,6 +2858,7 @@
 				40FB3D211C00203900675044 /* EMSDWebImagePrefetcher.m in Sources */,
 				40FB3D4A1C00203900675044 /* EaseConversationListViewController.m in Sources */,
 				FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */,
+				FA07ABD71C966AD3009CCC3E /* ArrivateModel.swift in Sources */,
 				40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */,
 				40FD34291C926E7D0019A8CA /* Double+Extension+ZKJS.swift in Sources */,
 				400D62751C1526B50021E750 /* ConstraintMultiplierAnimation.swift in Sources */,

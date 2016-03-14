@@ -308,7 +308,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func sendNewOrderNotificationToClientWithOrderNO(orderNO: String) {
-    let shopID = AccountManager.sharedInstance().shopID
+    let shopID = AccountInfoManager.sharedInstance.shopid
     if let clientID = order.userid {
       let cmdChat = EMChatCommand()
       cmdChat.cmd = "sureOrder"

@@ -116,8 +116,8 @@ class AddSalesVC: UIViewController {
   func sendAddSalesCmdMessage() {
     // 发送环信透传消息
     guard let clientid = guster?.userid else { return }
-    let userID = AccountManager.sharedInstance().userID
-    let userName = AccountManager.sharedInstance().userName
+    guard let userID = TokenPayload.sharedInstance.userID else {return}
+    let userName = AccountInfoManager.sharedInstance.userName
     let cmdChat = EMChatCommand()
     cmdChat.cmd = "addGuest"
     let body = EMCommandMessageBody(chatObject: cmdChat)
@@ -134,9 +134,9 @@ class AddSalesVC: UIViewController {
     // 发送环信消息
     guard let clientid = guster?.userid else { return }
     let clientname = guster?.username ?? ""
-    let shopid = AccountManager.sharedInstance().shopID
-    let shopname = AccountManager.sharedInstance().shopName
-    let userName = AccountManager.sharedInstance().userName
+    let shopid = AccountInfoManager.sharedInstance.shopid
+    let shopname = AccountInfoManager.sharedInstance.fullname
+    let userName = AccountInfoManager.sharedInstance.userName
     let txtChat = EMChatText(text: "我已添加您为专属客人")
     let body = EMTextMessageBody(chatObject: txtChat)
     let message = EMMessage(receiver: clientid, bodies: [body])

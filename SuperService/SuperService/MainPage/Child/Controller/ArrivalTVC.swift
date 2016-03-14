@@ -55,6 +55,14 @@ class ArrivalTVC: UITableViewController {
   }
   
   func loadData() {
+    
+    HttpService.arrivateList(0) { (json, error) -> () in
+      if let _  = error {
+        
+      } else {
+       
+      }
+    }
     ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       if let data = responseObject as? [[String: AnyObject]] {
         self.dataArray = data
@@ -145,7 +153,7 @@ class ArrivalTVC: UITableViewController {
     let chatterID = data["userId"] as! String
     let chatterName = data["userName"] as! String
     let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
-    let userName = AccountManager.sharedInstance().userName
+    let userName = AccountInfoManager.sharedInstance.userName
       vc.title = chatterName
       vc.hidesBottomBarWhenPushed = true
       // 扩展字段

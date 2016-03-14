@@ -12,15 +12,8 @@ class CodeModel: NSObject {
 
   var salecode:String?
   
-  init(dic:JSON) {
-    if let json = dic["data"].dictionary {
-      if let  saleCode = json["saleCode"]!.int  {
-        salecode = String(saleCode)
-      } else {
-        salecode = json["saleCode"]!.string
-      }
-    }
-    
+  init(json:JSON) {
+        salecode = json["saleCode"].string
   }
 
 }

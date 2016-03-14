@@ -12,12 +12,16 @@ extension HttpService {
   private enum ResourcePathAccount: CustomStringConvertible {
     case UserInfo
     case UpdateInfo
+    case ArrivateData
+    case VersionUpgrade
     
     
     var description: String {
       switch self {
       case .UserInfo:  return "/res/v1/query/user/all"
       case.UpdateInfo: return "/res/v1/update/user"
+      case.ArrivateData:return "/lbs/v1/loc/beacon/"
+      case.VersionUpgrade: return "/res/v1/system/newestversion/"
       }
     }
   }
@@ -86,8 +90,8 @@ extension HttpService {
                 let json = JSON(data: data)
                 if json["res"].int == 0 {
                   print(json["resDesc"].string)
-                  if let userData = json["data"].dictionary  {
-                    AccountInfoManager.sharedInstance.saveAccountInfo(userData)
+                  if let imgUrl = json["data"]["userimage"].string where !imgUrl.isEmpty {
+                    AccountInfoManager.sharedInstance.saveImageUrl(imgUrl)
                     completionHandler(json,nil)
                   } else {
                     completionHandler(json,error)
@@ -115,5 +119,42 @@ extension HttpService {
     })
     
   }
+  
+  static func arrivateList(page:Int,completionHandler:(JSON?,NSError?) -> ()) {
+    let urlString = baseURLUpdate + ResourcePathAccount.ArrivateData.description
+    guard let shopid = TokenPayload.sharedInstance.shopid else {return}
+//    let locids = AccountManager.sharedInstance().beaconLocationIDs
+    let dic = ["shopid":shopid,"locids":"","page":page,"page_size":15]
+    get(urlString, parameters: dic as? [String : AnyObject]) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        if let data = json {
+          if let array = data["users"].array {
+            for dic in array {
+              
+            }
+          }
+          
+        }
+        completionHandler(json,nil)
+      }
+    }
+  }
+  
+  static func versionUpgrade(verno:String, completionHandler:(JSON?,NSError?) -> ()) {
+    let urlString = baseURLUpdate + ResourcePathAccount.VersionUpgrade.description
+    let dic = ["apptype":2,"devicetype":"IOS","verno":verno]
+    get(urlString, parameters: dic as? [String : AnyObject]) { (json, error) -> Void in
+      if let _ = error {
+        
+      } else {
+        completionHandler(json,nil)
+      }
+    }
+
+    
+  }
+
   
 }

@@ -45,6 +45,10 @@ class TokenPayload:NSObject {
     return !userID.isEmpty
   }
   
+  var isAdmin:Bool {
+    return self.roles?.contains("ADMIN") ?? false
+  }
+  
   private var json: JSON? {
     guard let data = self.tokenPayload?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) else {
       return nil

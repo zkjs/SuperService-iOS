@@ -186,6 +186,8 @@ class AccountManager: NSObject {
     }
   }
   
+
+  
   func saveCategory(category: String) {
     self.category = category
     let userDefaults = NSUserDefaults()

@@ -30,10 +30,10 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "完善"
-    nameTextFiled.text = AccountManager.sharedInstance().userName
+    nameTextFiled.text = AccountInfoManager.sharedInstance.userName
     sex = "1"
     
-    if let image = AccountManager.sharedInstance().avatarImage {
+    if let image = AccountInfoManager.sharedInstance.avatarImage {
       avatarButton.setImage(image, forState: .Normal)
       imageData = UIImageJPEGRepresentation(image, 0.8)!
     }
@@ -69,10 +69,10 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
           if set {
             self.hideHUD()
             if let name = self.nameTextFiled.text {
-              AccountManager.sharedInstance().saveUserName(name)
+              AccountInfoManager.sharedInstance.saveUserName(name)
 //              AccountManager.sharedInstance().clearAvatarImageCache()
             }
-            AccountManager.sharedInstance().saveAvatarImageData(self.imageData)
+            AccountInfoManager.sharedInstance.saveAvatarImageData(self.imageData)
             let InformV = InformVC()
             InformV.dismissWhenFinished = true
             InformV.hidesBottomBarWhenPushed = true

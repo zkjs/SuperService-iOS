@@ -22,8 +22,6 @@ class MainTBC: UITabBarController {
     setupView()
     registerNotification()
     
-    print("userID: \(AccountManager.sharedInstance().userID)")
-    print("Token: \(AccountManager.sharedInstance().token)")
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -57,7 +55,7 @@ class MainTBC: UITabBarController {
   
   private func showLogin() {
     // 清理系统缓存
-    AccountManager.sharedInstance().clearAccountCache()
+    AccountInfoManager.sharedInstance.clearAccountCache()
     
     // 消除订阅云巴频道
     unregisterYunBaTopic()
@@ -81,17 +79,17 @@ class MainTBC: UITabBarController {
   }
   
   private func unregisterYunBaTopic() {
-    let locid = AccountManager.sharedInstance().beaconLocationIDs
-    let topicArray = locid.componentsSeparatedByString(",")
-    for topic in topicArray {
-      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
-        if success {
-          print("[result] unsubscribe to topic(\(topic)) succeed")
-        } else {
-          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-        }
-      }
-    }
+//    let locid = AccountManager.sharedInstance().beaconLocationIDs
+//    let topicArray = locid.componentsSeparatedByString(",")
+//    for topic in topicArray {
+//      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
+//        if success {
+//          print("[result] unsubscribe to topic(\(topic)) succeed")
+//        } else {
+//          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
+//        }
+//      }
+//    }
   }
   
   private func setupView() {
@@ -105,11 +103,11 @@ class MainTBC: UITabBarController {
     let nv1 = BaseNavigationController()
     nv1.viewControllers = [vc1]
     
-    let vc2 = OrderTVC()
+    /*let vc2 = OrderTVC()
     vc2.tabBarItem.title = "订单"
     vc2.tabBarItem.image = UIImage(named: "ic_dingdan")
     let nv2 = BaseNavigationController()
-    nv2.viewControllers = [vc2]
+    nv2.viewControllers = [vc2]*/
     
     conversationListVC.tabBarItem.title = "消息"
     conversationListVC.tabBarItem.image = UIImage(named: "ic_xiaoxi")
@@ -128,13 +126,51 @@ class MainTBC: UITabBarController {
     let nv5 = BaseNavigationController()
     nv5.viewControllers = [vc5]
     
-    viewControllers = [nv1, nv2, nv3, nv4, nv5]
+    viewControllers = [nv1, nv3, nv4, nv5]
   }
   
   func checkVersion() {
     let buildNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
-    let version = NSNumber(longLong: Int64(buildNumber)!)
-    ZKJSJavaHTTPSessionManager.sharedInstance().checkVersionWithVersion(version, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+    let version = NSNumber(int: Int32(buildNumber)!)
+    HttpService.versionUpgrade(buildNumber) { (json, error) -> () in
+      if let json = json!["data"].dictionary {
+        if let isforceupgrade = json["isforceupgrade"]?.int {
+          if let versionNo = json["verno"]?.string {
+            let verno =  NSNumber(int: Int32(versionNo)!)
+            if verno.longLongValue > version.longLongValue {
+              if isforceupgrade > 0 {
+                // 提示更新
+                let alertController = UIAlertController(title: "升级提示", message: "已有新版本可供升级", preferredStyle: .Alert)
+                let upgradeAction = UIAlertAction(title: "升级", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                  let url  = NSURL(string: "itms-apps://itunes.apple.com/us/app/chao-ji-fu-wu/id1048366534?ls=1&mt=8")
+                  if UIApplication.sharedApplication().canOpenURL(url!) {
+                    UIApplication.sharedApplication().openURL(url!)
+                  }
+                })
+                alertController.addAction(upgradeAction)
+                let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+              } else if isforceupgrade == 1 {
+                // 强制更新
+                let alertController = UIAlertController(title: "升级提示", message: "请您升级到最新版本，以保证软件的正常使用", preferredStyle: .Alert)
+                let upgradeAction = UIAlertAction(title: "升级", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                  let url  = NSURL(string: "itms-apps://itunes.apple.com/us/app/chao-ji-fu-wu/id1048366534?ls=1&mt=8")
+                  if UIApplication.sharedApplication().canOpenURL(url!) {
+                    UIApplication.sharedApplication().openURL(url!)
+                  }
+                })
+                alertController.addAction(upgradeAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+              }
+            }
+          }
+        }
+       
+      }
+    }
+    
+   /* ZKJSJavaHTTPSessionManager.sharedInstance().checkVersionWithVersion(version, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       print(responseObject)
       if let isForceUpgrade = responseObject["isForceUpgrade"] as? NSNumber {
         if let versionNo = responseObject["versionNo"] as? NSNumber {
@@ -169,7 +205,7 @@ class MainTBC: UITabBarController {
       }
       }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
         
-    }
+    }*/
   }
   
   // MARK: - UITabBarControllerDelegate

@@ -12,8 +12,8 @@ import MessageUI
 class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelegate {
   
   let shareTypes = ["短信", "微信好友"]
-  var page:Int = 1
-  lazy var codeArray = [CodeModel]()
+  var page:Int = 0
+  lazy var codeArray = [String]()
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,14 +42,16 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func addCode(sender:UIButton) {
+    self.tableView.mj_header.beginRefreshing()
     HttpService.addSingleCode("nihao") { (json, error) -> () in
       if let _ = error {
         
       } else {
-        if let json = json {
-            let code = CodeModel(dic: json)
+        if let js = json!["data"].dictionary {
+          if  let code = js["saleCode"]?.string {
             self.codeArray.insert(code, atIndex: 0)
-            self.tableView.reloadData()
+          }
+          self.tableView.mj_header.endRefreshing()
           }
       }
     }
@@ -82,8 +84,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     let alertView = UIAlertController(title: "选择分享方式", message: "", preferredStyle: .ActionSheet)
     for index in 0..<shareTypes.count {
       alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
-        guard let salecode = code.salecode else { return }
-        
+        guard let salecode:String = code else { return }
         HttpService.generateCodeLink({ (json, error) -> () in
           if let _ = error {
             
@@ -115,7 +116,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   
   func shareByMessageWithURL(url: String, code: String) {
     if MFMessageComposeViewController.canSendText() {
-      let userName = AccountManager.sharedInstance().userName
+      let userName = AccountInfoManager.sharedInstance.userName
       let messageComposeVC = MFMessageComposeViewController()
       messageComposeVC.messageComposeDelegate = self
       messageComposeVC.body = "\(userName): \(code)  邀请您激活超级身份。激活超级身份，把您在某商家的会员保障扩展至全国，100+顶级商户和1000＋客服将竭诚为您服务。链接：\(url)"
@@ -127,7 +128,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func shareByWeChatWithURL(url: String,code:String) {
-    let userName = AccountManager.sharedInstance().userName
+    let userName = AccountInfoManager.sharedInstance.userName
     let message = WXMediaMessage()
     message.title = "\(userName)\(code) 邀请您激活超级身份"
     message.description = "激活超级身份，把您在某商家的会员保障扩展至全国，100+顶级商户和1000＋客服将竭诚为您服务。"
@@ -151,7 +152,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func refreshData() {
-    page = 1
+    page = 0
     loadData(page)
   }
   
@@ -183,21 +184,24 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()
       } else {
-        if let data = json?["data"].array where data.count > 0 {
-          if self.page == 1 {
-               self.codeArray.removeAll()
+        if let datas = json?["data"].dictionary {
+          if let data = datas["salecodes"]!.array where data.count > 0 {
+            if self.page == 0 {
+              self.codeArray.removeAll()
+            }
+            for userData in data {
+              let user = CodeModel(json: userData)
+              self.codeArray.append(user.salecode!)
+            }
+            self.tableView.reloadData()
+            self.page++
           }
-          for userData in data {
-            let user = CodeModel(dic: userData)
-            self.codeArray.append(user)
-          }
-          self.tableView.reloadData()
-          self.page++
+          self.tableView.mj_footer.endRefreshing()
+          self.tableView.mj_header.endRefreshing()
         }
-        self.tableView.mj_footer.endRefreshing()
-        self.tableView.mj_header.endRefreshing()
-      }
-      
+
+        }
+        
     }
     }
   }

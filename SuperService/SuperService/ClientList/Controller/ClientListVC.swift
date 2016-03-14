@@ -221,7 +221,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         chatterName = name
       }
       let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
-      let userName = AccountManager.sharedInstance().userName
+      let userName = AccountInfoManager.sharedInstance.userName
       vc.title = chatterName
       vc.hidesBottomBarWhenPushed = true
       // 扩展字段

@@ -73,7 +73,7 @@ class OrderTVC: UITableViewController {
   }
   
   private func getDataWithPage(page: Int) {
-   let userID =  AccountManager.sharedInstance().userID
+   let userID =  TokenPayload.sharedInstance.userID
     if userID != "" {
       ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
         success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in

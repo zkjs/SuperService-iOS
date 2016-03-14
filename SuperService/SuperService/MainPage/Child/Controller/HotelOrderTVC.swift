@@ -223,7 +223,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func sendMessageNotificationWithOderNO(orderno: String) {
-    let shopID = AccountManager.sharedInstance().shopID
+    let shopID = AccountInfoManager.sharedInstance.shopid
     if let clientID = order.userid {
       let cmdChat = EMChatCommand()
       cmdChat.cmd = "cancleOrder"
@@ -294,7 +294,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func chooseRoomType() {
     let vc = BookRoomListVC()
-    let shopID = AccountManager.sharedInstance().shopID
+    let shopID = AccountInfoManager.sharedInstance.shopid
     vc.shopid = shopID
     vc.selection = { (goods:RoomGoods ) ->() in
       self.roomsTypeLabel.text = goods.room
@@ -325,7 +325,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   func sendNewOrderNotificationToClientWithOrderNO(orderNO: String) {
-    let shopID = AccountManager.sharedInstance().shopID
+    let shopID = AccountInfoManager.sharedInstance.shopid
     if let clientID = order.userid {
       let cmdChat = EMChatCommand()
       cmdChat.cmd = "sureOrder"
@@ -340,7 +340,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func sendNewOrderMessage() {
     // 发送环信消息
-    let userName = AccountManager.sharedInstance().userName
+    let userName = AccountInfoManager.sharedInstance.userName
     let txtChat = EMChatText(text: "您的订单已处理，请确认")
     let body = EMTextMessageBody(chatObject: txtChat)
     let message = EMMessage(receiver: order.userid, bodies: [body])
@@ -377,10 +377,10 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     }
     
     var orderDict = [String: AnyObject]()
-    orderDict["shopid"] = AccountManager.sharedInstance().shopID
+    orderDict["shopid"] = AccountInfoManager.sharedInstance.shopid
     orderDict["userid"] = order.userid
-    orderDict["saleid"] = AccountManager.sharedInstance().userID
-    orderDict["shopname"] = AccountManager.sharedInstance().shopName
+    orderDict["saleid"] = AccountInfoManager.sharedInstance.userID
+    orderDict["shopname"] = AccountInfoManager.sharedInstance.fullname
     orderDict["imgurl"] = order.imgurl
     orderDict["productid"] = order.productid
     orderDict["orderno"] = order.orderno

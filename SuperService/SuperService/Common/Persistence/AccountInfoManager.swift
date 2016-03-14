@@ -27,6 +27,7 @@ class AccountInfoManager: NSObject {
   private(set) var password = ""
   private(set) var shopid = ""
   private(set) var fullname = ""
+  private(set) var beaconLocationIDs = ""
 
   var avatarURL : String {
     let userDefaults = NSUserDefaults()
@@ -123,6 +124,13 @@ class AccountInfoManager: NSObject {
     }
   }
   
+  func saveImageUrl(url: String) {
+    if url.isEmpty { return }
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(url, forKey: "avatarURL")
+    userDefaults.synchronize()
+  }
+  
   func saveActivated(activated: String) {
     self.activated = activated
     let userDefaults = NSUserDefaults()
@@ -135,6 +143,12 @@ class AccountInfoManager: NSObject {
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(sex, forKey: "sex")
     userDefaults.synchronize()
+  }
+  
+  func savebeaconLocationIDs(beaconLocationIDs: String) {
+    self.beaconLocationIDs = beaconLocationIDs
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(beaconLocationIDs, forKey: "locid")
   }
   
   func saveEmail(email: String) {

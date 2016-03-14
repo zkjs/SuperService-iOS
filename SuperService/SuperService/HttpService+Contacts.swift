@@ -9,7 +9,7 @@
 import Foundation
 extension HttpService {
   
-  static let baseURLContacts = "http://p.zkjinshi.com/test/for/"
+  static let baseURLContacts = "http://p.zkjinshi.com/test/for"
   private enum queryContactsSource: CustomStringConvertible {
     case MyClients
     case MyTeam
@@ -58,16 +58,15 @@ extension HttpService {
             let user = TeamModel(dic: userData)
             users.append(user)
           }
-          print(users.count)
           completionHandler(users,nil)
         }
       }
     }
   }
   
-  static func AddMember(massArray:NSArray, completionHandler:(JSON?,NSError?) -> ()) {
+  static func AddMember(massDic:NSDictionary, completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = baseURLContacts + queryContactsSource.AddMember.description
-    post(urlString, parameters: nil) { (json, error) -> Void in
+    post(urlString, parameters: massDic as? [String : AnyObject]) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)
       } else {

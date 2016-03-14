@@ -19,8 +19,8 @@ class SettingUpTVC: UITableViewController {
     super.viewDidLoad()
     title = "设置"
    
-    telphoneLabel.text = AccountManager.sharedInstance().phone
-    organizationLabel.text = AccountManager.sharedInstance().shopName
+    telphoneLabel.text = AccountInfoManager.sharedInstance.phone
+    organizationLabel.text = AccountInfoManager.sharedInstance.fullname
     
   }
   
@@ -92,8 +92,6 @@ extension SettingUpTVC: WPMediaPickerViewControllerDelegate {
   func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
     if let set = assets.first as? ALAsset {
       let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
-      let imageData = UIImageJPEGRepresentation(image, 0.8)!
-      AccountInfoManager.sharedInstance.saveAvatarImageData(imageData)
       let name = AccountInfoManager.sharedInstance.userName
       HttpService.updateUserInfo(true, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
         if let _ = error {

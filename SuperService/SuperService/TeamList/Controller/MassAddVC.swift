@@ -136,11 +136,14 @@ class MassAddVC: UIViewController {
       if let idx = massPhoneArray.indexOf(phone) {
         let username = massusernameArray[idx]
        dic = ["phone":phone,"username":username]
-      }
+             }
        massDicArray.append(dic)
     }
-        print(massDicArray)
-    HttpService.AddMember(massDicArray) { (json, error) -> () in
+    let dict = ["users":massDicArray]
+//    let theJSONData = try! NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions(rawValue: 0))
+//    let JSONText = NSString(data: theJSONData,
+//      encoding: NSUTF8StringEncoding)
+    HttpService.AddMember(dict) { (json, error) -> () in
       if let _ = error {
         self.showHint("添加失败")
       } else {
@@ -148,7 +151,7 @@ class MassAddVC: UIViewController {
           if let res = json["res"].int {
             if res == 0 {
                 self.showHint("添加成功")
-              self.navigationController?.popViewControllerAnimated(true)
+              self.navigationController?.popToRootViewControllerAnimated(true)
             } else {
               self.showHint("\(json["resDesc"].string)")
             }

@@ -11,7 +11,7 @@ import MessageUI
 
 class BindCodeTVC: UITableViewController {
   
-  var page = 1
+  var page = 0
   lazy var codeArray = [BindCodeModel]()
   
   override func viewDidLoad() {
@@ -29,7 +29,7 @@ class BindCodeTVC: UITableViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    page = 1
+    page = 0
     codeArray.removeAll()
     loadData(page)
   }
@@ -63,7 +63,7 @@ class BindCodeTVC: UITableViewController {
   }
   
   func refreshData() {
-    page = 1
+    page = 0
     codeArray.removeAll()
     loadData(page)
   }

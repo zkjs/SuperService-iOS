@@ -36,7 +36,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   }
   
   private func setupRightBarButton() {
-    let isAdmin = AccountManager.sharedInstance().isAdmin()
+    let isAdmin = TokenPayload.sharedInstance.isAdmin
     if isAdmin {
       // 管理员才能添加员工
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
@@ -65,8 +65,8 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   
   override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
     let child1 = TeamListVC()
-    let child2 = ClientListVC()
-    return [child1, child2]
+//    let child2 = ClientListVC()
+    return [child1]
   }
   
   // MARK: - XLPagerTabStripViewControllerDelegate

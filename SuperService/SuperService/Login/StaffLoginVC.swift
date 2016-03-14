@@ -166,8 +166,8 @@ class StaffLoginVC: UIViewController {
                 // 缓存用户信息
 //                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
                 self.loginEaseMob()
-                self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
-                ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+                self.updateYunBaWithLocid(AccountInfoManager.sharedInstance.beaconLocationIDs)
+                ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountInfoManager.sharedInstance.shopid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                   print(responseObject)
                   if let category = responseObject["category"] as? String {
                     AccountManager.sharedInstance().saveCategory(category)
@@ -220,7 +220,7 @@ class StaffLoginVC: UIViewController {
   }
   
   func unregisterYunBaTopic() {
-    let locid = AccountManager.sharedInstance().beaconLocationIDs
+    let locid = AccountInfoManager.sharedInstance.beaconLocationIDs
     let topicArray = locid.componentsSeparatedByString(",")
     for topic in topicArray {
       YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
@@ -234,7 +234,7 @@ class StaffLoginVC: UIViewController {
   }
   
   private func loginEaseMob() {
-    let userID = AccountManager.sharedInstance().userID
+    let userID = TokenPayload.sharedInstance.userID
     print("Username: \(userID)")
     let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
     print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")

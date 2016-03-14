@@ -44,7 +44,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
+    tableView.mj_header.beginRefreshing()
     refresh()
   }
   
@@ -189,7 +189,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     }
     print(chatterID)
     let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
-    let userName = AccountManager.sharedInstance().userName
+    let userName = AccountInfoManager.sharedInstance.userName
     vc.title = chatterName
     vc.hidesBottomBarWhenPushed = true
     // 扩展字段

@@ -165,7 +165,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     print("locID: \(locID)")
     ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
       self.updateYunBaTopic()
-      AccountManager.sharedInstance().savebeaconLocationIDs(self.locID)
+      AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
       if self.dismissWhenFinished == true {
         self.dismissViewControllerAnimated(true, completion: nil)
       } else {

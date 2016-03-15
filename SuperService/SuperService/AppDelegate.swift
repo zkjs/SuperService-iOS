@@ -40,11 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     return true
   }
   
-  
-    func setupBackgroundFetch() {
-     
-          }
-  
   func subscribeTestTopic() {
     let topic = NSNumber(integer: 30)
     YunBaService.subscribe(topic.stringValue) { (success: Bool, error: NSError!) -> Void in

@@ -123,6 +123,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // 消除订阅云巴频道
     unregisterYunBaTopic()
+    //退出之后不再受到消息推送
+    unregisterRemoteNotification()
     
     // 登出环信
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
@@ -137,6 +139,10 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
     }
     showAdminLogin()
+  }
+  
+  func unregisterRemoteNotification() {
+    UIApplication.sharedApplication().unregisterForRemoteNotifications()
   }
   
   func unregisterYunBaTopic() {

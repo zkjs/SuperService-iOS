@@ -157,28 +157,6 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func loadData(page:AnyObject) {
-//    ZKJSHTTPSessionManager.sharedInstance().getInvitationCodeWithPage(String(page), success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//      print(responseObject)
-//      if let data = responseObject {
-//        if let array = data["code_data"] as? [[String: AnyObject]] {
-//          if self.page == 1 {
-//            self.codeArray.removeAll()
-//          }
-//          for dict in array {
-//            let code = CodeModel(dic: dict)
-//            self.codeArray.append(code)
-//          }
-//          self.tableView.reloadData()
-//          self.page++
-//        }
-//      }
-//      self.tableView.mj_footer.endRefreshing()
-//      self.tableView.mj_header.endRefreshing()
-//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//        self.tableView.mj_footer.endRefreshing()
-//        self.tableView.mj_header.endRefreshing()
-//    }
-    
     HttpService.getCodeList(0, page:Int(page as! NSNumber)) { (json, error) -> () in
       if let _ = error {
         self.tableView.mj_footer.endRefreshing()

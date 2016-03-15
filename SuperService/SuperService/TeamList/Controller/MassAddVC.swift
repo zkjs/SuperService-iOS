@@ -91,8 +91,8 @@ class MassAddVC: UIViewController {
     label.numberOfLines = 0
     label.textColor = UIColor.ZKJS_themeColor()
     return label
+   
   }
-  
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: false)

@@ -9,25 +9,23 @@
 import UIKit
 
 class AreaModel: NSObject {
-  var locid:NSNumber?
-  var shopid:Int?
-  var sensorid:Int?
-  var major:Int?
-  var status:Int?
-  var minior:Int?
+  var locid:String?
+  var sensorid:String?
+  var major:String?
+  var minior:String?
   var uuid:String?
+  var subscribed:Int?
   var locdesc:String?
-  var remark:String?
-  init(dic:[String:AnyObject]) {
-    locid  = dic["locid"] as? NSNumber
-    shopid = dic["shopid"] as? Int
-    sensorid = dic["sensorid"] as? Int
-    major = dic["major"] as? Int
-    status = dic["status"] as? Int
-    minior = dic["minior"] as? Int
-    uuid = dic["uuid"] as? String
-    locdesc = dic["locdesc"] as? String
-    remark = dic["remark"] as? String
+
+
+  init(dic:JSON) {
+    locid  = dic["locid"].string ?? ""
+    sensorid = dic["sensorid"].string ?? ""
+    major = dic["major"].string ?? ""
+    minior = dic["minior"].string ?? ""
+    uuid = dic["uuid"].string ?? ""
+    subscribed = dic["subscribed"].int ?? 0
+    locdesc = dic["locdesc"].string ?? ""
     
   }
 }

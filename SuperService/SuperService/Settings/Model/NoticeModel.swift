@@ -9,17 +9,19 @@
 import UIKit
 
 class NoticeModel: NSObject {
-  var empid:NSNumber?
-  var id:NSNumber?
-  var shopid:NSNumber?
-  var locid:NSNumber?
+  var locid:String?
+  var major:String?
+  var minor:String?
+  var uuid:String?
+   var sensorid:String?
+   var subscribed:Int?
   
-  init(dic:[String:AnyObject]) {
-    locid  = dic["locid"] as? NSNumber
-    shopid = dic["shopid"] as? NSNumber
-    empid = dic["empid"] as? NSNumber
-    id = dic["id"] as? NSNumber
-    
+  init(dic:JSON) {
+    locid = dic["locid"].string ?? ""
+    major = dic["major"].string ?? ""
+    minor = dic["minor"].string ?? ""
+    sensorid = dic["sensorid"].string ?? ""
+    subscribed = dic["subscribed"].int ?? 0
   }
 
 }

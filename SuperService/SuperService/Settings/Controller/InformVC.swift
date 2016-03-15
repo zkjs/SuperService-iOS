@@ -12,7 +12,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   @IBOutlet weak var tableView: UITableView!
   var dic:NSDictionary!
-  var noticeArray = [NSNumber]()
+  var noticeArray = [String]()
   var str:String!
   var areaArray = [AreaModel]()
   var locID = (String)()
@@ -38,25 +38,43 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   }
   
   override func viewWillAppear(animated: Bool) {
-    
+    GetWholeAreaOfTheList()
   }
   
   func GetWholeAreaOfTheList() {
-    ZKJSHTTPSessionManager.sharedInstance().WaiterGetAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let array = responseObject as? NSArray {
-        var arr = [NSNumber]()
-        for dic in array {
-          let notice = NoticeModel(dic:dic as! [String:AnyObject])
-          arr.append(notice.locid!)
-        }
-         self.noticeArray = arr
-        print(self.noticeArray)
-        self.initSelectedArray()  // Model
-        self.tableView.reloadData()  // UI
-      }
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+    HttpService.getSubscribeList { (json, error) -> Void in
+      if let _ = error {
         
+      } else {
+        if let jsonArr = json!["data"].array {
+          for dict in jsonArr {
+            let area = AreaModel(dic: dict)
+            self.areaArray.append(area)
+            if  dict["subscribed"] == 1 {
+               self.noticeArray.append(area.locid!)
+            }
+          }
+          self.initSelectedArray()  // Model
+          self.tableView.reloadData()  // UI
+        }
+      }
     }
+    
+//    ZKJSHTTPSessionManager.sharedInstance().WaiterGetAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      if let array = responseObject as? NSArray {
+//        var arr = [NSNumber]()
+//        for dic in array {
+//          let notice = NoticeModel(dic:dic as! [String:AnyObject])
+//          arr.append(notice.locid!)
+//        }
+//         self.noticeArray = arr
+//        print(self.noticeArray)
+//        self.initSelectedArray()  // Model
+//        self.tableView.reloadData()  // UI
+//      }
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//        
+//    }
   }
   
   func initSelectedArray() {
@@ -68,19 +86,19 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   }
   
   func GetWholeAreaOfTheBusinessList() {
-    ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let array = responseObject as? NSArray {
-        var datasource = [AreaModel]()
-        for dic in array {
-          let area = AreaModel(dic: dic as! [String: AnyObject])
-          datasource.append(area)
-        }
-        self.areaArray = datasource
-        self.GetWholeAreaOfTheList()
-      }
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
-    }
+//    ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      if let array = responseObject as? NSArray {
+//        var datasource = [AreaModel]()
+//        for dic in array {
+//          let area = AreaModel(dic: dic as! [String: AnyObject])
+//          datasource.append(area)
+//        }
+//        self.areaArray = datasource
+//        self.GetWholeAreaOfTheList()
+//      }
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//        
+//    }
   }
   
   //MARK: - Table View Data Source
@@ -152,37 +170,41 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }
       }
     }
-    print(noticeArray)
   }
   
   func nextStep() {
     for index in selectedArray {
       let area = areaArray[index]
-      str = area.locid?.stringValue
+      str = area.locid
       areaArr.append(str)
     }
     locID = areaArr.joinWithSeparator(",")
     print("locID: \(locID)")
-    ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      self.updateYunBaTopic()
-      AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
-      if self.dismissWhenFinished == true {
-        self.dismissViewControllerAnimated(true, completion: nil)
-      } else {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-      }
-      }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
-        
-    }
+    AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
+    let mainTBC = MainTBC()
+    mainTBC.selectedIndex = 0
+  
+  
+//    ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      self.updateYunBaTopic()
+//      AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
+//      if self.dismissWhenFinished == true {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//      } else {
+//        self.navigationController?.popToRootViewControllerAnimated(true)
+//      }
+//      }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
+//        
+//    }
   }
   
   func updateYunBaTopic() {
     print("areaArr: \(areaArr)")
     print("noticeArray: \(noticeArray)")
     for topic in noticeArray {
-      if areaArr.contains(topic.stringValue) {
+      if areaArr.contains(topic) {
         // 选中则监听区域
-        YunBaService.subscribe(topic.stringValue) { (success: Bool, error: NSError!) -> Void in
+        YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
           if success {
             print("[result] subscribe to topic(\(topic)) succeed")
           } else {
@@ -191,7 +213,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }
       } else {
         // 没选中则停止监听区域
-        YunBaService.unsubscribe(topic.stringValue) { (success: Bool, error: NSError!) -> Void in
+        YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
           if success {
             print("[result] unsubscribe to topic(\(topic)) succeed")
           } else {

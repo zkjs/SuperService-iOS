@@ -55,7 +55,6 @@ class ArrivalTVC: UITableViewController {
   }
   
   func loadData() {
-    
     HttpService.arrivateList(0) { (json, error) -> () in
       if let _  = error {
         
@@ -63,29 +62,29 @@ class ArrivalTVC: UITableViewController {
        
       }
     }
-    ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let data = responseObject as? [[String: AnyObject]] {
-        self.dataArray = data
-        for dic in data {
-          if let array = dic["orderForNotice"] as? NSArray {
-          var orderno = ""
-          var orderstatus = ""
-            for dict in array {
-               orderno = dict["orderNo"] as! String
-               orderstatus = dict["orderStatus"] as! String
-            }
-            self.ordernoArray.append(orderno)
-            self.orderstatusArray.append(orderstatus)
-          }
-        }
-        self.tableView.reloadData()
-        
-      }
-      self.tableView.mj_header.endRefreshing()
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        print(error)
-        self.tableView.mj_header.endRefreshing()
-    }
+//    ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//      if let data = responseObject as? [[String: AnyObject]] {
+//        self.dataArray = data
+//        for dic in data {
+//          if let array = dic["orderForNotice"] as? NSArray {
+//          var orderno = ""
+//          var orderstatus = ""
+//            for dict in array {
+//               orderno = dict["orderNo"] as! String
+//               orderstatus = dict["orderStatus"] as! String
+//            }
+//            self.ordernoArray.append(orderno)
+//            self.orderstatusArray.append(orderstatus)
+//          }
+//        }
+//        self.tableView.reloadData()
+//        
+//      }
+//      self.tableView.mj_header.endRefreshing()
+//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//        print(error)
+//        self.tableView.mj_header.endRefreshing()
+//    }
   }
   
   func loadMoreData() {

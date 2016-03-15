@@ -55,36 +55,31 @@ class NotificationController: WKUserNotificationInterfaceController {
     //
     // After populating your dynamic notification interface call the completion block.
     print(remoteNotification)
-    if let extra = remoteNotification["extra"] as? [String: AnyObject] {
+    if let extra = remoteNotification["data"] as? [String: AnyObject] {
       // 用户头像
       if let userid = extra["userid"] as? String {
         self.userImage(userid)
-//        if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg") {
-//          imageRequest(url)
-//        }
+      }
+      if let userimage = extra["userImage"] as? String {
+        if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/\(userimage)") {
+          imageRequest(url)
+        }
       }
       // 姓名
       if let username = extra["username"] as? String {
         nameLabel.setText(username)
       }
-      if let order = extra["order"] as? [String: AnyObject] {
-        // 房型
-        if let room_type = order["room_type"] as? String {
+      if let order = extra["title"] as? [String: AnyObject] {
+        // 内容
+        if let room_type = order["content"] as? String {
           roomTypeLabel.setText(room_type)
         }
-        // 天数
-        if let duration = order["dayInt"] as? NSNumber {
+        // 预计到达时间
+        if let duration = order["arrivalTime"] as? NSNumber {
           durationLabel.setText("\(duration.stringValue)晚")
         }
       }
-      // 区域
-      if let locdesc = extra["locdesc"] as? String {
-        locationLabel.setText(locdesc)
-      }
       
-//      if let orderstatus = extra["orderStatus"] as? String {
-//        orderStatus.setText(orderstatus)
-//      }
       // Cache ArrivalInfo Notification
       NSUserDefaults.standardUserDefaults().setObject(extra, forKey: ArrivalInfoKey)
     }

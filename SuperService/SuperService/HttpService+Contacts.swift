@@ -9,18 +9,17 @@
 import Foundation
 extension HttpService {
   
-  static let baseURLContacts = "http://p.zkjinshi.com/test/for"
   private enum queryContactsSource: CustomStringConvertible {
-    case MyClients
-    case MyTeam
-    case AddMember
+    case MyClients                // 我的客人（ss），查询销售的客人资料
+    case MyTeam                   // 根据shopid获取客服成员-按角色区分
+    case AddMember                // 批量注册用户
  
     
     var description: String {
       switch self {
-      case.MyClients: return "/res/v1/query/sis/"
-      case.MyTeam: return " /res/v1/query/sss"
-      case.AddMember: return "/res/v1/register/users"
+      case.MyClients:             return "/for/res/v1/query/sis/"
+      case.MyTeam:                return "/for/res/v1/query/sss"
+      case.AddMember:             return "/for/res/v1/register/users"
       
       }
     }
@@ -28,7 +27,7 @@ extension HttpService {
   
    
   static func queryUserInfo(completionHandler:([AddClientModel]?,NSError?) -> ()) {
-    let urlString = baseURLContacts + queryContactsSource.MyClients.description
+    let urlString =  queryContactsSource.MyClients.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)
@@ -47,7 +46,7 @@ extension HttpService {
   }
   
   static func queryTeamsInfo(completionHandler:([TeamModel]?,NSError?) -> ()) {
-    let urlString = baseURLContacts + queryContactsSource.MyClients.description
+    let urlString =  queryContactsSource.MyClients.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)
@@ -65,7 +64,7 @@ extension HttpService {
   }
   
   static func AddMember(massDic:NSDictionary, completionHandler:(JSON?,NSError?) -> ()) {
-    let urlString = baseURLContacts + queryContactsSource.AddMember.description
+    let urlString =  queryContactsSource.AddMember.description.fullUrl
     post(urlString, parameters: massDic as? [String : AnyObject]) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)

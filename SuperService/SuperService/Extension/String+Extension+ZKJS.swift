@@ -53,4 +53,20 @@ extension String {
   var isMobile: Bool {
     return (self =~ "^0?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$")
   }
+  
+  var fullImageUrl: String {
+    return ZKJSConfig.sharedInstance.BaseImageURL.stringByTrimmingCharactersInSet(
+      NSCharacterSet(charactersInString: "/")
+      )  + "/" + self.stringByTrimmingCharactersInSet(
+        NSCharacterSet(charactersInString: "/")
+    )
+  }
+  
+  var fullUrl:String {
+    return ZKJSConfig.sharedInstance.BaseURL.stringByTrimmingCharactersInSet(
+      NSCharacterSet(charactersInString: "/")
+      ) + "/" + self.stringByTrimmingCharactersInSet(
+        NSCharacterSet(charactersInString: "/")
+    )
+  }
 }

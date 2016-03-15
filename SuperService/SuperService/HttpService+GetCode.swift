@@ -11,16 +11,16 @@ extension HttpService {
   
  
   private enum CodeSource: CustomStringConvertible {
-    case AddCode
-    case CodeList
-    case CodeLink
+    case AddCode                     // 获取邀请码
+    case CodeList(type:Int)          // 通过userid获取邀请码及关联的客户
+    case CodeLink                    // 生成分享宣传链接
 
     
     var description: String {
       switch self {
-      case.AddCode: return "/res/v1/salecode/get/salecode"
-      case.CodeList: return "/res/v1/salecode/salecodewithsi/"
-      case.CodeLink: return "/res/v1/link/joinpage"
+      case.AddCode:                  return "/for/res/v1/salecode/get/salecode"
+      case.CodeList(let type):       return "/for/res/v1/salecode/salecodewithsi/\(type)"
+      case.CodeLink:                 return "/for/res/v1/link/joinpage"
 
         
       }
@@ -29,7 +29,7 @@ extension HttpService {
   
   /////单个添加邀请码
   static func addSingleCode(rmk:String, completionHandler:(JSON?,NSError?) -> ()) {
-    let urlString = BaseURL + CodeSource.AddCode.description
+    let urlString = CodeSource.AddCode.description.fullUrl
     let dic = ["rmk":rmk]
     post(urlString, parameters: dic) { (json, error) -> Void in
       if let error = error {
@@ -41,7 +41,7 @@ extension HttpService {
   }
   
   static func getCodeList(type:Int,page:Int,completionHandler:(JSON?,NSError?) -> ()) {
-    let urlString = BaseURL + CodeSource.CodeList.description + "\(type)"
+    let urlString = CodeSource.CodeList(type: type).description.fullUrl
     let dic = ["type":type,"page":page,"page_size":15]
     get(urlString, parameters: dic) { (json, error) -> Void in
       if let error = error {
@@ -53,7 +53,7 @@ extension HttpService {
   }
   
   static func generateCodeLink(completionHandler:(JSON?,NSError?) -> ()) {
-  let urlString = BaseURL + CodeSource.CodeLink.description
+  let urlString = CodeSource.CodeLink.description.fullUrl
   get(urlString, parameters: nil) { (json, error) -> Void in
   if let error = error {
   completionHandler(nil,error)

@@ -13,54 +13,6 @@
             timestampString = "479199182.502327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "loginWithPhone(_:phone:completionHandler:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SuperService.HttpService.loginWithPhone (SuperService.HttpService.Type)(Swift.String, phone : Swift.String, completionHandler : (Swift.Optional&lt;SuperService.JSON&gt;, Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "SuperService"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanton/Code/SuperService/SuperService/SuperService/Common/Services/HttpService.swift"
-                  timestampString = "478679653.848973"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "764">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SuperService.HttpService.(loginWithPhone (SuperService.HttpService.Type) -&gt; (Swift.String, phone : Swift.String, completionHandler : (Swift.Optional&lt;SuperService.JSON&gt;, Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "SuperService"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanton/Code/SuperService/SuperService/SuperService/Common/Services/HttpService.swift"
-                  timestampString = "478679653.849148"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuperService/Common/Services/HttpService.swift"
-            timestampString = "479199182.502327"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
             landmarkName = "requestAPI(_:urlString:parameters:tokenRequired:completionHandler:)"
@@ -112,22 +64,6 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "requestAPI(_:urlString:parameters:tokenRequired:completionHandler:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuperService/Common/Services/HttpService.swift"
-            timestampString = "479199182.502327"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "loginWithPhone(_:phone:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

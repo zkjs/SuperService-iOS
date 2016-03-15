@@ -10,25 +10,25 @@ import Foundation
 
 extension HttpService {
   private enum ResourcePathAccount: CustomStringConvertible {
-    case UserInfo
-    case UpdateInfo
-    case ArrivateData
-    case VersionUpgrade
+    case UserInfo                 // 获取用户资料
+    case UpdateInfo               // 更新用户资料
+    case ArrivateData             // 到店通知列表
+    case VersionUpgrade           // 版本更新
     
     
     var description: String {
       switch self {
-      case .UserInfo:  return "/res/v1/query/user/all"
-      case.UpdateInfo: return "/res/v1/update/user"
-      case.ArrivateData:return "/lbs/v1/loc/beacon/"
-      case.VersionUpgrade: return "/res/v1/system/newestversion/"
+      case .UserInfo:             return "/for/res/v1/query/user/all"
+      case .UpdateInfo:           return "/for/res/v1/update/user"
+      case .ArrivateData:         return "/for/lbs/v1/loc/beacon/"
+      case .VersionUpgrade:       return "/for/res/v1/system/newestversion/"
       }
     }
   }
-  static let baseURLUpdate = "http://p.zkjinshi.com/test/for/"
+
   //获取登录用户的资料
   static func getUserInfo(completionHandler:HttpCompletionHandler){
-    let urlString = baseRegisterURL + ResourcePathAccount.UserInfo.description
+    let urlString =  ResourcePathAccount.UserInfo.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
         print(error)
@@ -49,7 +49,7 @@ extension HttpService {
     if realname == nil && sex == nil && image == nil {
       return
     }
-    let urlString = baseURLUpdate + ResourcePathAccount.UpdateInfo.description
+    let urlString =  ResourcePathAccount.UpdateInfo.description.fullUrl
     var parameters = [String:String]()
     if isRegister {
       if let eamil = eamil {
@@ -121,7 +121,7 @@ extension HttpService {
   }
   
   static func arrivateList(page:Int,completionHandler:(JSON?,NSError?) -> ()) {
-    let urlString = baseURLUpdate + ResourcePathAccount.ArrivateData.description
+    let urlString =  ResourcePathAccount.ArrivateData.description.fullUrl
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
 //    let locids = AccountManager.sharedInstance().beaconLocationIDs
     let dic = ["shopid":shopid,"locids":"","page":page,"page_size":15]
@@ -143,7 +143,7 @@ extension HttpService {
   }
   
   static func versionUpgrade(verno:String, completionHandler:(JSON?,NSError?) -> ()) {
-    let urlString = baseURLUpdate + ResourcePathAccount.VersionUpgrade.description
+    let urlString =  ResourcePathAccount.VersionUpgrade.description.fullUrl
     let dic = ["apptype":2,"devicetype":"IOS","verno":verno]
     get(urlString, parameters: dic as? [String : AnyObject]) { (json, error) -> Void in
       if let _ = error {

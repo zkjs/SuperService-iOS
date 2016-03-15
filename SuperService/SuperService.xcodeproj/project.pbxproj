@@ -36,6 +36,7 @@
 		400D62851C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */; };
 		400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626C1C1526B50021E750 /* TranslationAnimation.swift */; };
 		400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400D626D1C1526B50021E750 /* UIView+Transform.swift */; };
+		401052951C97B69600B3CB63 /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401052941C97B69600B3CB63 /* ZKJSConfig.swift */; };
 		40111DEE1C8FC15100DD2AE1 /* CheckoutCounter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40111DED1C8FC15100DD2AE1 /* CheckoutCounter.storyboard */; };
 		40111DF01C8FCBF600DD2AE1 /* CheckoutCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DEF1C8FCBF600DD2AE1 /* CheckoutCounterVC.swift */; };
 		40111DF21C8FCE7600DD2AE1 /* CustomerHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DF11C8FCE7600DD2AE1 /* CustomerHeaderCell.swift */; };
@@ -499,6 +500,7 @@
 		400D626B1C1526B50021E750 /* ScrollViewPageConstraintAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewPageConstraintAnimation.swift; sourceTree = "<group>"; };
 		400D626C1C1526B50021E750 /* TranslationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationAnimation.swift; sourceTree = "<group>"; };
 		400D626D1C1526B50021E750 /* UIView+Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
+		401052941C97B69600B3CB63 /* ZKJSConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKJSConfig.swift; sourceTree = "<group>"; };
 		40111DED1C8FC15100DD2AE1 /* CheckoutCounter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CheckoutCounter.storyboard; path = MainPage/Child/Controller/CheckoutCounter.storyboard; sourceTree = "<group>"; };
 		40111DEF1C8FCBF600DD2AE1 /* CheckoutCounterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutCounterVC.swift; path = MainPage/Child/Controller/CheckoutCounterVC.swift; sourceTree = "<group>"; };
 		40111DF11C8FCE7600DD2AE1 /* CustomerHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerHeaderCell.swift; path = MainPage/Child/View/CustomerHeaderCell.swift; sourceTree = "<group>"; };
@@ -1443,6 +1445,7 @@
 				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
 				40E326461BD510C1008344DF /* Extension */,
 				40E3262A1BD4C36F008344DF /* Persistence */,
+				401052941C97B69600B3CB63 /* ZKJSConfig.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -2904,6 +2907,7 @@
 				404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */,
 				40FB3D5D1C00203900675044 /* EaseImageView.m in Sources */,
 				40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */,
+				401052951C97B69600B3CB63 /* ZKJSConfig.swift in Sources */,
 				40FB3D401C00203900675044 /* NSString+Valid.m in Sources */,
 				400D62741C1526B50021E750 /* ConstraintConstantAnimation.swift in Sources */,
 				40FB3D271C00203900675044 /* UIImage+EMWebP.m in Sources */,
@@ -3200,6 +3204,147 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		401052961C97BFBE00B3CB63 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "PRE_RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "-DPRE_RELEASE";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = PreRelease;
+		};
+		401052971C97BFBE00B3CB63 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77F3606C6E8AD0715722BC18 /* Pods-SuperService.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SuperService/SuperService.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitCoreDataExample/MessageDisplayKitCoreDataExample/Vendor",
+					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitLeanchatExample/MessageDisplayKitLeanchatExample/Vendor/LeanCloud",
+					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitLeanchatExample/MessageDisplayKitLeanchatExample/Vendor/MessageDisplayKit",
+					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitStoryBoradExample/MessageDisplayKitStoryBoradExample/Vendor",
+					"$(PROJECT_DIR)/SuperService/MessageDisplayKit/Example/MessageDisplayKitWeChatExample/MessageDisplayKitWeChatExample/Vendor/MessageDisplayKit",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SuperService/PrefixHeader.pch;
+				INFOPLIST_FILE = SuperService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/SuperService/MessageCenter/EaseMob/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
+					"$(PROJECT_DIR)/SuperService/YunBaSDK",
+					"$(PROJECT_DIR)/SuperService",
+					"$(PROJECT_DIR)/SuperService/WeChatSDK",
+				);
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SuperService/SuperService-Bridging-Header.h";
+			};
+			name = PreRelease;
+		};
+		401052981C97BFBE00B3CB63 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SuperServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SuperService.app/SuperService";
+			};
+			name = PreRelease;
+		};
+		401052991C97BFBE00B3CB63 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SuperServiceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperServiceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SuperService;
+				USES_XCTRUNNER = YES;
+			};
+			name = PreRelease;
+		};
+		4010529A1C97BFBE00B3CB63 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = PreRelease;
+		};
+		4010529B1C97BFBE00B3CB63 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = PreRelease;
+		};
 		40DA78B41BAFAA8F00956B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3240,6 +3385,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -3494,6 +3640,7 @@
 			buildConfigurations = (
 				40DA78B41BAFAA8F00956B72 /* Debug */,
 				40DA78B51BAFAA8F00956B72 /* Release */,
+				401052961C97BFBE00B3CB63 /* PreRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3503,6 +3650,7 @@
 			buildConfigurations = (
 				40DA78B71BAFAA8F00956B72 /* Debug */,
 				40DA78B81BAFAA8F00956B72 /* Release */,
+				401052971C97BFBE00B3CB63 /* PreRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3512,6 +3660,7 @@
 			buildConfigurations = (
 				40DA78BA1BAFAA8F00956B72 /* Debug */,
 				40DA78BB1BAFAA8F00956B72 /* Release */,
+				401052981C97BFBE00B3CB63 /* PreRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3521,6 +3670,7 @@
 			buildConfigurations = (
 				40DA78BD1BAFAA8F00956B72 /* Debug */,
 				40DA78BE1BAFAA8F00956B72 /* Release */,
+				401052991C97BFBE00B3CB63 /* PreRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3530,6 +3680,7 @@
 			buildConfigurations = (
 				40F3CD351C3277500044845D /* Debug */,
 				40F3CD361C3277500044845D /* Release */,
+				4010529B1C97BFBE00B3CB63 /* PreRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3539,6 +3690,7 @@
 			buildConfigurations = (
 				40F3CD331C3277500044845D /* Debug */,
 				40F3CD341C3277500044845D /* Release */,
+				4010529A1C97BFBE00B3CB63 /* PreRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

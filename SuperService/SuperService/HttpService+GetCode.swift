@@ -42,7 +42,7 @@ extension HttpService {
   
   static func getCodeList(type:Int,page:Int,completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = CodeSource.CodeList(type: type).description.fullUrl
-    let dic = ["type":type,"page":page,"page_size":15]
+    let dic = ["type":type,"page":page,"page_size":HttpService.DefaultPageSize]
     get(urlString, parameters: dic) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)

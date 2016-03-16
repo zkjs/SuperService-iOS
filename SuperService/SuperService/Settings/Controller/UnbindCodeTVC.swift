@@ -42,17 +42,25 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func addCode(sender:UIButton) {
-    self.tableView.mj_header.beginRefreshing()
+    self.showHUDInView(view, withLoading: "")
     HttpService.addSingleCode("nihao") { (json, error) -> () in
-      if let _ = error {
-        
+      self.hideHUD()
+      if let error = error {
+        if let msg = error.userInfo["resDesc"] as? String {
+          self.showHint(msg)
+        } else {
+          self.showHint("获取邀请码失败")
+        }
       } else {
         if let js = json!["data"].dictionary {
           if  let code = js["saleCode"]?.string {
             self.codeArray.insert(code, atIndex: 0)
+            self.tableView.reloadData()
+            if self.codeArray.count < HttpService.DefaultPageSize {
+              self.tableView.mj_footer.hidden = true
+            }
           }
-          self.tableView.mj_header.endRefreshing()
-          }
+        }
       }
     }
 
@@ -173,12 +181,18 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
             }
             self.tableView.reloadData()
             self.page++
+            
+            if data.count < HttpService.DefaultPageSize {
+              self.tableView.mj_footer.hidden = true
+            }
           }
           self.tableView.mj_footer.endRefreshing()
           self.tableView.mj_header.endRefreshing()
+        } else {
+          self.tableView.mj_footer.hidden = true
         }
 
-        }
+      }
         
     }
     }

@@ -11,6 +11,7 @@ import Foundation
 typealias HttpCompletionHandler = (JSON?, NSError?) -> Void
 
 struct HttpService {
+  static let DefaultPageSize = 15
   
   enum ResourcePath: CustomStringConvertible {
     case ApiURL(path:String)

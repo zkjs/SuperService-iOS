@@ -120,26 +120,28 @@ extension HttpService {
     
   }
   
-  static func arrivateList(page:Int,completionHandler:(JSON?,NSError?) -> ()) {
+  static func arrivateList(page:Int,completionHandler:([ArrivateModel]?,NSError?) -> ()) {
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
-    guard let roles = TokenPayload.sharedInstance.roles else {return}
+//    guard let roles = TokenPayload.sharedInstance.roles else {return}
     guard let locids :String = AccountInfoManager.sharedInstance.beaconLocationIDs else {return}
-    let role = roles.joinWithSeparator(",")
+//    let role = roles.joinWithSeparator(",")
     let urlString =  ResourcePathAccount.ArrivateData.description.fullUrl + "/\(shopid)/\(locids)"
-    let dic = ["shopid":shopid,"locids":locids,"roles":role,"page":page,"page_size":15]
+    let dic = ["shopid":shopid,"locids":locids,"roles":"USER","page":page,"page_size":15]
     get(urlString, parameters: dic as? [String : AnyObject]) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)
       } else {
-//        if let data = json {
-//          if let array = data["users"].array {
-//            for dic in array {
-//              
-//            }
-//          }
-//          
-//        }
-        completionHandler(json,nil)
+        if let data = json {
+          var arrviteArr = [ArrivateModel]()
+          if let array = data["data"].array {
+            for dic in array {
+              let arrvite = ArrivateModel(dic: dic)
+              arrviteArr.append(arrvite)
+            }
+          }
+          completionHandler(arrviteArr,nil)
+        }
+        
       }
     }
   }

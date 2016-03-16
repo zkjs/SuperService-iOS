@@ -19,7 +19,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var selectedArray = [Int]()
   var areaArr = [String]()
   var dismissWhenFinished = false
-  
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
@@ -31,7 +30,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     let nibName = UINib(nibName: InformCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: InformCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    GetWholeAreaOfTheBusinessList()
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: "nextStep")
     navigationItem.rightBarButtonItem = nextStepButton
@@ -42,6 +40,9 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   }
   
   func GetWholeAreaOfTheList() {
+    if let arr = StorageManager.sharedInstance().noticeArray() {
+       self.noticeArray = arr
+    }
     HttpService.getSubscribeList { (json, error) -> Void in
       if let _ = error {
         
@@ -60,21 +61,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
       }
     }
     
-//    ZKJSHTTPSessionManager.sharedInstance().WaiterGetAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//      if let array = responseObject as? NSArray {
-//        var arr = [NSNumber]()
-//        for dic in array {
-//          let notice = NoticeModel(dic:dic as! [String:AnyObject])
-//          arr.append(notice.locid!)
-//        }
-//         self.noticeArray = arr
-//        print(self.noticeArray)
-//        self.initSelectedArray()  // Model
-//        self.tableView.reloadData()  // UI
-//      }
-//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//        
-//    }
+
   }
   
   func initSelectedArray() {
@@ -85,21 +72,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
   }
   
-  func GetWholeAreaOfTheBusinessList() {
-//    ZKJSHTTPSessionManager.sharedInstance().WaiterGetWholeAreaOfTheBusinessListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//      if let array = responseObject as? NSArray {
-//        var datasource = [AreaModel]()
-//        for dic in array {
-//          let area = AreaModel(dic: dic as! [String: AnyObject])
-//          datasource.append(area)
-//        }
-//        self.areaArray = datasource
-//        self.GetWholeAreaOfTheList()
-//      }
-//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//        
-//    }
-  }
   
   //MARK: - Table View Data Source
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -170,6 +142,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }
       }
     }
+    StorageManager.sharedInstance().saveLocids(noticeArray)
   }
   
   func nextStep() {
@@ -181,47 +154,15 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     locID = areaArr.joinWithSeparator(",")
     print("locID: \(locID)")
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
+    let vc = self.navigationController?.viewControllers[0] as! SettingsVC
+    let appWindow = UIApplication.sharedApplication().keyWindow
     let mainTBC = MainTBC()
     mainTBC.selectedIndex = 0
+    appWindow?.rootViewController = mainTBC
+    self.navigationController?.popToViewController(vc, animated: false)
+    
+//    self.navigationController?.popToRootViewControllerAnimated(false)
   
-  
-//    ZKJSHTTPSessionManager.sharedInstance().TheClerkModifiestheAreaOfJurisdictionWithLocID(locID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//      self.updateYunBaTopic()
-//      AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
-//      if self.dismissWhenFinished == true {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//      } else {
-//        self.navigationController?.popToRootViewControllerAnimated(true)
-//      }
-//      }) { (task: NSURLSessionDataTask!, error:NSError!) -> Void in
-//        
-//    }
-  }
-  
-  func updateYunBaTopic() {
-    print("areaArr: \(areaArr)")
-    print("noticeArray: \(noticeArray)")
-    for topic in noticeArray {
-      if areaArr.contains(topic) {
-        // 选中则监听区域
-        YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
-          if success {
-            print("[result] subscribe to topic(\(topic)) succeed")
-          } else {
-            print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-          }
-        }
-      } else {
-        // 没选中则停止监听区域
-        YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
-          if success {
-            print("[result] unsubscribe to topic(\(topic)) succeed")
-          } else {
-            print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-          }
-        }
-      }
-    }
   }
   
 }

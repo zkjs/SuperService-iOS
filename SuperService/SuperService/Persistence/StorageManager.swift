@@ -38,4 +38,15 @@ class StorageManager: NSObject {
     return image
   }
   
+  func saveLocids(locids:NSArray) {
+    let path = documentDirectory().stringByAppendingPathComponent("array.archive")
+    NSKeyedArchiver.archiveRootObject(locids, toFile: path)
+  }
+  
+  func noticeArray() -> [String]? {
+    let path = documentDirectory().stringByAppendingPathComponent("array.archive")
+    let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
+    return noticeArray
+  }
+  
 }

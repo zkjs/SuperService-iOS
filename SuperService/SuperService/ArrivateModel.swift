@@ -16,10 +16,15 @@ class ArrivateModel: NSObject {
   var sex: String?
   var phone: String?
   var city: String?
+  var locdesc: String?
   var shopid: String?
   var shopname: String?
   var arrivetime: String?
-  var orders: [String:AnyObject]?
+  var orders: [JSON]?
+  var duration:String?
+  var orderno:String?
+  var room:String?
+  var indate:String?
   
   override init() {
     super.init()
@@ -27,9 +32,10 @@ class ArrivateModel: NSObject {
   }
   
    init(dic:JSON){
-     locid = dic["locid"].string ?? ""
-     userid = dic["userid"].string ?? ""
-     username = dic["username"].string ?? ""
+    locdesc = dic["locdesc"].string ?? ""
+    locid = dic["locid"].string ?? ""
+    userid = dic["userid"].string ?? ""
+    username = dic["username"].string ?? ""
     userlevel = dic["userlevel"].string ?? ""
     sex = dic["sex"].string ?? ""
     phone = dic["phone"].string ?? ""
@@ -37,10 +43,12 @@ class ArrivateModel: NSObject {
     shopid = dic["shopid"].string ?? ""
     shopname  = dic["shopname"].string ?? ""
     arrivetime = dic["arrivatetime"].string ?? ""
-    if let orderArr = dic["orders"].array {
-      for order in orderArr {
-        
-      }
+    orders = dic["orders"].array
+    if let orderArr = dic["orders"].array?.first {
+        self.orderno = orderArr["orderno"].string ?? ""
+        self.indate = orderArr["indate"].string ?? ""
+        self.room = orderArr["room"].string ?? ""
+        self.duration = orderArr["duration"].string ?? ""
     }
     
   }

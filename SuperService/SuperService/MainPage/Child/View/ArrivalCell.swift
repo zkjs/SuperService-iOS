@@ -60,10 +60,9 @@ class ArrivalCell: UITableViewCell {
   
   // MARK: - Private
   
-  func setData(data: [String: AnyObject]) {
+  func setData(data: ArrivateModel) {
 //    var userLevel = ""
-    var userName = ""
-    var userLocation = ""
+
     
     
     // 客户信息
@@ -73,45 +72,42 @@ class ArrivalCell: UITableViewCell {
 //      userLevel = "新客户"
 //    }
     
-    if let name = data["userName"] as? String {
-      userName = name
-    }
-    
-    if let phone = data["phone"] as? String {
-      self.phone = phone
-    }
-    
-    if let sex = data["sex"] as? String {
-      self.sex = sex
-    }
-    
-    if let userID = data["userId"] as? String {
+    guard let userName = data.username else {return}
+    guard let sex = data.sex else {return}
+    guard let Phone = data.phone else {return}
+    phone = Phone
+    if let userID = data.userid {
       var url = NSURL(string: kImageURL)
       url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
       avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
     }
-    clientInfoLabel.text = userName
+    clientInfoLabel.text = userName + "\(sex)"
     
     
     // 客户位置信息
-    if let location = data["locname"] as? String {
-      userLocation = location
-    }
+    if let location = data.locdesc {
+     let userLocation = location
     locationLabel.text = "到达 \(userLocation)"
+    }
+   
     
     // 订单信息
-    if let order = data["orderForNotice"] as? [[String: AnyObject]] {
+    if let order = data.orders {
       print(order)
       if let firstOrder = order.first {
         orderButton.hidden = false
         arrowButton.hidden = false
         
-        if let orderRoom = firstOrder["orderRoom"] as? String,
-          let checkIn = firstOrder["checkIn"] as? String
-//          let checkInDate = firstOrder["checkInDate"] as? String 
+        if let orderRoom = firstOrder["room"].string,
+          let checkIn = firstOrder["indate"].string
         {
-            let orderInfo = "\(orderRoom) | \(checkIn)"
-            orderButton.setTitle(orderInfo, forState: .Normal)
+          let dateFormat = NSDateFormatter()
+            dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            if let date = dateFormat.dateFromString(checkIn) {
+              dateFormat.dateFormat = "HH:mm"
+              let orderInfo = "\(orderRoom) | \(dateFormat.stringFromDate(date))"
+              orderButton.setTitle(orderInfo, forState: .Normal)
+          }
         }
       } else {
         orderButton.hidden = true
@@ -123,14 +119,14 @@ class ArrivalCell: UITableViewCell {
     }
   
     
-    if let dateString = data["created"] as? String {
-      let dateFormat = NSDateFormatter()
-      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
-      if let date = dateFormat.dateFromString(dateString) {
-        dateFormat.dateFormat = "HH:mm"
-        timeAgoLabel.text = dateFormat.stringFromDate(date)
-      }
-    }
+//    if let dateString = data["created"] as? String {
+//      let dateFormat = NSDateFormatter()
+//      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//      if let date = dateFormat.dateFromString(dateString) {
+//        dateFormat.dateFormat = "HH:mm"
+//        timeAgoLabel.text = dateFormat.stringFromDate(date)
+//      }
+  //  }
 
     
     

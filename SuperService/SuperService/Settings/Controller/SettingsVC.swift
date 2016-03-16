@@ -11,7 +11,7 @@ import UIKit
 class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   var myView = SettingsHeaderView()
   @IBOutlet weak var tableView: UITableView!
-  
+
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("SettingsVC", owner:self, options:nil)

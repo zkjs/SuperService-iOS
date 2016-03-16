@@ -67,6 +67,7 @@ class AccountInfoManager: NSObject {
     password = userDefaults.objectForKey("password") as? String ?? "0"
     shopid = userDefaults.objectForKey("shopid") as? String ?? ""
     fullname = userDefaults.objectForKey("fullname") as? String ?? ""
+    beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
   }
   
   func isLogin() -> Bool {
@@ -149,6 +150,7 @@ class AccountInfoManager: NSObject {
     self.beaconLocationIDs = beaconLocationIDs
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(beaconLocationIDs, forKey: "locid")
+    userDefaults.synchronize()
   }
   
   func saveEmail(email: String) {

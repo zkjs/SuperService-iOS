@@ -31,7 +31,7 @@ class InformCell: UITableViewCell {
   }
   
   class func height() -> CGFloat {
-    return 120
+    return 80
   }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -10,13 +10,13 @@ import UIKit
 
 class ArrivalTVC: UITableViewController {
   
-  lazy var dataArray = [[String: AnyObject]]()
+  lazy var dataArray = [ArrivateModel]()
   var orderno: String!
   var orderstatus:String!
   
   var ordernoArray = [String]()
   var orderstatusArray = [String]()
-  
+  var page:Int = 0
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("ArrivalTVC", owner:self, options:nil)
   }
@@ -29,6 +29,10 @@ class ArrivalTVC: UITableViewController {
       selector: "refresh",
       name: kRefreshArrivalTVCNotification,
       object: nil)
+    
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    tableView.mj_header.beginRefreshing()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -36,11 +40,20 @@ class ArrivalTVC: UITableViewController {
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
-    loadData()
+    loadData(page)
   }
   
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  func loadMoreData() {
+    loadData(page)
+  }
+  
+  func refreshData() {
+    page = 0
+    loadData(page)
   }
   
   
@@ -50,53 +63,34 @@ class ArrivalTVC: UITableViewController {
     // 只有当当前VC可见时才刷新数据
     if isViewLoaded() && (view.window != nil) {
       tabBarItem.badgeValue = nil
-//      loadData()
     }
   }
   
-  func loadData() {
-    HttpService.arrivateList(0) { (json, error) -> () in
+  func loadData(page:AnyObject) {
+    print(AccountInfoManager.sharedInstance.beaconLocationIDs)
+    HttpService.arrivateList(Int(page as! NSNumber)) { (arrivateArr, error) -> () in
       if let _  = error {
-        
+        self.tableView.mj_footer.endRefreshing()
+        self.tableView.mj_header.endRefreshing()
       } else {
-       
-      }
+        if page as! NSNumber == 0 {
+          self.dataArray.removeAll()
+        }
+        if let users = arrivateArr where users.count > 0 {
+          self.dataArray = users
+          self.tableView?.reloadData()
+          self.page++
+        } else {
+          self.tableView.mj_footer.hidden = true
+        }
     }
-//    ZKJSJavaHTTPSessionManager.sharedInstance().getArrivalInfoWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//      if let data = responseObject as? [[String: AnyObject]] {
-//        self.dataArray = data
-//        for dic in data {
-//          if let array = dic["orderForNotice"] as? NSArray {
-//          var orderno = ""
-//          var orderstatus = ""
-//            for dict in array {
-//               orderno = dict["orderNo"] as! String
-//               orderstatus = dict["orderStatus"] as! String
-//            }
-//            self.ordernoArray.append(orderno)
-//            self.orderstatusArray.append(orderstatus)
-//          }
-//        }
-//        self.tableView.reloadData()
-//        
-//      }
-//      self.tableView.mj_header.endRefreshing()
-//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//        print(error)
-//        self.tableView.mj_header.endRefreshing()
-//    }
+        self.tableView.mj_header.endRefreshing()
+        self.tableView.mj_footer.endRefreshing()
+      
+   }
   }
   
-  func loadMoreData() {
-//    if let timestamp = dataArray.last?.timestamp,
-//      let moreDataArray = Persistence.sharedInstance().fetchClientArrivalInfoArrayBeforeTimestamp(timestamp) where moreDataArray.count > 0 {
-//        dataArray += moreDataArray
-//        tableView.reloadData()
-//    }
-//    tableView.mj_footer.endRefreshing()
-  }
-  
-  
+
   // MARK: - Private
   
   func setupView() {
@@ -149,29 +143,26 @@ class ArrivalTVC: UITableViewController {
   
   func chat(sender:UIButton) {
     let data = dataArray[sender.tag]
-    let chatterID = data["userId"] as! String
-    let chatterName = data["userName"] as! String
+    guard let chatterID = data.userid, let chatterName = data.username else { return }
     let vc = ChatViewController(conversationChatter: chatterID, conversationType: .eConversationTypeChat)
     let userName = AccountInfoManager.sharedInstance.userName
       vc.title = chatterName
       vc.hidesBottomBarWhenPushed = true
       // 扩展字段
       let ext = ["toName": chatterName,
-        "fromName": userName]
+    "fromName": userName]
       vc.conversation.ext = ext
+      vc.title = chatterName
       self.navigationController?.pushViewController(vc, animated: true)
-   
-
   }
   
   func showOrder(sender: UIButton) {
     // 正在刷新时点击无效
-    if dataArray.count == 0  || self.ordernoArray.count == 0 {
+    if dataArray.count == 0 {
       return
     }
-    self.orderno = self.ordernoArray[sender.tag]
-    self.orderstatus = self.orderstatusArray[sender.tag]
-    print(self.orderno,self.orderstatus)
+    let order = self.dataArray[sender.tag]
+    self.orderno = order.orderno
     if self.orderno == "" {
       return
     }

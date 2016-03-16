@@ -30,14 +30,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
-//    loadData()
+ 
 
-  }
-  
-  func loadData() {
-    HttpService.getUserInfo { (json, error) -> () in
-      self.tableView.reloadData()
-    }
   }
   
   

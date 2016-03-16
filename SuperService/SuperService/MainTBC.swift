@@ -21,6 +21,7 @@ class MainTBC: UITabBarController {
     
     setupView()
     registerNotification()
+ 
     
   }
   

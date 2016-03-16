@@ -44,6 +44,11 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     remarkTextView.layer.borderWidth = 0.5
     remarkTextView.layer.masksToBounds = true
     remarkTextView.layer.cornerRadius = 3
+    
+    let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+      target: self, action: "Addteams")
+    navigationItem.rightBarButtonItem = addMemberButton
+    
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
@@ -89,6 +94,9 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
 
   }
   
+  func Addteams(sender:UIBarButtonItem) {
+    getSysContacts()
+  }
   
   @IBAction func addFromMailList(sender: AnyObject) {
     getSysContacts()

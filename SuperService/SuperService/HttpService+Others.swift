@@ -12,9 +12,7 @@ extension HttpService {
   
  static func checkNewVersion(completionHandler: (isForceUpgrade:Bool,hasNewVersion:Bool)->Void ) {
     let bundleVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?? "1.0"
-
     let urlString = ResourcePath.CheckVersion(version: bundleVersion).description.fullUrl
-    
     get(urlString, parameters: nil,tokenRequired: false) { (json, error) -> Void in
       if let error = error {
         print(error)

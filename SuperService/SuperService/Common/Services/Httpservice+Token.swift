@@ -72,6 +72,7 @@ extension HttpService {
           YunbaSubscribeService.sharedInstance.subscribeAllChannels()
           YunbaSubscribeService.sharedInstance.setAlias(userID)
         }
+        self.handleYunBaService()
       } else {
         
       }
@@ -100,11 +101,29 @@ extension HttpService {
           YunbaSubscribeService.sharedInstance.subscribeAllChannels()
           YunbaSubscribeService.sharedInstance.setAlias(userID)
         }
+       self.handleYunBaService()
       } else {
         
       }
       
       completionHandler(json, error)
+    }
+  }
+  
+ static func handleYunBaService() {
+    YunBaService.getTopicList { (res, error) -> Void in
+      print("========all topics")
+      print(res)
+      for r in res where r is String {
+        if let r = r as? String {
+          guard let roles = TokenPayload.sharedInstance.roles else {return}
+          let role = roles.joinWithSeparator(",")
+          if r == "8888_\(role)" { continue }
+          YunBaService.unsubscribe(r, resultBlock: { (succ, err) -> Void in
+            print("unsubscribe \(r) \(succ)")
+          })
+        }
+      }
     }
   }
   

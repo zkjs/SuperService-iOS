@@ -30,7 +30,10 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
- 
+    YunBaService.getTopicList { (res, error) -> Void in
+      print("========all topics")
+      print(res)
+    }
 
   }
   

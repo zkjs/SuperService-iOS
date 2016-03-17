@@ -30,9 +30,7 @@ class ArrivalTVC: UITableViewController {
       name: kRefreshArrivalTVCNotification,
       object: nil)
     
-    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
-    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
-    tableView.mj_header.beginRefreshing()
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -85,7 +83,6 @@ class ArrivalTVC: UITableViewController {
         }
     }
         self.tableView.mj_header.endRefreshing()
-        self.tableView.mj_footer.endRefreshing()
       
    }
   }
@@ -98,8 +95,9 @@ class ArrivalTVC: UITableViewController {
     let nibName = UINib(nibName: ArrivalCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
-//    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    tableView.mj_header.beginRefreshing()
   }
   
   
@@ -162,27 +160,15 @@ class ArrivalTVC: UITableViewController {
       return
     }
     let order = self.dataArray[sender.tag]
-    self.orderno = order.orderno
-    if self.orderno == "" {
-      return
-    }
-    let index = self.orderno.startIndex.advancedBy(1)
-    let type = self.orderno.substringToIndex(index)
+    guard let orderno = order.orderno else {return}
+    let index = orderno.startIndex.advancedBy(1)
+    let type = orderno.substringToIndex(index)
     if type == "H" {
-//      if self.orderstatus == "待支付" || self.orderstatus == "待处理" || self.orderstatus == "待确认" || self.orderstatus == "已确认" {
-//        let storyboard = UIStoryboard(name: "HotelOrderTVC", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderTVC") as! HotelOrderTVC
-//        vc.orderno = self.orderno
-//        vc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(vc, animated: true)
-//      } else {
         let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
-        vc.orderno = self.orderno
+        vc.orderno = orderno
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
-    //  }
-      
     }
     if type == "O" {
       if self.orderstatus == "待支付" || self.orderstatus == "待处理" || self.orderstatus == "待确认"{

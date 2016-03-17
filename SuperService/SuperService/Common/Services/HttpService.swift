@@ -100,7 +100,7 @@ struct HttpService {
         print("api request fail:\(error)")
         completionHandler(nil,error)
       } else {
-        print(jsonFromData(data))
+//        print(jsonFromData(data))
         
         if let data = data {
           let json = JSON(data: data)

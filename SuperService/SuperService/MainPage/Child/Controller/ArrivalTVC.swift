@@ -39,8 +39,26 @@ class ArrivalTVC: UITableViewController {
     tabBarItem.badgeValue = nil
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
     loadData(page)
+    addBarButtons()
   }
-  
+
+  private func addBarButtons() {
+    let buttonCounter = UIBarButtonItem(image: UIImage(named: "ic_till"),
+      style: .Plain,
+      target: self,
+      action: "gotoCkeckoutCounter")
+    navigationItem.rightBarButtonItem = buttonCounter
+  }
+
+  // MARK: - Button Action
+
+  func gotoCkeckoutCounter() {
+    let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("CheckoutCounterVC") as! CheckoutCounterVC
+    vc.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(vc, animated: true)
+  }
+
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }

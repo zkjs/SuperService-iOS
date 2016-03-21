@@ -41,8 +41,8 @@ class CheckoutCounterVC: UICollectionViewController {
   
   func loadData() {
     showHUDInView(view, withLoading: "")
-    //TODO: shopid，locids均为测试ID，实际需要从api获取
-    HttpService.getNearbyCustomers(shopid:"8888", locids: "1000") {[unowned self] (users, error) -> () in
+    //TODO: shopid，locids均为测试ID，实际需要从api获
+    HttpService.getNearbyCustomers(shopid:"9002", locids: "1000") {[unowned self] (users, error) -> () in
       if let users = users where users.count > 0 {
         self.nearbyCustomers = users
         self.collectionView?.reloadData()

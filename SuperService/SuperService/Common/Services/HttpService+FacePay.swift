@@ -9,7 +9,7 @@
 import Foundation
 
 extension HttpService {
-  static let baseURLFacepay = "http://p.zkjinshi.com"
+  static let baseURLFacepay = "http://p.zkjinshi.com/test"
   
   private enum ResourcePathFacePay: CustomStringConvertible {
     case NearbyCustomers(shopid:String, locids:String)
@@ -52,7 +52,7 @@ extension HttpService {
   
   static func chargeCustomer(amount:Int, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
     let urlString = baseURLFacepay + ResourcePathFacePay.Payment.description
-    var dict = ["amount":"\(amount)","target":userid]
+    var dict = ["amount":"\(amount*100)","target":userid]
     if let orderNo = orderNo {
       dict["orderno"] = orderNo
     }

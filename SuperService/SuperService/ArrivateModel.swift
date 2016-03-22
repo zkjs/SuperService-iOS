@@ -25,6 +25,7 @@ class ArrivateModel: NSObject {
   var orderno:String?
   var room:String?
   var indate:String?
+  var userimage:String?
   
   override init() {
     super.init()
@@ -33,6 +34,7 @@ class ArrivateModel: NSObject {
   
    init(dic:JSON){
     locdesc = dic["locdesc"].string ?? ""
+    userimage = dic["userimage"].string ?? ""
     locid = dic["locid"].string ?? ""
     userid = dic["userid"].string ?? ""
     username = dic["username"].string ?? ""

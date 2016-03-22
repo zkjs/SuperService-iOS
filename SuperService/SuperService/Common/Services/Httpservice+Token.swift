@@ -60,6 +60,7 @@ extension HttpService {
       if let json = json {
         guard let token = json["token"].string else {
           print("no token")
+          
           return
         }
         print("success token:\(token)")

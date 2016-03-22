@@ -66,14 +66,12 @@ class ArrivalCell: UITableViewCell {
     guard let sex = data.sex else {return}
     guard let Phone = data.phone else {return}
     phone = Phone
-    if let userID = data.userid {
-      var url = NSURL(string: kImageURL)
-      url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
-      avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
-    }
+    var url = NSURL(string: kImageURL)
+    if let userImage = data.userimage {
+    url = url?.URLByAppendingPathComponent("\(userImage)")
+    avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
     clientInfoLabel.text = userName + "\(sex)"
-    
-    
+    }
     // 客户位置信息
     if let location = data.locdesc {
      let userLocation = location

@@ -63,8 +63,8 @@ class AdminLoginV: UIViewController {
     HttpService.loginWithUserName(phone, password: password.md5) { (json, error) -> () in
       self.hideHUD()
       if let error = error {
-        if let _ = error.userInfo["resDesc"] as? String {
-          
+        if let error = error.userInfo["resDesc"] as? String {
+          self.showHint(error)
         }
       } else {
         
@@ -82,40 +82,7 @@ class AdminLoginV: UIViewController {
       }
     }
     
-    /*ZKJSHTTPSessionManager.sharedInstance().adminLoginWithPhone(phone, password: password,success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      self.hideHUD()
-      print(responseObject)
-      if let dict = responseObject as? NSDictionary {
-        if let set = dict["set"] as? Bool {
-          if set {
-            self.showHUDInView(self.view, withLoading: "")
-            // 缓存用户信息
-            self.loginEaseMob()
-            AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-            self.updateYunBaWithLocid(AccountManager.sharedInstance().beaconLocationIDs)
-            ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountManager.sharedInstance().shopID, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-              self.hideHUD()
-              print(responseObject)
-              if let category = responseObject["category"] as? String {
-                AccountManager.sharedInstance().saveCategory(category)
-                self.view.endEditing(true)
-                self.dismissViewControllerAnimated(true, completion: nil)
-              }
-              }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-                
-            })
-          } else {
-            if let err = dict["err"] as? NSNumber {
-              if err.longLongValue == 408 {
-                self.showHint("密码或者手机号不正确")
-              }
-            }
-          }
-        }
-      }
-      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        
-    }*/
+
   }
   
   private func loginEaseMob() {

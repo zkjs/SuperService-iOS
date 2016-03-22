@@ -25,6 +25,24 @@ class MainTBC: UITabBarController {
     
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+//    NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushTo", name:kRefreshPayResultVCNotification, object: nil)
+  }
+  
+//  func pushTo() {
+//    let alertController = UIAlertController(title: "提示", message: "有一个订单已付款", preferredStyle: .Alert)
+//    let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+//    let okAction = UIAlertAction(title: "查看", style: .Default) { (action) -> Void in
+//      self.checkOutPayInfo()
+//    }
+//    alertController.addAction(cancelAction)
+//    alertController.addAction(okAction)
+//    
+//    presentViewController(alertController, animated: true, completion: nil)
+//  }
+  
+ 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     

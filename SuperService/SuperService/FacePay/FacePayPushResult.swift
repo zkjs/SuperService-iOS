@@ -20,7 +20,7 @@ struct FacePayPushResult {
   let userid:String
   let status:Int
   let username:String
-  
+
   init(json:JSON) {
     paymentno = json["paymentno"].string ?? ""
     amount = json["amount"].double ?? 0

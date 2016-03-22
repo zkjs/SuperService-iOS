@@ -16,9 +16,8 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   var sections = [[AnyObject]]()
   var teamArray = [TeamModel]() {
     didSet {
-      let selector: Selector = "name"
+      let selector: Selector = "username"
       sections = Array(count: collation.sectionTitles.count, repeatedValue: [])
-      
       let sortedObjects = collation.sortedArrayFromArray(teamArray, collationStringSelector: selector)
       for object in sortedObjects {
         let sectionNumber = collation.sectionForObject(object, collationStringSelector: selector)

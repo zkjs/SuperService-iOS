@@ -12,8 +12,10 @@ import CoreData
 let kRefreshArrivalTVCNotification = "kRefreshArrivalTVCNotification"
 let kRefreshConversationListNotification = "kRefreshConversationListNotification"
 let kArrivalInfoBadge = "kArrivalInfoBadge"
+let kRefreshPayResultVCNotification = "kRefreshPayResultVCNotification"
 let sharedUserActivityType = "com.zkjinshi.SuperService.WatchOpenApp"
 let sharedIdentifierKey = "identifier"
+
 var page = 1
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   var window: UIWindow?
   var mainTBC: MainTBC!
   var orderArray = [OrderListModel]()
+
   // MARK: - Application Delegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -197,10 +200,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   }
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-    
+    completionHandler(.NewData)
     print("didReceiveRemoteNotification:fetchCompletionHandler: \(userInfo)")
+    NSNotificationCenter.defaultCenter().postNotificationName(kRefreshPayResultVCNotification, object: self)
 //    print(userInfo)
-//    guard let childType = userInfo["childtype"] as? NSNumber else {
+//    guard let _ = userInfo["childtype"] as? NSNumber else {
 //      completionHandler(.NoData)
 //      return
 //    }
@@ -369,7 +373,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   func onMessageReceived(notification: NSNotification) {
     if let message = notification.object as? YBMessage {
       if let payloadString = NSString(data:message.data, encoding:NSUTF8StringEncoding) as? String {
-        print("[Message] \(message.topic) -> \(payloadString)")
+//        print("[Message] \(message.topic) -> \(payloadString)")
+        if let data = payloadString.dataUsingEncoding(NSUTF8StringEncoding) {
+          let json = JSON(data: data)
+          if let type = json["type"].string where type == "PAYMENT_RESULT" {
+            let payreceive = FacePayPushResult(json: json["data"])
+            AccountInfoManager.sharedInstance.savePushInfoData(payreceive)
+          }
+        }
+        
         let arrivalInfoTabIndex = 0
         if self.mainTBC.selectedIndex != arrivalInfoTabIndex {
           // 当前页不是到店通知页面，则置到店通知Tab Bar badge

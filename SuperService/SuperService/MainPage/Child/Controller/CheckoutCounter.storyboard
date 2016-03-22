@@ -265,12 +265,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgA-FF-D03" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111" y="427"/>
+            <point key="canvasLocation" x="1953" y="471"/>
         </scene>
         <!--Payment ListVC-->
         <scene sceneID="hzb-Zw-Y67">
             <objects>
-                <tableViewController id="Ovx-t3-ZeI" customClass="PaymentListVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PaymentListVC" id="Ovx-t3-ZeI" customClass="PaymentListVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="xsC-eu-H4c">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,7 +355,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd0-30-zpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201" y="1394"/>
+            <point key="canvasLocation" x="1118" y="1208"/>
         </scene>
         <!--Payment ResultVC-->
         <scene sceneID="twW-Dd-vhU">
@@ -489,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dg6-41-4G3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="1179"/>
+            <point key="canvasLocation" x="1943" y="1150"/>
         </scene>
     </scenes>
     <resources>

@@ -30,6 +30,7 @@ class PaymentResultVC: UIViewController {
     self.title = "收款结果"
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushTo", name:kRefreshPayResultVCNotification, object: nil)
     
     let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: "goBackToCounterVC")
     self.navigationItem.leftBarButtonItem = backButton
@@ -43,6 +44,7 @@ class PaymentResultVC: UIViewController {
       setupView()
     }
     
+    
   }
   
   func goBackToCounterVC() {
@@ -55,7 +57,6 @@ class PaymentResultVC: UIViewController {
   }
   
   private func setupView() {
-
     amountLabel.text = "￥\((payResult.amount).format(".2"))"
     statusLabel.text = "发送成功!\n等待 \(payResult.customer.username) 确认"
     orderNoLabel.hidden = true
@@ -108,6 +109,12 @@ class PaymentResultVC: UIViewController {
       endsendButton.hidden = true
       
       }
+  }
+  
+  func pushTo() {
+    let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
+    navigationController?.pushViewController(vc, animated: false)
   }
   
   func onMessageReceived(notification: NSNotification) {

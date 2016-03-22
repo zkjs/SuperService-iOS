@@ -11,7 +11,6 @@ import UIKit
 class TeamModel: NSObject {
 
   var username: String?
-  
   var phone: String?
   var roleid: Int16?
   var realname: String?

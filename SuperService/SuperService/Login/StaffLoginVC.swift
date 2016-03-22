@@ -111,21 +111,7 @@ class StaffLoginVC: UIViewController {
        
         }
       }
-//      ZKJSHTTPSMSSessionManager.sharedInstance().requestSmsCodeWithPhoneNumber(userphoneTextField.text) { (success: Bool, error: NSError!) -> Void in
-//        if (success == true) {
-//          self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "refreshCount:", userInfo: nil, repeats: true)
-//          self.countTimer?.fire()
-//          self.showHint("验证码已发送!")
-//          self.identifyingCodeTextField.becomeFirstResponder()
-//        } else {
-//          if let userInfo = error.userInfo.first {
-//            self.showHint(userInfo.1 as! String)
-//          }
-//        }
-//      }
-//    } else {
-//      self.showHint("请输入正确的手机号码")
-//    }
+
     }
   }
   
@@ -152,56 +138,69 @@ class StaffLoginVC: UIViewController {
       if let errInfo = error?.userInfo["resDesc"] as? String {
         self.hideHUD()
         self.showHint(errInfo)
-      }
-    }
-    ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
-      if (success == true) {
-        //当验证码接收到后按钮恢复状态
-        self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
-        ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-          //          print(responseObject)
-          if let dict = responseObject as? NSDictionary {
-            if let set = dict["set"] as? Bool {
-              if set {
-                // 缓存用户信息
-//                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-                self.loginEaseMob()
-                self.updateYunBaWithLocid(AccountInfoManager.sharedInstance.beaconLocationIDs)
-                ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountInfoManager.sharedInstance.shopid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-                  print(responseObject)
-                  if let category = responseObject["category"] as? String {
-                    AccountManager.sharedInstance().saveCategory(category)
-                    let url = AccountManager.sharedInstance().url
-                    if url.isEmpty {
-                      // 第一次登录，需要设置一下
-                      let setVC = SetUpVC()
-                      self.navigationController?.pushViewController(setVC, animated: true)
-                    } else {
-                      self.dismissViewControllerAnimated(true, completion: nil)
-                    }
-                    self.hideHUD()
-                  }
-                  }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-                    self.hideHUD()
-                })
-              } else {
-                if let err = dict["err"] as? NSNumber {
-                  if err.integerValue == 406 {
-                    self.hideHUD()
-                    self.showHint("手机号还不是服务员")
-                  }
-                }
-              }
-            }
-          }
-          }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-            
-        }
       } else {
-        self.hideHUD()
-        self.showHint("验证码不正确")
+       
+        HttpService.getUserInfo({ (json, error) -> Void in
+          print(json)
+          if let _ = error {
+            if let desc = error?.userInfo["resDesc"] as? String {
+              self.showHint(desc)
+            }
+          } else {
+            self.hideHUD()
+            self.dismissViewControllerAnimated(true, completion: nil)
+          }
+        })
       }
     }
+//    ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
+//      if (success == true) {
+//        //当验证码接收到后按钮恢复状态
+//        self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
+//        ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//          //          print(responseObject)
+//          if let dict = responseObject as? NSDictionary {
+//            if let set = dict["set"] as? Bool {
+//              if set {
+//                // 缓存用户信息
+////                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
+//                self.loginEaseMob()
+//                self.updateYunBaWithLocid(AccountInfoManager.sharedInstance.beaconLocationIDs)
+//                ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountInfoManager.sharedInstance.shopid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//                  print(responseObject)
+//                  if let category = responseObject["category"] as? String {
+//                    AccountManager.sharedInstance().saveCategory(category)
+//                    let url = AccountManager.sharedInstance().url
+//                    if url.isEmpty {
+//                      // 第一次登录，需要设置一下
+//                      let setVC = SetUpVC()
+//                      self.navigationController?.pushViewController(setVC, animated: true)
+//                    } else {
+//                      self.dismissViewControllerAnimated(true, completion: nil)
+//                    }
+//                    self.hideHUD()
+//                  }
+//                  }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//                    self.hideHUD()
+//                })
+//              } else {
+//                if let err = dict["err"] as? NSNumber {
+//                  if err.integerValue == 406 {
+//                    self.hideHUD()
+//                    self.showHint("手机号还不是服务员")
+//                  }
+//                }
+//              }
+//            }
+//          }
+//          }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//            
+//        }
+//      } else {
+//        self.hideHUD()
+//        self.showHint("验证码不正确")
+//      }
+//    }
   }
   
   func updateYunBaWithLocid(locid: String) {

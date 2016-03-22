@@ -28,6 +28,7 @@ class AccountInfoManager: NSObject {
   private(set) var shopid = ""
   private(set) var fullname = ""
   private(set) var beaconLocationIDs = ""
+  private(set) var pushInfo = FacePayPushResult(json: nil)
 
   var avatarURL : String {
     let userDefaults = NSUserDefaults()
@@ -68,6 +69,7 @@ class AccountInfoManager: NSObject {
     shopid = userDefaults.objectForKey("shopid") as? String ?? ""
     fullname = userDefaults.objectForKey("fullname") as? String ?? ""
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
+    pushInfo = userDefaults.objectForKey("FacePayPushResult") as? FacePayPushResult ?? FacePayPushResult(json: nil)
   }
   
   func isLogin() -> Bool {
@@ -123,6 +125,13 @@ class AccountInfoManager: NSObject {
     if let image = UIImage(data: imageData) {
       avatarImage = image
     }
+  }
+  
+  func savePushInfoData(pushInfo:FacePayPushResult) {
+    self.pushInfo = pushInfo
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(pushInfo as? AnyObject, forKey: "FacePayPushResult")
+    userDefaults.synchronize()
   }
   
   func saveImageUrl(url: String) {

@@ -39,10 +39,9 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   func setData(team:TeamModel) {
     
     username.text = team.username
-    if let salesid = team.userid {
-      self.salesid = salesid
+    if let userimage = team.userimage {
       let url = NSURL(string: kImageURL)
-      let urlStr = url?.URLByAppendingPathComponent("/uploads/users/\(salesid).jpg")
+      let urlStr = url?.URLByAppendingPathComponent("\(userimage)")
       userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "default_logo"))
     }
   }

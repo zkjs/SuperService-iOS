@@ -46,7 +46,7 @@ extension HttpService {
   }
   
   static func queryTeamsInfo(completionHandler:([TeamModel]?,NSError?) -> ()) {
-    let urlString =  queryContactsSource.MyClients.description.fullUrl
+    let urlString =  queryContactsSource.MyTeam.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)

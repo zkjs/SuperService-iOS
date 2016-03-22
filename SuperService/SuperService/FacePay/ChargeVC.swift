@@ -22,6 +22,11 @@ class ChargeVC: UIViewController {
     setupView()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    moneyField.becomeFirstResponder()
+  }
+  
   override func viewWillDisappear(animated: Bool) {
     view.endEditing(true)
   }

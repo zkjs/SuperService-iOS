@@ -96,11 +96,12 @@ struct HttpService {
     print(parameters)
     
     request(method, urlString, parameters: parameters, encoding: method == .GET ? .URLEncodedInURL : .JSON, headers: headers).response { (req, res, data, error) -> Void in
+      print("statusCode:\(res?.statusCode)")
       if let error = error {
         print("api request fail:\(error)")
         completionHandler(nil,error)
       } else {
-//        print(jsonFromData(data))
+        print(jsonFromData(data))
         
         if let data = data {
           let json = JSON(data: data)

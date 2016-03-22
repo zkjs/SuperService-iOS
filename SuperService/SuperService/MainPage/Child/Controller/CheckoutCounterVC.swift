@@ -33,6 +33,13 @@ class CheckoutCounterVC: UICollectionViewController {
     
       loadData()
     }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    YunBaService.getAlias { (json, error) -> Void in
+      print("订阅的云巴\(json)")
+    }
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,9 +50,18 @@ class CheckoutCounterVC: UICollectionViewController {
     showHUDInView(view, withLoading: "")
     //TODO: shopid，locids均为测试ID，实际需要从api获
     HttpService.getNearbyCustomers(shopid:"9002", locids: "1000") {[unowned self] (users, error) -> () in
+      if let error = error {
+        if let msg = error.userInfo["resDesc"] as? String {
+          self.showHint(msg)
+        } else {
+          self.showHint("数据请求错误:\(error.code)")
+        }
+      }
       if let users = users where users.count > 0 {
         self.nearbyCustomers = users
         self.collectionView?.reloadData()
+      } else {
+        self.showHint("未找到用户,您可以通过手机号进行用户查找")
       }
       self.hideHUD()
     }
@@ -107,7 +123,11 @@ class CheckoutCounterVC: UICollectionViewController {
   func searchByphonenumber(phone:String) {
     HttpService.searchUserByPhone(phone) { (json, error) -> Void in
       if  let error = error {
-        self.showHint("\(error)")
+        if let msg = error.userInfo["resDesc"] as? String {
+          self.showHint(msg)
+        } else {
+          self.showHint("数据请求错误:\(error.code)")
+        }
       } else {
         self.nearbyCustomers.removeAll()
         if let data = json?["data"].array where data.count > 0 {
@@ -119,7 +139,9 @@ class CheckoutCounterVC: UICollectionViewController {
             self.nearbyCustomers.append(user)
           }
           self.collectionView?.reloadData()
-         }
+        } else {
+          self.showHint("未找到用户")
+        }
       }
     }
   }

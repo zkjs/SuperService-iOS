@@ -34,6 +34,10 @@ extension String {
     return (self =~ "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$")
   }
   
+  var isDecimal: Bool {
+    return (self =~ "^([0-9]+)(\\.[0-9]{1,2})?$")
+  }
+  
   
   // Slower version
   func repeatString(n: Int) -> String {

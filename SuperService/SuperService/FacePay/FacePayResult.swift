@@ -14,10 +14,10 @@ struct FacePayResult {
   let errorCode:Int
   let waiting:Bool
   let customer:NearbyCustomer
-  let amount:Int
+  let amount:Double
   
   init(customer:NearbyCustomer,
-    amount:Int,
+    amount:Double,
     succ:Bool,
     orderNo:String?,
     errorCode:Int,

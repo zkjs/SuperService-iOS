@@ -36,7 +36,15 @@ class ChargeVC: UIViewController {
   
   
   @IBAction func confirmButtonTapped(sender: UIButton) {
-    guard let amount = Int(moneyField.text!) else {return}
+    guard let money = moneyField.text else {
+      self.showHint("请输入金额")
+      return
+    }
+    if !money.isDecimal {
+      self.showHint("请输入正确金额")
+      return
+    }
+    guard let amount = Double(moneyField.text!) else {return}
     confirmButton.enabled = false
     HttpService.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (orderno, error) -> Void in
       self.confirmButton.enabled = true

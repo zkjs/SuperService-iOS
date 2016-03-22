@@ -50,9 +50,9 @@ extension HttpService {
     }
   }
   
-  static func chargeCustomer(amount:Int, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
+  static func chargeCustomer(amount:Double, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
     let urlString = baseURLFacepay + ResourcePathFacePay.Payment.description
-    var dict = ["amount":"\(amount*100)","target":userid]
+    var dict = ["amount":"\(Int(amount*100))","target":userid]
     if let orderNo = orderNo {
       dict["orderno"] = orderNo
     }

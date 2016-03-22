@@ -14,12 +14,15 @@ struct PaymentListItem {
   let username:String
   let userimage:String
   let createtime:String
-  let amount:Double
+  let amount:Double  // 注意：单位是分
   let orderno:String
   let paymentno:String
   let status:Int
   let statusdesc:String
   let confirmtime:String
+  var displayAmount:String {
+    return (Double(amount) / 100).format(".2")
+  }
   
   init(userid:String,
     username:String,

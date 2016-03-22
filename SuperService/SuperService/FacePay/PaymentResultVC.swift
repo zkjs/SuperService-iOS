@@ -24,6 +24,18 @@ class PaymentResultVC: UIViewController {
     self.title = "收款结果"
     setupView()
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+    
+    let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: "goBackToCounterVC")
+    self.navigationItem.leftBarButtonItem = backButton
+  }
+  
+  func goBackToCounterVC() {
+    if let ownIndex = self.navigationController?.viewControllers.indexOf(self),
+       let toVC = self.navigationController?.viewControllers[ownIndex-2] {
+      self.navigationController?.popToViewController(toVC, animated: true)
+    } else {
+      self.navigationController?.popViewControllerAnimated(true)
+    }
   }
   
   private func setupView() {
@@ -34,7 +46,7 @@ class PaymentResultVC: UIViewController {
       }
       createdTimeLabel.text = "收款时间：\(NSDate().formatted)"
       if payResult.waiting {
-        statusLabel.text = "等待 \(payResult.customer.username) 确认"
+        statusLabel.text = "发送成功!\n等待 \(payResult.customer.username) 确认"
         sendAgainButton.hidden = false
       } else {
         statusLabel.text = "\(payResult.customer.username) 收款成功"

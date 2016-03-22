@@ -10,9 +10,10 @@ import Foundation
 
 struct PaymentListItem {
   
-  let userid:String
-  let username:String
-  let userimage:String
+//  let userid:String
+//  let username:String
+//  let userimage:String
+  let custom:NearbyCustomer
   let createtime:String
   let amount:Double  // 注意：单位是分
   let orderno:String
@@ -24,33 +25,11 @@ struct PaymentListItem {
     return (Double(amount) / 100).format(".2")
   }
   
-  init(userid:String,
-    username:String,
-    userimage:String,
-    createtime:String,
-    amount:Double,
-    orderno:String,
-    paymentno:String,
-    status:Int,
-    statusdesc:String,
-    confirmtime:String
-    ) {
-      self.userid = userid
-      self.username = username
-      self.userimage = userimage
-      self.createtime = createtime
-      self.amount = amount
-      self.orderno = orderno
-      self.paymentno = paymentno
-      self.status = status
-      self.statusdesc = statusdesc
-      self.confirmtime = confirmtime      
-  }
   
   init(json:JSON) {
-    userid = json["userid"].string ?? ""
-    username = json["username"].string ?? ""
-    userimage = json["userimage"].string.map{ $0.isEmpty ? "" : kImageURL + $0 } ?? ""
+//    userid = json["userid"].string ?? ""
+//    username = json["username"].string ?? ""
+//    userimage = json["userimage"].string.map{ $0.isEmpty ? "" : kImageURL + $0 } ?? ""
     createtime = json["createtime"].string ?? ""
     amount = json["amount"].double ?? 0
     orderno = json["orderno"].string ?? ""
@@ -58,5 +37,6 @@ struct PaymentListItem {
     status = json["status"].int ?? 0
     statusdesc = json["statusdesc"].string ?? ""
     confirmtime = json["confirmtime"].string ?? ""
+    custom = NearbyCustomer(data: json)
   }
 }

@@ -8,26 +8,38 @@
 
 import Foundation
 
+enum PaymentResultType {
+  case Sucess
+  case Waiting
+  case Rejected
+}
+
 struct FacePayResult {
-  let success:Bool
+  let status:Int
   let orderNo:String?
   let errorCode:Int
   let waiting:Bool
   let customer:NearbyCustomer
   let amount:Double
+  let confirmTime:String?
+  let createTime:String?
   
   init(customer:NearbyCustomer,
     amount:Double,
-    succ:Bool,
+    succ:Int,
     orderNo:String?,
     errorCode:Int,
-    waiting:Bool
+    waiting:Bool,
+    confirmTime:String?,
+    createTime:String?
     ) {
-      self.success = succ
+      self.status = succ
       self.orderNo = orderNo
       self.errorCode = errorCode
       self.waiting = waiting
       self.customer = customer
       self.amount = amount
+      self.confirmTime = confirmTime
+      self.createTime = createTime
   }
 }

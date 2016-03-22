@@ -13,11 +13,12 @@ class PaymentListVC: UITableViewController {
   var paymentList = [PaymentListItem]()
   var currentPage = 0
   var nomoreData = false
-
+  var payResult: FacePayResult?
   override func viewDidLoad() {
     self.title = "收款记录"
     
     loadData()
+    self.tableView.tableFooterView = UIView()
   }
   
   private func loadData() {
@@ -61,12 +62,23 @@ class PaymentListVC: UITableViewController {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let pay = paymentList[indexPath.row] 
+    self.payResult = FacePayResult(customer:pay.custom, amount: pay.amount/100, succ: pay.status, orderNo: pay.orderno, errorCode: 0, waiting: pay.amount > 100,confirmTime:pay.confirmtime,createTime:pay.createtime)
+    self.performSegueWithIdentifier("checkPayInfoSegue", sender:nil)
   }
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.row == paymentList.count - 1 && !nomoreData {
       ++currentPage
       loadData()
+    }
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "checkPayInfoSegue" {
+      let vc = segue.destinationViewController as! PaymentResultVC
+      vc.payResult = payResult
+      vc.type = pushType.PaymentList
     }
   }
 }

@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 //    #if DEBUG
 //      subscribeTestTopic()
 //    #endif
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+    
     return true
   }
   
@@ -188,14 +191,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
       NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
     }
   }
-  
+ 
   func refreshToken() {
     HttpService.refreshToken(nil)
   }
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     
-    
+    print("didReceiveRemoteNotification:fetchCompletionHandler: \(userInfo)")
 //    print(userInfo)
 //    guard let childType = userInfo["childtype"] as? NSNumber else {
 //      completionHandler(.NoData)

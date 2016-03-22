@@ -54,7 +54,7 @@ class ChargeVC: UIViewController {
     HttpService.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (orderno, error) -> Void in
       self.confirmButton.enabled = true
       if let orderno = orderno {
-        self.payResult = FacePayResult(customer: self.customer, amount: amount, succ: true, orderNo: orderno, errorCode: 0, waiting: amount > 100)
+        self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: 1, orderNo: orderno, errorCode: 0, waiting: amount > 100,confirmTime:nil,createTime:nil)
         self.performSegueWithIdentifier("PaymentResultSegue", sender: nil)
       } else {
         if error?.code == 30101 {//余额不足
@@ -70,6 +70,7 @@ class ChargeVC: UIViewController {
     if segue.identifier == "PaymentResultSegue" {
       let vc = segue.destinationViewController as! PaymentResultVC
       vc.payResult = payResult
+      vc.type = pushType.Charge
     }
   }
   

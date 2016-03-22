@@ -17,8 +17,8 @@ class PaymentListCell: UITableViewCell {
   @IBOutlet weak var statusLabel: UILabel!
   
   func configCell(item:PaymentListItem) {
-    usernameLabel.text = item.username
-    avatarsImageView.sd_setImageWithURL(NSURL(string: item.userimage), placeholderImage: UIImage(named: "avatars_default_white"))
+    usernameLabel.text = item.custom.username
+    avatarsImageView.sd_setImageWithURL(NSURL(string: item.custom.userimage), placeholderImage: UIImage(named: "avatars_default_white"))
     timeLabel.text = item.createtime
     amountLabel.text = "￥\(item.displayAmount)"
     statusLabel.text = item.statusdesc

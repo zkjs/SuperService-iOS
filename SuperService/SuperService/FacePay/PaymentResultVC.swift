@@ -7,11 +7,16 @@
 //
 
 import UIKit
-
+enum pushType {
+  case Charge
+  case PaymentList
+}
 class PaymentResultVC: UIViewController {
   var payResult:FacePayResult!
   var pushResult:FacePayPushResult?
+  var type:pushType?
 
+  @IBOutlet weak var statusImage: UIImageView!
   @IBOutlet weak var statusLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
   @IBOutlet weak var refusedLabel: UILabel!
@@ -20,13 +25,24 @@ class PaymentResultVC: UIViewController {
   @IBOutlet weak var createdTimeLabel: UILabel!
   @IBOutlet weak var confirmTimeLabel: UILabel!
   
+  @IBOutlet weak var endsendButton: UIButton!
   override func viewDidLoad() {
     self.title = "收款结果"
-    setupView()
+    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
     
     let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: "goBackToCounterVC")
     self.navigationItem.leftBarButtonItem = backButton
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    if type == .PaymentList {
+      self.updateView()
+    } else {
+      setupView()
+    }
+    
   }
   
   func goBackToCounterVC() {
@@ -39,48 +55,59 @@ class PaymentResultVC: UIViewController {
   }
   
   private func setupView() {
-    if payResult.success {
-      amountLabel.text = "￥\(payResult.amount)"
-      if let orderNo = payResult.orderNo {
-        orderNoLabel.text = "交易单号：\(orderNo)"
-      }
-      createdTimeLabel.text = "收款时间：\(NSDate().formatted)"
-      if payResult.waiting {
-        statusLabel.text = "发送成功!\n等待 \(payResult.customer.username) 确认"
-        sendAgainButton.hidden = false
-      } else {
-        statusLabel.text = "\(payResult.customer.username) 收款成功"
-        sendAgainButton.hidden = true
-      }
-    } else {
-      
-    }
+
+    amountLabel.text = "￥\((payResult.amount).format(".2"))"
+    statusLabel.text = "发送成功!\n等待 \(payResult.customer.username) 确认"
+    orderNoLabel.hidden = true
+    confirmTimeLabel.hidden = true
+    createdTimeLabel.hidden = true
+    sendAgainButton.hidden = true
   }
   
   private func updateView(){
-    guard let pushResult = pushResult else {
-      return
-    }
-    
-    if pushResult.status == 2 {// 2 - 用户已确认付款,
-      if pushResult.userid == payResult.customer.userid {
-        statusLabel.text = "\(payResult.customer.username) 收款成功"
-        confirmTimeLabel.text = "成功时间：\(NSDate().formatted)"
-        confirmTimeLabel.hidden = false
-        sendAgainButton.hidden = true
-        refusedLabel.hidden = true
+    if payResult.status == 0 {// 0 - 等待用户确认付款,
+      statusImage.image = UIImage(named: "ic_dengdai")
+      statusLabel.text = "等待 \(payResult.customer.username) 确认"
+      if let orderno = payResult.orderNo,let createTime = payResult.createTime {
+        orderNoLabel.text = "交易单号:\(orderno)"
+        createdTimeLabel.text = "收款时间:\(createTime)"
       }
-    } else if pushResult.status == 1 {//1 - 用户拒绝付款
-      if pushResult.userid == payResult.customer.userid {
-        statusLabel.text = "\(payResult.customer.username) 收款失败"
-        confirmTimeLabel.text = "失败时间：\(NSDate().formatted)"
-        refusedLabel.text = "用户拒绝支付"
-        confirmTimeLabel.hidden = false
-        refusedLabel.hidden = false
-        sendAgainButton.hidden = false
-        showHint("用户拒绝支付")
+      amountLabel.text = "￥\((payResult.amount).format(".2"))"
+      confirmTimeLabel.hidden = true
+      sendAgainButton.hidden = false
+      endsendButton.hidden = true
+      refusedLabel.hidden = true
+    } 
+    if payResult.status == 2 {// 2 - 用户已确认付款,
+      statusImage.image = UIImage(named: "ic_chenggong")
+      statusLabel.text = "\(payResult.customer.username) 收款成功"
+      amountLabel.text = "￥\((payResult.amount).format(".2"))"
+      if let orderno = payResult.orderNo,let confirm = payResult.confirmTime,let createTime = payResult.createTime {
+        orderNoLabel.text = "交易单号:\(orderno)"
+        confirmTimeLabel.text = "成功时间:\(confirm)"
+        createdTimeLabel.text = "收款时间:\(createTime)"
       }
-    }
+      confirmTimeLabel.hidden = false
+      sendAgainButton.hidden = true
+      endsendButton.hidden = true
+      refusedLabel.hidden = true
+    } else if payResult.status == 1 {//1 - 用户拒绝付款
+      statusImage.image = UIImage(named: "ic_shibai")
+      statusLabel.text = "\(payResult.customer.username) 收款失败"
+      amountLabel.text = "￥\((payResult.amount).format(".2"))"
+      confirmTimeLabel.hidden = false
+      if let orderno = payResult.orderNo,let confirm = payResult.confirmTime,let createTime = payResult.createTime {
+        orderNoLabel.text = "交易单号:\(orderno)"
+        confirmTimeLabel.text = "失败时间:\(confirm)"
+        createdTimeLabel.text = "收款时间:\(createTime)"
+      }
+      
+      refusedLabel.text = "用户拒绝支付"
+      refusedLabel.hidden = false
+      sendAgainButton.hidden = false
+      endsendButton.hidden = true
+      
+      }
   }
   
   func onMessageReceived(notification: NSNotification) {
@@ -91,7 +118,6 @@ class PaymentResultVC: UIViewController {
       if json["type"].string == "PAYMENT_RESULT" {
         let result = FacePayPushResult(json: json["data"])
         self.pushResult = result
-        self.updateView()
       }
     }
   }
@@ -126,5 +152,8 @@ class PaymentResultVC: UIViewController {
       }
     }
   }
+  
+
+    
   
 }

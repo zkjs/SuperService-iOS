@@ -26,18 +26,19 @@ class PaymentListVC: UITableViewController {
       showHUDInView(view, withLoading: "")
     }
     print("page:\(currentPage)")
-    HttpService.getPaymentList(currentPage, pageSize: pageSize, status: nil) {[unowned self] (list, error) -> Void in
-      self.hideHUD()
+    HttpService.getPaymentList(currentPage, pageSize: pageSize, status: nil) {[weak self] (list, error) -> Void in
+      guard let strongSelf = self else { return }
+      strongSelf.hideHUD()
       if let error = error {
-        self.showHint("\(error.code)")
+        strongSelf.showHint("\(error.code)")
       } else {
         if let list = list where list.count > 0 {
-          self.paymentList += list
-          self.tableView.reloadData()
-          self.nomoreData = list.count < self.pageSize
+          strongSelf.paymentList += list
+          strongSelf.tableView.reloadData()
+          strongSelf.nomoreData = list.count < strongSelf.pageSize
         } else {
-          self.showHint("没有收款记录")
-          self.nomoreData = true
+          strongSelf.showHint("没有收款记录")
+          strongSelf.nomoreData = true
         }
       }
     }

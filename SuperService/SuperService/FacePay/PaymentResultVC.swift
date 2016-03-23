@@ -30,7 +30,7 @@ class PaymentResultVC: UIViewController {
     self.title = "收款结果"
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushTo", name:kRefreshPayResultVCNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPayResult:", name:kRefreshPayResultVCNotification, object: nil)
     
     let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: "goBackToCounterVC")
     self.navigationItem.leftBarButtonItem = backButton
@@ -111,10 +111,12 @@ class PaymentResultVC: UIViewController {
       }
   }
   
-  func pushTo() {
-    let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
-    let vc = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
-    navigationController?.pushViewController(vc, animated: false)
+  func refreshPayResult(notification: NSNotification) {
+    guard let userInfo = notification.userInfo,let payInfo = userInfo["payInfo"] as? FacePayPushResult  else {
+      return
+    }
+    self.payResult = FacePayResult(customer:payInfo.custom, amount: payInfo.amount/100, succ: payInfo.status, orderNo: payInfo.orderno, errorCode: 0, waiting: payInfo.amount > 100,confirmTime:nil,createTime:payInfo.createtime)
+    self.updateView()
   }
   
   func onMessageReceived(notification: NSNotification) {
@@ -124,7 +126,8 @@ class PaymentResultVC: UIViewController {
       let json = JSON(data: message.data)
       if json["type"].string == "PAYMENT_RESULT" {
         let result = FacePayPushResult(json: json["data"])
-        self.pushResult = result
+        self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
+        self.updateView()
       }
     }
   }

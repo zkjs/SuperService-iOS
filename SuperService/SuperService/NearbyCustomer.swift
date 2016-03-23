@@ -47,4 +47,30 @@ struct NearbyCustomer {
     }
     
   }
+  
+  init(data:NSDictionary) {
+    locid = data["locid"] as? String ?? ""
+    userid = data["userid"] as? String ?? ""
+    username = data["username"] as? String ?? ""
+    viplevel = data["viplevel"] as? Int ?? 0
+    userimage = data["userimage"] as? String ?? ""
+    sex = data["sex"] as? Int ?? 0
+    phone = data["phone"] as? String ?? ""
+    city = data["city"] as? String ?? ""
+    shopid = data["shopid"] as? String ?? ""
+    shopName = data["shopname"] as? String ?? ""
+    arrivetime = data["arrivetime"] as? String ?? ""
+    
+    if let ordersData = data["orders"] as? NSArray where ordersData.count > 0 {
+      var ordersArray = [CustomerOrder]()
+      for o in ordersData {
+        let order = CustomerOrder(json: o as! NSDictionary)
+        ordersArray.append(order)
+      }
+      orders = ordersArray
+    } else {
+      orders = nil
+    }
+
+  }
 }

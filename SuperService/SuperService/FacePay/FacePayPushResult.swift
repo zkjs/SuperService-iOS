@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FacePayPushResult {
+class FacePayPushResult {
   let paymentno:String
   let amount:Double
   let createtime:String
@@ -20,7 +20,22 @@ struct FacePayPushResult {
   let userid:String
   let status:Int
   let username:String
-
+  let custom:NearbyCustomer
+  init(json:NSDictionary) {
+    paymentno = json["paymentno"] as? String ?? ""
+    amount = json["amount"] as? double_t ?? 0.0
+    createtime = json["createtime"] as? String ?? ""
+    orderno = json["orderno"] as? String ?? ""
+    salesid = json["salesid"] as? String ?? ""
+    shopname = json["shopname"] as? String ?? ""
+    shopid = json["shopid"] as? String ?? ""
+    userid = json["userid"] as? String ?? ""
+    username = json["username"] as? String ?? ""
+    status = json["status"] as? Int ?? 0
+    statusdesc = json["statusdesc"] as? String ?? ""
+    custom = NearbyCustomer(data: json)
+    
+  }
   init(json:JSON) {
     paymentno = json["paymentno"].string ?? ""
     amount = json["amount"].double ?? 0
@@ -33,5 +48,6 @@ struct FacePayPushResult {
     username = json["username"].string ?? ""
     status = json["status"].int ?? 0
     statusdesc = json["statusdesc"].string ?? ""
+    custom = NearbyCustomer(data: json)
   }
 }

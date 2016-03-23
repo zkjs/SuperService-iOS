@@ -14,7 +14,7 @@ enum PaymentResultType {
   case Rejected
 }
 
-struct FacePayResult {
+class FacePayResult {
   let status:Int
   let orderNo:String?
   let errorCode:Int
@@ -42,4 +42,12 @@ struct FacePayResult {
       self.confirmTime = confirmTime
       self.createTime = createTime
   }
+  
+//  init(dict:NSDictionary) {
+//    self.status = dict["status"] as? Int ?? 0
+//    orderNo = dict["orderno"] as? String ?? ""
+//    customer
+//    
+//  }
+  
 }

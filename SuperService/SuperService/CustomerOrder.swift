@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CustomerOrder {
+class CustomerOrder {
   let orderNO:String
   let room:String
   let duration:String
@@ -30,5 +30,11 @@ struct CustomerOrder {
     room = json["room"].string ?? ""
     duration = json["duration"].string ?? ""
     indate = json["indate"].string ?? ""
+  }
+  init(json:NSDictionary) {
+    orderNO = json["orderno"] as? String ?? ""
+    room = json["room"] as? String ?? ""
+    duration = json["duration"] as? String ?? ""
+    indate = json["indate"] as? String ?? ""
   }
 }

@@ -107,14 +107,14 @@ class ArrivalCell: UITableViewCell {
     }
   
     
-//    if let dateString = data["created"] as? String {
-//      let dateFormat = NSDateFormatter()
-//      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//      if let date = dateFormat.dateFromString(dateString) {
-//        dateFormat.dateFormat = "HH:mm"
-//        timeAgoLabel.text = dateFormat.stringFromDate(date)
-//      }
-  //  }
+    if let dateString = data.arrivetime {
+      let dateFormat = NSDateFormatter()
+      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+      if let date = dateFormat.dateFromString(dateString) {
+        dateFormat.dateFormat = "HH:mm"
+        timeAgoLabel.text = dateFormat.stringFromDate(date)
+      }
+    }
 
     
     

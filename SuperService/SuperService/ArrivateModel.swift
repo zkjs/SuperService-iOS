@@ -44,7 +44,7 @@ class ArrivateModel: NSObject {
     city =  dic["city"].string ?? ""
     shopid = dic["shopid"].string ?? ""
     shopname  = dic["shopname"].string ?? ""
-    arrivetime = dic["arrivatetime"].string ?? ""
+    arrivetime = dic["arrivetime"].string ?? ""
     orders = dic["orders"].array
     if let orderArr = dic["orders"].array?.first {
         self.orderno = orderArr["orderno"].string ?? ""

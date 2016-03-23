@@ -38,6 +38,7 @@ class ArrivalTVC: UITableViewController {
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
+    page = 0
     loadData(page)
     addBarButtons()
   }
@@ -64,6 +65,7 @@ class ArrivalTVC: UITableViewController {
   }
   
   func loadMoreData() {
+    ++page
     loadData(page)
   }
   
@@ -82,25 +84,26 @@ class ArrivalTVC: UITableViewController {
     }
   }
   
-  func loadData(page:AnyObject) {
+  func loadData(page:Int) {
     print(AccountInfoManager.sharedInstance.beaconLocationIDs)
-    HttpService.arrivateList(Int(page as! NSNumber)) { (arrivateArr, error) -> () in
+    HttpService.arrivateList(page) { (arrivateArr, error) -> () in
       if let _  = error {
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()
       } else {
-        if page as! NSNumber == 0 {
+        if page == 0 {
           self.dataArray.removeAll()
         }
         if let users = arrivateArr where users.count > 0 {
-          self.dataArray = users
+          self.dataArray += users
           self.tableView?.reloadData()
-          self.page++
-        } else {
+        }
+        if arrivateArr?.count < HttpService.DefaultPageSize {
           self.tableView.mj_footer.hidden = true
         }
     }
-        self.tableView.mj_header.endRefreshing()
+    self.tableView.mj_header.endRefreshing()
+    self.tableView.mj_footer.endRefreshing()
       
    }
   }

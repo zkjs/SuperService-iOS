@@ -124,7 +124,7 @@ extension HttpService {
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
     guard let locids :String = AccountInfoManager.sharedInstance.beaconLocationIDs else {return}
     let urlString =  ResourcePathAccount.ArrivateData.description.fullUrl + "/\(shopid)/\(locids)"
-    let dic = ["shopid":shopid,"locids":locids,"roles":"USER","page":page,"page_size":15]
+    let dic = ["shopid":shopid,"locids":locids,"roles":"USER","page":page,"page_size":HttpService.DefaultPageSize]
     get(urlString, parameters: dic as? [String : AnyObject]) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)

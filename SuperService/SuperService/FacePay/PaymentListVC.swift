@@ -46,30 +46,34 @@ class PaymentListVC: UITableViewController {
   
   //MARK: tableview data source
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
+    return paymentList.count
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return paymentList.count
+    return 1
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("PaymentListCell", forIndexPath: indexPath) as! PaymentListCell
     
-    cell.configCell(paymentList[indexPath.row])
+    cell.configCell(paymentList[indexPath.section])
     
     return cell
   }
   
+  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 1
+  }
+  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    let pay = paymentList[indexPath.row] 
+    let pay = paymentList[indexPath.section] 
     self.payResult = FacePayResult(customer:pay.custom, amount: pay.amount/100, succ: pay.status, orderNo: pay.orderno, errorCode: 0, waiting: pay.amount > 100,confirmTime:pay.confirmtime,createTime:pay.createtime)
     self.performSegueWithIdentifier("checkPayInfoSegue", sender:nil)
   }
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    if indexPath.row == paymentList.count - 1 && !nomoreData {
+    if indexPath.section == paymentList.count - 1 && !nomoreData {
       ++currentPage
       loadData()
     }

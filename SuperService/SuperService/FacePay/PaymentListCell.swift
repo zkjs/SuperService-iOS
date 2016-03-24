@@ -19,9 +19,26 @@ class PaymentListCell: UITableViewCell {
   func configCell(item:PaymentListItem) {
     usernameLabel.text = item.custom.username
     avatarsImageView.sd_setImageWithURL(NSURL(string: item.custom.userimage), placeholderImage: UIImage(named: "avatars_default_white"))
-    timeLabel.text = item.createtime
+    let dateFormat = NSDateFormatter()
+    dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    if let date = dateFormat.dateFromString(item.createtime) {
+      dateFormat.dateFormat = "yyyy-MM-dd HH:mm"
+      timeLabel.text = dateFormat.stringFromDate(date)
+    }
     amountLabel.text = "￥\(item.displayAmount)"
     statusLabel.text = item.statusdesc
+    if item.status == 2 {
+      statusLabel.textColor = UIColor.hx_colorWithHexString("#03A9F4")
+    }
+    if item.status == 1 {
+      statusLabel.textColor = UIColor.hx_colorWithHexString("#F06951")
+    }
+    if item.status == 0 {
+      statusLabel.textColor = UIColor.hx_colorWithHexString("#FFC56E")
+    }
+
+
+    
   }
   
 }

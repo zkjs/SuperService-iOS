@@ -55,7 +55,8 @@ class NotificationController: WKUserNotificationInterfaceController {
     //
     // After populating your dynamic notification interface call the completion block.
     print(remoteNotification)
-    if let extra = remoteNotification["data"] as? [String: AnyObject] {
+//    var extra  = NSDictionary()
+        if let c = remoteNotification["aps"] as? NSDictionary,let Extra = c["message"] as? NSDictionary,let extra = Extra["data"] as? NSDictionary {
       // 用户头像
       if let userid = extra["userid"] as? String {
         self.userImage(userid)

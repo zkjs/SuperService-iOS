@@ -30,10 +30,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
-    YunBaService.getTopicList { (res, error) -> Void in
-      print("========all topics")
-      print(res)
-    }
 
   }
   
@@ -114,7 +110,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     showHUDInView(view, withLoading: "正在退出登录...")
     // 清理系统缓存
     AccountInfoManager.sharedInstance.clearAccountCache()
-//    AccountInfoManager.sharedInstance.clearAvatarImageCache()
     
     TokenPayload.sharedInstance.clearCacheTokenPayload()
     

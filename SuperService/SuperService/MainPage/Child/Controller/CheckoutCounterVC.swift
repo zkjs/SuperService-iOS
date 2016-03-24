@@ -36,10 +36,9 @@ class CheckoutCounterVC: UICollectionViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
-    YunBaService.getAlias { (json, error) -> Void in
-      print("订阅的云巴\(json)")
+   
     }
-  }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -153,8 +152,27 @@ class CheckoutCounterVC: UICollectionViewController {
       if let vc = segue.destinationViewController as? ChargeVC,
         let indexPath = sender as? NSIndexPath {
           vc.customer = nearbyCustomers[indexPath.row]
+          vc.payResultClosure = {(bool,payResult) -> Void in
+            if bool == true {
+              let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+              let VC = storyboard.instantiateViewControllerWithIdentifier("SendSuccessVC") as! SendSuccessVC
+              VC.payResult = payResult
+              VC.modalPresentationStyle = .OverCurrentContext
+              self.presentViewController(VC, animated: true, completion: nil)
+              VC.sendSuccessClosure = {(bool) -> Void in
+                if bool == true {
+                  let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+                  let vc = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
+                  self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+
+            }
+          }
       }
     }
   }
+  
+
 
 }

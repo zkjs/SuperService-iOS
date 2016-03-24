@@ -11,10 +11,12 @@ enum pushType {
   case Charge
   case PaymentList
 }
+
 class PaymentResultVC: UIViewController {
   var payResult:FacePayResult!
   var pushResult:FacePayPushResult?
   var type:pushType?
+  
 
   @IBOutlet weak var statusImage: UIImageView!
   @IBOutlet weak var statusLabel: UILabel!
@@ -38,32 +40,33 @@ class PaymentResultVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
-    if type == .PaymentList {
-      self.updateView()
-    } else {
-      setupView()
-    }
+    self.updateView()
+//    if type == .PaymentList {
+//      
+//    } else {
+//      setupView()
+//    }
     
     
   }
   
   func goBackToCounterVC() {
-    if let ownIndex = self.navigationController?.viewControllers.indexOf(self),
-       let toVC = self.navigationController?.viewControllers[ownIndex-2] {
+    if let toVC = self.navigationController?.viewControllers[0] {
       self.navigationController?.popToViewController(toVC, animated: true)
     } else {
       self.navigationController?.popViewControllerAnimated(true)
     }
+
   }
   
-  private func setupView() {
-    amountLabel.text = "￥\((payResult.amount).format(".2"))"
-    statusLabel.text = "发送成功!\n等待 \(payResult.customer.username) 确认"
-    orderNoLabel.hidden = true
-    confirmTimeLabel.hidden = true
-    createdTimeLabel.hidden = true
-    sendAgainButton.hidden = true
-  }
+//  private func setupView() {
+//    amountLabel.text = "￥\((payResult.amount).format(".2"))"
+//    statusLabel.text = "发送成功!\n等待 \(payResult.customer.username) 确认"
+//    orderNoLabel.hidden = true
+//    confirmTimeLabel.hidden = true
+//    createdTimeLabel.hidden = true
+//    sendAgainButton.hidden = true
+//  }
   
   private func updateView(){
     if payResult.status == 0 {// 0 - 等待用户确认付款,

@@ -186,6 +186,7 @@ class AccountInfoManager: NSObject {
     userDefaults.setObject(nil, forKey: "realname")
     userDefaults.setObject(nil, forKey: "shopid")
     userDefaults.setObject(nil, forKey: "fullname")
+    userDefaults.setObject(nil, forKey: "locid")
     userDefaults.synchronize()
     
     userID = ""
@@ -203,6 +204,7 @@ class AccountInfoManager: NSObject {
     password = ""
     shopid = ""
     fullname = ""
+    self.beaconLocationIDs = ""
   }
   
 }

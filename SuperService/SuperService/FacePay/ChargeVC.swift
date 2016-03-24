@@ -7,11 +7,14 @@
 //
 
 import UIKit
+typealias PayResultDismissClosure = (Bool,payResult:FacePayResult) ->Void
 
 class ChargeVC: UIViewController {
   var customer: NearbyCustomer!
   var payResult: FacePayResult?
+  var payResultClosure: PayResultDismissClosure?
   
+  @IBOutlet weak var payFaliLabe: UILabel!
   @IBOutlet weak var avatarsImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var moneyField: UITextField!
@@ -34,8 +37,9 @@ class ChargeVC: UIViewController {
   private func setupView() {
     avatarsImageView.layer.borderColor = UIColor(red: 225/255.0, green: 225/255.0, blue: 225/255.0, alpha: 1).CGColor
     avatarsImageView.layer.borderWidth = 2
-    avatarsImageView.sd_setImageWithURL(NSURL(string: customer.userimage), placeholderImage: UIImage(named: "avatars_default_white"))
+    avatarsImageView.sd_setImageWithURL(NSURL(string: customer.userimage), placeholderImage: UIImage(named: ""))
     nameLabel.text = customer.username
+    payFaliLabe.hidden = true
     
   }
   
@@ -55,10 +59,15 @@ class ChargeVC: UIViewController {
       self.confirmButton.enabled = true
       if let orderno = orderno {
         self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: 1, orderNo: orderno, errorCode: 0, waiting: amount > 100,confirmTime:nil,createTime:nil)
-        self.performSegueWithIdentifier("PaymentResultSegue", sender: nil)
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+          if let closure = self.payResultClosure {
+            closure(true, payResult:self.payResult!)
+          }
+        })
+                
       } else {
         if error?.code == 30101 {//余额不足
-          self.showHint("用户账户余额不足,请使用其它收款方式!")
+          self.payFaliLabe.hidden = false
         } else {//错误
           self.showHint("error:\(error?.code)")
         }
@@ -66,12 +75,9 @@ class ChargeVC: UIViewController {
     }
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "PaymentResultSegue" {
-      let vc = segue.destinationViewController as! PaymentResultVC
-      vc.payResult = payResult
-      vc.type = pushType.Charge
-    }
+  @IBAction func disMiss(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
   }
+
   
 }

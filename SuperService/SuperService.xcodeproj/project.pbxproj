@@ -372,6 +372,7 @@
 		FA63908D1C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */; };
 		FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */; };
 		FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */; };
+		FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
@@ -991,6 +992,7 @@
 		FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeisureOrderDetailTVC.swift; path = ../../LeisureOrderDetailTVC.swift; sourceTree = "<group>"; };
 		FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KTVOrderDetailTVC.storyboard; path = ../../KTVOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureOrderDetailTVC.storyboard; path = ../../LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
+		FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSuccessVC.swift; sourceTree = "<group>"; };
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,7 @@
 				40DC2D4B1C901FD3007D9A3F /* ChargeVC.swift */,
 				40DC2D5B1C904A83007D9A3F /* PaymentResultVC.swift */,
 				40DC2D5F1C9055F2007D9A3F /* PaymentListVC.swift */,
+				FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -3001,6 +3004,7 @@
 				40F7576E1BE0553E0053C2BE /* InformVC.swift in Sources */,
 				40FB3D511C00203900675044 /* EaseBaseMessageCell.m in Sources */,
 				40FB3D5A1C00203900675044 /* EaseBubbleView.m in Sources */,
+				FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */,
 				40FB3D421C00203900675044 /* UIViewController+HUD.m in Sources */,
 				40FB3D4C1C00203900675044 /* EaseMessageViewController.m in Sources */,
 				FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */,

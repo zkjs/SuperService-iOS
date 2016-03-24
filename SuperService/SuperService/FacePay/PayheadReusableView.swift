@@ -17,4 +17,6 @@ class PayheadReusableView: UICollectionReusableView {
     guard let phone = searchPhone.text else{return}
     customClosure?(phoneNumber: phone)
   }
+  
+  
 }

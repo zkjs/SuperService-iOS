@@ -19,6 +19,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var selectedArray = [Int]()
   var areaArr = [String]()
   var dismissWhenFinished = false
+  
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
@@ -40,6 +41,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   }
   
   func GetWholeAreaOfTheList() {
+    self.noticeArray.removeAll()
     if let arr = StorageManager.sharedInstance().noticeArray() {
        self.noticeArray = arr
     }
@@ -48,13 +50,14 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
       } else {
         if let jsonArr = json!["data"].array {
+          self.areaArray.removeAll()
           for dict in jsonArr {
             let area = AreaModel(dic: dict)
             self.areaArray.append(area)
-            if  dict["subscribed"] == 1 {
-               self.noticeArray.append(area.locid!)
-            }
+            if let locid = area.locid {
+            self.noticeArray.append(locid)
           }
+        }
           self.initSelectedArray()  // Model
           self.tableView.reloadData()  // UI
         }
@@ -136,24 +139,36 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         selectedArray.removeAtIndex(index)
         for (index, value) in noticeArray.enumerate() {
           print("Found \(value) at position \(index)")
+          if noticeArray.count == 1 {
+            noticeArray.removeAtIndex(0)
+            return
+          }
           if case area.locid! = value {
             noticeArray.removeAtIndex(index)
           }
         }
       }
     }
-    StorageManager.sharedInstance().saveLocids(noticeArray)
+    
+    print(noticeArray)
+    
   }
   
   func nextStep() {
+    let shopid = TokenPayload.sharedInstance.shopid
     for index in selectedArray {
       let area = areaArray[index]
       str = area.locid
       areaArr.append(str)
+      YunBaService.subscribe("\(shopid)_BLE_\(str)", resultBlock: { (bool, error) -> Void in
+        
+      })
     }
     locID = areaArr.joinWithSeparator(",")
     print("locID: \(locID)")
+    StorageManager.sharedInstance().saveLocids(noticeArray)
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
+    
     let vc = self.navigationController?.viewControllers[0] as! SettingsVC
     let appWindow = UIApplication.sharedApplication().keyWindow
     let mainTBC = MainTBC()
@@ -161,7 +176,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     appWindow?.rootViewController = mainTBC
     self.navigationController?.popToViewController(vc, animated: false)
     
-//    self.navigationController?.popToRootViewControllerAnimated(false)
   
   }
   

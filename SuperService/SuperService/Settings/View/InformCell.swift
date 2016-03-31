@@ -41,8 +41,7 @@ class InformCell: UITableViewCell {
       //changeSelectedButtonImage()
     }
   func setData(area: AreaModel) {
-    locationLabel.text = area.locdesc
-    
+    locationLabel.text = area.area
   }
   
   func setContact(contact: [String:String]) {

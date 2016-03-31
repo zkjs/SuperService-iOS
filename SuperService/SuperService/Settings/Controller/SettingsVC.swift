@@ -110,6 +110,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     showHUDInView(view, withLoading: "正在退出登录...")
     // 清理系统缓存
     AccountInfoManager.sharedInstance.clearAccountCache()
+    StorageManager.sharedInstance().clearNoticeArray()
     
     TokenPayload.sharedInstance.clearCacheTokenPayload()
     

@@ -113,12 +113,14 @@ class CheckoutCounterVC: UICollectionViewController {
     if (kind == UICollectionElementKindSectionHeader) {
       let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader , withReuseIdentifier: headID, forIndexPath:NSIndexPath(index: 0)) as! PayheadReusableView
         view.customClosure = { [unowned self](phone) ->Void in
-        self.searchByphonenumber(phone)
+          self.searchByphonenumber(phone)
       }
       return view
     }
       return reusableview
   }
+  
+  
   
   func searchByphonenumber(phone:String) {
     HttpService.searchUserByPhone(phone) { (json, error) -> Void in

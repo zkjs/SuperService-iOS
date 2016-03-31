@@ -17,9 +17,9 @@ struct ZKJSConfig {
   //// 测试环境
   
   // 新API服务器
-  let BaseURL = "http://p.zkjinshi.com/test"
+  let BaseURL = "http://p.zkjinshi.com"
   // 图片服务器
-  let BaseImageURL = "http://for-testea01cc11-44f5-431f-a393-a6595c09410d.oss-cn-shenzhen.aliyuncs.com/"
+  let BaseImageURL = "http://cdn.zkjinshi.com/"
   // 环信
   let EaseMobAppKey = "zkjs#svip"
   // 云巴
@@ -43,9 +43,9 @@ struct ZKJSConfig {
   //// 生产环境
   
   // 新API服务器
-  let BaseURL = "http://api.zkjinshi.com/"
+  let BaseURL = "http://p.zkjinshi.com"
   // 图片服务器
-  let BaseImageURL = "http://svip02.oss-cn-shenzhen.aliyuncs.com/"
+  let BaseImageURL = "http://cdn.zkjinshi.com/"
   // 环信
   let EaseMobAppKey = "zkjs#prosvip"
   // 云巴

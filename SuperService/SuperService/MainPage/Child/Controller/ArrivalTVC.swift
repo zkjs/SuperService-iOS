@@ -40,7 +40,7 @@ class ArrivalTVC: UITableViewController {
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
     page = 0
     loadData(page)
-    addBarButtons()
+    addBarButtons()           
   }
 
   private func addBarButtons() {

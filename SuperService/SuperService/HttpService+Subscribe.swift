@@ -16,7 +16,7 @@ extension HttpService {
     
     var description: String {
       switch self {
-      case .BeaconList:             return "/pyx/lbs/v1/loc/beacon/subscription"
+      case .BeaconList:             return "/pyx/lbs/v1/loc/beacon"
     
 
       }
@@ -34,10 +34,6 @@ extension HttpService {
         }
       }
   }
-  
-  
- 
-
   
   
 }

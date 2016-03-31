@@ -166,9 +166,9 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
       str = area.locid
       areaArr.append(str)
     }
-    guard let shopid = TokenPayload.sharedInstance.shopid else {return}
+    guard let shopid = TokenPayload.sharedInstance.shopid else {return} 
     StorageManager.sharedInstance().saveLocids(areaArr)
-    for area in areaArray {
+    for area in areaArray {//先把列表这些区域的全部取消订阅一次（这里这样做是因为跟上次的区域比较不好处理未选择的区域）
     if let topic:String = "\(shopid)_BLE_\(area.locid!)" {
       YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
         print(succ)
@@ -176,7 +176,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
      }
     }
     print(areaArr)
-    for locid in areaArr {
+    for locid in areaArr {//订阅新选择的区域
       if let topic:String = "\(shopid)_BLE_\(locid)" {
         YunBaService.subscribe(topic, resultBlock: { (succ, error) -> Void in
           if succ {

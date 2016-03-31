@@ -13,7 +13,6 @@ protocol RefreshTeamListVCDelegate {
   func RefreshTeamListTableView()
 }
 
-@available(iOS 9.0, *)
 class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   var delegate: RefreshTeamListVCDelegate?
@@ -121,41 +120,9 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
       dispatch_semaphore_wait(authorizedSingal, DISPATCH_TIME_FOREVER)
     }
     
+    
   func analyzeSysContacts(sysContacts:NSArray) -> [[String:String]] {
       var allContacts:Array = [[String:String]]()
-      func analyzeContactProperty(contact:ABRecordRef, property:ABPropertyID, keySuffix:String) -> [String:String]? {
-        let propertyValues:ABMultiValueRef? = ABRecordCopyValue(contact, property)?.takeRetainedValue()
-        if propertyValues != nil {
-          //var values:NSMutableArray = NSMutableArray()
-          var valueDictionary:Dictionary = [String:String]()
-          for i in 0 ..< ABMultiValueGetCount(propertyValues) {
-            var label:String = ABMultiValueCopyLabelAtIndex(propertyValues, i).takeRetainedValue() as String
-            label += keySuffix
-            let value = ABMultiValueCopyValueAtIndex(propertyValues, i)
-            switch property {
-            case kABPersonSocialProfileProperty :
-              let snsNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-              valueDictionary[label+"_Username"] = snsNSDict.valueForKey(kABPersonSocialProfileUsernameKey as String) as? String ?? ""
-              valueDictionary[label+"_URL"] = snsNSDict.valueForKey(kABPersonSocialProfileURLKey as String) as? String ?? ""
-              valueDictionary[label+"_Serves"] = snsNSDict.valueForKey(kABPersonSocialProfileServiceKey as String) as? String ?? ""
-              // IM
-            case kABPersonInstantMessageProperty :
-              let imNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-              valueDictionary[label+"_Serves"] = imNSDict.valueForKey(kABPersonInstantMessageServiceKey as String) as? String ?? ""
-              valueDictionary[label+"_Username"] = imNSDict.valueForKey(kABPersonInstantMessageUsernameKey as String) as? String ?? ""
-              // Date
-            case kABPersonDateProperty :
-              valueDictionary[label] = (value.takeRetainedValue() as? NSDate)?.description
-            default :
-              valueDictionary[label] = value.takeRetainedValue() as? String ?? ""
-            }
-          }
-          return valueDictionary
-        }else{
-          return nil
-        }
-      }
-      
       for contact in sysContacts {
         var currentContact:Dictionary = [String:String]()
         // 姓、姓氏拼音
@@ -166,9 +133,13 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
         currentContact["fullName"] =    currentContact["LastName"]! + currentContact["FirstName"]!
         // 电话
         var phone = String()
-        for (key, value) in analyzeContactProperty(contact, property: kABPersonPhoneProperty,keySuffix: "Phone") ?? ["":""] {
-          currentContact[key] = value
-          phone = value
+        let propertyValues:ABMultiValueRef? = ABRecordCopyValue(contact, kABPersonPhoneProperty)?.takeRetainedValue()
+        if propertyValues != nil {
+        for i in 0 ..< ABMultiValueGetCount(propertyValues){
+            let value = ABMultiValueCopyValueAtIndex(propertyValues, i)
+            phone = value.takeRetainedValue() as? String ?? ""
+            print("\(phone)")
+          }
         }
         let dic: [String : String] = ["username":currentContact["fullName"]!,"phone":phone]
         allContacts.append(dic)
@@ -184,7 +155,6 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   
 }
 
-@available(iOS 9.0, *)
 extension AddMemberVC: UITextViewDelegate {
   
   func textViewShouldBeginEditing(textView: UITextView) -> Bool {

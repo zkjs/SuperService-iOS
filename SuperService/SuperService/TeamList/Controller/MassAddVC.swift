@@ -63,7 +63,7 @@ class MassAddVC: UIViewController {
     cell.phoneLabel.text = phone
     cell.selectedButton.addTarget(self, action: "tappedCellSelectedButton:", forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
-    if massPhoneArray.contains(phone) {
+    if massusernameArray.contains(username) {
       cell.isUncheck = false
       cell.selectedButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
     } else {
@@ -110,14 +110,14 @@ class MassAddVC: UIViewController {
    let phone = phoneArray[cell.selectedButton.tag]
     let username = usernameArray[cell.selectedButton.tag]
     if cell.isUncheck == true {
-      if massPhoneArray.contains(phone) {
-        if let idx = massPhoneArray.indexOf(phone) {
+      if massusernameArray.contains(username) {
+        if let idx = massusernameArray.indexOf(username) {
           massPhoneArray.removeAtIndex(idx)
           massusernameArray.removeAtIndex(idx)
         }
       }
     } else {
-      if massPhoneArray.contains(phone)  {
+      if massusernameArray.contains(username)  {
         return
       } else {
       self.massPhoneArray.append(phone)
@@ -140,9 +140,6 @@ class MassAddVC: UIViewController {
        massDicArray.append(dic)
     }
     let dict = ["users":massDicArray]
-//    let theJSONData = try! NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions(rawValue: 0))
-//    let JSONText = NSString(data: theJSONData,
-//      encoding: NSUTF8StringEncoding)
     HttpService.AddMember(dict) { (json, error) -> () in
       if let _ = error {
         self.showHint("添加失败")

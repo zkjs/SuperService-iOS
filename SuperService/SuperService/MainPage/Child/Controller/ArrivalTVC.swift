@@ -145,9 +145,9 @@ class ArrivalTVC: UITableViewController {
     } else {
       cell.topLineImageView.hidden = false
     }
-    cell.chatButton.addTarget(self, action: "chat:", forControlEvents: .TouchUpInside)
+//    cell.chatButton.addTarget(self, action: "chat:", forControlEvents: .TouchUpInside)
     cell.orderButton.addTarget(self, action: "showOrder:", forControlEvents: .TouchUpInside)
-    cell.chatButton.tag = indexPath.section
+//    cell.chatButton.tag = indexPath.section
     let data = dataArray[indexPath.section]
     cell.setData(data)
     return cell

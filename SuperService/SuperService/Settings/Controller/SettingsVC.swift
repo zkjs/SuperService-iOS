@@ -30,6 +30,14 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
+    
+    YunBaService.getTopicList { (topics, error) -> Void in
+      if let topics = topics as? [String] {
+        for topic in topics {
+          print(topic)
+        }
+      }
+    }
 
   }
   
@@ -111,11 +119,12 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // 清理系统缓存
     AccountInfoManager.sharedInstance.clearAccountCache()
     StorageManager.sharedInstance().clearNoticeArray()
-    
+    YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     TokenPayload.sharedInstance.clearCacheTokenPayload()
     
     // 消除订阅云巴频道
     unregisterYunBaTopic()
+    YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     //退出之后不再受到消息推送
     unregisterRemoteNotification()
     

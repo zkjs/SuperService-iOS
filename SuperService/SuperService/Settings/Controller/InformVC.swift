@@ -54,9 +54,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
           for dict in jsonArr {
             let area = AreaModel(dic: dict)
             self.areaArray.append(area)
-            if let locid = area.locid {
-            self.noticeArray.append(locid)
-          }
         }
           self.initSelectedArray()  // Model
           self.tableView.reloadData()  // UI
@@ -131,42 +128,67 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func updateSelectedArrayWithCell(cell: InformCell) {
     let area = areaArray[cell.selectedButton.tag]
+    
     if cell.isUncheck == false {
       self.selectedArray.append(cell.selectedButton.tag)
       noticeArray.append(area.locid!)
+     
+
     } else {
       if let index = selectedArray.indexOf(cell.selectedButton.tag) {
         selectedArray.removeAtIndex(index)
         for (index, value) in noticeArray.enumerate() {
-          print("Found \(value) at position \(index)")
           if noticeArray.count == 1 {
             noticeArray.removeAtIndex(0)
             return
           }
           if case area.locid! = value {
             noticeArray.removeAtIndex(index)
+            print(noticeArray)
+            print("Found \(value) at position \(index)")
+//            if let topic:String = "\(shopid)_BLE_\(value)" {
+//              YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
+//                print(succ)
+//              })
+//            }
           }
+         
         }
       }
     }
-    
-    print(noticeArray)
+  
     
   }
   
   func nextStep() {
-    let shopid = TokenPayload.sharedInstance.shopid
     for index in selectedArray {
       let area = areaArray[index]
       str = area.locid
       areaArr.append(str)
-      YunBaService.subscribe("\(shopid)_BLE_\(str)", resultBlock: { (bool, error) -> Void in
-        
+    }
+    guard let shopid = TokenPayload.sharedInstance.shopid else {return}
+    StorageManager.sharedInstance().saveLocids(areaArr)
+    for area in areaArray {
+    if let topic:String = "\(shopid)_BLE_\(area.locid!)" {
+      YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
+        print(succ)
       })
+     }
+    }
+    print(areaArr)
+    for locid in areaArr {
+      if let topic:String = "\(shopid)_BLE_\(locid)" {
+        YunBaService.subscribe(topic, resultBlock: { (succ, error) -> Void in
+          if succ {
+            print("\(shopid)_BLE_\(self.str)")
+          } else {
+            print(error)
+          }
+        })
+      }
     }
     locID = areaArr.joinWithSeparator(",")
-    print("locID: \(locID)")
-    StorageManager.sharedInstance().saveLocids(noticeArray)
+    
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
     
     let vc = self.navigationController?.viewControllers[0] as! SettingsVC

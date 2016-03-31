@@ -48,11 +48,14 @@ class CheckoutCounterVC: UICollectionViewController {
   func loadData() {
     showHUDInView(view, withLoading: "")
     //TODO: shopid，locids均为测试ID，实际需要从api获
-    HttpService.getNearbyCustomers(shopid:"9002", locids: "1000") {[weak self] (users, error) -> () in
+    guard let shopid = TokenPayload.sharedInstance.shopid else {return}
+    HttpService.getNearbyCustomers(shopid:shopid, locids: "1000") {[weak self] (users, error) -> () in
       guard let strongSelf = self else { return }
+      strongSelf.hideHUD()
       if let error = error {
         if let msg = error.userInfo["resDesc"] as? String {
           strongSelf.showHint(msg)
+          
         } else {
           strongSelf.showHint("数据请求错误:\(error.code)")
         }
@@ -63,8 +66,9 @@ class CheckoutCounterVC: UICollectionViewController {
       } else {
         strongSelf.showHint("未找到用户,您可以通过手机号进行用户查找")
       }
-      strongSelf.hideHUD()
+      
     }
+    
   }
   
   private func addBarButtons() {

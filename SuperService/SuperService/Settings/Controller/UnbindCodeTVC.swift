@@ -177,7 +177,9 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
             }
             for userData in data {
               let user = CodeModel(json: userData)
-              self.codeArray.append(user.salecode!)
+              if let salescode = user.salecode {
+              self.codeArray.append(salescode)
+             }
             }
             self.tableView.reloadData()
             self.page++

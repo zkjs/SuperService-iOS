@@ -34,6 +34,7 @@ class ArrivalTVC: UITableViewController {
   }
   
   override func viewWillAppear(animated: Bool) {
+   
     super.viewWillAppear(animated)
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil

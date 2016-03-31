@@ -49,4 +49,15 @@ class StorageManager: NSObject {
     return noticeArray
   }
   
+  func clearNoticeArray() {
+    let path = documentDirectory().stringByAppendingPathComponent("array.archive")
+    if !path.isEmpty {
+      let mgr = NSFileManager.defaultManager()
+      try! mgr.removeItemAtPath(path)
+    }
+   
+  }
+  
+  
+  
 }

@@ -19,6 +19,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var selectedArray = [Int]()
   var areaArr = [String]()
   var dismissWhenFinished = false
+  
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
@@ -40,6 +41,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   }
   
   func GetWholeAreaOfTheList() {
+    self.noticeArray.removeAll()
     if let arr = StorageManager.sharedInstance().noticeArray() {
        self.noticeArray = arr
     }
@@ -48,13 +50,11 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
       } else {
         if let jsonArr = json!["data"].array {
+          self.areaArray.removeAll()
           for dict in jsonArr {
             let area = AreaModel(dic: dict)
             self.areaArray.append(area)
-            if  dict["subscribed"] == 1 {
-               self.noticeArray.append(area.locid!)
-            }
-          }
+        }
           self.initSelectedArray()  // Model
           self.tableView.reloadData()  // UI
         }
@@ -128,21 +128,36 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   func updateSelectedArrayWithCell(cell: InformCell) {
     let area = areaArray[cell.selectedButton.tag]
+    
     if cell.isUncheck == false {
       self.selectedArray.append(cell.selectedButton.tag)
       noticeArray.append(area.locid!)
+     
+
     } else {
       if let index = selectedArray.indexOf(cell.selectedButton.tag) {
         selectedArray.removeAtIndex(index)
         for (index, value) in noticeArray.enumerate() {
-          print("Found \(value) at position \(index)")
+          if noticeArray.count == 1 {
+            noticeArray.removeAtIndex(0)
+            return
+          }
           if case area.locid! = value {
             noticeArray.removeAtIndex(index)
+            print(noticeArray)
+            print("Found \(value) at position \(index)")
+//            if let topic:String = "\(shopid)_BLE_\(value)" {
+//              YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
+//                print(succ)
+//              })
+//            }
           }
+         
         }
       }
     }
-    StorageManager.sharedInstance().saveLocids(noticeArray)
+  
+    
   }
   
   func nextStep() {
@@ -151,9 +166,31 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
       str = area.locid
       areaArr.append(str)
     }
+    guard let shopid = TokenPayload.sharedInstance.shopid else {return} 
+    StorageManager.sharedInstance().saveLocids(areaArr)
+    for area in areaArray {//先把列表这些区域的全部取消订阅一次（这里这样做是因为跟上次的区域比较不好处理未选择的区域）
+    if let topic:String = "\(shopid)_BLE_\(area.locid!)" {
+      YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
+        print(succ)
+      })
+     }
+    }
+    print(areaArr)
+    for locid in areaArr {//订阅新选择的区域
+      if let topic:String = "\(shopid)_BLE_\(locid)" {
+        YunBaService.subscribe(topic, resultBlock: { (succ, error) -> Void in
+          if succ {
+            print("\(shopid)_BLE_\(self.str)")
+          } else {
+            print(error)
+          }
+        })
+      }
+    }
     locID = areaArr.joinWithSeparator(",")
-    print("locID: \(locID)")
+    
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
+    
     let vc = self.navigationController?.viewControllers[0] as! SettingsVC
     let appWindow = UIApplication.sharedApplication().keyWindow
     let mainTBC = MainTBC()
@@ -161,7 +198,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     appWindow?.rootViewController = mainTBC
     self.navigationController?.popToViewController(vc, animated: false)
     
-//    self.navigationController?.popToRootViewControllerAnimated(false)
   
   }
   

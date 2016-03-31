@@ -13,7 +13,7 @@ class CodeModel: NSObject {
   var salecode:String?
   
   init(json:JSON) {
-        salecode = json["saleCode"].string
+        salecode = json["salecode"].string
   }
 
 }

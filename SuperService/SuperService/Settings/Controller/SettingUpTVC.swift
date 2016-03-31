@@ -19,8 +19,6 @@ class SettingUpTVC: UITableViewController {
     super.viewDidLoad()
     title = "设置"
    
-    telphoneLabel.text = AccountInfoManager.sharedInstance.phone
-    organizationLabel.text = AccountInfoManager.sharedInstance.fullname
     
   }
   
@@ -61,19 +59,17 @@ class SettingUpTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
-    if indexPath == NSIndexPath(forRow: 2, inSection: 0) {
+    if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
-    if indexPath == NSIndexPath(forRow: 3, inSection: 0) {
+    if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
       let vc = CodeVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
   }
   
   func selectedIamge(sender:UIButton) {
-//    let vc = SetUpVC()
-//    navigationController?.pushViewController(vc, animated: true)
     showPhotoPicker()
   }
   

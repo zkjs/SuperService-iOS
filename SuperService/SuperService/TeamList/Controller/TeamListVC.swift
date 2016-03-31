@@ -16,7 +16,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   var sections = [[AnyObject]]()
   var teamArray = [TeamModel]() {
     didSet {
-      let selector: Selector = "username"
+      let selector: Selector = "roledesc"
       sections = Array(count: collation.sectionTitles.count, repeatedValue: [])
       let sortedObjects = collation.sortedArrayFromArray(teamArray, collationStringSelector: selector)
       for object in sortedObjects {
@@ -26,6 +26,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
       tableView.reloadData()
     }
   }
+  var titleArr = [String]()
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("TeamListVC", owner:self, options:nil)
@@ -75,19 +76,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
       self.tableView.mj_header.endRefreshing()
 
     }
-//    ZKJSHTTPSessionManager.sharedInstance().getTeamListWithSuccess({ (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//      if let array = responseObject as? NSArray {
-//        var datasource = [TeamModel]()
-//        for dic in array {
-//          let team = TeamModel(dic: dic as! [String:AnyObject])
-//          datasource.append(team)  
-//        }
-//        self.teamArray = datasource
-//      }
-//      self.tableView.mj_header.endRefreshing()
-//      }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//      self.tableView.mj_header.endRefreshing()
-//    }
   }
   
   // MARK: - Table View Data Source
@@ -123,7 +111,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     if (sections[section].count == 0){
       return nil
     }
-    return collation.sectionTitles[section]
+    return collation.sectionIndexTitles[section]
   }
   
   func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
@@ -141,24 +129,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   
-//  //MARK - SWTabelViewDelagate
-//  func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
-//    switch index {
-//    case 0:
-//      let indexPath = tableView.indexPathForCell(cell)!
-//      let team = teamArray[indexPath.row]
-//      
-//      teamArray.removeAtIndex(indexPath.row)
-//      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//      ZKJSHTTPSessionManager.sharedInstance().deleteMemberWithDeleteList(team.salesid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//        
-//        }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//          
-//      })
-//    default:
-//      break
-//    }
-//  }
   
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
     return collation.sectionForSectionIndexTitleAtIndex(index)

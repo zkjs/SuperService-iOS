@@ -34,13 +34,14 @@ class ArrivalTVC: UITableViewController {
   }
   
   override func viewWillAppear(animated: Bool) {
+   
     super.viewWillAppear(animated)
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
     page = 0
     loadData(page)
-    addBarButtons()
+    addBarButtons()           
   }
 
   private func addBarButtons() {
@@ -144,9 +145,9 @@ class ArrivalTVC: UITableViewController {
     } else {
       cell.topLineImageView.hidden = false
     }
-    cell.chatButton.addTarget(self, action: "chat:", forControlEvents: .TouchUpInside)
+//    cell.chatButton.addTarget(self, action: "chat:", forControlEvents: .TouchUpInside)
     cell.orderButton.addTarget(self, action: "showOrder:", forControlEvents: .TouchUpInside)
-    cell.chatButton.tag = indexPath.section
+//    cell.chatButton.tag = indexPath.section
     let data = dataArray[indexPath.section]
     cell.setData(data)
     return cell

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -95,7 +95,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vQ-XI-Jfs">
-                                <rect key="frame" x="0.0" y="102" width="147" height="48"/>
+                                <rect key="frame" x="0.0" y="102" width="293" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="4Rx-ed-A7K"/>
                                 </constraints>
@@ -107,32 +107,11 @@
                                     <action selector="makePhoneCall:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1gd-Hj-dLG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5P-9G-0Sq">
-                                <rect key="frame" x="147" y="102" width="146" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="OSB-fN-WeF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="   聊天" image="ic_xiaoxi_blue">
-                                    <color key="titleColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAb-xX-b6X">
                                 <rect key="frame" x="0.0" y="94" width="293" height="1"/>
                                 <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="qNP-YS-5Sr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6c-KN-fG5">
-                                <rect key="frame" x="146" y="94" width="1" height="56"/>
-                                <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1" id="LCd-wK-29o"/>
-                                    <constraint firstAttribute="height" constant="56" id="tTZ-Qz-eUq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,12 +128,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MMY-T1-ezj" firstAttribute="leading" secondItem="w5P-9G-0Sq" secondAttribute="trailing" id="27s-c6-NR7"/>
                             <constraint firstAttribute="bottom" secondItem="MMY-T1-ezj" secondAttribute="bottom" id="4jj-5h-kTB"/>
                             <constraint firstItem="jaN-Sl-nvp" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="27" id="6gz-Ew-EXH"/>
-                            <constraint firstAttribute="bottom" secondItem="v6c-KN-fG5" secondAttribute="bottom" id="7xc-Dq-Pex"/>
                             <constraint firstItem="a1K-ZS-2cb" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="8" id="8fT-xd-ifO"/>
-                            <constraint firstItem="w5P-9G-0Sq" firstAttribute="width" secondItem="hZP-Nl-nz1" secondAttribute="width" multiplier="0.5" id="Iwj-3r-AWf"/>
                             <constraint firstItem="6vQ-XI-Jfs" firstAttribute="leading" secondItem="hZP-Nl-nz1" secondAttribute="leading" id="Lsy-iT-Z92"/>
                             <constraint firstItem="EeG-bp-zZn" firstAttribute="leading" secondItem="PSV-qv-urQ" secondAttribute="trailing" constant="8" id="MRw-Zx-gcK"/>
                             <constraint firstItem="UAb-xX-b6X" firstAttribute="top" secondItem="EeG-bp-zZn" secondAttribute="bottom" constant="48" id="N8f-Dc-s9g"/>
@@ -164,16 +140,20 @@
                             <constraint firstItem="uII-aj-A9K" firstAttribute="leading" secondItem="PSV-qv-urQ" secondAttribute="trailing" constant="8" id="aQ6-eu-2Uf"/>
                             <constraint firstItem="UAb-xX-b6X" firstAttribute="leading" secondItem="hZP-Nl-nz1" secondAttribute="leading" id="cHH-hX-rPu"/>
                             <constraint firstItem="6vQ-XI-Jfs" firstAttribute="width" secondItem="hZP-Nl-nz1" secondAttribute="width" multiplier="0.5" id="cuT-0J-0OR"/>
-                            <constraint firstAttribute="bottom" secondItem="w5P-9G-0Sq" secondAttribute="bottom" id="dRo-oa-GIW"/>
-                            <constraint firstItem="v6c-KN-fG5" firstAttribute="centerX" secondItem="hZP-Nl-nz1" secondAttribute="centerX" id="eKL-Kz-8Ek"/>
                             <constraint firstAttribute="bottom" secondItem="6vQ-XI-Jfs" secondAttribute="bottom" id="hfm-At-JB2"/>
                             <constraint firstAttribute="trailing" secondItem="jaN-Sl-nvp" secondAttribute="trailing" id="nvk-qO-Zz9"/>
                             <constraint firstItem="EeG-bp-zZn" firstAttribute="top" secondItem="uII-aj-A9K" secondAttribute="bottom" constant="4" id="oBc-oh-Ibo"/>
                             <constraint firstItem="uII-aj-A9K" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="8" id="qbL-W7-be6"/>
                             <constraint firstAttribute="trailing" secondItem="UAb-xX-b6X" secondAttribute="trailing" id="s7b-G9-WNT"/>
                             <constraint firstAttribute="trailing" secondItem="a1K-ZS-2cb" secondAttribute="trailing" constant="10" id="tji-ZQ-Uk4"/>
+                            <constraint firstItem="6vQ-XI-Jfs" firstAttribute="width" secondItem="UAb-xX-b6X" secondAttribute="width" id="u0e-Ec-dJV"/>
                             <constraint firstItem="PSV-qv-urQ" firstAttribute="leading" secondItem="hZP-Nl-nz1" secondAttribute="leading" constant="8" id="umJ-y0-wke"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cuT-0J-0OR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cue-tX-dOZ" userLabel="Order Button">
                         <rect key="frame" x="86" y="66" width="168" height="33"/>
@@ -217,7 +197,6 @@
                 <outlet property="PhoneCall" destination="6vQ-XI-Jfs" id="vJZ-nD-paS"/>
                 <outlet property="arrowButton" destination="jaN-Sl-nvp" id="GkU-OM-DSI"/>
                 <outlet property="avatarImageView" destination="PSV-qv-urQ" id="Dnu-cR-QYH"/>
-                <outlet property="chatButton" destination="w5P-9G-0Sq" id="7ws-k7-vln"/>
                 <outlet property="clientInfoLabel" destination="uII-aj-A9K" id="gi5-g3-LIn"/>
                 <outlet property="locationLabel" destination="EeG-bp-zZn" id="PWk-c5-MIS"/>
                 <outlet property="orderButton" destination="Cue-tX-dOZ" id="KAP-rT-oNm"/>
@@ -232,7 +211,6 @@
         <image name="default_logo" width="77" height="64"/>
         <image name="ic_phone_blue" width="11" height="11"/>
         <image name="ic_right_blue" width="9" height="16"/>
-        <image name="ic_xiaoxi_blue" width="12" height="11"/>
         <image name="ic_zhuanfa" width="15" height="13"/>
     </resources>
 </document>

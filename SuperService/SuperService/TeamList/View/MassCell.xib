@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -49,7 +49,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRU-Mg-Bie">
-                        <rect key="frame" x="93" y="40" width="237" height="36"/>
+                        <rect key="frame" x="93" y="40" width="237" height="46"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -61,7 +61,7 @@
                     <constraint firstItem="9Es-ch-1qv" firstAttribute="leading" secondItem="mes-Vd-h5J" secondAttribute="trailing" constant="8" id="Iuy-kP-CqR"/>
                     <constraint firstAttribute="trailing" secondItem="mRU-Mg-Bie" secondAttribute="trailing" constant="100" id="RfR-lo-6jM"/>
                     <constraint firstAttribute="trailing" secondItem="9Es-ch-1qv" secondAttribute="trailing" constant="8" id="eKn-Vu-d39"/>
-                    <constraint firstAttribute="bottom" secondItem="mRU-Mg-Bie" secondAttribute="bottom" constant="30" id="gmc-jb-nsS"/>
+                    <constraint firstAttribute="bottom" secondItem="mRU-Mg-Bie" secondAttribute="bottom" constant="20" id="gmc-jb-nsS"/>
                     <constraint firstItem="9Es-ch-1qv" firstAttribute="top" secondItem="2Jo-WY-Cb5" secondAttribute="topMargin" constant="30" id="guS-cE-ni6"/>
                     <constraint firstItem="mes-Vd-h5J" firstAttribute="top" secondItem="2Jo-WY-Cb5" secondAttribute="topMargin" constant="8" id="lQp-I5-cGH"/>
                     <constraint firstItem="OLt-Ma-rl3" firstAttribute="top" secondItem="2Jo-WY-Cb5" secondAttribute="topMargin" id="nFY-Vn-tyV"/>

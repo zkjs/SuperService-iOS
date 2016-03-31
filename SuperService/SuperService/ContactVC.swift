@@ -50,15 +50,10 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   // MARK: - Public
   
   func AddMember() {
-    if #available(iOS 9.0, *) {
       let vc = AddMemberVC()
       vc.delegate = self
       vc.hidesBottomBarWhenPushed = true
       navigationController?.pushViewController(vc, animated: true)
-    } else {
-        // Fallback on earlier versions
-    }
-    
   }
   
   // MARK: - XLPagerTabStripViewControllerDataSource

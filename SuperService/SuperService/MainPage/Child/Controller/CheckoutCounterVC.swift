@@ -48,11 +48,14 @@ class CheckoutCounterVC: UICollectionViewController {
   func loadData() {
     showHUDInView(view, withLoading: "")
     //TODO: shopid，locids均为测试ID，实际需要从api获
-    HttpService.getNearbyCustomers(shopid:"9002", locids: "1000") {[weak self] (users, error) -> () in
+    guard let shopid = TokenPayload.sharedInstance.shopid else {return}
+    HttpService.getNearbyCustomers(shopid:shopid, locids: "1000") {[weak self] (users, error) -> () in
       guard let strongSelf = self else { return }
+      
       if let error = error {
         if let msg = error.userInfo["resDesc"] as? String {
           strongSelf.showHint(msg)
+          
         } else {
           strongSelf.showHint("数据请求错误:\(error.code)")
         }
@@ -65,6 +68,8 @@ class CheckoutCounterVC: UICollectionViewController {
       }
       strongSelf.hideHUD()
     }
+    
+    
   }
   
   private func addBarButtons() {
@@ -113,12 +118,14 @@ class CheckoutCounterVC: UICollectionViewController {
     if (kind == UICollectionElementKindSectionHeader) {
       let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader , withReuseIdentifier: headID, forIndexPath:NSIndexPath(index: 0)) as! PayheadReusableView
         view.customClosure = { [unowned self](phone) ->Void in
-        self.searchByphonenumber(phone)
+          self.searchByphonenumber(phone)
       }
       return view
     }
       return reusableview
   }
+  
+  
   
   func searchByphonenumber(phone:String) {
     HttpService.searchUserByPhone(phone) { (json, error) -> Void in

@@ -97,6 +97,14 @@ struct HttpService {
     
     request(method, urlString, parameters: parameters, encoding: method == .GET ? .URLEncodedInURL : .JSON, headers: headers).response { (req, res, data, error) -> Void in
       print("statusCode:\(res?.statusCode)")
+      guard let statusCode = res?.statusCode else{
+        let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+          code: 0,
+          userInfo: ["res":"0","resDesc":"未知网络错误:)"])
+        completionHandler(nil,e)
+        return
+      }
+      
       if let error = error {
         print("api request fail:\(error)")
         completionHandler(nil,error)

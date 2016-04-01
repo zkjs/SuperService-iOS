@@ -44,6 +44,8 @@ extension HttpService {
           }
           print(users.count)
           completionHandler(users,nil)
+        } else {
+          completionHandler([],nil)
         }
       }
     }

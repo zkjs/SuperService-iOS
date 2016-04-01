@@ -114,9 +114,6 @@
                         <constraint firstAttribute="height" constant="45" id="YWJ-Vc-LTz"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <connections>
-                        <action selector="choiceDepartmentButton:" destination="-1" eventType="touchUpInside" id="Ery-mf-n2d"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-MH-Emv">
                     <rect key="frame" x="200" y="542" width="200" height="48"/>

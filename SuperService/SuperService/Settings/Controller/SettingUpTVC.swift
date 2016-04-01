@@ -63,10 +63,10 @@ class SettingUpTVC: UITableViewController {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
-    if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
-      let vc = CodeVC()
-      self.navigationController?.pushViewController(vc, animated: true)
-    }
+//    if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
+//      let vc = CodeVC()
+//      self.navigationController?.pushViewController(vc, animated: true)
+//    }
   }
   
   func selectedIamge(sender:UIButton) {

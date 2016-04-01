@@ -364,6 +364,18 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cVj-nH-enV">
+                                                    <rect key="frame" x="8" y="8" width="12" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="DM5-bK-RF4"/>
+                                                        <constraint firstAttribute="width" constant="12" id="bOw-Sz-HgH"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -374,10 +386,12 @@
                                                 <constraint firstItem="nVi-oc-dQN" firstAttribute="top" secondItem="5Tl-kx-cCF" secondAttribute="bottom" constant="13" id="IWz-Ao-lEx"/>
                                                 <constraint firstItem="H9x-Gd-68X" firstAttribute="leading" secondItem="mdZ-tG-CyK" secondAttribute="leading" constant="28" id="VWf-oO-b4e"/>
                                                 <constraint firstAttribute="bottom" secondItem="6GT-vX-G98" secondAttribute="bottom" constant="20" id="agw-XA-UCX"/>
+                                                <constraint firstItem="cVj-nH-enV" firstAttribute="top" secondItem="mdZ-tG-CyK" secondAttribute="top" constant="8" id="fCc-uW-tUK"/>
                                                 <constraint firstItem="H9x-Gd-68X" firstAttribute="centerY" secondItem="mdZ-tG-CyK" secondAttribute="centerY" id="np0-cb-fZi"/>
                                                 <constraint firstAttribute="trailing" secondItem="6GT-vX-G98" secondAttribute="trailing" constant="80" id="p9y-g3-tL8"/>
                                                 <constraint firstItem="f14-yu-9dn" firstAttribute="top" secondItem="5Tl-kx-cCF" secondAttribute="top" id="rHO-EJ-6dG"/>
                                                 <constraint firstItem="jGG-Rn-Trr" firstAttribute="bottom" secondItem="nVi-oc-dQN" secondAttribute="bottom" id="sUF-zS-2aE"/>
+                                                <constraint firstItem="cVj-nH-enV" firstAttribute="leading" secondItem="mdZ-tG-CyK" secondAttribute="leading" constant="8" id="wpv-Y6-nVp"/>
                                                 <constraint firstItem="nVi-oc-dQN" firstAttribute="leading" secondItem="5Tl-kx-cCF" secondAttribute="leading" id="z4q-x2-4Dl"/>
                                                 <constraint firstItem="5Tl-kx-cCF" firstAttribute="top" secondItem="H9x-Gd-68X" secondAttribute="top" id="zby-rU-ruJ"/>
                                             </constraints>
@@ -399,6 +413,7 @@
                                 <connections>
                                     <outlet property="amountLabel" destination="f14-yu-9dn" id="TFa-tb-Fqn"/>
                                     <outlet property="avatarsImageView" destination="H9x-Gd-68X" id="pAU-iO-MMX"/>
+                                    <outlet property="customImage" destination="cVj-nH-enV" id="43I-uG-QgS"/>
                                     <outlet property="statusLabel" destination="jGG-Rn-Trr" id="FSU-AZ-QWv"/>
                                     <outlet property="timeLabel" destination="nVi-oc-dQN" id="ez4-Kc-sj3"/>
                                     <outlet property="usernameLabel" destination="5Tl-kx-cCF" id="fye-pQ-FbA"/>

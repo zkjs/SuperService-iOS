@@ -16,6 +16,8 @@ class PaymentListCell: UITableViewCell {
   @IBOutlet weak var amountLabel: UILabel!
   @IBOutlet weak var statusLabel: UILabel!
   
+  @IBOutlet weak var customImage: UIImageView!
+
   func configCell(item:PaymentListItem) {
     usernameLabel.text = item.custom.username
     avatarsImageView.sd_setImageWithURL(NSURL(string: item.custom.userimage), placeholderImage: UIImage(named: "avatars_default_white"))
@@ -29,12 +31,15 @@ class PaymentListCell: UITableViewCell {
     statusLabel.text = item.statusdesc
     if item.status == 2 {
       statusLabel.textColor = UIColor.hx_colorWithHexString("#03A9F4")
+      customImage.backgroundColor = UIColor.hx_colorWithHexString("#03A9F4")
     }
     if item.status == 1 {
       statusLabel.textColor = UIColor.hx_colorWithHexString("#F06951")
+      customImage.backgroundColor = UIColor.hx_colorWithHexString("#F06951")
     }
     if item.status == 0 {
       statusLabel.textColor = UIColor.hx_colorWithHexString("#FFC56E")
+      customImage.backgroundColor = UIColor.hx_colorWithHexString("#FFC56E")
     }
 
 

@@ -66,7 +66,9 @@ class CheckoutCounterVC: UICollectionViewController {
       } else {
         strongSelf.showHint("未找到用户,您可以通过手机号进行用户查找")
       }
+      
     }
+    
     
   }
   

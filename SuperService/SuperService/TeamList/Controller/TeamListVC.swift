@@ -6,7 +6,7 @@
 //  Copyright © 2015 ZKJS. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/*SWTableViewCellDelegate,*/ XLPagerTabStripChildItem {
   
@@ -111,7 +111,15 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     if (sections[section].count == 0){
       return nil
     }
-    return collation.sectionIndexTitles[section]
+    let selector: Selector = "roledesc"
+    let sortedObjects = collation.sortedArrayFromArray(teamArray, collationStringSelector: selector)
+    if section < sortedObjects.count - 1 {
+      let model = sortedObjects[section] as! TeamModel 
+      return model.roledesc
+    } else {
+      return nil
+    }
+    
   }
   
   func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
@@ -119,7 +127,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
       return nil
     }
     var titleArray = [String]()
-    for (var i = 0 ; i < collation.sectionTitles.count; i++) {
+    for (var i = 0 ; i < collation.sectionTitles.count-1; i++) {
       if (sections[i].count != 0){
         titleArray.append(collation.sectionTitles[i])
        }

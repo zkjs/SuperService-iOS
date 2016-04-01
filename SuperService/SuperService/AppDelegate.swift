@@ -303,8 +303,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   }
   
   func setupYunBa() {
-    let appKey = "566563014407a3cd028aa72f"
-    YunBaService.setupWithAppkey(appKey)
+    YunBaService.setupWithAppkey(ZKJSConfig.sharedInstance.YunBaAppKey)
 
   }
   

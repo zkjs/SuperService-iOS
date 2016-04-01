@@ -18,6 +18,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   var delegate: RefreshTeamListVCDelegate?
   var isUncheck = false
   var deptid = ""
+  var massDicArray = [[String:String]]()//批量选择联系人的手机和名字的数组集合
 
   
   @IBOutlet weak var departmentLabel: UILabel!
@@ -45,7 +46,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     remarkTextView.layer.cornerRadius = 3
     
     let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "Addteams")
+      target: self, action: "Addteams:")
     navigationItem.rightBarButtonItem = addMemberButton
     
   }
@@ -57,38 +58,52 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   @IBAction func choiceDepartmentButton(sender: AnyObject) {
     let vc = MemberListVC()
+    view.endEditing(true)
     vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
   }
   
   @IBAction func sureButton(sender: AnyObject) {
-    let dictionary: [String: AnyObject] = [
-      "name":usernameTextField.text!,
+    let dictionary: [String: String] = [
+      "username":usernameTextField.text!,
       "phone":photoTextField.text!,
-      "roleid":"0",  // 员工
-//      "email": "",
-      "deptid": deptid,
-      "desc":remarkTextView.text
     ]
     if photoTextField.text == ""  || usernameTextField.text == "" {
       self.showHint("请填写完整信息")
       return
     }
-    let userData = [dictionary]
-    do {
-      let data = try NSJSONSerialization.dataWithJSONObject(userData, options: NSJSONWritingOptions.PrettyPrinted)
-      let strJson = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
-      print(strJson)
-      ZKJSHTTPSessionManager.sharedInstance().addMemberWithUserData(strJson, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-        self.delegate?.RefreshTeamListTableView()
-        self.navigationController?.popViewControllerAnimated(true)
-        self.showHint("添加成员成功")
-        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
+    massDicArray.append(dictionary)
+    let userData = ["users":massDicArray]
+    HttpService.AddMember(userData) { (json, error) -> () in
+      if let _ = error {
+        self.showHint("添加失败")
+      } else {
+        if let json = json {
+          if let res = json["res"].int {
+            if res == 0 {
+              self.showHint("添加成功")
+              self.navigationController?.popToRootViewControllerAnimated(true)
+            } else {
+              self.showHint("\(json["resDesc"].string)")
+            }
+          }
+        }
       }
-    } catch let error as NSError {
-      print(error)
     }
+//    do {
+//      let data = try NSJSONSerialization.dataWithJSONObject(userData, options: NSJSONWritingOptions.PrettyPrinted)
+//      let strJson = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+//      print(strJson)
+//      ZKJSHTTPSessionManager.sharedInstance().addMemberWithUserData(strJson, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+//        self.delegate?.RefreshTeamListTableView()
+//        self.navigationController?.popViewControllerAnimated(true)
+//        self.showHint("添加成员成功")
+//        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+//          
+//      }
+//    } catch let error as NSError {
+//      print(error)
+//    }
     
 
   }
@@ -158,6 +173,9 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
 extension AddMemberVC: UITextViewDelegate {
   
   func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    if textView.text == "如有备注，在此说明" {
+      textView.text = ""
+    }
     var frame = view.frame
     frame.origin.y -= 100
     UIView.animateWithDuration(0.4) { () -> Void in
@@ -167,6 +185,9 @@ extension AddMemberVC: UITextViewDelegate {
   }
   
   func textViewShouldEndEditing(textView: UITextView) -> Bool {
+    if textView.text == "" {
+      textView.text = "如有备注，在此说明"
+    }
     var frame = view.frame
     frame.origin.y += 100
     UIView.animateWithDuration(0.4) { () -> Void in

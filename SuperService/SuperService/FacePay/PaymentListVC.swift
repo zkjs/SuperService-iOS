@@ -23,7 +23,7 @@ class PaymentListVC: UITableViewController {
   
   private func loadData() {
     if currentPage == 0 {
-      showHUDInView(view, withLoading: "")
+      self.showHUDInView(view, withLoading: "")
     }
     print("page:\(currentPage)")
     HttpService.getPaymentList(currentPage, pageSize: pageSize, status: nil) {[weak self] (list, error) -> Void in

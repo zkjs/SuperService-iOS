@@ -100,6 +100,8 @@ extension HttpService {
           }
           print(results.count)
           completionHandler(results,nil)
+        } else {
+          completionHandler([],nil)
         }
       }
     }

@@ -171,7 +171,12 @@ class CheckoutCounterVC: UICollectionViewController {
                   let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
                   let vc = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
                   vc.orderNo = orderno
-                  self.navigationController?.pushViewController(vc, animated: true)
+                  if orderno.isEmpty {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                  } else {
+                    self.navigationController?.pushViewController(vc, animated: false)
+                  }
+                  
                 }
             }
 

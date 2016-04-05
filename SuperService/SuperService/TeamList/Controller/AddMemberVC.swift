@@ -21,7 +21,6 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   var massDicArray = [[String:String]]()//批量选择联系人的手机和名字的数组集合
 
   
-  @IBOutlet weak var departmentLabel: UILabel!
   @IBOutlet weak var remarkTextView: UITextView!
   @IBOutlet weak var photoTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
@@ -34,11 +33,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     super.viewDidLoad()
     
     title = "新建成员"
-    
-    departmentLabel.layer.borderColor = UIColor(white: 204.0/255.0, alpha: 1.0).CGColor
-    departmentLabel.layer.borderWidth = 0.5
-    departmentLabel.layer.masksToBounds = true
-    departmentLabel.layer.cornerRadius = 3
+  
     
     remarkTextView.layer.borderColor = UIColor(white: 204.0/255.0, alpha: 1.0).CGColor
     remarkTextView.layer.borderWidth = 0.5

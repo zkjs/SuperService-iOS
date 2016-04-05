@@ -102,7 +102,6 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let member = memberListArray[indexPath.row]
     if #available(iOS 9.0, *) {
         let vc = navigationController?.viewControllers[1] as! AddMemberVC
-      vc.departmentLabel.text = member.dept_name
       vc.deptid = member.deptid!
       navigationController?.popToViewController(vc, animated: true)
     } else {

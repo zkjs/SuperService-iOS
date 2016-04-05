@@ -34,7 +34,7 @@ class ArrivalTVC: UITableViewController {
   }
   
   override func viewWillAppear(animated: Bool) {
-   
+
     super.viewWillAppear(animated)
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
@@ -43,6 +43,7 @@ class ArrivalTVC: UITableViewController {
     loadData(page)
     addBarButtons()           
   }
+  
 
   private func addBarButtons() {
     let buttonCounter = UIBarButtonItem(image: UIImage(named: "ic_till"),

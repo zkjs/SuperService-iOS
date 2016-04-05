@@ -31,22 +31,17 @@ class PaymentResultVC: UIViewController {
   override func viewDidLoad() {
     self.title = "收款结果"
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPayResult:", name:kRefreshPayResultVCNotification, object: nil)
     
     let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: "goBackToCounterVC")
     self.navigationItem.leftBarButtonItem = backButton
-  }
+    
+    }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
     self.updateView()
-//    if type == .PaymentList {
-//      
-//    } else {
-//      setupView()
-//    }
-    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPayResult:", name:kRefreshPayResultVCNotification, object: nil)
     
   }
   

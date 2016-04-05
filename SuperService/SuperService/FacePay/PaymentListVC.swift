@@ -14,11 +14,17 @@ class PaymentListVC: UITableViewController {
   var currentPage = 0
   var nomoreData = false
   var payResult: FacePayResult?
+  var orderNo = ""
   override func viewDidLoad() {
     self.title = "收款记录"
     
     loadData()
     self.tableView.tableFooterView = UIView()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    
   }
   
   private func loadData() {
@@ -36,10 +42,23 @@ class PaymentListVC: UITableViewController {
           strongSelf.paymentList += list
           strongSelf.tableView.reloadData()
           strongSelf.nomoreData = list.count < strongSelf.pageSize
+          strongSelf.pushToResult()
         } else {
           strongSelf.showHint("没有收款记录")
           strongSelf.nomoreData = true
         }
+      }
+    }
+    
+    
+  }
+  
+  func pushToResult() {
+    for payment in paymentList {
+      if orderNo == payment.orderno {
+        self.payResult = FacePayResult(customer:payment.custom, amount: payment.amount/100, succ: payment.status, orderNo: payment.orderno, errorCode: 0, waiting: payment.amount > 100,confirmTime:payment.confirmtime,createTime:payment.createtime)
+        self.performSegueWithIdentifier("checkPayInfoSegue", sender:nil)
+        break
       }
     }
   }
@@ -55,7 +74,6 @@ class PaymentListVC: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("PaymentListCell", forIndexPath: indexPath) as! PaymentListCell
-    
     cell.configCell(paymentList[indexPath.section])
     
     return cell

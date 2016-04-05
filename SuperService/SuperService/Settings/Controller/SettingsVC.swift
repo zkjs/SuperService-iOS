@@ -24,7 +24,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     tableView.registerNib(nibName, forCellReuseIdentifier: SettingsCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
     tableView.scrollEnabled = false
-    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -38,8 +37,10 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
       }
     }
+    
 
   }
+  
   
   
   // MARK: - Table View Data Source

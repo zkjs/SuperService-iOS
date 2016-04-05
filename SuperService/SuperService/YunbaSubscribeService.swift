@@ -46,7 +46,6 @@ struct YunbaSubscribeService {
     
     YunBaService.getTopicList { (res, error) -> Void in
       print("========all topics")
-      print(res)
       for r in res where r is String {
         if let r = r as? String {
           YunBaService.unsubscribe(r, resultBlock: { (succ, err) -> Void in

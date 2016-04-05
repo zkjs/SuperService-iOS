@@ -12,7 +12,7 @@ import CoreData
 let kRefreshArrivalTVCNotification = "kRefreshArrivalTVCNotification"
 let kRefreshConversationListNotification = "kRefreshConversationListNotification"
 let kArrivalInfoBadge = "kArrivalInfoBadge"
-let kRefreshPayResultVCNotification = "kRefreshPayResultVCNotification"
+let kRefreshPayResultVCNotification = "KRefreshPayResultVCNotification"
 let sharedUserActivityType = "com.zkjinshi.SuperService.WatchOpenApp"
 let sharedIdentifierKey = "identifier"
 

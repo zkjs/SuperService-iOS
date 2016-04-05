@@ -7,7 +7,7 @@
 //
 
 import UIKit
-typealias SendSuccessVCDismissClosure = (Bool) ->Void
+typealias SendSuccessVCDismissClosure = (Bool,orderno:String) ->Void
 class SendSuccessVC: UIViewController {
 
   @IBOutlet weak var endSendButton: UIButton!
@@ -19,7 +19,7 @@ class SendSuccessVC: UIViewController {
         super.viewDidLoad()
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
       statusLabel.text = "等待 \(payResult.customer.username) 确认"
-
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushToPaymentResult:", name:kRefreshPayResultVCNotification, object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -27,6 +27,19 @@ class SendSuccessVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  func pushToPaymentResult(notification:NSNotification) {
+    self.dismissViewControllerAnimated(true) { () -> Void in
+      guard let userInfo = notification.userInfo,let payInfo = userInfo["payInfo"] as? FacePayPushResult  else {
+        return
+      }
+      
+//      self.payResult = FacePayResult(customer:payInfo.custom, amount: payInfo.amount/100, succ: payInfo.status, orderNo: payInfo.orderno, errorCode: 0, waiting: payInfo.amount > 100,confirmTime:nil,createTime:payInfo.createtime)
+      if let closure = self.sendSuccessClosure {
+        closure(true,orderno: payInfo.orderno)
+      }
+    }
+  }
     
   @IBAction func disMiss(sender: AnyObject) {
 
@@ -35,7 +48,7 @@ class SendSuccessVC: UIViewController {
   @IBAction func endSend(sender: AnyObject) {
     self.dismissViewControllerAnimated(true) { () -> Void in
       if let closure = self.sendSuccessClosure {
-        closure(true)
+        closure(true,orderno: "")
       }
     }
     

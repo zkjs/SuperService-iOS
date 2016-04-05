@@ -146,11 +146,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             noticeArray.removeAtIndex(index)
             print(noticeArray)
             print("Found \(value) at position \(index)")
-//            if let topic:String = "\(shopid)_BLE_\(value)" {
-//              YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
-//                print(succ)
-//              })
-//            }
+
           }
          
         }

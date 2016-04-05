@@ -166,10 +166,11 @@ class CheckoutCounterVC: UICollectionViewController {
               VC.payResult = payResult
               VC.modalPresentationStyle = .OverCurrentContext
               self.presentViewController(VC, animated: true, completion: nil)
-              VC.sendSuccessClosure = {(bool) -> Void in
+              VC.sendSuccessClosure = {(bool,orderno) -> Void in
                 if bool == true {
                   let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
                   let vc = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
+                  vc.orderNo = orderno
                   self.navigationController?.pushViewController(vc, animated: true)
                 }
             }

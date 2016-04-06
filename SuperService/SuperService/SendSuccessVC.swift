@@ -20,7 +20,7 @@ class SendSuccessVC: UIViewController {
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
       statusLabel.text = "等待 \(payResult.customer.username) 确认"
       NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushToPaymentResult:", name:kRefreshPayResultVCNotification, object: nil)
-        // Do any additional setup after loading the view.
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,14 +54,23 @@ class SendSuccessVC: UIViewController {
     
   }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  func onMessageReceived(notification: NSNotification) {
+    if let message = notification.object as? YBMessage {
+      let payloadString = String(data: message.data, encoding: NSUTF8StringEncoding)
+      print("[message] \(message.topic) => \(payloadString)")
+      let json = JSON(data: message.data)
+      if json["type"].string == "PAYMENT_RESULT" {
+        let result = FacePayPushResult(json: json["data"])
+        self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
+        
+        
+        self.dismissViewControllerAnimated(true) { () -> Void in
+          if let closure = self.sendSuccessClosure {
+            closure(true,orderno: result.orderno)
+          }
+        }
+      }
     }
-    */
+  }
 
 }

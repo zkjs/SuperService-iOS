@@ -11,7 +11,7 @@ import Foundation
 extension HttpService {
   
   //// PAVO 认证服务API : Token管理 :
-  static func refreshToken(completionHandler:HttpCompletionHandler?) {
+  func refreshToken(completionHandler:HttpCompletionHandler?) {
     let urlString = ResourcePath.Token.description.fullUrl
     
     put(urlString, parameters: nil) { (json, error) -> Void in
@@ -28,7 +28,7 @@ extension HttpService {
   }
   
   //// PAVO 认证服务API : Token管理 :
-  static func deleteToken(completionHandler:HttpCompletionHandler) {
+  func deleteToken(completionHandler:HttpCompletionHandler) {
     let urlString = ResourcePath.Token.description.fullUrl
     guard   let token = TokenPayload.sharedInstance.token else {return}
     let dic = ["token":token]
@@ -38,7 +38,7 @@ extension HttpService {
   }
   
   //// PAVO 认证服务API : 验证码 : HEADER不需要Token
-  static func requestSmsCodeWithPhoneNumber(phone:String,completionHandler:(JSON?, NSError?) -> ()){
+  func requestSmsCodeWithPhoneNumber(phone:String,completionHandler:(JSON?, NSError?) -> ()){
     let urlString = ResourcePath.Code.description.fullUrl
     let key = "X2VOV0+W7szslb+@kd7d44Im&JUAWO0y"
     let data: NSData = phone.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -52,7 +52,7 @@ extension HttpService {
   
   
   //// PAVO 认证服务API : 使用手机验证码创建Token : HEADER不需要Token
-  static func loginWithPhone(code:String,phone:String,completionHandler:(JSON?,NSError?) -> ()) {
+  func loginWithPhone(code:String,phone:String,completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = ResourcePath.LoginPhone.description.fullUrl
     
     let dict = ["phone":"\(phone)","code":"\(code)"]
@@ -60,7 +60,7 @@ extension HttpService {
       if let json = json {
         guard let token = json["token"].string else {
           print("no token")
-          
+          completionHandler(nil, error)
           return
         }
         print("success token:\(token)")
@@ -82,7 +82,7 @@ extension HttpService {
   }
   
   //// PAVO 认证服务API : 使用用户名和密码 : HEADER不需要Token
-  static func loginWithUserName(username:String,password:String,completionHandler:(JSON?,NSError?) -> ()) {
+  func loginWithUserName(username:String,password:String,completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = ResourcePath.LoginUserName.description.fullUrl
     
     let dict = ["username":"\(username)","password":"\(password)"]
@@ -90,6 +90,7 @@ extension HttpService {
       if let json = json {
         guard let token = json["token"].string else {
           print("no token")
+          completionHandler(nil, error)
           return
         }
         let tokenPayload = TokenPayload.sharedInstance

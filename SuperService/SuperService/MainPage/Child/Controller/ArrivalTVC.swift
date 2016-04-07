@@ -88,7 +88,7 @@ class ArrivalTVC: UITableViewController {
   
   func loadData(page:Int) {
     print(AccountInfoManager.sharedInstance.beaconLocationIDs)
-    HttpService.arrivateList(page) { (arrivateArr, error) -> () in
+    HttpService.sharedInstance.arrivateList(page) { (arrivateArr, error) -> () in
       if let _  = error {
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()

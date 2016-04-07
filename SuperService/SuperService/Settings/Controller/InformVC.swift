@@ -45,7 +45,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     if let arr = StorageManager.sharedInstance().noticeArray() {
        self.noticeArray = arr
     }
-    HttpService.getSubscribeList { (json, error) -> Void in
+    HttpService.sharedInstance.getSubscribeList { (json, error) -> Void in
       if let _ = error {
         
       } else {

@@ -28,6 +28,9 @@ class MainTBC: UITabBarController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
 //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushTo", name:kRefreshPayResultVCNotification, object: nil)
+    
+    // 监控Token是否过期
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveInvalidToken", name: KNOTIFICATION_LOGOUTCHANGE, object: nil)
   }
   
   func pushTo() {
@@ -75,9 +78,12 @@ class MainTBC: UITabBarController {
   private func showLogin() {
     // 清理系统缓存
     AccountInfoManager.sharedInstance.clearAccountCache()
+    TokenPayload.sharedInstance.clearCacheTokenPayload()
     
     // 消除订阅云巴频道
     unregisterYunBaTopic()
+    YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
+    YunbaSubscribeService.sharedInstance.setAlias("")
     
     // 登出环信
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
@@ -149,7 +155,7 @@ class MainTBC: UITabBarController {
   }
   
   func checkVersion() {
-    HttpService.checkNewVersion { (isForceUpgrade, hasNewVersion) -> Void in
+    HttpService.sharedInstance.checkNewVersion { (isForceUpgrade, hasNewVersion) -> Void in
       if isForceUpgrade {
         // 强制更新
         let alertController = UIAlertController(title: "升级提示", message: "请您升级到最新版本，以保证软件的正常使用", preferredStyle: .Alert)

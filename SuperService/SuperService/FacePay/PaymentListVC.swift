@@ -32,11 +32,11 @@ class PaymentListVC: UITableViewController {
       self.showHUDInView(view, withLoading: "")
     }
     print("page:\(currentPage)")
-    HttpService.getPaymentList(currentPage, pageSize: pageSize, status: nil) {[weak self] (list, error) -> Void in
+    HttpService.sharedInstance.getPaymentList(currentPage, pageSize: pageSize, status: nil) {[weak self] (list, error) -> Void in
       guard let strongSelf = self else { return }
       strongSelf.hideHUD()
       if let error = error {
-        strongSelf.showHint("\(error.code)")
+        strongSelf.showErrorHint(error)
       } else {
         if let list = list where list.count > 0 {
           strongSelf.paymentList += list

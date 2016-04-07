@@ -196,7 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   }
  
   func refreshToken() {
-    HttpService.refreshToken(nil)
+    HttpService.sharedInstance.refreshToken(nil)
   }
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler 

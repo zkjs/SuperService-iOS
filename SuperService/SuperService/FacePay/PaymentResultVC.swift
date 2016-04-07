@@ -145,7 +145,7 @@ class PaymentResultVC: UIViewController {
   
   func chargeAgain() {
     self.sendAgainButton.enabled = false
-    HttpService.chargeCustomer(payResult.amount, userid: payResult.customer.userid, orderNo: payResult.orderNo) { (orderno, error) -> Void in
+    HttpService.sharedInstance.chargeCustomer(payResult.amount, userid: payResult.customer.userid, orderNo: payResult.orderNo) { (orderno, error) -> Void in
       self.sendAgainButton.enabled = true
       if let _ = orderno {
         

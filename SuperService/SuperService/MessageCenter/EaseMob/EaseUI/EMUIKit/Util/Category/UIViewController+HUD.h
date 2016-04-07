@@ -26,4 +26,10 @@
 
 - (void)showHint:(NSString *)hint;
 
+- (void)showErrorHint:(NSError *)error;
+
+- (void)showErrorHint:(NSError *)error withFontSize:(CGFloat) fontSize;
+
+- (void)showHint:(NSString *)hint withFontSize:(CGFloat) fontSize;
+
 @end

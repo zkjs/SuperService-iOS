@@ -49,22 +49,18 @@ class CheckoutCounterVC: UICollectionViewController {
     showHUDInView(view, withLoading: "")
     //TODO: shopid，locids均为测试ID，实际需要从api获
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
-    HttpService.getNearbyCustomers(shopid:shopid, locids: "1000") {[weak self] (users, error) -> () in
+    HttpService.sharedInstance.getNearbyCustomers(shopid:shopid, locids: "1000") {[weak self] (users, error) -> () in
       guard let strongSelf = self else { return }
       strongSelf.hideHUD()
       if let error = error {
-        if let msg = error.userInfo["resDesc"] as? String {
-          strongSelf.showHint(msg)
-          
-        } else {
-          strongSelf.showHint("数据请求错误:\(error.code)")
-        }
-      }
-      if let users = users where users.count > 0 {
-        strongSelf.nearbyCustomers = users
-        strongSelf.collectionView?.reloadData()
+        strongSelf.showErrorHint(error)
       } else {
-        strongSelf.showHint("未找到用户,您可以通过手机号进行用户查找")
+        if let users = users where users.count > 0 {
+          strongSelf.nearbyCustomers = users
+          strongSelf.collectionView?.reloadData()
+        } else {
+          strongSelf.showHint("未找到用户,您可以通过手机号进行用户查找")
+        }
       }
       
     }
@@ -128,13 +124,9 @@ class CheckoutCounterVC: UICollectionViewController {
   
   
   func searchByphonenumber(phone:String) {
-    HttpService.searchUserByPhone(phone) { (json, error) -> Void in
+    HttpService.sharedInstance.searchUserByPhone(phone) { (json, error) -> Void in
       if  let error = error {
-        if let msg = error.userInfo["resDesc"] as? String {
-          self.showHint(msg)
-        } else {
-          self.showHint("数据请求错误:\(error.code)")
-        }
+        self.showErrorHint(error)
       } else {
         self.nearbyCustomers.removeAll()
         if let data = json?["data"].array where data.count > 0 {

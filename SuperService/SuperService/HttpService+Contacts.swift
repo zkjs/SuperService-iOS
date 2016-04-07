@@ -26,7 +26,7 @@ extension HttpService {
   }
   
    
-  static func queryUserInfo(completionHandler:([AddClientModel]?,NSError?) -> ()) {
+  func queryUserInfo(completionHandler:([AddClientModel]?,NSError?) -> ()) {
     let urlString =  queryContactsSource.MyClients.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
@@ -45,7 +45,7 @@ extension HttpService {
     }
   }
   
-  static func queryTeamsInfo(completionHandler:([TeamModel]?,NSError?) -> ()) {
+  func queryTeamsInfo(completionHandler:([TeamModel]?,NSError?) -> ()) {
     let urlString =  queryContactsSource.MyTeam.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
@@ -63,7 +63,7 @@ extension HttpService {
     }
   }
   
-  static func AddMember(massDic:NSDictionary, completionHandler:(JSON?,NSError?) -> ()) {
+  func AddMember(massDic:NSDictionary, completionHandler:(JSON?,NSError?) -> ()) {
     let urlString =  queryContactsSource.AddMember.description.fullUrl
     post(urlString, parameters: massDic as? [String : AnyObject]) { (json, error) -> Void in
       if let error = error {

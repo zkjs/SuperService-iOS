@@ -88,7 +88,7 @@ class BindCodeTVC: UITableViewController {
 //        self.tableView.mj_header.endRefreshing()
 //    }
     
-    HttpService.getCodeList(1, page:Int(page as! NSNumber)) { (json, error) -> () in
+    HttpService.sharedInstance.getCodeList(1, page:Int(page as! NSNumber)) { (json, error) -> () in
       if let _ = error {
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()

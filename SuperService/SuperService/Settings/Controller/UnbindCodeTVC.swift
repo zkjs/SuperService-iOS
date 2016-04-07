@@ -43,7 +43,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   
   func addCode(sender:UIButton) {
     self.showHUDInView(view, withLoading: "")
-    HttpService.addSingleCode("nihao") { (json, error) -> () in
+    HttpService.sharedInstance.addSingleCode("nihao") { (json, error) -> () in
       self.hideHUD()
       if let error = error {
         if let msg = error.userInfo["resDesc"] as? String {
@@ -93,7 +93,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
     for index in 0..<shareTypes.count {
       alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         guard let salecode:String = code else { return }
-        HttpService.generateCodeLink({ (json, error) -> () in
+        HttpService.sharedInstance.generateCodeLink({ (json, error) -> () in
           if let _ = error {
             
           } else {
@@ -165,7 +165,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   }
   
   func loadData(page:AnyObject) {
-    HttpService.getCodeList(0, page:Int(page as! NSNumber)) { (json, error) -> () in
+    HttpService.sharedInstance.getCodeList(0, page:Int(page as! NSNumber)) { (json, error) -> () in
       if let _ = error {
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()

@@ -23,7 +23,7 @@ extension HttpService {
     }
 }
   
-  static func getSubscribeList(completionHandler:HttpCompletionHandler){
+  func getSubscribeList(completionHandler:HttpCompletionHandler){
     let urlString =  ResourcePathAccount.BeaconList.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {

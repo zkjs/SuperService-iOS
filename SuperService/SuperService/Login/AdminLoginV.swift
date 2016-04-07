@@ -29,12 +29,22 @@ class AdminLoginV: UIViewController {
     
     userphoneTextField.alwaysBouncePlaceholder = true
     userphoneTextField.abbreviatedPlaceholder = "用户名"
+    
+    // for test
+    YunBaService.getTopicList { (topics, err) in
+      if let topics = topics as? [String] {
+        for topic in topics {
+          print(topic)
+        }
+      }
+    }
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
   }
+  
   
   
   // MARK: - Button Action
@@ -60,7 +70,7 @@ class AdminLoginV: UIViewController {
     view.endEditing(true)
     showHUDInView(view, withLoading: "")
     
-    HttpService.loginWithUserName(phone, password: password.md5) { (json, error) -> () in
+    HttpService.sharedInstance.loginWithUserName(phone, password: password.md5) { (json, error) -> () in
       self.hideHUD()
       if let error = error {
         if let error = error.userInfo["resDesc"] as? String {
@@ -69,7 +79,7 @@ class AdminLoginV: UIViewController {
       } else {
         
         print(json)
-        HttpService.getUserInfo({ (json, error) -> Void in
+        HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
           print(json)
           if let _ = error {
             if let desc = error?.userInfo["resDesc"] as? String {

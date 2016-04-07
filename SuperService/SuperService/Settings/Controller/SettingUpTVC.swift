@@ -89,7 +89,7 @@ extension SettingUpTVC: WPMediaPickerViewControllerDelegate {
     if let set = assets.first as? ALAsset {
       let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
       let name = AccountInfoManager.sharedInstance.userName
-      HttpService.updateUserInfo(true, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
+      HttpService.sharedInstance.updateUserInfo(true, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
         if let _ = error {
           self.hideHUD()
           self.showHint("上传头像失败")

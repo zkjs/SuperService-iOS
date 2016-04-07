@@ -27,7 +27,7 @@ extension HttpService {
   }
   
   
-  static func getNearbyCustomers(shopid shopid:String,locids:String,completionHandler:([NearbyCustomer]?,NSError?) -> ()) {
+  func getNearbyCustomers(shopid shopid:String,locids:String,completionHandler:([NearbyCustomer]?,NSError?) -> ()) {
     let urlString = ResourcePathFacePay.NearbyCustomers(shopid: shopid, locids: locids).description.fullUrl
     
     let dict = ["page":"0","page_size":"40"]
@@ -51,7 +51,7 @@ extension HttpService {
     }
   }
   
-  static func chargeCustomer(amount:Double, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
+  func chargeCustomer(amount:Double, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
     let urlString =  ResourcePathFacePay.Payment.description.fullUrl
     var dict = ["amount":"\(Int(amount*100))","target":userid]
     if let orderNo = orderNo {
@@ -64,12 +64,14 @@ extension HttpService {
       } else {
         if let orderno = json?["orderno"].string {
           completionHandler(orderno,nil)
+        } else {
+          completionHandler(nil,error)
         }
       }
     }
   }
   
-  static func searchUserByPhone(phone:String,completionHandler:(JSON?,NSError?) -> Void) {
+  func searchUserByPhone(phone:String,completionHandler:(JSON?,NSError?) -> Void) {
     let urlString = (ResourcePathFacePay.SearchUserByPhone.description + "\(phone)").fullUrl
 //    let dict = ["phone":phone]
     get(urlString, parameters: nil) { (json, error) -> Void in
@@ -81,7 +83,7 @@ extension HttpService {
     }
   }
   
-  static func getPaymentList(page:Int = 0, pageSize:Int = 20, status:Int?, completionHandler:([PaymentListItem]?,NSError?) -> Void) {
+  func getPaymentList(page:Int = 0, pageSize:Int = 20, status:Int?, completionHandler:([PaymentListItem]?,NSError?) -> Void) {
     let urlString = ResourcePathFacePay.PaymentList.description.fullUrl
     var dict = ["page":"\(page)","page_size":"\(pageSize)"]
     if let status = status {

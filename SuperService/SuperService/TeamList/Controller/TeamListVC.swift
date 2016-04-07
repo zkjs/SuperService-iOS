@@ -64,7 +64,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func loadData() {
-    HttpService.queryTeamsInfo { (teams, error) -> () in
+    HttpService.sharedInstance.queryTeamsInfo { (teams, error) -> () in
       if let _ = error {
         
       } else {

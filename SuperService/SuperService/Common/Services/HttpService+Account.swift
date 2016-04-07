@@ -27,7 +27,7 @@ extension HttpService {
   }
 
   //获取登录用户的资料
-  static func getUserInfo(completionHandler:HttpCompletionHandler){
+  func getUserInfo(completionHandler:HttpCompletionHandler){
     let urlString =  ResourcePathAccount.UserInfo.description.fullUrl
     get(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
@@ -45,7 +45,7 @@ extension HttpService {
   }
   
   //////注册流程 完善资料
-  static func updateUserInfo(isRegister: Bool, realname:String?,eamil:String?,sex:String?,image:UIImage?, completionHandler:HttpCompletionHandler) {
+  func updateUserInfo(isRegister: Bool, realname:String?,eamil:String?,sex:String?,image:UIImage?, completionHandler:HttpCompletionHandler) {
     if realname == nil && sex == nil && image == nil {
       return
     }
@@ -82,8 +82,33 @@ extension HttpService {
         switch encodingResult {
         case .Success(let upload, _, _):
           upload.response(completionHandler: { (request, response, data, error) -> Void in
+            print("statusCode:\(response?.statusCode)")
+            guard let statusCode = response?.statusCode else{
+              let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+                code: 0,
+                userInfo: ["res":"0","resDesc":"未知网络错误:)"])
+              completionHandler(nil,e)
+              return
+            }
+            if statusCode == 401 {//token过期
+              // 由于异步请求，其他请求在token刷新后立即到达server会被判定失效，导致用户被登出
+              if NSDate().timeIntervalSince1970 > self.refreshTokenTime + 100 {
+                print("invalid token:\(request)")
+                TokenPayload.sharedInstance.clearCacheTokenPayload()
+                NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGOUTCHANGE, object: nil)
+                return
+              }
+            } else if statusCode != 200 {
+              let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+                code: statusCode,
+                userInfo: ["res":"\(statusCode)","resDesc":"网络错误:\(statusCode)"])
+              completionHandler(nil,e)
+              return
+            }
+            
             if let error = error {
-              print(error)
+              print("api request fail [res code:,\(response?.statusCode)]:\(error)")
+              completionHandler(nil,error)
             } else {
               print(self.jsonFromData(data))
               if let data = data {
@@ -106,7 +131,7 @@ extension HttpService {
                   completionHandler(json,e)
                   print("error with reason: \(json["resDesc"].string)")
                   if let key = json["res"].int {
-                    ZKJSTool.showMsg("\(key)")
+                    //ZKJSTool.showMsg("\(key)")
                   }
                 }
               }
@@ -114,13 +139,17 @@ extension HttpService {
           })
           
         case .Failure(let encodingError):
+          let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+            code: 0,
+            userInfo: ["res":"0","resDesc":"上传数据失败:)"])
+          completionHandler(nil,e)
           print(encodingError)
         }
     })
     
   }
   
-  static func arrivateList(page:Int,completionHandler:([ArrivateModel]?,NSError?) -> ()) {
+  func arrivateList(page:Int,completionHandler:([ArrivateModel]?,NSError?) -> ()) {
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
     guard let locids :String = AccountInfoManager.sharedInstance.beaconLocationIDs else {return}
     let urlString =  ResourcePathAccount.ArrivateData.description.fullUrl + "/\(shopid)/\(locids)"

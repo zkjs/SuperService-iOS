@@ -108,7 +108,7 @@ class ClientListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   }
   
   func loadData() {
-    HttpService.queryUserInfo{ (clients, error) -> () in
+    HttpService.sharedInstance.queryUserInfo{ (clients, error) -> () in
       if let _ = error {
         
       } else {

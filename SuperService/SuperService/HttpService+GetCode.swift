@@ -28,7 +28,7 @@ extension HttpService {
  }
   
   /////单个添加邀请码
-  static func addSingleCode(rmk:String, completionHandler:(JSON?,NSError?) -> ()) {
+  func addSingleCode(rmk:String, completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = CodeSource.AddCode.description.fullUrl
     let dic = ["rmk":rmk]
     post(urlString, parameters: dic) { (json, error) -> Void in
@@ -40,7 +40,7 @@ extension HttpService {
     }
   }
   
-  static func getCodeList(type:Int,page:Int,completionHandler:(JSON?,NSError?) -> ()) {
+  func getCodeList(type:Int,page:Int,completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = CodeSource.CodeList(type: type).description.fullUrl
     let dic = ["type":type,"page":page,"page_size":HttpService.DefaultPageSize]
     get(urlString, parameters: dic) { (json, error) -> Void in
@@ -52,13 +52,13 @@ extension HttpService {
     }
   }
   
-  static func generateCodeLink(completionHandler:(JSON?,NSError?) -> ()) {
+  func generateCodeLink(completionHandler:(JSON?,NSError?) -> ()) {
   let urlString = CodeSource.CodeLink.description.fullUrl
   get(urlString, parameters: nil) { (json, error) -> Void in
   if let error = error {
-  completionHandler(nil,error)
+    completionHandler(nil,error)
   } else {
-  completionHandler(json,nil)
+    completionHandler(json,nil)
       }
    }
   }

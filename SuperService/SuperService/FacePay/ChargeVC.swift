@@ -55,8 +55,10 @@ class ChargeVC: UIViewController {
     }
     guard let amount = Double(moneyField.text!) else {return}
     confirmButton.enabled = false
-    HttpService.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (orderno, error) -> Void in
+    self.showHUDInView(view, withLoading: "")
+    HttpService.sharedInstance.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (orderno, error) -> Void in
       self.confirmButton.enabled = true
+      self.hideHUD()
       if let orderno = orderno {
         self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: 1, orderNo: orderno, errorCode: 0, waiting: amount > 100,confirmTime:nil,createTime:nil)
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -68,8 +70,9 @@ class ChargeVC: UIViewController {
       } else {
         if error?.code == 30101 {//余额不足
           self.payFaliLabe.hidden = false
+          self.showHint("余额不足")
         } else {//错误
-          self.showHint("error:\(error?.code)")
+          self.showErrorHint(error)
         }
       }
     }

@@ -140,7 +140,7 @@ class MassAddVC: UIViewController {
        massDicArray.append(dic)
     }
     let dict = ["users":massDicArray]
-    HttpService.AddMember(dict) { (json, error) -> () in
+    HttpService.sharedInstance.AddMember(dict) { (json, error) -> () in
       if let _ = error {
         self.showHint("添加失败")
       } else {

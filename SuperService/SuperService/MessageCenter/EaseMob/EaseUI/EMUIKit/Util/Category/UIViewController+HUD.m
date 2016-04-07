@@ -79,6 +79,38 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
     [HUD hide:YES afterDelay:2];
 }
 
+- (void)showHint:(NSString *)hint withFontSize:(CGFloat) fontSize
+{
+  //显示提示信息
+  UIView *view = [[UIApplication sharedApplication].delegate window];
+  MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:view animated:YES];
+  HUD.userInteractionEnabled = NO;
+  HUD.mode = MBProgressHUDModeText;
+  HUD.labelText = hint;
+  HUD.labelFont = [UIFont systemFontOfSize:fontSize];
+  HUD.margin = 10.f;
+  HUD.removeFromSuperViewOnHide = YES;
+  [HUD hide:YES afterDelay:2];
+}
+
+- (void)showErrorHint:(NSError *)error
+{
+  //显示提示信息
+  [self showErrorHint:error withFontSize:12];
+}
+
+- (void)showErrorHint:(NSError *)error withFontSize:(CGFloat) fontSize
+{
+  //显示提示信息
+  NSString *msg;
+  if(error.userInfo[@"resDesc"]) {
+    msg = error.userInfo[@"resDesc"];
+  } else {
+    msg = [NSString stringWithFormat:@"数据请求错误:%ld", error.code];
+  }
+  [self showHint:msg withFontSize:fontSize];
+}
+
 - (void)hideHUD {
     [[self HUD] hide:YES];
 }

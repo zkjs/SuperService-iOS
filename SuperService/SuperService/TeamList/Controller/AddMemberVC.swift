@@ -69,7 +69,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     }
     massDicArray.append(dictionary)
     let userData = ["users":massDicArray]
-    HttpService.AddMember(userData) { (json, error) -> () in
+    HttpService.sharedInstance.AddMember(userData) { (json, error) -> () in
       if let _ = error {
         self.showHint("添加失败")
       } else {

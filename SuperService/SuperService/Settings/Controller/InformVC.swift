@@ -16,6 +16,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var str:String!
   var areaArray = [AreaModel]()
   var locID = (String)()
+  var nearlistLocids = [String]()//收银台的locid数组
   var selectedArray = [Int]()
   var areaArr = [String]()
   var dismissWhenFinished = false
@@ -160,10 +161,14 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     for index in selectedArray {
       let area = areaArray[index]
       str = area.locid
+      if area.payment_support == 1 {
+        nearlistLocids.append(str)//收银台数组
+      }
       areaArr.append(str)
     }
     guard let shopid = TokenPayload.sharedInstance.shopid else {return} 
     StorageManager.sharedInstance().saveLocids(areaArr)
+    StorageManager.sharedInstance().saveBeaconPayLocids(nearlistLocids)
     for area in areaArray {//先把列表这些区域的全部取消订阅一次（这里这样做是因为跟上次的区域比较不好处理未选择的区域）
     if let topic:String = "\(shopid)_BLE_\(area.locid!)" {
       YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
@@ -184,7 +189,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
       }
     }
     locID = areaArr.joinWithSeparator(",")
-    
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
     
     let vc = self.navigationController?.viewControllers[0] as! SettingsVC

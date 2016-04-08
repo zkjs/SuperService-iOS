@@ -14,12 +14,14 @@ extension HttpService {
     case UpdateInfo               // 更新用户资料
     case ArrivateData             // 到店通知列表
     case VersionUpgrade           // 版本更新
+    case AfterLoginUpdataInfo
     
     
     var description: String {
       switch self {
       case .UserInfo:             return "/for/res/v1/query/user/all"
       case .UpdateInfo:           return "/for/res/v1/register/update/ss"
+      case .AfterLoginUpdataInfo:      return "/for/res/v1/update/user"
       case .ArrivateData:         return "/pyx/lbs/v1/loc/beacon/"
       case .VersionUpgrade:       return "/res/v1/systempub/upgrade/newestversion/"
       }
@@ -49,7 +51,7 @@ extension HttpService {
     if realname == nil && sex == nil && image == nil {
       return
     }
-    let urlString =  ResourcePathAccount.UpdateInfo.description.fullUrl
+    var urlString = String()
     var parameters = [String:String]()
     if isRegister {
       if let eamil = eamil {
@@ -58,9 +60,11 @@ extension HttpService {
       if let realname = realname {
         parameters["realname"] = realname
       }
+      urlString =  ResourcePathAccount.UpdateInfo.description.fullUrl
     } else {
       if let realname = realname {
         parameters["username"] = realname
+        urlString =  ResourcePathAccount.AfterLoginUpdataInfo.description.fullUrl
       }
     }
     if let sex = sex {

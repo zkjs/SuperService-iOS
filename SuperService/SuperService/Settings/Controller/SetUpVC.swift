@@ -92,6 +92,10 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
           
         })
+        if let window = UIApplication.sharedApplication().delegate?.window {
+          window!.rootViewController = MainTBC()
+        }
+        
         
       }
     }

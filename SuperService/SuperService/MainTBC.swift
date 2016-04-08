@@ -54,17 +54,26 @@ class MainTBC: UITabBarController {
     } else {
       let userID = TokenPayload.sharedInstance.userID!
       print("EaseMob Login Name: \(userID)")
-      let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
+      //let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
       print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-      EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
-      print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-      if error != nil {
-        showHint(error.debugDescription)
-      }
-      EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
-      let options = EaseMob.sharedInstance().chatManager.pushNotificationOptions
-      options.displayStyle = .ePushNotificationDisplayStyle_simpleBanner
-      EaseMob.sharedInstance().chatManager.asyncUpdatePushOptions(options)
+      
+      EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "12345",
+                                                                  completion: { (loginInfo, err) in
+          print("登陆后环信:\(loginInfo)")
+          if err == nil {
+            EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+            let options = EaseMob.sharedInstance().chatManager.pushNotificationOptions
+            options.displayStyle = .ePushNotificationDisplayStyle_simpleBanner
+            EaseMob.sharedInstance().chatManager.asyncUpdatePushOptions(options)
+          }
+        
+        }, onQueue: dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0))
+      
+      
+//      if error != nil {
+//        showHint(error.debugDescription)
+//      }
+      
     }
     checkVersion()
   }

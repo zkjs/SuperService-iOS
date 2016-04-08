@@ -19,6 +19,8 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   }
 
   var salesid:String!
+  var avatarTappedClosure: (()->Void)?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -36,7 +38,7 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
     return 100
   }
   
-  func setData(team:TeamModel) {
+  func setData(team:TeamModel,avatarTapped:(()->Void)?) {
     
     username.text = team.username
     if let userimage = team.userimage {
@@ -44,6 +46,10 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
       let urlStr = url?.URLByAppendingPathComponent("\(userimage)")
       userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "default_logo"))
     }
+    avatarTappedClosure = avatarTapped
+    let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("avatarTapped:"))
+    userImage.addGestureRecognizer(tapGestureRecognizer)
+    userImage.userInteractionEnabled = true
   }
   
   func rightButtons() -> NSArray {
@@ -56,6 +62,12 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
     super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
+  }
+  
+  func avatarTapped(sender: UIGestureRecognizer) {
+    if let tap = avatarTappedClosure {
+      tap()
+    }
   }
   
 }

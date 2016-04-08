@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamModel: NSObject {
+struct TeamModel {
 
   var username: String?
   var phone: String?
@@ -20,6 +20,13 @@ class TeamModel: NSObject {
   var userimage: String?
   var roledesc: String?
   var userid: String?
+  var displayRoleName:String {
+    let r = rolename ?? "#"
+    return r.isEmpty ? "#" : r
+  }
+  var roleCharacter: String {
+    return self.displayRoleName.firstCharactor
+  }
 
   init(dic:JSON){
     if let name = dic["username"].string {
@@ -39,8 +46,11 @@ class TeamModel: NSObject {
    
   }
 
-  override init() {
-    super.init()
-  }
+}
 
+extension TeamModel: Equatable {
+}
+
+func ==(lhs: TeamModel, rhs: TeamModel) -> Bool {
+  return lhs.userid == rhs.userid
 }

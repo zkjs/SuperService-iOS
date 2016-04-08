@@ -13,20 +13,37 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   @IBOutlet weak var tableView: UITableView!
   
   let collation = UILocalizedIndexedCollation.currentCollation()
-  var sections = [[AnyObject]]()
+  var sections = [String:[TeamModel]]()
   var teamArray = [TeamModel]() {
     didSet {
-      let selector: Selector = "roledesc"
+      /*let selector: Selector = "roledesc"
       sections = Array(count: collation.sectionTitles.count, repeatedValue: [])
       let sortedObjects = collation.sortedArrayFromArray(teamArray, collationStringSelector: selector)
       for object in sortedObjects {
         let sectionNumber = collation.sectionForObject(object, collationStringSelector: selector)
         sections[sectionNumber].append(object)
       }
-      tableView.reloadData()
+      tableView.reloadData()*/
+      
+      sections.removeAll()
+      for m in teamArray {
+        let role = m.displayRoleName
+        if sections[role] == nil {
+          sections[role] = [TeamModel]()
+        }
+        if !sections[role]!.contains(m) {
+          sections[role]?.append(m)
+        }
+      }
+      
+      sectionTitleArr = teamArray.flatMap{ $0.displayRoleName }
+        .reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
+        .map{ ($0.firstCharactor,$0) }
+        .sort{ $0.0 < $1.0 }
     }
   }
-  var titleArr = [String]()
+  var sectionTitleArr = [(String,String)]()
+  var rolesArr = [String]()
   
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("TeamListVC", owner:self, options:nil)
@@ -59,7 +76,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func refresh() {
-    teamArray.removeAll()
     loadData()
   }
   
@@ -69,6 +85,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
         
       } else {
         if let users = teams where users.count > 0 {
+          self.teamArray.removeAll()
           self.teamArray = users
           self.tableView?.reloadData()
         }
@@ -85,18 +102,26 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return sections[section].count
+    //return sections[section].count
+    let role = sectionTitleArr[section].1
+    return sections[role]?.count ?? 0
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TeamListCell", forIndexPath: indexPath) as! TeamListCell
-    let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("avatarTapped:"))
-    cell.userImage.addGestureRecognizer(tapGestureRecognizer)
-    cell.userImage.tag = indexPath.section*1000 + indexPath.row
-    cell.userImage.userInteractionEnabled = true
-    let section = sections[indexPath.section]
-    let team = section[indexPath.row] as! TeamModel
-    cell.setData(team)
+    
+    let role = sectionTitleArr[indexPath.section].1
+    if let team = sections[role]?[indexPath.row] {
+      cell.setData(team) {[weak self] in
+        if let strongSelf = self {
+          let vc = EmployeeVC()
+          vc.type = EmployeeVCType.team
+          vc.employee = team
+          vc.hidesBottomBarWhenPushed = true
+          strongSelf.navigationController?.pushViewController(vc, animated: true)
+        }
+      }
+    }
     return cell
   }
   
@@ -108,57 +133,26 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   // MARK: UITableViewDelegate
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if (sections[section].count == 0){
-      return nil
-    }
-    let selector: Selector = "roledesc"
-    let sortedObjects = collation.sortedArrayFromArray(teamArray, collationStringSelector: selector)
-    if section < sortedObjects.count - 1 {
-      let model = sortedObjects[section] as! TeamModel 
-      return model.roledesc
-    } else {
-      return nil
-    }
-    
+    return sectionTitleArr[section].1
   }
   
   func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
     if (sections.count == 0){
       return nil
     }
-    var titleArray = [String]()
-    for (var i = 0 ; i < collation.sectionTitles.count-1; i++) {
-      if (sections[i].count != 0){
-        titleArray.append(collation.sectionTitles[i])
-       }
-    }
-     titleArray.append(collation.sectionTitles[26])
-    return titleArray
+    return sectionTitleArr.map{ $0.0 }
   }
   
   
+//  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+//    return collation.sectionForSectionIndexTitleAtIndex(index)
+//  }
   
-  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-    return collation.sectionForSectionIndexTitleAtIndex(index)
-  }
-  
-  func avatarTapped(sender: UIGestureRecognizer) {
-    guard let tag = sender.view?.tag else { return }
-    let indexSection = tag/1000
-    let indexRow = tag - indexSection*1000
-    let vc = EmployeeVC()
-    let section = sections[indexSection]
-    let employee = section[indexRow] as! TeamModel
-    vc.type = EmployeeVCType.team
-    vc.employee = employee
-    vc.hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(vc, animated: true)
-  }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    let section = sections[indexPath.section]
-    let employee = section[indexPath.row] as! TeamModel
+    let role = sectionTitleArr[indexPath.section].1
+    guard let employee = sections[role]?[indexPath.row] else { return }
     var chatterName = ""
     guard let chatterID = employee.userid else { return }
     if let name = employee.username {

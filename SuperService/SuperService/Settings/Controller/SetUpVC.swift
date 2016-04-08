@@ -19,8 +19,9 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
   @IBOutlet weak var nameTextFiled: UITextField!
   @IBOutlet weak var segmentControl: UISegmentedControl!
   
-  lazy var imageData = NSData()
+  lazy var imageData: NSData? = nil
   var sex :String?
+  var image = UIImage()
   
   
   override func loadView() {
@@ -63,27 +64,38 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
   
   func nextStep() {
     showHUDInView(view, withLoading: "正在上传资料...")
-    ZKJSHTTPSessionManager.sharedInstance().uploadDataWithUserName(nameTextFiled.text, sex: sex, imageFile: imageData, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-      if let dict = responseObject as? NSDictionary {
-        if let set = dict["set"] as? Bool {
-          if set {
-            self.hideHUD()
-            if let name = self.nameTextFiled.text {
-              AccountInfoManager.sharedInstance.saveUserName(name)
-//              AccountManager.sharedInstance().clearAvatarImageCache()
-            }
-            AccountInfoManager.sharedInstance.saveAvatarImageData(self.imageData)
-            let InformV = InformVC()
-            InformV.dismissWhenFinished = true
-            InformV.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(InformV, animated: true)
-          }
+    if nameTextFiled.text!.isEmpty {
+      showHint("用户名不能为空")
+      return
+    }
+    
+    if nameTextFiled.text!.characters.count > 6 {
+      showHint("用户名最多6位")
+      return
+    }
+    
+    if self.imageData == nil {
+      showHint("头像不能为空")
+      return
+    }
+    
+    HttpService.sharedInstance.updateUserInfo(true, realname: nameTextFiled.text, eamil: nil, sex: sex, image: image) { (json, error) -> Void in
+      self.hideHUD()
+      if let error = error {
+        if let msg = error.userInfo["resDesc"] as? String {
+          ZKJSTool.showMsg(msg)
+        } else {
+          ZKJSTool.showMsg("上传图片失败，请再次尝试")
         }
+      } else {
+        AccountManager.sharedInstance().saveUserName(self.nameTextFiled.text!)
+        HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
+          
+        })
+        
       }
-      }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-        self.hideHUD()
-        self.showHint("上传失败,请重新上传")
-    })
+    }
+    
   }
   
   
@@ -110,7 +122,7 @@ extension SetUpVC: WPMediaPickerViewControllerDelegate {
   
   func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
     if let set = assets.first as? ALAsset {
-      let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
+      self.image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
       avatarButton.setImage(image, forState: .Normal)
       imageData = UIImageJPEGRepresentation(image, 0.8)!
     }

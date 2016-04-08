@@ -87,11 +87,16 @@ class StaffLoginVC: UIViewController {
     showHUDInView(view, withLoading: "")
     //////登录获取新的token
     HttpService.sharedInstance.loginWithPhone(self.identifyingCodeTextField.text!, phone: self.userphoneTextField.text!) { (json, error) -> () in
-      if let errInfo = error?.userInfo["resDesc"] as? String {
-        self.hideHUD()
-        self.showHint(errInfo)
+      if let error = error {
+        if error.code == 11 {//还未完善用户资料就跳转到用户资料完善页面
+        self.navigationController?.pushViewController(SetUpVC(), animated: true)
+        } else {
+          self.hideHUD()
+          if let msg = error.userInfo["resDesc"] as? String {
+            ZKJSTool.showMsg(msg)
+          }
+        }
       } else {
-       
         HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
           print(json)
           if let _ = error {

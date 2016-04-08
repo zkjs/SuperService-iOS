@@ -43,6 +43,17 @@ class StorageManager: NSObject {
     NSKeyedArchiver.archiveRootObject(locids, toFile: path)
   }
   
+  func saveBeaconPayLocids(locids:NSArray) {
+    let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
+    NSKeyedArchiver.archiveRootObject(locids, toFile: path)
+  }
+  
+  func nearBeaconLocid() -> [String]? {
+    let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
+    let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
+    return noticeArray
+  }
+  
   func noticeArray() -> [String]? {
     let path = documentDirectory().stringByAppendingPathComponent("array.archive")
     let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
@@ -52,12 +63,23 @@ class StorageManager: NSObject {
   func clearNoticeArray() {
     let path = documentDirectory().stringByAppendingPathComponent("array.archive")
     if !path.isEmpty {
+      
       let mgr = NSFileManager.defaultManager()
+      if mgr.fileExistsAtPath(path) {
       try! mgr.removeItemAtPath(path)
+      }
     }
-   
+    
+   }
+  
+  func clearnearBeaconLocid(){
+    let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
+    if !path.isEmpty {
+      let mgr = NSFileManager.defaultManager()
+      if mgr.fileExistsAtPath(path) {
+        try! mgr.removeItemAtPath(path)
+      }
+    }
+    
   }
-  
-  
-  
 }

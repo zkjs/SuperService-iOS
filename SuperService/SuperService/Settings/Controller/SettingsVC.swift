@@ -29,7 +29,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
-    
+    HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
+      
+    })
     YunBaService.getTopicList { (topics, error) -> Void in
       if let topics = topics as? [String] {
         for topic in topics {
@@ -119,7 +121,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     showHUDInView(view, withLoading: "正在退出登录...")
     // 清理系统缓存
     AccountInfoManager.sharedInstance.clearAccountCache()
-//    StorageManager.sharedInstance().clearNoticeArray()
+    StorageManager.sharedInstance().clearNoticeArray()
+    StorageManager.sharedInstance().clearnearBeaconLocid()
     YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     TokenPayload.sharedInstance.clearCacheTokenPayload()
     

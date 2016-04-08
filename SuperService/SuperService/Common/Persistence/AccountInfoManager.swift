@@ -162,6 +162,13 @@ class AccountInfoManager: NSObject {
     userDefaults.synchronize()
   }
   
+  func savePaybeaconLocationIDs(beaconLocationIDs: String) {
+    self.beaconLocationIDs = beaconLocationIDs
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(beaconLocationIDs, forKey: "Beaconlocid")
+    userDefaults.synchronize()
+  }
+  
   func saveEmail(email: String) {
     self.email = email
     let userDefaults = NSUserDefaults()

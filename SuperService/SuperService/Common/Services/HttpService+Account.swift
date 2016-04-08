@@ -19,7 +19,7 @@ extension HttpService {
     var description: String {
       switch self {
       case .UserInfo:             return "/for/res/v1/query/user/all"
-      case .UpdateInfo:           return "/for/res/v1/update/user"
+      case .UpdateInfo:           return "/for/res/v1/register/update/ss"
       case .ArrivateData:         return "/pyx/lbs/v1/loc/beacon/"
       case .VersionUpgrade:       return "/res/v1/systempub/upgrade/newestversion/"
       }
@@ -54,6 +54,9 @@ extension HttpService {
     if isRegister {
       if let eamil = eamil {
         parameters["eamil"] = eamil
+      }
+      if let realname = realname {
+        parameters["realname"] = realname
       }
     } else {
       if let realname = realname {
@@ -115,6 +118,14 @@ extension HttpService {
                 let json = JSON(data: data)
                 if json["res"].int == 0 {
                   print(json["resDesc"].string)
+                  if isRegister {//注册更新会返回新的token
+                    guard let token = json["token"].string else {
+                      return
+                    }
+                    print(token)
+                    let tokenPayload = TokenPayload.sharedInstance
+                    tokenPayload.saveTokenPayload(token)
+                  } 
                   if let imgUrl = json["data"]["userimage"].string where !imgUrl.isEmpty {
                     AccountInfoManager.sharedInstance.saveImageUrl(imgUrl)
                     completionHandler(json,nil)

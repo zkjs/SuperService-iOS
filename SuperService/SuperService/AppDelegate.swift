@@ -255,6 +255,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
       self.window!.rootViewController = guideViewController
     } else {
       window!.rootViewController = mainTBC
+      mainTBC.selectedIndex = 3
+      
+      
     }
   }
   

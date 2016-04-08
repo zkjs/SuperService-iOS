@@ -77,7 +77,6 @@ class AdminLoginV: UIViewController {
           self.showHint(error)
         }
       } else {
-        
         print(json)
         HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
           print(json)

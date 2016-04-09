@@ -21,7 +21,7 @@ extension HttpService {
       switch self {
       case .UserInfo:             return "/for/res/v1/query/user/all"
       case .UpdateInfo:           return "/for/res/v1/register/update/ss"
-      case .AfterLoginUpdataInfo:      return "/for/res/v1/update/user"
+      case .AfterLoginUpdataInfo: return "/for/res/v1/update/user"
       case .ArrivateData:         return "/pyx/lbs/v1/loc/beacon/"
       case .VersionUpgrade:       return "/res/v1/systempub/upgrade/newestversion/"
       }

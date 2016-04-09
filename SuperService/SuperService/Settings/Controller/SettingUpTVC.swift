@@ -98,6 +98,9 @@ extension SettingUpTVC: WPMediaPickerViewControllerDelegate {
           self.showHint("上传头像成功")
           self.tableView.reloadData()
           self.dismissViewControllerAnimated(true, completion: nil)
+          HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
+            
+          })
           
         }
       })

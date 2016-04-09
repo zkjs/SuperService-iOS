@@ -33,7 +33,7 @@ class AccountInfoManager: NSObject {
   var avatarURL : String {
     let userDefaults = NSUserDefaults()
     if let url = userDefaults.objectForKey("avatarURL") as? String {
-      return kImageURL + url
+      return url.fullImageUrl
     } else {
       return ""
     }

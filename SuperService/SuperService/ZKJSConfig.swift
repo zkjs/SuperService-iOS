@@ -22,7 +22,7 @@ struct ZKJSConfig {
   // 新API服务器
   let BaseURL = "http://p.zkjinshi.com/test"
   // 图片服务器
-  let BaseImageURL = "http://cdn.zkjinshi.com/"
+  let BaseImageURL = "http://d2.zkjinshi.com/"
   // 环信
   let EaseMobAppKey = "zkjs#svip"
   // 云巴

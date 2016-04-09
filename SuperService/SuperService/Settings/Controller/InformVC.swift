@@ -21,6 +21,8 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var areaArr = [String]()
   var dismissWhenFinished = false
   
+  var topicsArray = [String]()//云巴订阅的数组
+  
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
@@ -169,16 +171,12 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     guard let shopid = TokenPayload.sharedInstance.shopid else {return} 
     StorageManager.sharedInstance().saveLocids(areaArr)
     StorageManager.sharedInstance().saveBeaconPayLocids(nearlistLocids)
-    for area in areaArray {//先把列表这些区域的全部取消订阅一次（这里这样做是因为跟上次的区域比较不好处理未选择的区域）
-    if let topic:String = "\(shopid)_BLE_\(area.locid!)" {
-      YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
-        print(succ)
-      })
-     }
-    }
+
     print(areaArr)
+    var subscribeTopics = [String]()
     for locid in areaArr {//订阅新选择的区域
       if let topic:String = "\(shopid)_BLE_\(locid)" {
+        subscribeTopics.append(topic)
         YunBaService.subscribe(topic, resultBlock: { (succ, error) -> Void in
           if succ {
             print("\(shopid)_BLE_\(self.str)")
@@ -188,9 +186,28 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         })
       }
     }
+    
+    YunBaService.getTopicList { (topics, error) -> Void in
+      var canceledTopics = [String]()
+      if let topics = topics as? [String] {
+        canceledTopics = topics.filter { (t) -> Bool in 
+          let roles = TokenPayload.sharedInstance.roles ?? []
+          return !subscribeTopics.contains(t) && 
+            !roles.map{ TokenPayload.sharedInstance.shopid! + "_" + $0 }.contains(t)
+        }  
+      }
+      
+      if canceledTopics.count > 0 {
+        for topic in canceledTopics {
+          YunBaService.unsubscribe(topic, resultBlock: { (succ, error) -> Void in
+            print(succ)
+          })
+        }
+      }
+    }
+    
     locID = areaArr.joinWithSeparator(",")
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
-    
     let vc = self.navigationController?.viewControllers[0] as! SettingsVC
     let appWindow = UIApplication.sharedApplication().keyWindow
     let mainTBC = MainTBC()
@@ -198,7 +215,6 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     appWindow?.rootViewController = mainTBC
     self.navigationController?.popToViewController(vc, animated: false)
     
-  
   }
   
 }

@@ -18,7 +18,7 @@ class SendSuccessVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
-      statusLabel.text = "等待 \(payResult.customer.username) 确认"
+      statusLabel.text = "等待 \(payResult.customer.username) 确认" 
       NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushToPaymentResult:", name:kRefreshPayResultVCNotification, object: nil)
       NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
     }
@@ -27,6 +27,10 @@ class SendSuccessVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+     
+  }
   
   func pushToPaymentResult(notification:NSNotification) {
     self.dismissViewControllerAnimated(true) { () -> Void in

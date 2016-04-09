@@ -161,26 +161,33 @@ class CheckoutCounterVC: UICollectionViewController {
         let indexPath = sender as? NSIndexPath {
           vc.customer = nearbyCustomers[indexPath.row]
           vc.payResultClosure = {(bool,payResult) -> Void in
-            if bool == true {
+            if bool == true && payResult.amount > 100 {
               let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
-              let VC = storyboard.instantiateViewControllerWithIdentifier("SendSuccessVC") as! SendSuccessVC
-              VC.payResult = payResult
-              VC.modalPresentationStyle = .OverCurrentContext
-              self.presentViewController(VC, animated: true, completion: nil)
-              VC.sendSuccessClosure = {(bool,orderno) -> Void in
+              let successVC = storyboard.instantiateViewControllerWithIdentifier("SendSuccessVC") as! SendSuccessVC
+              successVC.payResult = payResult
+              successVC.modalPresentationStyle = .OverCurrentContext
+              self.presentViewController(successVC, animated: true, completion: nil)
+              successVC.sendSuccessClosure = {(bool,orderno) -> Void in
                 if bool == true {
                   let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
-                  let vc = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
-                  vc.orderNo = orderno
+                  let paymentListVC = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
+                  paymentListVC.orderNo = orderno
                   if orderno.isEmpty {
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.navigationController?.pushViewController(paymentListVC, animated: true)
                   } else {
-                    self.navigationController?.pushViewController(vc, animated: false)
+                    self.navigationController?.pushViewController(paymentListVC, animated: false)
                   }
                   
                 }
             }
 
+            }
+            if bool == true && payResult.amount < 100 {
+              let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+              let paymentResultVC = storyboard.instantiateViewControllerWithIdentifier("PaymentResultVC") as! PaymentResultVC
+              paymentResultVC.payResult = payResult
+              self.navigationController?.pushViewController(paymentResultVC, animated: true)
+              
             }
           }
       }

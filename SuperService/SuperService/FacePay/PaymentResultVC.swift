@@ -145,9 +145,9 @@ class PaymentResultVC: UIViewController {
   
   func chargeAgain() {
     self.sendAgainButton.enabled = false
-    HttpService.sharedInstance.chargeCustomer(payResult.amount, userid: payResult.customer.userid, orderNo: payResult.orderNo) { (orderno, error) -> Void in
+    HttpService.sharedInstance.chargeCustomer(payResult.amount, userid: payResult.customer.userid, orderNo: payResult.orderNo) { (json, error) -> Void in
       self.sendAgainButton.enabled = true
-      if let _ = orderno {
+      if let _ = json["orderno"].string {
         
       } else {
         if error?.code == 30101 {//余额不足

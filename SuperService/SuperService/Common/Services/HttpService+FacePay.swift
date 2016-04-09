@@ -51,7 +51,7 @@ extension HttpService {
     }
   }
   
-  func chargeCustomer(amount:Double, userid:String, orderNo:String?, completionHandler:(String?,NSError?) -> Void) {
+  func chargeCustomer(amount:Double, userid:String, orderNo:String?, completionHandler:(JSON,NSError?) -> Void) {
     let urlString =  ResourcePathFacePay.Payment.description.fullUrl
     var dict = ["amount":"\(Int(amount*100))","target":userid]
     if let orderNo = orderNo {
@@ -62,8 +62,8 @@ extension HttpService {
       if let error = error {
         completionHandler(nil,error)
       } else {
-        if let orderno = json?["orderno"].string {
-          completionHandler(orderno,nil)
+        if let data = json?["data"]{
+          completionHandler(data,nil)
         } else {
           completionHandler(nil,error)
         }

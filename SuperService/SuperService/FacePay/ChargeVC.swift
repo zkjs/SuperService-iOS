@@ -13,6 +13,7 @@ class ChargeVC: UIViewController {
   var customer: NearbyCustomer!
   var payResult: FacePayResult?
   var payResultClosure: PayResultDismissClosure?
+  var sendSuccessClosure:SendSuccessVCDismissClosure?
   
   @IBOutlet weak var payFaliLabe: UILabel!
   @IBOutlet weak var avatarsImageView: UIImageView!
@@ -56,11 +57,11 @@ class ChargeVC: UIViewController {
     guard let amount = Double(moneyField.text!) else {return}
     confirmButton.enabled = false
     self.showHUDInView(view, withLoading: "")
-    HttpService.sharedInstance.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (orderno, error) -> Void in
+    HttpService.sharedInstance.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (json, error) -> Void in
       self.confirmButton.enabled = true
       self.hideHUD()
-      if let orderno = orderno {
-        self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: 1, orderNo: orderno, errorCode: 0, waiting: amount > 100,confirmTime:nil,createTime:nil)
+      if let orderno = json["orderno"].string ,let status = json["status"].int,let createtime = json["createtime"].string  {
+        self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: status, orderNo: orderno, errorCode: 0, waiting: amount > 100,confirmTime:json["confirmtime"].string,createTime:createtime)
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
           if let closure = self.payResultClosure {
             closure(true, payResult:self.payResult!)

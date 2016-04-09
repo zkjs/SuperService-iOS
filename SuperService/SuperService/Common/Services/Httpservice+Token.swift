@@ -16,9 +16,13 @@ extension HttpService {
     
     put(urlString, parameters: nil) { (json, error) -> Void in
       completionHandler?(json, error)
+      if let _ = error {
+       NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGOUTCHANGE, object: nil)
+      }
       if let json = json {
         guard let token = json["token"].string else {
           print("no token")
+          NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGOUTCHANGE, object: nil)
           return
         }
         print("refresh token success:\(token)")

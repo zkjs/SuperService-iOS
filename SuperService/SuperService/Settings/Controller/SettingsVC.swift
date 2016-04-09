@@ -39,7 +39,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
       }
     }
-    
+
 
   }
   

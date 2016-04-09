@@ -92,17 +92,13 @@ class StaffLoginVC: UIViewController {
         self.navigationController?.pushViewController(SetUpVC(), animated: true)
         } else {
           self.hideHUD()
-          if let msg = error.userInfo["resDesc"] as? String {
-            ZKJSTool.showMsg(msg)
-          }
+          self.showErrorHint(error)
         }
       } else {
         HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
           print(json)
-          if let _ = error {
-            if let desc = error?.userInfo["resDesc"] as? String {
-              self.showHint(desc)
-            }
+          if let error = error {
+            self.showErrorHint(error)
           } else {
             self.hideHUD()
             self.dismissViewControllerAnimated(true, completion: nil)

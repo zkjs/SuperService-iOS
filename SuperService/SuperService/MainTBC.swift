@@ -54,7 +54,6 @@ class MainTBC: UITabBarController {
     } else {
       let userID = TokenPayload.sharedInstance.userID!
       print("EaseMob Login Name: \(userID)")
-      //let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
       print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
       
       EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "12345",
@@ -69,11 +68,6 @@ class MainTBC: UITabBarController {
         
         }, onQueue: dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0))
       
-      
-//      if error != nil {
-//        showHint(error.debugDescription)
-//      }
-      
     }
     checkVersion()
   }
@@ -87,10 +81,10 @@ class MainTBC: UITabBarController {
   private func showLogin() {
     // 清理系统缓存
     AccountInfoManager.sharedInstance.clearAccountCache()
+    StorageManager.sharedInstance().clearNoticeArray()
+    StorageManager.sharedInstance().clearnearBeaconLocid()
     TokenPayload.sharedInstance.clearCacheTokenPayload()
-    
     // 消除订阅云巴频道
-    unregisterYunBaTopic()
     YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     YunbaSubscribeService.sharedInstance.setAlias("")
     
@@ -112,19 +106,6 @@ class MainTBC: UITabBarController {
     presentViewController(nv, animated: true, completion: nil)
   }
   
-  private func unregisterYunBaTopic() {
-//    let locid = AccountManager.sharedInstance().beaconLocationIDs
-//    let topicArray = locid.componentsSeparatedByString(",")
-//    for topic in topicArray {
-//      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
-//        if success {
-//          print("[result] unsubscribe to topic(\(topic)) succeed")
-//        } else {
-//          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-//        }
-//      }
-//    }
-  }
   
   private func setupView() {
     view.backgroundColor = UIColor.whiteColor()

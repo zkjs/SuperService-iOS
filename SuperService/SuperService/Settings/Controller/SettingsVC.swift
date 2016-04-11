@@ -123,20 +123,16 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     AccountInfoManager.sharedInstance.clearAccountCache()
     StorageManager.sharedInstance().clearNoticeArray()
     StorageManager.sharedInstance().clearnearBeaconLocid()
-    YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     TokenPayload.sharedInstance.clearCacheTokenPayload()
     
     // 消除订阅云巴频道
-    unregisterYunBaTopic()
     YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
-    //退出之后不再受到消息推送
-    //unregisterRemoteNotification()
     
     // 登出环信
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
     let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
     print("登出前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-    EaseMob.sharedInstance().chatManager.logoffWithUnbindDeviceToken(true, error: error)
+    EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true)
     print("登出后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
     self.hideHUD()
     if error != nil {
@@ -146,24 +142,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     showAdminLogin()
   }
-  
-  func unregisterRemoteNotification() {
-    UIApplication.sharedApplication().unregisterForRemoteNotifications()
-  }
-  
-  func unregisterYunBaTopic() {
-    let locid = AccountInfoManager.sharedInstance.beaconLocationIDs
-    let topicArray = locid.componentsSeparatedByString(",")
-    for topic in topicArray {
-      YunBaService.unsubscribe(topic) { (success: Bool, error: NSError!) -> Void in
-        if success {
-          print("[result] unsubscribe to topic(\(topic)) succeed")
-        } else {
-          print("[result] unsubscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-        }
-      }
-    }
-  }
+
   
   func showAdminLogin() {
     let vc = StaffLoginVC()

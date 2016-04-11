@@ -106,69 +106,7 @@ class StaffLoginVC: UIViewController {
         })
       }
     }
-//    ZKJSHTTPSMSSessionManager.sharedInstance().verifySmsCode(self.identifyingCodeTextField.text, mobilePhoneNumber: self.userphoneTextField.text) { (success:Bool, error:NSError!) -> Void in
-//      if (success == true) {
-//        //当验证码接收到后按钮恢复状态
-//        self.verificationCodeButton.setTitle("验证码", forState: UIControlState.Normal)
-//        ZKJSHTTPSessionManager.sharedInstance().loginWithphoneNumber(self.userphoneTextField.text, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//          //          print(responseObject)
-//          if let dict = responseObject as? NSDictionary {
-//            if let set = dict["set"] as? Bool {
-//              if set {
-//                // 缓存用户信息
-////                AccountManager.sharedInstance().saveAccountWithDict(dict as! [String: AnyObject])
-//                self.loginEaseMob()
-//                self.updateYunBaWithLocid(AccountInfoManager.sharedInstance.beaconLocationIDs)
-//                ZKJSJavaHTTPSessionManager.sharedInstance().getShopDetailWithShopID(AccountInfoManager.sharedInstance.shopid, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//                  print(responseObject)
-//                  if let category = responseObject["category"] as? String {
-//                    AccountManager.sharedInstance().saveCategory(category)
-//                    let url = AccountManager.sharedInstance().url
-//                    if url.isEmpty {
-//                      // 第一次登录，需要设置一下
-//                      let setVC = SetUpVC()
-//                      self.navigationController?.pushViewController(setVC, animated: true)
-//                    } else {
-//                      self.dismissViewControllerAnimated(true, completion: nil)
-//                    }
-//                    self.hideHUD()
-//                  }
-//                  }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//                    self.hideHUD()
-//                })
-//              } else {
-//                if let err = dict["err"] as? NSNumber {
-//                  if err.integerValue == 406 {
-//                    self.hideHUD()
-//                    self.showHint("手机号还不是服务员")
-//                  }
-//                }
-//              }
-//            }
-//          }
-//          }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//            
-//        }
-//      } else {
-//        self.hideHUD()
-//        self.showHint("验证码不正确")
-//      }
-//    }
-  }
-  
-  func updateYunBaWithLocid(locid: String) {
-    let areaArray = locid.componentsSeparatedByString(",")
-    print("areaArr: \(areaArray)")
-    for topic in areaArray {
-      // 选中则监听区域
-      YunBaService.subscribe(topic) { (success: Bool, error: NSError!) -> Void in
-        if success {
-          print("[result] subscribe to topic(\(topic)) succeed")
-        } else {
-          print("[result] subscribe to topic(\(topic)) failed: \(error), recovery suggestion: \(error.localizedRecoverySuggestion)")
-        }
-      }
-    }
+
   }
   
   func unregisterYunBaTopic() {
@@ -188,17 +126,17 @@ class StaffLoginVC: UIViewController {
   private func loginEaseMob() {
     let userID = TokenPayload.sharedInstance.userID
     print("Username: \(userID)")
-    let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
     print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-    EaseMob.sharedInstance().chatManager.loginWithUsername(userID, password: "123456", error: error)
-    print("登陆后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-    if error != nil {
-      showHint(error.debugDescription)
-    }
-    EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
-    let options = EaseMob.sharedInstance().chatManager.pushNotificationOptions
-    options.displayStyle = .ePushNotificationDisplayStyle_simpleBanner
-    EaseMob.sharedInstance().chatManager.asyncUpdatePushOptions(options)
+    EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "12345",completion: { (loginInfo, err) in
+        print("登陆后环信:\(loginInfo)")
+        if err == nil {
+          EaseMob.sharedInstance().chatManager.loadDataFromDatabase()
+          let options = EaseMob.sharedInstance().chatManager.pushNotificationOptions
+          options.displayStyle = .ePushNotificationDisplayStyle_simpleBanner
+          EaseMob.sharedInstance().chatManager.asyncUpdatePushOptions(options)
+        }
+        
+      }, onQueue: dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0))
   }
   
   @IBAction func bussinessManButton(sender: AnyObject) {

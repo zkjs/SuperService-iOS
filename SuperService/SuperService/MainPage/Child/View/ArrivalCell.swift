@@ -109,18 +109,27 @@ class ArrivalCell: UITableViewCell {
     
     if let dateString = data.arrivetime {
       let dateFormat = NSDateFormatter()
-      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+      let nowDateFormate = NSDateFormatter()
+      let nowDate = NSDate()
+      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss" 
+      nowDateFormate.dateFormat = "yyyy-MM-dd 00:00:00" 
       if let date = dateFormat.dateFromString(dateString) {
-        dateFormat.dateFormat = "HH:mm"
+        let nowString = nowDateFormate.stringFromDate(nowDate)
+        let arrivateString = dateFormat.stringFromDate(date)
+        if nowString > arrivateString {
+          dateFormat.dateFormat = "MM-dd HH:mm"
+        }else {
+          dateFormat.dateFormat = "HH:mm"
+        }
+        
         timeAgoLabel.text = dateFormat.stringFromDate(date)
       }
     }
+      
+ 
+    
 
-    
-    
-    
-    // 随机颜色的小图标
-//    statusImageView.backgroundColor = UIColor(randomFlatColorOfShadeStyle: .Light)
   }
+  
   
 }

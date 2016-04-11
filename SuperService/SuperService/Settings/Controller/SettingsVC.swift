@@ -130,7 +130,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     unregisterYunBaTopic()
     YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     //退出之后不再受到消息推送
-    unregisterRemoteNotification()
+    //unregisterRemoteNotification()
     
     // 登出环信
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)

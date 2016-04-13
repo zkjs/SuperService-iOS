@@ -109,8 +109,49 @@ class InterfaceController: WKInterfaceController {
     }
   }
   
+  func imagerequest(url:NSURL) {
+    let requestURL: NSURL = url
+    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(urlRequest) {
+      (data, response, error) -> Void in
+      if error == nil {
+        self.avatarImage.setImage(UIImage(data:data!))
+      } else {
+        print(error)
+      }
+    }
+    task.resume()
+  }
+  
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
+    
     // 用户头像
+    if let userid = arrivalInfo["userid"] as? String {
+      self.userImage(userid)
+    }
+    if let userimage = arrivalInfo["userImage"] as? String {
+      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/\(userimage)") {
+        imagerequest(url)
+      }
+    }
+    // 姓名
+    if let username = arrivalInfo["username"] as? String {
+      guestLabel.setText(username)
+    }
+    if let order = arrivalInfo["title"] as? [String: AnyObject] {
+      // 内容
+      if let room_type = order["content"] as? String {
+        roomTypeLabel.setText(room_type)
+      }
+      // 预计到达时间
+      if let duration = order["arrivalTime"] as? NSNumber {
+        arrivalDateLabel.setText("\(duration.stringValue)晚")
+      }
+    }
+    
+
+   /* // 用户头像
     if let userID = arrivalInfo["userid"] {
       self.userImage(userID as! String)
 //      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userID).jpg") {
@@ -180,6 +221,7 @@ class InterfaceController: WKInterfaceController {
       // 无订单
       orderGroup.setHidden(true)
     }
+*/
   }
   
 //  @IBAction func openParentApp() {

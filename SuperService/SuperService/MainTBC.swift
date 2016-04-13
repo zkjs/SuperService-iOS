@@ -92,7 +92,7 @@ class MainTBC: UITabBarController {
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
     let error: AutoreleasingUnsafeMutablePointer<EMError?> = nil
     print("登出前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-    EaseMob.sharedInstance().chatManager.logoffWithUnbindDeviceToken(true, error: error)
+    EaseMob.sharedInstance().chatManager.asyncLogoffWithUnbindDeviceToken(true)
     print("登出后环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
     self.hideHUD()
     if error != nil {
@@ -201,7 +201,6 @@ extension MainTBC: EMCallManagerDelegate {
   func unregisterNotification() {
     EaseMob.sharedInstance().chatManager.removeDelegate(self)
     EaseMob.sharedInstance().callManager.removeDelegate(self)
-    
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   

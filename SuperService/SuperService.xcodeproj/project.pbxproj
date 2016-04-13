@@ -62,6 +62,9 @@
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; };
+		4058AF911CBE2F4D00D9A926 /* ArrivalPush.apns in Resources */ = {isa = PBXBuildFile; fileRef = 4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */; };
+		4058AF931CBE30A300D9A926 /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058AF921CBE30A300D9A926 /* ZKJSConfig.swift */; };
+		4058AF951CBE313500D9A926 /* String+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */; };
 		405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */ = {isa = PBXBuildFile; fileRef = 405F4CA81BCF3FCC00BBBF47 /* server.der */; };
 		406B0AE31C85B391006C9C73 /* YunbaSubscribeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */; };
 		406B0AF91C85B5E0006C9C73 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0AE61C85B5E0006C9C73 /* Alamofire.swift */; };
@@ -153,6 +156,8 @@
 		40C841671C102C16003E8037 /* GroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841661C102C16003E8037 /* GroupSettingViewController.m */; };
 		40C8416A1C102C3D003E8037 /* GroupSubjectChangingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841691C102C3D003E8037 /* GroupSubjectChangingViewController.m */; };
 		40C8416E1C102CC3003E8037 /* EMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C8416D1C102CC3003E8037 /* EMAlertView.m */; };
+		40C8A2B01CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8A2AF1CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift */; };
+		40C8A2B21CBE71C800CB759B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8A2B11CBE71C800CB759B /* ImageCache.swift */; };
 		40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */; };
 		40CAA5F61BE705DA00FAFDA0 /* AdminLoginV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5F41BE705DA00FAFDA0 /* AdminLoginV.swift */; };
 		40CAA5F71BE705DA00FAFDA0 /* AdminLoginV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CAA5F51BE705DA00FAFDA0 /* AdminLoginV.xib */; };
@@ -538,6 +543,9 @@
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArrivalPush.apns; path = "Supporting Files/ArrivalPush.apns"; sourceTree = "<group>"; };
+		4058AF921CBE30A300D9A926 /* ZKJSConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKJSConfig.swift; sourceTree = "<group>"; };
+		4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension+ZKJS.swift"; sourceTree = "<group>"; };
 		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
 		406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YunbaSubscribeService.swift; sourceTree = "<group>"; };
@@ -632,6 +640,8 @@
 		40C841691C102C3D003E8037 /* GroupSubjectChangingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSubjectChangingViewController.m; sourceTree = "<group>"; };
 		40C8416C1C102CC3003E8037 /* EMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAlertView.h; sourceTree = "<group>"; };
 		40C8416D1C102CC3003E8037 /* EMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAlertView.m; sourceTree = "<group>"; };
+		40C8A2AF1CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKInterfaceImage+Extension+ZKJS.swift"; sourceTree = "<group>"; };
+		40C8A2B11CBE71C800CB759B /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaModel.swift; sourceTree = "<group>"; };
 		40CAA5F41BE705DA00FAFDA0 /* AdminLoginV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginV.swift; sourceTree = "<group>"; };
 		40CAA5F51BE705DA00FAFDA0 /* AdminLoginV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminLoginV.xib; sourceTree = "<group>"; };
@@ -1417,6 +1427,16 @@
 			path = EMAlertView;
 			sourceTree = "<group>";
 		};
+		40C8A2AE1CBE612B00CB759B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */,
+				40C8A2AF1CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift */,
+				40C8A2B11CBE71C800CB759B /* ImageCache.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		40CAA5F31BE704E400FAFDA0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1706,6 +1726,7 @@
 		40F3CD241C3277500044845D /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				40C8A2AE1CBE612B00CB759B /* Classes */,
 				40F3CD271C3277500044845D /* InterfaceController.swift */,
 				40F567771C338B42000282D6 /* ArrivalInfoInterfaceController.swift */,
 				40F3CD291C3277500044845D /* ExtensionDelegate.swift */,
@@ -1713,6 +1734,7 @@
 				40F3CD2D1C3277500044845D /* Assets.xcassets */,
 				40F3CD2F1C3277500044845D /* Info.plist */,
 				40F3CD251C3277500044845D /* Supporting Files */,
+				4058AF921CBE30A300D9A926 /* ZKJSConfig.swift */,
 			);
 			path = "Watch Extension";
 			sourceTree = "<group>";
@@ -1722,6 +1744,7 @@
 			children = (
 				40BBCED41C34BBEE003732FF /* ArrivalInfo.apns */,
 				40F3CD261C3277500044845D /* PushNotificationPayload.apns */,
+				4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2764,6 +2787,7 @@
 				406B0B041C85B5E0006C9C73 /* Info.plist in Resources */,
 				406B0B011C85B5E0006C9C73 /* Info-tvOS.plist in Resources */,
 				40F3CD2E1C3277500044845D /* Assets.xcassets in Resources */,
+				4058AF911CBE2F4D00D9A926 /* ArrivalPush.apns in Resources */,
 				40BBCED51C34BBEE003732FF /* ArrivalInfo.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3136,6 +3160,7 @@
 				406B0B0A1C85B5E0006C9C73 /* NetworkReachabilityManager.swift in Sources */,
 				406B0B101C85B5E0006C9C73 /* Request.swift in Sources */,
 				40F3CD2C1C3277500044845D /* NotificationController.swift in Sources */,
+				4058AF931CBE30A300D9A926 /* ZKJSConfig.swift in Sources */,
 				406B0B251C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */,
 				406B0B0C1C85B5E0006C9C73 /* Notifications.swift in Sources */,
 				406B0AFA1C85B5E0006C9C73 /* Alamofire.swift in Sources */,
@@ -3144,9 +3169,11 @@
 				406B0B1A1C85B5E0006C9C73 /* Stream.swift in Sources */,
 				406B0B121C85B5E0006C9C73 /* Response.swift in Sources */,
 				406B0B061C85B5E0006C9C73 /* Manager.swift in Sources */,
+				40C8A2B21CBE71C800CB759B /* ImageCache.swift in Sources */,
 				406B0B0E1C85B5E0006C9C73 /* ParameterEncoding.swift in Sources */,
 				406B0AFC1C85B5E0006C9C73 /* Download.swift in Sources */,
 				406B0B1C1C85B5E0006C9C73 /* Timeline.swift in Sources */,
+				40C8A2B01CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift in Sources */,
 				406B0B201C85B5E0006C9C73 /* Validation.swift in Sources */,
 				406B0B181C85B5E0006C9C73 /* ServerTrustPolicy.swift in Sources */,
 				40F3CD2A1C3277500044845D /* ExtensionDelegate.swift in Sources */,
@@ -3155,6 +3182,7 @@
 				406B0B1E1C85B5E0006C9C73 /* Upload.swift in Sources */,
 				406B0AFE1C85B5E0006C9C73 /* Error.swift in Sources */,
 				406B0B141C85B5E0006C9C73 /* ResponseSerialization.swift in Sources */,
+				4058AF951CBE313500D9A926 /* String+Extension+ZKJS.swift in Sources */,
 				40F3CD281C3277500044845D /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3323,9 +3351,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
@@ -3342,9 +3370,9 @@
 		4010529B1C97BFBE00B3CB63 /* PreRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zkjinshi.SuperService.watchkitapp.watchkitextension;

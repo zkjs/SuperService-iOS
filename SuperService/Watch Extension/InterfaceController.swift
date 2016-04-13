@@ -39,6 +39,8 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet var roomsLabel: WKInterfaceLabel!
   @IBOutlet var roomRateLabel: WKInterfaceLabel!
   
+  private var currentImageUrl:String = ""
+  
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
     
@@ -46,6 +48,7 @@ class InterfaceController: WKInterfaceController {
     alertLabel.setText("暂无到店客人")
     orderGroup.setHidden(true)
     orderTitleLabel.setText("")
+
   }
   
   func documentDirectory() -> NSString {
@@ -58,31 +61,12 @@ class InterfaceController: WKInterfaceController {
     self.avatarImage.setImage(image)
   }
   
-  func imageRequest(userid:String) {
-    let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg")
-    if let requestURL: NSURL = url {
-    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-    let session = NSURLSession.sharedSession()
-    let task = session.dataTaskWithRequest(urlRequest) {
-      (data, response, error) -> Void in
-      if error == nil {
-        if let Data = data {
-          self.avatarImage.setImage(UIImage(data:Data))
-        }
-      } else {
-        self.userImage(userid)
-        print(error)
-      }
-    }
-    task.resume()
-    }
-  }
-  
   override func willActivate() {
     // This method is called when watch view controller is about to be visible to user
     super.willActivate()
     
     alertLabel.setText("正在加载中...")
+    print(NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey))
     if let extra = NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey) as? [String: AnyObject] {
       setupViewWithInfo(extra)
     } else {
@@ -100,57 +84,26 @@ class InterfaceController: WKInterfaceController {
   override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
     print(remoteNotification)
     
-    if let action = identifier {
-      if action == "checkDetail" {
-        if let extra = remoteNotification["extra"] as? [String: AnyObject] {
-          setupViewWithInfo(extra)
-        }
+    if let action = identifier where action == "checkDetail" {
+      if let extra = remoteNotification["aps"] as? [String: AnyObject] {
+        setupViewWithInfo(extra)
       }
     }
-  }
-  
-  func imagerequest(url:NSURL) {
-    let requestURL: NSURL = url
-    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-    let session = NSURLSession.sharedSession()
-    let task = session.dataTaskWithRequest(urlRequest) {
-      (data, response, error) -> Void in
-      if error == nil {
-        self.avatarImage.setImage(UIImage(data:data!))
-      } else {
-        print(error)
-      }
-    }
-    task.resume()
   }
   
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
+    print("arrivalInfo:\(arrivalInfo)")
     
-    // 用户头像
-    if let userid = arrivalInfo["userid"] as? String {
-      self.userImage(userid)
-    }
-    if let userimage = arrivalInfo["userImage"] as? String {
-      if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/\(userimage)") {
-        imagerequest(url)
-      }
-    }
-    // 姓名
-    if let username = arrivalInfo["username"] as? String {
-      guestLabel.setText(username)
-    }
-    if let order = arrivalInfo["title"] as? [String: AnyObject] {
-      // 内容
-      if let room_type = order["content"] as? String {
-        roomTypeLabel.setText(room_type)
-      }
-      // 预计到达时间
-      if let duration = order["arrivalTime"] as? NSNumber {
-        arrivalDateLabel.setText("\(duration.stringValue)晚")
-      }
+    if let alert = arrivalInfo["alert"] as? String {
+      alertLabel.setText(alert)
     }
     
-
+    if let userimage = arrivalInfo["userimage"] as? String {
+      //if userimage != currentImageUrl {
+        avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:nil)
+      //}
+      //currentImageUrl = userimage
+    }
    /* // 用户头像
     if let userID = arrivalInfo["userid"] {
       self.userImage(userID as! String)

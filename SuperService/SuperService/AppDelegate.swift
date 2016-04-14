@@ -228,7 +228,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
       forContext: .Default)
     arrivalInfoCategory.identifier = "ARRIVING"
     
-    let categories = NSSet(array: [arrivalInfoCategory]) as? Set<UIUserNotificationCategory>
+    let paymentCategory = UIMutableUserNotificationCategory()
+    paymentCategory.setActions([checkDetailAction], forContext: .Default)
+    paymentCategory.identifier = "PAYMENT_RESULT"
+    
+    let categories = NSSet(array: [arrivalInfoCategory,paymentCategory]) as? Set<UIUserNotificationCategory>
     
     let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: categories)
     UIApplication.sharedApplication().registerUserNotificationSettings(settings)

@@ -139,6 +139,7 @@
 		40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA96F1BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m */; };
 		40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9711BE1C60A00737C6D /* TSQCalendarRowCell.m */; };
 		40ABA9771BE1C60A00737C6D /* TSQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */; };
+		40B0A11C1CBF8C4D0055D8E9 /* PaymentResultNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 40B0A11B1CBF8C4D0055D8E9 /* PaymentResultNotificationPayload.apns */; };
 		40B0DC271BCE366E00785D2E /* ZKJSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC261BCE366E00785D2E /* ZKJSTool.m */; };
 		40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DC291BCE395300785D2E /* AccountManager.swift */; };
 		40BBCED51C34BBEE003732FF /* ArrivalInfo.apns in Resources */ = {isa = PBXBuildFile; fileRef = 40BBCED41C34BBEE003732FF /* ArrivalInfo.apns */; };
@@ -608,6 +609,7 @@
 		40ABA9711BE1C60A00737C6D /* TSQCalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarRowCell.m; sourceTree = "<group>"; };
 		40ABA9721BE1C60A00737C6D /* TSQCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarView.h; sourceTree = "<group>"; };
 		40ABA9731BE1C60A00737C6D /* TSQCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarView.m; sourceTree = "<group>"; };
+		40B0A11B1CBF8C4D0055D8E9 /* PaymentResultNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PaymentResultNotificationPayload.apns; path = "Supporting Files/PaymentResultNotificationPayload.apns"; sourceTree = "<group>"; };
 		40B0DC251BCE366E00785D2E /* ZKJSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSTool.h; sourceTree = "<group>"; };
 		40B0DC261BCE366E00785D2E /* ZKJSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSTool.m; sourceTree = "<group>"; };
 		40B0DC291BCE395300785D2E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -1754,6 +1756,7 @@
 				40BBCED41C34BBEE003732FF /* ArrivalInfo.apns */,
 				40F3CD261C3277500044845D /* PushNotificationPayload.apns */,
 				4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */,
+				40B0A11B1CBF8C4D0055D8E9 /* PaymentResultNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2794,6 +2797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				406B0B041C85B5E0006C9C73 /* Info.plist in Resources */,
+				40B0A11C1CBF8C4D0055D8E9 /* PaymentResultNotificationPayload.apns in Resources */,
 				406B0B011C85B5E0006C9C73 /* Info-tvOS.plist in Resources */,
 				40F3CD2E1C3277500044845D /* Assets.xcassets in Resources */,
 				4058AF911CBE2F4D00D9A926 /* ArrivalPush.apns in Resources */,

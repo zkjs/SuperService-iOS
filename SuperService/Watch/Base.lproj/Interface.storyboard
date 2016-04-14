@@ -149,7 +149,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="53" y="413.25"/>
+            <point key="canvasLocation" x="13" y="288"/>
         </scene>
         <!--到店通知-->
         <scene sceneID="KcW-Fc-0wV">
@@ -183,7 +183,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="330" y="310"/>
+            <point key="canvasLocation" x="317" y="271"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -201,7 +201,23 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="53" y="783"/>
+            <point key="canvasLocation" x="13" y="627"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="MXp-kL-mcY">
+            <objects>
+                <notificationController id="I75-Qz-diT">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="8LU-Qp-tra"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="PAYMENT_RESULT" id="tGk-l5-btW"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="8LU-Qp-tra" id="0yb-rI-hH2"/>
+                        <segue destination="7gH-Sb-Dlw" kind="relationship" relationship="dynamicNotificationInterface" id="wCs-vt-UqT"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="5" y="951"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
@@ -226,7 +242,47 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="330" y="783"/>
+            <point key="canvasLocation" x="341" y="627"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="g28-3U-jdn">
+            <objects>
+                <controller id="7gH-Sb-Dlw" customClass="NotificationController" customModule="Watch_Extension">
+                    <items>
+                        <group width="80" height="80" alignment="center" radius="40" id="xtp-MC-ul9">
+                            <items>
+                                <imageView width="80" height="80" alignment="center" image="default_logo" contentMode="scaleAspectFit" id="iHz-eO-hNG"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="qRA-FV-HlY">
+                            <items>
+                                <label alignment="center" text="姓名" numberOfLines="0" minimumScaleFactor="0.5" id="YQU-s7-uZ6"/>
+                            </items>
+                            <edgeInsets key="margins" left="3" right="0.0" top="3" bottom="8"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="avatarImage" destination="iHz-eO-hNG" id="kUI-GU-TTe"/>
+                        <outlet property="nameLabel" destination="YQU-s7-uZ6" id="7HX-8w-gL5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="341" y="951"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="p7y-FC-VAA">
+            <objects>
+                <notificationController id="7Jm-Kf-w3D">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="aL4-be-enq"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" id="6ml-8W-WCS"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="aL4-be-enq" id="Vnz-lA-4bs"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="5" y="1258"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

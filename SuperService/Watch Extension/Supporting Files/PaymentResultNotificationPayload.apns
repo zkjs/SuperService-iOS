@@ -1,0 +1,29 @@
+{
+  "aps": { "badge":"1",
+    "alert":"覃业俊已支付888元",
+    "sound":"default",
+    "userimage": "uploads/users/c_25174689826741ac_1460085424862.jpg",
+    "category" : "ARRIVING",
+    "message" : {
+      "type" : "PAYMENT_RESULT",
+      "data" : {
+         "amount" : 12500,
+         "confirmtime" : "2016-04-13 14:33:39",
+         "createtime" : "2016-04-13 14:32:59",
+         "orderno" : "C201604132FD14686",
+         "paymentno" : "T2016041372DC459A",
+         "salesid" : "b_d2ac434545677a34",
+         "shopid" : "2009",
+         "shopname" : "长沙豪庭大酒店",
+         "status" : 2,
+         "statusdesc" : "已经付款",
+         "userid" : "c_87db4f52b941071b",
+         "userimage" : "uploads/users/c_87db4f52b941071b_1460429060795.jpg",
+         "username" : "业俊"
+      }
+    }
+    
+  },
+  
+  "customKey": "Use this file to define a testing payload for your notifications. The aps dictionary specifies the category, alert text and title. The WatchKit Simulator Actions array can provide info for one or more action buttons in addition to the standard Dismiss button. Any other top level keys are custom payload. If you have multiple such JSON files in your project, you'll be able to select them when choosing to debug the notification interface of your Watch App."
+}

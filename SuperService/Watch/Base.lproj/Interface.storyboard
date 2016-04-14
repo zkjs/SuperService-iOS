@@ -190,7 +190,8 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" minimumScaleFactor="0.59999999999999998" id="IdU-wH-bcW">
+                        <label alignment="left" text="Alert Label" numberOfLines="0" minimumScaleFactor="0.59999999999999998" id="IdU-wH-bcW">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                             <variation key="device=watch42mm" text="到店通知"/>
                         </label>
                     </items>
@@ -208,7 +209,9 @@
             <objects>
                 <notificationController id="I75-Qz-diT">
                     <items>
-                        <label alignment="left" text="Alert Label" id="8LU-Qp-tra"/>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="8LU-Qp-tra">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="PAYMENT_RESULT" id="tGk-l5-btW"/>
                     <connections>
@@ -274,7 +277,9 @@
             <objects>
                 <notificationController id="7Jm-Kf-w3D">
                     <items>
-                        <label alignment="left" text="Alert Label" id="aL4-be-enq"/>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="aL4-be-enq">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                     </items>
                     <notificationCategory key="notificationCategory" id="6ml-8W-WCS"/>
                     <connections>

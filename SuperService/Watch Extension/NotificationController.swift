@@ -51,18 +51,29 @@ class NotificationController: WKUserNotificationInterfaceController {
   
   func updateDisplayWithNotificationUserInfo(userInfo:[NSObject: AnyObject]) {
     if let aps = userInfo["aps"] as? NSDictionary {
+      
+      let dict = aps.mutableCopy() as! NSMutableDictionary
+      dict.setValue(NSDate(), forKey: "timestamp")
+      
       // 姓名
       if let title = aps["alert"] as? String {
         nameLabel.setText(title)
       }
       
+      var avatgarUrl = ""
       // 用户头像
       if let userimage = aps["userimage"] as? String {
-        avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:UIImage(named: "default_logo"),completion:nil)
+        avatgarUrl = userimage
+      } else if let msg = aps["message"] as? NSDictionary,
+          let data = msg["data"] as? NSDictionary,
+          let userimage = data["userimage"] as? String {
+        avatgarUrl = userimage
+        dict.setValue(userimage, forKey: "userimage")
       }
       
-      let dict = aps.mutableCopy() as! NSMutableDictionary
-      dict.setValue(NSDate(), forKey: "timestamp")
+      if !avatgarUrl.isEmpty {
+        avatarImage.setImageWithUrl(avatgarUrl.fullImageUrl, placeHolder:UIImage(named: "default_logo"),completion:nil)
+      }
 
       // Cache ArrivalInfo Notification
       NSUserDefaults.standardUserDefaults().setObject(dict, forKey: ArrivalInfoKey)

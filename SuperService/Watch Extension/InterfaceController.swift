@@ -96,7 +96,7 @@ class InterfaceController: WKInterfaceController {
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
     print("setupViewWithInfo:\(arrivalInfo)")
     
-    if let date = arrivalInfo["timestamp"] as? NSDate where fabs(date.timeIntervalSinceNow) > 60 {
+    if let date = arrivalInfo["timestamp"] as? NSDate where fabs(date.timeIntervalSinceNow) > 600 {
       alertLabel.setText("暂无到店客人")
       avatarImage.setImageNamed("default_logo")
       return

@@ -63,7 +63,6 @@
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; };
 		4058AF911CBE2F4D00D9A926 /* ArrivalPush.apns in Resources */ = {isa = PBXBuildFile; fileRef = 4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */; };
-		4058AF931CBE30A300D9A926 /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058AF921CBE30A300D9A926 /* ZKJSConfig.swift */; };
 		4058AF951CBE313500D9A926 /* String+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */; };
 		405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */ = {isa = PBXBuildFile; fileRef = 405F4CA81BCF3FCC00BBBF47 /* server.der */; };
 		406B0AE31C85B391006C9C73 /* YunbaSubscribeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */; };
@@ -132,6 +131,7 @@
 		408C47D91C8710E500F9B0C7 /* errorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 408C47D81C8710E500F9B0C7 /* errorMessages.plist */; };
 		409EE0A71C0070680074F43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0A61C0070680074F43C /* Assets.xcassets */; };
 		409EE0AA1C0071390074F43C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0AC1C0071390074F43C /* Localizable.strings */; };
+		40A908121CBF7DAB00CC91CD /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401052941C97B69600B3CB63 /* ZKJSConfig.swift */; };
 		40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9631BE1B9E000737C6D /* PaymentModel.swift */; };
 		40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9651BE1BE4700737C6D /* GoodsModel.swift */; };
 		40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */; };
@@ -544,7 +544,6 @@
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArrivalPush.apns; path = "Supporting Files/ArrivalPush.apns"; sourceTree = "<group>"; };
-		4058AF921CBE30A300D9A926 /* ZKJSConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKJSConfig.swift; sourceTree = "<group>"; };
 		4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension+ZKJS.swift"; sourceTree = "<group>"; };
 		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
 		4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperService-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -573,6 +572,7 @@
 		406B0B231C85B5ED006C9C73 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		406B0B271C85B64A006C9C73 /* TokenPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenPayload.swift; path = Common/Models/TokenPayload.swift; sourceTree = "<group>"; };
 		406B0B2A1C85B692006C9C73 /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpService.swift; path = Common/Services/HttpService.swift; sourceTree = "<group>"; };
+		407051AF1CBF79FF00057132 /* Watch Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Watch Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		408423021BC689E200C215CD /* ArrivalTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrivalTVC.swift; path = MainPage/Child/Controller/ArrivalTVC.swift; sourceTree = "<group>"; };
 		408423031BC689E200C215CD /* ArrivalTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArrivalTVC.xib; path = MainPage/Child/Controller/ArrivalTVC.xib; sourceTree = "<group>"; };
 		408423061BC68A7800C215CD /* ArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrivalCell.swift; path = MainPage/Child/View/ArrivalCell.swift; sourceTree = "<group>"; };
@@ -1338,6 +1338,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		40A908111CBF7D9C00CC91CD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				401052941C97B69600B3CB63 /* ZKJSConfig.swift */,
+			);
+			name = Shared;
+			path = SuperService;
+			sourceTree = "<group>";
+		};
 		40ABA9691BE1C60A00737C6D /* TimesSquare */ = {
 			isa = PBXGroup;
 			children = (
@@ -1474,7 +1483,6 @@
 				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
 				40E326461BD510C1008344DF /* Extension */,
 				40E3262A1BD4C36F008344DF /* Persistence */,
-				401052941C97B69600B3CB63 /* ZKJSConfig.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1541,6 +1549,7 @@
 		40DA78851BAFAA8F00956B72 = {
 			isa = PBXGroup;
 			children = (
+				40A908111CBF7D9C00CC91CD /* Shared */,
 				40F3CD151C3277500044845D /* Watch */,
 				40F3CD241C3277500044845D /* Watch Extension */,
 				AC027541ADA26D63AB53B25F /* Frameworks */,
@@ -1726,6 +1735,7 @@
 		40F3CD241C3277500044845D /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				407051AF1CBF79FF00057132 /* Watch Extension-Bridging-Header.h */,
 				40C8A2AE1CBE612B00CB759B /* Classes */,
 				40F3CD271C3277500044845D /* InterfaceController.swift */,
 				40F567771C338B42000282D6 /* ArrivalInfoInterfaceController.swift */,
@@ -1734,7 +1744,6 @@
 				40F3CD2D1C3277500044845D /* Assets.xcassets */,
 				40F3CD2F1C3277500044845D /* Info.plist */,
 				40F3CD251C3277500044845D /* Supporting Files */,
-				4058AF921CBE30A300D9A926 /* ZKJSConfig.swift */,
 			);
 			path = "Watch Extension";
 			sourceTree = "<group>";
@@ -2627,7 +2636,7 @@
 		40DA78861BAFAA8F00956B72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = ZKJS;
 				TargetAttributes = {
@@ -3160,7 +3169,6 @@
 				406B0B0A1C85B5E0006C9C73 /* NetworkReachabilityManager.swift in Sources */,
 				406B0B101C85B5E0006C9C73 /* Request.swift in Sources */,
 				40F3CD2C1C3277500044845D /* NotificationController.swift in Sources */,
-				4058AF931CBE30A300D9A926 /* ZKJSConfig.swift in Sources */,
 				406B0B251C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */,
 				406B0B0C1C85B5E0006C9C73 /* Notifications.swift in Sources */,
 				406B0AFA1C85B5E0006C9C73 /* Alamofire.swift in Sources */,
@@ -3168,6 +3176,7 @@
 				406B0B161C85B5E0006C9C73 /* Result.swift in Sources */,
 				406B0B1A1C85B5E0006C9C73 /* Stream.swift in Sources */,
 				406B0B121C85B5E0006C9C73 /* Response.swift in Sources */,
+				40A908121CBF7DAB00CC91CD /* ZKJSConfig.swift in Sources */,
 				406B0B061C85B5E0006C9C73 /* Manager.swift in Sources */,
 				40C8A2B21CBE71C800CB759B /* ImageCache.swift in Sources */,
 				406B0B0E1C85B5E0006C9C73 /* ParameterEncoding.swift in Sources */,
@@ -3370,6 +3379,7 @@
 		4010529B1C97BFBE00B3CB63 /* PreRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
@@ -3380,6 +3390,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Watch Extension/Watch Extension-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -3639,6 +3650,7 @@
 		40F3CD351C3277500044845D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
@@ -3649,6 +3661,8 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Watch Extension/Watch Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -3657,6 +3671,7 @@
 		40F3CD361C3277500044845D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
@@ -3667,6 +3682,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Watch Extension/Watch Extension-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};

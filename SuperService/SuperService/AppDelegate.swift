@@ -226,7 +226,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     let arrivalInfoCategory = UIMutableUserNotificationCategory()
     arrivalInfoCategory.setActions([checkDetailAction],
       forContext: .Default)
-    arrivalInfoCategory.identifier = "arrivalInfo"
+    arrivalInfoCategory.identifier = "ARRIVING"
     
     let categories = NSSet(array: [arrivalInfoCategory]) as? Set<UIUserNotificationCategory>
     

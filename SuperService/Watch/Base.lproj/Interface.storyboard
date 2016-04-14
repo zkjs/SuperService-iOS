@@ -23,7 +23,7 @@
                         </group>
                         <group width="1" alignment="left" id="fwr-WG-Iz1">
                             <items>
-                                <label alignment="center" text="通知" minimumScaleFactor="0.5" id="0jH-gT-sKR"/>
+                                <label alignment="center" text="通知" numberOfLines="0" minimumScaleFactor="0.5" id="0jH-gT-sKR"/>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="8"/>
                         </group>
@@ -194,7 +194,7 @@
                             <variation key="device=watch42mm" text="到店通知"/>
                         </label>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="arrivalInfo" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" identifier="ARRIVING" id="JfB-70-Muf"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
@@ -215,7 +215,7 @@
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="dyy-7e-zEX">
                             <items>
-                                <label alignment="center" text="姓名" minimumScaleFactor="0.5" id="bhE-aP-Ktr"/>
+                                <label alignment="center" text="姓名" numberOfLines="0" minimumScaleFactor="0.5" id="bhE-aP-Ktr"/>
                             </items>
                             <edgeInsets key="margins" left="3" right="0.0" top="3" bottom="8"/>
                         </group>

@@ -58,23 +58,19 @@ class NotificationController: WKUserNotificationInterfaceController {
       
       // 用户头像
       if let userimage = aps["userimage"] as? String {
-        //imageRequest(url)
-        avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:UIImage(named: "default_logo"))
+        avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:UIImage(named: "default_logo"),completion:nil)
       }
       
+      let dict = aps.mutableCopy() as! NSMutableDictionary
+      dict.setValue(NSDate(), forKey: "timestamp")
+
       // Cache ArrivalInfo Notification
-      NSUserDefaults.standardUserDefaults().setObject(aps, forKey: ArrivalInfoKey)
+      NSUserDefaults.standardUserDefaults().setObject(dict, forKey: ArrivalInfoKey)
     }
   }
   
   func documentDirectory() -> NSString {
     return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
   }
-  
-  /*func userImage(userID:String) {
-    let path = documentDirectory().stringByAppendingPathComponent(userID)
-    let image = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UIImage
-    self.avatarImage.setImage(image)
-  }*/
   
 }

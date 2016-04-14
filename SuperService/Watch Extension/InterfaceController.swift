@@ -66,11 +66,13 @@ class InterfaceController: WKInterfaceController {
     super.willActivate()
     
     alertLabel.setText("正在加载中...")
-    print(NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey))
     if let extra = NSUserDefaults.standardUserDefaults().objectForKey(ArrivalInfoKey) as? [String: AnyObject] {
+      print("willActivate:\(extra)")
       setupViewWithInfo(extra)
     } else {
+      print("no extra data")
       alertLabel.setText("暂无到店客人")
+      avatarImage.setImageNamed(nil)
       orderGroup.setHidden(true)
       orderTitleLabel.setText("")
     }
@@ -82,7 +84,7 @@ class InterfaceController: WKInterfaceController {
   }
   
   override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
-    print(remoteNotification)
+    print("handleActionWithIdentifier(\(identifier)):\(remoteNotification)")
     
     if let action = identifier where action == "checkDetail" {
       if let extra = remoteNotification["aps"] as? [String: AnyObject] {
@@ -92,15 +94,25 @@ class InterfaceController: WKInterfaceController {
   }
   
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
-    print("arrivalInfo:\(arrivalInfo)")
+    print("setupViewWithInfo:\(arrivalInfo)")
+    
+    if let date = arrivalInfo["timestamp"] as? NSDate where fabs(date.timeIntervalSinceNow) > 60 {
+      alertLabel.setText("暂无到店客人")
+      avatarImage.setImageNamed("default_logo")
+      return
+    }
     
     if let alert = arrivalInfo["alert"] as? String {
       alertLabel.setText(alert)
     }
     
     if let userimage = arrivalInfo["userimage"] as? String {
+      if currentImageUrl != userimage {
+        avatarImage.setImageNamed("default_logo")
+      }
+      currentImageUrl = userimage
       //if userimage != currentImageUrl {
-        avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:nil)
+      avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:nil, completion:nil)
       //}
       //currentImageUrl = userimage
     }

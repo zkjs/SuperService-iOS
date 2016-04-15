@@ -65,7 +65,7 @@ class SendSuccessVC: UIViewController {
       let json = JSON(data: message.data)
       if json["type"].string == "PAYMENT_RESULT" {
         let result = FacePayPushResult(json: json["data"])
-        self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
+        self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno,paymentNo:result.paymentno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
         
         
         self.dismissViewControllerAnimated(true) { () -> Void in

@@ -17,6 +17,7 @@ enum PaymentResultType {
 class FacePayResult {
   let status:Int
   let orderNo:String?
+  let paymentNo:String?
   let errorCode:Int
   let waiting:Bool
   let customer:NearbyCustomer
@@ -28,6 +29,7 @@ class FacePayResult {
     amount:Double,
     succ:Int,
     orderNo:String?,
+    paymentNo:String?,
     errorCode:Int,
     waiting:Bool,
     confirmTime:String?,
@@ -35,6 +37,7 @@ class FacePayResult {
     ) {
       self.status = succ
       self.orderNo = orderNo
+      self.paymentNo = paymentNo
       self.errorCode = errorCode
       self.waiting = waiting
       self.customer = customer

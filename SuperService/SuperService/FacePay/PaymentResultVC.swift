@@ -67,8 +67,8 @@ class PaymentResultVC: UIViewController {
     if payResult.status == 0 {// 0 - 等待用户确认付款,
       statusImage.image = UIImage(named: "ic_dengdai")
       statusLabel.text = "等待 \(payResult.customer.username) 确认"
-      if let orderno = payResult.orderNo,let createTime = payResult.createTime {
-        orderNoLabel.text = "交易单号:\(orderno)"
+      if let paymentNo = payResult.paymentNo,let createTime = payResult.createTime {
+        orderNoLabel.text = "交易单号:\(paymentNo)"
         createdTimeLabel.text = "收款时间:\(createTime)"
       }
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
@@ -81,8 +81,11 @@ class PaymentResultVC: UIViewController {
       statusImage.image = UIImage(named: "ic_chenggong")
       statusLabel.text = "\(payResult.customer.username) 收款成功"
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
-      if let orderno = payResult.orderNo,let confirm = payResult.confirmTime,let createTime = payResult.createTime {
-        orderNoLabel.text = "交易单号:\(orderno)"
+      if let orderno = payResult.orderNo,
+        let paymentNo = payResult.paymentNo,
+        let confirm = payResult.confirmTime,
+        let createTime = payResult.createTime {
+        orderNoLabel.text = "交易单号:\(paymentNo)"
         confirmTimeLabel.text = "成功时间:\(confirm)"
         createdTimeLabel.text = "收款时间:\(createTime)"
       }
@@ -95,8 +98,8 @@ class PaymentResultVC: UIViewController {
       statusLabel.text = "\(payResult.customer.username) 收款失败"
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
       confirmTimeLabel.hidden = false
-      if let orderno = payResult.orderNo,let confirm = payResult.confirmTime,let createTime = payResult.createTime {
-        orderNoLabel.text = "交易单号:\(orderno)"
+      if let paymentNo = payResult.paymentNo,let confirm = payResult.confirmTime,let createTime = payResult.createTime {
+        orderNoLabel.text = "交易单号:\(paymentNo)"
         confirmTimeLabel.text = "失败时间:\(confirm)"
         createdTimeLabel.text = "收款时间:\(createTime)"
       }
@@ -113,7 +116,7 @@ class PaymentResultVC: UIViewController {
     guard let userInfo = notification.userInfo,let payInfo = userInfo["payInfo"] as? FacePayPushResult  else {
       return
     }
-    self.payResult = FacePayResult(customer:payInfo.custom, amount: payInfo.amount/100, succ: payInfo.status, orderNo: payInfo.orderno, errorCode: 0, waiting: payInfo.amount > 100,confirmTime:nil,createTime:payInfo.createtime)
+    self.payResult = FacePayResult(customer:payInfo.custom, amount: payInfo.amount/100, succ: payInfo.status, orderNo: payInfo.orderno,paymentNo:payInfo.paymentno, errorCode: 0, waiting: payInfo.amount > 100,confirmTime:nil,createTime:payInfo.createtime)
     self.updateView()
   }
   
@@ -124,7 +127,7 @@ class PaymentResultVC: UIViewController {
       let json = JSON(data: message.data)
       if json["type"].string == "PAYMENT_RESULT" {
         let result = FacePayPushResult(json: json["data"])
-        self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
+        self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno,paymentNo:result.paymentno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
         self.updateView()
       }
     }

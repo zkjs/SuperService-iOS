@@ -60,8 +60,11 @@ class ChargeVC: UIViewController {
     HttpService.sharedInstance.chargeCustomer(amount, userid: customer.userid, orderNo: nil) { (json, error) -> Void in
       self.confirmButton.enabled = true
       self.hideHUD()
-      if let orderno = json["orderno"].string ,let status = json["status"].int,let createtime = json["createtime"].string  {
-        self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: status, orderNo: orderno, errorCode: 0, waiting: amount > 100,confirmTime:json["confirmtime"].string,createTime:createtime)
+      if let orderno = json["orderno"].string ,
+        let paymentno = json["paymentno"].string,
+        let status = json["status"].int,
+        let createtime = json["createtime"].string  {
+        self.payResult = FacePayResult(customer:self.customer, amount: amount, succ: status, orderNo: orderno,paymentNo:paymentno, errorCode: 0, waiting: amount > 100,confirmTime:json["confirmtime"].string,createTime:createtime)
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
           if let closure = self.payResultClosure {
             closure(true, payResult:self.payResult!)

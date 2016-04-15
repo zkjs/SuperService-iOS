@@ -56,7 +56,7 @@ class PaymentListVC: UITableViewController {
   func pushToResult() {
     for payment in paymentList {
       if orderNo == payment.orderno {
-        self.payResult = FacePayResult(customer:payment.custom, amount: payment.amount/100, succ: payment.status, orderNo: payment.orderno, errorCode: 0, waiting: payment.amount > 100,confirmTime:payment.confirmtime,createTime:payment.createtime)
+        self.payResult = FacePayResult(customer:payment.custom, amount: payment.amount/100, succ: payment.status, orderNo: payment.orderno,paymentNo:payment.paymentno, errorCode: 0, waiting: payment.amount > 100,confirmTime:payment.confirmtime,createTime:payment.createtime)
         self.performSegueWithIdentifier("checkPayInfoSegue", sender:nil)
         break
       }
@@ -86,7 +86,7 @@ class PaymentListVC: UITableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     let pay = paymentList[indexPath.section] 
-    self.payResult = FacePayResult(customer:pay.custom, amount: pay.amount/100, succ: pay.status, orderNo: pay.orderno, errorCode: 0, waiting: pay.amount > 100,confirmTime:pay.confirmtime,createTime:pay.createtime)
+    self.payResult = FacePayResult(customer:pay.custom, amount: pay.amount/100, succ: pay.status, orderNo: pay.orderno,paymentNo:pay.paymentno, errorCode: 0, waiting: pay.amount > 100,confirmTime:pay.confirmtime,createTime:pay.createtime)
     self.performSegueWithIdentifier("checkPayInfoSegue", sender:nil)
   }
   

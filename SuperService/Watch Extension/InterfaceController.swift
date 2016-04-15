@@ -117,6 +117,8 @@ class InterfaceController: WKInterfaceController {
       avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:nil, completion:nil)
       //}
       //currentImageUrl = userimage
+    } else {
+      avatarImage.setImageNamed("default_logo")
     }
    /* // 用户头像
     if let userID = arrivalInfo["userid"] {

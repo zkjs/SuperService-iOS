@@ -150,16 +150,16 @@ class PaymentResultVC: UIViewController {
     self.sendAgainButton.enabled = false
     HttpService.sharedInstance.chargeCustomer(payResult.amount, userid: payResult.customer.userid, orderNo: payResult.orderNo) { (json, error) -> Void in
       self.sendAgainButton.enabled = true
-      if let _ = json["orderno"].string {
-        
-      } else {
-        if error?.code == 30101 {//余额不足
+      if let error = error {
+        if error.code == 30101 {//余额不足
           self.showHint("用户账户余额不足,请使用其它收款方式!")
-        } else if error?.code == 30102 {//重发过于频繁
+        } else if error.code == 30102 {//重发过于频繁
           self.showHint("重发过于频繁,请1小时后再试")
         } else {//错误
-          self.showHint("error:\(error?.code)")
+          self.showHint("error:\(error.code)")
         }
+      } else {
+        self.showHint("请求发送成功")
       }
     }
   }

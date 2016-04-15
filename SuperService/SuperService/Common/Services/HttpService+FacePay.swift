@@ -64,6 +64,8 @@ extension HttpService {
       } else {
         if let data = json?["data"]{
           completionHandler(data,nil)
+        } else if let orderno = json?["orderno"] {
+          completionHandler(orderno,nil)
         } else {
           completionHandler(nil,error)
         }

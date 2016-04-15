@@ -86,11 +86,11 @@ class InterfaceController: WKInterfaceController {
   override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
     print("handleActionWithIdentifier(\(identifier)):\(remoteNotification)")
     
-    if let action = identifier where action == "checkDetail" {
+    //if let action = identifier where action == "checkDetail" {
       if let extra = remoteNotification["aps"] as? [String: AnyObject] {
         setupViewWithInfo(extra)
       }
-    }
+    //}
   }
   
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {

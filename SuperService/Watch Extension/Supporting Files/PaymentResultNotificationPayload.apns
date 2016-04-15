@@ -1,9 +1,12 @@
 {
   "aps": { "badge":"1",
-    "alert":"覃业俊已支付888元",
+    "alert":{
+      "title":"覃业俊已确认支付888元",
+      "body":"覃业俊已确认支付888元比特币,支付单号:x0x0x0x0x0x0"
+    },
     "sound":"default",
     "userimage": "uploads/users/c_25174689826741ac_1460085424862.jpg",
-    "category" : "ARRIVING",
+    "category" : "PAYMENT_RESULT",
     "message" : {
       "type" : "PAYMENT_RESULT",
       "data" : {

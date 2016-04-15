@@ -109,46 +109,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
   // MARK: - Background Fetch
   
-  func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+  /*func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     print("BackGround Fetch success")
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5  * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
-      completionHandler(UIBackgroundFetchResult.NewData)
-      page++
-      ZKJSJavaHTTPSessionManager.sharedInstance().getOrderListWithPage(String(page),
-        success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-          print("Background Fetch: \(responseObject)")
-          if let array = responseObject as? NSArray {
-            for dic in array {
-              let order = OrderListModel(dic: dic as! [String:AnyObject])
-              if let userid = order.userid {
-                if let url = NSURL(string: "http://svip02.oss-cn-shenzhen.aliyuncs.com/uploads/users/\(userid).jpg") {
-                  let requestURL: NSURL = url
-                  let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-                  let session = NSURLSession.sharedSession()
-                  let task = session.dataTaskWithRequest(urlRequest) {
-                    (data, response, error) -> Void in
-                    if error == nil {
-                      if let Data = data {
-                        if  let  image = UIImage(data: Data) {
-                          StorageManager.sharedInstance().saveHomeImages(image, userID: order.userid)
-                        }
-                      }
-                    } else {
-                      print(error)
-                    }
-                  }
-                  task.resume()
-                }
-              }
-            }
-          }
-          
-        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-          
-      }
-    }
     
-  }
+  }*/
   
 
   // MARK: - Push Notification

@@ -241,7 +241,7 @@
                     </items>
                     <connections>
                         <outlet property="avatarImage" destination="AUL-ZL-MB2" id="6Ru-4t-7RF"/>
-                        <outlet property="nameLabel" destination="bhE-aP-Ktr" id="RrY-Kn-bXv"/>
+                        <outlet property="nameLabel" destination="bhE-aP-Ktr" id="ixQ-Kf-hjS"/>
                     </connections>
                 </controller>
             </objects>

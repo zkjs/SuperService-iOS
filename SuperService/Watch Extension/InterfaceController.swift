@@ -104,6 +104,8 @@ class InterfaceController: WKInterfaceController {
     
     if let alert = arrivalInfo["alert"] as? String {
       alertLabel.setText(alert)
+    } else if let alert = arrivalInfo["alert"] as? NSDictionary,let body = alert["body"] as? String {
+      alertLabel.setText(body)
     }
     
     if let userimage = arrivalInfo["userimage"] as? String {

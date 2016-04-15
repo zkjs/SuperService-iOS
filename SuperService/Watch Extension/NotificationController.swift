@@ -58,6 +58,8 @@ class NotificationController: WKUserNotificationInterfaceController {
       // 姓名
       if let title = aps["alert"] as? String {
         nameLabel.setText(title)
+      } else if let alert = aps["alert"] as? NSDictionary,let body = alert["body"] as? String {
+        nameLabel.setText(body)
       }
       
       var avatgarUrl = ""

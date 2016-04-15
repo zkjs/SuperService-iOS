@@ -1,6 +1,9 @@
 {
   "aps": { "badge":"1",
-    "alert":"yejun已抵达Ritz大门",
+    "alert":{
+      "title":"yejun已抵达天宫大门",
+      "body":"yejun大概于15分钟后开着拖拉机抵达天庭大门,请玉帝老儿接驾"
+    },
     "sound":"default",
     "userimage": "uploads/users/c_25174689826741ac_1460085424862.jpg",
     "category" : "ARRIVING"

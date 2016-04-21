@@ -27,13 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   // MARK: - Application Delegate
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    let succ = HttpService.sharedInstance.refreshTokenSync()
+    if !succ {
+      TokenPayload.sharedInstance.clearCacheTokenPayload()
+    }
     setupNotification()
     setupWindows()
     setupYunBa()
     setupWeChat()
     setupEaseMobWithApplication(application, launchOptions: launchOptions)
     clearImageCache()
-    refreshToken()
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 //    setupBackgroundFetch()
     

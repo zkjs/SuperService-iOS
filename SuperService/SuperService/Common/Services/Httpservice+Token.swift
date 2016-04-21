@@ -31,6 +31,37 @@ extension HttpService {
     }
   }
   
+  //// PAVO 认证服务API : Token管理 : 同步方式刷新Token
+  func refreshTokenSync() -> Bool {
+    guard let token = TokenPayload.sharedInstance.token  where !token.isEmpty else {
+      return false
+    }
+    
+    print("refresh token with: \(token)")
+    let urlString = ResourcePath.Token.description.fullUrl
+    let request = NSMutableURLRequest(URL: NSURL(string:urlString)!)
+    request.HTTPMethod = "PUT"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue(token, forHTTPHeaderField: "Token")
+    
+    var response: NSURLResponse?
+    if let data = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: &response) {
+      let json = JSON(data: data)
+      print(json["resDesc"].string)
+      if json["res"].int == 0 {
+        if let token = json["token"].string {
+          TokenPayload.sharedInstance.saveTokenPayload(token)
+          return true
+        }
+        return false
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+  
   //// PAVO 认证服务API : Token管理 :
   func deleteToken(completionHandler:HttpCompletionHandler) {
     let urlString = ResourcePath.Token.description.fullUrl

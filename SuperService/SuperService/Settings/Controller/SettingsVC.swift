@@ -124,7 +124,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     StorageManager.sharedInstance().clearNoticeArray()
     StorageManager.sharedInstance().clearnearBeaconLocid()
     TokenPayload.sharedInstance.clearCacheTokenPayload()
-    
+    StorageManager.sharedInstance().savePresentInfoVC(true)
     // 消除订阅云巴频道
     YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     

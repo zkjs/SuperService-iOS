@@ -102,6 +102,7 @@ class StaffLoginVC: UIViewController {
           } else {
             self.hideHUD()
             self.dismissViewControllerAnimated(true, completion: nil)
+            
           }
         })
       }

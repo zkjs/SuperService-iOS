@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+enum ApperType {
+  case push
+  case presents
+}
 class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   
   @IBOutlet weak var tableView: UITableView!
@@ -20,7 +23,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var selectedArray = [Int]()
   var areaArr = [String]()
   var dismissWhenFinished = false
-  
+  var type = ApperType?()
   var topicsArray = [String]()//云巴订阅的数组
   
   override func loadView() {
@@ -208,13 +211,18 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     locID = areaArr.joinWithSeparator(",")
     AccountInfoManager.sharedInstance.savebeaconLocationIDs(self.locID)
+    if type == .presents {
+      self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        StorageManager.sharedInstance().savePresentInfoVC(false)
+      })
+    } else {
     let vc = self.navigationController?.viewControllers[0] as! SettingsVC
     let appWindow = UIApplication.sharedApplication().keyWindow
     let mainTBC = MainTBC()
     mainTBC.selectedIndex = 0
     appWindow?.rootViewController = mainTBC
     self.navigationController?.popToViewController(vc, animated: false)
-    
+    }
   }
   
 }

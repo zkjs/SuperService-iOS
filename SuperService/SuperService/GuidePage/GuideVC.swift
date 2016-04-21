@@ -879,6 +879,8 @@ class GuideVC: AnimatedPagingScrollViewController {
   private func gotoMain() {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     appDelegate.window?.rootViewController = appDelegate.mainTBC
+    appDelegate.mainTBC.selectedIndex = 3
+    appDelegate.mainTBC.navigationController?.pushViewController(InformVC(), animated: true)
   }
   
   private func fadeOutPage4() {

@@ -11,7 +11,7 @@ import UIKit
 let kGotoContactList = "kGotoContactList"
 
 class MainTBC: UITabBarController {
-  
+  var IsPresent = true
   private let conversationListVC = ConversationListController()
   
   override func viewDidLoad() {
@@ -31,6 +31,24 @@ class MainTBC: UITabBarController {
     
     // 监控Token是否过期
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveInvalidToken", name: KNOTIFICATION_LOGOUTCHANGE, object: nil)
+    /*
+    第一次登陆Present InfoVC 页面
+    */
+    presentInfoVC()
+  }
+  
+  func presentInfoVC() {
+    if let present = StorageManager.sharedInstance().presentsInfoVC() {
+      self.IsPresent = present
+    }
+    if StorageManager.sharedInstance().noticeArray() == nil && IsPresent == true {
+      let vc = InformVC()
+      let nc = BaseNavigationController(rootViewController:vc)
+      self.presentViewController(nc, animated: true, completion: { () -> Void in
+        vc.type = ApperType.presents
+        StorageManager.sharedInstance().savePresentInfoVC(true)
+      })
+    }
   }
   
   func pushTo() {
@@ -48,6 +66,7 @@ class MainTBC: UITabBarController {
  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    
     
     if !TokenPayload.sharedInstance.isLogin {
       showLogin()
@@ -87,6 +106,7 @@ class MainTBC: UITabBarController {
     // 消除订阅云巴频道
     YunbaSubscribeService.sharedInstance.unsubscribeAllTopics()
     YunbaSubscribeService.sharedInstance.setAlias("")
+    StorageManager.sharedInstance().savePresentInfoVC(true)
     
     // 登出环信
     EaseMob.sharedInstance().chatManager.removeAllConversationsWithDeleteMessages!(true, append2Chat: true)
@@ -141,7 +161,11 @@ class MainTBC: UITabBarController {
     let nv5 = BaseNavigationController()
     nv5.viewControllers = [vc5]
     
+    
+    
     viewControllers = [nv1, nv3, nv4, nv5]
+    
+    
   }
   
   func checkVersion() {

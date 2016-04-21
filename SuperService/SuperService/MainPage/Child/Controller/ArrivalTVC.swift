@@ -17,6 +17,7 @@ class ArrivalTVC: UITableViewController {
   var ordernoArray = [String]()
   var orderstatusArray = [String]()
   var page:Int = 0
+
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("ArrivalTVC", owner:self, options:nil)
   }
@@ -44,10 +45,12 @@ class ArrivalTVC: UITableViewController {
     if let roles = TokenPayload.sharedInstance.roles where roles.contains("POS") {
       addBarButtons() 
     }
+    
+    
+    
               
   }
   
-
   private func addBarButtons() {
     let buttonCounter = UIBarButtonItem(image: UIImage(named: "ic_till"),
       style: .Plain,

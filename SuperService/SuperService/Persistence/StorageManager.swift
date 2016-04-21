@@ -13,6 +13,7 @@ private let kLastOrder = "LastOrder.archive"
 private let kShopsInfo = "Shops.archive"
 private let kHomeImages = "HomeImage.archive"
 private let kCachedBeaconRegions = "CachedBeaconRegions.archive"
+private let kPresentInfoVC = "PresentInfoVC.archive"
 
 class StorageManager: NSObject {
   
@@ -58,6 +59,17 @@ class StorageManager: NSObject {
     let path = documentDirectory().stringByAppendingPathComponent("array.archive")
     let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
     return noticeArray
+  }
+  
+  func savePresentInfoVC(firstPresent:Bool) {
+    let path = documentDirectory().stringByAppendingPathComponent(kPresentInfoVC)
+    NSKeyedArchiver.archiveRootObject(firstPresent, toFile: path)
+  }
+  
+  func presentsInfoVC() -> Bool? {
+    let path = documentDirectory().stringByAppendingPathComponent(kPresentInfoVC)
+    let IsPresents = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? Bool
+    return IsPresents
   }
   
   func clearNoticeArray() {

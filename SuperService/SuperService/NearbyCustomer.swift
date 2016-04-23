@@ -27,7 +27,7 @@ struct NearbyCustomer {
     userid = data["userid"].string ?? ""
     username = data["username"].string ?? ""
     viplevel = data["viplevel"].int ?? 0
-    userimage = data["userimage"].string.map{ $0.isEmpty ? "" : kImageURL + $0 } ?? ""
+    userimage = data["userimage"].string ?? ""
     sex = data["sex"].int ?? 0
     phone = data["phone"].string ?? ""
     city = data["city"].string ?? ""

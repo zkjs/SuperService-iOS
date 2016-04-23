@@ -25,6 +25,6 @@ class CustomerHeaderCell: UICollectionViewCell {
   
   func configCell(user:NearbyCustomer) {
     userNameLabel.text = user.username
-    avatarImageView.sd_setImageWithURL(NSURL(string: user.userimage), placeholderImage: UIImage(named: ""))
+    avatarImageView.sd_setImageWithURL(NSURL(string: user.userimage.fullImageUrl), placeholderImage: UIImage(named: ""))
   }
 }

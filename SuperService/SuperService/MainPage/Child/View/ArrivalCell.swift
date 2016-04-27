@@ -35,7 +35,7 @@ class ArrivalCell: UITableViewCell {
   }
   
   class func height() -> CGFloat {
-    return 167
+    return 119
   }
   
   override func awakeFromNib() {
@@ -52,10 +52,10 @@ class ArrivalCell: UITableViewCell {
   
   // MARK: - Button Action
   
-  @IBAction func makePhoneCall(sender: AnyObject) {
-    let phoneURL = NSURL(string: "tel://\(phone)")
-    UIApplication.sharedApplication().openURL(phoneURL!)
-  }
+//  @IBAction func makePhoneCall(sender: AnyObject) {
+//    let phoneURL = NSURL(string: "tel://\(phone)")
+//    UIApplication.sharedApplication().openURL(phoneURL!)
+//  }
   
   
   // MARK: - Private

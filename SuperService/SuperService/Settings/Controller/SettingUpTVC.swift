@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingUpTVC: UITableViewController {
+class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
   
   @IBOutlet weak var codeLabel: UILabel!
   @IBOutlet weak var telphoneLabel: UILabel!
@@ -74,43 +74,63 @@ class SettingUpTVC: UITableViewController {
   }
   
   func showPhotoPicker() {
-    let mediaPicker = WPMediaPickerViewController()
-    mediaPicker.delegate = self
-    mediaPicker.filter = WPMediaType.Image
-    mediaPicker.allowMultipleSelection = false
-    presentViewController(mediaPicker, animated: true, completion: nil)
+    
+    let alertController = UIAlertController(title: "请选择图片", message: "", preferredStyle: .ActionSheet)
+    let takePhotoAction = UIAlertAction(title: "拍照", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.Camera
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(takePhotoAction)
+    let choosePhotoAction = UIAlertAction(title: "从相册中选择", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(choosePhotoAction)
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
   }
   
 }
 
-extension SettingUpTVC: WPMediaPickerViewControllerDelegate {
+extension SettingUpTVC: UIImagePickerControllerDelegate {
   
-  func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
-    if let set = assets.first as? ALAsset {
-      let image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
-      let name = AccountInfoManager.sharedInstance.userName
-      HttpService.sharedInstance.updateUserInfo(false, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
-        if let _ = error {
-          self.hideHUD()
-          self.showHint("上传头像失败")
-        } else {
-          self.hideHUD()
-          self.showHint("上传头像成功")
-          self.tableView.reloadData()
-          self.dismissViewControllerAnimated(true, completion: nil)
-          HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
-            
-          })
-          
-        }
-      })
-      
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    picker.dismissViewControllerAnimated(true, completion: nil)
+    
+    showHudInView(view, hint: "正在上传头像...")
+    var imageData = UIImageJPEGRepresentation(image, 1.0)!
+    var i = 0
+    while imageData.length / 1024 > 80 {
+      let persent = CGFloat(100 - i++) / 100.0
+      imageData = UIImageJPEGRepresentation(image, persent)!
     }
     
+    
+    let name = AccountInfoManager.sharedInstance.userName
+    HttpService.sharedInstance.updateUserInfo(false, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
+      if let _ = error {
+        self.hideHUD()
+        self.showHint("上传头像失败")
+      } else {
+        self.hideHUD()
+        self.showHint("上传头像成功")
+        self.tableView.reloadData()
+        self.dismissViewControllerAnimated(true, completion: nil)
+        HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
+          
+        })
+        
+      }
+      })
+    
   }
-  
-  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
+
   
 }

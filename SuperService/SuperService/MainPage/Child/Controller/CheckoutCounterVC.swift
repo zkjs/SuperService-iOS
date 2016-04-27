@@ -17,22 +17,22 @@ class CheckoutCounterVC: UICollectionViewController {
 
     var nearbyCustomers = [NearbyCustomer]()
     var locids = String()
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+      super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+      // Uncomment the following line to preserve selection between presentations
+      // self.clearsSelectionOnViewWillAppear = false
 
-        // Do any additional setup after loading the view.
-      self.title = "收款台"
-      addBarButtons()
-      
-      let width = CGRectGetWidth(collectionView!.frame) / 2
-      let layout = collectionViewLayout as! UICollectionViewFlowLayout
-      layout.itemSize = CGSize(width: width, height: width + 40)
+      // Do any additional setup after loading the view.
+    self.title = "收款台"
+    addBarButtons()
     
-      loadData()
-    }
+    let width = CGRectGetWidth(collectionView!.frame) / 2
+    let layout = collectionViewLayout as! UICollectionViewFlowLayout
+    layout.itemSize = CGSize(width: width, height: width + 40)
+  
+    loadData()
+  }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
@@ -94,24 +94,24 @@ class CheckoutCounterVC: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
+  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+      return 1
+  }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return nearbyCustomers.count
-    }
+  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+      return nearbyCustomers.count
+  }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-      let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CustomerHeaderCell
-  
-      // Configure the cell
-      
-      cell.configCell(nearbyCustomers[indexPath.row])
-      
-      return cell
-    }
+  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CustomerHeaderCell
+
+    // Configure the cell
+    
+    cell.configCell(nearbyCustomers[indexPath.row])
+    
+    return cell
+  }
   
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     self.performSegueWithIdentifier("ChargeSegue", sender: indexPath)

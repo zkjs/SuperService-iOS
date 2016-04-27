@@ -81,8 +81,7 @@ class PaymentResultVC: UIViewController {
       statusImage.image = UIImage(named: "ic_chenggong")
       statusLabel.text = "\(payResult.customer.username) 收款成功"
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
-      if let orderno = payResult.orderNo,
-        let paymentNo = payResult.paymentNo,
+    if  let paymentNo = payResult.paymentNo,
         let confirm = payResult.confirmTime,
         let createTime = payResult.createTime {
         orderNoLabel.text = "交易单号:\(paymentNo)"

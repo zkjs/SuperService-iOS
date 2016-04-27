@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -46,7 +45,7 @@
                         <rect key="frame" x="30" y="8" width="293" height="150"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP3 林先生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uII-aj-A9K" userLabel="Client Info Label">
-                                <rect key="frame" x="56" y="8" width="77" height="17"/>
+                                <rect key="frame" x="56" y="20" width="77" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="FJ3-Y3-8Ai"/>
                                 </constraints>
@@ -55,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要办理免前台入住" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeG-bp-zZn">
-                                <rect key="frame" x="56" y="29" width="126" height="17"/>
+                                <rect key="frame" x="56" y="41" width="126" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="IOZ-oB-0t7"/>
                                 </constraints>
@@ -72,7 +71,7 @@
                                 <state key="normal" image="ic_zhuanfa"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-qv-urQ" userLabel="Avatar Button">
-                                <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                <rect key="frame" x="8" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="4Sh-Sz-6BU"/>
                                     <constraint firstAttribute="height" constant="40" id="Nwc-Lv-tJW"/>
@@ -99,29 +98,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vQ-XI-Jfs">
-                                <rect key="frame" x="0.0" y="102" width="293" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="4Rx-ed-A7K"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="   电话" image="ic_phone_blue">
-                                    <color key="titleColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="makePhoneCall:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1gd-Hj-dLG"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAb-xX-b6X">
-                                <rect key="frame" x="0.0" y="94" width="293" height="1"/>
-                                <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="qNP-YS-5Sr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-Sl-nvp">
                                 <rect key="frame" x="248" y="27" width="45" height="45"/>
                                 <constraints>
@@ -136,32 +112,19 @@
                             <constraint firstAttribute="bottom" secondItem="MMY-T1-ezj" secondAttribute="bottom" id="4jj-5h-kTB"/>
                             <constraint firstItem="jaN-Sl-nvp" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="27" id="6gz-Ew-EXH"/>
                             <constraint firstItem="a1K-ZS-2cb" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="8" id="8fT-xd-ifO"/>
-                            <constraint firstItem="6vQ-XI-Jfs" firstAttribute="leading" secondItem="hZP-Nl-nz1" secondAttribute="leading" id="Lsy-iT-Z92"/>
                             <constraint firstItem="EeG-bp-zZn" firstAttribute="leading" secondItem="PSV-qv-urQ" secondAttribute="trailing" constant="8" id="MRw-Zx-gcK"/>
-                            <constraint firstItem="UAb-xX-b6X" firstAttribute="top" secondItem="EeG-bp-zZn" secondAttribute="bottom" constant="48" id="N8f-Dc-s9g"/>
-                            <constraint firstItem="UAb-xX-b6X" firstAttribute="centerX" secondItem="hZP-Nl-nz1" secondAttribute="centerX" id="Suh-k9-oGh"/>
                             <constraint firstAttribute="trailing" secondItem="MMY-T1-ezj" secondAttribute="trailing" id="VbF-qY-p2O"/>
-                            <constraint firstItem="PSV-qv-urQ" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="8" id="YX7-F3-Y3Z"/>
+                            <constraint firstItem="PSV-qv-urQ" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="20" id="YX7-F3-Y3Z"/>
                             <constraint firstItem="uII-aj-A9K" firstAttribute="leading" secondItem="PSV-qv-urQ" secondAttribute="trailing" constant="8" id="aQ6-eu-2Uf"/>
-                            <constraint firstItem="UAb-xX-b6X" firstAttribute="leading" secondItem="hZP-Nl-nz1" secondAttribute="leading" id="cHH-hX-rPu"/>
-                            <constraint firstItem="6vQ-XI-Jfs" firstAttribute="width" secondItem="hZP-Nl-nz1" secondAttribute="width" multiplier="0.5" id="cuT-0J-0OR"/>
-                            <constraint firstAttribute="bottom" secondItem="6vQ-XI-Jfs" secondAttribute="bottom" id="hfm-At-JB2"/>
                             <constraint firstAttribute="trailing" secondItem="jaN-Sl-nvp" secondAttribute="trailing" id="nvk-qO-Zz9"/>
                             <constraint firstItem="EeG-bp-zZn" firstAttribute="top" secondItem="uII-aj-A9K" secondAttribute="bottom" constant="4" id="oBc-oh-Ibo"/>
-                            <constraint firstItem="uII-aj-A9K" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="8" id="qbL-W7-be6"/>
-                            <constraint firstAttribute="trailing" secondItem="UAb-xX-b6X" secondAttribute="trailing" id="s7b-G9-WNT"/>
+                            <constraint firstItem="uII-aj-A9K" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="20" id="qbL-W7-be6"/>
                             <constraint firstAttribute="trailing" secondItem="a1K-ZS-2cb" secondAttribute="trailing" constant="10" id="tji-ZQ-Uk4"/>
-                            <constraint firstItem="6vQ-XI-Jfs" firstAttribute="width" secondItem="UAb-xX-b6X" secondAttribute="width" id="u0e-Ec-dJV"/>
                             <constraint firstItem="PSV-qv-urQ" firstAttribute="leading" secondItem="hZP-Nl-nz1" secondAttribute="leading" constant="8" id="umJ-y0-wke"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="cuT-0J-0OR"/>
-                            </mask>
-                        </variation>
                     </view>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cue-tX-dOZ" userLabel="Order Button">
-                        <rect key="frame" x="86" y="66" width="168" height="33"/>
+                        <rect key="frame" x="86" y="78" width="168" height="33"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="d0o-FV-crX"/>
@@ -199,7 +162,6 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="PhoneCall" destination="6vQ-XI-Jfs" id="vJZ-nD-paS"/>
                 <outlet property="arrowButton" destination="jaN-Sl-nvp" id="GkU-OM-DSI"/>
                 <outlet property="avatarImageView" destination="PSV-qv-urQ" id="Dnu-cR-QYH"/>
                 <outlet property="clientInfoLabel" destination="uII-aj-A9K" id="gi5-g3-LIn"/>
@@ -214,7 +176,6 @@
     </objects>
     <resources>
         <image name="default_logo" width="77" height="64"/>
-        <image name="ic_phone_blue" width="11" height="11"/>
         <image name="ic_right_blue" width="9" height="16"/>
         <image name="ic_zhuanfa" width="15" height="13"/>
     </resources>

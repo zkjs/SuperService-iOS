@@ -395,6 +395,11 @@
 		FAF101C01C04029900FC3672 /* EmployeeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101BE1C04029900FC3672 /* EmployeeVC.xib */; };
 		FAF101C31C0409D400FC3672 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF101C11C0409D400FC3672 /* EmployeeCell.swift */; };
 		FAF101C41C0409D400FC3672 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF101C21C0409D400FC3672 /* EmployeeCell.xib */; };
+		FAF165DA1CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF165D91CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift */; };
+		FAF165DC1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF165DB1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard */; };
+		FAF165DE1CD1B1D800A88BD0 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF165DD1CD1B1D800A88BD0 /* TagsModel.swift */; };
+		FAF165E01CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF165DF1CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift */; };
+		FAF165E21CD1D2BC00A88BD0 /* ClientHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF165E11CD1D2BC00A88BD0 /* ClientHeadView.swift */; };
 		FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */; };
 		FAF1A5DF1BEC41F300B9ACC8 /* SettingUpTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */; };
 		FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */; };
@@ -1023,6 +1028,11 @@
 		FAF101BE1C04029900FC3672 /* EmployeeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeVC.xib; sourceTree = "<group>"; };
 		FAF101C11C0409D400FC3672 /* EmployeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		FAF101C21C0409D400FC3672 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
+		FAF165D91CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientLabelCollectionVC.swift; sourceTree = "<group>"; };
+		FAF165DB1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ClientLabelCollectionVC.storyboard; sourceTree = "<group>"; };
+		FAF165DD1CD1B1D800A88BD0 /* TagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsModel.swift; sourceTree = "<group>"; };
+		FAF165DF1CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientLabelCollectionCell.swift; sourceTree = "<group>"; };
+		FAF165E11CD1D2BC00A88BD0 /* ClientHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientHeadView.swift; sourceTree = "<group>"; };
 		FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUpTVC.swift; sourceTree = "<group>"; };
 		FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingUpTVC.storyboard; sourceTree = "<group>"; };
 		FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ../Controller/HeaderView.swift; sourceTree = "<group>"; };
@@ -1504,7 +1514,10 @@
 		40CF56761BF3455E00E20D50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4016A2931CD1C2E800B95745 /* CircularProgressView.swift */,
 				408423061BC68A7800C215CD /* ArrivalCell.swift */,
+				FAF165E11CD1D2BC00A88BD0 /* ClientHeadView.swift */,
+				FAF165DF1CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift */,
 				408423071BC68A7800C215CD /* ArrivalCell.xib */,
 			);
 			name = View;
@@ -1515,6 +1528,8 @@
 			children = (
 				408423021BC689E200C215CD /* ArrivalTVC.swift */,
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
+				FAF165D91CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift */,
+				FAF165DB1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1600,7 +1615,6 @@
 				40D7339E1BE31FA600266228 /* PrefixHeader.pch */,
 				4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */,
 				405F4CA81BCF3FCC00BBBF47 /* server.der */,
-				4016A2931CD1C2E800B95745 /* CircularProgressView.swift */,
 			);
 			path = SuperService;
 			sourceTree = "<group>";
@@ -2450,6 +2464,7 @@
 			isa = PBXGroup;
 			children = (
 				FA07ABD61C966AD3009CCC3E /* ArrivateModel.swift */,
+				FAF165DD1CD1B1D800A88BD0 /* TagsModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2757,6 +2772,7 @@
 				FAF6AB801BED99CD006C1370 /* InvitationRecordVC.xib in Resources */,
 				40F757831BE055A80053C2BE /* TeamListCell.xib in Resources */,
 				40F757721BE0553E0053C2BE /* SettingsCell.xib in Resources */,
+				FAF165DC1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard in Resources */,
 				40F757561BE054550053C2BE /* OrderDetail.storyboard in Resources */,
 				406B0B021C85B5E0006C9C73 /* Info.plist in Resources */,
 				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
@@ -2866,6 +2882,7 @@
 				40FB3D461C00203900675044 /* EaseEmoji.m in Sources */,
 				40FB3CFF1C00203900675044 /* UIImageView+HeadImage.m in Sources */,
 				400D627E1C1526B50021E750 /* LayerFillColorAnimation.swift in Sources */,
+				FAF165DA1CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift in Sources */,
 				40C8416E1C102CC3003E8037 /* EMAlertView.m in Sources */,
 				40DC2D571C902D9C007D9A3F /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				FAF1A5E91BEC910A00B9ACC8 /* CodeModel.swift in Sources */,
@@ -2953,6 +2970,7 @@
 				40FB3CFE1C00203900675044 /* CallViewController.m in Sources */,
 				40FB3D581C00203900675044 /* EaseBubbleView+Video.m in Sources */,
 				FAF6AB831BEDA34E006C1370 /* InvitationRecordCell.swift in Sources */,
+				FAF165DE1CD1B1D800A88BD0 /* TagsModel.swift in Sources */,
 				40FB3D411C00203900675044 /* UIViewController+DismissKeyboard.m in Sources */,
 				404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */,
 				40FB3D5D1C00203900675044 /* EaseImageView.m in Sources */,
@@ -3066,6 +3084,7 @@
 				40FB3D081C00203900675044 /* EMCDDeviceManager+Microphone.m in Sources */,
 				40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */,
 				40FB3D3B1C00203900675044 /* EaseMessageModel.m in Sources */,
+				FAF165E21CD1D2BC00A88BD0 /* ClientHeadView.swift in Sources */,
 				40FB3D3A1C00203900675044 /* EaseConversationModel.m in Sources */,
 				40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */,
 				40FB3D291C00203900675044 /* UIImageView+EMWebCache.m in Sources */,
@@ -3088,6 +3107,7 @@
 				406B0B051C85B5E0006C9C73 /* Manager.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
 				40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */,
+				FAF165E01CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift in Sources */,
 				40DC2D4C1C901FD3007D9A3F /* ChargeVC.swift in Sources */,
 				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,
 				400D62701C1526B50021E750 /* AnimatedPagingScrollViewController.swift in Sources */,

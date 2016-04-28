@@ -63,7 +63,20 @@ extension HttpService {
    }
   }
 
+  func queryUsertags(userid:String,completionHandler: (TagsModel?,NSError?)->Void) {
+    let urlString = ResourcePath.QueryUserTags.description.fullUrl
+    let param = ["si_id":userid]
+    get(urlString, parameters: param) { (json, error) -> Void in
+     if let error = error {
+          completionHandler(nil,error)
+        } else {
+          if let data = json?["data"]
+          {
+            let user = TagsModel(dic: data)
+            completionHandler(user,nil)
+          }
+        }
+      }
+    }
+  }
   
-  
-
-}

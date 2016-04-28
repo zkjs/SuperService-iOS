@@ -26,7 +26,8 @@ class HttpService {
     case DeleteToken                            //// PAVO 认证服务API : 删除Token :
     case Code                                   //// PAVO 认证服务API : 验证码 : HEADER不需要Token
     case QueryUserInfo
-    case CheckVersion(version:String)      // 检查App版本
+    case CheckVersion(version:String)           // 检查App版本
+    case QueryUserTags                          //用户标签
     
     var description: String {
       switch self {
@@ -38,6 +39,7 @@ class HttpService {
       case .Code :                              return "/pav/sso/vcode/v1/ss?source=login"
       case .QueryUserInfo:                      return "/res/v1/query/si/all"
       case .CheckVersion(let version):          return "/for/res/v1/systempub/upgrade/newestversion/1/IOS/\(version)"
+      case .QueryUserTags:                      return "/for/res/v1/query/user/tags"
       }
     }
   }

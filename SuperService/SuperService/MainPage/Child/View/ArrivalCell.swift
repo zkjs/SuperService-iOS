@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol GotoLabelVCDelegate {
+  func gotoLabelVC(data: ArrivateModel)
+}
 class ArrivalCell: UITableViewCell {
   
   @IBOutlet weak var avatarImageView: UIButton!
@@ -24,6 +26,8 @@ class ArrivalCell: UITableViewCell {
   
   var phone = ""
   var sex = ""
+  var arrivate = ArrivateModel()
+  var delegate:GotoLabelVCDelegate?
   
   
   class func reuseIdentifier() -> String {
@@ -40,6 +44,8 @@ class ArrivalCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    
+    
     // Initialization code
   }
   
@@ -61,16 +67,20 @@ class ArrivalCell: UITableViewCell {
   // MARK: - Private
   
   func setData(data: ArrivateModel) {
-    
+    arrivate = data
     guard let userName = data.username else {return}
     guard let sex = data.sex else {return}
     guard let Phone = data.phone else {return}
+    
     phone = Phone
-    var url = NSURL(string: kImageURL)
+    let urlString = NSURL(string: kImageURL)
     if let userImage = data.userimage {
-    url = url?.URLByAppendingPathComponent("\(userImage)")
+    let url = urlString?.URLByAppendingPathComponent("\(userImage)")
     avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
     clientInfoLabel.text = userName + "\(sex)"
+    avatarImageView.userInteractionEnabled = true
+    let tap = UITapGestureRecognizer(target: self, action: "gotoLabel:")
+    avatarImageView.addGestureRecognizer(tap)
     }
     // 客户位置信息
     if let location = data.locdesc {
@@ -85,7 +95,6 @@ class ArrivalCell: UITableViewCell {
       if let firstOrder = order.first {
         orderButton.hidden = false
         arrowButton.hidden = false
-        
         if let orderRoom = firstOrder["room"].string,
           let checkIn = firstOrder["indate"].string
         {
@@ -125,11 +134,11 @@ class ArrivalCell: UITableViewCell {
         timeAgoLabel.text = dateFormat.stringFromDate(date)
       }
     }
-      
- 
-    
-
   }
   
+  func gotoLabel(tap:UITapGestureRecognizer) {
+    delegate?.gotoLabelVC(arrivate)
+    print("*****************")
+  }
   
 }

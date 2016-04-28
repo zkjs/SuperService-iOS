@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArrivalTVC: UITableViewController {
+class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   
   lazy var dataArray = [ArrivateModel]()
   var orderno: String!
@@ -152,7 +152,7 @@ class ArrivalTVC: UITableViewController {
     } else {
       cell.topLineImageView.hidden = false
     }
-
+    cell.delegate = self
     cell.orderButton.addTarget(self, action: "showOrder:", forControlEvents: .TouchUpInside)
     let data = dataArray[indexPath.section]
     cell.setData(data)
@@ -231,6 +231,16 @@ class ArrivalTVC: UITableViewController {
     }
   }
   
+  //TODO GOTOLABELVCDELAGATE 
+  
+  func gotoLabelVC(arrivate:ArrivateModel) {
+    
+    let storyboard = UIStoryboard(name: "ClientLabelCollectionVC", bundle: nil)
+    let ClientVC = storyboard.instantiateViewControllerWithIdentifier("ClientLabelCollectionVC") as! ClientLabelCollectionVC
+    ClientVC.clientInfo = arrivate
+    ClientVC.hidesBottomBarWhenPushed = true
+    self.navigationController?.pushViewController(ClientVC, animated: true)
+  }
 
   
 }

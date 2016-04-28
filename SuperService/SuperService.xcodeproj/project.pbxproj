@@ -43,6 +43,7 @@
 		40111DF41C8FF5F200DD2AE1 /* HttpService+FacePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */; };
 		40111DFA1C90047700DD2AE1 /* NearbyCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DF91C90047700DD2AE1 /* NearbyCustomer.swift */; };
 		40111DFC1C90079300DD2AE1 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40111DFB1C90079300DD2AE1 /* CustomerOrder.swift */; };
+		4016A2941CD1C2E800B95745 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A2931CD1C2E800B95745 /* CircularProgressView.swift */; };
 		401C1FA31C2A4B3D003B9E69 /* CCPRestSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */; };
 		401C1FA41C2A4B3D003B9E69 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C1FA21C2A4B3D003B9E69 /* XMLReader.m */; };
 		4023F72F1C1D215A0057351E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023F72C1C1D215A0057351E /* libWeChatSDK.a */; };
@@ -516,6 +517,7 @@
 		40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HttpService+FacePay.swift"; path = "Common/Services/HttpService+FacePay.swift"; sourceTree = "<group>"; };
 		40111DF91C90047700DD2AE1 /* NearbyCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCustomer.swift; sourceTree = "<group>"; };
 		40111DFB1C90079300DD2AE1 /* CustomerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
+		4016A2931CD1C2E800B95745 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		401C1F9D1C2A4B3D003B9E69 /* CCPRestSDK-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPRestSDK-Prefix.pch"; sourceTree = "<group>"; };
 		401C1F9E1C2A4B3D003B9E69 /* CCPRestSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPRestSDK.h; sourceTree = "<group>"; };
 		401C1F9F1C2A4B3D003B9E69 /* CCPRestSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPRestSDK.m; sourceTree = "<group>"; };
@@ -1598,6 +1600,7 @@
 				40D7339E1BE31FA600266228 /* PrefixHeader.pch */,
 				4068A2BE1BBB80EA00FF8608 /* SuperService-Bridging-Header.h */,
 				405F4CA81BCF3FCC00BBBF47 /* server.der */,
+				4016A2931CD1C2E800B95745 /* CircularProgressView.swift */,
 			);
 			path = SuperService;
 			sourceTree = "<group>";
@@ -3032,6 +3035,7 @@
 				40FB3D221C00203900675044 /* MKAnnotationView+EMWebCache.m in Sources */,
 				40F757821BE055A80053C2BE /* TeamListCell.swift in Sources */,
 				406B0AE31C85B391006C9C73 /* YunbaSubscribeService.swift in Sources */,
+				4016A2941CD1C2E800B95745 /* CircularProgressView.swift in Sources */,
 				40FB3D541C00203900675044 /* EaseBubbleView+File.m in Sources */,
 				406B0AF91C85B5E0006C9C73 /* Alamofire.swift in Sources */,
 				40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */,

@@ -57,6 +57,9 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
     return myView
   }
   
+  func setUP() {
+    self.navigationController?.pushViewController(SetUpVC(), animated: true)
+  }
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
     if indexPath == NSIndexPath(forRow: 0, inSection: 0) {

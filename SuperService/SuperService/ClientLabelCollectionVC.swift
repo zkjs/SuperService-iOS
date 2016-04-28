@@ -112,18 +112,18 @@ class ClientLabelCollectionVC: UICollectionViewController {
   
 
   @IBAction func cellTapped(sender: CircularProgressView) {
-    sender.checked = !sender.checked
     guard let canoptcnt = clientTags?.canoptcnt where canoptcnt != 0 else {
       self.showHint("一天只可添加3次", withFontSize: 18)
       return
     }
+    sender.checked = !sender.checked
     let tag = clientTags?.tags[sender.tag]
     if sender.checked == true,let isopt = tag?.isopt {//添加标签
       if isopt == 1 {
         self.showHint("您已标注过，请不要重复设置", withFontSize: 18)
         sender.checked = false
       } else {
-        if tagidArr.count < 3 {
+        if tagidArr.count < canoptcnt {
           tagidArr.append((tag?.tagid)!)
         }else {
           self.showHint("一次只可添加3个标签", withFontSize: 18)

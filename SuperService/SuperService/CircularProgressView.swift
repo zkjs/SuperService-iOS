@@ -154,15 +154,17 @@ class CircularProgressView: UIControl {
   }
   
   func addCheckMark(rect: CGRect) {
-    let offsetX:CGFloat = rect.width / 2 - 36
-    let offsetY:CGFloat = rect.width / 2 - 30
+    let offsetX:CGFloat = rect.width / 2 - 20
+    let offsetY:CGFloat = rect.height / 2 - 15
+    
+    let markPath = UIBezierPath()
+    markPath.moveToPoint(CGPointMake(2 + offsetX, 15 + offsetY))
+    markPath.addLineToPoint(CGPointMake(20 + offsetX, 33 + offsetY))
+    markPath.addLineToPoint(CGPointMake(50 + offsetX, 2 + offsetY))
+    markPath.lineCapStyle = .Round;
+    markPath.lineJoinStyle = .Round;
     
     let markLayer = CAShapeLayer()
-    let markPath = UIBezierPath()
-    markPath.lineCapStyle = .Round
-    markPath.moveToPoint(CGPointMake(0 + offsetX, 30 + offsetY))
-    markPath.addLineToPoint(CGPointMake(36 + offsetX, 66 + offsetY))
-    markPath.addLineToPoint(CGPointMake(102 + offsetX, 2 + offsetY))
     markLayer.lineWidth = checkMarkLineWidth
     markLayer.path = markPath.CGPath
     markLayer.fillColor = UIColor.clearColor().CGColor

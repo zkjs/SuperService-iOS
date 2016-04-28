@@ -382,6 +382,7 @@
 		FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */; };
 		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
+		FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB198791CD207CE00A6F339 /* ClientFooterView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
 		FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */; };
 		FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */; };
@@ -1015,6 +1016,7 @@
 		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
 		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
+		FAB198791CD207CE00A6F339 /* ClientFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientFooterView.swift; sourceTree = "<group>"; };
 		FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Contacts.swift"; sourceTree = "<group>"; };
 		FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+GetCode.swift"; sourceTree = "<group>"; };
 		FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesVC.swift; sourceTree = "<group>"; };
@@ -1517,6 +1519,7 @@
 				4016A2931CD1C2E800B95745 /* CircularProgressView.swift */,
 				408423061BC68A7800C215CD /* ArrivalCell.swift */,
 				FAF165E11CD1D2BC00A88BD0 /* ClientHeadView.swift */,
+				FAB198791CD207CE00A6F339 /* ClientFooterView.swift */,
 				FAF165DF1CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift */,
 				408423071BC68A7800C215CD /* ArrivalCell.xib */,
 			);
@@ -3142,6 +3145,7 @@
 				40111DF41C8FF5F200DD2AE1 /* HttpService+FacePay.swift in Sources */,
 				40FB3D261C00203900675044 /* UIImage+EMMultiFormat.m in Sources */,
 				406B0B1D1C85B5E0006C9C73 /* Upload.swift in Sources */,
+				FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */,
 				40F7574F1BE054340053C2BE /* BaseNavigationController.swift in Sources */,
 				40E326421BD50544008344DF /* Order.swift in Sources */,
 				40DC2D5E1C904E3F007D9A3F /* FacePayResult.swift in Sources */,

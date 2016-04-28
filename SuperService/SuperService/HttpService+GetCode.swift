@@ -78,5 +78,18 @@ extension HttpService {
         }
       }
     }
+  
+  func updataUsertags(userid:String,tags:[Int],completionHandler: (JSON?,NSError?)->Void) {
+    let urlString = ResourcePath.UpdateUserTags.description.fullUrl
+    let param = ["si_id":userid,"tags":tags]
+    post(urlString, parameters: param as? [String : AnyObject]) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        completionHandler(json,nil)
+      }
+    }
   }
+  
+}
   

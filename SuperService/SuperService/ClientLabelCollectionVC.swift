@@ -10,9 +10,11 @@ import UIKit
 
 private let reuseIdentifier = "ClientLabelCollectionCell"
 private let ClientheadID = "ClientHeadView"
+private let ClientFootID = "ClientFooterView"
 class ClientLabelCollectionVC: UICollectionViewController {
   var clientInfo = ArrivateModel()
   var clientTags: TagsModel?
+  var tagidArr = [Int]()
 
 
     override func viewDidLoad() {
@@ -78,61 +80,83 @@ class ClientLabelCollectionVC: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClientLabelCollectionCell
-      cell.configCell((clientTags?.tags[indexPath.row])!)
+      if let tag = clientTags?.tags[indexPath.row] {
+        cell.circulView.tag = indexPath.row
+        cell.configCell(tag)
+        if tagidArr.contains(tag.tagid) {
+          cell.circulView.checked = true
+        } else {
+          cell.circulView.checked = false
+        }
+        cell.circulView.percent = CGFloat(tag.count/100)
+      }
       return cell
     }
   
   override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
     let reusableview = ClientHeadView()
     if (kind == UICollectionElementKindSectionHeader) {
-      let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader , withReuseIdentifier: ClientheadID, forIndexPath:NSIndexPath(index: 0)) as! ClientHeadView
+      let headView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader , withReuseIdentifier: ClientheadID, forIndexPath:NSIndexPath(index: 0)) as! ClientHeadView
+      headView.setupView(clientInfo)
+      return headView
+    } 
+    if (kind == UICollectionElementKindSectionFooter) {
+      let footView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: ClientFootID, forIndexPath:NSIndexPath(index: 0)) as! ClientFooterView
+      footView.sureButton.addTarget(self, action: "sure:", forControlEvents: .TouchUpInside)
+      return footView
       
-      let urlString = NSURL(string: kImageURL)
-      if let userImage = clientInfo.userimage {
-        let url = urlString?.URLByAppendingPathComponent("\(userImage)")
-        view.clientImage.sd_setImageWithURL(url, placeholderImage: nil)
-        if let sex = clientInfo.sex,let username = clientInfo.username {
-          view.tagLabel.text = username + "  "  + "\(sex)"
-        }
-        
-      }
-      return view
     }
     return reusableview
   }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
+  
+  
 
   @IBAction func cellTapped(sender: CircularProgressView) {
     sender.checked = !sender.checked
+    guard let canoptcnt = clientTags?.canoptcnt where canoptcnt != 0 else {
+      self.showHint("一天只可添加3次", withFontSize: 18)
+      return
+    }
+    let tag = clientTags?.tags[sender.tag]
+    if sender.checked == true,let isopt = tag?.isopt {//添加标签
+      if isopt == 1 {
+        self.showHint("您已标注过，请不要重复设置", withFontSize: 18)
+        sender.checked = false
+      } else {
+        if tagidArr.count < 3 {
+          tagidArr.append((tag?.tagid)!)
+        }else {
+          self.showHint("一次只可添加3个标签", withFontSize: 18)
+          sender.checked = false
+        }
+        print(tagidArr)
+      }
+    } else {//取消标签
+      for (index, value) in tagidArr.enumerate() {
+        if tagidArr.count == 1 {
+          tagidArr.removeAtIndex(0)
+          return
+        }
+        if case (tag?.tagid)! = value {
+          tagidArr.removeAtIndex(index)
+          print(tagidArr)
+          print("Found \(value) at position \(index)")
+          
+        }
+        
+      }
+    }
+  }
+  
+  
+  func sure(sender:UIButton) {
+    HttpService.sharedInstance.updataUsertags(clientInfo.userid!, tags: tagidArr) { (json, error) -> Void in
+      if let _ = error {
+        
+      } else {
+        self.showHint("更改成功", withFontSize: 24)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+      }
+    }
   }
 }

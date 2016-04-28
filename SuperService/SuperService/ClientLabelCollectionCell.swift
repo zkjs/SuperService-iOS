@@ -12,6 +12,7 @@ class ClientLabelCollectionCell: UICollectionViewCell {
     
   @IBOutlet weak var tagLabel: UILabel!
   
+  @IBOutlet weak var circulView: CircularProgressView!
   func configCell(tag:Tag) {
     tagLabel.text = tag.tagname
   }

@@ -27,6 +27,7 @@ class ClientLabelCollectionVC: UICollectionViewController {
       let width = 100
       let layout = collectionViewLayout as! UICollectionViewFlowLayout
       layout.itemSize = CGSize(width: width, height: width)
+//      self.collectionView?.bounces = false
 
         // Do any additional setup after loading the view.
     }
@@ -42,14 +43,17 @@ class ClientLabelCollectionVC: UICollectionViewController {
   }
   
   func loadData() {
+    showHUDInView(view, withLoading: "")
     guard let userid = clientInfo.userid else {return}
     HttpService.sharedInstance.queryUsertags(userid) { (json, error) -> Void in
       if let error = error {
         print(error)
+        self.hideHUD()
       } else {
         if let users = json{
           self.clientTags = users
           self.collectionView?.reloadData()
+          self.hideHUD()
         }
       }
     }
@@ -151,8 +155,8 @@ class ClientLabelCollectionVC: UICollectionViewController {
   
   func sure(sender:UIButton) {
     HttpService.sharedInstance.updataUsertags(clientInfo.userid!, tags: tagidArr) { (json, error) -> Void in
-      if let _ = error {
-        
+      if let error = error {
+        self.showErrorHint(error)
       } else {
         self.showHint("更改成功", withFontSize: 24)
         self.navigationController?.popToRootViewControllerAnimated(true)

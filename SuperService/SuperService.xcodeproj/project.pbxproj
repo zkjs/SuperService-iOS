@@ -375,6 +375,8 @@
 		FA3E50541C90049900011433 /* MassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E50521C90049900011433 /* MassCell.xib */; };
 		FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */; };
 		FA5902C61BEDE4BE002E6A98 /* CodeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */; };
+		FA5D9F2F1CD23B1B00F97DB5 /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D9F2D1CD23B1B00F97DB5 /* NameVC.swift */; };
+		FA5D9F301CD23B1B00F97DB5 /* NameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D9F2E1CD23B1B00F97DB5 /* NameVC.xib */; };
 		FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */; };
 		FA63908D1C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */; };
 		FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */; };
@@ -1008,6 +1010,8 @@
 		FA3E50521C90049900011433 /* MassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MassCell.xib; sourceTree = "<group>"; };
 		FA5902C31BEDE4B3002E6A98 /* CodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeHeaderView.swift; sourceTree = "<group>"; };
 		FA5902C51BEDE4BE002E6A98 /* CodeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeHeaderView.xib; sourceTree = "<group>"; };
+		FA5D9F2D1CD23B1B00F97DB5 /* NameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
+		FA5D9F2E1CD23B1B00F97DB5 /* NameVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameVC.xib; sourceTree = "<group>"; };
 		FA6390861C3FA43500CC3A90 /* KTVOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTVOrderDetailTVC.swift; path = ../../KTVOrderDetailTVC.swift; sourceTree = "<group>"; };
 		FA6390871C3FA43500CC3A90 /* LeisureOrderDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeisureOrderDetailTVC.swift; path = ../../LeisureOrderDetailTVC.swift; sourceTree = "<group>"; };
 		FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KTVOrderDetailTVC.storyboard; path = ../../KTVOrderDetailTVC.storyboard; sourceTree = "<group>"; };
@@ -2484,6 +2488,8 @@
 				40F757611BE0553E0053C2BE /* InformVC.xib */,
 				FAF6AB7D1BED99CD006C1370 /* InvitationRecordVC.swift */,
 				FAF6AB7E1BED99CD006C1370 /* InvitationRecordVC.xib */,
+				FA5D9F2D1CD23B1B00F97DB5 /* NameVC.swift */,
+				FA5D9F2E1CD23B1B00F97DB5 /* NameVC.xib */,
 				40F7576A1BE0553E0053C2BE /* SetUpVC.swift */,
 				40F7576B1BE0553E0053C2BE /* SetUpVC.xib */,
 				FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */,
@@ -2764,6 +2770,7 @@
 				405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */,
 				40F757771BE0553E0053C2BE /* SettingsVC.xib in Resources */,
 				408C47D91C8710E500F9B0C7 /* errorMessages.plist in Resources */,
+				FA5D9F301CD23B1B00F97DB5 /* NameVC.xib in Resources */,
 				40FB3D381C00203900675044 /* MWPhotoBrowser.bundle in Resources */,
 				FAF1A5E31BEC4CA000B9ACC8 /* HeaderView.xib in Resources */,
 				408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */,
@@ -3011,6 +3018,7 @@
 				40FB3D191C00203900675044 /* MWZoomingScrollView.m in Sources */,
 				40FB3D351C00203900675044 /* PSTGridLayoutItem.m in Sources */,
 				40FB3D0D1C00203900675044 /* wav.mm in Sources */,
+				FA5D9F2F1CD23B1B00F97DB5 /* NameVC.swift in Sources */,
 				FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */,
 				400D62871C1526B50021E750 /* UIView+Transform.swift in Sources */,
 				40FB3D121C00203900675044 /* MWCaptionView.m in Sources */,

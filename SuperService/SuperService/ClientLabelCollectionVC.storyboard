@@ -10,7 +10,7 @@
         <scene sceneID="nKp-mo-wrw">
             <objects>
                 <collectionViewController restorationIdentifier="ClientLabelCollectionVC" storyboardIdentifier="ClientLabelCollectionVC" id="i74-9b-wQM" customClass="ClientLabelCollectionVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" id="Ape-LI-oHV">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" dataMode="prototypes" id="Ape-LI-oHV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -52,13 +52,15 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
       myView?.userImageView.sd_setImageWithURL(NSURL(string: AccountInfoManager.sharedInstance.avatarURL), placeholderImage: UIImage(named: "logo_white"))
       myView?.selectedImageViewButton.addTarget(self, action: "selectedIamge:", forControlEvents: UIControlEvents.TouchUpInside)
       myView?.usernameLabel.text = AccountInfoManager.sharedInstance.userName
+      let tap = UITapGestureRecognizer(target: self, action: "gotoNameVC:")
+      myView?.addGestureRecognizer(tap)
       self.tableView.addSubview(myView!)
     }
     return myView
   }
   
-  func setUP() {
-    self.navigationController?.pushViewController(SetUpVC(), animated: true)
+  func gotoNameVC(tap:UITapGestureRecognizer) {
+    self.navigationController?.pushViewController(NameVC(), animated: true)
   }
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     

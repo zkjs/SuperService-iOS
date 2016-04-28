@@ -13,7 +13,7 @@ class ArrivateModel: NSObject {
   var userid: String?
   var username: String?
   var userlevel: String?
-  var sex: String?
+  var sex: Int?
   var phone: String?
   var city: String?
   var locdesc: String?
@@ -39,7 +39,7 @@ class ArrivateModel: NSObject {
     userid = dic["userid"].string ?? ""
     username = dic["username"].string ?? ""
     userlevel = dic["userlevel"].string ?? ""
-    sex = dic["sex"].string ?? ""
+    sex = dic["sex"].int ?? 0
     phone = dic["phone"].string ?? ""
     city =  dic["city"].string ?? ""
     shopid = dic["shopid"].string ?? ""

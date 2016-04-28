@@ -19,9 +19,19 @@ class ClientHeadView: UICollectionReusableView {
     if let userImage = clientInfo.userimage {
       let url = urlString?.URLByAppendingPathComponent("\(userImage)")
       self.clientImage.sd_setImageWithURL(url, placeholderImage: nil)
+      
       if let sex = clientInfo.sex,let username = clientInfo.username {
-        self.tagLabel.text = username + "  "  + "\(sex)"
-      }
+        switch sex {
+        case 1: 
+          return self.tagLabel.text = username + "  "  + "男"
+        case 0:
+          return self.tagLabel.text = username + "  "  + "女"
+        default:
+          self.tagLabel.text = username
+          break
+        }
+        
+      } 
     }
   }
 }

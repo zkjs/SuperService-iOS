@@ -19,7 +19,11 @@ class CircularProgressView: UIControl {
   //@IBInspectable var circleRadius:CGFloat = 70
   
   //进度0～1（内圈、中间、外圈）
-  @IBInspectable var percent:CGFloat = 0.75
+  @IBInspectable var percent:CGFloat = 0.75 {
+    didSet {
+      setNeedsDisplay()
+    }
+  }
   
   //进度条宽度
   @IBInspectable var circleWeight:CGFloat = 16
@@ -28,7 +32,11 @@ class CircularProgressView: UIControl {
   @IBInspectable var barBgAlpha:CGFloat = 0.3
   
   // 是否选择
-  @IBInspectable var checked:Bool = false
+  @IBInspectable var checked:Bool = false {
+    didSet {
+      setNeedsDisplay()
+    }
+  }
   
   //对钩颜色
   @IBInspectable var checkMarkColor: UIColor = UIColor.whiteColor()
@@ -50,6 +58,11 @@ class CircularProgressView: UIControl {
   
   // 绘制
   override func drawRect(rect: CGRect) {
+    if let sublayers = self.layer.sublayers {
+      for sub in sublayers {
+        sub.removeFromSuperlayer()
+      }
+    }
     // 添加环形进度条
     let radius = min(rect.width, rect.height) / 2 - circleWeight / 2
     self.addCirle(radius, color: circleColor, percent: percent)

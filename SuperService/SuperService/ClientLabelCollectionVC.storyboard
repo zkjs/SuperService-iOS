@@ -17,7 +17,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="xCW-du-CBW">
                             <size key="itemSize" width="163" height="154"/>
                             <size key="headerReferenceSize" width="50" height="160"/>
-                            <size key="footerReferenceSize" width="50" height="60"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="20" maxX="10" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -28,6 +28,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="163" height="154"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQs-OA-8pr">
+                                            <rect key="frame" x="13" y="69" width="137" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rk-N5-XK8" customClass="CircularProgressView" customModule="SuperService" customModuleProvider="target">
                                             <rect key="frame" x="5" y="5" width="153" height="144"/>
                                             <color key="backgroundColor" red="0.25490197539999998" green="0.98823529480000005" blue="0.26666668059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,29 +60,22 @@
                                                 <action selector="cellTapped:" destination="i74-9b-wQM" eventType="touchUpInside" id="84y-dg-rwI"/>
                                             </connections>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQs-OA-8pr">
-                                            <rect key="frame" x="10" y="69" width="143" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="RQs-OA-8pr" secondAttribute="trailing" constant="5" id="2mI-j4-n2e"/>
                                     <constraint firstItem="6rk-N5-XK8" firstAttribute="leading" secondItem="QmT-Ie-Gwa" secondAttribute="leading" constant="5" id="3Xa-qq-PJO"/>
                                     <constraint firstItem="6rk-N5-XK8" firstAttribute="centerY" secondItem="QmT-Ie-Gwa" secondAttribute="centerY" id="9an-MU-I5z"/>
                                     <constraint firstItem="6rk-N5-XK8" firstAttribute="leading" secondItem="QmT-Ie-Gwa" secondAttribute="leadingMargin" constant="16" id="9fh-b4-5sH"/>
                                     <constraint firstItem="6rk-N5-XK8" firstAttribute="top" secondItem="QmT-Ie-Gwa" secondAttribute="top" constant="5" id="B5i-Pp-eMT"/>
-                                    <constraint firstAttribute="trailing" secondItem="RQs-OA-8pr" secondAttribute="trailing" constant="10" id="CSN-q7-Ogm"/>
                                     <constraint firstItem="6rk-N5-XK8" firstAttribute="top" secondItem="QmT-Ie-Gwa" secondAttribute="topMargin" constant="9" id="FcY-Qi-oW3"/>
-                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="centerX" secondItem="QmT-Ie-Gwa" secondAttribute="centerX" id="GX9-z7-yXX"/>
-                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="centerY" secondItem="QmT-Ie-Gwa" secondAttribute="centerY" id="Wsh-BD-Ni1"/>
-                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="centerY" secondItem="QmT-Ie-Gwa" secondAttribute="centerY" id="h1Q-Mj-hfs"/>
+                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="centerY" secondItem="QmT-Ie-Gwa" secondAttribute="centerY" id="PZf-gf-H5r"/>
+                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="leading" secondItem="QmT-Ie-Gwa" secondAttribute="leadingMargin" constant="5" id="QFx-Tb-0V7"/>
+                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="centerX" secondItem="QmT-Ie-Gwa" secondAttribute="centerX" id="dnw-0t-lyZ"/>
                                     <constraint firstAttribute="bottom" secondItem="6rk-N5-XK8" secondAttribute="bottom" constant="5" id="hsr-9O-Sin"/>
                                     <constraint firstItem="6rk-N5-XK8" firstAttribute="centerX" secondItem="QmT-Ie-Gwa" secondAttribute="centerX" id="k9j-4k-OLg"/>
                                     <constraint firstAttribute="trailing" secondItem="6rk-N5-XK8" secondAttribute="trailing" constant="5" id="tkw-Sz-Oje"/>
-                                    <constraint firstItem="RQs-OA-8pr" firstAttribute="leading" secondItem="QmT-Ie-Gwa" secondAttribute="leading" constant="10" id="ycZ-N5-Fb6"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -84,7 +83,6 @@
                                         <exclude reference="9fh-b4-5sH"/>
                                         <exclude reference="FcY-Qi-oW3"/>
                                         <exclude reference="k9j-4k-OLg"/>
-                                        <exclude reference="h1Q-Mj-hfs"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -126,28 +124,6 @@
                             <connections>
                                 <outlet property="clientImage" destination="al8-VN-viW" id="SUd-Qq-BPg"/>
                                 <outlet property="tagLabel" destination="VEE-mx-veS" id="IPK-Wo-SrF"/>
-                            </connections>
-                        </collectionReusableView>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClientFooterView" id="YDB-5v-cAt" customClass="ClientFooterView" customModule="SuperService" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="354" width="320" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lr-lh-7iN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="确认">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="3lr-lh-7iN" secondAttribute="bottom" id="Nqg-gY-vfj"/>
-                                <constraint firstItem="3lr-lh-7iN" firstAttribute="top" secondItem="YDB-5v-cAt" secondAttribute="top" id="hjO-la-XGi"/>
-                                <constraint firstItem="3lr-lh-7iN" firstAttribute="leading" secondItem="YDB-5v-cAt" secondAttribute="leading" id="jEP-Yf-BQc"/>
-                                <constraint firstAttribute="trailing" secondItem="3lr-lh-7iN" secondAttribute="trailing" id="lzq-6d-wuQ"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="sureButton" destination="3lr-lh-7iN" id="lAY-y6-BMg"/>
                             </connections>
                         </collectionReusableView>
                         <connections>

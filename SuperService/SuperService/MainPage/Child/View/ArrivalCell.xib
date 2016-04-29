@@ -84,7 +84,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-ZS-2cb">
-                                <rect key="frame" x="283" y="8" width="0.0" height="20"/>
+                                <rect key="frame" x="283" y="20" width="0.0" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="FCX-k5-pFV"/>
                                     <constraint firstAttribute="width" constant="50" id="wVp-Un-mbN"/>
@@ -111,7 +111,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MMY-T1-ezj" secondAttribute="bottom" id="4jj-5h-kTB"/>
                             <constraint firstItem="jaN-Sl-nvp" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="27" id="6gz-Ew-EXH"/>
-                            <constraint firstItem="a1K-ZS-2cb" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="8" id="8fT-xd-ifO"/>
+                            <constraint firstItem="a1K-ZS-2cb" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="20" id="8fT-xd-ifO"/>
                             <constraint firstItem="EeG-bp-zZn" firstAttribute="leading" secondItem="PSV-qv-urQ" secondAttribute="trailing" constant="8" id="MRw-Zx-gcK"/>
                             <constraint firstAttribute="trailing" secondItem="MMY-T1-ezj" secondAttribute="trailing" id="VbF-qY-p2O"/>
                             <constraint firstItem="PSV-qv-urQ" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="20" id="YX7-F3-Y3Z"/>

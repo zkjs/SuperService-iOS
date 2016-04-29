@@ -15,31 +15,58 @@ class ClientLabelCollectionVC: UICollectionViewController {
   var clientInfo = ArrivateModel()
   var clientTags: TagsModel?
   var tagidArr = [Int]()
+  var toolBar:UIToolbar!
 
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+      super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+      // Uncomment the following line to preserve selection between presentations
+      // self.clearsSelectionOnViewWillAppear = false
 
-        // Register cell classes
-      let width = 100
-      let layout = collectionViewLayout as! UICollectionViewFlowLayout
-      layout.itemSize = CGSize(width: width, height: width)
-//      self.collectionView?.bounces = false
+      // Register cell classes
+    let width = 100
+    let layout = collectionViewLayout as! UICollectionViewFlowLayout
+    layout.itemSize = CGSize(width: width, height: width)
 
-        // Do any additional setup after loading the view.
-    }
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
+    setupView()
     loadData()
+  }
+  
+  func setupView() {
+    toolBar = UIToolbar(frame: CGRectMake(0,UIScreen.mainScreen().bounds.size.height, UIScreen.mainScreen().bounds.size.width, 50))
+    UIView.animateWithDuration(1, animations: { () -> Void in
+          self.toolBar.frame =  CGRectMake(0,UIScreen.mainScreen().bounds.size.height - 114, UIScreen.mainScreen().bounds.size.width, 50)
+      }) { (bool) -> Void in
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem.FlexibleSpace, target:"barButtonItemClicked:", action:nil)
+        self.toolBar.tintColor = UIColor.whiteColor()
+        self.toolBar.translucent = true
+        let backItem = UIBarButtonItem(title: "确认", style:UIBarButtonItemStyle.Plain, target:self, action:"sure:")
+        self.toolBar.barTintColor = UIColor(hex:"#03A9F4")
+        self.toolBar.items = [flexibleSpace,backItem,flexibleSpace]
+        self.view.addSubview(self.toolBar)
+        self.toolBar.hidden = true
+
+    }
+    
+  }
+  
+  func addToolbar() {
+    if tagidArr.count >= 1 {
+      self.toolBar.hidden = false
+    } 
+    if tagidArr.count == 0 {
+      self.toolBar.hidden = true
+    }
   }
   
   func loadData() {
@@ -59,15 +86,6 @@ class ClientLabelCollectionVC: UICollectionViewController {
     }
   }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -104,12 +122,7 @@ class ClientLabelCollectionVC: UICollectionViewController {
       headView.setupView(clientInfo)
       return headView
     } 
-    if (kind == UICollectionElementKindSectionFooter) {
-      let footView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: ClientFootID, forIndexPath:NSIndexPath(index: 0)) as! ClientFooterView
-      footView.sureButton.addTarget(self, action: "sure:", forControlEvents: .TouchUpInside)
-      return footView
-      
-    }
+
     return reusableview
   }
   
@@ -129,31 +142,26 @@ class ClientLabelCollectionVC: UICollectionViewController {
       } else {
         if tagidArr.count < canoptcnt {
           tagidArr.append((tag?.tagid)!)
-        }else {
+        } else {
           self.showHint("一次只可添加3个标签", withFontSize: 18)
           sender.checked = false
         }
-        print(tagidArr)
+        addToolbar()
       }
     } else {//取消标签
       for (index, value) in tagidArr.enumerate() {
-        if tagidArr.count == 1 {
-          tagidArr.removeAtIndex(0)
-          return
-        }
         if case (tag?.tagid)! = value {
           tagidArr.removeAtIndex(index)
-          print(tagidArr)
-          print("Found \(value) at position \(index)")
-          
         }
-        
+       addToolbar() 
       }
+      
     }
+    
   }
   
   
-  func sure(sender:UIButton) {
+  func sure(sender:UIBarButtonItem) {
     HttpService.sharedInstance.updataUsertags(clientInfo.userid!, tags: tagidArr) { (json, error) -> Void in
       if let error = error {
         self.showErrorHint(error)

@@ -44,12 +44,19 @@ class CircularProgressView: UIControl {
   //对钩宽度
   @IBInspectable var checkMarkLineWidth:CGFloat = 6.0
   
+  // mask 不透明度
+  @IBInspectable var maskOpacity:CGFloat = 0.6 {
+    didSet {
+      setNeedsDisplay()
+    }
+  }
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
     backgroundColor = UIColor.clearColor()
   }
-  
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -94,35 +101,37 @@ class CircularProgressView: UIControl {
                  strokeColor: color, fillColor: UIColor.clearColor(),
                  shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSizeZero)
     
-    // 进度条起点圆头
-    let startPath = UIBezierPath(ovalInRect: CGRectMake(X-circleWeight/2,
-      Y-arcRadius-circleWeight/2, circleWeight, circleWeight)).CGPath
-    self.addOval(0.0, path: startPath, strokeStart: 0, strokeEnd: 1.0,
-                 strokeColor: color, fillColor: color,
-                 shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSizeZero)
-    
-    // 进度条终点圆头
-    let endDotPoint = calcCircleCoordinateWithCenter(CGPoint(x: X, y: Y),
-                                                     radius: arcRadius, angle: -percent*360+90)
-    let endDotPath = UIBezierPath(ovalInRect: CGRectMake(endDotPoint.x-circleWeight/2,
-      endDotPoint.y-circleWeight/2, circleWeight, circleWeight)).CGPath
-    self.addOval(0.0, path: endDotPath, strokeStart: 0, strokeEnd: 1.0,
-                 strokeColor: color, fillColor: color,
-                 shadowRadius: 5.0, shadowOpacity: 0.5, shadowOffsset: CGSizeZero)
-    
-    // 进度条遮罩1(圆弧)
-    let barMaskPath = UIBezierPath(arcCenter: CGPoint(x: X, y: Y), radius: arcRadius,
-                                   startAngle: CGFloat(-M_PI_2), endAngle: CGFloat(M_PI*1.5),
-                                   clockwise: true).CGPath
-    self.addOval(circleWeight, path: barMaskPath,
-                 strokeStart: percent/6, strokeEnd: percent,
-                 strokeColor: color, fillColor: UIColor.clearColor(),
-                 shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSizeZero)
-    // 进度条遮罩2(圆)
-    if percent < 0.5{
+    if percent > 0 {
+      // 进度条起点圆头
+      let startPath = UIBezierPath(ovalInRect: CGRectMake(X-circleWeight/2,
+        Y-arcRadius-circleWeight/2, circleWeight, circleWeight)).CGPath
       self.addOval(0.0, path: startPath, strokeStart: 0, strokeEnd: 1.0,
                    strokeColor: color, fillColor: color,
                    shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSizeZero)
+      
+      // 进度条终点圆头
+      let endDotPoint = calcCircleCoordinateWithCenter(CGPoint(x: X, y: Y),
+                                                       radius: arcRadius, angle: -percent*360+90)
+      let endDotPath = UIBezierPath(ovalInRect: CGRectMake(endDotPoint.x-circleWeight/2,
+        endDotPoint.y-circleWeight/2, circleWeight, circleWeight)).CGPath
+      self.addOval(0.0, path: endDotPath, strokeStart: 0, strokeEnd: 1.0,
+                   strokeColor: color, fillColor: color,
+                   shadowRadius: 5.0, shadowOpacity: 0.5, shadowOffsset: CGSizeZero)
+      
+      // 进度条遮罩1(圆弧)
+      let barMaskPath = UIBezierPath(arcCenter: CGPoint(x: X, y: Y), radius: arcRadius,
+                                     startAngle: CGFloat(-M_PI_2), endAngle: CGFloat(M_PI*1.5),
+                                     clockwise: true).CGPath
+      self.addOval(circleWeight, path: barMaskPath,
+                   strokeStart: percent/6, strokeEnd: percent,
+                   strokeColor: color, fillColor: UIColor.clearColor(),
+                   shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSizeZero)
+      // 进度条遮罩2(圆)
+      if percent < 0.5{
+        self.addOval(0.0, path: startPath, strokeStart: 0, strokeEnd: 1.0,
+                     strokeColor: color, fillColor: color,
+                     shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSizeZero)
+      }
     }
   }
   
@@ -160,6 +169,8 @@ class CircularProgressView: UIControl {
       let circle = UIBezierPath(ovalInRect: CGRectMake((rect.width - length)/2, (rect.height - length)/2, length, length))
       mask.path = circle.CGPath
       mask.fillColor = circleColor.CGColor
+      mask.opacity = Float(self.maskOpacity)
+      
       layer.addSublayer(mask)
       
       addCheckMark(rect)

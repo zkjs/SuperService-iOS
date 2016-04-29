@@ -104,7 +104,7 @@ class HttpService {
     print(parameters)
     
     request(method, urlString, parameters: parameters, encoding: method == .GET ? .URLEncodedInURL : .JSON, headers: headers).response { (req, res, data, error) -> Void in
-      print("statusCode:\(res?.statusCode)")
+      print("statusCode:\(res?.statusCode) for url: \(res?.URL?.absoluteString)")
       guard let statusCode = res?.statusCode else{
         let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
           code: 0,

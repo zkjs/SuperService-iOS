@@ -17,7 +17,7 @@ struct Tag {
   
   init(dic:JSON) {
     self.tagid = dic["tagid"].int ?? 0
-    self.count = dic["tagsArr"].int ?? 0
+    self.count = dic["count"].int ?? 0
     self.isopt = dic["isopt"].int ?? 0
     self.tagname = dic["tagname"].string ?? ""
     self.tagcode = dic["tagscode"].string ?? ""

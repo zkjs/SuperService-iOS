@@ -77,7 +77,7 @@ class ArrivalCell: UITableViewCell {
     if let userImage = data.userimage {
     let url = urlString?.URLByAppendingPathComponent("\(userImage)")
     avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
-    clientInfoLabel.text = userName + "\(sex)"
+    clientInfoLabel.text = userName + " " + data.displayGender
     avatarImageView.userInteractionEnabled = true
     let tap = UITapGestureRecognizer(target: self, action: "gotoLabel:")
     avatarImageView.addGestureRecognizer(tap)

@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>201605030</string>
+	<string>201605031</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.zkjinshi.SuperService.WatchOpenApp</string>

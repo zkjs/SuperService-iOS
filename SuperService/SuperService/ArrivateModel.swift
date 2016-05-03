@@ -26,6 +26,10 @@ class ArrivateModel: NSObject {
   var room:String?
   var indate:String?
   var userimage:String?
+  var displayGender: String {
+    let gender = Gender(rawValue: sex ?? -1) ?? .Unknown
+    return gender.description
+  }
   
   override init() {
     super.init()

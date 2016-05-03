@@ -134,6 +134,7 @@
 		409EE0AA1C0071390074F43C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0AC1C0071390074F43C /* Localizable.strings */; };
 		40A3F5431CD84158000B6AB7 /* UserTagsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */; };
 		40A3F5451CD841CC000B6AB7 /* UserTagsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */; };
+		40A3F5471CD8BB7A000B6AB7 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5461CD8BB7A000B6AB7 /* Gender.swift */; };
 		40A908121CBF7DAB00CC91CD /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401052941C97B69600B3CB63 /* ZKJSConfig.swift */; };
 		40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9631BE1B9E000737C6D /* PaymentModel.swift */; };
 		40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9651BE1BE4700737C6D /* GoodsModel.swift */; };
@@ -610,6 +611,7 @@
 		409EE0AE1C00713E0074F43C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTagsInterfaceController.swift; sourceTree = "<group>"; };
 		40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTagsRowController.swift; sourceTree = "<group>"; };
+		40A3F5461CD8BB7A000B6AB7 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = Common/Models/Gender.swift; sourceTree = "<group>"; };
 		40ABA9631BE1B9E000737C6D /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		40ABA9651BE1BE4700737C6D /* GoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsModel.swift; sourceTree = "<group>"; };
 		40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDateSelectionViewController.swift; sourceTree = "<group>"; };
@@ -1358,6 +1360,7 @@
 			isa = PBXGroup;
 			children = (
 				406B0B271C85B64A006C9C73 /* TokenPayload.swift */,
+				40A3F5461CD8BB7A000B6AB7 /* Gender.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3096,6 +3099,7 @@
 				40FB3D151C00203900675044 /* MWPhoto.m in Sources */,
 				40DB677F1BEDDB34008D3BB9 /* UIColor+Theme.swift in Sources */,
 				40FB3D551C00203900675044 /* EaseBubbleView+Image.m in Sources */,
+				40A3F5471CD8BB7A000B6AB7 /* Gender.swift in Sources */,
 				40FB3D5C1C00203900675044 /* EaseChatToolbarItem.m in Sources */,
 				40FD34271C926E570019A8CA /* RegexHelper.swift in Sources */,
 				40FB3D081C00203900675044 /* EMCDDeviceManager+Microphone.m in Sources */,

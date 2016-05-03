@@ -79,6 +79,7 @@ class InterfaceController: WKInterfaceController {
       avatarImage.setImageNamed(nil)
       orderGroup.setHidden(true)
       orderTitleLabel.setText("")
+      btnViewDetail.setHidden(true)
     }
   }
   

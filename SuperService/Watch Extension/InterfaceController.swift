@@ -39,7 +39,11 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet var roomsLabel: WKInterfaceLabel!
   @IBOutlet var roomRateLabel: WKInterfaceLabel!
   
+  @IBOutlet var btnViewDetail: WKInterfaceButton!
+  
   private var currentImageUrl:String = ""
+  
+  private var arrivalInfo:[String:AnyObject]?
   
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
@@ -95,6 +99,7 @@ class InterfaceController: WKInterfaceController {
   
   func setupViewWithInfo(arrivalInfo: [String: AnyObject]) {
     print("setupViewWithInfo:\(arrivalInfo)")
+    self.arrivalInfo = arrivalInfo
     
     if let date = arrivalInfo["timestamp"] as? NSDate where fabs(date.timeIntervalSinceNow) > 600 {
       alertLabel.setText("暂无到店客人")
@@ -119,6 +124,12 @@ class InterfaceController: WKInterfaceController {
       //currentImageUrl = userimage
     } else {
       avatarImage.setImageNamed("default_logo")
+    }
+    
+    if let _ = arrivalInfo["tags"] as? NSArray {
+      btnViewDetail.setHidden(false)
+    } else {
+      btnViewDetail.setHidden(true)
     }
    /* // 用户头像
     if let userID = arrivalInfo["userid"] {
@@ -197,5 +208,9 @@ class InterfaceController: WKInterfaceController {
 //    print("openParentApp")
 //    updateUserActivity(sharedUserActivityType, userInfo: [sharedIdentifierKey : 123456], webpageURL: nil)
 //  }
+  
+  override func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject? {
+    return self.arrivalInfo
+  }
   
 }

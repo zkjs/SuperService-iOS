@@ -132,6 +132,8 @@
 		408C47D91C8710E500F9B0C7 /* errorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 408C47D81C8710E500F9B0C7 /* errorMessages.plist */; };
 		409EE0A71C0070680074F43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0A61C0070680074F43C /* Assets.xcassets */; };
 		409EE0AA1C0071390074F43C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 409EE0AC1C0071390074F43C /* Localizable.strings */; };
+		40A3F5431CD84158000B6AB7 /* UserTagsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */; };
+		40A3F5451CD841CC000B6AB7 /* UserTagsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */; };
 		40A908121CBF7DAB00CC91CD /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401052941C97B69600B3CB63 /* ZKJSConfig.swift */; };
 		40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9631BE1B9E000737C6D /* PaymentModel.swift */; };
 		40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9651BE1BE4700737C6D /* GoodsModel.swift */; };
@@ -606,6 +608,8 @@
 		409EE0AB1C0071390074F43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		409EE0AD1C00713C0074F43C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		409EE0AE1C00713E0074F43C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTagsInterfaceController.swift; sourceTree = "<group>"; };
+		40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTagsRowController.swift; sourceTree = "<group>"; };
 		40ABA9631BE1B9E000737C6D /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		40ABA9651BE1BE4700737C6D /* GoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsModel.swift; sourceTree = "<group>"; };
 		40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDateSelectionViewController.swift; sourceTree = "<group>"; };
@@ -1764,6 +1768,8 @@
 				407051AF1CBF79FF00057132 /* Watch Extension-Bridging-Header.h */,
 				40C8A2AE1CBE612B00CB759B /* Classes */,
 				40F3CD271C3277500044845D /* InterfaceController.swift */,
+				40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */,
+				40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */,
 				40F567771C338B42000282D6 /* ArrivalInfoInterfaceController.swift */,
 				40F3CD291C3277500044845D /* ExtensionDelegate.swift */,
 				40F3CD2B1C3277500044845D /* NotificationController.swift */,
@@ -3215,8 +3221,10 @@
 				40F567781C338B42000282D6 /* ArrivalInfoInterfaceController.swift in Sources */,
 				406B0B161C85B5E0006C9C73 /* Result.swift in Sources */,
 				406B0B1A1C85B5E0006C9C73 /* Stream.swift in Sources */,
+				40A3F5431CD84158000B6AB7 /* UserTagsInterfaceController.swift in Sources */,
 				406B0B121C85B5E0006C9C73 /* Response.swift in Sources */,
 				40A908121CBF7DAB00CC91CD /* ZKJSConfig.swift in Sources */,
+				40A3F5451CD841CC000B6AB7 /* UserTagsRowController.swift in Sources */,
 				406B0B061C85B5E0006C9C73 /* Manager.swift in Sources */,
 				40C8A2B21CBE71C800CB759B /* ImageCache.swift in Sources */,
 				406B0B0E1C85B5E0006C9C73 /* ParameterEncoding.swift in Sources */,

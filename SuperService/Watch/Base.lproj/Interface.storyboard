@@ -27,6 +27,11 @@
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="8"/>
                         </group>
+                        <button width="1" alignment="left" title="客户详情" id="pin-04-lD3">
+                            <connections>
+                                <segue destination="WdE-aq-t21" kind="push" identifier="ViewDetail" id="rZ8-fV-4XN"/>
+                            </connections>
+                        </button>
                         <group width="1" alignment="left" hidden="YES" layout="vertical" id="fnq-NL-eUP">
                             <items>
                                 <label alignment="center" text="订单信息" id="MS0-va-Q2a">
@@ -136,6 +141,7 @@
                         <outlet property="alertLabel" destination="0jH-gT-sKR" id="Npi-Kr-Qlh"/>
                         <outlet property="arrivalDateLabel" destination="ZvE-g7-t2d" id="HgT-D9-cnw"/>
                         <outlet property="avatarImage" destination="DAc-fi-q6B" id="MQd-hw-ilA"/>
+                        <outlet property="btnViewDetail" destination="pin-04-lD3" id="TrM-sZ-uZY"/>
                         <outlet property="daysLabel" destination="ZV5-yD-Fv9" id="aKH-58-b9n"/>
                         <outlet property="guestLabel" destination="wbH-bu-7Q1" id="ZYE-8M-awc"/>
                         <outlet property="orderGroup" destination="amR-aG-fsh" id="96d-fr-dQd"/>
@@ -150,6 +156,35 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="13" y="288"/>
+        </scene>
+        <!--User Tags Interface Controller-->
+        <scene sceneID="bht-n2-lHI">
+            <objects>
+                <controller id="WdE-aq-t21" customClass="UserTagsInterfaceController" customModule="Watch_Extension">
+                    <items>
+                        <table alignment="left" id="Qtf-a7-7de">
+                            <items>
+                                <tableRow identifier="UserTagsRow" id="gzr-kO-7Xl" customClass="UserTagsRowController" customModule="Watch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="c4Q-hX-YnW">
+                                        <items>
+                                            <imageView width="36" height="36" alignment="left" verticalAlignment="center" image="progress_circle_percent_0" id="6Ta-Wi-bpJ"/>
+                                            <label alignment="left" verticalAlignment="center" text="Tag" textAlignment="left" id="gJM-vs-4Iv"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="progressImage" destination="6Ta-Wi-bpJ" id="zDO-nd-1oo"/>
+                                        <outlet property="tagName" destination="gJM-vs-4Iv" id="xof-ql-x3x"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="Qtf-a7-7de" id="ThW-QA-c55"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="341" y="288"/>
         </scene>
         <!--到店通知-->
         <scene sceneID="KcW-Fc-0wV">
@@ -183,7 +218,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="317" y="271"/>
+            <point key="canvasLocation" x="676" y="965"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

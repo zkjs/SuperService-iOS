@@ -22,7 +22,7 @@ class MainTBC: UITabBarController {
     setupView()
     registerNotification()
  
-    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -441,6 +441,29 @@ extension MainTBC: IChatManagerDelegate {
   
   func didAppkeyChanged() {
     NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGINCHANGE, object: NSNumber(bool: false))
+  }
+  
+  func onMessageReceived(notification: NSNotification) {
+    guard let nav = self.selectedViewController as? UINavigationController else {
+      return
+    }
+    if let message = notification.object as? YBMessage {
+      let payloadString = String(data: message.data, encoding: NSUTF8StringEncoding)
+      print("[message] \(message.topic) => \(payloadString)")
+      let json = JSON(data: message.data)
+      if json["type"].string == "PAYMENT_RESULT" {
+        let result = FacePayPushResult(json: json["data"])
+        let orderno = result.orderno
+        let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+        let paymentListVC = storyboard.instantiateViewControllerWithIdentifier("PaymentListVC") as! PaymentListVC
+        paymentListVC.orderNo = orderno
+        if orderno.isEmpty {
+          nav.pushViewController(paymentListVC, animated: true)
+        } else {
+          nav.pushViewController(paymentListVC, animated: false)
+        }
+      }
+    }
   }
   
 }

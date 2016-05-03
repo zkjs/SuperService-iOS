@@ -262,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperService/MainPage/Child/Controller/CheckoutCounterVC.swift"
-            timestampString = "481815552.586779"
+            timestampString = "483958714.888225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,11 +278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperService/MainPage/Child/Controller/CheckoutCounterVC.swift"
-            timestampString = "481815552.586779"
+            timestampString = "483958714.888225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
             <Locations>

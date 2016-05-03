@@ -110,7 +110,7 @@ class ClientLabelCollectionVC: UICollectionViewController {
         } else {
           cell.circulView.checked = false
         }
-        cell.circulView.percent = CGFloat(tag.count/100)
+        cell.circulView.percent = CGFloat(tag.count)/100.0
       }
       return cell
     }

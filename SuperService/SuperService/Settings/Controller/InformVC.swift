@@ -59,7 +59,10 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
           self.areaArray.removeAll()
           for dict in jsonArr {
             let area = AreaModel(dic: dict)
-            self.areaArray.append(area)
+            if area.payment_support == 0 {//暂时过滤掉具有收款台功能的区域
+             self.areaArray.append(area) 
+            }
+            
         }
           self.initSelectedArray()  // Model
           self.tableView.reloadData()  // UI

@@ -84,7 +84,7 @@ class CircularProgressView: UIControl {
     // 进度条圆弧背景
     var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
     color.getRed(&r, green: &g, blue: &b, alpha: &a)
-    let barBgColor = UIColor(red: r, green: g, blue: b, alpha: barBgAlpha);
+    let barBgColor = UIColor(red: r, green: g, blue: b, alpha: barBgAlpha)
     
     let barBgPath = UIBezierPath(arcCenter: CGPoint(x: X, y: Y), radius: arcRadius,
                                  startAngle: CGFloat(-M_PI_2), endAngle: CGFloat(M_PI*1.5),
@@ -138,8 +138,8 @@ class CircularProgressView: UIControl {
   //计算圆弧上点的坐标
   func calcCircleCoordinateWithCenter(center:CGPoint, radius:CGFloat, angle:CGFloat)
     -> CGPoint {
-      let x2 = radius*CGFloat(cosf(Float(angle)*Float(M_PI)/Float(180)));
-      let y2 = radius*CGFloat(sinf(Float(angle)*Float(M_PI)/Float(180)));
+      let x2 = radius*CGFloat(cosf(Float(angle)*Float(M_PI)/Float(180)))
+      let y2 = radius*CGFloat(sinf(Float(angle)*Float(M_PI)/Float(180)))
       return CGPointMake(center.x+x2, center.y-y2);
   }
   
@@ -170,7 +170,6 @@ class CircularProgressView: UIControl {
       mask.path = circle.CGPath
       mask.fillColor = circleColor.CGColor
       mask.opacity = Float(self.maskOpacity)
-      
       layer.addSublayer(mask)
       
       addCheckMark(rect)
@@ -185,8 +184,8 @@ class CircularProgressView: UIControl {
     markPath.moveToPoint(CGPointMake(2 + offsetX, 15 + offsetY))
     markPath.addLineToPoint(CGPointMake(20 + offsetX, 33 + offsetY))
     markPath.addLineToPoint(CGPointMake(50 + offsetX, 2 + offsetY))
-    markPath.lineCapStyle = .Round;
-    markPath.lineJoinStyle = .Round;
+    markPath.lineCapStyle = .Round
+    markPath.lineJoinStyle = .Round
     
     let markLayer = CAShapeLayer()
     markLayer.lineWidth = checkMarkLineWidth

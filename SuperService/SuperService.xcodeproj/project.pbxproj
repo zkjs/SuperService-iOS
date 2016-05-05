@@ -1526,10 +1526,10 @@
 			isa = PBXGroup;
 			children = (
 				4016A2931CD1C2E800B95745 /* CircularProgressView.swift */,
-				408423061BC68A7800C215CD /* ArrivalCell.swift */,
 				FAF165E11CD1D2BC00A88BD0 /* ClientHeadView.swift */,
 				FAB198791CD207CE00A6F339 /* ClientFooterView.swift */,
 				FAF165DF1CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift */,
+				408423061BC68A7800C215CD /* ArrivalCell.swift */,
 				408423071BC68A7800C215CD /* ArrivalCell.xib */,
 			);
 			name = View;

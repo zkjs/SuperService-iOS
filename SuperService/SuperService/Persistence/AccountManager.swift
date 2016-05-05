@@ -162,6 +162,7 @@ class AccountManager: NSObject {
     self.userName = userName
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(userName, forKey: "name")
+    userDefaults.synchronize()
   }
   
   func saveAvatarImageData(imageData: NSData) {

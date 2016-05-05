@@ -60,18 +60,17 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
   }
   
   func gotoNameVC(tap:UITapGestureRecognizer) {
-    self.navigationController?.pushViewController(NameVC(), animated: true)
+    let vc = NameVC()
+    self.navigationController?.pushViewController(vc, animated: true)
   }
+  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
     if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     }
-//    if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
-//      let vc = CodeVC()
-//      self.navigationController?.pushViewController(vc, animated: true)
-//    }
+
   }
   
   func selectedIamge(sender:UIButton) {

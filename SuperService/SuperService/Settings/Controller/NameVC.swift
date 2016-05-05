@@ -47,12 +47,13 @@ class NameVC: UIViewController {
       return
     }
     
-    HttpService.sharedInstance.updateUserInfo(false, realname: userName, eamil:nil,sex: nil, image: nil, completionHandler: {[unowned self] (json, error) -> Void in
+    HttpService.sharedInstance.updateUserInfo(false, realname: userName, eamil:nil,sex: nil, image: nil, completionHandler: {[weak self] (json, error) -> Void in
+      guard let strongSelf = self else { return }
       if let _ = error {
-        self.showHint("修改姓名失败")
+        strongSelf.showHint("修改姓名失败")
       } else {
         AccountManager.sharedInstance().saveUserName(userName)
-        self.navigationController?.popViewControllerAnimated(true)
+        strongSelf.navigationController?.popToRootViewControllerAnimated(true)
       }
     })
 

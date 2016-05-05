@@ -25,10 +25,11 @@ class ClientLabelCollectionVC: UICollectionViewController {
       // self.clearsSelectionOnViewWillAppear = false
 
       // Register cell classes
-    let width = 100
+    let width = DeviceType.IS_IPAD ? 200 : 100
     let layout = collectionViewLayout as! UICollectionViewFlowLayout
     layout.itemSize = CGSize(width: width, height: width)
-
+    layout.headerReferenceSize = CGSizeMake(0, DeviceType.IS_IPAD ? 270 : 170)
+//    layout.collectionView?.contentSize = CGSizeMake(ScreenSize.SCREEN_WIDTH, 2000)
   }
 
   override func didReceiveMemoryWarning() {

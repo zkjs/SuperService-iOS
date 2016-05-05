@@ -28,9 +28,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    tableView.reloadData()
+    
     HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
-      
+      self.tableView.reloadData()
     })
     YunBaService.getTopicList { (topics, error) -> Void in
       if let topics = topics as? [String] {

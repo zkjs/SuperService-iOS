@@ -31,7 +31,8 @@ class InformCell: UITableViewCell {
   }
   
   class func height() -> CGFloat {
-    return 80
+    
+    return DeviceType.IS_IPAD ? 150:80
   }
 
     override func setSelected(selected: Bool, animated: Bool) {

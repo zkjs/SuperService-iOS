@@ -167,8 +167,16 @@ class ClientLabelCollectionVC: UICollectionViewController {
       if let error = error {
         self.showErrorHint(error)
       } else {
+        for (index, value) in (self.clientTags?.tags.enumerate())! {
+          if self.tagidArr.contains(value.tagid) {
+            self.clientTags?.tags[index].count += 1
+            self.clientTags?.tags[index].isopt = 1
+          }
+        }
+        self.collectionView?.reloadData()
+        self.tagidArr.removeAll()
         self.showHint("更改成功", withFontSize: 24)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.addToolbar()
       }
     }
   }

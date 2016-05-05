@@ -16,7 +16,7 @@
 #define kBaseURL @"http://tst.zkjinshi.com/"  // PHP服务器
 #define kJavaBaseURL @"http://test.zkjinshi.com/japi/"  // Java服务器
 #define kEaseMobAppKey @"zkjs#svip"  // 环信
-#define kImageURL @"http://for-testea01cc11-44f5-431f-a393-a6595c09410d.oss-cn-shenzhen.aliyuncs.com/"
+//#define kImageURL @"http://for-testea01cc11-44f5-431f-a393-a6595c09410d.oss-cn-shenzhen.aliyuncs.com/"
 
 
 // 预上线

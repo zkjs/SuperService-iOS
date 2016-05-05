@@ -34,11 +34,7 @@ class BookRoomCell: UITableViewCell {
     }
     priceTag.text = room
     
-    let baseUrl = kImageURL
-    if let goodsImage = goods.image {
-      var url = NSURL(string: baseUrl)
-      url = url?.URLByAppendingPathComponent(goodsImage)
-//      roomLook.sd_setImageWithURL(url)
+    if let goodsImage = goods.image, url = NSURL(string: goodsImage.fullImageUrl) {
       roomLook.sd_setImageWithURL(url, placeholderImage: UIImage(named: "bg_dingdanzhuangtai"))
     }
   }

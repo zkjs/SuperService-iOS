@@ -135,6 +135,7 @@
 		40A3F5431CD84158000B6AB7 /* UserTagsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */; };
 		40A3F5451CD841CC000B6AB7 /* UserTagsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */; };
 		40A3F5471CD8BB7A000B6AB7 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5461CD8BB7A000B6AB7 /* Gender.swift */; };
+		40A3F5931CDAE20B000B6AB7 /* ZKJSConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3F5921CDAE20B000B6AB7 /* ZKJSConstant.swift */; };
 		40A908121CBF7DAB00CC91CD /* ZKJSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401052941C97B69600B3CB63 /* ZKJSConfig.swift */; };
 		40ABA9641BE1B9E000737C6D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9631BE1B9E000737C6D /* PaymentModel.swift */; };
 		40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABA9651BE1BE4700737C6D /* GoodsModel.swift */; };
@@ -385,7 +386,6 @@
 		FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */; };
 		FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */; };
 		FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */; };
-		FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */; };
 		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
 		FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB198791CD207CE00A6F339 /* ClientFooterView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
@@ -612,6 +612,7 @@
 		40A3F5421CD84158000B6AB7 /* UserTagsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTagsInterfaceController.swift; sourceTree = "<group>"; };
 		40A3F5441CD841CC000B6AB7 /* UserTagsRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTagsRowController.swift; sourceTree = "<group>"; };
 		40A3F5461CD8BB7A000B6AB7 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = Common/Models/Gender.swift; sourceTree = "<group>"; };
+		40A3F5921CDAE20B000B6AB7 /* ZKJSConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZKJSConstant.swift; path = Common/ZKJSConstant.swift; sourceTree = "<group>"; };
 		40ABA9631BE1B9E000737C6D /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		40ABA9651BE1BE4700737C6D /* GoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsModel.swift; sourceTree = "<group>"; };
 		40ABA9671BE1C5EC00737C6D /* BookDateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDateSelectionViewController.swift; sourceTree = "<group>"; };
@@ -1023,8 +1024,6 @@
 		FA6390891C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KTVOrderDetailTVC.storyboard; path = ../../KTVOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureOrderDetailTVC.storyboard; path = ../../LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSuccessVC.swift; sourceTree = "<group>"; };
-		FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSMSSessionManager.h; sourceTree = "<group>"; };
-		FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSMSSessionManager.m; sourceTree = "<group>"; };
 		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
 		FAB198791CD207CE00A6F339 /* ClientFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientFooterView.swift; sourceTree = "<group>"; };
 		FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Contacts.swift"; sourceTree = "<group>"; };
@@ -1247,8 +1246,6 @@
 				40DCE2511C46255C00C44E89 /* Configure.h */,
 				404FB5221BCE2A4B0074D205 /* NSString+ZKJS.h */,
 				404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */,
-				FA93EA441BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.h */,
-				FA93EA451BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m */,
 				404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */,
 				404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */,
 				4023F7441C1D764D0057351E /* ZKJSJavaHTTPSessionManager.h */,
@@ -1510,6 +1507,7 @@
 				400D621B1C1526240021E750 /* Swift3rdPartyLibrary */,
 				40E326461BD510C1008344DF /* Extension */,
 				40E3262A1BD4C36F008344DF /* Persistence */,
+				40A3F5921CDAE20B000B6AB7 /* ZKJSConstant.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -2959,7 +2957,6 @@
 				FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */,
 				4023F7381C1D598D0057351E /* UnbindCodeTVC.swift in Sources */,
 				40FD34341C926F7D0019A8CA /* Misc.swift in Sources */,
-				FA93EA461BE212EB00D4C932 /* ZKJSHTTPSMSSessionManager.m in Sources */,
 				40E326301BD4C87C008344DF /* ClientArrivalInfo+CoreDataProperties.swift in Sources */,
 				406B0B241C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */,
 				40FB3D431C00203900675044 /* EaseChineseToPinyin.m in Sources */,
@@ -3139,6 +3136,7 @@
 				40FB3D251C00203900675044 /* UIImage+EMGIF.m in Sources */,
 				401C1FA31C2A4B3D003B9E69 /* CCPRestSDK.m in Sources */,
 				406B0B191C85B5E0006C9C73 /* Stream.swift in Sources */,
+				40A3F5931CDAE20B000B6AB7 /* ZKJSConstant.swift in Sources */,
 				40FB3D321C00203900675044 /* PSTCollectionViewLayout.m in Sources */,
 				4023F7431C1D619A0057351E /* BindCodeModel.swift in Sources */,
 				40F7575C1BE0546A0053C2BE /* OrderCell.swift in Sources */,

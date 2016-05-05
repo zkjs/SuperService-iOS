@@ -35,11 +35,11 @@ class OrderCell: UITableViewCell {
     clientInfoLabel.text = order.username
     
     // 客户头像
-    if let userID = order.userid {
-      var url = NSURL(string: kImageURL)
-      url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
-      avatarButton.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
-    }
+//    if let userID = order.userid {
+//      var url = NSURL(string: kImageURL)
+//      url = url?.URLByAppendingPathComponent("/uploads/users/\(userID).jpg")
+//      avatarButton.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
+//    }
     
     // 订单状态 | 支付状态
     infoLabel.text = order.orderstatus

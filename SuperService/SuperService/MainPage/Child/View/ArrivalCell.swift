@@ -69,18 +69,15 @@ class ArrivalCell: UITableViewCell {
   func setData(data: ArrivateModel) {
     arrivate = data
     guard let userName = data.username else {return}
-    guard let sex = data.sex else {return}
     guard let Phone = data.phone else {return}
     
     phone = Phone
-    let urlString = NSURL(string: kImageURL)
-    if let userImage = data.userimage {
-    let url = urlString?.URLByAppendingPathComponent("\(userImage)")
-    avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
-    clientInfoLabel.text = userName + " " + data.displayGender
-    avatarImageView.userInteractionEnabled = true
-    let tap = UITapGestureRecognizer(target: self, action: "gotoLabel:")
-    avatarImageView.addGestureRecognizer(tap)
+    if let url = NSURL(string:data.avatarURL) {
+      avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
+      clientInfoLabel.text = userName + " " + data.displayGender
+      avatarImageView.userInteractionEnabled = true
+      let tap = UITapGestureRecognizer(target: self, action: "gotoLabel:")
+      avatarImageView.addGestureRecognizer(tap)
     }
     // 客户位置信息
     if let location = data.locdesc {

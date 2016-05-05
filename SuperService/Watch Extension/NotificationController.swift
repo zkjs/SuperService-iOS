@@ -74,7 +74,7 @@ class NotificationController: WKUserNotificationInterfaceController {
       }
       
       if !avatgarUrl.isEmpty {
-        avatarImage.setImageWithUrl(avatgarUrl.fullImageUrl, placeHolder:UIImage(named: "default_logo"),completion:nil)
+        avatarImage.setImageWithUrl(avatgarUrl.avatarURL, placeHolder:UIImage(named: "default_logo"),completion:nil)
       }
 
       // Cache ArrivalInfo Notification

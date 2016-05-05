@@ -41,10 +41,8 @@ class TeamListCell: UITableViewCell /*SWTableViewCell*/ {
   func setData(team:TeamModel,avatarTapped:(()->Void)?) {
     
     username.text = team.username
-    if let userimage = team.userimage {
-      let url = NSURL(string: kImageURL)
-      let urlStr = url?.URLByAppendingPathComponent("\(userimage)")
-      userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "default_logo"))
+    if let url = NSURL(string:team.avatarURL) {
+      userImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_logo"))
     }
     avatarTappedClosure = avatarTapped
     let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("avatarTapped:"))

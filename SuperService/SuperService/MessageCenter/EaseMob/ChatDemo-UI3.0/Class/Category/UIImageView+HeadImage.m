@@ -30,11 +30,11 @@
 //        [self sd_setImageWithURL:nil placeholderImage:placeholderImage];
 //    }
   
-  NSString *urlString = [NSString stringWithFormat:@"/uploads/users/%@.jpg", username];
-  NSString *domain = kImageURL;
-  NSString *avatarURLPath = [domain stringByAppendingString:urlString];
-  NSURL *url = [[NSURL alloc] initWithString:avatarURLPath];
-  [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_logo"]];
+//  NSString *urlString = [NSString stringWithFormat:@"/uploads/users/%@.jpg", username];
+//  NSString *domain = kImageURL;
+//  NSString *avatarURLPath = [domain stringByAppendingString:urlString];
+//  NSURL *url = [[NSURL alloc] initWithString:avatarURLPath];
+//  [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_logo"]];
 }
 
 @end

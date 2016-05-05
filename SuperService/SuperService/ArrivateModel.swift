@@ -30,6 +30,10 @@ class ArrivateModel: NSObject {
     let gender = Gender(rawValue: sex ?? -1) ?? .Unknown
     return gender.description
   }
+  var avatarURL: String {
+    guard let userimage = userimage else { return "" }
+    return userimage.avatarURL
+  }
   
   override init() {
     super.init()

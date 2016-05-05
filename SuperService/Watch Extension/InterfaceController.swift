@@ -120,7 +120,7 @@ class InterfaceController: WKInterfaceController {
       }
       currentImageUrl = userimage
       //if userimage != currentImageUrl {
-      avatarImage.setImageWithUrl(userimage.fullImageUrl, placeHolder:nil, completion:nil)
+      avatarImage.setImageWithUrl(userimage.avatarURL, placeHolder:nil, completion:nil)
       //}
       //currentImageUrl = userimage
     } else {

@@ -124,8 +124,10 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     self.view.addSubview(headerView)
     if type == EmployeeVCType.team {
       headerView.employeeNameLabel.text = employee.username
+      headerView.topImage.sd_setImageWithURL(NSURL(string:employee.avatarUrlFullSize))
     } else {
       headerView.employeeNameLabel.text = client.username
+      headerView.topImage.sd_setImageWithURL(NSURL(string:client.avatarUrlFullSize))
     }
     return headerView
   }

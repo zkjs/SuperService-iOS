@@ -33,22 +33,17 @@ class AccountInfoManager: NSObject {
   var avatarURL : String {
     let userDefaults = NSUserDefaults()
     if let url = userDefaults.objectForKey("avatarURL") as? String {
-      return url.fullImageUrl
+      return url.avatarURL
     } else {
       return ""
     }
   }
   private(set) var avatarImage = UIImage(named: "logo_white")
   
-  var sexName: String? {
+  var sexName: String {
     get {
-      if sex == 1 {
-        return "男"
-      } else if sex == 0 {
-        return "女"
-      } else {
-        return nil
-      }
+      let gender = Gender(rawValue: sex ?? -1) ?? .Unknown
+      return gender.description
     }
   }
   

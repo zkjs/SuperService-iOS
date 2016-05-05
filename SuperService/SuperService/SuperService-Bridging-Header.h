@@ -13,7 +13,6 @@
 #import "JCTagListView.h"
 #import "MJRefresh.h"
 #import "TimesSquare.h"
-#import "ZKJSHTTPSMSSessionManager.h"
 #import "SWTableViewCell.h"
 #import "UINavigationBar+Awesome.h"
 #import "EaseMob.h"

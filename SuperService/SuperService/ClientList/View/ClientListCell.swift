@@ -39,12 +39,10 @@ var salesid:String!
     }
   func setData(client: AddClientModel) {
     userNameLabel.text = client.username
-    if let salesid = client.userid {
+    if let userimage = client.userimage {
       print(salesid)
-      self.salesid = salesid
-      let url = NSURL(string: kImageURL)
-      let urlStr = url?.URLByAppendingPathComponent("/uploads/users/\(salesid).jpg")
-      userImage.sd_setImageWithURL(urlStr, placeholderImage: UIImage(named: "default_logo"))
+      let url = NSURL(string: userimage.avatarURL)
+      userImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_logo"))
 
     }
   }

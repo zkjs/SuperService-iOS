@@ -49,8 +49,8 @@ class AddSalesVC: UIViewController {
   
   func setupUI() {
     if let sales = self.guster {
-      let url = NSURL(string: kImageURL)?.URLByAppendingPathComponent("/uploads/users/\(sales.userid!).jpg")
-      imageView.sd_setImageWithURL(url)
+//      let url = NSURL(string: kImageURL)?.URLByAppendingPathComponent("/uploads/users/\(sales.userid!).jpg")
+//      imageView.sd_setImageWithURL(url)
       salesnameLabel.text = sales.username
       salesnameLabel.sizeToFit()
       shopnameLabel.sizeToFit()

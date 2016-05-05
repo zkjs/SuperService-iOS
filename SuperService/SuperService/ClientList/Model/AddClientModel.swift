@@ -19,6 +19,14 @@ class AddClientModel: NSObject {
   var userstatus:Int?
   var userimage:String?
   var realname:String?
+  var avatarURL: String {
+    guard let userimage = userimage else { return "" }
+    return userimage.avatarURL
+  }
+  var avatarUrlFullSize: String {
+    guard let userimage = userimage else { return "" }
+    return userimage.fullImageUrl
+  }
   
   override init() {
     super.init()

@@ -22,7 +22,8 @@ struct ZKJSConfig {
   // 新API服务器
   let BaseURL = "https://api.zkjinshi.com/dev"
   // 图片服务器
-  let BaseImageURL = "http://d2.zkjinshi.com/"
+  let BaseImageCDNURL = "http://cdn.zkjinshi.com"
+  let BaseImageURL = "http://pcd.zkjinshi.com"
   // 环信
   let EaseMobAppKey = "zkjs#svip"
   // 云巴
@@ -35,6 +36,7 @@ struct ZKJSConfig {
   // 新API服务器
   let BaseURL = "http://rap.zkjinshi.com/"
   // 图片服务器
+  let BaseImageCDNURL = "http://cdn.zkjinshi.com"
   let BaseImageURL = "http://svip02.oss-cn-shenzhen.aliyuncs.com/"
   // 环信
   let EaseMobAppKey = "zkjs#sid"
@@ -48,7 +50,8 @@ struct ZKJSConfig {
   // 新API服务器
   let BaseURL = "https://api.zkjinshi.com/release"
   // 图片服务器
-  let BaseImageURL = "http://cdn.zkjinshi.com/"
+  let BaseImageCDNURL = "http://cdn.zkjinshi.com"
+  let BaseImageURL = "http://pcd.zkjinshi.com"
   // 环信
   let EaseMobAppKey = "zkjs#prosvip"
   // 云巴

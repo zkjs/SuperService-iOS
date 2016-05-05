@@ -27,6 +27,14 @@ struct TeamModel {
   var roleCharacter: String {
     return self.displayRoleName.firstCharactor
   }
+  var avatarURL: String {
+    guard let userimage = userimage else { return "" }
+    return userimage.avatarURL
+  }
+  var avatarUrlFullSize: String {
+    guard let userimage = userimage else { return "" }
+    return userimage.fullImageUrl
+  }
 
   init(dic:JSON){
     if let name = dic["username"].string {

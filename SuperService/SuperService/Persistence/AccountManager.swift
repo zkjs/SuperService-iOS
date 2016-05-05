@@ -75,17 +75,6 @@ class AccountManager: NSObject {
       self.userID = salesID
     }
     
-    let urlString = kImageURL + "/uploads/users/\(userID).jpg"
-    if let url = NSURL(string: urlString) {
-      print(url)
-        if let data = NSData(contentsOfURL: url) {
-          self.avatarImageData = data
-          if let image = UIImage(data: self.avatarImageData) {
-            self.avatarImage = image
-        }
-      }
-    }
-    
     if let shopID = dict["shopid"].number{
       self.shopID = shopID.stringValue
     } else if let shopID = dict["shopid"].string {

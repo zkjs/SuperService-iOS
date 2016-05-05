@@ -39,7 +39,7 @@ class ArrivalCell: UITableViewCell {
   }
   
   class func height() -> CGFloat {
-    return 119
+    return DeviceType.IS_IPAD ? 200 : 119
   }
   
   override func awakeFromNib() {
@@ -73,6 +73,9 @@ class ArrivalCell: UITableViewCell {
     
     phone = Phone
     if let url = NSURL(string:data.avatarURL) {
+      if DeviceType.IS_IPAD {
+        avatarImageView.cornerRadius = 60.0
+      }
       avatarImageView.sd_setImageWithURL(url, forState: .Normal, placeholderImage: UIImage(named: "default_logo"))
       clientInfoLabel.text = userName + " " + data.displayGender
       avatarImageView.userInteractionEnabled = true

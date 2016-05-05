@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StaffLoginVC" customModule="SuperService" customModuleProvider="target">
@@ -20,42 +20,68 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-GK-IOo">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-GK-IOo">
                     <rect key="frame" x="255" y="30" width="90" height="90"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="90" id="DVJ-zV-ehB"/>
-                        <constraint firstAttribute="height" constant="90" id="OXF-3n-41I"/>
+                        <constraint firstAttribute="width" constant="90" id="DVJ-zV-ehB">
+                            <variation key="heightClass=regular-widthClass=regular" constant="180"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="90" id="OXF-3n-41I">
+                            <variation key="heightClass=regular-widthClass=regular" constant="180"/>
+                        </constraint>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-re-aI1" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
                     <rect key="frame" x="155" y="140" width="220" height="45"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="220" id="LKX-fu-QEU">
+                            <variation key="heightClass=regular-widthClass=regular" constant="320"/>
+                        </constraint>
                         <constraint firstAttribute="width" constant="220" id="Nmz-Gm-TTV"/>
                         <constraint firstAttribute="height" constant="45" id="etQ-v9-z7k"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="LKX-fu-QEU"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <mask key="constraints">
+                            <include reference="LKX-fu-QEU"/>
+                            <exclude reference="Nmz-Gm-TTV"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="tIn-X3-i1z"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05i-mC-6a8" customClass="LTBouncyTextField" customModule="SuperService" customModuleProvider="target">
-                    <rect key="frame" x="155" y="205" width="290" height="45"/>
+                    <rect key="frame" x="155" y="215" width="290" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Tei-mc-vgV"/>
-                        <constraint firstAttribute="width" constant="290" id="hDs-nQ-k7p"/>
+                        <constraint firstAttribute="width" constant="290" id="hDs-nQ-k7p">
+                            <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                        </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="FNj-Ta-IJE"/>
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXp-1z-7iF">
-                    <rect key="frame" x="155" y="310" width="290" height="45"/>
+                    <rect key="frame" x="155" y="320" width="290" height="45"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="290" id="EYQ-55-uaQ"/>
+                        <constraint firstAttribute="width" constant="290" id="EYQ-55-uaQ">
+                            <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                        </constraint>
                         <constraint firstAttribute="height" constant="45" id="qrm-X4-cNF"/>
                     </constraints>
                     <state key="normal" title="确定">
@@ -66,27 +92,14 @@
                             <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <mask key="constraints">
+                            <include reference="EYQ-55-uaQ"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="staffCheckoutLoginButton:" destination="-1" eventType="touchUpInside" id="Jfr-TD-WEy"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgR-nB-HDZ">
-                    <rect key="frame" x="383" y="140" width="62" height="45"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="8s8-03-wcH"/>
-                        <constraint firstAttribute="width" constant="62" id="Bmb-gE-wdk"/>
-                    </constraints>
-                    <state key="normal" title="验证码">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="6"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="sendVerificationcodeButton:" destination="-1" eventType="touchUpInside" id="N1P-45-svN"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIU-3f-47j">
@@ -103,26 +116,67 @@
                             <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    </variation>
                     <connections>
                         <action selector="bussinessManButton:" destination="-1" eventType="touchUpInside" id="N92-iH-6w8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgR-nB-HDZ">
+                    <rect key="frame" x="383" y="140" width="62" height="45"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="8s8-03-wcH"/>
+                        <constraint firstAttribute="width" constant="62" id="Bmb-gE-wdk">
+                            <variation key="heightClass=regular-widthClass=regular" constant="72"/>
+                        </constraint>
+                    </constraints>
+                    <state key="normal" title="验证码">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    </variation>
+                    <connections>
+                        <action selector="sendVerificationcodeButton:" destination="-1" eventType="touchUpInside" id="N1P-45-svN"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="jIU-3f-47j" secondAttribute="bottom" constant="50" id="H46-rI-0fz"/>
+                <constraint firstAttribute="bottom" secondItem="jIU-3f-47j" secondAttribute="bottom" constant="50" id="H46-rI-0fz">
+                    <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                </constraint>
                 <constraint firstItem="dh6-re-aI1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-35" id="K53-dn-Jtr"/>
                 <constraint firstItem="gXp-1z-7iF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KfW-ul-sAk"/>
+                <constraint firstItem="cgR-nB-HDZ" firstAttribute="leading" secondItem="dh6-re-aI1" secondAttribute="trailing" constant="8" id="Lt5-Wt-tHk"/>
                 <constraint firstItem="FBL-GK-IOo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Mts-Pz-vEg"/>
-                <constraint firstItem="05i-mC-6a8" firstAttribute="top" secondItem="dh6-re-aI1" secondAttribute="bottom" constant="20" id="YQD-Rr-193"/>
+                <constraint firstItem="cgR-nB-HDZ" firstAttribute="centerY" secondItem="dh6-re-aI1" secondAttribute="centerY" id="Szd-Yv-HT9"/>
+                <constraint firstItem="05i-mC-6a8" firstAttribute="top" secondItem="dh6-re-aI1" secondAttribute="bottom" constant="30" id="YQD-Rr-193"/>
                 <constraint firstItem="FBL-GK-IOo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="bYD-a9-7l3"/>
-                <constraint firstItem="cgR-nB-HDZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="hjY-LY-dQn"/>
                 <constraint firstItem="dh6-re-aI1" firstAttribute="top" secondItem="FBL-GK-IOo" secondAttribute="bottom" constant="20" id="j1S-Bi-xtV"/>
                 <constraint firstItem="jIU-3f-47j" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="neF-dr-aUP"/>
                 <constraint firstItem="gXp-1z-7iF" firstAttribute="top" secondItem="05i-mC-6a8" secondAttribute="bottom" constant="60" id="t42-sa-KU0"/>
-                <constraint firstItem="cgR-nB-HDZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="114" id="y9R-k3-JX7"/>
                 <constraint firstItem="05i-mC-6a8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zlO-xi-fGT"/>
+                <constraint firstItem="dh6-re-aI1" firstAttribute="leading" secondItem="05i-mC-6a8" secondAttribute="leading" id="zqW-uD-hpr"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="zqW-uD-hpr"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="constraints">
+                    <exclude reference="K53-dn-Jtr"/>
+                    <include reference="zqW-uD-hpr"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

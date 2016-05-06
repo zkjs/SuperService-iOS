@@ -408,6 +408,17 @@
   [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void) viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+  if (self.deleteConversationIfNull) {
+    //判断当前会话是否为空，若符合则删除该会话
+    EMMessage *message = [self.conversation latestMessage];
+    if (message == nil) {
+      [[EaseMob sharedInstance].chatManager removeConversationByChatter:self.conversation.chatter deleteMessages:NO append2Chat:YES];
+    }
+  }
+}
+
 - (void)showGroupDetailAction
 {
   [self.view endEditing:YES];
@@ -510,8 +521,11 @@
   id object = notification.object;
   if (object) {
     EMMessage *message = (EMMessage *)object;
-    [self addMessageToDataSource:message progress:nil];
-    [[EaseMob sharedInstance].chatManager insertMessageToDB:message append2Chat:YES];
+    if (message != nil) {
+      [self addMessageToDataSource:message progress:nil];
+      [[EaseMob sharedInstance].chatManager insertMessageToDB:message append2Chat:YES];
+    }
+    
   }
 }
 

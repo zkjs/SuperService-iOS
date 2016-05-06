@@ -181,7 +181,7 @@ class AccountInfoManager: NSObject {
   
   func clearAccountCache() {
     let userDefaults = NSUserDefaults()
-    userDefaults.setObject(nil, forKey: "userID")
+    userDefaults.setObject(nil, forKey: "userid")
     userDefaults.setObject(nil, forKey: "token")
     userDefaults.setObject(nil, forKey: "avatarURL")
     userDefaults.setObject(nil, forKey: "username")

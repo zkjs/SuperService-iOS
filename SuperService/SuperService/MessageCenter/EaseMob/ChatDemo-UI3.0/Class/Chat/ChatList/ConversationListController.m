@@ -357,7 +357,7 @@
 - (NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController
       latestMessageTitleForConversationModel:(id<IConversationModel>)conversationModel
 {
-  NSString *latestMessageTitle = @"";
+  NSString *latestMessageTitle;
   EMMessage *lastMessage = [conversationModel.conversation latestMessage];
   if (lastMessage) {
     id<IEMMessageBody> messageBody = lastMessage.messageBodies.lastObject;

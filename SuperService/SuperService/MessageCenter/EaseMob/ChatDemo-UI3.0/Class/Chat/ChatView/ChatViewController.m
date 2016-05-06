@@ -277,9 +277,8 @@
   id<IMessageModel> model = nil;
   model = [[EaseMessageModel alloc] initWithMessage:message];
   //    model.avatarImage = [UIImage imageNamed:@"user"];
-  NSString *url = [NSString stringWithFormat:@"/uploads/users/%@.jpg", model.nickname];
-  //NSString *domain = kImageURL;
-  //model.avatarURLPath = [domain stringByAppendingString:url];
+   //NSString *domain = kImageURL;
+  model.avatarURLPath = [NSString stringWithFormat:@"%@",self.avaterImage];
   model.nickname = message.ext[@"fromName"];
   model.failImageName = @"imageDownloadFail";
   return model;

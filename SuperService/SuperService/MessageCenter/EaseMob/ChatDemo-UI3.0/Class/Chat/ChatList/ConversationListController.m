@@ -14,13 +14,16 @@
 #import "EaseUI.h"
 #import "ContactSelectionViewController.h"
 #import "EMSearchBar.h"
-#import "EMSearchDisplayController.h"
+#import "EMSearchDisplayController.h" 
 #import "RealtimeSearchUtil.h"
 
 @interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource,UISearchDisplayDelegate, UISearchBarDelegate, EMChooseViewDelegate>
 
 @property (nonatomic, strong) UIView *networkStateView;
 @property (nonatomic, strong) EMSearchBar *searchBar;
+@property (nonatomic,strong)  NSMutableArray * arr;
+@property (nonatomic,strong)  NSMutableArray * ImageUrlArr;
+@property (nonatomic,strong)  NSMutableDictionary * dic;
 @property (strong, nonatomic) EMSearchDisplayController *searchController;
 
 @end
@@ -34,13 +37,16 @@
   
 //  [self setupRightBarButton];
   
+  _arr = [[NSMutableArray alloc] initWithCapacity:20];
+  _ImageUrlArr = [[NSMutableArray alloc] initWithCapacity:20];
+  _dic = [[NSMutableDictionary alloc]init];
   [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
   
   self.showRefreshHeader = YES;
   self.delegate = self;
   self.dataSource = self;
   
-  [self tableViewDidTriggerHeaderRefresh];
+  
   
 //  self.tableView.frame = self.view.bounds;
   
@@ -52,6 +58,14 @@
   [self searchController];
   
   [self removeEmptyConversationsFromDB];
+
+
+  
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:YES];
+  [self queryUserinfoFromDB];
 }
 
 #pragma mark - Private
@@ -118,6 +132,25 @@
   } onQueue:nil];
   
   return YES;
+}
+
+- (void)queryUserinfoFromDB {
+   NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+  [_arr removeAllObjects];
+   for (EMConversation *conversation in conversations) {
+    [_arr addObject:conversation.chatter];
+  }
+  NSString * str = [_arr componentsJoinedByString:@","];
+  [HttpServiceForOC getUserInfo:str completionHandler:^(id responseObject, NSError * error) {
+     NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"users: %@",dic);
+    NSArray * arr = dic[@"data"];
+    for (NSDictionary * dict in arr) {
+      NSDictionary * a = [NSDictionary dictionaryWithObjectsAndKeys:dict[@"userimage"],dict[@"userid"], nil];
+      [_dic addEntriesFromDictionary:a];
+    }
+    [self tableViewDidTriggerHeaderRefresh];
+  }];
 }
 
 - (void)removeEmptyConversationsFromDB
@@ -252,6 +285,7 @@
       }
       ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType];
       chatController.title = title;
+      chatController.avaterImage = [_dic objectForKey:conversation.chatter];
       chatController.hidesBottomBarWhenPushed = YES;
       chatController.conversation.ext = [ext copy];
       [self.navigationController pushViewController:chatController animated:YES];
@@ -265,8 +299,17 @@
                                     modelForConversation:(EMConversation *)conversation
 {
   EaseConversationModel *model = [[EaseConversationModel alloc] initWithConversation:conversation];
+  EMMessage *latestMessage = conversation.latestMessage;
+  
+//  NSString * url;
+//  NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+//  for (EMConversation *conversation in conversations) {
+//    url = [NSString stringWithFormat:@"http://cdn.zkjinshi.com/%@",[_dic objectForKey:conversation.chatter]];
+//    NSLog(@"%@",[_dic objectForKey:conversation.chatter]);
+//    model.avatarURLPath = url;
+//  }
+  
   if (model.conversation.conversationType == eConversationTypeChat) {
-    EMMessage *latestMessage = conversation.latestMessage;
     NSString *userName = [AccountManager sharedInstance].userName;
     if ([userName isEqualToString:latestMessage.ext[@"fromName"]]) {
       // 最后一条消息的发送者为自己
@@ -275,9 +318,10 @@
       // 最后一条消息的发送者为对方
       model.title = latestMessage.ext[@"fromName"];
     }
-    //NSString *url = [NSString stringWithFormat:@"/uploads/users/%@.jpg", conversation.chatter];
-    //model.avatarURLPath = [kImageURL stringByAppendingString:url];
-    NSLog(@"%@", model.avatarURLPath);
+    model.avatarURLPath = latestMessage.ext[@"avatar"];
+
+    NSLog(@"url: %@",latestMessage.ext);
+    
   } else if (model.conversation.conversationType == eConversationTypeGroupChat) {
     if (![conversation.ext objectForKey:@"groupSubject"] || ![conversation.ext objectForKey:@"isPublic"]) {
       NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
@@ -312,7 +356,7 @@
       model.avatarImage = [UIImage imageNamed:@"default_logo"];
     }
   }
-  NSLog(@"%@", model.title);
+
   return model;
 }
 
@@ -361,7 +405,7 @@
        latestMessageTimeForConversationModel:(id<IConversationModel>)conversationModel
 {
   NSString *latestMessageTime = @"";
-  EMMessage *lastMessage = [conversationModel.conversation latestMessage];;
+  EMMessage *lastMessage = [conversationModel.conversation latestMessage];
   if (lastMessage) {
     latestMessageTime = [NSDate formattedTimeFromTimeInterval:lastMessage.timestamp];
   }

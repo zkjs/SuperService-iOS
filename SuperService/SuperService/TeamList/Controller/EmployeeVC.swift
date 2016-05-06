@@ -159,6 +159,7 @@ class EmployeeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     // 扩展字段
     let ext = ["toName": chatterName,
       "avatar":employee.avatarURL,
+      "toAvatar":client.userimage ?? "",
       "fromName": userName]
     vc.conversation.ext = ext
     navigationController?.pushViewController(vc, animated: true)

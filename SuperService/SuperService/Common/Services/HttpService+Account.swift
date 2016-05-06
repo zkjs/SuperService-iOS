@@ -130,8 +130,9 @@ extension HttpService {
                     let tokenPayload = TokenPayload.sharedInstance
                     tokenPayload.saveTokenPayload(token)
                   } 
-                  if let imgUrl = json["data"]["userimage"].string where !imgUrl.isEmpty {
+                  if let imgUrl = json["data"]["userimage"].string,let userid = json["data"]["userid"].string  where !imgUrl.isEmpty {
                     AccountInfoManager.sharedInstance.saveImageUrl(imgUrl)
+                    AccountInfoManager.sharedInstance.saveUserid(userid)
                     completionHandler(json,nil)
                   } else {
                     completionHandler(json,error)

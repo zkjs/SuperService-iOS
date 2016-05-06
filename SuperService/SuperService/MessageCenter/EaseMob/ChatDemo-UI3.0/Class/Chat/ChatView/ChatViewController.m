@@ -276,11 +276,17 @@
 {
   id<IMessageModel> model = nil;
   model = [[EaseMessageModel alloc] initWithMessage:message];
-  //    model.avatarImage = [UIImage imageNamed:@"user"];
-   //NSString *domain = kImageURL;
-  model.avatarURLPath = [NSString stringWithFormat:@"%@",self.avaterImage];
+  NSString * from = message.from;
+  NSString * userid = [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"];
+  if ([from isEqualToString:userid]) {
+    NSString * imageurl = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarURL"];
+    model.avatarURLPath = [NSString stringWithFormat:@"%@",imageurl];
+  }else {
+    model.avatarURLPath = [NSString stringWithFormat:@"%@",self.avaterImage];
+  }
   model.nickname = message.ext[@"fromName"];
   model.failImageName = @"imageDownloadFail";
+  NSLog(@"message:%@",message);
   return model;
 }
 

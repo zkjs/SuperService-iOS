@@ -10,6 +10,9 @@
 
 #import "UIImageView+EMWebCache.h"
 
+#import "Configure.h"
+
+
 @interface EaseBaseMessageCell()
 
 @property (strong, nonatomic) UILabel *nameLabel;
@@ -217,7 +220,7 @@
     
     if (model.avatarURLPath) {
       NSLog(@"%@",model.avatarURLPath);
-        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://pcd.zkjinshi.com/%@@120w_120h", model.avatarURLPath]] placeholderImage:model.avatarImage];
+        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@@120w_120h",kImageURL, model.avatarURLPath]] placeholderImage:model.avatarImage];
     } else {
         self.avatarView.image = model.avatarImage;
     }

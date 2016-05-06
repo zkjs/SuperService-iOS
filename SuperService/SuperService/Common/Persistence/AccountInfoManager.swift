@@ -87,6 +87,7 @@ class AccountInfoManager: NSObject {
     userDefaults.setObject(userName, forKey: "username")
     userDefaults.setObject(sex, forKey: "sex")
     userDefaults.setObject(email, forKey: "email")
+    userDefaults.setObject(userID, forKey: "userid")
     userDefaults.setObject(phone, forKey: "phone")
     userDefaults.setObject(activated, forKey: "activated")
     userDefaults.setObject(viplevel, forKey: "viplevel")
@@ -140,6 +141,13 @@ class AccountInfoManager: NSObject {
     self.activated = activated
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(activated, forKey: "activated")
+  }
+  
+  func saveUserid(userid: String) {
+    self.userID = userid
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(userid, forKey: "userid")
+    userDefaults.synchronize()
   }
   
   

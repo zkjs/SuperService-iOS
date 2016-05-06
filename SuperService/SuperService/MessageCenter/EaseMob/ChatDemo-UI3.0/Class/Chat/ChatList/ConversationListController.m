@@ -301,24 +301,18 @@
   EaseConversationModel *model = [[EaseConversationModel alloc] initWithConversation:conversation];
   EMMessage *latestMessage = conversation.latestMessage;
   
-//  NSString * url;
-//  NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
-//  for (EMConversation *conversation in conversations) {
-//    url = [NSString stringWithFormat:@"http://cdn.zkjinshi.com/%@",[_dic objectForKey:conversation.chatter]];
-//    NSLog(@"%@",[_dic objectForKey:conversation.chatter]);
-//    model.avatarURLPath = url;
-//  }
-  
   if (model.conversation.conversationType == eConversationTypeChat) {
     NSString *userName = [AccountManager sharedInstance].userName;
     if ([userName isEqualToString:latestMessage.ext[@"fromName"]]) {
       // 最后一条消息的发送者为自己
       model.title = latestMessage.ext[@"toName"];
+      model.avatarURLPath = latestMessage.ext[@"avatar"];
     } else {
       // 最后一条消息的发送者为对方
       model.title = latestMessage.ext[@"fromName"];
+      model.avatarURLPath = latestMessage.ext[@"toAvatar"];
     }
-    model.avatarURLPath = latestMessage.ext[@"avatar"];
+   
 
     NSLog(@"url: %@",latestMessage.ext);
     

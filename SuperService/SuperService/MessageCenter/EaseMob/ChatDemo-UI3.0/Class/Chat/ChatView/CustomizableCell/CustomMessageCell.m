@@ -58,6 +58,7 @@
       }
     }
     _bubbleView.imageView.image = image;
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:model.avatarURLPath] placeholderImage:[UIImage imageNamed:@"bg_dingdanzhuangtai"]];
     [self.avatarView imageWithUsername:model.nickname placeholderImage:nil];
   } else if ([[model.message.ext objectForKey:@"extType"] integerValue] == eTextTxtCard) {
     NSLog(@"%@", model.text);

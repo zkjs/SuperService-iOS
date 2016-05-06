@@ -78,6 +78,7 @@ class AdminLoginV: UIViewController {
         }
       } else {
         print(json)
+        self.loginEaseMob()
         HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
           print(json)
           if let _ = error {
@@ -99,7 +100,7 @@ class AdminLoginV: UIViewController {
     let userID = TokenPayload.sharedInstance.userID
     print("Username: \(userID)")
     print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
-    EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "12345",completion: { (loginInfo, err) in
+    EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456",completion: { (loginInfo, err) in
         print("登陆后环信:\(loginInfo)")
         if err == nil {
           EaseMob.sharedInstance().chatManager.loadDataFromDatabase()

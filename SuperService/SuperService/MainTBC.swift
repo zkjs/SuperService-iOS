@@ -75,7 +75,7 @@ class MainTBC: UITabBarController {
       print("EaseMob Login Name: \(userID)")
       print("登陆前环信:\(EaseMob.sharedInstance().chatManager.loginInfo)")
       
-      EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "12345",
+      EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userID, password: "123456",
                                                                   completion: { (loginInfo, err) in
           print("登陆后环信:\(loginInfo)")
           if err == nil {

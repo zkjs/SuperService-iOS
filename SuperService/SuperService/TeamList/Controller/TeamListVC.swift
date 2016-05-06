@@ -165,6 +165,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     vc.hidesBottomBarWhenPushed = true
     // 扩展字段
     let ext = ["toName": chatterName,
+      "avatar":employee.avatarURL,
       "fromName": userName]
     vc.conversation.ext = ext
     navigationController?.pushViewController(vc, animated: true)

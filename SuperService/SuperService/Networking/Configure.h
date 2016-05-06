@@ -10,7 +10,7 @@
 #define Configure_h
 
 // 图片服务器
-//#define kImageURL @"http://svip02.oss-cn-shenzhen.aliyuncs.com/"
+#define kImageURL @"http://pcd.zkjinshi.com/"
 
 // 测试
 #define kBaseURL @"http://tst.zkjinshi.com/"  // PHP服务器

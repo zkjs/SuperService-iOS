@@ -429,6 +429,7 @@
 		FAF92CB41C435C2700671300 /* InvoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF92CB21C435C2700671300 /* InvoiceCell.xib */; };
 		FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */; };
 		FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */; };
+		FAFA308A1CDC7A49003FEBCD /* HttpServiceForOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */; };
 		FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */; };
 		FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */; };
 /* End PBXBuildFile section */
@@ -1068,6 +1069,7 @@
 		FAF92CB21C435C2700671300 /* InvoiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceCell.xib; sourceTree = "<group>"; };
 		FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUSVC.swift; sourceTree = "<group>"; };
 		FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSVC.xib; sourceTree = "<group>"; };
+		FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceForOC.swift; sourceTree = "<group>"; };
 		FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTypeVC.swift; sourceTree = "<group>"; };
 		FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayTypeVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1313,6 +1315,7 @@
 				FAF644F51C98023F00C30D00 /* HttpService+Subscribe.swift */,
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
+				FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -3082,6 +3085,7 @@
 				40FB3D5A1C00203900675044 /* EaseBubbleView.m in Sources */,
 				FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */,
 				40FB3D421C00203900675044 /* UIViewController+HUD.m in Sources */,
+				FAFA308A1CDC7A49003FEBCD /* HttpServiceForOC.swift in Sources */,
 				40FB3D4C1C00203900675044 /* EaseMessageViewController.m in Sources */,
 				FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */,
 				40C8414B1C102784003E8037 /* ContactView.m in Sources */,

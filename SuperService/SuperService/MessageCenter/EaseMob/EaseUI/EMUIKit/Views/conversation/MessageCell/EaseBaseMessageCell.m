@@ -216,7 +216,8 @@
     [super setModel:model];
     
     if (model.avatarURLPath) {
-        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:model.avatarURLPath] placeholderImage:model.avatarImage];
+      NSLog(@"%@",model.avatarURLPath);
+        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://pcd.zkjinshi.com/%@@120w_120h", model.avatarURLPath]] placeholderImage:model.avatarImage];
     } else {
         self.avatarView.image = model.avatarImage;
     }

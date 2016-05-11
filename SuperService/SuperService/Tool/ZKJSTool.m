@@ -100,6 +100,12 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
     return [emailTest evaluateWithObject:email];
 }
+#pragma mark - 检查密码格式
++ (BOOL)validatePassword:(NSString *)password {
+  NSString * regex = @"^[A-Za-z0-9]{8,}$";
+  NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+  return  [pred evaluateWithObject:password];
+}
 
 #pragma mark - JSON String to Dictionary
 + (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString {

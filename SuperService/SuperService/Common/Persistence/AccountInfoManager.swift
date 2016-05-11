@@ -143,13 +143,6 @@ class AccountInfoManager: NSObject {
     userDefaults.setObject(activated, forKey: "activated")
   }
   
-  func saveUserid(userid: String) {
-    self.userID = userid
-    let userDefaults = NSUserDefaults()
-    userDefaults.setObject(userid, forKey: "userid")
-    userDefaults.synchronize()
-  }
-  
   
   func saveSex(sex: Int) {
     self.sex = sex

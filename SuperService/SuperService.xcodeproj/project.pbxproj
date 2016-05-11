@@ -387,6 +387,11 @@
 		FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */; };
 		FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */; };
 		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
+		FAA420561CE2D8EE000DCCCA /* HttpService+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA420551CE2D8EE000DCCCA /* HttpService+Password.swift */; };
+		FAA420591CE30A75000DCCCA /* PassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA420571CE30A75000DCCCA /* PassWordVC.swift */; };
+		FAA4205A1CE30A75000DCCCA /* PassWordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA420581CE30A75000DCCCA /* PassWordVC.xib */; };
+		FAA4205D1CE33302000DCCCA /* ChangePasswordSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4205B1CE33302000DCCCA /* ChangePasswordSuccessVC.swift */; };
+		FAA4205E1CE33302000DCCCA /* ChangePasswordSuccessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4205C1CE33302000DCCCA /* ChangePasswordSuccessVC.xib */; };
 		FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB198791CD207CE00A6F339 /* ClientFooterView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
 		FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */; };
@@ -1026,6 +1031,11 @@
 		FA63908A1C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LeisureOrderDetailTVC.storyboard; path = ../../LeisureOrderDetailTVC.storyboard; sourceTree = "<group>"; };
 		FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSuccessVC.swift; sourceTree = "<group>"; };
 		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
+		FAA420551CE2D8EE000DCCCA /* HttpService+Password.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Password.swift"; sourceTree = "<group>"; };
+		FAA420571CE30A75000DCCCA /* PassWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassWordVC.swift; sourceTree = "<group>"; };
+		FAA420581CE30A75000DCCCA /* PassWordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassWordVC.xib; sourceTree = "<group>"; };
+		FAA4205B1CE33302000DCCCA /* ChangePasswordSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordSuccessVC.swift; sourceTree = "<group>"; };
+		FAA4205C1CE33302000DCCCA /* ChangePasswordSuccessVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordSuccessVC.xib; sourceTree = "<group>"; };
 		FAB198791CD207CE00A6F339 /* ClientFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientFooterView.swift; sourceTree = "<group>"; };
 		FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Contacts.swift"; sourceTree = "<group>"; };
 		FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+GetCode.swift"; sourceTree = "<group>"; };
@@ -1306,6 +1316,7 @@
 			children = (
 				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				406B0B2A1C85B692006C9C73 /* HttpService.swift */,
+				FAA420551CE2D8EE000DCCCA /* HttpService+Password.swift */,
 				40FD343A1C92B0780019A8CA /* Httpservice+Token.swift */,
 				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
 				FAF644F71C9830DE00C30D00 /* HttpService+Others.swift */,
@@ -2502,6 +2513,10 @@
 				FA5D9F2E1CD23B1B00F97DB5 /* NameVC.xib */,
 				40F7576A1BE0553E0053C2BE /* SetUpVC.swift */,
 				40F7576B1BE0553E0053C2BE /* SetUpVC.xib */,
+				FAA420571CE30A75000DCCCA /* PassWordVC.swift */,
+				FAA420581CE30A75000DCCCA /* PassWordVC.xib */,
+				FAA4205B1CE33302000DCCCA /* ChangePasswordSuccessVC.swift */,
+				FAA4205C1CE33302000DCCCA /* ChangePasswordSuccessVC.xib */,
 				FAF1A5DC1BEC41DA00B9ACC8 /* SettingUpTVC.swift */,
 				FAF1A5DE1BEC41F300B9ACC8 /* SettingUpTVC.storyboard */,
 				40F757681BE0553E0053C2BE /* SettingsVC.swift */,
@@ -2757,12 +2772,14 @@
 				408694041C39162F00BE1709 /* LeisureTVC.storyboard in Resources */,
 				408423091BC68A7800C215CD /* ArrivalCell.xib in Resources */,
 				408694021C39162F00BE1709 /* HotelOrderTVC.storyboard in Resources */,
+				FAA4205A1CE30A75000DCCCA /* PassWordVC.xib in Resources */,
 				FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */,
 				FAF6AB841BEDA34E006C1370 /* InvitationRecordCell.xib in Resources */,
 				40CFC18D1C3E17FA002DF0C7 /* BookRoomListVC.xib in Resources */,
 				40F757791BE0553E0053C2BE /* SetUpVC.xib in Resources */,
 				FA6390901C3FA43500CC3A90 /* LeisureOrderDetailTVC.storyboard in Resources */,
 				40CAA5F71BE705DA00FAFDA0 /* AdminLoginV.xib in Resources */,
+				FAA4205E1CE33302000DCCCA /* ChangePasswordSuccessVC.xib in Resources */,
 				409EE0AA1C0071390074F43C /* Localizable.strings in Resources */,
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
 				FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */,
@@ -3008,6 +3025,7 @@
 				40DC2D5A1C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				40FB3D011C00203900675044 /* ChatViewController.m in Sources */,
 				FAF644F81C9830DE00C30D00 /* HttpService+Others.swift in Sources */,
+				FAA420561CE2D8EE000DCCCA /* HttpService+Password.swift in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
 				40FB3D5F1C00203900675044 /* EaseFaceView.m in Sources */,
@@ -3102,11 +3120,13 @@
 				40FB3D551C00203900675044 /* EaseBubbleView+Image.m in Sources */,
 				40A3F5471CD8BB7A000B6AB7 /* Gender.swift in Sources */,
 				40FB3D5C1C00203900675044 /* EaseChatToolbarItem.m in Sources */,
+				FAA4205D1CE33302000DCCCA /* ChangePasswordSuccessVC.swift in Sources */,
 				40FD34271C926E570019A8CA /* RegexHelper.swift in Sources */,
 				40FB3D081C00203900675044 /* EMCDDeviceManager+Microphone.m in Sources */,
 				40ABA9761BE1C60A00737C6D /* TSQCalendarRowCell.m in Sources */,
 				40FB3D3B1C00203900675044 /* EaseMessageModel.m in Sources */,
 				FAF165E21CD1D2BC00A88BD0 /* ClientHeadView.swift in Sources */,
+				FAA420591CE30A75000DCCCA /* PassWordVC.swift in Sources */,
 				40FB3D3A1C00203900675044 /* EaseConversationModel.m in Sources */,
 				40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */,
 				40FB3D291C00203900675044 /* UIImageView+EMWebCache.m in Sources */,

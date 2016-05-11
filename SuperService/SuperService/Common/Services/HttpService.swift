@@ -29,6 +29,8 @@ class HttpService {
     case CheckVersion(version:String)           // 检查App版本
     case QueryUserTags                          //用户标签
     case UpdateUserTags                         //更新用户标签
+    case VerifyPassWord                         //验证原始密码
+    case ChangePassWord                         //修改密码
     
     var description: String {
       switch self {
@@ -42,6 +44,8 @@ class HttpService {
       case .CheckVersion(let version):          return "/for/res/v1/systempub/upgrade/newestversion/1/IOS/\(version)"
       case .QueryUserTags:                      return "/for/res/v1/query/user/tags"
       case.UpdateUserTags:                      return "/for/res/v1/update/user/tags"
+      case.VerifyPassWord:                      return "for/res/v1/verify/ss/loginpassword"
+      case.ChangePassWord:                      return "for/res/v1/update/ss/loginpassword"
       }
     }
   }

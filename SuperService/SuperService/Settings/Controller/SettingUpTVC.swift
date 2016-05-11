@@ -69,9 +69,53 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
     if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
+    } else {
+      self.verifyPassword()
     }
 
   }
+  
+  func verifyPassword() {
+    let alertController = UIAlertController(title: "验证原密码", message: "为保障您的数据安全，修改密码请填写原密码。", preferredStyle: UIAlertControllerStyle.Alert)
+    let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+      let passwordTextField = alertController.textFields![0] as UITextField
+      guard let phone = passwordTextField.text else { return }
+      self.showHUDInView(self.view, withLoading: "")
+        HttpService.sharedInstance.userVerifyPassword(phone, completionHandler: { (json, error) -> Void in
+          if let error = error ,let errorInfo = error.userInfo["resDesc"] as? String {
+              //提示框密码错误
+              let alertController = UIAlertController(title: "\(errorInfo)", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+              let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+                self.verifyPassword()
+              }
+              alertController.addAction(checkAction)
+              self.presentViewController(alertController, animated: true, completion: nil)
+          } else {
+            //跳转修改密码页面
+            let vc = PassWordVC()
+            vc.oldPassword = phone
+            self.navigationController?.pushViewController(vc, animated: true)
+          }
+          self.hideHUD()
+        })
+   }
+    checkAction.enabled = false
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel) { (_) in
+      self.view.endEditing(true)
+    }
+    alertController.addTextFieldWithConfigurationHandler { (textField) in
+      textField.placeholder = "请输入旧密码"
+      textField.secureTextEntry = true
+      textField.keyboardType = UIKeyboardType.NumbersAndPunctuation
+      NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+        checkAction.enabled = (textField.text != "")
+      }
+    }
+    alertController.addAction(checkAction)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+
   
   func selectedIamge(sender:UIButton) {
     showPhotoPicker()
@@ -137,4 +181,10 @@ extension SettingUpTVC: UIImagePickerControllerDelegate {
   }
 
   
+}
+
+extension SettingUpTVC:UITextFieldDelegate {
+  func textFieldDidBeginEditing(textField: UITextField) {
+    textField.secureTextEntry = true
+  }
 }

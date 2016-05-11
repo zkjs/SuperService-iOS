@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -153,7 +153,7 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                             </constraint>
                             <constraint firstItem="EeG-bp-zZn" firstAttribute="top" secondItem="uII-aj-A9K" secondAttribute="bottom" constant="4" id="oBc-oh-Ibo">
-                                <variation key="heightClass=regular-widthClass=regular" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
                             <constraint firstItem="uII-aj-A9K" firstAttribute="top" secondItem="hZP-Nl-nz1" secondAttribute="top" constant="20" id="qbL-W7-be6"/>
                             <constraint firstItem="Cue-tX-dOZ" firstAttribute="top" secondItem="EeG-bp-zZn" secondAttribute="bottom" constant="22" id="rz9-PA-u4g"/>

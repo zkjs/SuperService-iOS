@@ -30,6 +30,8 @@ class ClientLabelCollectionVC: UICollectionViewController {
     layout.itemSize = CGSize(width: width, height: width)
     layout.headerReferenceSize = CGSizeMake(0, DeviceType.IS_IPAD ? 270 : 170)
 //    layout.collectionView?.contentSize = CGSizeMake(ScreenSize.SCREEN_WIDTH, 2000)
+    
+    title = "客户信息"
   }
 
   override func didReceiveMemoryWarning() {

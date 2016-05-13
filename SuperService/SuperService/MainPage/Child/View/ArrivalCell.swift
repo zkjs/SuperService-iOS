@@ -137,7 +137,7 @@ class ArrivalCell: UITableViewCell {
   }
   
   func gotoLabel(tap:UITapGestureRecognizer) {
-   // delegate?.gotoLabelVC(arrivate)
+    delegate?.gotoLabelVC(arrivate)
     print("*****************")
   }
   

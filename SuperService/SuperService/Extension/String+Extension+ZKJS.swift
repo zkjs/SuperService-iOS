@@ -63,7 +63,7 @@ extension String {
   }
   
   var isValidPassword: Bool {
-    return (self =~ "^[A-Za-z0-9]{8,}$")
+    return (self =~ "^(?![a-zA-Z]+$)(?![0-9]+$)[a-zA-Z0-9]{8,}$")
   }
   
   /*

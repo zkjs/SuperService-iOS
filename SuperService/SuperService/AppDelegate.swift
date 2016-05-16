@@ -177,6 +177,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
           NSNotificationCenter.defaultCenter().postNotificationName(kRefreshPayResultVCNotification, object: nil, userInfo:["payInfo":payInfo])
       }
     }
+    
+    if let aps = userInfo["aps"], type = aps["category"] as? String where type == "ARRIVING" {
+      let arrivalInfoTabIndex = 0
+      if self.mainTBC.selectedIndex != arrivalInfoTabIndex {
+        // 当前页不是到店通知页面，则置到店通知Tab Bar badge
+        let tabArray = self.mainTBC.tabBar.items as NSArray!
+        let tabItem = tabArray.objectAtIndex(arrivalInfoTabIndex) as! UITabBarItem
+        var newBadge = NSNumber(integer: 1)
+        if let badge = NSUserDefaults.standardUserDefaults().objectForKey(kArrivalInfoBadge) as? NSNumber {
+          newBadge = NSNumber(integer: badge.integerValue + 1)
+        }
+        tabItem.badgeValue = newBadge.stringValue
+        NSUserDefaults.standardUserDefaults().setObject(newBadge, forKey: kArrivalInfoBadge)
+      } else {
+        // 当前页是到店通知页面，则刷新到店通知列表
+        NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
+      }
+    }
+    
     completionHandler(.NewData)
 
   }

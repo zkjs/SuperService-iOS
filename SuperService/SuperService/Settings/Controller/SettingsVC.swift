@@ -94,7 +94,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let aboutUSIndexPath = NSIndexPath(forItem: 1, inSection: 0)
     let logoutIndexPath = NSIndexPath(forItem: 2, inSection: 0)
     if indexPath == logoutIndexPath {
-      let alertController = UIAlertController(title: "确定要退出登录吗？", message: "", preferredStyle: .ActionSheet)
+      let alertController = UIAlertController(title: "确定要退出登录吗？", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
       let logoutAction = UIAlertAction(title: "退出登录", style:.Destructive, handler: { (action: UIAlertAction) -> Void in
         self.logout()
       })

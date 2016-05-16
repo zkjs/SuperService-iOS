@@ -18,6 +18,8 @@
 
 #pragma mark - 检测邮箱格式
 + (BOOL)validateEmail:(NSString *)email;
+#pragma mark - 检查密码格式
++ (BOOL)validatePassword:(NSString *)password;
 
 #pragma mark - JSON String to Dictionary
 + (NSDictionary *)convertJSONStringToDictionary:(NSString *)jsonString;

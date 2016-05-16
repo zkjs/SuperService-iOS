@@ -62,6 +62,10 @@ extension String {
     return (self =~ "^([0-9]+)(\\.[0-9]{1,2})?$")
   }
   
+  var isValidPassword: Bool {
+    return (self =~ "^(?![a-zA-Z]+$)(?![0-9]+$)[a-zA-Z0-9]{8,}$")
+  }
+  
   /*
    * 图片完整URL(无适配): Endpoint + ResourcePath
    */

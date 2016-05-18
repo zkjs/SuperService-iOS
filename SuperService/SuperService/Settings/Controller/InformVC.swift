@@ -60,17 +60,18 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
           for dict in jsonArr {
             let area = AreaModel(dic: dict)
             if area.payment_support == 0 {//暂时过滤掉具有收款台功能的区域
-             self.areaArray.append(area) 
+              self.areaArray.append(area)
             }
-            
+            if area.payment_support == 1,let str = area.locid {
+              self.nearlistLocids.append(str)//收银台数组
+            }
         }
+          StorageManager.sharedInstance().saveBeaconPayLocids(self.nearlistLocids)
           self.initSelectedArray()  // Model
           self.tableView.reloadData()  // UI
         }
       }
     }
-    
-
   }
   
   func initSelectedArray() {
@@ -169,14 +170,12 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     for index in selectedArray {
       let area = areaArray[index]
       str = area.locid
-      if area.payment_support == 1 {
-        nearlistLocids.append(str)//收银台数组
-      }
+      
       areaArr.append(str)
     }
     guard let shopid = TokenPayload.sharedInstance.shopid else {return} 
     StorageManager.sharedInstance().saveLocids(areaArr)
-    StorageManager.sharedInstance().saveBeaconPayLocids(nearlistLocids)
+    
 
     print(areaArr)
     var subscribeTopics = [String]()

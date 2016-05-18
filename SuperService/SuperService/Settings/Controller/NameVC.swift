@@ -21,7 +21,7 @@ class NameVC: UIViewController {
     super.viewDidLoad()
     
     title = "修改姓名"
-    nameTextField.text = AccountManager.sharedInstance().userName
+    nameTextField.text = AccountInfoManager.sharedInstance.userName
   }
   
   // MARK: - Gesture

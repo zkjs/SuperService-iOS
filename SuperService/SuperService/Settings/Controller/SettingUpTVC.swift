@@ -70,7 +70,11 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     } else {
-      self.verifyPassword()
+      let isAdmin = TokenPayload.sharedInstance.isAdmin
+      if isAdmin {
+        self.verifyPassword()
+      }
+      
     }
 
   }

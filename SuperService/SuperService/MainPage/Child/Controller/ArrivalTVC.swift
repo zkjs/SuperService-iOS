@@ -31,7 +31,6 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
       name: kRefreshArrivalTVCNotification,
       object: nil)
     
-    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -45,9 +44,6 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     if let roles = TokenPayload.sharedInstance.roles where roles.contains("POS") {
       addBarButtons() 
     }
-    
-    
-    
               
   }
   

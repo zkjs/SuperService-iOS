@@ -310,11 +310,12 @@
     } else {
       // 最后一条消息的发送者为对方
       model.title = latestMessage.ext[@"fromName"];
-      model.avatarURLPath = latestMessage.ext[@"toAvatar"];
+      model.avatarURLPath = [NSString stringWithFormat:@"http://pcd.zkjinshi.com/%@@120w_120h",[_dic objectForKey:conversation.chatter]];
     }
    
 
     NSLog(@"url: %@",latestMessage.ext);
+    NSLog(@"avatar:%@",model.avatarURLPath);
     
   } else if (model.conversation.conversationType == eConversationTypeGroupChat) {
     if (![conversation.ext objectForKey:@"groupSubject"] || ![conversation.ext objectForKey:@"isPublic"]) {

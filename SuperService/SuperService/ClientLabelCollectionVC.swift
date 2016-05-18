@@ -21,15 +21,11 @@ class ClientLabelCollectionVC: UICollectionViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
 
-      // Uncomment the following line to preserve selection between presentations
-      // self.clearsSelectionOnViewWillAppear = false
-
       // Register cell classes
     let width = DeviceType.IS_IPAD ? 200 : 100
     let layout = collectionViewLayout as! UICollectionViewFlowLayout
     layout.itemSize = CGSize(width: width, height: width)
     layout.headerReferenceSize = CGSizeMake(0, DeviceType.IS_IPAD ? 270 : 170)
-//    layout.collectionView?.contentSize = CGSizeMake(ScreenSize.SCREEN_WIDTH, 2000)
     
     title = "客户信息"
   }
@@ -92,31 +88,31 @@ class ClientLabelCollectionVC: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+      // #warning Incomplete implementation, return the number of sections
+      return 1
+  }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return clientTags?.tags.count ?? 0
-    }
+  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+      // #warning Incomplete implementation, return the number of items
+      return clientTags?.tags.count ?? 0
+  }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-      let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClientLabelCollectionCell
-      if let tag = clientTags?.tags[indexPath.row] {
-        cell.circulView.tag = indexPath.row
-        cell.configCell(tag)
-        if tagidArr.contains(tag.tagid) {
-          cell.circulView.checked = true
-        } else {
-          cell.circulView.checked = false
-        }
-        cell.circulView.percent = CGFloat(tag.count)/100.0
+  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClientLabelCollectionCell
+    if let tag = clientTags?.tags[indexPath.row] {
+      cell.circulView.tag = indexPath.row
+      cell.configCell(tag)
+      if tagidArr.contains(tag.tagid) {
+        cell.circulView.checked = true
+      } else {
+        cell.circulView.checked = false
       }
-      return cell
+      cell.circulView.percent = CGFloat(tag.count)/100.0
     }
+    return cell
+  }
   
   override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
     let reusableview = ClientHeadView()

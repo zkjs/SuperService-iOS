@@ -143,24 +143,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     print(error)
   }
   
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-    print("didReceiveRemoteNotification: \(userInfo)")
-    let arrivalInfoTabIndex = 0
-    if mainTBC.selectedIndex != arrivalInfoTabIndex {
-      // 当前页不是到店通知页面，则置到店通知Tab Bar badge
-      let tabArray = mainTBC.tabBar.items as NSArray!
-      let tabItem = tabArray.objectAtIndex(arrivalInfoTabIndex) as! UITabBarItem
-      var newBadge = NSNumber(integer: 1)
-      if let badge = NSUserDefaults.standardUserDefaults().objectForKey(kArrivalInfoBadge) as? NSNumber {
-        newBadge = NSNumber(integer: badge.integerValue + 1)
-      }
-      tabItem.badgeValue = newBadge.stringValue
-      NSUserDefaults.standardUserDefaults().setObject(newBadge, forKey: kArrivalInfoBadge)
-    } else {
-      // 当前页是到店通知页面，则刷新到店通知列表
-      NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
-    }
-  }
  
   func refreshToken() {
     HttpService.sharedInstance.refreshToken(nil)
@@ -299,7 +281,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   
   func onMessageReceived(notification: NSNotification) {
     if let message = notification.object as? YBMessage {
-      if let payloadString = NSString(data:message.data, encoding:NSUTF8StringEncoding) as? String {
+      /*if let payloadString = NSString(data:message.data, encoding:NSUTF8StringEncoding) as? String {
         print("[Message] \(message.topic) -> \(payloadString)")
         let arrivalInfoTabIndex = 0
         if self.mainTBC.selectedIndex != arrivalInfoTabIndex {
@@ -316,7 +298,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
           // 当前页是到店通知页面，则刷新到店通知列表
           NSNotificationCenter.defaultCenter().postNotificationName(kRefreshArrivalTVCNotification, object: self)
         }
-      }
+      }*/
     }
   }
   

@@ -17,6 +17,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   var ordernoArray = [String]()
   var orderstatusArray = [String]()
   var page:Int = 0
+  var isLoading:Bool = false
 
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("ArrivalTVC", owner:self, options:nil)
@@ -87,15 +88,17 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   
   func refresh() {
     // 只有当当前VC可见时才刷新数据
-    if isViewLoaded() && (view.window != nil) {
+    if isViewLoaded() && (view.window != nil) && !isLoading {
       tabBarItem.badgeValue = nil
       refreshData()
     }
   }
   
   func loadData(page:Int) {
+    isLoading = true
     print(AccountInfoManager.sharedInstance.beaconLocationIDs)
     HttpService.sharedInstance.arrivateList(page) { (arrivateArr, error) -> () in
+      self.isLoading = false
       if let _  = error {
         self.tableView.mj_footer.endRefreshing()
         self.tableView.mj_header.endRefreshing()

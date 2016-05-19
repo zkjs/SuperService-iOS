@@ -104,7 +104,7 @@ extension UIViewController {
 extension UIViewController {
   
   func showAlertWithTitle(title: String, message: String) {
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "OK action"), style: .Default, handler: nil)
     alertController.addAction(okAction)
     presentViewController(alertController, animated: true, completion: nil)

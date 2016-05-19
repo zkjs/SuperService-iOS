@@ -10,6 +10,7 @@ import UIKit
 
 class PassWordVC: UIViewController {
 
+  @IBOutlet weak var retracementOldBtn: UIButton!
   @IBOutlet weak var retracementbtn: UIButton!
   @IBOutlet weak var password: UITextField!
   @IBOutlet weak var newPassword: UITextField!
@@ -29,6 +30,7 @@ class PassWordVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
     retracementbtn.hidden = true
+    retracementOldBtn.hidden = true
     accountLabel.text = "商家账号:  \(AccountInfoManager.sharedInstance.userName)"
     
   }
@@ -48,12 +50,15 @@ class PassWordVC: UIViewController {
     newPassword.text = ""
   }
 
+  @IBAction func retracementPassword(sender: AnyObject) {
+    password.text = ""
+  }
   @IBAction func changPassword(sender: AnyObject) {
     guard let a = newPassword.text,let b = password.text where a.trim.isEmpty == false && b.trim.isEmpty == false else {
       return
     }
     if a == oldPassword {
-      self.alertView("原密码与新密码不能重复")
+      self.alertView("新原密码与原密码不能重复")
       return
     }
     if a != b {
@@ -83,7 +88,7 @@ class PassWordVC: UIViewController {
   }
   
   func alertView(title:String) {
-    let alertController = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    let alertController = UIAlertController(title: title, message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
     }
     alertController.addAction(checkAction)
@@ -101,11 +106,13 @@ extension PassWordVC:UITextFieldDelegate {
   func textFieldDidBeginEditing(textField: UITextField) {
     if ((newPassword.text?.trim.isEmpty) != nil) {
       retracementbtn.hidden = false
+      retracementOldBtn.hidden = false
     }
   }
   func textFieldShouldEndEditing(textField: UITextField) -> Bool {
     newPassword.endEditing(true)
     retracementbtn.hidden = true
+    retracementOldBtn.hidden = true
    return true 
   }
   
@@ -113,6 +120,7 @@ extension PassWordVC:UITextFieldDelegate {
     password.becomeFirstResponder()
     newPassword.endEditing(true)
     retracementbtn.hidden = true
+    retracementOldBtn.hidden = true
     return true
   }
   

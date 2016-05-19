@@ -79,7 +79,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   }
   
   func Addguest() {
-    let alertController = UIAlertController(title: "添加客户", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    let alertController = UIAlertController(title: "添加客户", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let checkAction = UIAlertAction(title: "查询", style: .Default) { (_) in
       let phoneTextField = alertController.textFields![0] as UITextField
       if phoneTextField.text!.characters.count > 11 {

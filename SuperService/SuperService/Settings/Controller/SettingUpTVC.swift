@@ -127,7 +127,7 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
   
   func showPhotoPicker() {
     
-    let alertController = UIAlertController(title: "请选择图片", message: "", preferredStyle: .ActionSheet)
+    let alertController = UIAlertController(title: "请选择图片", message: "", preferredStyle: DeviceType.IS_IPAD ? .Alert : .ActionSheet)
     let takePhotoAction = UIAlertAction(title: "拍照", style:.Default, handler: { (action: UIAlertAction) -> Void in
       let picker = UIImagePickerController()
       picker.sourceType = UIImagePickerControllerSourceType.Camera

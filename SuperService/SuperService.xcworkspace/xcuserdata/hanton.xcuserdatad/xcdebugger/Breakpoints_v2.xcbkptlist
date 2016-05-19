@@ -4,115 +4,13 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SuperService/MainPage/Child/Controller/ArrivalTVC.swift"
-            timestampString = "485171549.316279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "refresh()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuperService/MainPage/Child/Controller/ArrivalTVC.swift"
-            timestampString = "485172313.769019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "loadData(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SuperService.ArrivalTVC.(loadData (Swift.Int) -&gt; ()).(closure #1)"
-                  moduleName = "SuperService"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanton/Code/SuperService/SuperService/SuperService/MainPage/Child/Controller/ArrivalTVC.swift"
-                  timestampString = "485172313.775378"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "876">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SuperService.ArrivalTVC.(loadData (Swift.Int) -&gt; ()).(closure #1)"
-                  moduleName = "SuperService"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanton/Code/SuperService/SuperService/SuperService/MainPage/Child/Controller/ArrivalTVC.swift"
-                  timestampString = "485172313.775539"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "916">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuperService/MainPage/Child/Controller/CheckoutCounterVC.swift"
-            timestampString = "485184898.670784"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "loadData()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SuperService.CheckoutCounterVC.loadData () -&gt; ()"
-                  moduleName = "SuperService"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanton/Code/SuperService/SuperService/SuperService/MainPage/Child/Controller/CheckoutCounterVC.swift"
-                  timestampString = "485184903.005592"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "708">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SuperService.CheckoutCounterVC.(loadData () -&gt; ()).(closure #1)"
-                  moduleName = "SuperService"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanton/Code/SuperService/SuperService/SuperService/MainPage/Child/Controller/CheckoutCounterVC.swift"
-                  timestampString = "485184903.00576"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

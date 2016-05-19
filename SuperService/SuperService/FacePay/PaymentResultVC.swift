@@ -138,7 +138,7 @@ class PaymentResultVC: UIViewController {
   
   @IBAction func sendAgain(sender: UIButton) {
     
-    let alertController = UIAlertController(title: "提示", message: "是否重新发起收款请求?", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
+    let alertController = UIAlertController(title: "提示", message: "是否重新发起收款请求?", preferredStyle: .Alert)
     let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
     let okAction = UIAlertAction(title: "确认", style: .Default) { (action) -> Void in
       self.chargeAgain()

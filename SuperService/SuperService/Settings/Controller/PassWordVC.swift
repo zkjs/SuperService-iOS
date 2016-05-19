@@ -88,7 +88,7 @@ class PassWordVC: UIViewController {
   }
   
   func alertView(title:String) {
-    let alertController = UIAlertController(title: title, message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
+    let alertController = UIAlertController(title: title, message: "", preferredStyle: .Alert)
     let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
     }
     alertController.addAction(checkAction)
@@ -104,7 +104,7 @@ extension PassWordVC:UITextFieldDelegate {
   }
   
   func textFieldDidBeginEditing(textField: UITextField) {
-    if ((newPassword.text?.trim.isEmpty) != nil) {
+    if ((newPassword.text?.trim.isEmpty) != nil || (password.text?.trim.isEmpty) != nil) {
       retracementbtn.hidden = false
       retracementOldBtn.hidden = false
     }

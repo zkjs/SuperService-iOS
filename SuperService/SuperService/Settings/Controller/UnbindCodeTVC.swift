@@ -89,7 +89,7 @@ class UnbindCodeTVC: UITableViewController, MFMessageComposeViewControllerDelega
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let code = codeArray[indexPath.row]
-    let alertView = UIAlertController(title: "选择分享方式", message: "", preferredStyle: .ActionSheet)
+    let alertView = UIAlertController(title: "选择分享方式", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     for index in 0..<shareTypes.count {
       alertView.addAction(UIAlertAction(title: shareTypes[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         guard let salecode:String = code else { return }

@@ -52,7 +52,7 @@ class MainTBC: UITabBarController {
   }
   
   func pushTo() {
-    let alertController = UIAlertController(title: "提示", message: "有一个订单已付款", preferredStyle: .Alert)
+    let alertController = UIAlertController(title: "提示", message: "有一个订单已付款", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
     let okAction = UIAlertAction(title: "查看", style: .Default) { (action) -> Void in
 
@@ -172,7 +172,7 @@ class MainTBC: UITabBarController {
     HttpService.sharedInstance.checkNewVersion { (isForceUpgrade, hasNewVersion) -> Void in
       if isForceUpgrade {
         // 强制更新
-        let alertController = UIAlertController(title: "升级提示", message: "请您升级到最新版本，以保证软件的正常使用", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "升级提示", message: "请您升级到最新版本，以保证软件的正常使用", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
         let upgradeAction = UIAlertAction(title: "升级", style: .Default, handler: { (action: UIAlertAction) -> Void in
           let url  = NSURL(string: "itms-apps://itunes.apple.com/us/app/chao-ji-shen-fen/id1018581123?ls=1&mt=8")
           if UIApplication.sharedApplication().canOpenURL(url!) {
@@ -183,7 +183,7 @@ class MainTBC: UITabBarController {
         self.presentViewController(alertController, animated: true, completion: nil)
       } else if hasNewVersion {
         // 提示更新
-        let alertController = UIAlertController(title: "升级提示", message: "已有新版本可供升级", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "升级提示", message: "已有新版本可供升级", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
         let upgradeAction = UIAlertAction(title: "升级", style: .Default, handler: { (action: UIAlertAction) -> Void in
           let url  = NSURL(string: "itms-apps://itunes.apple.com/us/app/chao-ji-shen-fen/id1018581123?ls=1&mt=8")
           if UIApplication.sharedApplication().canOpenURL(url!) {
@@ -237,7 +237,7 @@ extension MainTBC: EMCallManagerDelegate {
 //      date = NSDate(timeIntervalSince1970: timeInterval)
 //    }
     let alertMessage = "客人\(userName), 手机号\(mobileNo)已绑定验证码"
-    let alertView = UIAlertController(title: "邀请码绑定", message: alertMessage, preferredStyle: .Alert)
+    let alertView = UIAlertController(title: "邀请码绑定", message: alertMessage, preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let okAction = UIAlertAction(title: "确定", style: .Cancel, handler: nil)
     alertView.addAction(okAction)
     presentViewController(alertView, animated: true, completion: nil)
@@ -246,7 +246,7 @@ extension MainTBC: EMCallManagerDelegate {
   func showAddSalesAlertWithClientInfo(clientInfo: [String: AnyObject]) {
     let userName = clientInfo["userName"] as? String ?? ""
     let alertMessage = "客人\(userName)已添加你为联系人."
-    let alertView = UIAlertController(title: "专属客服绑定", message: alertMessage, preferredStyle: .Alert)
+    let alertView = UIAlertController(title: "专属客服绑定", message: alertMessage, preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let okAction = UIAlertAction(title: "确定", style: .Default) { (action: UIAlertAction) -> Void in
       let appWindow = UIApplication.sharedApplication().keyWindow
       let mainTBC = MainTBC()

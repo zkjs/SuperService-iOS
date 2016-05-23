@@ -44,6 +44,8 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     loadData(page)
     if let roles = TokenPayload.sharedInstance.roles where roles.contains("POS") {
       addBarButtons() 
+    } else {
+      navigationItem.rightBarButtonItem = nil
     }
               
   }

@@ -179,7 +179,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseRoomType() {
-    let alertView = UIAlertController(title: "选择房型", message: "", preferredStyle: .ActionSheet)
+    let alertView = UIAlertController(title: "选择房型", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     for room in goodsArray {
       alertView.addAction(UIAlertAction(title: room.name!, style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.roomTypeTextField.text = room.name!
@@ -194,7 +194,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseRoomCount() {
-    let alertView = UIAlertController(title: "选择房间数", message: "", preferredStyle: .ActionSheet)
+    let alertView = UIAlertController(title: "选择房间数", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     for i in 1...3 {
       alertView.addAction(UIAlertAction(title: "\(i)间", style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.roomCountTextField.text = "\(i)"
@@ -207,7 +207,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func choosePayment() {
-    let alertView = UIAlertController(title: "选择支付方式", message: "", preferredStyle: .ActionSheet)
+    let alertView = UIAlertController(title: "选择支付方式", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     for payment in paymentArray {
       alertView.addAction(UIAlertAction(title: payment.pay_name!, style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.paymentTextField.text = payment.pay_name!
@@ -221,7 +221,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
   }
   
   func chooseOrderStatus() {
-    let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: .ActionSheet)
+    let alertView = UIAlertController(title: "选择订单状态", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     for index in 0..<orderStatusArray.count {
       alertView.addAction(UIAlertAction(title: orderStatusArray[index], style: .Default, handler: { [unowned self] (action: UIAlertAction!) -> Void in
         self.orderStatusTextField.text = self.orderStatusArray[index]
@@ -284,7 +284,7 @@ class OrderDetailTVC: UITableViewController, UITextFieldDelegate {
       alertContent = "订单状态"
     }
     if showAlert {
-      let alertView = UIAlertController(title: "\(alertContent)不能为空", message: "", preferredStyle: .Alert)
+      let alertView = UIAlertController(title: "\(alertContent)不能为空", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
       alertView.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
       presentViewController(alertView, animated: true, completion: nil)
       return false

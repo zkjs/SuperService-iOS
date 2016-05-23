@@ -162,6 +162,16 @@
 		40C841671C102C16003E8037 /* GroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841661C102C16003E8037 /* GroupSettingViewController.m */; };
 		40C8416A1C102C3D003E8037 /* GroupSubjectChangingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C841691C102C3D003E8037 /* GroupSubjectChangingViewController.m */; };
 		40C8416E1C102CC3003E8037 /* EMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C8416D1C102CC3003E8037 /* EMAlertView.m */; };
+		40C87C681CEF0DFD00130D8C /* XLBarPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C541CEF0DFD00130D8C /* XLBarPagerTabStripViewController.m */; };
+		40C87C691CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C561CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.m */; };
+		40C87C6A1CEF0DFD00130D8C /* XLPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C581CEF0DFD00130D8C /* XLPagerTabStripViewController.m */; };
+		40C87C6B1CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C5A1CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.m */; };
+		40C87C6C1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C5C1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.m */; };
+		40C87C6D1CEF0DFD00130D8C /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C87C5E1CEF0DFD00130D8C /* ButtonCell.xib */; };
+		40C87C6E1CEF0DFD00130D8C /* FXPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C611CEF0DFD00130D8C /* FXPageControl.m */; };
+		40C87C6F1CEF0DFD00130D8C /* XLBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C631CEF0DFD00130D8C /* XLBarView.m */; };
+		40C87C701CEF0DFD00130D8C /* XLButtonBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C651CEF0DFD00130D8C /* XLButtonBarView.m */; };
+		40C87C711CEF0DFD00130D8C /* XLButtonBarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C87C671CEF0DFD00130D8C /* XLButtonBarViewCell.m */; };
 		40C8A2B01CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8A2AF1CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift */; };
 		40C8A2B21CBE71C800CB759B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8A2B11CBE71C800CB759B /* ImageCache.swift */; };
 		40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */; };
@@ -665,6 +675,25 @@
 		40C841691C102C3D003E8037 /* GroupSubjectChangingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSubjectChangingViewController.m; sourceTree = "<group>"; };
 		40C8416C1C102CC3003E8037 /* EMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAlertView.h; sourceTree = "<group>"; };
 		40C8416D1C102CC3003E8037 /* EMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAlertView.m; sourceTree = "<group>"; };
+		40C87C531CEF0DFD00130D8C /* XLBarPagerTabStripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBarPagerTabStripViewController.h; sourceTree = "<group>"; };
+		40C87C541CEF0DFD00130D8C /* XLBarPagerTabStripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBarPagerTabStripViewController.m; sourceTree = "<group>"; };
+		40C87C551CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLButtonBarPagerTabStripViewController.h; sourceTree = "<group>"; };
+		40C87C561CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLButtonBarPagerTabStripViewController.m; sourceTree = "<group>"; };
+		40C87C571CEF0DFD00130D8C /* XLPagerTabStripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPagerTabStripViewController.h; sourceTree = "<group>"; };
+		40C87C581CEF0DFD00130D8C /* XLPagerTabStripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPagerTabStripViewController.m; sourceTree = "<group>"; };
+		40C87C591CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentedPagerTabStripViewController.h; sourceTree = "<group>"; };
+		40C87C5A1CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentedPagerTabStripViewController.m; sourceTree = "<group>"; };
+		40C87C5B1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLTwitterPagerTabStripViewController.h; sourceTree = "<group>"; };
+		40C87C5C1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLTwitterPagerTabStripViewController.m; sourceTree = "<group>"; };
+		40C87C5E1CEF0DFD00130D8C /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		40C87C601CEF0DFD00130D8C /* FXPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPageControl.h; sourceTree = "<group>"; };
+		40C87C611CEF0DFD00130D8C /* FXPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXPageControl.m; sourceTree = "<group>"; };
+		40C87C621CEF0DFD00130D8C /* XLBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBarView.h; sourceTree = "<group>"; };
+		40C87C631CEF0DFD00130D8C /* XLBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBarView.m; sourceTree = "<group>"; };
+		40C87C641CEF0DFD00130D8C /* XLButtonBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLButtonBarView.h; sourceTree = "<group>"; };
+		40C87C651CEF0DFD00130D8C /* XLButtonBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLButtonBarView.m; sourceTree = "<group>"; };
+		40C87C661CEF0DFD00130D8C /* XLButtonBarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLButtonBarViewCell.h; sourceTree = "<group>"; };
+		40C87C671CEF0DFD00130D8C /* XLButtonBarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLButtonBarViewCell.m; sourceTree = "<group>"; };
 		40C8A2AF1CBE614800CB759B /* WKInterfaceImage+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKInterfaceImage+Extension+ZKJS.swift"; sourceTree = "<group>"; };
 		40C8A2B11CBE71C800CB759B /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaModel.swift; sourceTree = "<group>"; };
@@ -1137,6 +1166,7 @@
 		400D621B1C1526240021E750 /* Swift3rdPartyLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				40FD342C1C926F7D0019A8CA /* Spring */,
 				406B0B211C85B5ED006C9C73 /* SwiftyJSON */,
 				406B0AE41C85B5E0006C9C73 /* Alamofire */,
 				400D62521C1526B50021E750 /* RazzleDazzle */,
@@ -1474,6 +1504,56 @@
 			path = EMAlertView;
 			sourceTree = "<group>";
 		};
+		40C87C511CEF0DFD00130D8C /* XL */ = {
+			isa = PBXGroup;
+			children = (
+				40C87C521CEF0DFD00130D8C /* Controllers */,
+				40C87C5D1CEF0DFD00130D8C /* Views */,
+			);
+			path = XL;
+			sourceTree = "<group>";
+		};
+		40C87C521CEF0DFD00130D8C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40C87C531CEF0DFD00130D8C /* XLBarPagerTabStripViewController.h */,
+				40C87C541CEF0DFD00130D8C /* XLBarPagerTabStripViewController.m */,
+				40C87C551CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.h */,
+				40C87C561CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.m */,
+				40C87C571CEF0DFD00130D8C /* XLPagerTabStripViewController.h */,
+				40C87C581CEF0DFD00130D8C /* XLPagerTabStripViewController.m */,
+				40C87C591CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.h */,
+				40C87C5A1CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.m */,
+				40C87C5B1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.h */,
+				40C87C5C1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		40C87C5D1CEF0DFD00130D8C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40C87C5E1CEF0DFD00130D8C /* ButtonCell.xib */,
+				40C87C5F1CEF0DFD00130D8C /* FXPageControl */,
+				40C87C621CEF0DFD00130D8C /* XLBarView.h */,
+				40C87C631CEF0DFD00130D8C /* XLBarView.m */,
+				40C87C641CEF0DFD00130D8C /* XLButtonBarView.h */,
+				40C87C651CEF0DFD00130D8C /* XLButtonBarView.m */,
+				40C87C661CEF0DFD00130D8C /* XLButtonBarViewCell.h */,
+				40C87C671CEF0DFD00130D8C /* XLButtonBarViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40C87C5F1CEF0DFD00130D8C /* FXPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				40C87C601CEF0DFD00130D8C /* FXPageControl.h */,
+				40C87C611CEF0DFD00130D8C /* FXPageControl.m */,
+			);
+			path = FXPageControl;
+			sourceTree = "<group>";
+		};
 		40C8A2AE1CBE612B00CB759B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1666,7 +1746,7 @@
 		40DC2D4D1C902D86007D9A3F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				40FD342C1C926F7D0019A8CA /* Spring */,
+				40C87C511CEF0DFD00130D8C /* XL */,
 				40DC2D4E1C902D9C007D9A3F /* TPKeyboardAvoiding */,
 			);
 			name = Libraries;
@@ -2758,6 +2838,7 @@
 			files = (
 				40DA789C1BAFAA8F00956B72 /* LaunchScreen.storyboard in Resources */,
 				FAEDFD481C58B84B00AAEEEF /* AddSalesVC.xib in Resources */,
+				40C87C6D1CEF0DFD00130D8C /* ButtonCell.xib in Resources */,
 				40F757591BE054550053C2BE /* OrderTVC.xib in Resources */,
 				4023F7391C1D598D0057351E /* UnbindCodeTVC.xib in Resources */,
 				FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */,
@@ -2918,6 +2999,7 @@
 				40C8414A1C102784003E8037 /* ContactSelectionViewController.m in Sources */,
 				40FB3D461C00203900675044 /* EaseEmoji.m in Sources */,
 				40FB3CFF1C00203900675044 /* UIImageView+HeadImage.m in Sources */,
+				40C87C6A1CEF0DFD00130D8C /* XLPagerTabStripViewController.m in Sources */,
 				400D627E1C1526B50021E750 /* LayerFillColorAnimation.swift in Sources */,
 				FAF165DA1CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift in Sources */,
 				40C8416E1C102CC3003E8037 /* EMAlertView.m in Sources */,
@@ -2936,6 +3018,7 @@
 				406B0B0B1C85B5E0006C9C73 /* Notifications.swift in Sources */,
 				40FD34331C926F7D0019A8CA /* ImageLoader.swift in Sources */,
 				40FB3D4F1C00203900675044 /* EaseViewController.m in Sources */,
+				40C87C701CEF0DFD00130D8C /* XLButtonBarView.m in Sources */,
 				40FB3D371C00203900675044 /* PSTGridLayoutSection.m in Sources */,
 				406B0B091C85B5E0006C9C73 /* NetworkReachabilityManager.swift in Sources */,
 				4023F7461C1D764D0057351E /* ZKJSJavaHTTPSessionManager.m in Sources */,
@@ -2982,6 +3065,7 @@
 				40FB3D431C00203900675044 /* EaseChineseToPinyin.m in Sources */,
 				40FB3D331C00203900675044 /* PSTCollectionViewUpdateItem.m in Sources */,
 				FA3E504F1C8FCB7700011433 /* MassAddVC.swift in Sources */,
+				40C87C6B1CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.m in Sources */,
 				40FB3D311C00203900675044 /* PSTCollectionViewItemKey.m in Sources */,
 				40DC2D661C912202007D9A3F /* FacePayPushResult.swift in Sources */,
 				40FB3D571C00203900675044 /* EaseBubbleView+Text.m in Sources */,
@@ -3030,6 +3114,7 @@
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
 				40FB3D5F1C00203900675044 /* EaseFaceView.m in Sources */,
 				842659491BE0A216005E82F2 /* MemberModel.swift in Sources */,
+				40C87C6C1CEF0DFD00130D8C /* XLTwitterPagerTabStripViewController.m in Sources */,
 				40CF18FE1C029D550069C807 /* NoticeModel.swift in Sources */,
 				40111DF21C8FCE7600DD2AE1 /* CustomerHeaderCell.swift in Sources */,
 				40FB3D5B1C00203900675044 /* EaseChatToolbar.m in Sources */,
@@ -3051,6 +3136,7 @@
 				40FB3D121C00203900675044 /* MWCaptionView.m in Sources */,
 				40FB3D021C00203900675044 /* CustomMessageCell.m in Sources */,
 				400D62841C1526B50021E750 /* ScaleAnimation.swift in Sources */,
+				40C87C681CEF0DFD00130D8C /* XLBarPagerTabStripViewController.m in Sources */,
 				40F757491BE054160053C2BE /* ClientListVC.swift in Sources */,
 				4023F73C1C1D59B20057351E /* BindCodeTVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
@@ -3070,6 +3156,7 @@
 				400D627A1C1526B50021E750 /* HideAnimation.swift in Sources */,
 				40FD343B1C92B0780019A8CA /* Httpservice+Token.swift in Sources */,
 				400D62781C1526B50021E750 /* EasingFunction.swift in Sources */,
+				40C87C6F1CEF0DFD00130D8C /* XLBarView.m in Sources */,
 				FA63908C1C3FA43500CC3A90 /* KTVOrderDetailTVC.swift in Sources */,
 				40E326311BD4C87C008344DF /* ClientArrivalInfo.swift in Sources */,
 				40E569BC1C083F3300FEB528 /* EMBubbleView+Card.m in Sources */,
@@ -3127,6 +3214,7 @@
 				40FB3D3B1C00203900675044 /* EaseMessageModel.m in Sources */,
 				FAF165E21CD1D2BC00A88BD0 /* ClientHeadView.swift in Sources */,
 				FAA420591CE30A75000DCCCA /* PassWordVC.swift in Sources */,
+				40C87C6E1CEF0DFD00130D8C /* FXPageControl.m in Sources */,
 				40FB3D3A1C00203900675044 /* EaseConversationModel.m in Sources */,
 				40CF56741BF3417200E20D50 /* ContactVC.swift in Sources */,
 				40FB3D291C00203900675044 /* UIImageView+EMWebCache.m in Sources */,
@@ -3164,9 +3252,11 @@
 				40FB3D321C00203900675044 /* PSTCollectionViewLayout.m in Sources */,
 				4023F7431C1D619A0057351E /* BindCodeModel.swift in Sources */,
 				40F7575C1BE0546A0053C2BE /* OrderCell.swift in Sources */,
+				40C87C711CEF0DFD00130D8C /* XLButtonBarViewCell.m in Sources */,
 				40C8415E1C102A12003E8037 /* BaseTableViewCell.m in Sources */,
 				40F757511BE054340053C2BE /* OrderModel.swift in Sources */,
 				40B0DC2A1BCE395300785D2E /* AccountManager.swift in Sources */,
+				40C87C691CEF0DFD00130D8C /* XLButtonBarPagerTabStripViewController.m in Sources */,
 				FAF92CAD1C43594F00671300 /* InvoiceVC.swift in Sources */,
 				408609C51C3E5F94009CAED0 /* HotelOrderDetailTVC.swift in Sources */,
 				40FB3D1A1C00203900675044 /* DACircularProgressView.m in Sources */,

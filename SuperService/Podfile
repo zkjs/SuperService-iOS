@@ -12,15 +12,15 @@ target 'SuperService' do
   pod 'DateTools'
   pod 'SocketRocket', :inhibit_warnings => true
   pod 'AFNetworking', :inhibit_warnings => true
-  pod 'XLPagerTabStrip', :inhibit_warnings => true
+#  pod 'XLPagerTabStrip', :inhibit_warnings => true
   pod 'MBProgressHUD'
   pod 'SWTableViewCell'
   pod 'LTNavigationBar'
   pod 'WPMediaPicker', :inhibit_warnings => true
   pod 'HTCopyableLabel'
   pod 'JazzHands'
-   pod 'Masonry'
-   pod 'HexColors'
+  pod 'Masonry'
+  pod 'HexColors'
 #  pod 'TKAnimatedCheckButton'
 end
 

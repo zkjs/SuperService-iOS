@@ -405,6 +405,8 @@
 		FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB198791CD207CE00A6F339 /* ClientFooterView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
 		FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */; };
+		FAEC9BE61CF2F66E00432A2F /* VIPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC9BE41CF2F66E00432A2F /* VIPCell.swift */; };
+		FAEC9BE71CF2F66E00432A2F /* VIPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEC9BE51CF2F66E00432A2F /* VIPCell.xib */; };
 		FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */; };
 		FAEDFD481C58B84B00AAEEEF /* AddSalesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */; };
 		FAEDFD4A1C58BBDF00AAEEEF /* GusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */; };
@@ -445,6 +447,9 @@
 		FAF990E61C0ECAE300B8B27A /* AboutUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */; };
 		FAF990E71C0ECAE300B8B27A /* AboutUSVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */; };
 		FAFA308A1CDC7A49003FEBCD /* HttpServiceForOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */; };
+		FAFE59A51CF3FC8E00E07AD1 /* HttpService+VIPUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE59A41CF3FC8E00E07AD1 /* HttpService+VIPUsers.swift */; };
+		FAFE59A81CF4032500E07AD1 /* VIPListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE59A61CF4032500E07AD1 /* VIPListsVC.swift */; };
+		FAFE59A91CF4032500E07AD1 /* VIPListsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFE59A71CF4032500E07AD1 /* VIPListsVC.xib */; };
 		FAFFC3311C40DE4C00DB1C86 /* PayTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */; };
 		FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */; };
 /* End PBXBuildFile section */
@@ -1068,6 +1073,8 @@
 		FAB198791CD207CE00A6F339 /* ClientFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientFooterView.swift; sourceTree = "<group>"; };
 		FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Contacts.swift"; sourceTree = "<group>"; };
 		FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+GetCode.swift"; sourceTree = "<group>"; };
+		FAEC9BE41CF2F66E00432A2F /* VIPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPCell.swift; sourceTree = "<group>"; };
+		FAEC9BE51CF2F66E00432A2F /* VIPCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPCell.xib; sourceTree = "<group>"; };
 		FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesVC.swift; sourceTree = "<group>"; };
 		FAEDFD461C58B84B00AAEEEF /* AddSalesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSalesVC.xib; sourceTree = "<group>"; };
 		FAEDFD491C58BBDF00AAEEEF /* GusterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GusterModel.swift; sourceTree = "<group>"; };
@@ -1109,6 +1116,9 @@
 		FAF990E41C0ECAE300B8B27A /* AboutUSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUSVC.swift; sourceTree = "<group>"; };
 		FAF990E51C0ECAE300B8B27A /* AboutUSVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSVC.xib; sourceTree = "<group>"; };
 		FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceForOC.swift; sourceTree = "<group>"; };
+		FAFE59A41CF3FC8E00E07AD1 /* HttpService+VIPUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+VIPUsers.swift"; sourceTree = "<group>"; };
+		FAFE59A61CF4032500E07AD1 /* VIPListsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPListsVC.swift; sourceTree = "<group>"; };
+		FAFE59A71CF4032500E07AD1 /* VIPListsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPListsVC.xib; sourceTree = "<group>"; };
 		FAFFC32F1C40DE4C00DB1C86 /* PayTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTypeVC.swift; sourceTree = "<group>"; };
 		FAFFC3301C40DE4C00DB1C86 /* PayTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayTypeVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1354,6 +1364,7 @@
 				FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */,
 				FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */,
 				FAF644F51C98023F00C30D00 /* HttpService+Subscribe.swift */,
+				FAFE59A41CF3FC8E00E07AD1 /* HttpService+VIPUsers.swift */,
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 				FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */,
@@ -2517,6 +2528,8 @@
 				FAF101C21C0409D400FC3672 /* EmployeeCell.xib */,
 				FA3E50511C90049900011433 /* MassCell.swift */,
 				FA3E50521C90049900011433 /* MassCell.xib */,
+				FAEC9BE41CF2F66E00432A2F /* VIPCell.swift */,
+				FAEC9BE51CF2F66E00432A2F /* VIPCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2530,6 +2543,8 @@
 				842659411BE09C31005E82F2 /* MemberListVC.xib */,
 				40F7577E1BE055A80053C2BE /* TeamListVC.swift */,
 				40F7577F1BE055A80053C2BE /* TeamListVC.xib */,
+				FAFE59A61CF4032500E07AD1 /* VIPListsVC.swift */,
+				FAFE59A71CF4032500E07AD1 /* VIPListsVC.xib */,
 				FAF101BD1C04029900FC3672 /* EmployeeVC.swift */,
 				FAF101BE1C04029900FC3672 /* EmployeeVC.xib */,
 				FA3E504D1C8FCB7700011433 /* MassAddVC.swift */,
@@ -2864,6 +2879,7 @@
 				409EE0AA1C0071390074F43C /* Localizable.strings in Resources */,
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
 				FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */,
+				FAEC9BE71CF2F66E00432A2F /* VIPCell.xib in Resources */,
 				4023F7411C1D61310057351E /* BindCodeCell.xib in Resources */,
 				FAF92CAC1C43594F00671300 /* InvoiceDetailVC.xib in Resources */,
 				844E329E1BE065810024C678 /* AddMemberVC.xib in Resources */,
@@ -2893,6 +2909,7 @@
 				FAF165DC1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard in Resources */,
 				40F757561BE054550053C2BE /* OrderDetail.storyboard in Resources */,
 				406B0B021C85B5E0006C9C73 /* Info.plist in Resources */,
+				FAFE59A91CF4032500E07AD1 /* VIPListsVC.xib in Resources */,
 				FAF019971BE1B30700E67ECD /* DepartmentFooterView.xib in Resources */,
 				FA63908F1C3FA43500CC3A90 /* KTVOrderDetailTVC.storyboard in Resources */,
 				FA3E50501C8FCB7700011433 /* MassAddVC.xib in Resources */,
@@ -3016,6 +3033,7 @@
 				400D62801C1526B50021E750 /* LayerStrokeEndAnimation.swift in Sources */,
 				40FB3D0B1C00203900675044 /* EMCDDeviceManagerBase.m in Sources */,
 				406B0B0B1C85B5E0006C9C73 /* Notifications.swift in Sources */,
+				FAFE59A51CF3FC8E00E07AD1 /* HttpService+VIPUsers.swift in Sources */,
 				40FD34331C926F7D0019A8CA /* ImageLoader.swift in Sources */,
 				40FB3D4F1C00203900675044 /* EaseViewController.m in Sources */,
 				40C87C701CEF0DFD00130D8C /* XLButtonBarView.m in Sources */,
@@ -3066,6 +3084,7 @@
 				40FB3D331C00203900675044 /* PSTCollectionViewUpdateItem.m in Sources */,
 				FA3E504F1C8FCB7700011433 /* MassAddVC.swift in Sources */,
 				40C87C6B1CEF0DFD00130D8C /* XLSegmentedPagerTabStripViewController.m in Sources */,
+				FAFE59A81CF4032500E07AD1 /* VIPListsVC.swift in Sources */,
 				40FB3D311C00203900675044 /* PSTCollectionViewItemKey.m in Sources */,
 				40DC2D661C912202007D9A3F /* FacePayPushResult.swift in Sources */,
 				40FB3D571C00203900675044 /* EaseBubbleView+Text.m in Sources */,
@@ -3192,6 +3211,7 @@
 				40FB3D421C00203900675044 /* UIViewController+HUD.m in Sources */,
 				FAFA308A1CDC7A49003FEBCD /* HttpServiceForOC.swift in Sources */,
 				40FB3D4C1C00203900675044 /* EaseMessageViewController.m in Sources */,
+				FAEC9BE61CF2F66E00432A2F /* VIPCell.swift in Sources */,
 				FAF1A5E11BEC4C9000B9ACC8 /* HeaderView.swift in Sources */,
 				40C8414B1C102784003E8037 /* ContactView.m in Sources */,
 				406B0B0F1C85B5E0006C9C73 /* Request.swift in Sources */,

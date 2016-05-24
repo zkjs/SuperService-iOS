@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MemberListVC" customModule="SuperService" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VIPListsVC" customModule="SuperService" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="eij-pL-Tr7" id="LX2-mA-Eiy"/>
+                <outlet property="tableView" destination="W8G-Zz-ep7" id="K4B-AB-SBc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,21 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eij-pL-Tr7">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W8G-Zz-ep7">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="wSy-dT-SCP"/>
-                        <outlet property="delegate" destination="-1" id="pCZ-xc-Ajf"/>
+                        <outlet property="dataSource" destination="-1" id="5qz-tw-1OR"/>
+                        <outlet property="delegate" destination="-1" id="Jft-M1-8eA"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="eij-pL-Tr7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kxs-Ou-3GA"/>
-                <constraint firstItem="eij-pL-Tr7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vtn-xG-vQy"/>
-                <constraint firstAttribute="trailing" secondItem="eij-pL-Tr7" secondAttribute="trailing" id="qwh-Fv-v1R"/>
-                <constraint firstAttribute="bottom" secondItem="eij-pL-Tr7" secondAttribute="bottom" id="tHx-28-HrM"/>
+                <constraint firstItem="W8G-Zz-ep7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AI5-5R-ux9"/>
+                <constraint firstAttribute="trailing" secondItem="W8G-Zz-ep7" secondAttribute="trailing" id="FYJ-nS-Wqe"/>
+                <constraint firstItem="W8G-Zz-ep7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vS1-J9-JnZ"/>
+                <constraint firstAttribute="bottom" secondItem="W8G-Zz-ep7" secondAttribute="bottom" constant="40" id="y0s-gg-LYt"/>
             </constraints>
         </view>
     </objects>

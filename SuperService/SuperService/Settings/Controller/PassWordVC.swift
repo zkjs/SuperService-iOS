@@ -10,11 +10,19 @@ import UIKit
 
 class PassWordVC: UIViewController {
 
+  @IBOutlet weak var displayBtn: UIButton! {
+    didSet {
+      displayBtn.layer.borderWidth = 2
+      displayBtn.layer.borderColor = UIColor.hx_colorWithHexRGBAString("#03A9F4")!.CGColor
+    }
+  }
   @IBOutlet weak var retracementOldBtn: UIButton!
   @IBOutlet weak var retracementbtn: UIButton!
   @IBOutlet weak var password: UITextField!
   @IBOutlet weak var newPassword: UITextField!
   @IBOutlet weak var accountLabel: UILabel!
+  var isUnCheck = false
+  var borderColor = UIColor()
   var oldPassword:String!
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -45,6 +53,18 @@ class PassWordVC: UIViewController {
     super.touchesBegan(touches, withEvent: event)
   }
     
+  @IBAction func displayPassword(sender: AnyObject) {
+   isUnCheck = !isUnCheck
+    if isUnCheck  {
+      displayBtn.backgroundColor = UIColor.hx_colorWithHexRGBAString("#03A9F4")
+      newPassword.secureTextEntry = false
+    } else {
+      displayBtn.backgroundColor = UIColor.whiteColor()
+      newPassword.secureTextEntry = true
+    }
+   
+    
+  }
  
   @IBAction func retracement(sender: AnyObject) {
     newPassword.text = ""
@@ -95,6 +115,8 @@ class PassWordVC: UIViewController {
     self.presentViewController(alertController, animated: true, completion: nil)
     
   }
+  
+
 
 }
 
@@ -107,8 +129,14 @@ extension PassWordVC:UITextFieldDelegate {
     if ((newPassword.text?.trim.isEmpty) != nil || (password.text?.trim.isEmpty) != nil) {
       retracementbtn.hidden = false
       retracementOldBtn.hidden = false
+    } else {
+      retracementbtn.hidden = true
+      retracementOldBtn.hidden = true
     }
-  }
+    
+    
+ }
+  
   func textFieldShouldEndEditing(textField: UITextField) -> Bool {
     newPassword.endEditing(true)
     retracementbtn.hidden = true

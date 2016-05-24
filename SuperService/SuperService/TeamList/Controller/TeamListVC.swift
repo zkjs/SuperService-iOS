@@ -16,14 +16,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   var sections = [String:[TeamModel]]()
   var teamArray = [TeamModel]() {
     didSet {
-      /*let selector: Selector = "roledesc"
-      sections = Array(count: collation.sectionTitles.count, repeatedValue: [])
-      let sortedObjects = collation.sortedArrayFromArray(teamArray, collationStringSelector: selector)
-      for object in sortedObjects {
-        let sectionNumber = collation.sectionForObject(object, collationStringSelector: selector)
-        sections[sectionNumber].append(object)
-      }
-      tableView.reloadData()*/
       
       sections.removeAll()
       for m in teamArray {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -49,7 +49,7 @@
                         <constraint firstAttribute="height" constant="1" id="waW-EX-jxM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -63,7 +63,7 @@
                 <constraint firstItem="rBT-WC-9iY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="nId-iX-XdP"/>
                 <constraint firstAttribute="trailing" secondItem="Nba-yg-4Kr" secondAttribute="trailing" id="uco-jr-i3s"/>
             </constraints>
-            <point key="canvasLocation" x="187" y="381"/>
+            <point key="canvasLocation" x="370" y="370"/>
         </view>
     </objects>
 </document>

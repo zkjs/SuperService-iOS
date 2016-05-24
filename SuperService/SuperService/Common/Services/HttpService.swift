@@ -31,6 +31,9 @@ class HttpService {
     case UpdateUserTags                         //更新用户标签
     case VerifyPassWord                         //验证原始密码
     case ChangePassWord                         //修改密码
+    case VIPUsers                               /////白名单用户
+    case DeleteVIPUser                          /////删除白名单用户 
+    case AddWhiteUser                           ////增加白名单用户
     
     var description: String {
       switch self {
@@ -44,8 +47,11 @@ class HttpService {
       case .CheckVersion(let version):          return "/for/res/v1/systempub/upgrade/newestversion/1/IOS/\(version)"
       case .QueryUserTags:                      return "/for/res/v1/query/user/tags"
       case.UpdateUserTags:                      return "/for/res/v1/update/user/tags"
-      case.VerifyPassWord:                      return "for/res/v1/verify/ss/loginpassword"
-      case.ChangePassWord:                      return "for/res/v1/update/ss/loginpassword"
+      case.VerifyPassWord:                      return "/for/res/v1/verify/ss/loginpassword"
+      case.ChangePassWord:                      return "/for/res/v1/update/ss/loginpassword"
+      case.VIPUsers:                            return "/for/res/v1/whiteuser/info"
+      case.DeleteVIPUser:                       return "/for/res/v1/whiteuser"
+      case.AddWhiteUser:                        return "for/res/v1/whiteuser"
       }
     }
   }
@@ -82,6 +88,16 @@ class HttpService {
   
   func get(urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
     requestAPI(.GET, urlString: urlString, parameters: parameters, tokenRequired: tokenRequired) { (json, err) -> Void in
+      if let err = err {
+        completionHandler(json, err)
+      } else {
+        completionHandler(json, nil)
+      }
+    }
+  }
+  
+  func delete(urlString: String, parameters: [String : AnyObject]? ,tokenRequired:Bool = true, completionHandler: ((JSON?, NSError?) -> Void)) {
+    requestAPI(.DELETE, urlString: urlString, parameters: parameters, tokenRequired: tokenRequired) { (json, err) -> Void in
       if let err = err {
         completionHandler(json, err)
       } else {

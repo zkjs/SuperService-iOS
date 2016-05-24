@@ -26,6 +26,8 @@
 		<string>号码解密失败</string>
 		<key>30101</key>
 		<string>用户账户余额不足,请使用其它收款方式!</string>
+		<key>30001</key>
+		<string>没有找到相关信息</string>
 	</dict>
 </dict>
 </plist>

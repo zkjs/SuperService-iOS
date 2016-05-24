@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+enum Loginstatus:Int {
+  case UnLogin = 0
+  case IsLogin
+  case Unknown
+}
 class AddClientModel: NSObject {
   var userid: String?
   var id: String?
@@ -19,6 +23,11 @@ class AddClientModel: NSObject {
   var userstatus:Int?
   var userimage:String?
   var realname:String?
+  
+  var rmk:String?
+  var loginstatus:Loginstatus = .Unknown
+  var createdby:String?
+  var lastvisit:String?
   var avatarURL: String {
     guard let userimage = userimage else { return "" }
     return userimage.avatarURL
@@ -52,12 +61,16 @@ class AddClientModel: NSObject {
     } else if let phoneNumber = dic["phone"].number {
       phone = phoneNumber.stringValue
     }
-      sex = dic["sex"].string ?? ""
-      id = dic["id"].string ?? ""
+    sex = dic["sex"].string ?? ""
+    id = dic["id"].string ?? ""
     userstatus = dic["userstatus"].int
     email = dic["email"].string
     userimage = dic["userimage"].string ?? ""
     realname = dic["realname"].string ?? ""
+    rmk = dic["rmk"].string ?? ""
+    loginstatus = Loginstatus(rawValue: dic["loginstatus"].int ?? 2) ?? .Unknown
+    createdby = dic["createdby"].string ?? ""
+    lastvisit = dic["lastvisit"].string ?? ""
     
       }
 

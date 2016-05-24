@@ -12,19 +12,24 @@ import UIKit
 protocol RefreshTeamListVCDelegate {
   func RefreshTeamListTableView()
 }
-
+enum PushType {
+  case AddToteamList
+  case AddToVIPList
+}
 class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   var delegate: RefreshTeamListVCDelegate?
   var isUncheck = false
   var deptid = ""
   var massDicArray = [[String:String]]()//批量选择联系人的手机和名字的数组集合
+  var pushtype = PushType.AddToVIPList
 
   
   @IBOutlet weak var remarkTextView: UITextView!
   @IBOutlet weak var photoTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
   
+  @IBOutlet weak var choiceDepartmentButton: UIButton!
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("AddMemberVC", owner:self, options:nil)
   }
@@ -46,6 +51,15 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    if pushtype == PushType.AddToVIPList {
+      choiceDepartmentButton.hidden = true
+    } else {
+      choiceDepartmentButton.hidden = false
+    }
+  }
+  
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     view.endEditing(true)
     super.touchesBegan(touches, withEvent: event)
@@ -62,13 +76,26 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     let dictionary: [String: String] = [
       "username":usernameTextField.text!,
       "phone":photoTextField.text!,
+      "rmk":remarkTextView.text
     ]
     if photoTextField.text == ""  || usernameTextField.text == "" {
       self.showHint("请填写完整信息")
       return
     }
+    
     massDicArray.append(dictionary)
     let userData = ["users":massDicArray]
+    switch pushtype {
+    case .AddToteamList:
+      Addteam(userData)
+    case .AddToVIPList:
+      AddVIP(dictionary)
+      return
+    }
+
+  }
+  
+  func Addteam(userData:NSDictionary) {
     HttpService.sharedInstance.AddMember(userData) { (json, error) -> () in
       if let _ = error {
         self.showHint("添加失败")
@@ -85,22 +112,43 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
         }
       }
     }
-//    do {
-//      let data = try NSJSONSerialization.dataWithJSONObject(userData, options: NSJSONWritingOptions.PrettyPrinted)
-//      let strJson = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
-//      print(strJson)
-//      ZKJSHTTPSessionManager.sharedInstance().addMemberWithUserData(strJson, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-//        self.delegate?.RefreshTeamListTableView()
-//        self.navigationController?.popViewControllerAnimated(true)
-//        self.showHint("添加成员成功")
-//        }) { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-//          
-//      }
-//    } catch let error as NSError {
-//      print(error)
-//    }
+  }
+  
+  func AddVIP(dic:NSDictionary) {
+    HttpService.sharedInstance.AddWhiteUser(dic) { (json, error) -> () in
+      if let error = error {
+        self.alertView(error.userInfo["resDesc"] as! String)
+      } else {
+        var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.frame = CGRectMake(0, 0, 155, 155)
+        hud.mode = MBProgressHUDMode.CustomView
+        hud.customView = UIImageView(image: UIImage(named: "ic_gou_blue_b")!)
+        hud.customView.frame = CGRectMake(0, 0, 77.5, 51.5)
+        hud.labelText = "添加成功"
+        hud.labelColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
+        hud.labelFont = UIFont.boldSystemFontOfSize(16)
+        //延迟隐藏
+        hud.showAnimated(true, whileExecutingBlock: {
+          //异步任务，在后台运行的任务
+          sleep(1)
+          }) {
+            //执行完成后的操作，移除
+            hud.removeFromSuperview()
+            hud = nil
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+      }
+    }
+  }
+  
+  func alertView(title:String) {
+    let alertController = UIAlertController(title: title, message: "", preferredStyle: .Alert)
+    let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+    }
+    alertController.addAction(checkAction)
+    self.presentViewController(alertController, animated: true, completion: nil)
     
-
   }
   
   func Addteams(sender:UIBarButtonItem) {
@@ -168,7 +216,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
 extension AddMemberVC: UITextViewDelegate {
   
   func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-    if textView.text == "如有备注，在此说明" {
+    if textView.text == "备注" {
       textView.text = ""
     }
     var frame = view.frame
@@ -181,7 +229,7 @@ extension AddMemberVC: UITextViewDelegate {
   
   func textViewShouldEndEditing(textView: UITextView) -> Bool {
     if textView.text == "" {
-      textView.text = "如有备注，在此说明"
+      textView.text = "备注"
     }
     var frame = view.frame
     frame.origin.y += 100

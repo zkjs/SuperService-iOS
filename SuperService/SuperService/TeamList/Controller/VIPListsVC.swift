@@ -93,12 +93,20 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     cell.layer.masksToBounds = true
     cell.selectionStyle = UITableViewCellSelectionStyle.None
     let VIP = VIPList[indexPath.row]
+    if selectedCellIndexPaths.contains(indexPath) {
+      cell.VIPMarkLabel.hidden = false
+      cell.label.hidden = false
+    } else {
+      cell.VIPMarkLabel.hidden = true
+      cell.label.hidden = true
+    }
     cell.configCell(VIP)
     return cell
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.tableView!.deselectRowAtIndexPath(indexPath, animated: false)
+
     if let index = selectedCellIndexPaths.indexOf(indexPath) {
       selectedCellIndexPaths.removeAtIndex(index)
     }else{

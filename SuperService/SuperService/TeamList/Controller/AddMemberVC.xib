@@ -46,7 +46,7 @@
                     </variation>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="备注" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VKA-Fb-fOT">
-                    <rect key="frame" x="30" y="210" width="540" height="137"/>
+                    <rect key="frame" x="30" y="150" width="540" height="137"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="137" id="HnY-wG-R3n"/>
                         <constraint firstAttribute="width" constant="290" id="W4y-go-RT2"/>
@@ -70,8 +70,22 @@
                         <outlet property="delegate" destination="-1" id="UAW-Wd-ecV"/>
                     </connections>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-MH-Emv">
+                    <rect key="frame" x="200" y="387" width="200" height="48"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="bom-lY-pWC"/>
+                        <constraint firstAttribute="height" constant="48" id="p6G-zT-tpe"/>
+                    </constraints>
+                    <state key="normal" title="批量导入">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addFromMailList:" destination="-1" eventType="touchUpInside" id="CtJ-qV-NC5"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iD6-SD-Hj6">
-                    <rect key="frame" x="155" y="475" width="290" height="45"/>
+                    <rect key="frame" x="155" y="302" width="290" height="45"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="2Zg-sx-az2"/>
@@ -99,26 +113,11 @@
                         <action selector="sureButton:" destination="-1" eventType="touchUpInside" id="NP9-uH-9w8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-MH-Emv">
-                    <rect key="frame" x="200" y="542" width="200" height="48"/>
-                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="bom-lY-pWC"/>
-                        <constraint firstAttribute="height" constant="48" id="p6G-zT-tpe"/>
-                    </constraints>
-                    <state key="normal" title="批量导入">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="addFromMailList:" destination="-1" eventType="touchUpInside" id="CtJ-qV-NC5"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="iD6-SD-Hj6" secondAttribute="bottom" constant="80" id="05q-e8-S3B"/>
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="0hb-HO-1ra"/>
-                <constraint firstItem="VKA-Fb-fOT" firstAttribute="top" secondItem="XXb-dZ-wvN" secondAttribute="bottom" constant="80" id="26u-u1-Gp4"/>
+                <constraint firstItem="VKA-Fb-fOT" firstAttribute="top" secondItem="XXb-dZ-wvN" secondAttribute="bottom" constant="20" id="26u-u1-Gp4"/>
                 <constraint firstAttribute="trailing" secondItem="w6U-GC-diP" secondAttribute="trailing" constant="155" id="7qJ-k7-7eH"/>
                 <constraint firstItem="w6U-GC-diP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="8bd-XO-vu1"/>
                 <constraint firstItem="iD6-SD-Hj6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bf8-EO-FyP"/>
@@ -135,6 +134,7 @@
                 <constraint firstAttribute="trailing" secondItem="VKA-Fb-fOT" secondAttribute="trailing" constant="30" id="PBI-rQ-dPk"/>
                 <constraint firstItem="w6U-GC-diP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PBL-bI-SRc"/>
                 <constraint firstItem="iD6-SD-Hj6" firstAttribute="top" secondItem="VKA-Fb-fOT" secondAttribute="bottom" constant="100" id="PLW-UP-Og9"/>
+                <constraint firstItem="iD6-SD-Hj6" firstAttribute="top" secondItem="VKA-Fb-fOT" secondAttribute="bottom" constant="15" id="Tvp-rl-aZM"/>
                 <constraint firstAttribute="trailing" secondItem="iD6-SD-Hj6" secondAttribute="trailing" constant="30" id="UDP-Tl-Q4U"/>
                 <constraint firstAttribute="trailing" secondItem="w6U-GC-diP" secondAttribute="trailing" constant="17" id="Vgx-Ke-9x8"/>
                 <constraint firstAttribute="trailing" secondItem="XXb-dZ-wvN" secondAttribute="trailing" constant="30" id="XcW-GH-ah4"/>
@@ -143,6 +143,7 @@
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="top" secondItem="w6U-GC-diP" secondAttribute="bottom" constant="20" id="agQ-R9-wqK"/>
                 <constraint firstItem="w6U-GC-diP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="eFj-YP-kTK"/>
                 <constraint firstAttribute="bottom" secondItem="h6B-MH-Emv" secondAttribute="bottom" constant="10" id="eQp-tu-RBa"/>
+                <constraint firstItem="h6B-MH-Emv" firstAttribute="top" secondItem="iD6-SD-Hj6" secondAttribute="bottom" constant="40" id="fIK-mf-xtH"/>
                 <constraint firstAttribute="bottom" secondItem="iD6-SD-Hj6" secondAttribute="bottom" constant="68" id="l4B-2D-KgK"/>
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="155" id="muo-Vu-ilP"/>
                 <constraint firstAttribute="trailing" secondItem="iD6-SD-Hj6" secondAttribute="trailing" constant="155" id="tqB-Dy-wr0"/>
@@ -176,6 +177,7 @@
                     <exclude reference="l4B-2D-KgK"/>
                     <exclude reference="tqB-Dy-wr0"/>
                     <exclude reference="wvC-eI-OkA"/>
+                    <exclude reference="eQp-tu-RBa"/>
                 </mask>
             </variation>
         </view>

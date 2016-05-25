@@ -73,18 +73,18 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   
   // MARK: - Table view data source
   
-   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
     return 1
   }
-  
-   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
     return VIPList.count
   }
-  
-  
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(VIPCell.reuseIdentifier(), forIndexPath: indexPath) as! VIPCell
     cell.label.translatesAutoresizingMaskIntoConstraints = false
     cell.VIPMarkLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -94,8 +94,8 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     cell.configCell(VIP)
     return cell
   }
-  
-   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.tableView!.deselectRowAtIndexPath(indexPath, animated: false)
     if let index = selectedCellIndexPaths.indexOf(indexPath) {
       selectedCellIndexPaths.removeAtIndex(index)
@@ -105,13 +105,13 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     // Forces the table view to call heightForRowAtIndexPath
     tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
   }
-  
-   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+
+  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // 要显示自定义的action,cell必须处于编辑状态
     return true
   }
-  
-   func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+
+  func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
     let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
       //删除VIP
       self.DeleteVIP(indexPath)
@@ -119,16 +119,15 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     more.backgroundColor = UIColor.redColor()
     return [more]
   }
-  
-    func DeleteVIP(indexPath:NSIndexPath) {
+
+  func DeleteVIP(indexPath:NSIndexPath) {
       let VIP = self.VIPList[indexPath.row]
       guard let userid = VIP.userid,let phone = VIP.phone else {return}
       HttpService.sharedInstance.deleteWhiteUser(userid, phone: phone, completionHandler: { (json, error) -> () in
         if let error = error {
           self.showHint(error.userInfo["resDesc"]?.string)
         } else {
-          if let json = json {
-            self.showHint(json["resDesc"].string)
+          if let _ = json {
             self.VIPList.removeAtIndex(indexPath.row) 
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
             self.tableView.reloadData() 
@@ -136,20 +135,20 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
         }
       })
     }
-  
-   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if selectedCellIndexPaths.contains(indexPath) {
       return 139
     }
     return 80
   }
-  
+
   // MARK: - XLPagerTabStripChildItem Delegate
-  
+
   func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
     return "会员"
   }
-  
+
   func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
     return UIColor.whiteColor()
   }

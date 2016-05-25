@@ -41,7 +41,11 @@ class VIPCell: UITableViewCell {
   }
   
   func configCell(VIP:AddClientModel) {
-    VIPMarkLabel.text = VIP.rmk
+    if VIP.lastvisit?.isEmpty == true {
+      VIPVisitLabel.text = "上次来访:  无记录"
+    } else {
+      VIPVisitLabel.text = "上次来访:  \(VIP.lastvisit!)"
+    }
     switch VIP.loginstatus {
     case .UnLogin :
       VIPStatusLabel.text = "未登录"
@@ -52,15 +56,9 @@ class VIPCell: UITableViewCell {
     default:
       break
    }
+    VIPMarkLabel.text = VIP.rmk
     VIPNameLabel.text = VIP.username
     VIPPhoneLabel.text = VIP.phone
-    
-    if VIP.lastvisit?.isEmpty == true {
-      VIPVisitLabel.text = "上次来访:  无记录"
-    } else {
-      VIPVisitLabel.text = "上次来访:  \(VIP.lastvisit!)"
-    }
-    
     VIPImageView.sd_setImageWithURL(NSURL(string: (VIP.userimage?.fullImageUrl)!), placeholderImage: nil)
   }
     

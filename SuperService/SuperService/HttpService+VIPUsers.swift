@@ -10,7 +10,7 @@ import Foundation
 extension HttpService {
   func whiteUsersList(page:Int,completionHandler:([AddClientModel]?,NSError?) -> ()) {
     let urlString = ResourcePath.VIPUsers.description.fullUrl
-    let dic = ["page":page,"page_size":8]
+    let dic = ["page":page,"page_size":20]
     get(urlString, parameters: dic) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)

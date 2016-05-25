@@ -52,7 +52,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 3
+    return 2
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -68,10 +68,10 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     if (indexPath.row == 0){
       cell.textLabel?.text = "设置"
     }
+//    if (indexPath.row == 1){
+//      cell.textLabel?.text = "关于我们"
+//    }
     if (indexPath.row == 1){
-      cell.textLabel?.text = "关于我们"
-    }
-    if (indexPath.row == 2){
       cell.textLabel?.text = "退出登录"
     }
     return cell
@@ -91,8 +91,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     let setupIndexPath = NSIndexPath(forItem: 0, inSection: 0)
-    let aboutUSIndexPath = NSIndexPath(forItem: 1, inSection: 0)
-    let logoutIndexPath = NSIndexPath(forItem: 2, inSection: 0)
+//    let aboutUSIndexPath = NSIndexPath(forItem: 1, inSection: 0)
+    let logoutIndexPath = NSIndexPath(forItem: 1, inSection: 0)
     if indexPath == logoutIndexPath {
       let alertController = UIAlertController(title: "确定要退出登录吗？", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
       let logoutAction = UIAlertAction(title: "退出登录", style:.Destructive, handler: { (action: UIAlertAction) -> Void in
@@ -110,11 +110,11 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       vc.hidesBottomBarWhenPushed = true
       navigationController?.pushViewController(vc, animated: true)
     }
-    if indexPath == aboutUSIndexPath {
-      let vc = AboutUSVC()
-      vc.hidesBottomBarWhenPushed = true
-      self.navigationController?.pushViewController(vc, animated: true)
-    }
+//    if indexPath == aboutUSIndexPath {
+//      let vc = AboutUSVC()
+//      vc.hidesBottomBarWhenPushed = true
+//      self.navigationController?.pushViewController(vc, animated: true)
+//    }
   }
   
   func logout() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactVC: XLSegmentedPagerTabStripViewController {
+class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationControllerDelegate,UIPopoverPresentationControllerDelegate {
   var guster: GusterModel? = nil
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,15 +56,16 @@ class ContactVC: XLSegmentedPagerTabStripViewController {
   }
   
   func AddVIP() {
+
 //    let popOverVC = UIViewController()
 //    let nav = UINavigationController(rootViewController: popOverVC)
 //    nav.modalPresentationStyle = UIModalPresentationStyle.Popover
 //    let popover = nav.popoverPresentationController
-//    popOverVC.preferredContentSize = CGSizeMake(140,52)
+//    popOverVC.preferredContentSize = CGSizeMake(140,26)
 //    popover?.backgroundColor = UIColor.whiteColor()
+//    popover!.delegate = self
 //    popover!.sourceView = self.view
-//    popover!.sourceRect = CGRectMake(ScreenSize.SCREEN_WIDTH-44,70,0,0)
-//
+//    popover!.sourceRect = CGRectMake(ScreenSize.SCREEN_WIDTH,70,0,0)
 //    nav.navigationBarHidden = true
 //    self.presentViewController(nav, animated: true, completion: nil)
     let vc = AddMemberVC()

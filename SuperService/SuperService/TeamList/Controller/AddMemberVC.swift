@@ -44,10 +44,14 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     remarkTextView.layer.borderWidth = 0.5
     remarkTextView.layer.masksToBounds = true
     remarkTextView.layer.cornerRadius = 3
+    if pushtype == PushType.AddToteamList {
+      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+        target: self, action: "Addteams:")
+      navigationItem.rightBarButtonItem = addMemberButton
+    }else {
+      navigationItem.rightBarButtonItem = nil
+    }
     
-    let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "Addteams:")
-    navigationItem.rightBarButtonItem = addMemberButton
     
   }
   
@@ -82,6 +86,16 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
       self.showHint("请填写完整信息")
       return
     }
+    if photoTextField.text?.isMobile == false {
+      self.showHint("客人手机号码不正确!")
+      return
+    }
+    if remarkTextView.text.length > 30 {
+      self.showHint("备注不能超过30个字")
+      return
+    }
+    
+    
     
     massDicArray.append(dictionary)
     let userData = ["users":massDicArray]

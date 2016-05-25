@@ -77,23 +77,36 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   }
   
   @IBAction func sureButton(sender: AnyObject) {
-    let dictionary: [String: String] = [
-      "username":usernameTextField.text!,
-      "phone":photoTextField.text!,
-      "rmk":remarkTextView.text
-    ]
+    
     if photoTextField.text == ""  || usernameTextField.text == "" {
       self.showHint("请填写完整信息")
       return
+    }
+    if !usernameTextField.text!.isValidName {
+      showHint("名字只能是字母和中文")
+      return
+    }
+    if usernameTextField.text?.characters.count > 12 {
+      showHint("名字不能超过12个字符!")
     }
     if photoTextField.text?.isMobile == false {
       self.showHint("客人手机号码不正确!")
       return
     }
-    if remarkTextView.text.length > 30 {
-      self.showHint("备注不能超过30个字")
+    if remarkTextView.text.characters.count > 30 {
+      showHint("备注不能超过30个字!")
       return
     }
+    if remarkTextView.text == "备注" {
+      remarkTextView.text = ""
+    }
+    
+    let dictionary: [String: String] = [
+      "username":usernameTextField.text!,
+      "phone":photoTextField.text!,
+      "rmk":remarkTextView.text
+    ]
+   
     
     
     

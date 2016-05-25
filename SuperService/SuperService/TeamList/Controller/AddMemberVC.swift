@@ -123,9 +123,11 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   }
   
   func Addteam(userData:NSDictionary) {
+    self.showHudInView(self.view, hint: "")
     HttpService.sharedInstance.AddMember(userData) { (json, error) -> () in
       if let _ = error {
         self.showHint("添加失败")
+        self.hideHUD()
       } else {
         if let json = json {
           if let res = json["res"].int {
@@ -137,15 +139,20 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
             }
           }
         }
+        self.hideHUD()
       }
     }
   }
   
   func AddVIP(dic:NSDictionary) {
+    self.showHudInView(self.view, hint: "")
     HttpService.sharedInstance.AddWhiteUser(dic) { (json, error) -> () in
+      
       if let error = error {
         self.alertView(error.userInfo["resDesc"] as! String)
+        self.hideHUD()
       } else {
+        self.hideHUD()
         var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hud.frame = CGRectMake(0, 0, 155, 155)
         hud.mode = MBProgressHUDMode.CustomView

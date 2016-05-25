@@ -28,7 +28,6 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    page = 0
     tableView.mj_header.beginRefreshing()
     refresh()
     
@@ -40,6 +39,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   }
   
   func refresh() {
+    page = 0
     loadData(page)
   }
   
@@ -55,6 +55,8 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
         if let users = VIPUser where users.count > 0 {
           self.VIPList += users
           self.tableView?.reloadData()
+        } else {
+          --self.page
         }
       }
     }
@@ -125,7 +127,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
       guard let userid = VIP.userid,let phone = VIP.phone else {return}
       HttpService.sharedInstance.deleteWhiteUser(userid, phone: phone, completionHandler: { (json, error) -> () in
         if let error = error {
-          self.showHint(error.userInfo["resDesc"]?.string)
+          self.showErrorHint(error)
         } else {
           if let _ = json {
             self.VIPList.removeAtIndex(indexPath.row) 

@@ -59,6 +59,16 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
     return myView
   }
   
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+     let isAdmin = TokenPayload.sharedInstance.isAdmin
+    if !isAdmin && indexPath == NSIndexPath(forRow: 1, inSection: 0) {
+      return 0
+    } else {
+      return 57
+    }
+    
+  }
+  
   func gotoNameVC(tap:UITapGestureRecognizer) {
     let vc = NameVC()
     self.navigationController?.pushViewController(vc, animated: true)
@@ -73,7 +83,7 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
       let isAdmin = TokenPayload.sharedInstance.isAdmin
       if isAdmin {
         self.verifyPassword()
-      }
+      } 
       
     }
 

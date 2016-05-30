@@ -210,7 +210,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
   private func setupWindows() {
     mainTBC = MainTBC()
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    window!.layer.cornerRadius = 6
     window!.layer.masksToBounds = true
     setupGuideVC()
     window?.makeKeyAndVisible()

@@ -43,7 +43,7 @@ extension String {
   }
   
   var trim: String {
-    return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) 
   }
   
   var isEmail: Bool {

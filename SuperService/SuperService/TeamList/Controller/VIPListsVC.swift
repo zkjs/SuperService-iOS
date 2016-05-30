@@ -20,7 +20,6 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     let nibName = UINib(nibName: VIPCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: VIPCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    tableView.frame = CGRectMake(0, 0, ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT-40)
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
     tableView.mj_footer = MJRefreshBackFooter(refreshingTarget: self, refreshingAction: "loadMoreData") //上拉加载
     tableView.mj_header.beginRefreshing()
@@ -119,6 +118,10 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // 要显示自定义的action,cell必须处于编辑状态
     return true
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+
   }
 
   func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {

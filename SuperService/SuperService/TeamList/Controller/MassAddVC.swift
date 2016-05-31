@@ -25,7 +25,7 @@ class MassAddVC: UIViewController {
       tableView.registerNib(nibName, forCellReuseIdentifier: MassCell.reuseIdentifier())
       tableView.tableFooterView = UIView()
       let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "nextStep")
+        target: self, action: #selector(MassAddVC.nextStep))
       navigationItem.rightBarButtonItem = nextStepButton
 
         // Do any additional setup after loading the view.
@@ -61,7 +61,7 @@ class MassAddVC: UIViewController {
     let username = usernameArray[indexPath.row]
     cell.locationLabel.text = username
     cell.phoneLabel.text = phone
-    cell.selectedButton.addTarget(self, action: "tappedCellSelectedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+    cell.selectedButton.addTarget(self, action: #selector(MassAddVC.tappedCellSelectedButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
     if massusernameArray.contains(username) {
       cell.isUncheck = false

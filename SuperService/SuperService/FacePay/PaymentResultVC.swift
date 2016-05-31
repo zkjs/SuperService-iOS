@@ -33,7 +33,7 @@ class PaymentResultVC: UIViewController {
     self.title = "收款结果"
     
     
-    let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: "goBackToCounterVC")
+    let backButton = UIBarButtonItem(image: UIImage(named: "ic_fanhui_orange"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(goBackToCounterVC))
     self.navigationItem.leftBarButtonItem = backButton
     
     }
@@ -41,8 +41,8 @@ class PaymentResultVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
     self.updateView()
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPayResult:", name:kRefreshPayResultVCNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PaymentResultVC.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PaymentResultVC.refreshPayResult(_:)), name:kRefreshPayResultVCNotification, object: nil)
     
   }
   

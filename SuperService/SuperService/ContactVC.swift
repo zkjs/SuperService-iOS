@@ -20,7 +20,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
       segmentedControl.selectedSegmentIndex = 1
       moveToViewControllerAtIndex(1, animated: false)
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "Addguest")
+        target: self, action: Selector("Addguest"))
       navigationItem.rightBarButtonItem = addMemberButton
       NSUserDefaults.standardUserDefaults().setBool(false, forKey: kGotoContactList)
     }
@@ -38,7 +38,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
     if isAdmin {
       // 管理员才能添加员工
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "AddMember")
+        target: self, action: #selector(ContactVC.AddMember))
       navigationItem.rightBarButtonItem = addMemberButton
     } else {
       navigationItem.rightBarButtonItem = nil
@@ -97,7 +97,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
       setupRightBarButton()
     } else {
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "AddVIP")
+        target: self, action: #selector(ContactVC.AddVIP))
       navigationItem.rightBarButtonItem = addMemberButton
     }
   }

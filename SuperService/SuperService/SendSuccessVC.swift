@@ -19,8 +19,8 @@ class SendSuccessVC: UIViewController {
         super.viewDidLoad()
       amountLabel.text = "￥\((payResult.amount).format(".2"))"
       statusLabel.text = "等待 \(payResult.customer.username) 确认" 
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushToPaymentResult:", name:kRefreshPayResultVCNotification, object: nil)
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SendSuccessVC.pushToPaymentResult(_:)), name:kRefreshPayResultVCNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SendSuccessVC.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {

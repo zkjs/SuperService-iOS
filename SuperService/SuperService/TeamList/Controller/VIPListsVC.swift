@@ -20,8 +20,8 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     let nibName = UINib(nibName: VIPCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: VIPCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")  // 下拉刷新
-    tableView.mj_footer = MJRefreshBackFooter(refreshingTarget: self, refreshingAction: "loadMoreData") //上拉加载
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(VIPListsVC.refresh))  // 下拉刷新
+    tableView.mj_footer = MJRefreshBackFooter(refreshingTarget: self, refreshingAction: #selector(VIPListsVC.loadMoreData)) //上拉加载
     tableView.mj_header.beginRefreshing()
   }
   
@@ -33,7 +33,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   }
   
   func loadMoreData() {
-    ++page
+    page += 1
     loadData(page)
   }
   
@@ -55,7 +55,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
           self.VIPList += users
           self.tableView?.reloadData()
         } else {
-          --self.page
+          self.page -= 1
         }
       }
     }

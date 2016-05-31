@@ -92,7 +92,7 @@ class PaymentListVC: UITableViewController {
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.section == paymentList.count - 1 && !nomoreData {
-      ++currentPage
+      currentPage += 1
       loadData()
     }
   }

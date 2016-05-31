@@ -28,7 +28,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     setupView()
     // 因为程序退到后台再回到前台时不会触发viewWillAppear，所以需要此方法刷新列表
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: "refresh",
+      selector: #selector(refresh),
       name: kRefreshArrivalTVCNotification,
       object: nil)
     
@@ -54,7 +54,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     let buttonCounter = UIBarButtonItem(image: UIImage(named: "ic_till"),
       style: .Plain,
       target: self,
-      action: "gotoCkeckoutCounter")
+      action: #selector(gotoCkeckoutCounter))
     navigationItem.rightBarButtonItem = buttonCounter
   }
 
@@ -72,7 +72,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   }
   
   func loadMoreData() {
-    ++page
+    page += 1
     loadData(page)
   }
   
@@ -127,8 +127,8 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     let nibName = UINib(nibName: ArrivalCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: ArrivalCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")  // 下拉刷新
-    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "loadMoreData")  // 上拉加载
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshData))  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))  // 上拉加载
     tableView.mj_header.beginRefreshing()
   }
   
@@ -156,7 +156,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
       cell.topLineImageView.hidden = false
     }
     cell.delegate = self
-    cell.orderButton.addTarget(self, action: "showOrder:", forControlEvents: .TouchUpInside)
+    cell.orderButton.addTarget(self, action: #selector(showOrder(_:)), forControlEvents: .TouchUpInside)
     let data = dataArray[indexPath.section]
     cell.setData(data)
     return cell

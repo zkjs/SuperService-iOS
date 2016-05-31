@@ -120,7 +120,7 @@ class MemberListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerV = NSBundle.mainBundle().loadNibNamed("DepartmentFooterView", owner: self, options: nil).first as? DepartmentFooterView
     if footerV != nil {
-      footerV?.okButton.addTarget(self, action: "AddDepartment:", forControlEvents: .TouchUpInside)
+      footerV?.okButton.addTarget(self, action: #selector(MemberListVC.AddDepartment(_:)), forControlEvents: .TouchUpInside)
       self.view.addSubview(footerV!)
     }
     return footerV

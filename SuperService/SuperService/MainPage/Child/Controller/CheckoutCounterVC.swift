@@ -81,7 +81,7 @@ class CheckoutCounterVC: UICollectionViewController {
     let btn = UIBarButtonItem(image: UIImage(named: "bullet_list"),
       style: .Plain,
       target: self,
-      action: "gotoPaymentList")
+      action: #selector(gotoPaymentList))
     navigationItem.rightBarButtonItem = btn
   }
   

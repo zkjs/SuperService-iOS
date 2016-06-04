@@ -23,7 +23,7 @@ class AddSalesVC: UIViewController {
         super.viewDidLoad()
       title = "添加"
       let image = UIImage(named: "ic_fanhui_orange")
-      let item1 = UIBarButtonItem(image: image, style:.Done, target: self, action: "pop:")
+      let item1 = UIBarButtonItem(image: image, style:.Done, target: self, action: #selector(AddSalesVC.pop(_:)))
       self.navigationItem.leftBarButtonItem = item1
       
       salesnameLabel.text = ""

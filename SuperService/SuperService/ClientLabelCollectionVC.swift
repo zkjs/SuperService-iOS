@@ -49,7 +49,7 @@ class ClientLabelCollectionVC: UICollectionViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem.FlexibleSpace, target:"barButtonItemClicked:", action:nil)
         self.toolBar.tintColor = UIColor.whiteColor()
         self.toolBar.translucent = true
-        let backItem = UIBarButtonItem(title: "确认", style:UIBarButtonItemStyle.Plain, target:self, action:"sure:")
+        let backItem = UIBarButtonItem(title: "确认", style:UIBarButtonItemStyle.Plain, target:self, action:#selector(ClientLabelCollectionVC.sure(_:)))
         self.toolBar.barTintColor = UIColor(hex:"#03A9F4")
         self.toolBar.items = [flexibleSpace,backItem,flexibleSpace]
         self.view.addSubview(self.toolBar)

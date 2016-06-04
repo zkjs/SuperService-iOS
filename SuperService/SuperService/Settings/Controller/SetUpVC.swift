@@ -41,7 +41,7 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     }
     
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "nextStep")
+      target: self, action: #selector(SetUpVC.nextStep))
     navigationItem.rightBarButtonItem = nextStepButton
   }
   

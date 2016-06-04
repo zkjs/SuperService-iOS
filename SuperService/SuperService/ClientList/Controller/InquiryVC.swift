@@ -38,7 +38,7 @@ class InquiryVC: UIViewController,ABPeoplePickerNavigationControllerDelegate{
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-    let rightBarButtonItem = UIBarButtonItem(title: "通讯录", style: UIBarButtonItemStyle.Plain, target: self, action: "AccessAddressBook:")
+    let rightBarButtonItem = UIBarButtonItem(title: "通讯录", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InquiryVC.AccessAddressBook(_:)))
     navigationItem.rightBarButtonItem = rightBarButtonItem
     
     // Do any additional setup after loading the view.

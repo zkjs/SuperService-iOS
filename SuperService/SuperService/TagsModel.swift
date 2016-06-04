@@ -14,6 +14,7 @@ struct Tag {
   var tagcode: String
   var count: Int
   var isopt: Int
+
   
   init(dic:JSON) {
     self.tagid = dic["tagid"].int ?? 0

@@ -62,7 +62,6 @@ class PassWordVC: UIViewController {
       displayBtn.backgroundColor = UIColor.whiteColor()
       newPassword.secureTextEntry = true
     }
-   
     
   }
  
@@ -73,6 +72,7 @@ class PassWordVC: UIViewController {
   @IBAction func retracementPassword(sender: AnyObject) {
     password.text = ""
   }
+  
   @IBAction func changPassword(sender: AnyObject) {
     guard let a = newPassword.text,let b = password.text where a.trim.isEmpty == false && b.trim.isEmpty == false else {
       return
@@ -126,7 +126,7 @@ extension PassWordVC:UITextFieldDelegate {
   }
   
   func textFieldDidBeginEditing(textField: UITextField) {
-    if ((newPassword.text?.trim.isEmpty) != nil || (password.text?.trim.isEmpty) != nil) {
+    if ((newPassword.text?.trim.isEmpty) != nil && (password.text?.trim.isEmpty) != nil) {
       retracementbtn.hidden = false
       retracementOldBtn.hidden = false
     } else {
@@ -134,6 +134,16 @@ extension PassWordVC:UITextFieldDelegate {
       retracementOldBtn.hidden = true
     }
     
+//    if (newPassword.text?.trim) != nil && password.text?.trim == nil {
+//      retracementbtn.hidden = false
+//      retracementOldBtn.hidden = true
+//    }
+//    
+//    if (newPassword.text?.trim) == nil && password.text?.trim != nil {
+//      retracementbtn.hidden = true
+//      retracementOldBtn.hidden = false
+//    }
+//    
     
  }
   
@@ -141,7 +151,7 @@ extension PassWordVC:UITextFieldDelegate {
     newPassword.endEditing(true)
     retracementbtn.hidden = true
     retracementOldBtn.hidden = true
-   return true 
+    return true 
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {

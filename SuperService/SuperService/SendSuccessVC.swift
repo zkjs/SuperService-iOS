@@ -15,18 +15,18 @@ class SendSuccessVC: UIViewController {
   @IBOutlet weak var statusLabel: UILabel!
   var payResult:FacePayResult!
   var sendSuccessClosure:SendSuccessVCDismissClosure?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      amountLabel.text = "￥\((payResult.amount).format(".2"))"
-      statusLabel.text = "等待 \(payResult.customer.username) 确认" 
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SendSuccessVC.pushToPaymentResult(_:)), name:kRefreshPayResultVCNotification, object: nil)
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SendSuccessVC.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
-    }
+  override func viewDidLoad() {
+      super.viewDidLoad()
+    amountLabel.text = "￥\((payResult.amount).format(".2"))"
+    statusLabel.text = "等待 \(payResult.customer.username) 确认" 
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SendSuccessVC.pushToPaymentResult(_:)), name:kRefreshPayResultVCNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SendSuccessVC.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
      
@@ -38,7 +38,6 @@ class SendSuccessVC: UIViewController {
         return
       }
       
-//      self.payResult = FacePayResult(customer:payInfo.custom, amount: payInfo.amount/100, succ: payInfo.status, orderNo: payInfo.orderno, errorCode: 0, waiting: payInfo.amount > 100,confirmTime:nil,createTime:payInfo.createtime)
       if let closure = self.sendSuccessClosure {
         closure(true,orderno: payInfo.orderno)
       }
@@ -66,8 +65,7 @@ class SendSuccessVC: UIViewController {
       if json["type"].string == "PAYMENT_RESULT" {
         let result = FacePayPushResult(json: json["data"])
         self.payResult = FacePayResult(customer:result.custom, amount: result.amount/100, succ: result.status, orderNo: result.orderno,paymentNo:result.paymentno, errorCode: 0, waiting: result.amount > 100,confirmTime:nil,createTime:result.createtime)
-        
-        
+
         self.dismissViewControllerAnimated(true) { () -> Void in
           if let closure = self.sendSuccessClosure {
             closure(true,orderno: result.orderno)

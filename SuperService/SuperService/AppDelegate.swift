@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 //      subscribeTestTopic()
 //    #endif
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
     
     return true
   }

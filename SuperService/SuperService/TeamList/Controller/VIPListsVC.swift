@@ -28,7 +28,8 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.mj_header.beginRefreshing()
-    refresh()
+    self.VIPList.removeAll()
+    self.tableView.reloadData()
     
   }
   
@@ -43,22 +44,24 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   }
   
   func loadData(page:Int) {
-    HttpService.sharedInstance.whiteUsersList(page) { (VIPUser, error) -> () in
+    HttpService.sharedInstance.whiteUsersList(page) {[weak self] (VIPUser, error) -> () in
+      guard let strongSelf = self else {return}
       if let _ = error {
-        self.tableView.mj_footer.endRefreshing()
-        self.tableView.mj_header.endRefreshing()
+        strongSelf.tableView.mj_footer.endRefreshing()
+        strongSelf.tableView.mj_header.endRefreshing()
       } else {
         if page == 0 {
-          self.VIPList.removeAll()
+          strongSelf.VIPList.removeAll()
         }
         if let users = VIPUser where users.count > 0 {
-          self.VIPList += users
-          self.tableView?.reloadData()
+          strongSelf.VIPList += users
+          strongSelf.tableView?.reloadData()
         } else {
-          self.page -= 1
+          strongSelf.page -= 1
         }
       }
     }
+    
     self.tableView.mj_header.endRefreshing()
     self.tableView.mj_footer.endRefreshing()
   }
@@ -91,6 +94,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     cell.VIPMarkLabel.translatesAutoresizingMaskIntoConstraints = false
     cell.layer.masksToBounds = true
     cell.selectionStyle = UITableViewCellSelectionStyle.None
+
     let VIP = VIPList[indexPath.row]
     if selectedCellIndexPaths.contains(indexPath) {
       cell.VIPMarkLabel.hidden = false
@@ -100,11 +104,13 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
       cell.label.hidden = true
     }
     cell.configCell(VIP)
+
+    
     return cell
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    self.tableView!.deselectRowAtIndexPath(indexPath, animated: false)
+    self.tableView!.deselectRowAtIndexPath(indexPath, animated: true)
 
     if let index = selectedCellIndexPaths.indexOf(indexPath) {
       selectedCellIndexPaths.removeAtIndex(index)

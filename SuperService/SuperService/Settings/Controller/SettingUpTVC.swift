@@ -50,9 +50,9 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
     let myView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil).first as? HeaderView
     if myView != nil {
       myView?.userImageView.sd_setImageWithURL(NSURL(string: AccountInfoManager.sharedInstance.avatarURL), placeholderImage: UIImage(named: "logo_white"))
-      myView?.selectedImageViewButton.addTarget(self, action: "selectedIamge:", forControlEvents: UIControlEvents.TouchUpInside)
+      myView?.selectedImageViewButton.addTarget(self, action: #selector(SettingUpTVC.selectedIamge(_:)), forControlEvents: UIControlEvents.TouchUpInside)
       myView?.usernameLabel.text = AccountInfoManager.sharedInstance.userName
-      let tap = UITapGestureRecognizer(target: self, action: "gotoNameVC:")
+      let tap = UITapGestureRecognizer(target: self, action: #selector(SettingUpTVC.gotoNameVC(_:)))
       myView?.addGestureRecognizer(tap)
       self.tableView.addSubview(myView!)
     }
@@ -170,7 +170,7 @@ extension SettingUpTVC: UIImagePickerControllerDelegate {
     var imageData = UIImageJPEGRepresentation(image, 1.0)!
     var i = 0
     while imageData.length / 1024 > 80 {
-      let persent = CGFloat(100 - i++) / 100.0
+      let persent = CGFloat(100 - Int(i += 1)) / 100.0
       imageData = UIImageJPEGRepresentation(image, persent)!
     }
     

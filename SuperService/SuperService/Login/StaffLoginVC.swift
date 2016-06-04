@@ -55,7 +55,7 @@ class StaffLoginVC: UIViewController {
     if (ZKJSTool.validateMobile(userphoneTextField.text) == true) {
       HttpService.sharedInstance.requestSmsCodeWithPhoneNumber(userphoneTextField.text!) { (json, error) -> () in
         if (error == nil) {
-          self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "refreshCount:", userInfo: nil, repeats: true)
+          self.countTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(StaffLoginVC.refreshCount(_:)), userInfo: nil, repeats: true)
           self.countTimer?.fire()
           self.showHint("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
@@ -68,7 +68,7 @@ class StaffLoginVC: UIViewController {
   }
   
   func refreshCount(sender:UIButton) {
-    count--
+    count -= 1
     verificationCodeButton.setTitle("\(count)", forState:.Normal)
     if (count == 0) {
       verificationCodeButton.setTitle("验证码", forState: .Normal)

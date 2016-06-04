@@ -22,7 +22,7 @@ class MainTBC: UITabBarController {
     setupView()
     registerNotification()
  
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMessageReceived:", name:kYBDidReceiveMessageNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTBC.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -30,7 +30,7 @@ class MainTBC: UITabBarController {
 //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushTo", name:kRefreshPayResultVCNotification, object: nil)
     
     // 监控Token是否过期
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveInvalidToken", name: KNOTIFICATION_LOGOUTCHANGE, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HTTPSessionManagerDelegate.didReceiveInvalidToken), name: KNOTIFICATION_LOGOUTCHANGE, object: nil)
     /*
     第一次登陆Present InfoVC 页面
     */
@@ -218,8 +218,8 @@ extension MainTBC: EMCallManagerDelegate {
     EaseMob.sharedInstance().chatManager.addDelegate(self, delegateQueue: nil)
     EaseMob.sharedInstance().callManager.addDelegate(self, delegateQueue: nil)
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "callOutWithChatter:", name: KNOTIFICATION_CALL, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "callControllerClose:", name: KNOTIFICATION_CALL_CLOSE, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTBC.callOutWithChatter(_:)), name: KNOTIFICATION_CALL, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTBC.callControllerClose(_:)), name: KNOTIFICATION_CALL_CLOSE, object: nil)
   }
   
   func unregisterNotification() {
@@ -289,7 +289,7 @@ extension MainTBC: EMCallManagerDelegate {
   func canRecord() -> Bool {
     var bCanRecord = true
     let audioSession = AVAudioSession.sharedInstance()
-    if audioSession.respondsToSelector("requestRecordPermission:") {
+    if audioSession.respondsToSelector(#selector(AVAudioSession.requestRecordPermission(_:))) {
       audioSession.requestRecordPermission({ (granted: Bool) -> Void in
         bCanRecord = granted
       })

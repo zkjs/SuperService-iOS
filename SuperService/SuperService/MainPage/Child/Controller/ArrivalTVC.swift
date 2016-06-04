@@ -165,7 +165,6 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! ArrivalCell
     cell.orderButton.tag = indexPath.section
-//    self.showOrder(cell.orderButton)
   }
   
   
@@ -234,7 +233,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     }
   }
   
-  //TODO GOTOLABELVCDELAGATE 
+  //TODO GOTOLABELVCDELAGATE
   
   func gotoLabelVC(arrivate:ArrivateModel) {
     

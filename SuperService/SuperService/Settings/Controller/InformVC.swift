@@ -38,7 +38,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     tableView.registerNib(nibName, forCellReuseIdentifier: InformCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
-      target: self, action: "nextStep")
+      target: self, action: #selector(InformVC.nextStep))
     navigationItem.rightBarButtonItem = nextStepButton
   }
   
@@ -91,7 +91,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("InformCell", forIndexPath: indexPath) as! InformCell
     let area = areaArray[indexPath.row]
-    cell.selectedButton.addTarget(self, action: "tappedCellSelectedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+    cell.selectedButton.addTarget(self, action: #selector(InformVC.tappedCellSelectedButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
     if noticeArray.contains(area.locid!) {
       cell.isUncheck = false

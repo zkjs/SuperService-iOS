@@ -47,7 +47,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
     let nibName = UINib(nibName: TeamListCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: TeamListCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
-    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "loadData")  // 下拉刷新
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(TeamListVC.loadData))  // 下拉刷新
     tableView.mj_header.beginRefreshing()
   }
   
@@ -72,17 +72,18 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func loadData() {
-    HttpService.sharedInstance.queryTeamsInfo { (teams, error) -> () in
+    HttpService.sharedInstance.queryTeamsInfo {[weak self] (teams, error) -> () in
+      guard let strongSelf = self else {return}
       if let _ = error {
         
       } else {
         if let users = teams where users.count > 0 {
-          self.teamArray.removeAll()
-          self.teamArray = users
-          self.tableView?.reloadData()
+          strongSelf.teamArray.removeAll()
+          strongSelf.teamArray = users
+          strongSelf.tableView?.reloadData()
         }
       }
-      self.tableView.mj_header.endRefreshing()
+      strongSelf.tableView.mj_header.endRefreshing()
 
     }
   }

@@ -50,9 +50,6 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
         strongSelf.tableView.mj_footer.endRefreshing()
         strongSelf.tableView.mj_header.endRefreshing()
       } else {
-        if page == 0 {
-          strongSelf.VIPList.removeAll()
-        }
         if let users = VIPUser where users.count > 0 {
           strongSelf.VIPList += users
           strongSelf.tableView?.reloadData()

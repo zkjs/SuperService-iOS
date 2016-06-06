@@ -58,9 +58,11 @@ class PassWordVC: UIViewController {
     if isUnCheck  {
       displayBtn.backgroundColor = UIColor.hx_colorWithHexRGBAString("#03A9F4")
       newPassword.secureTextEntry = false
+      password.secureTextEntry = false
     } else {
       displayBtn.backgroundColor = UIColor.whiteColor()
       newPassword.secureTextEntry = true
+      password.secureTextEntry = true
     }
     
   }

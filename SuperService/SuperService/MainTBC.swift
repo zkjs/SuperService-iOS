@@ -161,8 +161,6 @@ class MainTBC: UITabBarController {
     let nv5 = BaseNavigationController()
     nv5.viewControllers = [vc5]
     
-    
-    
     viewControllers = [nv1, nv3, nv4, nv5]
     
     
@@ -231,11 +229,6 @@ extension MainTBC: EMCallManagerDelegate {
   func showCodeAlertWithClientInfo(clientInfo: [String: AnyObject]) {
     let userName = clientInfo["userName"] as? String ?? ""
     let mobileNo = clientInfo["mobileNo"] as? String ?? ""
-//    var date = NSDate()
-//    if let timestamp = clientInfo["date"] as? NSNumber {
-//      let timeInterval = Double(timestamp.longLongValue / Int64(1_000))
-//      date = NSDate(timeIntervalSince1970: timeInterval)
-//    }
     let alertMessage = "客人\(userName), 手机号\(mobileNo)已绑定验证码"
     let alertView = UIAlertController(title: "邀请码绑定", message: alertMessage, preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
     let okAction = UIAlertAction(title: "确定", style: .Cancel, handler: nil)

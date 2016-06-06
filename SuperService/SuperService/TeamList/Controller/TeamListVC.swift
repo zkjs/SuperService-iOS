@@ -137,11 +137,6 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   
-//  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-//    return collation.sectionForSectionIndexTitleAtIndex(index)
-//  }
-  
-  
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     let role = sectionTitleArr[indexPath.section].1

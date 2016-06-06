@@ -28,9 +28,6 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     tableView.mj_header.beginRefreshing()
-    self.VIPList.removeAll()
-    self.tableView.reloadData()
-    
   }
   
   func loadMoreData() {
@@ -50,12 +47,15 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
         strongSelf.tableView.mj_footer.endRefreshing()
         strongSelf.tableView.mj_header.endRefreshing()
       } else {
+        if page == 0 {
+          strongSelf.VIPList.removeAll()
+        }
         if let users = VIPUser where users.count > 0 {
           strongSelf.VIPList += users
-          strongSelf.tableView?.reloadData()
         } else {
           strongSelf.page -= 1
         }
+        strongSelf.tableView?.reloadData()
       }
     }
     

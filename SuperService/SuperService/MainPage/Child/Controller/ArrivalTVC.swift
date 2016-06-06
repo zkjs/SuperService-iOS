@@ -42,7 +42,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
     page = 0
     loadData(page)
-    if let roles = TokenPayload.sharedInstance.roles where roles.contains("POS") {
+    if let roles = TokenPayload.sharedInstance.roles,let arr = StorageManager.sharedInstance().nearBeaconLocid()  where roles.contains("POS") && arr.count  > 0 {
       addBarButtons() 
     } else {
       navigationItem.rightBarButtonItem = nil

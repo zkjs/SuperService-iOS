@@ -80,7 +80,7 @@ class PassWordVC: UIViewController {
       return
     }
     if a == oldPassword {
-      self.alertView("新原密码与原密码不能重复")
+      self.alertView("新密码与原密码不能重复")
       return
     }
     if a != b {
@@ -135,17 +135,6 @@ extension PassWordVC:UITextFieldDelegate {
       retracementbtn.hidden = true
       retracementOldBtn.hidden = true
     }
-    
-//    if (newPassword.text?.trim) != nil && password.text?.trim == nil {
-//      retracementbtn.hidden = false
-//      retracementOldBtn.hidden = true
-//    }
-//    
-//    if (newPassword.text?.trim) == nil && password.text?.trim != nil {
-//      retracementbtn.hidden = true
-//      retracementOldBtn.hidden = false
-//    }
-//    
     
  }
   

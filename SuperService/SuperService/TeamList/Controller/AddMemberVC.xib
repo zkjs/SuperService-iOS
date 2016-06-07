@@ -85,7 +85,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iD6-SD-Hj6">
-                    <rect key="frame" x="155" y="302" width="290" height="45"/>
+                    <rect key="frame" x="30" y="302" width="540" height="45"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="2Zg-sx-az2"/>
@@ -107,6 +107,7 @@
                             <exclude reference="GgX-mr-Q5S"/>
                             <exclude reference="Wiw-gU-9Wt"/>
                             <exclude reference="YnE-o8-hy6"/>
+                            <exclude reference="eyd-js-nnc"/>
                         </mask>
                     </variation>
                     <connections>
@@ -152,6 +153,7 @@
                 <constraint firstItem="XXb-dZ-wvN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xsI-Tu-AEH"/>
                 <constraint firstAttribute="trailing" secondItem="VKA-Fb-fOT" secondAttribute="trailing" constant="155" id="yae-gX-kap"/>
                 <constraint firstItem="w6U-GC-diP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="yqF-By-Eoj"/>
+                <constraint firstItem="iD6-SD-Hj6" firstAttribute="width" secondItem="VKA-Fb-fOT" secondAttribute="width" id="zg8-rb-WlD"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

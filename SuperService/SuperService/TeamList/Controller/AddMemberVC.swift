@@ -36,8 +36,12 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    if pushtype == PushType.AddToteamList {
+      title = "新建成员"
+    } else {
+      title = "添加会员"
+    }
     
-    title = "新建成员"
   
     
     remarkTextView.layer.borderColor = UIColor(white: 204.0/255.0, alpha: 1.0).CGColor
@@ -46,7 +50,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     remarkTextView.layer.cornerRadius = 3
     if pushtype == PushType.AddToteamList {
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: "Addteams:")
+        target: self, action: #selector(AddMemberVC.Addteams(_:)))
       navigationItem.rightBarButtonItem = addMemberButton
     }else {
       navigationItem.rightBarButtonItem = nil
@@ -195,7 +199,11 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   
   func getSysContacts() -> [[String:String]] {
     var error:Unmanaged<CFError>?
-    var addressBook: ABAddressBookRef? = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+    guard let abAddress = ABAddressBookCreateWithOptions(nil, &error) else {
+      showHint("没有权限访问通讯录")
+      return []
+    }
+    guard let addressBook:ABAddressBookRef = abAddress.takeRetainedValue() else {return []}
     
     let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
     

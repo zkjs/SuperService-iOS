@@ -115,8 +115,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     
     self.tableView.mj_header.endRefreshing()
     self.tableView.mj_footer.endRefreshing()
-      
-   }
+     }
   }
   
 

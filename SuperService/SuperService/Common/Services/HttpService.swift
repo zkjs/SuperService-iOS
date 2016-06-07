@@ -44,7 +44,7 @@ class HttpService {
       case .DeleteToken:                        return "/pav/sso/token/v1"
       case .Code :                              return "/pav/sso/vcode/v1/ss?source=login"
       case .QueryUserInfo:                      return "/res/v1/query/si/all"
-      case .CheckVersion(let version):          return "/for/res/v1/systempub/upgrade/newestversion/1/IOS/\(version)"
+      case .CheckVersion(let version):          return "/for/res/v1/systempub/upgrade/newestversion/2/IOS/\(version)"
       case .QueryUserTags:                      return "/for/res/v1/query/user/tags"
       case.UpdateUserTags:                      return "/for/res/v1/update/user/tags"
       case.VerifyPassWord:                      return "/for/res/v1/verify/ss/loginpassword"

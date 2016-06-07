@@ -15,11 +15,13 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
     delegate = self
     setupView()   
     self.containerView.scrollEnabled = false
+    
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     setupRightBarButton()
+
   }
   
   // MARK: - Private
@@ -29,14 +31,21 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
   }
   
   private func setupRightBarButton() {
-    let isAdmin = TokenPayload.sharedInstance.isAdmin
-    if isAdmin {
-      // 管理员才能添加员工
-      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
-        target: self, action: #selector(ContactVC.AddMember))
-      navigationItem.rightBarButtonItem = addMemberButton
+    
+    if segmentedControl.selectedSegmentIndex == 0 {
+      let isAdmin = TokenPayload.sharedInstance.isAdmin
+      if isAdmin {
+        // 管理员才能添加员工
+        let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+                                              target: self, action: #selector(ContactVC.AddMember))
+        navigationItem.rightBarButtonItem = addMemberButton
+      } else {
+        navigationItem.rightBarButtonItem = nil
+      }
     } else {
-      navigationItem.rightBarButtonItem = nil
+      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
+                                            target: self, action: #selector(ContactVC.AddVIP))
+      navigationItem.rightBarButtonItem = addMemberButton
     }
   }
   
@@ -51,7 +60,6 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
   }
   
   func AddVIP() {
-
     let vc = AddMemberVC()
     vc.pushtype = PushType.AddToVIPList
     vc.delegate = self
@@ -76,7 +84,6 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
   
   override func pagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!, updateIndicatorFromIndex fromIndex: Int, toIndex: Int) {
     super.pagerTabStripViewController(pagerTabStripViewController, updateIndicatorFromIndex: fromIndex, toIndex: toIndex)
-    
     if toIndex == 0 {
       setupRightBarButton()
     } else {

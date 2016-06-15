@@ -63,6 +63,7 @@
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; };
+		40589E751D10FBB1002BED66 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40589E741D10FBB1002BED66 /* Permission.swift */; };
 		4058AF911CBE2F4D00D9A926 /* ArrivalPush.apns in Resources */ = {isa = PBXBuildFile; fileRef = 4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */; };
 		4058AF951CBE313500D9A926 /* String+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */; };
 		405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */ = {isa = PBXBuildFile; fileRef = 405F4CA81BCF3FCC00BBBF47 /* server.der */; };
@@ -110,7 +111,6 @@
 		406B0B241C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0B231C85B5ED006C9C73 /* SwiftyJSON.swift */; };
 		406B0B251C85B5ED006C9C73 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0B231C85B5ED006C9C73 /* SwiftyJSON.swift */; };
 		406B0B281C85B64A006C9C73 /* TokenPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0B271C85B64A006C9C73 /* TokenPayload.swift */; };
-		406B0B291C85B64A006C9C73 /* TokenPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0B271C85B64A006C9C73 /* TokenPayload.swift */; };
 		406B0B2B1C85B692006C9C73 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B0B2A1C85B692006C9C73 /* HttpService.swift */; };
 		408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408423021BC689E200C215CD /* ArrivalTVC.swift */; };
 		408423051BC689E200C215CD /* ArrivalTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408423031BC689E200C215CD /* ArrivalTVC.xib */; };
@@ -578,6 +578,7 @@
 		405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTBouncyTextField.swift; sourceTree = "<group>"; };
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		40589E741D10FBB1002BED66 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArrivalPush.apns; path = "Supporting Files/ArrivalPush.apns"; sourceTree = "<group>"; };
 		4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension+ZKJS.swift"; sourceTree = "<group>"; };
 		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
@@ -1413,6 +1414,7 @@
 			children = (
 				406B0B271C85B64A006C9C73 /* TokenPayload.swift */,
 				40A3F5461CD8BB7A000B6AB7 /* Gender.swift */,
+				40589E741D10FBB1002BED66 /* Permission.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3169,6 +3171,7 @@
 				4086940C1C39179F00BE1709 /* RoomGoods.swift in Sources */,
 				40FB3D1C1C00203900675044 /* EMSDWebImageCompat.m in Sources */,
 				40FD34321C926F7D0019A8CA /* AsyncImageView.swift in Sources */,
+				40589E751D10FBB1002BED66 /* Permission.swift in Sources */,
 				FAF019951BE1B2F200E67ECD /* DepartmentFooterView.swift in Sources */,
 				40DA78921BAFAA8F00956B72 /* AppDelegate.swift in Sources */,
 				400D621A1C151B3C0021E750 /* GuideVC.swift in Sources */,
@@ -3371,7 +3374,6 @@
 				406B0B181C85B5E0006C9C73 /* ServerTrustPolicy.swift in Sources */,
 				40F3CD2A1C3277500044845D /* ExtensionDelegate.swift in Sources */,
 				406B0B081C85B5E0006C9C73 /* MultipartFormData.swift in Sources */,
-				406B0B291C85B64A006C9C73 /* TokenPayload.swift in Sources */,
 				406B0B1E1C85B5E0006C9C73 /* Upload.swift in Sources */,
 				406B0AFE1C85B5E0006C9C73 /* Error.swift in Sources */,
 				406B0B141C85B5E0006C9C73 /* ResponseSerialization.swift in Sources */,

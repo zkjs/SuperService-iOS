@@ -32,8 +32,7 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
   
   private func setupRightBarButton() {
     if segmentedControl.selectedSegmentIndex == 0 {//第三方控件，返回时还要去做一下判断
-      let isAdmin = TokenPayload.sharedInstance.isAdmin
-      if isAdmin {
+      if TokenPayload.sharedInstance.hasPermission(.BTNADDMEMBER) {
         // 管理员才能添加员工
         let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,target: self, action: #selector(ContactVC.AddMember))
         navigationItem.rightBarButtonItem = addMemberButton
@@ -41,8 +40,12 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
         navigationItem.rightBarButtonItem = nil
       }
     } else {//添加会员是返回在此点击进入再一次作出判断
-      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,target: self, action: #selector(ContactVC.AddVIP))
-      navigationItem.rightBarButtonItem = addMemberButton
+      if TokenPayload.sharedInstance.hasPermission(.ADDMEMBER) {
+        let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,target: self, action: #selector(ContactVC.AddVIP))
+        navigationItem.rightBarButtonItem = addMemberButton
+      } else {
+        navigationItem.rightBarButtonItem = nil
+      }
     }
   }
   
@@ -72,21 +75,18 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
   // MARK: - XLPagerTabStripViewControllerDataSource
   
   override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
-    let child1 = TeamListVC()
-    let child2 = VIPListsVC()
-    return [child1,child2]
+    if TokenPayload.sharedInstance.hasPermission(.MEMBER) {
+      return [TeamListVC(),VIPListsVC()]
+    }
+    return [TeamListVC()]
+    
   }
   
   // MARK: - XLPagerTabStripViewControllerDelegate
   
   override func pagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!, updateIndicatorFromIndex fromIndex: Int, toIndex: Int) {
     super.pagerTabStripViewController(pagerTabStripViewController, updateIndicatorFromIndex: fromIndex, toIndex: toIndex)
-    if toIndex == 0 {
-      setupRightBarButton()
-    } else {
-      let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,target: self, action: #selector(ContactVC.AddVIP))
-      navigationItem.rightBarButtonItem = addMemberButton
-    }
+    setupRightBarButton()
   }
   
 }

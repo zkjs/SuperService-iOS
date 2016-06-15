@@ -31,10 +31,18 @@ class EmployeeCell: UITableViewCell {
   func setData(employee:TeamModel) {
     phoneLabel.text = employee.phone!
     tel = employee.phone!
+    ckeckCallPermission()
   }
   func setdata(client:AddClientModel) {
     phoneLabel.text = client.phone!
     tel = client.phone!
+    ckeckCallPermission()
+  }
+  
+  func ckeckCallPermission() {
+    let canCall = TokenPayload.sharedInstance.hasPermission(.MEMBERDETAIL)
+    callButton.hidden = !canCall
+    sendMessageButton.hidden = !canCall
   }
 
   @IBAction func call(sender: AnyObject) {

@@ -64,7 +64,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
     if pushtype == PushType.AddToVIPList {
       choiceDepartmentButton.hidden = true
     } else {
-      choiceDepartmentButton.hidden = false
+      choiceDepartmentButton.hidden = !TokenPayload.sharedInstance.hasPermission(.CONTACTIMPORT)
     }
   }
   

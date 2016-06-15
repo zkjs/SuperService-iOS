@@ -30,8 +30,13 @@ class TokenPayload:NSObject {
   var shopid:String? {
     return json?["shopid"].string
   }
+  // 角色列表
   var roles:[String]? {
     return json?["roles"].array?.flatMap{$0.string}
+  }
+  // 权限列表
+  var features:[String]? {
+    return json?["features"].array?.flatMap{$0.string}
   }
   var complete:Bool {
     if let com  = json?["complete"] {
@@ -100,6 +105,11 @@ class TokenPayload:NSObject {
     userDefaults.synchronize()
     token = nil
     tokenPayload = nil
+  }
+  
+  // 是否有某些权限
+  func hasPermission(p:Permission) -> Bool {
+    return features?.contains(p.rawValue) ?? false
   }
   
 }

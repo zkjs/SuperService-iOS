@@ -120,7 +120,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
 
   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // 要显示自定义的action,cell必须处于编辑状态
-    return true
+    return TokenPayload.sharedInstance.hasPermission(.DELMEMBER)
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -128,12 +128,16 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
   }
 
   func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-    let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
-      //删除VIP
-      self.DeleteVIP(indexPath)
+    if !TokenPayload.sharedInstance.hasPermission(.DELMEMBER) {
+      return []
+    } else {
+      let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
+        //删除VIP
+        self.DeleteVIP(indexPath)
+      }
+      more.backgroundColor = UIColor.redColor()
+      return [more]
     }
-    more.backgroundColor = UIColor.redColor()
-    return [more]
   }
 
   func DeleteVIP(indexPath:NSIndexPath) {

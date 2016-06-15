@@ -170,7 +170,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   
   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // 要显示自定义的action,cell必须处于编辑状态
-    return true
+    return TokenPayload.sharedInstance.hasPermission(.DELEMPLOYEE)
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -178,8 +178,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-    let isadmin = TokenPayload.sharedInstance.isAdmin 
-    if isadmin == false { 
+    if !TokenPayload.sharedInstance.hasPermission(.DELEMPLOYEE) {
      return []
     } else {
       let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in

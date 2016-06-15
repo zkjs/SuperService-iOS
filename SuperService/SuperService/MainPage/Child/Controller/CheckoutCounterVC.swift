@@ -25,7 +25,9 @@ class CheckoutCounterVC: UICollectionViewController {
 
       // Do any additional setup after loading the view.
     self.title = "收款台"
-    addBarButtons()
+    if TokenPayload.sharedInstance.hasPermission(.BTNPOS) {
+      addBarButtons()
+    }
     
     let width = CGRectGetWidth(collectionView!.frame) / 2
     let layout = collectionViewLayout as! UICollectionViewFlowLayout

@@ -10,6 +10,9 @@ import UIKit
 
 class VIPCell: UITableViewCell {
 
+  @IBOutlet weak var topConstraint: NSLayoutConstraint!
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var VIPMarkLabel: UILabel!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var VIPStatusLabel: UILabel!

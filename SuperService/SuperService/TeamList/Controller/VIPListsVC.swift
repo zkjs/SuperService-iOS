@@ -23,6 +23,9 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(VIPListsVC.refresh))  // 下拉刷新
     tableView.mj_footer = MJRefreshBackFooter(refreshingTarget: self, refreshingAction: #selector(VIPListsVC.loadMoreData)) //上拉加载
     tableView.mj_header.beginRefreshing()
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 120.0
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -87,22 +90,26 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(VIPCell.reuseIdentifier(), forIndexPath: indexPath) as! VIPCell
-    cell.label.translatesAutoresizingMaskIntoConstraints = false
-    cell.VIPMarkLabel.translatesAutoresizingMaskIntoConstraints = false
     cell.layer.masksToBounds = true
     cell.selectionStyle = UITableViewCellSelectionStyle.None
 
     let VIP = VIPList[indexPath.row]
-    if selectedCellIndexPaths.contains(indexPath) {
-      cell.VIPMarkLabel.hidden = false
-      cell.label.hidden = false
-    } else {
-      cell.VIPMarkLabel.hidden = true
-      cell.label.hidden = true
-    }
     cell.configCell(VIP)
-
-    
+    if selectedCellIndexPaths.contains(indexPath) {
+      cell.VIPMarkLabel.text = VIP.rmk
+      cell.VIPPhoneLabel.text = VIP.phone
+      cell.phoneLabel.text = "电话:"
+      cell.label.text = "备注:"
+      cell.topConstraint.constant = 15
+      cell.bottomConstraint.constant = 20
+    } else {
+      cell.bottomConstraint.constant = 0
+      cell.topConstraint.constant = 0
+      cell.VIPMarkLabel.text = ""
+      cell.label.text = ""
+      cell.VIPPhoneLabel.text = ""
+      cell.phoneLabel.text = ""
+    }
     return cell
   }
 
@@ -155,13 +162,6 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
         }
       })
     }
-
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if selectedCellIndexPaths.contains(indexPath) {
-      return 149
-    }
-    return 80
-  }
 
   // MARK: - XLPagerTabStripChildItem Delegate
 

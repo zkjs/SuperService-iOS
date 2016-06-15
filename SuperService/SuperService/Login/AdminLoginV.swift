@@ -45,6 +45,13 @@ class AdminLoginV: UIViewController {
     super.touchesBegan(touches, withEvent: event)
   }
   
+  @IBAction func forgotPassword(sender: AnyObject) {
+    let alertController = UIAlertController(title: "请找MIX管理员进行重置密码", message: "", preferredStyle: .Alert)
+    let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+    }
+    alertController.addAction(checkAction)
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
   
   
   // MARK: - Button Action

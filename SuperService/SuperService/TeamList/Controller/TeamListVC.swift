@@ -11,7 +11,7 @@ import UIKit
 class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/*SWTableViewCellDelegate,*/ XLPagerTabStripChildItem {
   
   @IBOutlet weak var tableView: UITableView!
-  
+  var selectedCellIndexPaths:[NSIndexPath] = []
   let collation = UILocalizedIndexedCollation.currentCollation()
   var sections = [String:[TeamModel]]()
   var teamArray = [TeamModel]() {
@@ -157,6 +157,56 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
       "fromName": userName]
     vc.conversation.ext = ext
     navigationController?.pushViewController(vc, animated: true)
+    
+    self.tableView!.deselectRowAtIndexPath(indexPath, animated: true)
+    if let index = selectedCellIndexPaths.indexOf(indexPath) {
+      selectedCellIndexPaths.removeAtIndex(index)
+    }else{
+      selectedCellIndexPaths.append(indexPath)
+    }
+    // Forces the table view to call heightForRowAtIndexPath
+    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
   }
   
+  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // 要显示自定义的action,cell必须处于编辑状态
+    return true
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    
+  }
+  
+  func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    let isadmin = TokenPayload.sharedInstance.isAdmin 
+    if isadmin == false { 
+     return []
+    } else {
+      let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
+        //删除成员
+        self.deleteTeamUser(indexPath)
+      }
+      more.backgroundColor = UIColor.redColor()
+      return [more]
+    }
+    
+  }
+  
+  func deleteTeamUser(indexPath:NSIndexPath) {
+    let role = sectionTitleArr[indexPath.section].1
+    if let team = sections[role]?[indexPath.row],let userid = team.userid {
+       HttpService.sharedInstance.deleteTeamUser(userid, completionHandler: { (json, error) in
+        if let error = error {
+          self.showErrorHint(error)
+        } else {
+          if let _ = json {
+            self.sections[role]?.removeAtIndex(indexPath.row) 
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            self.tableView.reloadData() 
+          }
+        }
+       })
+    }
+   
+  }
 }

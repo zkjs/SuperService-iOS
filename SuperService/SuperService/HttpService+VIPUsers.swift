@@ -26,11 +26,23 @@ extension HttpService {
       }
     }
   }
-  
+  //删除白名单会员
   func deleteWhiteUser(userid:String,phone:String,completionHandler:(JSON?,NSError?) -> ()) {
     let urlString = ResourcePath.DeleteVIPUser.description.fullUrl
     let dic = ["userid":userid,"phone":phone]
     delete(urlString, parameters: dic) { (json, error) -> Void in
+      if let error = error {
+        completionHandler(json,error)
+      } else {
+        completionHandler(json,nil)
+      }
+    }
+  }
+  
+  //删除团队成员
+  func deleteTeamUser(userid:String,completionHandler:(JSON?,NSError?) -> ()) {
+    let urlString = ResourcePath.DeleteTeamUser.description.fullUrl + "\(userid)"
+    delete(urlString, parameters: nil) { (json, error) -> Void in
       if let error = error {
         completionHandler(json,error)
       } else {

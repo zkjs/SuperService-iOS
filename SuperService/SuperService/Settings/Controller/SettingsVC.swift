@@ -120,6 +120,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func logout() {
     showHUDInView(view, withLoading: "正在退出登录...")
     // 清理系统缓存
+    if let a:String =  StorageManager.sharedInstance().ispasswordAndusername() where a.isEmpty == false {
+      StorageManager.sharedInstance().clearloginStatus()
+    }
     AccountInfoManager.sharedInstance.clearAccountCache()
     StorageManager.sharedInstance().clearNoticeArray()
     StorageManager.sharedInstance().clearnearBeaconLocid()

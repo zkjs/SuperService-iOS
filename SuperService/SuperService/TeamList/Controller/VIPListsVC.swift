@@ -154,7 +154,7 @@ class VIPListsVC: UIViewController,XLPagerTabStripChildItem {
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if selectedCellIndexPaths.contains(indexPath) {
-      return 139
+      return 149
     }
     return 80
   }

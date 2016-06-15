@@ -60,8 +60,8 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
   }
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-     let isAdmin = TokenPayload.sharedInstance.isAdmin
-    if !isAdmin && indexPath == NSIndexPath(forRow: 1, inSection: 0) {
+     let isusernameAndpassword = StorageManager.sharedInstance().ispasswordAndusername()
+    if isusernameAndpassword?.isEmpty == true && indexPath == NSIndexPath(forRow: 1, inSection: 0) {
       return 0
     } else {
       return 57
@@ -80,8 +80,8 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
       let vc = InformVC()
       self.navigationController?.pushViewController(vc, animated: true)
     } else {
-      let isAdmin = TokenPayload.sharedInstance.isAdmin
-      if isAdmin {
+      let isusernameAndpassword = StorageManager.sharedInstance().ispasswordAndusername()
+      if isusernameAndpassword == "loginWithUserAndpassword" {
         self.verifyPassword()
       } 
       
@@ -170,7 +170,8 @@ extension SettingUpTVC: UIImagePickerControllerDelegate {
     var imageData = UIImageJPEGRepresentation(image, 1.0)!
     var i = 0
     while imageData.length / 1024 > 80 {
-      let persent = CGFloat(100 - Int(i += 1)) / 100.0
+      i += 1
+      let persent = CGFloat(100 - i) / 100.0
       imageData = UIImageJPEGRepresentation(image, persent)!
     }
     

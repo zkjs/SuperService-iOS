@@ -131,6 +131,7 @@ extension HttpService {
         }
         let tokenPayload = TokenPayload.sharedInstance
         tokenPayload.saveTokenPayload(token)
+        StorageManager.sharedInstance().usernameAndPasswordLogin("loginWithUserAndpassword")
         
         //登录成功后订阅云巴推送
         if let userID = tokenPayload.userID {

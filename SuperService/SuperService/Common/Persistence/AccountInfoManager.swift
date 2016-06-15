@@ -27,6 +27,7 @@ class AccountInfoManager: NSObject {
   private(set) var password = ""
   private(set) var shopid = ""
   private(set) var fullname = ""
+  private(set) var lastid = ""
   private(set) var beaconLocationIDs = ""
   private(set) var pushInfo = FacePayPushResult(json: nil)
 
@@ -63,6 +64,7 @@ class AccountInfoManager: NSObject {
     password = userDefaults.objectForKey("password") as? String ?? "0"
     shopid = userDefaults.objectForKey("shopid") as? String ?? ""
     fullname = userDefaults.objectForKey("fullname") as? String ?? ""
+    lastid = userDefaults.objectForKey("lastid") as? String ?? ""
     beaconLocationIDs = userDefaults.objectForKey("locid") as? String ?? ""
     pushInfo = userDefaults.objectForKey("FacePayPushResult") as? FacePayPushResult ?? FacePayPushResult(json: nil)
   }
@@ -109,6 +111,13 @@ class AccountInfoManager: NSObject {
     self.userName = userName
     let userDefaults = NSUserDefaults()
     userDefaults.setObject(userName, forKey: "username")
+  }
+  
+  func savelastid(lastid:String) {
+    self.lastid = lastid
+    let userDefaults = NSUserDefaults()
+    userDefaults.setObject(lastid, forKey: "lastid")
+    userDefaults.synchronize()
   }
   
   func saveInvoice(invoice: String) {
@@ -190,6 +199,7 @@ class AccountInfoManager: NSObject {
     userDefaults.setObject(nil, forKey: "shopid")
     userDefaults.setObject(nil, forKey: "fullname")
     userDefaults.setObject(nil, forKey: "locid")
+    userDefaults.setObject(nil, forKey: "lastid")
     userDefaults.synchronize()
     
     userID = ""
@@ -207,6 +217,7 @@ class AccountInfoManager: NSObject {
     password = ""
     shopid = ""
     fullname = ""
+    lastid = ""
     self.beaconLocationIDs = ""
   }
   

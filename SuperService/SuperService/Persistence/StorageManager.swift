@@ -49,6 +49,19 @@ class StorageManager: NSObject {
     NSKeyedArchiver.archiveRootObject(locids, toFile: path)
   }
   
+  func usernameAndPasswordLogin(loginPath:String) {
+    let path = documentDirectory().stringByAppendingPathComponent("usernameAndpassword.archive")
+    NSKeyedArchiver.archiveRootObject(loginPath, toFile: path)
+  }
+  
+  func ispasswordAndusername() -> String? {
+    let path = documentDirectory().stringByAppendingPathComponent("usernameAndpassword.archive")
+    let ispasswordAndusername = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? String
+    return ispasswordAndusername
+  }
+  
+ 
+  
   func nearBeaconLocid() -> [String]? {
     let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
     let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
@@ -93,5 +106,15 @@ class StorageManager: NSObject {
       }
     }
     
+  }
+  
+  func clearloginStatus() {
+    let path = documentDirectory().stringByAppendingPathComponent("usernameAndpassword.archive")
+    if !path.isEmpty {
+      let mgr = NSFileManager.defaultManager()
+      if mgr.fileExistsAtPath(path) {
+        try! mgr.removeItemAtPath(path)
+      }
+    }
   }
 }

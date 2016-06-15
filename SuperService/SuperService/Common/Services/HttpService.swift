@@ -34,6 +34,7 @@ class HttpService {
     case VIPUsers                               /////白名单用户
     case DeleteVIPUser                          /////删除白名单用户 
     case AddWhiteUser                           ////增加白名单用户
+    case DeleteTeamUser                         ////删除团队成员
     
     var description: String {
       switch self {
@@ -52,6 +53,7 @@ class HttpService {
       case.VIPUsers:                            return "/for/res/v1/whiteuser/info"
       case.DeleteVIPUser:                       return "/for/res/v1/whiteuser"
       case.AddWhiteUser:                        return "for/res/v1/whiteuser"
+      case.DeleteTeamUser:                      return "/for/res/v1/delete/ss?userids="
       }
     }
   }

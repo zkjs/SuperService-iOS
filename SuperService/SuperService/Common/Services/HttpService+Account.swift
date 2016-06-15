@@ -22,7 +22,7 @@ extension HttpService {
       case .UserInfo:             return "/for/res/v1/query/user/all"
       case .UpdateInfo:           return "/for/res/v1/register/update/ss"
       case .AfterLoginUpdataInfo: return "/for/res/v1/update/user"
-      case .ArrivateData:         return "/pyx/lbs/v1/loc/beacon/"
+      case .ArrivateData:         return "/for/lbs/v1/loc/beacon/"
       case .VersionUpgrade:       return "/res/v1/systempub/upgrade/newestversion/"
       }
     }
@@ -168,12 +168,21 @@ extension HttpService {
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
     guard let locids :String = AccountInfoManager.sharedInstance.beaconLocationIDs else {return}
     let urlString =  ResourcePathAccount.ArrivateData.description.fullUrl + "/\(shopid)/\(locids)"
-    let dic = ["shopid":shopid,"locids":locids,"roles":"USER","page":page,"page_size":HttpService.DefaultPageSize]
+    var dic = NSDictionary()
+    if page == 0 {
+      dic = ["page":page,"roles":"USER","page_size":HttpService.DefaultPageSize] 
+    } else {
+      if let a = Int(AccountInfoManager.sharedInstance.lastid) {
+        dic = ["page":page,"roles":"USER","lastid":a,"page_size":HttpService.DefaultPageSize] }
+    }
     get(urlString, parameters: dic as? [String : AnyObject]) { (json, error) -> Void in
       if let error = error {
         completionHandler(nil,error)
       } else {
         if let data = json {
+          if let a = data["lastid"].string {
+          AccountInfoManager.sharedInstance.savelastid(a)
+          }
           var arrviteArr = [ArrivateModel]()
           if let array = data["data"].array {
             for dic in array {

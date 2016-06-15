@@ -25,7 +25,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupView()
+     setupView()
     // 因为程序退到后台再回到前台时不会触发viewWillAppear，所以需要此方法刷新列表
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: #selector(refresh),
@@ -40,13 +40,13 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     tabBarItem.badgeValue = nil
     NSUserDefaults.standardUserDefaults().setObject(NSNumber(integer: 0), forKey: kArrivalInfoBadge)
-    page = 0
-    loadData(page)
     if let roles = TokenPayload.sharedInstance.roles,let arr = StorageManager.sharedInstance().nearBeaconLocid()  where roles.contains("POS") && arr.count  > 0 {
       addBarButtons() 
     } else {
       navigationItem.rightBarButtonItem = nil
     }
+    tableView.mj_header.beginRefreshing()
+   
               
   }
   
@@ -106,11 +106,11 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
         }
         if let users = arrivateArr where users.count > 0 {
           self.dataArray += users
-          self.tableView?.reloadData()
         }
         if arrivateArr?.count < HttpService.DefaultPageSize {
           self.tableView.mj_footer.hidden = true
         }
+        self.tableView?.reloadData()
     }
     
     self.tableView.mj_header.endRefreshing()
@@ -128,7 +128,6 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     tableView.tableFooterView = UIView()
     tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshData))  // 下拉刷新
     tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))  // 上拉加载
-    tableView.mj_header.beginRefreshing()
   }
   
   
@@ -165,7 +164,6 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! ArrivalCell
     cell.orderButton.tag = indexPath.section
   }
-  
   
   
   func chat(sender:UIButton) {

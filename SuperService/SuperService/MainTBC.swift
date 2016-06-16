@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
+import CoreBluetooth
 
 let kGotoContactList = "kGotoContactList"
 
 class MainTBC: UITabBarController {
   var IsPresent = true
   private let conversationListVC = ConversationListController()
+  
+  var bluetoothManager: CBCentralManager!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +27,10 @@ class MainTBC: UITabBarController {
     registerNotification()
  
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTBC.onMessageReceived(_:)), name:kYBDidReceiveMessageNotification, object: nil)
+    
+    bluetoothManager = CBCentralManager(delegate: self, queue: nil)
+    BeaconMonitor.sharedInstance.startMonitoring()
+    LocationStateObserver.sharedInstance.start()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -470,4 +478,31 @@ extension MainTBC: HTTPSessionManagerDelegate {
     ZKJSTool.showMsg("账号在别处登录，请重新重录")
   }
   
+}
+
+
+// MARK: - CBCentralManagerDelegate
+extension MainTBC: CBCentralManagerDelegate {
+  
+  private func setupBluetoothManager() {
+    bluetoothManager = CBCentralManager(delegate: self, queue: nil)
+  }
+  
+  func centralManagerDidUpdateState(central: CBCentralManager) {
+    switch central.state {
+    case .PoweredOn:
+      BeaconMonitor.sharedInstance.startMonitoring()
+      print(".PoweredOn")
+    case .PoweredOff:
+      print(".PoweredOff")
+    case .Resetting:
+      print(".Resetting")
+    case .Unauthorized:
+      print(".Unauthorized")
+    case .Unknown:
+      print(".Unknown")
+    case .Unsupported:
+      print(".Unsupported")
+    }
+  }
 }

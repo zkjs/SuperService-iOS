@@ -64,6 +64,10 @@
 		405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245901BBA898F00BBE8E3 /* LTBouncyTextField.swift */; };
 		405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */; };
 		40589E751D10FBB1002BED66 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40589E741D10FBB1002BED66 /* Permission.swift */; };
+		40589E781D125661002BED66 /* BeaconMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40589E771D125660002BED66 /* BeaconMonitor.swift */; };
+		40589E7A1D12569E002BED66 /* BeaconInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40589E791D12569E002BED66 /* BeaconInfo.swift */; };
+		40589E7C1D1257BD002BED66 /* HttpService+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40589E7B1D1257BD002BED66 /* HttpService+Location.swift */; };
+		40589E7E1D127FBF002BED66 /* LocationStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40589E7D1D127FBF002BED66 /* LocationStateObserver.swift */; };
 		4058AF911CBE2F4D00D9A926 /* ArrivalPush.apns in Resources */ = {isa = PBXBuildFile; fileRef = 4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */; };
 		4058AF951CBE313500D9A926 /* String+Extension+ZKJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */; };
 		405F4CA91BCF3FCC00BBBF47 /* server.der in Resources */ = {isa = PBXBuildFile; fileRef = 405F4CA81BCF3FCC00BBBF47 /* server.der */; };
@@ -579,6 +583,10 @@
 		405245921BBA8C8000BBE8E3 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		40549B2D1BD0939500923F5F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		40589E741D10FBB1002BED66 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		40589E771D125660002BED66 /* BeaconMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconMonitor.swift; sourceTree = "<group>"; };
+		40589E791D12569E002BED66 /* BeaconInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconInfo.swift; sourceTree = "<group>"; };
+		40589E7B1D1257BD002BED66 /* HttpService+Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Location.swift"; sourceTree = "<group>"; };
+		40589E7D1D127FBF002BED66 /* LocationStateObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStateObserver.swift; sourceTree = "<group>"; };
 		4058AF901CBE2F4D00D9A926 /* ArrivalPush.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArrivalPush.apns; path = "Supporting Files/ArrivalPush.apns"; sourceTree = "<group>"; };
 		4058AF941CBE313500D9A926 /* String+Extension+ZKJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension+ZKJS.swift"; sourceTree = "<group>"; };
 		405F4CA81BCF3FCC00BBBF47 /* server.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.der; sourceTree = "<group>"; };
@@ -1307,6 +1315,16 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		40589E761D12563B002BED66 /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				40589E791D12569E002BED66 /* BeaconInfo.swift */,
+				40589E771D125660002BED66 /* BeaconMonitor.swift */,
+				40589E7D1D127FBF002BED66 /* LocationStateObserver.swift */,
+			);
+			name = Monitoring;
+			sourceTree = "<group>";
+		};
 		40600CAB1BC64579008F8DEC /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -1355,8 +1373,9 @@
 		406B0AE11C85B356006C9C73 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				406B0B2A1C85B692006C9C73 /* HttpService.swift */,
+				40589E7B1D1257BD002BED66 /* HttpService+Location.swift */,
+				406B0AE21C85B391006C9C73 /* YunbaSubscribeService.swift */,
 				FAA420551CE2D8EE000DCCCA /* HttpService+Password.swift */,
 				40FD343A1C92B0780019A8CA /* Httpservice+Token.swift */,
 				40111DF31C8FF5F200DD2AE1 /* HttpService+FacePay.swift */,
@@ -1602,6 +1621,7 @@
 		40CBC0551C5EF05B00AFCC39 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				40589E761D12563B002BED66 /* Monitoring */,
 				40DC2D4D1C902D86007D9A3F /* Libraries */,
 				406B0B261C85B611006C9C73 /* Models */,
 				406B0AE11C85B356006C9C73 /* Services */,
@@ -3039,6 +3059,7 @@
 				40FD34331C926F7D0019A8CA /* ImageLoader.swift in Sources */,
 				40FB3D4F1C00203900675044 /* EaseViewController.m in Sources */,
 				40C87C701CEF0DFD00130D8C /* XLButtonBarView.m in Sources */,
+				40589E781D125661002BED66 /* BeaconMonitor.swift in Sources */,
 				40FB3D371C00203900675044 /* PSTGridLayoutSection.m in Sources */,
 				406B0B091C85B5E0006C9C73 /* NetworkReachabilityManager.swift in Sources */,
 				4023F7461C1D764D0057351E /* ZKJSJavaHTTPSessionManager.m in Sources */,
@@ -3046,6 +3067,7 @@
 				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
 				400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */,
 				40DC2D621C905A80007D9A3F /* PaymentListItem.swift in Sources */,
+				40589E7E1D127FBF002BED66 /* LocationStateObserver.swift in Sources */,
 				FAF92CAB1C43594F00671300 /* InvoiceDetailVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
 				40FB3D1E1C00203900675044 /* EMSDWebImageDownloader.m in Sources */,
@@ -3106,6 +3128,7 @@
 				40F757761BE0553E0053C2BE /* SettingsVC.swift in Sources */,
 				40FB3D3E1C00203900675044 /* NSDateFormatter+Category.m in Sources */,
 				40E6DE2F1C0ED2A300CFF8AF /* ContactListSelectViewController.m in Sources */,
+				40589E7C1D1257BD002BED66 /* HttpService+Location.swift in Sources */,
 				40FB3D061C00203900675044 /* EMAudioRecorderUtil.m in Sources */,
 				40FD34391C929A090019A8CA /* AccountInfoManager.swift in Sources */,
 				40FB3CFE1C00203900675044 /* CallViewController.m in Sources */,
@@ -3129,6 +3152,7 @@
 				40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */,
 				40DC2D5A1C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				40FB3D011C00203900675044 /* ChatViewController.m in Sources */,
+				40589E7A1D12569E002BED66 /* BeaconInfo.swift in Sources */,
 				FAF644F81C9830DE00C30D00 /* HttpService+Others.swift in Sources */,
 				FAA420561CE2D8EE000DCCCA /* HttpService+Password.swift in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,

@@ -55,6 +55,8 @@
 	<array>
 		<string>com.zkjinshi.SuperService.WatchOpenApp</string>
 	</array>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>仅在您有预约时，在您抵达之前提醒服务人员准备好您的服务；您可以在个人设置中开启或关闭</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

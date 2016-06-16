@@ -20,21 +20,25 @@ class HttpService {
   
   enum ResourcePath: CustomStringConvertible {
     case ApiURL(path:String)
-    case LoginPhone                             //// PAVO 认证服务API : 使用手机号&验证码登录
-    case LoginUserName                          //// PAVO 认证服务API : 使用用户名和密码登录
-    case Token                                  //// PAVO 认证服务API : Token管理 :
-    case DeleteToken                            //// PAVO 认证服务API : 删除Token :
-    case Code                                   //// PAVO 认证服务API : 验证码 : HEADER不需要Token
+    case LoginPhone                             // PAVO 认证服务API : 使用手机号&验证码登录
+    case LoginUserName                          // PAVO 认证服务API : 使用用户名和密码登录
+    case Token                                  // PAVO 认证服务API : Token管理 :
+    case DeleteToken                            // PAVO 认证服务API : 删除Token :
+    case Code                                   // PAVO 认证服务API : 验证码 : HEADER不需要Token
     case QueryUserInfo
     case CheckVersion(version:String)           // 检查App版本
-    case QueryUserTags                          //用户标签
-    case UpdateUserTags                         //更新用户标签
-    case VerifyPassWord                         //验证原始密码
-    case ChangePassWord                         //修改密码
-    case VIPUsers                               /////白名单用户
-    case DeleteVIPUser                          /////删除白名单用户 
-    case AddWhiteUser                           ////增加白名单用户
-    case DeleteTeamUser                         ////删除团队成员
+    case QueryUserTags                          // 用户标签
+    case UpdateUserTags                         // 更新用户标签
+    case VerifyPassWord                         // 验证原始密码
+    case ChangePassWord                         // 修改密码
+    case VIPUsers                               // 白名单用户
+    case DeleteVIPUser                          // 删除白名单用户
+    case AddWhiteUser                           // 增加白名单用户
+    case DeleteTeamUser                         // 删除团队成员
+    case Beacon                                 // PYXIS 位置服务API : Beacon 位置信息 :
+    case GPS                                    // PYXIS 位置服务API : GPS 位置信息 :
+    case UploadBeacons                          // 上传用户收集到的所有beacon信息
+    
     
     var description: String {
       switch self {
@@ -54,6 +58,9 @@ class HttpService {
       case.DeleteVIPUser:                       return "/for/res/v1/whiteuser"
       case.AddWhiteUser:                        return "for/res/v1/whiteuser"
       case.DeleteTeamUser:                      return "/for/res/v1/delete/ss?userids="
+      case .Beacon:                             return "/pyx/lbs/v1/loc/beacon"
+      case .GPS:                                return "/pyx/lbs/v1/loc/gps"
+      case .UploadBeacons:                      return "/pyx/lbs/v1/loc/beacons"
       }
     }
   }

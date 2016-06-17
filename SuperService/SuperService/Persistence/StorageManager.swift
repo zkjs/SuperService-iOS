@@ -29,12 +29,12 @@ class StorageManager: NSObject {
   }
   
   func saveHomeImages(images: UIImage,userID:String) {
-    let path = documentDirectory().stringByAppendingPathComponent(userID)
+    let path = documentDirectory().stringByAppendingPathComponent("userimage."+userID)
     NSKeyedArchiver.archiveRootObject(images, toFile: path)
   }
   
   func homeImage(userID:String) -> UIImage? {
-    let path = documentDirectory().stringByAppendingPathComponent(userID)
+    let path = documentDirectory().stringByAppendingPathComponent("userimage."+userID)
     let image = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UIImage
     return image
   }
@@ -47,6 +47,12 @@ class StorageManager: NSObject {
   func saveBeaconPayLocids(locids:NSArray) {
     let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
     NSKeyedArchiver.archiveRootObject(locids, toFile: path)
+  }
+  
+  func nearBeaconLocid() -> [String]? {
+    let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
+    let BeaconPayArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
+    return BeaconPayArray
   }
   
   func usernameAndPasswordLogin(loginPath:String) {
@@ -62,16 +68,24 @@ class StorageManager: NSObject {
   
  
   
-  func nearBeaconLocid() -> [String]? {
-    let path = documentDirectory().stringByAppendingPathComponent("BeaconPayLocids.archive")
-    let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
-    return noticeArray
-  }
+  
   
   func noticeArray() -> [String]? {
     let path = documentDirectory().stringByAppendingPathComponent("array.archive")
     let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]
     return noticeArray
+  }
+  
+  func saveBeaconsInfoFromLocid(beacons:[String:String])  {
+    let path = documentDirectory().stringByAppendingPathComponent("BangdingBeacon.archive")
+    NSKeyedArchiver.archiveRootObject(beacons , toFile: path)
+    
+  }
+  
+  func getBeaconsFromLoicd() -> [String:String]? {
+    let path = documentDirectory().stringByAppendingPathComponent("BangdingBeacon.archive")
+    let beaconsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String:String]
+    return beaconsArray
   }
   
   func savePresentInfoVC(firstPresent:Bool) {

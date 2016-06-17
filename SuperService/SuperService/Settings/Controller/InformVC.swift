@@ -25,7 +25,7 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
   var dismissWhenFinished = false
   var type = ApperType?()
   var topicsArray = [String]()//云巴订阅的数组
-  
+  var page:Int = 0
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("InformVC", owner:self, options:nil)
   }
@@ -40,23 +40,36 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: #selector(InformVC.nextStep))
     navigationItem.rightBarButtonItem = nextStepButton
+    
+    
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshData))  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))  // 上拉加载
   }
   
-  override func viewWillAppear(animated: Bool) {
-    GetWholeAreaOfTheList()
+  func loadMoreData() {
+    page += 1
+    loadData(page)
   }
   
-  func GetWholeAreaOfTheList() {
+  func refreshData() {
+    page = 0
+    loadData(page)
+  }
+  
+  func loadData(page:Int) {
     self.noticeArray.removeAll()
     if let arr = StorageManager.sharedInstance().noticeArray() {
-       self.noticeArray = arr
+      self.noticeArray = arr
     }
-    HttpService.sharedInstance.getSubscribeList { (json, error) -> Void in
+    HttpService.sharedInstance.getSubscribeList(page) { (json, error) -> Void in
       if let _ = error {
-        
+        self.tableView.mj_footer.endRefreshing()
+        self.tableView.mj_header.endRefreshing()
       } else {
-        if let jsonArr = json!["data"].array {
+        if page == 0 {
           self.areaArray.removeAll()
+        }
+        if let jsonArr = json!["data"].array {
           for dict in jsonArr {
             let area = AreaModel(dic: dict)
             if area.payment_support == 0 {//暂时过滤掉具有收款台功能的区域
@@ -64,14 +77,31 @@ class InformVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             }
             if area.payment_support == 1,let str = area.locid {
               self.nearlistLocids.append(str)//收银台数组
+              StorageManager.sharedInstance().saveBeaconsInfoFromLocid(area.beacons)
             }
-        }
+          }
+          if jsonArr.count < HttpService.DefaultPageSize {
+            self.tableView.mj_footer.hidden = true
+          }
           StorageManager.sharedInstance().saveBeaconPayLocids(self.nearlistLocids)
           self.initSelectedArray()  // Model
           self.tableView.reloadData()  // UI
         }
       }
     }
+    
+    self.tableView.reloadData()
+    self.tableView.mj_footer.endRefreshing()
+    self.tableView.mj_header.endRefreshing()
+
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    tableView.mj_header.beginRefreshing()
+    GetWholeAreaOfTheList()
+  }
+  
+  func GetWholeAreaOfTheList() {
   }
   
   func initSelectedArray() {

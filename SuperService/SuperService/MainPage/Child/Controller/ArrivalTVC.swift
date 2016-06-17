@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreBluetooth
 class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   
   lazy var dataArray = [ArrivateModel]()
@@ -18,7 +18,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   var orderstatusArray = [String]()
   var page:Int = 0
   var isLoading:Bool = false
-
+  var bluetoothManager: CBCentralManager!
   override func loadView() {
     NSBundle.mainBundle().loadNibNamed("ArrivalTVC", owner:self, options:nil)
   }
@@ -31,6 +31,10 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
       selector: #selector(refresh),
       name: kRefreshArrivalTVCNotification,
       object: nil)
+    
+    bluetoothManager = CBCentralManager(delegate: self, queue: nil)
+    BeaconMonitor.sharedInstance.startMonitoring()
+    LocationStateObserver.sharedInstance.start()
     
   }
   
@@ -55,17 +59,47 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
     let buttonCounter = UIBarButtonItem(image: UIImage(named: "ic_till"),
       style: .Plain,
       target: self,
-      action: #selector(gotoCkeckoutCounter))
+      action: #selector(gotoCheckoutCounter))
     navigationItem.rightBarButtonItem = buttonCounter
   }
 
   // MARK: - Button Action
 
-  func gotoCkeckoutCounter() {
-    let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
-    let vc = storyboard.instantiateViewControllerWithIdentifier("CheckoutCounterVC") as! CheckoutCounterVC
-    vc.hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(vc, animated: true)
+  func gotoCheckoutCounter() {
+    //根据储存的locid查找beacon，再去对比扫描得到的beacon信息去反查找相应的locid，没有则不做跳转
+    if bluetoothManager.state == .PoweredOff {
+      let alertController = UIAlertController(title: "您没有打开蓝牙,暂时无法收款", message: "", preferredStyle: .Alert)
+      let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+      }
+      alertController.addAction(checkAction)
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    var userlocids:Set<String> = []
+      let blueBeacon = BeaconMonitor.sharedInstance.beaconInfoCache.keys
+          if let storeBeacons = StorageManager.sharedInstance().getBeaconsFromLoicd()?.keys ,
+             let dic = StorageManager.sharedInstance().getBeaconsFromLoicd(){
+             for s in storeBeacons {
+               if blueBeacon.contains(s) {
+                 guard let value = dic[s] else {return}
+                 userlocids.insert(value)
+                 print(value)
+             }
+         }
+    }
+    
+    if userlocids.count == 0 {
+      let alertController = UIAlertController(title: "您不在收款区域,暂时无法收款", message: "", preferredStyle: .Alert)
+      let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+      }
+      alertController.addAction(checkAction)
+      self.presentViewController(alertController, animated: true, completion: nil)
+    } else {
+        let storyboard = UIStoryboard(name: "CheckoutCounter", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("CheckoutCounterVC") as! CheckoutCounterVC
+        vc.hidesBottomBarWhenPushed = true
+        vc.locids = userlocids.joinWithSeparator(",")
+        navigationController?.pushViewController(vc, animated: true)
+    }
   }
 
   deinit {
@@ -132,6 +166,8 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   }
   
   
+  
+  
   // MARK: - Table view data source
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -155,7 +191,6 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
       cell.topLineImageView.hidden = false
     }
     cell.delegate = self
-    cell.orderButton.addTarget(self, action: #selector(showOrder(_:)), forControlEvents: .TouchUpInside)
     let data = dataArray[indexPath.section]
     cell.setData(data)
     return cell
@@ -182,54 +217,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
       self.navigationController?.pushViewController(vc, animated: true)
   }
   
-  func showOrder(sender: UIButton) {
-    // 正在刷新时点击无效
-    if dataArray.count == 0 {
-      return
-    }
-    let order = self.dataArray[sender.tag]
-    guard let orderno = order.orderno else {return}
-    let index = orderno.startIndex.advancedBy(1)
-    let type = orderno.substringToIndex(index)
-    if type == "H" {
-        let storyboard = UIStoryboard(name: "HotelOrderDetailTVC", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("HotelOrderDetailTVC") as! HotelOrderDetailTVC
-        vc.orderno = orderno
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    if type == "O" {
-      if self.orderstatus == "待支付" || self.orderstatus == "待处理" || self.orderstatus == "待确认"{
-        let storyboard = UIStoryboard(name: "LeisureTVC", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureTVC") as! LeisureTVC
-        vc.orderno = self.orderno
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-      } else {
-        let storyboard = UIStoryboard(name: "LeisureOrderDetailTVC", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("LeisureOrderDetailTVC") as! LeisureOrderDetailTVC
-        vc.orderno = self.orderno
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-      }
-      
-    }
-    if type == "K" {
-      if self.orderstatus == "待支付" || self.orderstatus == "待处理" || self.orderstatus == "待确认"{
-        let storyboard = UIStoryboard(name: "KTVTableView", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("KTVTableView") as! KTVTableView
-        vc.orderno = self.orderno
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-      } else {
-        let storyboard = UIStoryboard(name: "KTVOrderDetailTVC", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("KTVOrderDetailTVC") as! KTVOrderDetailTVC
-        vc.orderno = self.orderno
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-      }
-    }
-  }
+
   
   //TODO GOTOLABELVCDELAGATE
   
@@ -244,3 +232,31 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
 
   
 }
+
+extension ArrivalTVC: CBCentralManagerDelegate {
+  
+  private func setupBluetoothManager() {
+    bluetoothManager = CBCentralManager(delegate: self, queue: nil)
+ }
+  func centralManagerDidUpdateState(central: CBCentralManager) {
+    switch central.state {
+    case .PoweredOn:
+      BeaconMonitor.sharedInstance.startMonitoring()
+      print(".PoweredOn")
+    case .PoweredOff:
+      BeaconMonitor.sharedInstance.stopMonitoring()
+      BeaconMonitor.sharedInstance.beaconInfoCache.removeAll()
+      print(".PoweredOff")
+    case .Resetting:
+      print(".Resetting")
+    case .Unauthorized:
+      print(".Unauthorized")
+    case .Unknown:
+      print(".Unknown")
+    case .Unsupported:
+      print(".Unsupported")
+    }
+  }
+
+}
+

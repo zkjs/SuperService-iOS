@@ -51,9 +51,9 @@ class CheckoutCounterVC: UICollectionViewController {
     showHUDInView(view, withLoading: "")
     //TODO: shopid，locids均为测试ID，实际需要从api获
     guard let shopid = TokenPayload.sharedInstance.shopid else {return}
-    if let arr = StorageManager.sharedInstance().nearBeaconLocid() {
-     locids = arr.joinWithSeparator(",")
-    }
+//    if let arr = StorageManager.sharedInstance().nearBeaconLocid() {
+//     locids = arr.joinWithSeparator(",")
+//    }
     HttpService.sharedInstance.getNearbyCustomers(shopid:shopid, locids: locids) {[weak self] (users, error) -> () in
       guard let strongSelf = self else { return }
       strongSelf.hideHUD()

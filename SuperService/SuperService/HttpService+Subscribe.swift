@@ -16,16 +16,18 @@ extension HttpService {
     
     var description: String {
       switch self {
-      case .BeaconList:             return "/pyx/lbs/v1/loc/beacon"
+      case .BeaconList:             return "/for/lbs/v1/loc/beacon"
     
 
       }
     }
 }
   
-  func getSubscribeList(completionHandler:HttpCompletionHandler){
+  func getSubscribeList(page:Int,completionHandler:HttpCompletionHandler){
     let urlString =  ResourcePathAccount.BeaconList.description.fullUrl
-    get(urlString, parameters: nil) { (json, error) -> Void in
+    
+    let parameters = ["page":page,"page_size":HttpService.DefaultPageSize]
+    get(urlString, parameters: parameters) { (json, error) -> Void in
       if let error = error {
         print(error)
         completionHandler(json,error)

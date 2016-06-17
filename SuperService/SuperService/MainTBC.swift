@@ -494,6 +494,8 @@ extension MainTBC: CBCentralManagerDelegate {
       BeaconMonitor.sharedInstance.startMonitoring()
       print(".PoweredOn")
     case .PoweredOff:
+      BeaconMonitor.sharedInstance.stopMonitoring()
+      BeaconMonitor.sharedInstance.beaconInfoCache.removeAll()
       print(".PoweredOff")
     case .Resetting:
       print(".Resetting")

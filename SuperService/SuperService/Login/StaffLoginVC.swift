@@ -60,6 +60,7 @@ class StaffLoginVC: UIViewController {
           self.showHint("验证码已发送!")
           self.identifyingCodeTextField.becomeFirstResponder()
         } else {
+          self.showErrorHint(error)
        
         }
       }

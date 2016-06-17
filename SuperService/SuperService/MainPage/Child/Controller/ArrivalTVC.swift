@@ -73,18 +73,19 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
       }
       alertController.addAction(checkAction)
       self.presentViewController(alertController, animated: true, completion: nil)
+      return
     }
     var userlocids:Set<String> = []
-      let blueBeacon = BeaconMonitor.sharedInstance.beaconInfoCache.keys
-          if let storeBeacons = StorageManager.sharedInstance().getBeaconsFromLoicd()?.keys ,
-             let dic = StorageManager.sharedInstance().getBeaconsFromLoicd(){
-             for s in storeBeacons {
-               if blueBeacon.contains(s) {
-                 guard let value = dic[s] else {return}
-                 userlocids.insert(value)
-                 print(value)
-             }
+    let blueBeacon = BeaconMonitor.sharedInstance.beaconInfoCache.keys
+    if let storeBeacons = StorageManager.sharedInstance().getBeaconsFromLoicd()?.keys ,
+      let dic = StorageManager.sharedInstance().getBeaconsFromLoicd(){
+      for s in storeBeacons {
+        if blueBeacon.contains(s) {
+           guard let value = dic[s] else {return}
+           userlocids.insert(value)
+           print(value)
          }
+       }
     }
     
     if userlocids.count == 0 {

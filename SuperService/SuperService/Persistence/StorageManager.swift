@@ -68,8 +68,6 @@ class StorageManager: NSObject {
   
  
   
-  
-  
   func noticeArray() -> [String]? {
     let path = documentDirectory().stringByAppendingPathComponent("array.archive")
     let noticeArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [String]

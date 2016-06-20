@@ -9,7 +9,7 @@
 import UIKit
 import AssetsLibrary
 
-class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SetUpVC: UIViewController, UINavigationControllerDelegate {
   
   @IBOutlet weak var avatarButton: UIButton! {
     didSet {
@@ -75,7 +75,7 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
       return
     }
     
-    if self.imageData == nil {
+    if self.image == "" {
       showHint("头像不能为空")
       return
     }
@@ -114,28 +114,65 @@ class SetUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
   
   // MARK: - Private
   func showPhotoPicker() {
-    let mediaPicker = WPMediaPickerViewController()
-    mediaPicker.delegate = self
-    mediaPicker.filter = WPMediaType.Image
-    mediaPicker.allowMultipleSelection = false
-    presentViewController(mediaPicker, animated: true, completion: nil)
+    let alertController = UIAlertController(title: "请选择图片", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
+    let takePhotoAction = UIAlertAction(title: "拍照", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.Camera
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(takePhotoAction)
+    let choosePhotoAction = UIAlertAction(title: "从相册中选择", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(choosePhotoAction)
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
   }
-  
-}
 
-extension SetUpVC: WPMediaPickerViewControllerDelegate {
-  
-  func mediaPickerController(picker: WPMediaPickerViewController!, didFinishPickingAssets assets: [AnyObject]!) {
-    if let set = assets.first as? ALAsset {
-      self.image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
-      avatarButton.setImage(image, forState: .Normal)
-      imageData = UIImageJPEGRepresentation(image, 0.8)!
-    }
-    dismissViewControllerAnimated(true, completion: nil)
   }
   
-  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController!) {
-    dismissViewControllerAnimated(true, completion: nil)
+
+//extension SetUpVC: WPMediaPickerViewControllerDelegate {
+//  
+//  func mediaPickerController(picker: WPMediaPickerViewController, didFinishPickingAssets assets: [AnyObject]) {
+//    if let set = assets.first as? ALAsset {
+//      self.image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
+//      avatarButton.setImage(image, forState: .Normal)
+//      imageData = UIImageJPEGRepresentation(image, 0.8)!
+//    }
+//    dismissViewControllerAnimated(true, completion: nil)
+//
+//
+//  }
+//  
+//  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController) {
+//    dismissViewControllerAnimated(true, completion: nil)
+//  }
+//  
+//}
+
+extension SetUpVC: UIImagePickerControllerDelegate {
+  
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    picker.dismissViewControllerAnimated(true, completion: nil)
+    
+    var imageData = UIImageJPEGRepresentation(image, 1.0)!
+    var i = 0
+    while imageData.length / 1024 > 80 {
+      i += 1
+      let persent = CGFloat(100 - i) / 100.0
+      avatarButton.setImage(image, forState: .Normal)
+      self.image = image
+      imageData = UIImageJPEGRepresentation(image, persent)!
+    }
+    
   }
   
 }

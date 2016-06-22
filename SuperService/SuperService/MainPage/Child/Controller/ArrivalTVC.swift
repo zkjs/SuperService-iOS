@@ -237,6 +237,7 @@ extension ArrivalTVC: CBCentralManagerDelegate {
   private func setupBluetoothManager() {
     bluetoothManager = CBCentralManager(delegate: self, queue: nil)
  }
+  
   func centralManagerDidUpdateState(central: CBCentralManager) {
     switch central.state {
     case .PoweredOn:

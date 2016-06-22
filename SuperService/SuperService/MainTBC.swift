@@ -146,11 +146,11 @@ class MainTBC: UITabBarController {
     let nv1 = BaseNavigationController()
     nv1.viewControllers = [vc1]
     
-    /*let vc2 = OrderTVC()
-    vc2.tabBarItem.title = "订单"
-    vc2.tabBarItem.image = UIImage(named: "ic_dingdan")
+    let vc2 = CallInfoVC()
+    vc2.tabBarItem.title = "呼叫通知"
+    vc2.tabBarItem.image = UIImage(named: "ic_hujiao_nor")
     let nv2 = BaseNavigationController()
-    nv2.viewControllers = [vc2]*/
+    nv2.viewControllers = [vc2]
     
     conversationListVC.tabBarItem.title = "消息"
     conversationListVC.tabBarItem.image = UIImage(named: "ic_xiaoxi")
@@ -169,7 +169,7 @@ class MainTBC: UITabBarController {
     let nv5 = BaseNavigationController()
     nv5.viewControllers = [vc5]
     
-    viewControllers = [nv1, nv3, nv4, nv5]
+    viewControllers = [nv1,nv2, nv3, nv4, nv5]
     
     
   }

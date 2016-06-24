@@ -38,6 +38,14 @@ class HttpService {
     case Beacon                                 // PYXIS 位置服务API : Beacon 位置信息 :
     case GPS                                    // PYXIS 位置服务API : GPS 位置信息 :
     case UploadBeacons                          // 上传用户收集到的所有beacon信息
+    case CallServerTask                         //获取呼叫服务列表
+    case ServicetaskDetail                      //操作呼叫服务任务追踪
+    case ServicetaskStatusChange                //操作呼叫服务更改状态
+    case Servicetag                             //获取呼叫服务标签列表
+    case Addfirstsrvtag                         //添加一级服务标签
+    case Addsecondsrvtag                        //添加二级服务标签
+    case Deletesrvtag                           //删除一级服务标签（二级同时删除），删除二级服务标签
+    case RolesFromShop                          //获取商家部门信息
     
     
     var description: String {
@@ -61,6 +69,14 @@ class HttpService {
       case .Beacon:                             return "/pyx/lbs/v1/loc/beacon"
       case .GPS:                                return "/pyx/lbs/v1/loc/gps"
       case .UploadBeacons:                      return "/pyx/lbs/v1/loc/beacons"
+      case.CallServerTask:                      return "for/res/v1/call/service/task"
+      case.ServicetaskStatusChange:             return "for/res/v1/call/service/task" 
+      case.ServicetaskDetail:                   return "for/res/v1/call/service/task/detail/"
+      case.Servicetag:                          return "for/res/v1/call/servicetag"
+      case.Addfirstsrvtag:                      return "for/res/v1/call/firstsrvtag"
+      case.Deletesrvtag:                        return "for/res/v1/call/srvtag"
+      case.Addsecondsrvtag:                     return "for/res/v1/call/secondsrvtag"
+      case.RolesFromShop:                       return "for/res/v1/shop/roles"
       }
     }
   }

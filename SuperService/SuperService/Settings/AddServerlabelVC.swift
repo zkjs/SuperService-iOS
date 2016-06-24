@@ -10,6 +10,8 @@ import UIKit
 
 class AddServerlabelVC: UITableViewController {
   var titleString:String!
+  var secondtagsArr = [ServicetagSecondmodel]()
+  var firsttagID:String!
 
   @IBOutlet weak var serverlabeltextFlied: UITextField!
   override func viewDidLoad() {
@@ -21,6 +23,8 @@ class AddServerlabelVC: UITableViewController {
     
     let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
     navigationItem.backBarButtonItem = item
+    
+    tableView.tableFooterView = UIView()
 
   }
   
@@ -29,26 +33,33 @@ class AddServerlabelVC: UITableViewController {
       self.showHint("请填写服务标签")
       return
     }
-      
-    
+    self.showHudInView(view, hint: "")
+    HttpService.sharedInstance.addSecondServiceTag(firsttagID, secondSrvTagName: str) { (json, error) in
+      if let error = error {
+        self.showErrorHint(error)
+      } else {
+        if let secondtag = json {
+          self.secondtagsArr.insert(secondtag, atIndex: 0)
+        }
+      }
+      self.hideHUD()
+      self.tableView.reloadData()
+    }
     
   }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
   }
 
   // MARK: - Table view data source
 
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      // #warning Incomplete implementation, return the number of sections
       return 1
   }
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      // #warning Incomplete implementation, return the number of rows
-      return 4
+      return secondtagsArr.count
   }
   
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -64,7 +75,16 @@ class AddServerlabelVC: UITableViewController {
       return []
     } else {
       let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
-        //删除VIP
+        let secondtags = self.secondtagsArr[indexPath.row]
+        HttpService.sharedInstance.deleteFirstAndSecondTag(secondtags.secondSrvTagId!, firstsrvtagid: "", completionHandler: { (json, error) in
+          if let error = error {
+            self.showErrorHint(error)
+          } else {
+            if let data = json {
+              self.showHint(data.string)
+            }
+          }
+        })
         
       }
       more.backgroundColor = UIColor.redColor()
@@ -76,7 +96,8 @@ class AddServerlabelVC: UITableViewController {
     
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("addServerLabelCell", forIndexPath: indexPath)
-    cell.textLabel?.text = "按摩洗脚大保健呵呵"
+    let tag = secondtagsArr[indexPath.row]
+    cell.textLabel?.text = tag.secondSrvTagName
     return cell
   }
     

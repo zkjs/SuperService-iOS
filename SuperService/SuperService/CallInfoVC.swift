@@ -11,6 +11,7 @@ import UIKit
 class CallInfoVC: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
+  var callServicesData = [CallServiceModel]()
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "呼叫通知"
@@ -22,7 +23,24 @@ class CallInfoVC: UIViewController {
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    loadData()
+  }
+  
+  func loadData() {
+    HttpService.sharedInstance.getCallServicelist("") { (services, error) in
+      if let error = error {
+        self.showErrorHint(error)
+      } else {
+        if let data = services {
+          self.callServicesData = data
+        }
+      }
+    }
+    self.tableView.reloadData()
   }
   
   override func loadView() {
@@ -34,7 +52,7 @@ class CallInfoVC: UIViewController {
   }
 
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 20
+    return callServicesData.count
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -49,7 +67,9 @@ class CallInfoVC: UIViewController {
     } else {
       cell.topLineImageView.hidden = false
     }
-       return cell
+    let service = callServicesData[indexPath.row]
+    cell.confing(service)
+    return cell
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

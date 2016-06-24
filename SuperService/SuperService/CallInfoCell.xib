@@ -48,7 +48,7 @@
                         <rect key="frame" x="30" y="8" width="518" height="150"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="徐伟 （君子汇 3楼）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAN-wu-nBr" userLabel="Client Info Label">
-                                <rect key="frame" x="88" y="20" width="129" height="17"/>
+                                <rect key="frame" x="66" y="20" width="129" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="7mt-ys-ENi"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大保健、大保健" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvz-99-ZuX">
-                                <rect key="frame" x="88" y="54" width="98" height="17"/>
+                                <rect key="frame" x="66" y="54" width="98" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="NhK-a1-JKM"/>
                                 </constraints>
@@ -114,7 +114,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就绪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtS-wh-fcO">
                                 <rect key="frame" x="484" y="55" width="24" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0o-oM-oku">
@@ -138,7 +138,7 @@
                                     <constraint firstAttribute="height" constant="1" id="HfS-Hu-dgr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-XO-NHY">
@@ -148,7 +148,7 @@
                                     <constraint firstAttribute="width" constant="1" id="cx5-Tn-a7y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoH-fl-3nr">
@@ -158,7 +158,7 @@
                                     <constraint firstAttribute="width" constant="1" id="gsY-jZ-UMR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSy-Y1-GeC" userLabel="Order Button">
@@ -282,12 +282,13 @@
             <connections>
                 <outlet property="assignBtn" destination="T24-xm-Vzf" id="UTV-5Y-bMI"/>
                 <outlet property="beReadyBtn" destination="Jf2-Bf-5fE" id="Z87-o2-GFA"/>
-                <outlet property="beReadyStatus" destination="OtS-wh-fcO" id="kVQ-y4-m51"/>
+                <outlet property="beReadyStatus" destination="OtS-wh-fcO" id="4zy-RH-Hm7"/>
                 <outlet property="callServertime" destination="l6C-ha-zGn" id="FOb-77-gro"/>
                 <outlet property="clientImageView" destination="cWY-Cc-UzX" id="bvB-RF-GOa"/>
                 <outlet property="clientnameAndLocation" destination="IAN-wu-nBr" id="vzf-GN-NgE"/>
                 <outlet property="endServerBtn" destination="D0o-oM-oku" id="u7R-PJ-YHL"/>
                 <outlet property="serverStatus" destination="TdW-17-TOT" id="gVH-37-hUS"/>
+                <outlet property="serviceName" destination="rvz-99-ZuX" id="W5J-O7-jiJ"/>
                 <outlet property="topLineImageView" destination="Xfu-Nx-GNM" id="OzO-MF-Rdf"/>
             </connections>
             <point key="canvasLocation" x="370" y="1923.5"/>

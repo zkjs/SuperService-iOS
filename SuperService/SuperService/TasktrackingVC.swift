@@ -9,6 +9,8 @@
 import UIKit
 
 class TasktrackingVC: UIViewController {
+  var taskDetail = TasktrackingModel()
+  var taskid = 0
 
   @IBOutlet weak var tableView: UITableView!
   override func viewDidLoad() {
@@ -22,10 +24,26 @@ class TasktrackingVC: UIViewController {
     tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    loadData()
+  }
+  
+  func loadData() {
+    HttpService.sharedInstance.servicetaskDetail(taskid) { (json, error) in
+      if let error = error {
+        self.showErrorHint(error)
+      } else {
+        if let data = json {
+          let taskDetail = data
+        }
+      }
+    }
+  }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
   }
   
   // MARK: - Table view data source

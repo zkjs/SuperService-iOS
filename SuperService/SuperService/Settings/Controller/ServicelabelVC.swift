@@ -9,44 +9,69 @@
 import UIKit
 
 class ServicelabelVC: UITableViewController {
-
+  var tagsArr = [ServicetagFirstModel]()
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "服务标签"
     tableView.tableFooterView = UIView()
     
-    let AddServicelabeButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,target: self, action: #selector(ServicelabelVC.AddServicelabe))
+    let AddServicelabeButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,target: self, action: #selector(ServicelabelVC.AddServicelabel))
     navigationItem.rightBarButtonItem = AddServicelabeButton
     
     let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
     navigationItem.backBarButtonItem = item
+    loadData()
   }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tableView.reloadData()
+  }
+  
+  func loadData() {
+    self.showHudInView(view, hint: "")
+    HttpService.sharedInstance.servicetags("") {[weak self] (data, error) in
+      guard let strongSelf = self else {return}
+      if let error = error {
+        strongSelf.showErrorHint(error)
+        strongSelf.hideHUD()
+      } else {
+        if let a = data {
+          strongSelf.tagsArr = a
+        }
+      }
+      strongSelf.hideHUD()
+      strongSelf.tableView.reloadData()
+      
+    }
+  }
 
-  func AddServicelabe() {
-    
+  func AddServicelabel() {
+    let storyboard = UIStoryboard(name: "ServicelabelVC", bundle: nil)
+    let rolesWithShopVC = storyboard.instantiateViewControllerWithIdentifier("RolesWithShopTVC") as! RolesWithShopTVC
+    navigationController?.pushViewController(rolesWithShopVC, animated: true)
   }
 
   // MARK: - Table view data source
 
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      // #warning Incomplete implementation, return the number of sections
       return 1
   }
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      // #warning Incomplete implementation, return the number of rows
-      return 4
+      return tagsArr.count
   }
 
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-      cell.textLabel?.text = "康体"
+      let firsttag = tagsArr[indexPath.row]
+      cell.textLabel?.text = firsttag.firstSrvTagName
       return cell
   }
   
@@ -64,7 +89,16 @@ class ServicelabelVC: UITableViewController {
       return []
     } else {
       let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
-        //删除VIP
+        let firsttag = self.tagsArr[indexPath.row]
+        HttpService.sharedInstance.deleteFirstAndSecondTag("", firstsrvtagid: firsttag.firstSrvTagId!, completionHandler: { (json, error) in
+          if let error = error {
+            self.showErrorHint(error)
+          } else {
+            if let data = json {
+              self.showHint(data.string)
+            }
+          }
+        })
        
       }
       more.backgroundColor = UIColor.redColor()
@@ -78,6 +112,12 @@ class ServicelabelVC: UITableViewController {
       let addServicelabelVC = segue.destinationViewController as! AddServerlabelVC
       let cell = tableView.cellForRowAtIndexPath(tableView.indexPathForSelectedRow!)
       addServicelabelVC.titleString = (cell?.textLabel?.text)!
+      let a = tagsArr[(tableView.indexPathForSelectedRow?.row)!]
+      addServicelabelVC.firsttagID = a.firstSrvTagId
+      if let secondtags = a.secondSrvTag {
+        addServicelabelVC.secondtagsArr = secondtags
+      }
+      
 
     }
     

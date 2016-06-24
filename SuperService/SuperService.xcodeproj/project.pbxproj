@@ -413,6 +413,18 @@
 		FA6CCCCF1D1A810C00B8A4DE /* ServicelabelVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6CCCCE1D1A810C00B8A4DE /* ServicelabelVC.storyboard */; };
 		FA6CCCD21D1A86C200B8A4DE /* AddServerlabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CCCD11D1A86C200B8A4DE /* AddServerlabelVC.swift */; };
 		FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */; };
+		FA8803751D1CE0EE00CC9AEF /* RolesWithShopTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8803741D1CE0EE00CC9AEF /* RolesWithShopTVC.swift */; };
+		FA8803771D1CE24100CC9AEF /* RolesWithShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8803761D1CE24000CC9AEF /* RolesWithShopCell.swift */; };
+		FA8803791D1CE54F00CC9AEF /* RolesWithShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8803781D1CE54F00CC9AEF /* RolesWithShopModel.swift */; };
+		FA88037B1D1D0DCB00CC9AEF /* SelectServiceAreaTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88037A1D1D0DCB00CC9AEF /* SelectServiceAreaTVC.swift */; };
+		FA88037D1D1D0DED00CC9AEF /* SelectServiceAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88037C1D1D0DED00CC9AEF /* SelectServiceAreaCell.swift */; };
+		FA88037F1D1D101F00CC9AEF /* TaskExecutionDepartmentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88037E1D1D101F00CC9AEF /* TaskExecutionDepartmentTVC.swift */; };
+		FA8803811D1D106A00CC9AEF /* TaskExecutionDepartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8803801D1D106A00CC9AEF /* TaskExecutionDepartmentCell.swift */; };
+		FA9A42901D1B964B00CA4D16 /* HttpService+CallServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A428F1D1B964B00CA4D16 /* HttpService+CallServiceTask.swift */; };
+		FA9A42921D1BB57C00CA4D16 /* CallServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A42911D1BB57C00CA4D16 /* CallServiceModel.swift */; };
+		FA9A42941D1BC42E00CA4D16 /* TasktrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A42931D1BC42E00CA4D16 /* TasktrackingModel.swift */; };
+		FA9A42961D1BC6A900CA4D16 /* TaskhistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A42951D1BC6A900CA4D16 /* TaskhistoryModel.swift */; };
+		FA9A42981D1BCC8700CA4D16 /* ServicetagFirstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A42971D1BCC8700CA4D16 /* ServicetagFirstModel.swift */; };
 		FAA164A11C91209D0094CCC0 /* PayheadReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */; };
 		FAA420561CE2D8EE000DCCCA /* HttpService+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA420551CE2D8EE000DCCCA /* HttpService+Password.swift */; };
 		FAA420591CE30A75000DCCCA /* PassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA420571CE30A75000DCCCA /* PassWordVC.swift */; };
@@ -1099,6 +1111,18 @@
 		FA6CCCCE1D1A810C00B8A4DE /* ServicelabelVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ServicelabelVC.storyboard; path = Controller/ServicelabelVC.storyboard; sourceTree = "<group>"; };
 		FA6CCCD11D1A86C200B8A4DE /* AddServerlabelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServerlabelVC.swift; sourceTree = "<group>"; };
 		FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSuccessVC.swift; sourceTree = "<group>"; };
+		FA8803741D1CE0EE00CC9AEF /* RolesWithShopTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RolesWithShopTVC.swift; sourceTree = "<group>"; };
+		FA8803761D1CE24000CC9AEF /* RolesWithShopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RolesWithShopCell.swift; sourceTree = "<group>"; };
+		FA8803781D1CE54F00CC9AEF /* RolesWithShopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RolesWithShopModel.swift; sourceTree = "<group>"; };
+		FA88037A1D1D0DCB00CC9AEF /* SelectServiceAreaTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectServiceAreaTVC.swift; sourceTree = "<group>"; };
+		FA88037C1D1D0DED00CC9AEF /* SelectServiceAreaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectServiceAreaCell.swift; sourceTree = "<group>"; };
+		FA88037E1D1D101F00CC9AEF /* TaskExecutionDepartmentTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskExecutionDepartmentTVC.swift; sourceTree = "<group>"; };
+		FA8803801D1D106A00CC9AEF /* TaskExecutionDepartmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskExecutionDepartmentCell.swift; path = ../TaskExecutionDepartmentCell.swift; sourceTree = "<group>"; };
+		FA9A428F1D1B964B00CA4D16 /* HttpService+CallServiceTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+CallServiceTask.swift"; sourceTree = "<group>"; };
+		FA9A42911D1BB57C00CA4D16 /* CallServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallServiceModel.swift; sourceTree = "<group>"; };
+		FA9A42931D1BC42E00CA4D16 /* TasktrackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasktrackingModel.swift; sourceTree = "<group>"; };
+		FA9A42951D1BC6A900CA4D16 /* TaskhistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskhistoryModel.swift; sourceTree = "<group>"; };
+		FA9A42971D1BCC8700CA4D16 /* ServicetagFirstModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServicetagFirstModel.swift; path = ../../ServicetagFirstModel.swift; sourceTree = "<group>"; };
 		FAA164A01C91209D0094CCC0 /* PayheadReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayheadReusableView.swift; path = FacePay/PayheadReusableView.swift; sourceTree = "<group>"; };
 		FAA420551CE2D8EE000DCCCA /* HttpService+Password.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Password.swift"; sourceTree = "<group>"; };
 		FAA420571CE30A75000DCCCA /* PassWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassWordVC.swift; sourceTree = "<group>"; };
@@ -1412,6 +1436,7 @@
 				FAF644F51C98023F00C30D00 /* HttpService+Subscribe.swift */,
 				FAFE59A41CF3FC8E00E07AD1 /* HttpService+VIPUsers.swift */,
 				408C47D61C8710B500F9B0C7 /* ZKJSErrorMessages.swift */,
+				FA9A428F1D1B964B00CA4D16 /* HttpService+CallServiceTask.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 				FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */,
 			);
@@ -1625,6 +1650,8 @@
 		40CAA5F31BE704E400FAFDA0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA9A42971D1BCC8700CA4D16 /* ServicetagFirstModel.swift */,
+				FA8803781D1CE54F00CC9AEF /* RolesWithShopModel.swift */,
 				40CAA5F11BE704E000FAFDA0 /* AreaModel.swift */,
 				FAF1A5E81BEC910A00B9ACC8 /* CodeModel.swift */,
 				4023F7421C1D619A0057351E /* BindCodeModel.swift */,
@@ -1951,6 +1978,9 @@
 			isa = PBXGroup;
 			children = (
 				FAF1A5E01BEC4C9000B9ACC8 /* HeaderView.swift */,
+				FA8803801D1D106A00CC9AEF /* TaskExecutionDepartmentCell.swift */,
+				FA88037C1D1D0DED00CC9AEF /* SelectServiceAreaCell.swift */,
+				FA8803761D1CE24000CC9AEF /* RolesWithShopCell.swift */,
 				FAF1A5E21BEC4CA000B9ACC8 /* HeaderView.xib */,
 				40F7575E1BE0553E0053C2BE /* InformCell.swift */,
 				40F7575F1BE0553E0053C2BE /* InformCell.xib */,
@@ -2679,6 +2709,9 @@
 		FA6CCCB91D1A412800B8A4DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA9A42911D1BB57C00CA4D16 /* CallServiceModel.swift */,
+				FA9A42931D1BC42E00CA4D16 /* TasktrackingModel.swift */,
+				FA9A42951D1BC6A900CA4D16 /* TaskhistoryModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2689,6 +2722,9 @@
 				FA6CCCCC1D1A80FE00B8A4DE /* ServicelabelVC.swift */,
 				FA6CCCCE1D1A810C00B8A4DE /* ServicelabelVC.storyboard */,
 				FA6CCCD11D1A86C200B8A4DE /* AddServerlabelVC.swift */,
+				FA8803741D1CE0EE00CC9AEF /* RolesWithShopTVC.swift */,
+				FA88037A1D1D0DCB00CC9AEF /* SelectServiceAreaTVC.swift */,
+				FA88037E1D1D101F00CC9AEF /* TaskExecutionDepartmentTVC.swift */,
 			);
 			name = Serverlabel;
 			sourceTree = "<group>";
@@ -3152,6 +3188,7 @@
 				FAF1A5DD1BEC41DA00B9ACC8 /* SettingUpTVC.swift in Sources */,
 				400D626E1C1526B50021E750 /* AlphaAnimation.swift in Sources */,
 				40DC2D621C905A80007D9A3F /* PaymentListItem.swift in Sources */,
+				FA88037B1D1D0DCB00CC9AEF /* SelectServiceAreaTVC.swift in Sources */,
 				40589E7E1D127FBF002BED66 /* LocationStateObserver.swift in Sources */,
 				FAF92CAB1C43594F00671300 /* InvoiceDetailVC.swift in Sources */,
 				405245931BBA8C8000BBE8E3 /* RoundedRectButton.swift in Sources */,
@@ -3200,6 +3237,7 @@
 				40FB3D571C00203900675044 /* EaseBubbleView+Text.m in Sources */,
 				40FB3D041C00203900675044 /* EaseUI.m in Sources */,
 				40FB3D341C00203900675044 /* PSTGridLayoutInfo.m in Sources */,
+				FA8803771D1CE24100CC9AEF /* RolesWithShopCell.swift in Sources */,
 				40ABA9681BE1C5EC00737C6D /* BookDateSelectionViewController.swift in Sources */,
 				40FB3D0E1C00203900675044 /* EMVoiceConverter.mm in Sources */,
 				405245911BBA898F00BBE8E3 /* LTBouncyTextField.swift in Sources */,
@@ -3236,6 +3274,7 @@
 				40FB3D601C00203900675044 /* EaseFacialView.m in Sources */,
 				408693FE1C390F7F00BE1709 /* OrderListModel.swift in Sources */,
 				40E3262D1BD4C621008344DF /* SuperService.xcdatamodeld in Sources */,
+				FA9A42941D1BC42E00CA4D16 /* TasktrackingModel.swift in Sources */,
 				40DC2D5A1C902D9C007D9A3F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				40FB3D011C00203900675044 /* ChatViewController.m in Sources */,
 				40589E7A1D12569E002BED66 /* BeaconInfo.swift in Sources */,
@@ -3250,9 +3289,11 @@
 				40111DF21C8FCE7600DD2AE1 /* CustomerHeaderCell.swift in Sources */,
 				40FB3D5B1C00203900675044 /* EaseChatToolbar.m in Sources */,
 				40FB3D171C00203900675044 /* MWTapDetectingImageView.m in Sources */,
+				FA8803751D1CE0EE00CC9AEF /* RolesWithShopTVC.swift in Sources */,
 				40FB3D2C1C00203900675044 /* PSTCollectionView.m in Sources */,
 				400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */,
 				FAF6B0F11C8D6EF400D1192A /* StorageManager.swift in Sources */,
+				FA9A42921D1BB57C00CA4D16 /* CallServiceModel.swift in Sources */,
 				40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */,
 				FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */,
 				40ABA9661BE1BE4700737C6D /* GoodsModel.swift in Sources */,
@@ -3302,6 +3343,7 @@
 				FA5902C41BEDE4B3002E6A98 /* CodeHeaderView.swift in Sources */,
 				40FB3D1B1C00203900675044 /* EMSDImageCache.m in Sources */,
 				40CAA5FA1BE705F800FAFDA0 /* StaffLoginVC.swift in Sources */,
+				FA8803811D1D106A00CC9AEF /* TaskExecutionDepartmentCell.swift in Sources */,
 				40F7576C1BE0553E0053C2BE /* InformCell.swift in Sources */,
 				FAF92CB01C435A5800671300 /* InvoiceModel.swift in Sources */,
 				406B0B171C85B5E0006C9C73 /* ServerTrustPolicy.swift in Sources */,
@@ -3313,8 +3355,10 @@
 				406B0AE31C85B391006C9C73 /* YunbaSubscribeService.swift in Sources */,
 				4016A2941CD1C2E800B95745 /* CircularProgressView.swift in Sources */,
 				40FB3D541C00203900675044 /* EaseBubbleView+File.m in Sources */,
+				FA88037D1D1D0DED00CC9AEF /* SelectServiceAreaCell.swift in Sources */,
 				406B0AF91C85B5E0006C9C73 /* Alamofire.swift in Sources */,
 				40D733A31BE348AB00266228 /* Conversation+CoreDataProperties.swift in Sources */,
+				FA8803791D1CE54F00CC9AEF /* RolesWithShopModel.swift in Sources */,
 				40FB3D4E1C00203900675044 /* EaseUsersListViewController.m in Sources */,
 				40FB3D131C00203900675044 /* MWGridCell.m in Sources */,
 				40FB3D201C00203900675044 /* EMSDWebImageManager.m in Sources */,
@@ -3322,6 +3366,7 @@
 				40FB3D511C00203900675044 /* EaseBaseMessageCell.m in Sources */,
 				40FB3D5A1C00203900675044 /* EaseBubbleView.m in Sources */,
 				FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */,
+				FA9A42901D1B964B00CA4D16 /* HttpService+CallServiceTask.swift in Sources */,
 				40FB3D421C00203900675044 /* UIViewController+HUD.m in Sources */,
 				FAFA308A1CDC7A49003FEBCD /* HttpServiceForOC.swift in Sources */,
 				40FB3D4C1C00203900675044 /* EaseMessageViewController.m in Sources */,
@@ -3361,6 +3406,7 @@
 				40FB3D3C1C00203900675044 /* EaseUserModel.m in Sources */,
 				40CF567D1BF3621600E20D50 /* UIViewController+ZKJS.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
+				FA9A42981D1BCC8700CA4D16 /* ServicetagFirstModel.swift in Sources */,
 				40CFC18C1C3E17FA002DF0C7 /* BookRoomListVC.swift in Sources */,
 				408C47D71C8710B500F9B0C7 /* ZKJSErrorMessages.swift in Sources */,
 				40FB3D361C00203900675044 /* PSTGridLayoutRow.m in Sources */,
@@ -3374,6 +3420,7 @@
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
 				40ABA9741BE1C60A00737C6D /* TSQCalendarCell.m in Sources */,
 				FAF165E01CD1D1DB00A88BD0 /* ClientLabelCollectionCell.swift in Sources */,
+				FA9A42961D1BC6A900CA4D16 /* TaskhistoryModel.swift in Sources */,
 				40DC2D4C1C901FD3007D9A3F /* ChargeVC.swift in Sources */,
 				404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */,
 				400D62701C1526B50021E750 /* AnimatedPagingScrollViewController.swift in Sources */,
@@ -3400,6 +3447,7 @@
 				40E3263C1BD50444008344DF /* Location+CoreDataProperties.swift in Sources */,
 				FA0B7E151C5A05A200266615 /* AddClientModel.swift in Sources */,
 				40CAA5F61BE705DA00FAFDA0 /* AdminLoginV.swift in Sources */,
+				FA88037F1D1D101F00CC9AEF /* TaskExecutionDepartmentTVC.swift in Sources */,
 				400D62731C1526B50021E750 /* BackgroundColorAnimation.swift in Sources */,
 				40F757471BE054160053C2BE /* ClientListCell.swift in Sources */,
 				40FB3D1F1C00203900675044 /* EMSDWebImageDownloaderOperation.m in Sources */,

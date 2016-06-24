@@ -9,9 +9,6 @@
 import UIKit
 
 class RolesWithShopTVC: UITableViewController {
-  var selectedRolesArray = [String]()
-  var selectedArray = [Int]()
-  var selectedCellIndexPaths:[NSIndexPath] = []
   let collation = UILocalizedIndexedCollation.currentCollation()
   var sections = [String:[TeamModel]]()
   var teamArray = [TeamModel]() {
@@ -66,7 +63,7 @@ class RolesWithShopTVC: UITableViewController {
   }
   
   func loadData() {
-    self.selectedRolesArray.removeAll()
+
     self.showHudInView(view, hint: "")
     HttpService.sharedInstance.queryTeamsInfo {[weak self] (teams, error) -> () in
       guard let strongSelf = self else {return}
@@ -80,18 +77,10 @@ class RolesWithShopTVC: UITableViewController {
           strongSelf.tableView?.reloadData()
         }
       }
-      self!.initSelectedArray()
-      self?.hideHUD()
     }
   }
   
-  func initSelectedArray() {
-    for index in 0..<teamArray.count {
-      if selectedRolesArray.contains(teamArray[index].roleid!) {
-        selectedArray.append(index)
-      }
-    }
-  }
+
 
 
     // MARK: - Table view data source
@@ -112,9 +101,7 @@ class RolesWithShopTVC: UITableViewController {
     if let team = sections[role]?[indexPath.row] {
       cell.congfigCell(team)
     }
-    
-
-      return cell
+    return cell
   }
   
   // MARK: UITableViewDelegate

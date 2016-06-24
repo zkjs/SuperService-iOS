@@ -9,6 +9,8 @@
 import UIKit
 
 class RolesWithShopTVC: UITableViewController {
+  var selectedRolesArray = [Int]()
+  var selectedArray = [Int]()
   let collation = UILocalizedIndexedCollation.currentCollation()
   var sections = [String:[TeamModel]]()
   var teamArray = [TeamModel]() {
@@ -63,23 +65,39 @@ class RolesWithShopTVC: UITableViewController {
   }
   
   func loadData() {
-
+    self.selectedRolesArray.removeAll()
     self.showHudInView(view, hint: "")
     HttpService.sharedInstance.queryTeamsInfo {[weak self] (teams, error) -> () in
       guard let strongSelf = self else {return}
       if let error = error {
-        self?.showErrorHint(error)
-        self?.hideHUD()
+        strongSelf.showErrorHint(error)
+        strongSelf.hideHUD()
       } else {
         if let users = teams where users.count > 0 {
           strongSelf.teamArray.removeAll()
           strongSelf.teamArray = users
           strongSelf.tableView?.reloadData()
+          strongSelf.hideHUD()
+          strongSelf.initSelectedArray()
         }
       }
     }
+    
   }
   
+  func initSelectedArray() {
+    for index in 0..<sections.count {
+      let role = sectionTitleArr[index].1
+        for row in 0..<sections[role]!.count {
+          let team = sections[role]?[row]
+          if selectedRolesArray.contains((team?.roleid!)!) {
+            let a = index + row
+            selectedArray.append(a)
+          }
+        }
+
+    }
+  }
 
 
 
@@ -97,11 +115,45 @@ class RolesWithShopTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("RolesWithShopCell", forIndexPath: indexPath) as! RolesWithShopCell
-    let role = sectionTitleArr[indexPath.section].1
-    if let team = sections[role]?[indexPath.row] {
-      cell.congfigCell(team)
+      let role = sectionTitleArr[indexPath.section].1
+      if let team = sections[role]?[indexPath.row] {
+        cell.congfigCell(team)
     }
-    return cell
+      return cell
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! RolesWithShopCell
+    cell.changeSelectedButtonImage()
+    updateSelectedArrayWithCell(cell,section: indexPath.section,row: indexPath.row)
+  }
+  
+  
+  func updateSelectedArrayWithCell(cell: RolesWithShopCell,section:Int,row:Int) {
+    let role = sectionTitleArr[section].1
+    guard let team = sections[role]?[row] else {return}
+    if cell.isUncheck == false {
+      self.selectedArray.append(section + row)
+      selectedRolesArray.append(team.roleid!)
+      print(selectedRolesArray)
+    } else {
+      if let index = selectedArray.indexOf(section + row) {
+        selectedArray.removeAtIndex(index)
+        for (index, value) in selectedRolesArray.enumerate() {
+          if selectedRolesArray.count == 1 {
+            selectedRolesArray.removeAtIndex(0)
+            return
+          }
+          if case team.roleid! = value {
+            selectedRolesArray.removeAtIndex(index)
+            print(selectedRolesArray)
+            print("Found \(value) at position \(index)")
+            return
+          }
+        }
+      }
+    }
   }
   
   // MARK: UITableViewDelegate

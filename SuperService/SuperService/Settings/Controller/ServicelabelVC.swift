@@ -20,7 +20,7 @@ class ServicelabelVC: UITableViewController {
     
     let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
     navigationItem.backBarButtonItem = item
-    loadData()
+    
   }
 
   override func didReceiveMemoryWarning() {
@@ -30,7 +30,7 @@ class ServicelabelVC: UITableViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.tableView.reloadData()
+    loadData()
   }
   
   func loadData() {
@@ -90,7 +90,7 @@ class ServicelabelVC: UITableViewController {
     } else {
       let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
         let firsttag = self.tagsArr[indexPath.row]
-        HttpService.sharedInstance.deleteFirstAndSecondTag("", firstsrvtagid: firsttag.firstSrvTagId!, completionHandler: { (json, error) in
+        HttpService.sharedInstance.deleteFirstAndSecondTag("", firstsrvtagid: String(firsttag.firstSrvTagId!), completionHandler: { (json, error) in
           if let error = error {
             self.showErrorHint(error)
           } else {
@@ -112,12 +112,10 @@ class ServicelabelVC: UITableViewController {
       let addServicelabelVC = segue.destinationViewController as! AddServerlabelVC
       let cell = tableView.cellForRowAtIndexPath(tableView.indexPathForSelectedRow!)
       addServicelabelVC.titleString = (cell?.textLabel?.text)!
-      let a = tagsArr[(tableView.indexPathForSelectedRow?.row)!]
-      addServicelabelVC.firsttagID = a.firstSrvTagId
-      if let secondtags = a.secondSrvTag {
+      if let a:ServicetagFirstModel = tagsArr[(tableView.indexPathForSelectedRow?.row)!],let str = a.firstSrvTagId,let secondtags = a.secondSrvTag {
+        addServicelabelVC.firsttagID = str
         addServicelabelVC.secondtagsArr = secondtags
       }
-      
 
     }
     

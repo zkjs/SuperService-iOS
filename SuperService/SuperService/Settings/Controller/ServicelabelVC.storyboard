@@ -157,29 +157,21 @@
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTO-Gz-MgU">
-                                            <rect key="frame" x="328" y="13" width="20" height="20"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_jia_r_blue" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-c8-WX2">
+                                            <rect key="frame" x="335" y="14" width="20" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="1Kr-wG-iMa">
-                                                    <variation key="heightClass=regular-widthClass=regular" constant="50"/>
-                                                </constraint>
-                                                <constraint firstAttribute="height" constant="20" id="8vD-3K-Uen">
-                                                    <variation key="heightClass=regular-widthClass=regular" constant="50"/>
-                                                </constraint>
+                                                <constraint firstAttribute="width" constant="20" id="8Y3-9x-viQ"/>
+                                                <constraint firstAttribute="height" constant="20" id="tAP-r8-8zT"/>
                                             </constraints>
-                                            <state key="normal" title="Button" image="ic_jia_r_blue"/>
-                                            <connections>
-                                                <action selector="tappedCheckedButton:" destination="UmL-Y6-t49" eventType="touchUpInside" id="fk4-7O-WxD"/>
-                                            </connections>
-                                        </button>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dTO-Gz-MgU" firstAttribute="centerY" secondItem="1t7-rm-rx0" secondAttribute="centerY" id="EeT-A0-qzg"/>
+                                        <constraint firstItem="YUd-c8-WX2" firstAttribute="centerY" secondItem="1t7-rm-rx0" secondAttribute="centerY" id="6Kh-y4-gGN"/>
                                         <constraint firstItem="1t7-rm-rx0" firstAttribute="centerY" secondItem="OAm-2Y-PwH" secondAttribute="centerY" id="HaD-FK-bAP"/>
                                         <constraint firstItem="1t7-rm-rx0" firstAttribute="top" secondItem="OAm-2Y-PwH" secondAttribute="top" id="Jnu-YG-tZ7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="YUd-c8-WX2" secondAttribute="trailing" constant="12" id="SH0-dz-3wU"/>
                                         <constraint firstItem="OAm-2Y-PwH" firstAttribute="top" secondItem="CAu-Ej-DTu" secondAttribute="topMargin" constant="5" id="YUh-uD-tmd"/>
                                         <constraint firstItem="1t7-rm-rx0" firstAttribute="leading" secondItem="OAm-2Y-PwH" secondAttribute="trailing" constant="42" id="n9F-cW-aqM"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dTO-Gz-MgU" secondAttribute="trailing" constant="19" id="oxV-5H-DTy"/>
                                         <constraint firstItem="OAm-2Y-PwH" firstAttribute="leading" secondItem="CAu-Ej-DTu" secondAttribute="leadingMargin" constant="10" id="yVx-ew-5HN"/>
                                     </constraints>
                                     <variation key="default">
@@ -189,9 +181,9 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkoutButton" destination="dTO-Gz-MgU" id="YPq-6p-Ece"/>
                                     <outlet property="rolesPhoneLabel" destination="1t7-rm-rx0" id="tHZ-YC-vw2"/>
                                     <outlet property="rolesnameLabel" destination="OAm-2Y-PwH" id="dch-ia-SVg"/>
+                                    <outlet property="selectedImageView" destination="YUd-c8-WX2" id="0X1-o4-jFw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -287,8 +279,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJc-HS-Dj5" customClass="CheckButton" customModule="SuperService" customModuleProvider="target">
-                                            <rect key="frame" x="324" y="18" width="20" height="20"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJc-HS-Dj5">
+                                            <rect key="frame" x="324" y="14" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="8BG-Cg-QMw">
                                                     <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -297,10 +289,13 @@
                                                     <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                 </constraint>
                                             </constraints>
-                                            <state key="normal" title="Button" image="ic_jia_r_blue"/>
+                                            <state key="normal" title="Button" image="0D962EB7-5D10-49C3-BED0-5A261328BAB6"/>
+                                            <connections>
+                                                <action selector="tappedCheckedButton:" destination="pac-FF-749" eventType="touchUpInside" id="zlh-fd-xHA"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="康体中心前台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYy-d1-TU8">
-                                            <rect key="frame" x="23" y="18" width="96" height="20"/>
+                                            <rect key="frame" x="23" y="14" width="96" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -308,7 +303,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="TYy-d1-TU8" firstAttribute="leading" secondItem="1qF-TS-Zxm" secondAttribute="leadingMargin" constant="15" id="FgS-hV-ajg"/>
-                                        <constraint firstItem="TYy-d1-TU8" firstAttribute="top" secondItem="1qF-TS-Zxm" secondAttribute="topMargin" constant="10" id="Hm3-W1-oGS"/>
+                                        <constraint firstItem="TYy-d1-TU8" firstAttribute="top" secondItem="1qF-TS-Zxm" secondAttribute="topMargin" constant="6" id="Hm3-W1-oGS"/>
                                         <constraint firstItem="PJc-HS-Dj5" firstAttribute="centerY" secondItem="TYy-d1-TU8" secondAttribute="centerY" id="nTN-hK-LiO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PJc-HS-Dj5" secondAttribute="trailing" constant="23" id="nqM-27-fOa"/>
                                     </constraints>
@@ -332,6 +327,84 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0D962EB7-5D10-49C3-BED0-5A261328BAB6" width="20" height="20">
+            <mutableData key="keyedArchiveRepresentation">
+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
+AARsdHJUUgAAACIAAASQZmlGSQAAACgAAASyaHJIUgAAACgAAATacGxQTAAAACwAAAUCcnVSVQAAACIA
+AAUuYXJFRwAAACYAAAVQZW5VUwAAACYAAAV2AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIA
+bwBmAGkAbABHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIA
+ZgBpAGwAIABSAEcAQgAgAGcAZQBuAOgAcgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBHAEIAIABDAGgA
+dQBuAGcAUABlAHIAZgBpAGwAIABSAEcAQgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgE
+OQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcAQgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAA
+UgBWAEIAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBskBp1KAAgAFIARwBCACCC
+cl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsAIABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9ACAA
+UgBHAEIAIABwAHIAbwBmAGkAbAXkBegF1QXkBdkF3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkA
+bABvACAAUgBHAEIAIABnAGUAbgBlAHIAaQBjAG8AUAByAG8AZgBpAGwAIABSAEcAQgAgAGcAZQBuAGUA
+cgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4AZQBzACAAUgBHAEIALQBQAHIAbwBmAGkAbMd8vBgAIABSAEcA
+QgAg1QS4XNMMx3xmbpAaACAAUgBHAEIAIGPPj/Blh072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsD
+kwO1A70DuQO6A8wAIAPAA8EDvwPGA68DuwAgAFIARwBCAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUA
+bgDpAHIAaQBjAG8AQQBsAGcAZQBtAGUAZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBsDkIOGw4jDkQO
+Hw4lDkwAIABSAEcAQgAgDhcOMQ5IDicORA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBpAGwA
+aQBZAGwAZQBpAG4AZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkA
+IABSAEcAQgAgAHAAcgBvAGYAaQBsAFUAbgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAA
+UgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAA
+UgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQByAGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZXRleHQA
+AAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAA
+APNSAAEAAAABFs9YWVogAAAAAAAAdE0AAD3uAAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAA
+ACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEBzQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L/
+//2jAAAD3AAAwGzSJSYnKFokY2xhc3NuYW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMnKSpa
+TlNJbWFnZVJlcFhOU09iamVjdNIlJiwtV05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJheaMvLCrT
+MjMKNDU2V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AM0iUmODlXTlNDb2xvcqI4KtIlJjs8V05T
+SW1hZ2WiOypfEA9OU0tleWVkQXJjaGl2ZXLRP0BUcm9vdIABAAgAEQAaACMALQAyADcARgBMAFcAXgBl
+AHIAeQCBAIMAhQCKAIwAjgCXAJwApwCpAKsArQCyALUAtwC5ALsAvQDCANkA2wDdD78PxA/PD9gP6w/v
+D/oQAxAIEBAQExAYECcQKxAyEDoQRxBMEE4QUBBVEF0QYBBlEG0QcBCCEIUQigAAAAAAAAIBAAAAAAAA
+AEEAAAAAAAAAAAAAAAAAABCMA
+</mutableData>
+        </image>
         <image name="ic_jia_r_blue" width="20" height="20"/>
     </resources>
 </document>

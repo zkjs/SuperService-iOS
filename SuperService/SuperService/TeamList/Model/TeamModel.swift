@@ -12,7 +12,7 @@ struct TeamModel {
 
   var username: String?
   var phone: String?
-  var roleid: Int16?
+  var roleid: Int?
   var realname: String?
   var email: String?
   var rolename: String?
@@ -50,6 +50,7 @@ struct TeamModel {
     roledesc = dic["roledesc"].string ?? ""
     email = dic["email"].string ?? ""
     rolename = dic["rolename"].string ?? ""
+    roleid = dic["roleid"].int ?? 0
     
    
   }

@@ -96,7 +96,7 @@ class SelectServiceAreaTVC: UITableViewController {
 
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("SelectServiceAreaCell", forIndexPath: indexPath) as! SelectServiceAreaCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("SelectServiceAreaCell", forIndexPath: indexPath) as! SelectServiceAreaCell
     let area = areaArray[indexPath.row]
     cell.selectedButton.addTarget(self, action: #selector(SelectServiceAreaTVC.tappedCellSelectedButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row

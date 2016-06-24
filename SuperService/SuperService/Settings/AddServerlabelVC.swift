@@ -11,7 +11,7 @@ import UIKit
 class AddServerlabelVC: UITableViewController {
   var titleString:String!
   var secondtagsArr = [ServicetagSecondmodel]()
-  var firsttagID:String!
+  var firsttagID:Int!
 
   @IBOutlet weak var serverlabeltextFlied: UITextField!
   override func viewDidLoad() {
@@ -34,7 +34,7 @@ class AddServerlabelVC: UITableViewController {
       return
     }
     self.showHudInView(view, hint: "")
-    HttpService.sharedInstance.addSecondServiceTag(firsttagID, secondSrvTagName: str) { (json, error) in
+    HttpService.sharedInstance.addSecondServiceTag(String(firsttagID), secondSrvTagName: str) { (json, error) in
       if let error = error {
         self.showErrorHint(error)
       } else {
@@ -76,7 +76,7 @@ class AddServerlabelVC: UITableViewController {
     } else {
       let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
         let secondtags = self.secondtagsArr[indexPath.row]
-        HttpService.sharedInstance.deleteFirstAndSecondTag(secondtags.secondSrvTagId!, firstsrvtagid: "", completionHandler: { (json, error) in
+        HttpService.sharedInstance.deleteFirstAndSecondTag(String(secondtags.secondSrvTagId!), firstsrvtagid: "", completionHandler: { (json, error) in
           if let error = error {
             self.showErrorHint(error)
           } else {

@@ -84,8 +84,9 @@ extension HttpService {
       } else {
         if let datas = json?["data"].array where datas.count > 0 {
           var roles = [RolesWithShopModel]()
-          for a in roles {
-            roles.append(a)
+          for a in datas {
+            let role =  RolesWithShopModel(dic:a)
+            roles.append(role)
           }
           completionHandler(roles,nil)
         } else {
@@ -112,7 +113,6 @@ extension HttpService {
             let user = ServicetagFirstModel(dic: a)
             servicetags.append(user)
           }
-          print(servicetags.count)
           completionHandler(servicetags,nil)
         } else {
           completionHandler([],nil)

@@ -9,11 +9,11 @@
 import UIKit
 
 class RolesWithShopModel: NSObject {
-  var roleid:String?
+  var roleid:Int?
   var rolename:String?
   
   init(dic:JSON) {
-    roleid = dic["roleid"].string ?? ""
+    roleid = dic["roleid"].int ?? 0
     rolename = dic["rolename"].string ?? ""
   }
 

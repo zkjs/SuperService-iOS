@@ -10,7 +10,7 @@ import UIKit
 
 class RolesWithShopCell: UITableViewCell {
 
-  @IBOutlet weak var checkoutButton: UIButton!
+  @IBOutlet weak var selectedImageView: UIImageView!
   @IBOutlet weak var rolesPhoneLabel: UILabel!
   @IBOutlet weak var rolesnameLabel: UILabel!
   var isUncheck = true
@@ -31,19 +31,17 @@ class RolesWithShopCell: UITableViewCell {
     
   }
 
-  @IBAction func tappedCheckedButton(sender: AnyObject) {
-    changeSelectedButtonImage()
-  }
+
   
   func changeSelectedButtonImage() {
     isUncheck = !isUncheck
     if isUncheck {
       // check
-      checkoutButton.setImage(UIImage(named: "ic_jia_nor"), forState:UIControlState.Normal)
-      
+      selectedImageView.image = UIImage(named: "ic_jia_nor")
+     
     } else {
       // uncheck
-      checkoutButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
+      selectedImageView.image = UIImage(named: "ic_jia_pre")
     }
   }
 }

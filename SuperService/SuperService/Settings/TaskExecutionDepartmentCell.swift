@@ -12,6 +12,7 @@ class TaskExecutionDepartmentCell: UITableViewCell {
 
   @IBOutlet weak var departmentButton: UIButton!
   @IBOutlet weak var departmentLabel: UILabel!
+  var isUncheck = true
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -24,4 +25,19 @@ class TaskExecutionDepartmentCell: UITableViewCell {
       departmentLabel.text = department.rolename
     }
 
+  @IBAction func tappedCheckedButton(sender: AnyObject) {
+    changeSelectedButtonImage()
+  }
+  
+  func changeSelectedButtonImage() {
+    isUncheck = !isUncheck
+    if isUncheck {
+      // check
+      departmentButton.setImage(UIImage(named: "ic_jia_nor"), forState:UIControlState.Normal)
+      
+    } else {
+      // uncheck
+      departmentButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
+    }
+  }
 }

@@ -9,11 +9,11 @@
 import UIKit
 struct ServicetagSecondmodel {
   var secondSrvTagName:String?
-  var secondSrvTagId:String?
+  var secondSrvTagId:Int?
   var secondSrvTagDesc:String?
   
   init(json:JSON) {
-    secondSrvTagId = json["secondSrvTagId"].string ?? ""
+    secondSrvTagId = json["secondSrvTagId"].int ?? 0
     secondSrvTagName = json["secondSrvTagName"].string ?? ""
     secondSrvTagDesc = json["secondSrvTagDesc"].string ?? ""
   }
@@ -21,12 +21,12 @@ struct ServicetagSecondmodel {
 }
 struct ServicetagFirstModel {
   var firstSrvTagName:String?
-  var firstSrvTagId:String?
+  var firstSrvTagId:Int?
   var secondSrvTag:[ServicetagSecondmodel]?
   
   init(dic:JSON) {
     firstSrvTagName = dic["firstSrvTagName"].string ?? ""
-    firstSrvTagId = dic["firstSrvTagId"].string ?? ""
+    firstSrvTagId = dic["firstSrvTagId"].int ?? 0
     if let  secondsrvTag = dic["secondSrvTag"].array {
       var ordersArray = [ServicetagSecondmodel]()
       for o in secondsrvTag {

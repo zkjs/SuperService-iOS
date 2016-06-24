@@ -9,7 +9,8 @@
 import UIKit
 
 class TaskExecutionDepartmentTVC: UITableViewController {
-
+  var selectedDepartmentArray = [Int]()
+  var selectedArray = [Int]()
   var departmentArr = [RolesWithShopModel]()
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -35,6 +36,7 @@ class TaskExecutionDepartmentTVC: UITableViewController {
   }
   
   func loadData() {
+    selectedDepartmentArray.removeAll()
     HttpService.sharedInstance.rolesWithshops { (data, error) in
       if let error = error {
         self.showErrorHint(error)
@@ -43,13 +45,21 @@ class TaskExecutionDepartmentTVC: UITableViewController {
           self.departmentArr = department
         }
       }
+      self.initSelectedArray()
       self.tableView.reloadData()
+    }
+  }
+  
+  func initSelectedArray() {
+    for index in 0..<departmentArr.count {
+      if selectedDepartmentArray.contains(departmentArr[index].roleid!) {
+        selectedArray.append(index)
+      }
     }
   }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-
   }
 
   // MARK: - Table view data source
@@ -59,7 +69,6 @@ class TaskExecutionDepartmentTVC: UITableViewController {
   }
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
       return departmentArr.count
   }
 
@@ -68,10 +77,53 @@ class TaskExecutionDepartmentTVC: UITableViewController {
       let cell = tableView.dequeueReusableCellWithIdentifier("TaskExecutionDepartmentCell", forIndexPath: indexPath) as! TaskExecutionDepartmentCell
       let department = departmentArr[indexPath.row]
       cell.congfigCell(department)
+      cell.departmentButton.addTarget(self, action: #selector(TaskExecutionDepartmentTVC.tappedCellSelectedButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+      cell.departmentButton.tag = indexPath.row
+      if selectedDepartmentArray.contains(department.roleid!) {
+        cell.isUncheck = false
+        cell.departmentButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
+      } else {
+        cell.isUncheck = true
+        cell.departmentButton.setImage(UIImage(named: "ic_jia_nor"), forState:UIControlState.Normal)
+      }
+
       return cell
   }
-    
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TaskExecutionDepartmentCell
+    cell.changeSelectedButtonImage()
+    updateSelectedArrayWithCell(cell)
+  }
+  
+  func tappedCellSelectedButton(sender: UIButton) {
+    let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: sender.tag, inSection: 0)) as! TaskExecutionDepartmentCell
+    updateSelectedArrayWithCell(cell)
+  }
 
+  func updateSelectedArrayWithCell(cell: TaskExecutionDepartmentCell) {
     
+    let department = departmentArr[cell.departmentButton.tag]
+    if cell.isUncheck == false {
+      self.selectedArray.append(cell.departmentButton.tag)
+      selectedDepartmentArray.append(department.roleid!)
+    } else {
+      if let index = selectedArray.indexOf(cell.departmentButton.tag) {
+        selectedArray.removeAtIndex(index)
+        for (index, value) in selectedDepartmentArray.enumerate() {
+          if selectedDepartmentArray.count == 1 {
+            selectedDepartmentArray.removeAtIndex(0)
+            return
+          }
+          if case department.roleid! = value {
+            selectedDepartmentArray.removeAtIndex(index)
+            print(selectedDepartmentArray)
+            print("Found \(value) at position \(index)")
+          }
+        }
+      }
+    }
+  }
 
 }

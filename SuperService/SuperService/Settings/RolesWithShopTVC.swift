@@ -9,7 +9,7 @@
 import UIKit
 
 class RolesWithShopTVC: UITableViewController {
-  var selectedRolesArray = [Int]()
+  var selectedRolesArray = [String]()
   var selectedArray = [Int]()
   let collation = UILocalizedIndexedCollation.currentCollation()
   var sections = [String:[TeamModel]]()
@@ -60,8 +60,14 @@ class RolesWithShopTVC: UITableViewController {
   
   func nextStep() {
     let storyboard = UIStoryboard(name: "ServicelabelVC", bundle: nil)
-    let rolesWithShopVC = storyboard.instantiateViewControllerWithIdentifier("SelectServiceAreaTVC") as! SelectServiceAreaTVC
-    navigationController?.pushViewController(rolesWithShopVC, animated: true)
+    let selectServiceAreaVC = storyboard.instantiateViewControllerWithIdentifier("SelectServiceAreaTVC") as! SelectServiceAreaTVC
+    selectServiceAreaVC.selectedRolesArr = selectedRolesArray
+    guard let str = clubtextField.text else {
+      self.showHint("请填写标签")
+      return
+    }
+    selectServiceAreaVC.firstSrvTagName = str
+    navigationController?.pushViewController(selectServiceAreaVC, animated: true)
   }
   
   func loadData() {
@@ -90,7 +96,7 @@ class RolesWithShopTVC: UITableViewController {
       let role = sectionTitleArr[index].1
         for row in 0..<sections[role]!.count {
           let team = sections[role]?[row]
-          if selectedRolesArray.contains((team?.roleid!)!) {
+          if selectedRolesArray.contains((team?.userid!)!) {
             let a = index + row
             selectedArray.append(a)
           }
@@ -135,7 +141,7 @@ class RolesWithShopTVC: UITableViewController {
     guard let team = sections[role]?[row] else {return}
     if cell.isUncheck == false {
       self.selectedArray.append(section + row)
-      selectedRolesArray.append(team.roleid!)
+      selectedRolesArray.append(team.userid!)
       print(selectedRolesArray)
     } else {
       if let index = selectedArray.indexOf(section + row) {
@@ -145,7 +151,7 @@ class RolesWithShopTVC: UITableViewController {
             selectedRolesArray.removeAtIndex(0)
             return
           }
-          if case team.roleid! = value {
+          if case team.userid! = value {
             selectedRolesArray.removeAtIndex(index)
             print(selectedRolesArray)
             print("Found \(value) at position \(index)")

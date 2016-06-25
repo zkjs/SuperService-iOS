@@ -12,28 +12,29 @@ class CallServiceModel: NSObject {
   var taskid:String?
   var svrname:String?
   var status:String?
-  var statuscode:String?
+  var statuscode:StatusType
   var isowner:Int?
   var userid:String?
   var username:String?
   var userimage:String?
-  var operationseq:String?
+  var operationseq:Int?
   var createtime:String?
-  
-  override init() {
-    super.init()
-    
-  }
+
+
   init(dic:JSON) {
-    taskid = dic["task"].string ?? ""
+    taskid = dic["taskid"].string ?? ""
     svrname = dic["svrname"].string ?? ""
     status = dic["status"].string ?? ""
-    statuscode = dic["statuscode"].string ?? ""
+    if let a = dic["statuscode"].int,status = StatusType(rawValue:a) {
+      statuscode = status
+    } else {
+      statuscode = .Unknown
+    }
     isowner = dic["isowner"].int ?? 0
     userid = dic["userid"].string ?? ""
     username = dic["username"].string ?? ""
     userimage = dic["userimage"].string ?? ""
-    operationseq = dic["operationseq"].string ?? ""
+    operationseq = dic["operationseq"].int ?? 0
     createtime = dic["createtime"].string ?? ""
   }
 

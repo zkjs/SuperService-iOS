@@ -28,19 +28,23 @@ class CallInfoVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     loadData()
+    
   }
   
   func loadData() {
+    self.showHudInView(view, hint: "")
     HttpService.sharedInstance.getCallServicelist("") { (services, error) in
       if let error = error {
         self.showErrorHint(error)
       } else {
         if let data = services {
           self.callServicesData = data
+          self.tableView.reloadData()
         }
       }
     }
-    self.tableView.reloadData()
+    self.hideHUD()
+    
   }
   
   override func loadView() {
@@ -48,11 +52,11 @@ class CallInfoVC: UIViewController {
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return callServicesData.count
   }
 
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return callServicesData.count
+    return 1
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -69,15 +73,51 @@ class CallInfoVC: UIViewController {
     }
     let service = callServicesData[indexPath.row]
     cell.confing(service)
+    
+    if service.statuscode == StatusType.Complete {//完成状态不可操作
+      cell.endServerBtn.enabled = false
+      cell.endServerBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
+      cell.assignBtn.enabled = false
+      cell.assignBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
+      cell.beReadyBtn.enabled = false
+      cell.beReadyBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
+    }
+    
+    cell.serviceStatusChangeSuccessClourse = {(str) -> Void in 
+      let titleString = "该任务" + "\(str)"
+      let alertController = UIAlertController(title: titleString, message: "", preferredStyle: .Alert)
+      let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+        self.loadData()
+      }
+      alertController.addAction(checkAction)
+      self.presentViewController(alertController, animated: true, completion: nil)
+      }
+    cell.assignBtn.addTarget(self, action: #selector(CallInfoVC.taskActionAssign), forControlEvents: .TouchUpInside)
+    cell.assignBtn.tag = indexPath.row
     return cell
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let service = callServicesData[indexPath.row]
+    if service.statuscode == StatusType.Complete {//完成状态不可操作
+      return
+    }
     let vc = TasktrackingVC()
     vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
     
   }
+  
+  
+  func taskActionAssign(sender:UIButton) {
+    let service = callServicesData[sender.tag]
+    let storyboard = UIStoryboard(name: "TaskAssignTVC", bundle: nil)
+    let taskassignVC = storyboard.instantiateViewControllerWithIdentifier("TaskAssignTVC") as! TaskAssignTVC
+    taskassignVC.service = service
+    taskassignVC.hidesBottomBarWhenPushed = true
+    self.navigationController?.pushViewController(taskassignVC, animated: true)
+  }
+  
     
 
 }

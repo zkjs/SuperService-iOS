@@ -12,6 +12,9 @@ class TaskExecutionDepartmentTVC: UITableViewController {
   var selectedDepartmentArray = [Int]()
   var selectedArray = [Int]()
   var departmentArr = [RolesWithShopModel]()
+  var selectedAreaArr = [String]()
+  var selectedRolesArr = [String]()
+  var firstSrvTagName = ""
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "任务执行部门"
@@ -29,10 +32,18 @@ class TaskExecutionDepartmentTVC: UITableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     loadData()
+    
   }
   
   func complete() {
-    
+    let dic = ["firstSrvTagName":firstSrvTagName,"roleids":self.selectedDepartmentArray,"ownerids":selectedRolesArr,"locids":selectedAreaArr]
+    HttpService.sharedInstance.addFirstserviceTag(dic) { (json, error) in
+      if let error = error {
+        self.showErrorHint(error)
+      } else {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+      }
+    }
   }
   
   func loadData() {

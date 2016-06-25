@@ -9,9 +9,11 @@
 import UIKit
 
 class SelectServiceAreaTVC: UITableViewController {
-  var noticeArray = [String]()
+  var selectedRolesArr = [String]()
+  var selectedAreaArray = [String]()
   var areaArray = [AreaModel]()
   var selectedArray = [Int]()
+  var firstSrvTagName = ""
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "选择服务区域"
@@ -38,7 +40,7 @@ class SelectServiceAreaTVC: UITableViewController {
   }
   
   func loadData(page:Int) {
-    self.noticeArray.removeAll()
+    self.selectedAreaArray.removeAll()
     HttpService.sharedInstance.getSubscribeList(page) { (json, error) -> Void in
       if let _ = error {
         self.tableView.mj_footer.endRefreshing()
@@ -78,7 +80,7 @@ class SelectServiceAreaTVC: UITableViewController {
   
   func initSelectedArray() {
     for index in 0..<areaArray.count {
-      if noticeArray.contains(areaArray[index].locid!) {
+      if selectedAreaArray.contains(areaArray[index].locid!) {
         selectedArray.append(index)
       }
     }
@@ -100,7 +102,7 @@ class SelectServiceAreaTVC: UITableViewController {
     let area = areaArray[indexPath.row]
     cell.selectedButton.addTarget(self, action: #selector(SelectServiceAreaTVC.tappedCellSelectedButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     cell.selectedButton.tag = indexPath.row
-    if noticeArray.contains(area.locid!) {
+    if selectedAreaArray.contains(area.locid!) {
       cell.isUncheck = false
       cell.selectedButton.setImage(UIImage(named: "ic_jia_pre"), forState:UIControlState.Normal)
     } else {
@@ -130,25 +132,25 @@ class SelectServiceAreaTVC: UITableViewController {
     let area = areaArray[cell.selectedButton.tag]
     if cell.isUncheck == false {
       self.selectedArray.append(cell.selectedButton.tag)
-      noticeArray.append(area.locid!)
+      selectedAreaArray.append(area.locid!)
     } else {
       if let index = selectedArray.indexOf(cell.selectedButton.tag) {
         selectedArray.removeAtIndex(index)
-        for (index, value) in noticeArray.enumerate() {
-          if noticeArray.count == 1 {
-            noticeArray.removeAtIndex(0)
+        for (index, value) in selectedAreaArray.enumerate() {
+          if selectedAreaArray.count == 1 {
+            selectedAreaArray.removeAtIndex(0)
             return
           }
           if case area.locid! = value {
-            noticeArray.removeAtIndex(index)
-            print(noticeArray)
+            selectedAreaArray.removeAtIndex(index)
+            print(selectedAreaArray)
             print("Found \(value) at position \(index)")
             
           }
         }
       }
     }
-    if noticeArray.count > 0 {
+    if selectedAreaArray.count > 0 {
       let rightbarItem = UIBarButtonItem.init(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SelectServiceAreaTVC.selectedServiceArea))
       navigationItem.rightBarButtonItem = rightbarItem
     } else {
@@ -160,18 +162,23 @@ class SelectServiceAreaTVC: UITableViewController {
   
   //跳过
   func skip() {
-    pushtoTaskExecutionDepartmentTVC()
+
+    let storyboard = UIStoryboard(name: "ServicelabelVC", bundle: nil)
+    let taskExecutionDepartmentVC = storyboard.instantiateViewControllerWithIdentifier("TaskExecutionDepartmentTVC") as! TaskExecutionDepartmentTVC
+    taskExecutionDepartmentVC.firstSrvTagName = self.firstSrvTagName
+    taskExecutionDepartmentVC.selectedRolesArr = self.selectedRolesArr
+    navigationController?.pushViewController(taskExecutionDepartmentVC, animated: true)
   }
   
   func selectedServiceArea() {
-    pushtoTaskExecutionDepartmentTVC()
-  }
-  
-  func pushtoTaskExecutionDepartmentTVC() {
     let storyboard = UIStoryboard(name: "ServicelabelVC", bundle: nil)
-    let rolesWithShopVC = storyboard.instantiateViewControllerWithIdentifier("TaskExecutionDepartmentTVC") as! TaskExecutionDepartmentTVC
-    navigationController?.pushViewController(rolesWithShopVC, animated: true)
+    let taskExecutionDepartmentVC = storyboard.instantiateViewControllerWithIdentifier("TaskExecutionDepartmentTVC") as! TaskExecutionDepartmentTVC
+    taskExecutionDepartmentVC.firstSrvTagName = self.firstSrvTagName
+    taskExecutionDepartmentVC.selectedAreaArr = self.selectedAreaArray
+    taskExecutionDepartmentVC.selectedRolesArr = self.selectedRolesArr
+    navigationController?.pushViewController(taskExecutionDepartmentVC, animated: true)
   }
+
     
 
 }

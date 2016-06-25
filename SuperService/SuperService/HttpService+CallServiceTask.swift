@@ -20,11 +20,9 @@ extension HttpService {
   //获取呼叫服务任务列表
   func getCallServicelist(taskid:String, completionHandler:([CallServiceModel]?,NSError?) -> ()) {
     let url = ResourcePath.CallServerTask.description.fullUrl
-    var dic = [String:String]()
-    if !taskid.isEmpty {
-      dic = ["taskid":taskid]
-    }
-    get(url, parameters: dic) { (json, error) in
+    let dic = ["taskid":taskid,"isower":0]
+
+    get(url, parameters: dic as? [String : AnyObject]) { (json, error) in
       if let error = error {
         completionHandler(nil,error)
       } else {
@@ -44,14 +42,20 @@ extension HttpService {
   }
   
   //操作呼叫服务更改状态
-  func servicetaskStatusChange(taskid:String,operationseq:String,taskaction:Int,completionHandler:(JSON?,NSError?) -> ()) {
+  func servicetaskStatusChange(taskid:String,operationseq:String,taskaction:Int,target:String,targetIsNeeded:Bool,completionHandler:(JSON?,NSError?) -> ()) {
     let url = ResourcePath.ServicetaskStatusChange.description.fullUrl
-    let dic = ["taskid":taskid,"operationseq":operationseq,"taskaction":taskaction]
+    var dic = NSDictionary()
+    if targetIsNeeded == true {
+       dic = ["taskid":taskid,"operationseq":operationseq,"taskaction":taskaction,"target":target]
+    } else {
+       dic = ["taskid":taskid,"operationseq":operationseq,"taskaction":taskaction]
+    }
+    
     put(url, parameters: dic as? [String : AnyObject]) { (json, error) in
       if let error = error {
         completionHandler(nil,error)
       } else {
-        if let data = json?["data"] {
+        if let data = json?["resDesc"] {
           completionHandler(data,nil)
         }
       }
@@ -123,18 +127,24 @@ extension HttpService {
   
   //添加一级服务标签
   
-  func addFirstserviceTag(firstSrvTagName:String,roleids:NSArray,ownerids:NSArray,locids:NSArray, completionHandler:(JSON?,NSError?) -> ()) {
+  func addFirstserviceTag(dic:NSDictionary, completionHandler:(ServicetagFirstModel?,NSError?) -> ()) {
     let url = ResourcePath.Addfirstsrvtag.description.fullUrl
-    let dic = ["firstSrvTagName":firstSrvTagName,"roleids":roleids,"ownerids":ownerids,"locids":locids]
-    post(url, parameters: dic) { (json, error) in
+    let dic = dic
+    print(dic)
+    post(url, parameters: dic as? [String : AnyObject]) { (json, error) in
       if let error = error {
         completionHandler(nil,error)
       } else {
-        if let data = json?["data"] {
-        completionHandler(data,nil)
+        if let success = json?["resDesc"] {
+          if success == "success" {
+            if let data = json?["data"] {
+              let servicetag = ServicetagFirstModel(dic:data)
+              completionHandler(servicetag,nil)
+            }
+          } 
+        }
       }
     }
-   }
  }
   
   //添加二级服务标签

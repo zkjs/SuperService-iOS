@@ -412,6 +412,9 @@
 		FA6CCCCD1D1A80FE00B8A4DE /* ServicelabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CCCCC1D1A80FE00B8A4DE /* ServicelabelVC.swift */; };
 		FA6CCCCF1D1A810C00B8A4DE /* ServicelabelVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6CCCCE1D1A810C00B8A4DE /* ServicelabelVC.storyboard */; };
 		FA6CCCD21D1A86C200B8A4DE /* AddServerlabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CCCD11D1A86C200B8A4DE /* AddServerlabelVC.swift */; };
+		FA751C2F1D1E6CBD00D3CCB2 /* TaskAssignTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA751C2E1D1E6CBD00D3CCB2 /* TaskAssignTVC.swift */; };
+		FA751C311D1E6CC700D3CCB2 /* TaskAssignTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA751C301D1E6CC700D3CCB2 /* TaskAssignTVC.storyboard */; };
+		FA751C331D1E6DDB00D3CCB2 /* TaskAssignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA751C321D1E6DDB00D3CCB2 /* TaskAssignCell.swift */; };
 		FA75F6261CA3D3A9000C0373 /* SendSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */; };
 		FA8803751D1CE0EE00CC9AEF /* RolesWithShopTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8803741D1CE0EE00CC9AEF /* RolesWithShopTVC.swift */; };
 		FA8803771D1CE24100CC9AEF /* RolesWithShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8803761D1CE24000CC9AEF /* RolesWithShopCell.swift */; };
@@ -1110,6 +1113,9 @@
 		FA6CCCCC1D1A80FE00B8A4DE /* ServicelabelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServicelabelVC.swift; path = Controller/ServicelabelVC.swift; sourceTree = "<group>"; };
 		FA6CCCCE1D1A810C00B8A4DE /* ServicelabelVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ServicelabelVC.storyboard; path = Controller/ServicelabelVC.storyboard; sourceTree = "<group>"; };
 		FA6CCCD11D1A86C200B8A4DE /* AddServerlabelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServerlabelVC.swift; sourceTree = "<group>"; };
+		FA751C2E1D1E6CBD00D3CCB2 /* TaskAssignTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskAssignTVC.swift; sourceTree = "<group>"; };
+		FA751C301D1E6CC700D3CCB2 /* TaskAssignTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TaskAssignTVC.storyboard; sourceTree = "<group>"; };
+		FA751C321D1E6DDB00D3CCB2 /* TaskAssignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskAssignCell.swift; sourceTree = "<group>"; };
 		FA75F6251CA3D3A9000C0373 /* SendSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSuccessVC.swift; sourceTree = "<group>"; };
 		FA8803741D1CE0EE00CC9AEF /* RolesWithShopTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RolesWithShopTVC.swift; sourceTree = "<group>"; };
 		FA8803761D1CE24000CC9AEF /* RolesWithShopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RolesWithShopCell.swift; sourceTree = "<group>"; };
@@ -2689,6 +2695,8 @@
 				FA6CCCAF1D1A2B9E00B8A4DE /* CallInfoVC.xib */,
 				FA6CCCBE1D1A41FC00B8A4DE /* TasktrackingVC.swift */,
 				FA6CCCBF1D1A41FC00B8A4DE /* TasktrackingVC.xib */,
+				FA751C2E1D1E6CBD00D3CCB2 /* TaskAssignTVC.swift */,
+				FA751C301D1E6CC700D3CCB2 /* TaskAssignTVC.storyboard */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2697,6 +2705,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6CCCB21D1A2D1C00B8A4DE /* CallInfoCell.swift */,
+				FA751C321D1E6DDB00D3CCB2 /* TaskAssignCell.swift */,
 				FA6CCCB31D1A2D1C00B8A4DE /* CallInfoCell.xib */,
 				FA6CCCC21D1A425300B8A4DE /* TasktrackingCell.swift */,
 				FA6CCCC31D1A425300B8A4DE /* TasktrackingCell.xib */,
@@ -3020,6 +3029,7 @@
 				409EE0AA1C0071390074F43C /* Localizable.strings in Resources */,
 				40F7576D1BE0553E0053C2BE /* InformCell.xib in Resources */,
 				FAF019931BE1B0B500E67ECD /* DepartmentHeaderView.xib in Resources */,
+				FA751C311D1E6CC700D3CCB2 /* TaskAssignTVC.storyboard in Resources */,
 				FA6CCCB11D1A2B9E00B8A4DE /* CallInfoVC.xib in Resources */,
 				FAEC9BE71CF2F66E00432A2F /* VIPCell.xib in Resources */,
 				4023F7411C1D61310057351E /* BindCodeCell.xib in Resources */,
@@ -3415,6 +3425,7 @@
 				406B0B0D1C85B5E0006C9C73 /* ParameterEncoding.swift in Sources */,
 				40FB3D5E1C00203900675044 /* EaseTextView.m in Sources */,
 				400D62811C1526B50021E750 /* LayerStrokeStartAnimation.swift in Sources */,
+				FA751C2F1D1E6CBD00D3CCB2 /* TaskAssignTVC.swift in Sources */,
 				40FB3D141C00203900675044 /* MWGridViewController.m in Sources */,
 				406B0B051C85B5E0006C9C73 /* Manager.swift in Sources */,
 				40CAA5F21BE704E000FAFDA0 /* AreaModel.swift in Sources */,
@@ -3468,6 +3479,7 @@
 				40FB3D241C00203900675044 /* UIButton+EMWebCache.m in Sources */,
 				40FB3D111C00203900675044 /* MBProgressHUD+Add.m in Sources */,
 				FA6CCCC81D1A783E00B8A4DE /* TasktrackingInfoCell.swift in Sources */,
+				FA751C331D1E6DDB00D3CCB2 /* TaskAssignCell.swift in Sources */,
 				40FB3D481C00203900675044 /* EaseEmotionEscape.m in Sources */,
 				408694131C391A2E00BE1709 /* BookRoomCell.swift in Sources */,
 				40E326431BD50544008344DF /* Client.swift in Sources */,

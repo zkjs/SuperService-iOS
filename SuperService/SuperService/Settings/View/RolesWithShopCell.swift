@@ -37,7 +37,7 @@ class RolesWithShopCell: UITableViewCell {
     isUncheck = !isUncheck
     if isUncheck {
       // check
-      selectedImageView.image = UIImage(named: "ic_jia_nor")
+      selectedImageView.image = UIImage(named: "ic_jia_r_blue")
      
     } else {
       // uncheck

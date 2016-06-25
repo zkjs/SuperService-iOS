@@ -146,7 +146,7 @@ class MainTBC: UITabBarController {
     let nv1 = BaseNavigationController()
     nv1.viewControllers = [vc1]
     
-    let vc2 = CallInfoVC()
+    let vc2 = TaskContainerVC()
     vc2.tabBarItem.title = "呼叫通知"
     vc2.tabBarItem.image = UIImage(named: "ic_hujiao_nor")
     let nv2 = BaseNavigationController()

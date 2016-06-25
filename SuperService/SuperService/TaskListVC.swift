@@ -8,13 +8,13 @@
 
 import UIKit
 
-class CallInfoVC: UIViewController {
+class TaskListVC: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   var callServicesData = [CallServiceModel]()
   override func viewDidLoad() {
       super.viewDidLoad()
-    title = "呼叫通知"
+    title = "指派任务"
     let nibName = UINib(nibName: CallInfoCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: CallInfoCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
@@ -33,7 +33,7 @@ class CallInfoVC: UIViewController {
   
   func loadData() {
     self.showHudInView(view, hint: "")
-    HttpService.sharedInstance.getCallServicelist("") { (services, error) in
+    HttpService.sharedInstance.getCallServicelist("",isowner: true) { (services, error) in
       if let error = error {
         self.showErrorHint(error)
       } else {
@@ -122,12 +122,11 @@ class CallInfoVC: UIViewController {
 
 }
 
-
 // MARK: - XLPagerTabStripChildItem Delegate
-extension CallInfoVC: XLPagerTabStripChildItem {
+extension TaskListVC: XLPagerTabStripChildItem {
   
   func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-    return "我的任务"
+    return "指派任务"
   }
   
   func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {

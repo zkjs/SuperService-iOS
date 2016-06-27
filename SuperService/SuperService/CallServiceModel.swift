@@ -10,7 +10,7 @@ import UIKit
 
 class CallServiceModel: NSObject {
   var taskid:String?
-  var svrname:String?
+  var srvname:String?
   var status:String?
   var statuscode:StatusType
   var isowner:Int?
@@ -23,7 +23,7 @@ class CallServiceModel: NSObject {
 
   init(dic:JSON) {
     taskid = dic["taskid"].string ?? ""
-    svrname = dic["svrname"].string ?? ""
+    srvname = dic["srvname"].string ?? ""
     status = dic["status"].string ?? ""
     if let a = dic["statuscode"].int,status = StatusType(rawValue:a) {
       statuscode = status

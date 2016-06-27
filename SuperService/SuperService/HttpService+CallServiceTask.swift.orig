@@ -18,9 +18,15 @@ enum TaskAction:Int {
 }
 extension HttpService {
   //获取呼叫服务任务列表
-  func getCallServicelist(taskid:String, isowner:Bool = false, page:Int = 0, completionHandler:([CallServiceModel]?,NSError?) -> ()) {
+<<<<<<< Updated upstream
+  func getCallServicelist(taskid:String, isowner:Bool = false, completionHandler:([CallServiceModel]?,NSError?) -> ()) {
     let url = ResourcePath.CallServerTask.description.fullUrl
     let dic = ["taskid":taskid,"isower":isowner ? "1" : "0"]
+=======
+  func getCallServicelist(taskid:String,page:Int, completionHandler:([CallServiceModel]?,NSError?) -> ()) {
+    let url = ResourcePath.CallServerTask.description.fullUrl
+    let dic = ["taskid":taskid,"isower":0,"page":page,"page_size":20]
+>>>>>>> Stashed changes
 
     get(url, parameters: dic) { (json, error) in
       if let error = error {

@@ -14,6 +14,21 @@ extension String {
     return Array(count: n, repeatedValue: self).joinWithSeparator("")
   }
   
+  var cutUpCreattime:String {
+    var result = self
+    let dateFormat = NSDateFormatter()
+    dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss" 
+    if let dateString:String = self.cutUpCreattime {
+      let dateFormat = NSDateFormatter()
+      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss" 
+      if let a = dateFormat.dateFromString(dateString) {
+        dateFormat.dateFormat = "HH:mm"
+        result = dateFormat.stringFromDate(a)
+      }
+    } 
+    return result
+  }
+  
   // Faster version
   // benchmarked with a 1000 characters and 100 repeats the fast version is approx 500 000 times faster :-)
   func `repeat`(n:Int) -> String {
@@ -45,6 +60,8 @@ extension String {
   var trim: String {
     return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) 
   }
+  
+  
   
   var isEmail: Bool {
     return (self =~ "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$")

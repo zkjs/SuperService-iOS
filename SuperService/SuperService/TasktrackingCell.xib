@@ -27,12 +27,6 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务指派给：吴媛媛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGI-cP-RRd">
-                        <rect key="frame" x="162" y="45" width="126" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJM-C1-C32">
                         <rect key="frame" x="16" y="43" width="41" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -71,6 +65,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="任务指派给：吴媛媛" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGI-cP-RRd">
+                        <rect key="frame" x="162" y="45" width="186" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dGd-gj-ic8" firstAttribute="top" secondItem="Fvj-fP-ZKU" secondAttribute="bottom" id="11R-xs-Sj7"/>
@@ -78,18 +78,30 @@
                     <constraint firstItem="yGI-cP-RRd" firstAttribute="leading" secondItem="gwo-J8-0GL" secondAttribute="trailing" constant="10" id="5Jd-nm-cuc"/>
                     <constraint firstItem="dGd-gj-ic8" firstAttribute="leading" secondItem="YJM-C1-C32" secondAttribute="trailing" constant="15" id="8X2-8w-her"/>
                     <constraint firstItem="YJM-C1-C32" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="35" id="LEs-p9-fdc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="yGI-cP-RRd" secondAttribute="trailing" constant="20" id="Mh0-C6-Ieh"/>
                     <constraint firstItem="YJM-C1-C32" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="UBb-jD-1Ra"/>
                     <constraint firstItem="Fvj-fP-ZKU" firstAttribute="centerX" secondItem="dGd-gj-ic8" secondAttribute="centerX" id="X2C-YK-6Hj"/>
                     <constraint firstItem="gzD-LR-aKW" firstAttribute="top" secondItem="dGd-gj-ic8" secondAttribute="bottom" id="X5N-90-Ncx"/>
                     <constraint firstItem="gwo-J8-0GL" firstAttribute="centerY" secondItem="dGd-gj-ic8" secondAttribute="centerY" id="eSP-fB-yuc"/>
                     <constraint firstItem="Fvj-fP-ZKU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="esh-dz-dah"/>
+                    <constraint firstItem="yGI-cP-RRd" firstAttribute="centerY" secondItem="gwo-J8-0GL" secondAttribute="centerY" id="ind-sc-PaG"/>
                     <constraint firstItem="dGd-gj-ic8" firstAttribute="centerY" secondItem="YJM-C1-C32" secondAttribute="centerY" id="iyG-IL-hkp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="yGI-cP-RRd" secondAttribute="trailing" constant="80" id="lzn-Z8-9Iu"/>
                     <constraint firstItem="gwo-J8-0GL" firstAttribute="leading" secondItem="dGd-gj-ic8" secondAttribute="trailing" constant="10" id="mx3-OS-r6o"/>
                     <constraint firstAttribute="bottom" secondItem="gzD-LR-aKW" secondAttribute="bottom" id="uKt-kv-iIH"/>
+                    <constraint firstItem="yGI-cP-RRd" firstAttribute="leading" secondItem="gwo-J8-0GL" secondAttribute="trailing" constant="10" id="vmN-Uz-hSE"/>
                     <constraint firstItem="yGI-cP-RRd" firstAttribute="centerY" secondItem="gwo-J8-0GL" secondAttribute="centerY" id="z1k-tV-kwN"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="5Jd-nm-cuc"/>
+                        <exclude reference="lzn-Z8-9Iu"/>
+                        <exclude reference="z1k-tV-kwN"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="actionImageView" destination="dGd-gj-ic8" id="TI0-KX-joC"/>
                 <outlet property="assignerImageView" destination="gwo-J8-0GL" id="yLP-7R-as3"/>
                 <outlet property="assigntimeLabel" destination="YJM-C1-C32" id="xNs-gt-Nzs"/>
                 <outlet property="assigntoLabel" destination="yGI-cP-RRd" id="SPX-8C-yv0"/>

@@ -14,6 +14,16 @@ enum StatusType:Int {
   case AlreadyAssigned //已指派
   case BeReady //就绪
   case Complete //完成
+  case Rated //已评价
+}
+enum ActionType:Int {
+  case Unknown = 0
+  case LauncMission //发起任务
+  case Assign //指派
+  case BeReady //就绪
+  case Cancle //取消
+  case Complete //完成
+  case Rated //已评价
 }
 class CallInfoCell: UITableViewCell {
   var serviceStatusChangeSuccessClourse:ServiceStatusChangeSuccessClourse?
@@ -55,11 +65,29 @@ class CallInfoCell: UITableViewCell {
   
   func confing(service:CallServiceModel) {
     clientImageView.sd_setImageWithURL(NSURL(string: (service.userimage?.fullImageUrl)!), forState: .Normal)
-//    clientnameAndLocation.text = service.operationseq
-    if let name = service.username,let svr = service.svrname {
-      serviceName.text = name + "\(svr)"
+    if let name = service.username,let svr = service.srvname {
+      clientnameAndLocation.text = name 
+      serviceName.text = svr
     }
-    callServertime.text = service.createtime
+    
+    if let dateString = service.createtime {
+      let dateFormat = NSDateFormatter()
+      let nowDateFormate = NSDateFormatter()
+      let nowDate = NSDate()
+      dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss" 
+      nowDateFormate.dateFormat = "yyyy-MM-dd 00:00:00" 
+      if let date = dateFormat.dateFromString(dateString) {
+        let nowString = nowDateFormate.stringFromDate(nowDate)
+        let arrivateString = dateFormat.stringFromDate(date)
+        if nowString > arrivateString {
+          dateFormat.dateFormat = "MM-dd HH:mm"
+        }else {
+          dateFormat.dateFormat = "HH:mm"
+        }
+        
+        callServertime.text = dateFormat.stringFromDate(date)
+      }
+    }
     beReadyStatus.text = service.status
     switch service.statuscode {
     case StatusType.Unassigned:
@@ -77,11 +105,28 @@ class CallInfoCell: UITableViewCell {
     default:
       return
     }
+    if service.statuscode == StatusType.Complete {//完成状态不可操作
+      endServerBtn.enabled = false
+      endServerBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
+      assignBtn.enabled = false
+      assignBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
+      beReadyBtn.enabled = false
+      beReadyBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
+    } else {
+      endServerBtn.enabled = true
+      endServerBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
+      assignBtn.enabled = true
+      assignBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
+      beReadyBtn.enabled = true
+      beReadyBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
+    }
     if let taskid = service.taskid,let operationseq = service.operationseq,let target = service.userid {
       taskID = taskid
       self.operationseq = String(operationseq)
       userid = target
     }
+    
+    
     
     endServerBtn.addTarget(self, action: #selector(CallInfoCell.taskAction), forControlEvents: .TouchUpInside)
     endServerBtn.tag = 1

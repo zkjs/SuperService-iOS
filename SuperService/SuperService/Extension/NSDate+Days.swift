@@ -48,4 +48,5 @@ extension NSDate {
     formatter.dateFormat = format
     return formatter.stringFromDate(self)
   }
+
 }

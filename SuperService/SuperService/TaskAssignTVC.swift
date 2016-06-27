@@ -38,6 +38,7 @@ class TaskAssignTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       title = "指派"
+      tableView.tableFooterView = UIView()
 
     }
 
@@ -105,10 +106,14 @@ class TaskAssignTVC: UITableViewController {
       let alertController = UIAlertController(title: title, message: "", preferredStyle: .Alert)
       let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
         HttpService.sharedInstance.servicetaskStatusChange(self.service.taskid!, operationseq: String(self.service.operationseq!), taskaction: 2, target: team.userid!, targetIsNeeded: true, completionHandler: { (json, error) in
-          if let data = json {
-          if data == "success" {
-            self.navigationController?.popToRootViewControllerAnimated(true)
-           }
+          if let error = error {
+            self.showErrorHint(error)
+          } else {
+            if let data = json {
+              if data == "success" {
+                self.navigationController?.popToRootViewControllerAnimated(true)
+              }
+            }
           }
         })
       }
@@ -119,7 +124,6 @@ class TaskAssignTVC: UITableViewController {
       alertController.addAction(checkAction)
       self.presentViewController(alertController, animated: true, completion: nil)
     }
-      
    }
 
 }

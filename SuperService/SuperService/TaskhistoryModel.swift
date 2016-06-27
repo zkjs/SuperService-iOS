@@ -13,13 +13,21 @@ class TaskhistoryModel {
   var userimage:String?
   var actiondesc:String?
   var createtime:String?
-  var statuscode:String?
+  var statuscode:ActionType
+  var actionname:String?
+  var userid:String?
   
   init(json:JSON) {
     username = json["username"].string ?? ""
     userimage = json["userimage"].string ?? ""
     actiondesc = json["actiondesc"].string ?? ""
     createtime = json["createtime"].string ?? ""
-    statuscode = json["statuscode"].string ?? ""
+    if let a = json["actioncode"].int,status = ActionType(rawValue:a) {
+      statuscode = status
+    } else {
+      statuscode = .Unknown
+    }
+    actionname = json["actionname"].string ?? ""
+    userid = json["userid"].string ?? ""
   }
 }

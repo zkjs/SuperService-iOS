@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="355" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aon (会所1楼) 14：55发起" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDe-Mf-gRu">
-                        <rect key="frame" x="78" y="22" width="165" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aon (会所1楼) 14：55发起" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDe-Mf-gRu">
+                        <rect key="frame" x="78" y="22" width="259" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,6 +54,7 @@
                     <constraint firstItem="oyu-WO-I17" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5bO-f8-7AS"/>
                     <constraint firstItem="0Qe-yX-448" firstAttribute="top" secondItem="CDe-Mf-gRu" secondAttribute="bottom" constant="8" id="7rB-VR-Y3a"/>
                     <constraint firstItem="czC-ju-kCM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="GkP-m0-qH8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CDe-Mf-gRu" secondAttribute="trailing" constant="10" id="HUq-J5-zyT"/>
                     <constraint firstItem="0Qe-yX-448" firstAttribute="leading" secondItem="CDe-Mf-gRu" secondAttribute="leading" id="KKl-tw-8KX"/>
                     <constraint firstItem="CDe-Mf-gRu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="Sx5-Ka-cj3"/>
                     <constraint firstAttribute="bottom" secondItem="oyu-WO-I17" secondAttribute="bottom" constant="1" id="bFe-Ct-9du"/>
@@ -62,6 +63,11 @@
                     <constraint firstItem="czC-ju-kCM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="rIJ-FK-2LN"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="serviceName" destination="0Qe-yX-448" id="Ix0-Ss-4ED"/>
+                <outlet property="userImageView" destination="czC-ju-kCM" id="gb6-Ja-1Bd"/>
+                <outlet property="userlocationAndassignTime" destination="CDe-Mf-gRu" id="7Zh-Dp-dCy"/>
+            </connections>
             <point key="canvasLocation" x="515.5" y="480"/>
         </tableViewCell>
     </objects>

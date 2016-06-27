@@ -2714,8 +2714,8 @@
 			isa = PBXGroup;
 			children = (
 				FA6CCCB21D1A2D1C00B8A4DE /* CallInfoCell.swift */,
-				FA751C321D1E6DDB00D3CCB2 /* TaskAssignCell.swift */,
 				FA6CCCB31D1A2D1C00B8A4DE /* CallInfoCell.xib */,
+				FA751C321D1E6DDB00D3CCB2 /* TaskAssignCell.swift */,
 				FA6CCCC21D1A425300B8A4DE /* TasktrackingCell.swift */,
 				FA6CCCC31D1A425300B8A4DE /* TasktrackingCell.xib */,
 				FA6CCCC61D1A783E00B8A4DE /* TasktrackingInfoCell.swift */,

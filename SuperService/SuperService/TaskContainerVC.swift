@@ -15,6 +15,7 @@ class TaskContainerVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresenta
     delegate = self
     setupView()
     self.containerView.scrollEnabled = false
+  
     
   }
   

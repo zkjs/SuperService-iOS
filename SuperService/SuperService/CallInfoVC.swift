@@ -12,12 +12,15 @@ class CallInfoVC: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   var callServicesData = [CallServiceModel]()
+  var page:Int = 0
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "呼叫通知"
     let nibName = UINib(nibName: CallInfoCell.nibName(), bundle: nil)
     tableView.registerNib(nibName, forCellReuseIdentifier: CallInfoCell.reuseIdentifier())
     tableView.tableFooterView = UIView()
+    tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshData))  // 下拉刷新
+    tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))  // 上拉加载
 
   }
 
@@ -27,23 +30,45 @@ class CallInfoVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    loadData()
-    
+    tableView.mj_header.beginRefreshing()
   }
   
-  func loadData() {
+  func loadMoreData() {
+    page += 1
+    loadData(page)
+  }
+  
+  func refreshData() {
+    page = 0
+    loadData(page)
+  }
+  
+  func loadData(page:Int) {
     self.showHudInView(view, hint: "")
-    HttpService.sharedInstance.getCallServicelist("") { (services, error) in
+    HttpService.sharedInstance.getCallServicelist("",isowner: false,page: page) { (services, error) in
       if let error = error {
         self.showErrorHint(error)
+        self.tableView.mj_footer.endRefreshing()
+        self.tableView.mj_header.endRefreshing()
       } else {
-        if let data = services {
-          self.callServicesData = data
-          self.tableView.reloadData()
+        if page == 0 {
+          self.callServicesData.removeAll()
         }
+        if let users = services where users.count > 0 {
+          self.callServicesData += users
+        } else {
+          self.tableView.mj_footer.hidden = true
+        }
+
+        if self.callServicesData.count < HttpService.DefaultPageSize {
+          self.tableView.mj_footer.hidden = true
+        }
+        self.tableView?.reloadData()
       }
     }
     self.hideHUD()
+    self.tableView.mj_footer.endRefreshing()
+    self.tableView.mj_header.endRefreshing()
     
   }
   
@@ -72,28 +97,20 @@ class CallInfoVC: UIViewController {
       cell.topLineImageView.hidden = false
     }
     let service = callServicesData[indexPath.row]
-    cell.confing(service)
-    
-    if service.statuscode == StatusType.Complete {//完成状态不可操作
-      cell.endServerBtn.enabled = false
-      cell.endServerBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
-      cell.assignBtn.enabled = false
-      cell.assignBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
-      cell.beReadyBtn.enabled = false
-      cell.beReadyBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
-    }
     
     cell.serviceStatusChangeSuccessClourse = {(str) -> Void in 
       let titleString = "该任务" + "\(str)"
       let alertController = UIAlertController(title: titleString, message: "", preferredStyle: .Alert)
       let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
-        self.loadData()
+        self.refreshData()
       }
       alertController.addAction(checkAction)
       self.presentViewController(alertController, animated: true, completion: nil)
       }
+    
     cell.assignBtn.addTarget(self, action: #selector(CallInfoVC.taskActionAssign), forControlEvents: .TouchUpInside)
     cell.assignBtn.tag = indexPath.row
+    cell.confing(service)
     return cell
   }
   
@@ -103,6 +120,10 @@ class CallInfoVC: UIViewController {
       return
     }
     let vc = TasktrackingVC()
+    if let taskid = service.taskid {
+      vc.taskid = taskid
+    }
+    
     vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
     

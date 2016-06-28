@@ -2698,8 +2698,8 @@
 			isa = PBXGroup;
 			children = (
 				40217B701D1E85430030473A /* TaskContainerVC.swift */,
-				40217B721D1E86B50030473A /* TaskListVC.xib */,
 				40217B731D1E86B50030473A /* TaskListVC.swift */,
+				40217B721D1E86B50030473A /* TaskListVC.xib */,
 				FA6CCCAE1D1A2B9E00B8A4DE /* CallInfoVC.swift */,
 				FA6CCCAF1D1A2B9E00B8A4DE /* CallInfoVC.xib */,
 				FA6CCCBE1D1A41FC00B8A4DE /* TasktrackingVC.swift */,

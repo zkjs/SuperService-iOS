@@ -39,11 +39,12 @@ class TaskListVC: UIViewController {
       } else {
         if let data = services {
           self.callServicesData = data
-          self.tableView.reloadData()
         }
       }
+      self.tableView.reloadData()
     }
     self.hideHUD()
+    
     
   }
   
@@ -71,17 +72,7 @@ class TaskListVC: UIViewController {
     } else {
       cell.topLineImageView.hidden = false
     }
-    let service = callServicesData[indexPath.row]
-    cell.confing(service)
-    
-    if service.statuscode == StatusType.Complete {//完成状态不可操作
-      cell.endServerBtn.enabled = false
-      cell.endServerBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
-      cell.assignBtn.enabled = false
-      cell.assignBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
-      cell.beReadyBtn.enabled = false
-      cell.beReadyBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
-    }
+
     
     cell.serviceStatusChangeSuccessClourse = {(str) -> Void in 
       let titleString = "该任务" + "\(str)"
@@ -94,12 +85,14 @@ class TaskListVC: UIViewController {
       }
     cell.assignBtn.addTarget(self, action: #selector(CallInfoVC.taskActionAssign), forControlEvents: .TouchUpInside)
     cell.assignBtn.tag = indexPath.row
+    let service = callServicesData[indexPath.row]
+    cell.confing(service)
     return cell
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let service = callServicesData[indexPath.row]
-    if service.statuscode == StatusType.Complete {//完成状态不可操作
+    if service.statuscode == StatusType.Complete || service.statuscode == StatusType.Rated{//完成状态不可操作
       return
     }
     let vc = TasktrackingVC()

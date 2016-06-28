@@ -67,9 +67,11 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
     if (indexPath.row == 0){
       cell.textLabel?.text = "设置"
+      cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
     if (indexPath.row == 1){
       cell.textLabel?.text = "服务标签"
+      cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
     if (indexPath.row == 2){
       cell.textLabel?.text = "退出登录"

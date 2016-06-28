@@ -170,15 +170,14 @@ extension HttpService {
   
   //删除一级服务标签（二级同时删除），删除二级服务标签
   func deleteFirstAndSecondTag(secondsrctagid:String,firstsrvtagid:String,completionHandler:(JSON?,NSError?) -> ()) {
-    let url = ResourcePath.Deletesrvtag.description.fullUrl
-    var dic = [String:String]()
+    var url = ""
     if secondsrctagid == "" {
-       dic = ["firstsrvtagid":firstsrvtagid]
+       url = ResourcePath.Deletesrvtag.description.fullUrl + "firstsrvtagid=\(firstsrvtagid)"
     } else {
-       dic = ["secondsrctagid":secondsrctagid]
+      url = ResourcePath.Deletesrvtag.description.fullUrl + "secondsrctagid=\(secondsrctagid)"
     }
     
-    delete(url, parameters: dic) { (json, error) in
+    delete(url, parameters: nil) { (json, error) in
       if let error = error {
         completionHandler(nil,error)
       } else {

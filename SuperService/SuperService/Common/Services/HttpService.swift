@@ -74,7 +74,7 @@ class HttpService {
       case.ServicetaskDetail:                   return "for/res/v1/call/service/task/detail/"
       case.Servicetag:                          return "for/res/v1/call/servicetag"
       case.Addfirstsrvtag:                      return "for/res/v1/call/firstsrvtag"
-      case.Deletesrvtag:                        return "for/res/v1/call/srvtag"
+      case.Deletesrvtag:                        return "for/res/v1/call/srvtag?"
       case.Addsecondsrvtag:                     return "for/res/v1/call/secondsrvtag"
       case.RolesFromShop:                       return "for/res/v1/shop/roles"
       }

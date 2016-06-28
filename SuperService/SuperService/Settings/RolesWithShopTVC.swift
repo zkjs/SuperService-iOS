@@ -61,12 +61,18 @@ class RolesWithShopTVC: UITableViewController {
   func nextStep() {
     let storyboard = UIStoryboard(name: "ServicelabelVC", bundle: nil)
     let selectServiceAreaVC = storyboard.instantiateViewControllerWithIdentifier("SelectServiceAreaTVC") as! SelectServiceAreaTVC
-    selectServiceAreaVC.selectedRolesArr = selectedRolesArray
-    guard let str = clubtextField.text else {
+    
+    guard let str = clubtextField.text where !str.trim.isEmpty  else {
       self.showHint("请填写标签")
       return
     }
+    
+    guard let count:Int = selectedRolesArray.count where count > 0 else {
+      self.showHint("请选择任务管理员")
+      return
+    }
     selectServiceAreaVC.firstSrvTagName = str
+    selectServiceAreaVC.selectedRolesArr = selectedRolesArray
     navigationController?.pushViewController(selectServiceAreaVC, animated: true)
   }
   

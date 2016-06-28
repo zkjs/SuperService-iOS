@@ -31,6 +31,7 @@ class TasktrackingVC: UIViewController {
   }
   
   func loadData() {
+    self.showHudInView(view, hint: "")
     HttpService.sharedInstance.servicetaskDetail(taskid) { (json, error) in
       if let error = error {
         self.showErrorHint(error)
@@ -40,6 +41,7 @@ class TasktrackingVC: UIViewController {
            self.tableView.reloadData()
         }
       }
+      self.hideHUD()
     }
   }
 

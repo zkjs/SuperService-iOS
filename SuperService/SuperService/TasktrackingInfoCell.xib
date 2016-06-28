@@ -16,13 +16,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aon (会所1楼) 14：55发起" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDe-Mf-gRu">
-                        <rect key="frame" x="78" y="22" width="259" height="17"/>
+                        <rect key="frame" x="78" y="18" width="259" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人工按摩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qe-yX-448">
-                        <rect key="frame" x="78" y="47" width="56" height="17"/>
+                        <rect key="frame" x="78" y="39" width="56" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,11 +52,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="oyu-WO-I17" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5bO-f8-7AS"/>
-                    <constraint firstItem="0Qe-yX-448" firstAttribute="top" secondItem="CDe-Mf-gRu" secondAttribute="bottom" constant="8" id="7rB-VR-Y3a"/>
+                    <constraint firstItem="0Qe-yX-448" firstAttribute="top" secondItem="CDe-Mf-gRu" secondAttribute="bottom" constant="4" id="7rB-VR-Y3a"/>
                     <constraint firstItem="czC-ju-kCM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="GkP-m0-qH8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CDe-Mf-gRu" secondAttribute="trailing" constant="10" id="HUq-J5-zyT"/>
                     <constraint firstItem="0Qe-yX-448" firstAttribute="leading" secondItem="CDe-Mf-gRu" secondAttribute="leading" id="KKl-tw-8KX"/>
-                    <constraint firstItem="CDe-Mf-gRu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="Sx5-Ka-cj3"/>
+                    <constraint firstItem="CDe-Mf-gRu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Sx5-Ka-cj3"/>
                     <constraint firstAttribute="bottom" secondItem="oyu-WO-I17" secondAttribute="bottom" constant="1" id="bFe-Ct-9du"/>
                     <constraint firstAttribute="trailing" secondItem="oyu-WO-I17" secondAttribute="trailing" id="eWd-jE-6hv"/>
                     <constraint firstItem="CDe-Mf-gRu" firstAttribute="leading" secondItem="czC-ju-kCM" secondAttribute="trailing" constant="15" id="lgP-sw-3Cs"/>

@@ -75,6 +75,7 @@
                 <constraints>
                     <constraint firstItem="dGd-gj-ic8" firstAttribute="top" secondItem="Fvj-fP-ZKU" secondAttribute="bottom" id="11R-xs-Sj7"/>
                     <constraint firstItem="gzD-LR-aKW" firstAttribute="centerX" secondItem="dGd-gj-ic8" secondAttribute="centerX" id="2KU-bb-9SG"/>
+                    <constraint firstItem="dGd-gj-ic8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="64" id="3Ci-e3-Ljf"/>
                     <constraint firstItem="yGI-cP-RRd" firstAttribute="leading" secondItem="gwo-J8-0GL" secondAttribute="trailing" constant="10" id="5Jd-nm-cuc"/>
                     <constraint firstItem="dGd-gj-ic8" firstAttribute="leading" secondItem="YJM-C1-C32" secondAttribute="trailing" constant="15" id="8X2-8w-her"/>
                     <constraint firstItem="YJM-C1-C32" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="35" id="LEs-p9-fdc"/>
@@ -94,6 +95,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="8X2-8w-her"/>
                         <exclude reference="5Jd-nm-cuc"/>
                         <exclude reference="lzn-Z8-9Iu"/>
                         <exclude reference="z1k-tV-kwN"/>

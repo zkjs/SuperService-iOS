@@ -10,8 +10,18 @@ import UIKit
 
 class TasktrackingInfoCell: UITableViewCell {
 
-  @IBOutlet weak var serviceName: UILabel!
+  @IBOutlet weak var serviceName: UILabel! {
+    didSet {
+      serviceName.text = ""
+    }
+  }
   @IBOutlet weak var userlocationAndassignTime: UILabel!
+    {
+    didSet {
+      userlocationAndassignTime.text = ""
+    }
+  }
+
   @IBOutlet weak var userImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

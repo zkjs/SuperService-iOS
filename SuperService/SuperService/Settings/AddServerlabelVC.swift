@@ -40,17 +40,16 @@ class AddServerlabelVC: UITableViewController {
       } else {
         if let secondtag = json {
           self.secondtagsArr.insert(secondtag, atIndex: 0)
+          self.tableView.reloadData()
         }
       }
+      self.serverlabeltextFlied.text = ""
       self.hideHUD()
       self.tableView.reloadData()
     }
     
   }
 
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-  }
 
   // MARK: - Table view data source
 
@@ -59,7 +58,7 @@ class AddServerlabelVC: UITableViewController {
   }
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return secondtagsArr.count
+      return secondtagsArr.count - 1
   }
   
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -75,14 +74,20 @@ class AddServerlabelVC: UITableViewController {
       return []
     } else {
       let more = UITableViewRowAction(style: .Normal, title: "删除") { action, index in
+        
         let secondtags = self.secondtagsArr[indexPath.row]
         HttpService.sharedInstance.deleteFirstAndSecondTag(String(secondtags.secondSrvTagId!), firstsrvtagid: "", completionHandler: { (json, error) in
           if let error = error {
             self.showErrorHint(error)
           } else {
             if let data = json {
-              self.showHint(data.string)
-            }
+              if data == "success" {
+                self.secondtagsArr.removeAtIndex(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+                self.tableView.reloadData() 
+              }
+           }
+            
           }
         })
         

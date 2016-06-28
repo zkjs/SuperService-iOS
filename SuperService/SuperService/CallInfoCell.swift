@@ -7,7 +7,7 @@
 //
 
 import UIKit
-typealias ServiceStatusChangeSuccessClourse = (titleString:String) ->Void
+typealias ServiceStatusChangeSuccessClourse = (titleString:String) ->Void 
 enum StatusType:Int {
   case Unknown = 0
   case Unassigned //未指派
@@ -99,13 +99,16 @@ class CallInfoCell: UITableViewCell {
     case StatusType.Complete:
       beReadyStatus.textColor = UIColor.hx_colorWithHexRGBAString("#888888")
       statusImageView.backgroundColor = UIColor.hx_colorWithHexRGBAString("#888888")
+    case StatusType.Rated:
+      beReadyStatus.textColor = UIColor.hx_colorWithHexRGBAString("#888888")
+      statusImageView.backgroundColor = UIColor.hx_colorWithHexRGBAString("#888888")
     case StatusType.AlreadyAssigned:
       beReadyStatus.textColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
       statusImageView.backgroundColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
     default:
       return
     }
-    if service.statuscode == StatusType.Complete {//完成状态不可操作
+    if service.statuscode == StatusType.Complete || service.statuscode == StatusType.Rated {//完成状态不可操作
       endServerBtn.enabled = false
       endServerBtn.tintColor = UIColor.hx_colorWithHexRGBAString("#888888")
       assignBtn.enabled = false

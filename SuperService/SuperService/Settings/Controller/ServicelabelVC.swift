@@ -95,7 +95,11 @@ class ServicelabelVC: UITableViewController {
             self.showErrorHint(error)
           } else {
             if let data = json {
-              self.showHint(data.string)
+              if data == "success" {
+                self.tagsArr.removeAtIndex(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+                self.tableView.reloadData() 
+              }
             }
           }
         })

@@ -63,7 +63,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
     super.viewDidLoad()
     
     title = shopName
-  tableView.bounces = false
+    tableView.bounces = false
     if type == .Update {
       loadData()
     } else if type == .Add {
@@ -93,7 +93,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   
   func countAdd(sender: AnyObject) {
     self.countSubtractButton.enabled = true
-    roomsCount++
+    roomsCount += 1
     self.roomsTextField.text = String(roomsCount)
   }
   func countSubtract(sender: AnyObject) {
@@ -102,7 +102,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
       self.countSubtractButton.enabled = false
       return
     }
-    roomsCount--
+    roomsCount -= 1
     self.roomsTextField.text = String(roomsCount)
   }
   

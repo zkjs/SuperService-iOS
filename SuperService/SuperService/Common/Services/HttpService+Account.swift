@@ -74,6 +74,7 @@ extension HttpService {
     guard  let token = TokenPayload.sharedInstance.token else {return}
     var headers = ["Content-Type":"multipart/form-data"]
     headers["Token"] = token
+    print(urlString)
     
     upload(.POST, urlString,headers: headers,multipartFormData: {
       multipartFormData in

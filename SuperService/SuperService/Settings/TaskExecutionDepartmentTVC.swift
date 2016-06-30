@@ -37,12 +37,14 @@ class TaskExecutionDepartmentTVC: UITableViewController {
   
   func complete() {
     let dic = ["firstSrvTagName":firstSrvTagName,"roleids":self.selectedDepartmentArray,"ownerids":selectedRolesArr,"locids":selectedAreaArr]
+    self.showHudInView(view, hint: "")
     HttpService.sharedInstance.addFirstserviceTag(dic) { (json, error) in
       if let error = error {
         self.showErrorHint(error)
       } else {
         self.navigationController?.popToRootViewControllerAnimated(true)
       }
+      self.hideHUD()
     }
   }
   

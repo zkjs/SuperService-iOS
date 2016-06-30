@@ -46,6 +46,9 @@ class HttpService {
     case Addsecondsrvtag                        //添加二级服务标签
     case Deletesrvtag                           //删除一级服务标签（二级同时删除），删除二级服务标签
     case RolesFromShop                          //获取商家部门信息
+    case ActivityList                           //获取活动列表
+    case CreatActivity                          //活动创建邀请客人
+    case Activitymember                         //取邀请名单
     
     
     var description: String {
@@ -77,6 +80,9 @@ class HttpService {
       case.Deletesrvtag:                        return "for/res/v1/call/srvtag?"
       case.Addsecondsrvtag:                     return "for/res/v1/call/secondsrvtag"
       case.RolesFromShop:                       return "for/res/v1/shop/roles"
+      case.ActivityList:                        return "for/res/v1/activity/detail"
+      case.CreatActivity:                       return "for/res/v1/activity"
+      case.Activitymember:                      return "for/res/v1/activity/member"
       }
     }
   }

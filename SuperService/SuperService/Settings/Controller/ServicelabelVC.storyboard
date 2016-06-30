@@ -289,7 +289,7 @@
                                                     <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                 </constraint>
                                             </constraints>
-                                            <state key="normal" title="Button" image="2295A0C4-8CD2-4D91-AC83-7655B66EDFA8"/>
+                                            <state key="normal" title="Button" image="743E24CF-ADA3-4034-9323-C734AA03B9F4"/>
                                             <connections>
                                                 <action selector="tappedCheckedButton:" destination="pac-FF-749" eventType="touchUpInside" id="zlh-fd-xHA"/>
                                             </connections>
@@ -327,7 +327,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2295A0C4-8CD2-4D91-AC83-7655B66EDFA8" width="20" height="20">
+        <image name="743E24CF-ADA3-4034-9323-C734AA03B9F4" width="20" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

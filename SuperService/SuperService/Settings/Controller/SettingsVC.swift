@@ -52,7 +52,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 3
+    return 4
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -74,6 +74,10 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
     if (indexPath.row == 2){
+      cell.textLabel?.text = "活动管理"
+      cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    }
+    if (indexPath.row == 3){
       cell.textLabel?.text = "退出登录"
     }
     return cell
@@ -94,7 +98,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     let setupIndexPath = NSIndexPath(forItem: 0, inSection: 0)
     let ServicelabelIndexPath = NSIndexPath(forItem: 1, inSection: 0)
-    let logoutIndexPath = NSIndexPath(forItem: 2, inSection: 0)
+    let activityIndexPath = NSIndexPath(forItem: 2,inSection: 0)
+    let logoutIndexPath = NSIndexPath(forItem: 3, inSection: 0)
+    
     if indexPath == logoutIndexPath {
       let alertController = UIAlertController(title: "确定要退出登录吗？", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
       let logoutAction = UIAlertAction(title: "退出登录", style:.Destructive, handler: { (action: UIAlertAction) -> Void in
@@ -118,6 +124,13 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
       servicelabelVC.hidesBottomBarWhenPushed = true
       self.navigationController?.pushViewController(servicelabelVC, animated: true)
     }
+    if indexPath == activityIndexPath {
+      let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
+      let activityVC = storyboard.instantiateViewControllerWithIdentifier("ActivityManagementTVC") as! ActivityManagementTVC
+      activityVC.hidesBottomBarWhenPushed = true
+      self.navigationController?.pushViewController(activityVC, animated: true)
+    }
+    
   }
   
   func logout() {

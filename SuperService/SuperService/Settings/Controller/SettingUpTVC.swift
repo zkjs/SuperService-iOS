@@ -177,18 +177,16 @@ extension SettingUpTVC: UIImagePickerControllerDelegate {
     
     
     let name = AccountInfoManager.sharedInstance.userName
-    HttpService.sharedInstance.updateUserInfo(false, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[unowned self] (json, error) -> Void in
-      if let _ = error {
-        self.hideHUD()
-        self.showHint("上传头像失败")
+    HttpService.sharedInstance.updateUserInfo(false, realname: name, eamil:nil,sex: nil, image: image, completionHandler: {[weak self] (json, error) -> Void in
+      guard let strongSelf = self else {return}
+      if let error = error {
+        strongSelf.hideHUD()
+        strongSelf.showErrorHint(error)
       } else {
-        self.hideHUD()
-        self.showHint("上传头像成功")
-        self.tableView.reloadData()
-        self.dismissViewControllerAnimated(true, completion: nil)
-        HttpService.sharedInstance.getUserInfo({ (json, error) -> Void in
-          
-        })
+        strongSelf.hideHUD()
+        strongSelf.showHint("上传头像成功")
+        strongSelf.tableView.reloadData()
+        strongSelf.dismissViewControllerAnimated(true, completion: nil)
         
       }
       })

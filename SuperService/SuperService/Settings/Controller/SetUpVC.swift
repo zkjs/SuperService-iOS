@@ -64,11 +64,6 @@ class SetUpVC: UIViewController, UINavigationControllerDelegate {
   }
   
   func nextStep() {
-    showHUDInView(view, withLoading: "正在上传资料...")
-    if nameTextFiled.text!.isEmpty {
-      showHint("用户名不能为空")
-      return
-    }
     
     if nameTextFiled.text!.characters.count > 6 {
       showHint("用户名最多6位")
@@ -77,6 +72,12 @@ class SetUpVC: UIViewController, UINavigationControllerDelegate {
     
     if self.image == "" {
       showHint("头像不能为空")
+      return
+    }
+    
+    showHUDInView(view, withLoading: "正在上传资料...")
+    if nameTextFiled.text!.isEmpty {
+      showHint("用户名不能为空")
       return
     }
     
@@ -137,26 +138,6 @@ class SetUpVC: UIViewController, UINavigationControllerDelegate {
   }
 
   }
-  
-
-//extension SetUpVC: WPMediaPickerViewControllerDelegate {
-//  
-//  func mediaPickerController(picker: WPMediaPickerViewController, didFinishPickingAssets assets: [AnyObject]) {
-//    if let set = assets.first as? ALAsset {
-//      self.image = UIImage(CGImage:set.thumbnail().takeUnretainedValue())
-//      avatarButton.setImage(image, forState: .Normal)
-//      imageData = UIImageJPEGRepresentation(image, 0.8)!
-//    }
-//    dismissViewControllerAnimated(true, completion: nil)
-//
-//
-//  }
-//  
-//  func mediaPickerControllerDidCancel(picker: WPMediaPickerViewController) {
-//    dismissViewControllerAnimated(true, completion: nil)
-//  }
-//  
-//}
 
 extension SetUpVC: UIImagePickerControllerDelegate {
   

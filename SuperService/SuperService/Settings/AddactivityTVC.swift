@@ -68,10 +68,10 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
   }
   
   func nextStep(sender:UIBarButtonItem) {
-    if actvityname.text.trim.isEmpty == true || activitycontent.text.trim.isEmpty == true || activityStartdateButton.titleLabel?.text == "请选择活动开始日期" || activityEnddateButton.titleLabel?.text == "请选择活动结束时间" || activityImageView.image == nil {
-      self.showHint("请完善创建活动信息")
-      return
-    } 
+//    if actvityname.text.trim.isEmpty == true || activitycontent.text.trim.isEmpty == true || activityStartdateButton.titleLabel?.text == "请选择活动开始日期" || activityEnddateButton.titleLabel?.text == "请选择活动结束时间" || activityImageView.image == nil {
+//      self.showHint("请完善创建活动信息")
+//      return
+//    } 
     let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
     let choseInvitationVC = storyboard.instantiateViewControllerWithIdentifier("ChoseInvitationTVC") as! ChoseInvitationTVC
     self.navigationController?.pushViewController(choseInvitationVC, animated: true)

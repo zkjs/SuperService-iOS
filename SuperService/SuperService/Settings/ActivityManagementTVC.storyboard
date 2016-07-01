@@ -129,11 +129,11 @@
             </objects>
             <point key="canvasLocation" x="341.5" y="1241.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Person Under MemberTVC-->
         <scene sceneID="GDb-y5-mOa">
             <objects>
-                <tableViewController id="EgH-9F-2fU" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vGI-UL-BRk">
+                <tableViewController restorationIdentifier="PersonUnderMemberTVC" storyboardIdentifier="PersonUnderMemberTVC" id="EgH-9F-2fU" customClass="PersonUnderMemberTVC" customModule="SuperService" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="vGI-UL-BRk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,7 +163,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-q2-glr">
                                             <rect key="frame" x="148" y="28" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -175,6 +175,11 @@
                                         <constraint firstItem="ero-qb-7I1" firstAttribute="centerY" secondItem="PiT-oz-phW" secondAttribute="centerY" id="l9l-ah-hoY"/>
                                         <constraint firstItem="ero-qb-7I1" firstAttribute="leading" secondItem="PiT-oz-phW" secondAttribute="trailing" constant="18" id="vYs-Mx-fa3"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="personChoiceButton" destination="PiT-oz-phW" id="CXm-ZE-THr"/>
@@ -201,7 +206,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="jVv-Z2-YgK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="CIl-Uz-ae7">
                                 <cells>
@@ -341,12 +346,12 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="M93-3o-NLd"/>
                                                     <exclude reference="8io-s2-KIg"/>
-                                                    <exclude reference="sVo-hE-9LT"/>
-                                                    <exclude reference="fpM-xA-snu"/>
                                                     <exclude reference="Gl1-sd-dyS"/>
+                                                    <exclude reference="M93-3o-NLd"/>
+                                                    <exclude reference="fpM-xA-snu"/>
                                                     <exclude reference="iCP-nX-qON"/>
+                                                    <exclude reference="sVo-hE-9LT"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -609,6 +614,9 @@
                                                     <state key="normal" title="确定">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="checkoutEdit:" destination="K3q-zi-lsq" eventType="touchUpInside" id="gBa-5i-LWM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -637,6 +645,7 @@
                         <outlet property="activitypersonCountTextField" destination="7uB-bQ-gFy" id="awp-3U-87t"/>
                         <outlet property="actvityname" destination="pYf-Ct-wh0" id="7as-ku-zOR"/>
                         <outlet property="linkAaddresstextField" destination="dNc-Ud-grj" id="e3m-cj-frF"/>
+                        <outlet property="personSwitch" destination="3wA-n4-4ea" id="hKO-pp-zo9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LW0-d2-Zz5" userLabel="First Responder" sceneMemberID="firstResponder"/>

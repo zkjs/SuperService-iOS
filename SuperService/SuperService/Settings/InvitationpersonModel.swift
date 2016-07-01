@@ -31,10 +31,12 @@ struct InvitationpersonModel {
 struct MemberpersonModel {
   var userid:String?
   var username:String?
+  var userimage:String?
   
   init(dic:JSON) {
     userid = dic["userid"].string ?? ""
     username = dic["username"].string ?? ""
+    userimage = dic["userimage"].string ?? ""
   }
   
 }

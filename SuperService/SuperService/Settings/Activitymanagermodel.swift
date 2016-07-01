@@ -10,7 +10,7 @@ import UIKit
 
 struct ActivitymanagerModel {
   var actname:String?
-  var actid:Int?
+  var actid:String?
   var startdate:String?
   var enddate:String?
   var invitedpersoncnt:Int?
@@ -22,7 +22,7 @@ struct ActivitymanagerModel {
   var inviteperson:[InvitepersonModel]?
   
   init(dic:JSON) {
-    actid = dic["actid"].int ?? 0
+    actid = dic["actid"].string ?? ""
     maxtake = dic["maxtake"].int ?? 0
     actcontent = dic["actcontent"].string ?? ""
     acturl = dic["acturl"].string ?? ""

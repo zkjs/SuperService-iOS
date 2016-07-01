@@ -74,7 +74,7 @@ class ActivityManagementTVC: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-    
+    let model = activityArr[indexPath.row]
     let edit = UITableViewRowAction(style: .Normal, title: "编辑") { action, index in
       self.editActivity(indexPath)
     }
@@ -82,6 +82,20 @@ class ActivityManagementTVC: UITableViewController {
     let checkout = UITableViewRowAction(style: .Normal, title: "取消") { action, index in
       let alertController = UIAlertController(title: "您确定要取消这项活动吗？", message: "", preferredStyle: .Alert)
       let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+        
+        HttpService.sharedInstance.cancleActivity(model.actid!, completionHandler: { (json, error) in
+          if let error = error {
+            self.showErrorHint(error)
+          } else {
+            if let data = json?["resDesc"].string {
+              if data == "success" {
+                self.activityArr.removeAtIndex(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+                self.tableView.reloadData() 
+              }
+            }
+          }
+        })
       }
       let cancleAction = UIAlertAction(title: "取消", style: .Cancel) { (_) in
         self.view.endEditing(true)

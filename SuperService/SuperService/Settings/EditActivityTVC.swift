@@ -10,6 +10,7 @@ import UIKit
 
 class EditActivityTVC: UITableViewController {
   @IBOutlet weak var linkAaddresstextField: UITextField!
+  @IBOutlet weak var personSwitch: UISwitch!
   @IBOutlet weak var activityImageView: UIImageView!
   @IBOutlet weak var activitycontent: UITextView! 
   @IBOutlet weak var activityEnddateButton: UIButton!
@@ -19,6 +20,7 @@ class EditActivityTVC: UITableViewController {
   var avtivityModel = ActivitymanagerModel(dic:nil)
   var datePicker = UIDatePicker()
   var keyboardDoneButtonView = UIToolbar()
+  var portable = 0
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "编辑活动"
@@ -40,18 +42,21 @@ class EditActivityTVC: UITableViewController {
   }
   
   func setupUI() {
-    if let actcontent = avtivityModel.actcontent,let startdate = avtivityModel.startdate,let enddate = avtivityModel.enddate,let actname = avtivityModel.actname,let actimage = avtivityModel.actimage?.fullImageUrl,let acturl = avtivityModel.acturl {
+    if let actcontent = avtivityModel.actcontent,let startdate = avtivityModel.startdate,let enddate = avtivityModel.enddate,let actname = avtivityModel.actname,let actimage = avtivityModel.actimage?.fullImageUrl,let acturl = avtivityModel.acturl,let personcount = avtivityModel.invitedpersoncnt {
       activitycontent.text = actcontent
       activityStartdateButton.setTitle(startdate, forState: .Normal)
       activityEnddateButton.setTitle(enddate, forState: .Normal)
       actvityname.text = actname
       activityImageView.sd_setImageWithURL(NSURL(string: "\(actimage)"), placeholderImage: nil)
       linkAaddresstextField.text = acturl
+      activitypersonCountTextField.text = String(personcount)
     }
     
   }
   @IBAction func personCountSwith(sender: AnyObject) {
-    
+    if personSwitch.on == true {
+      portable = 1
+    }
   }
 
     // MARK: - Table view data source
@@ -148,4 +153,32 @@ class EditActivityTVC: UITableViewController {
     }
   }
 
+  @IBAction func checkoutEdit(sender: AnyObject) {
+    var parameters = [String:AnyObject]()
+    if let actvityname = actvityname.text,let activitycontent = activitycontent.text,let startDate = activityStartdateButton.titleLabel?.text,let  enddate = activityEnddateButton.titleLabel?.text,let maxtake = Int(activitypersonCountTextField.text!),let acturl = linkAaddresstextField.text {
+      parameters["actname"] = actvityname
+      parameters["actcontent"] = activitycontent
+      parameters["startdate"] = startDate
+      parameters["enddate"] = enddate
+      parameters["actimage"] = nil
+      parameters["maxtake"] = maxtake
+      parameters["acturl"] = acturl
+      parameters["portable"] = portable
+      parameters["invitesi"] = "1,2,3"
+      
+    }
+    HttpService.sharedInstance.editactivity(avtivityModel.actid!, dic: parameters) { (json, error) in
+      if let error = error {
+        self.showErrorHint(error)
+      } else {
+        if let data = json {
+          
+        }
+      }
+    }
+   
+    
+    
+
+  }
 }

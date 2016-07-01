@@ -70,8 +70,9 @@ class ChoseInvitationTVC: UITableViewController {
     let member = memberArr[indexPath.row]
     let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
     let personUnderMemberVC = storyboard.instantiateViewControllerWithIdentifier("PersonUnderMemberTVC") as! PersonUnderMemberTVC
-    if let members = member.member {
+    if let members = member.member,let name = member.rolename {
       personUnderMemberVC.memberpersonArr = members
+      personUnderMemberVC.titleString = name
     }
     self.navigationController?.pushViewController(personUnderMemberVC, animated: true)
 

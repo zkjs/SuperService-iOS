@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 extension HttpService {
   func activityManagerlist(actid:String,completionHandler:([ActivitymanagerModel]?,NSError?) -> ()) {
     var url = ""
@@ -71,73 +72,50 @@ extension HttpService {
     }
   }
   
-  func editactivity(actid:Int,actname:String?,actcontent:String?,startdate:String?,enddate:String?,actimage:String?,maxtake:Int,acturl:String?,portable:Int,invitesi:String?, completionHandler:HttpCompletionHandler) {
-    let urlString = ResourcePath.EditActivity.description.fullUrl
+  func editactivity(actid:String,dic:[String:AnyObject], completionHandler:HttpCompletionHandler) {
+    let urlString = ResourcePath.EditActivity.description.fullUrl + "/\(actid)"
     guard  let token = TokenPayload.sharedInstance.token else {return}
-    var headers = ["Content-Type":"multipart/form-data"]
-    headers["Token"] = token
-    var parameters = [String:AnyObject]()
-    if let actname = actname,let actcontent = actcontent,let startdate = startdate,let enddate = enddate,let actimage = actimage,let maxtake:Int = maxtake,let acturl = acturl,let portable:Int = portable,let invitesi = invitesi {
-      parameters["actname"] = actname
-      parameters["actcontent"] = actcontent
-      parameters["startdate"] = startdate
-      parameters["enddate"] = enddate
-      parameters["actimage"] = actimage
-      parameters["maxtake"] = maxtake
-      parameters["acturl"] = acturl
-      parameters["portable"] = portable
-      parameters["invitesi"] = invitesi
-    }
-      
-    upload(.POST, urlString,headers: headers,multipartFormData: {
-      multipartFormData in
-      for (key, value) in parameters {
-        multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
-      }
-      
-      }, encodingCompletion: {
-        encodingResult in
-        switch encodingResult {
-        case .Success(let upload, _, _):
-          upload.response(completionHandler: { (request, response, data, error) -> Void in
-            print("statusCode:\(response?.statusCode)")
-            if let error = error {
-              print("api request fail [res code:,\(response?.statusCode)]:\(error)")
-              completionHandler(nil,error)
+    let req = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+    req.HTTPMethod = "POST"
+    req.setValue("application/form", forHTTPHeaderField: "Content-Type")
+    req.setValue(token, forHTTPHeaderField: "Token")
+    
+    do {
+      req.HTTPBody = try NSJSONSerialization.dataWithJSONObject(dic, options: [])
+      request(req).response { (req, res, data, error) in
+        print("statusCode:\(res?.statusCode) for url:\(req?.URL?.absoluteString)")
+        
+        if let error = error {
+          completionHandler(nil,error)
+        } else {
+          print(self.jsonFromData(data))
+          if let data = data {
+            let json = JSON(data: data)
+            if json["res"].int == 0 {
+              completionHandler(json,nil)
+              print(json["resDesc"].string)
             } else {
-              print(self.jsonFromData(data))
-              if let data = data {
-                let json = JSON(data: data)
-                if json["res"].int == 0 {
-                  print(json["resDesc"].string)
-                  if let imgUrl = json["data"]["userimage"].string  where !imgUrl.isEmpty {
-                    AccountInfoManager.sharedInstance.saveImageUrl(imgUrl)
-                    completionHandler(json,nil)
-                  } else {
-                    completionHandler(json,error)
-                  }
-                  
-                  completionHandler(json,nil)
-                  
-                } else {
-                  let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
-                    code: -1,
-                    userInfo: ["res":"\(json["res"].int)","resDesc":json["resDesc"].string ?? ""])
-                  completionHandler(json,e)
-                  print("error with reason: \(json["resDesc"].string)")
-                }
-              }
+              print("error with reason: \(json["resDesc"].string)")
             }
-          })
-          
-        case .Failure(let encodingError):
-          let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
-            code: 0,
-            userInfo: ["res":"0","resDesc":"上传数据失败:)"])
-          completionHandler(nil,e)
-          print(encodingError)
+          }
         }
-    }) 
+      }
+    } catch _ {
+      
     }
+  }
+  
+  func cancleActivity(actid:String,completionHandler:(JSON?,NSError?) -> ()) {
+    let url = ResourcePath.CancleActivity.description.fullUrl + "/\(actid)"
+    delete(url, parameters: nil) { (json, error) in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        if let data = json {
+         completionHandler(data,nil)
+        }
+      }
+    }
+  }
 }
   

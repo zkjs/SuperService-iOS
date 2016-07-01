@@ -23,5 +23,13 @@ class PersonunderMemberCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+  
+  func configCell(person:MemberpersonModel) {
+    if let imageUrl = person.userimage,let name = person.username {
+      personImageView.sd_setImageWithURL(NSURL(string: imageUrl.fullImageUrl))
+      personnameLabel.text = name
+    }
+    
+  }
 
 }

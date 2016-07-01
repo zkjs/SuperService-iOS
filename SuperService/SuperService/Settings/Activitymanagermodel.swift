@@ -15,10 +15,18 @@ struct ActivitymanagerModel {
   var enddate:String?
   var invitedpersoncnt:Int?
   var confirmpersoncnt:Int?
+  var actcontent:String?
+  var actimage:String?
+  var acturl:String?
+  var maxtake:Int?
   var inviteperson:[InvitepersonModel]?
   
   init(dic:JSON) {
     actid = dic["actid"].int ?? 0
+    maxtake = dic["maxtake"].int ?? 0
+    actcontent = dic["actcontent"].string ?? ""
+    acturl = dic["acturl"].string ?? ""
+    actimage = dic["actimage"].string ?? ""
     actname = dic["actname"].string ?? ""
     startdate = dic["startdate"].string ?? ""
     enddate = dic["enddate"].string ?? ""
@@ -35,7 +43,7 @@ struct ActivitymanagerModel {
       inviteperson = nil
     }
   }
-  }
+}
 
 
 struct InvitepersonModel {

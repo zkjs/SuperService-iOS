@@ -21,8 +21,6 @@ class ActivityManagementTVC: UITableViewController {
     navigationItem.backBarButtonItem = item
     tableView.tableFooterView = UIView()
 
-
-
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -31,17 +29,17 @@ class ActivityManagementTVC: UITableViewController {
   }
   
   func loadData() {
-    HttpService.sharedInstance.activityManagerlist("") { (json, error) in
+    HttpService.sharedInstance.activityManagerlist("") {[weak self] (json, error) in
+      guard let strongSelf = self else {return}
       if let error = error {
-        self.showErrorHint(error)
+        strongSelf.showErrorHint(error)
       } else {
         if let data = json {
-          self.activityArr = data
+          strongSelf.activityArr = data
         }
-        self.tableView.reloadData()
+        strongSelf.tableView.reloadData()
       }
     }
-    
   }
 
   func AddActivity(sender:UIBarButtonItem) {
@@ -60,16 +58,48 @@ class ActivityManagementTVC: UITableViewController {
       return activityArr.count
   }
 
-  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("ActivityManagementTableViewCell", forIndexPath: indexPath) as! ActivityManagementTableViewCell
       let activity = activityArr[indexPath.row]
       cell.textLabel?.text = activity.actname
+      cell.creattimeLabel.text = activity.startdate
       return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return true
+  }
+  
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+  }
+  
+  override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
     
+    let edit = UITableViewRowAction(style: .Normal, title: "编辑") { action, index in
+      self.editActivity(indexPath)
+    }
+    edit.backgroundColor = UIColor.hx_colorWithHexRGBAString("#03a9f4")
+    let checkout = UITableViewRowAction(style: .Normal, title: "取消") { action, index in
+      let alertController = UIAlertController(title: "您确定要取消这项活动吗？", message: "", preferredStyle: .Alert)
+      let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+      }
+      let cancleAction = UIAlertAction(title: "取消", style: .Cancel) { (_) in
+        self.view.endEditing(true)
+      }
+      alertController.addAction(checkAction)
+      alertController.addAction(cancleAction)
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    checkout.backgroundColor = UIColor.hx_colorWithHexRGBAString("#e84e40")
+    return [checkout,edit]
+  }
+  
+  func editActivity(indexPath:NSIndexPath) {
+    let model = activityArr[indexPath.row]
+    let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
+    let invitationlistVC = storyboard.instantiateViewControllerWithIdentifier("EditActivityTVC") as! EditActivityTVC
+    invitationlistVC.avtivityModel = model
+    navigationController?.pushViewController(invitationlistVC, animated: true)
   }
     
 

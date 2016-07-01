@@ -159,7 +159,7 @@ class HotelOrderTVC: UITableViewController,UITextFieldDelegate {
   }
   
   override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    if section == 0 || section == 7{
+    if section == 0 || section == 7 {
       return 0
     }
     return 20

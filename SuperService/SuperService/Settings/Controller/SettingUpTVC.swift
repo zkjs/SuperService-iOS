@@ -33,7 +33,13 @@ class SettingUpTVC: UITableViewController,UINavigationControllerDelegate {
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return super.tableView(tableView, numberOfRowsInSection: section)
+    let isusernameAndpassword = StorageManager.sharedInstance().ispasswordAndusername()
+    if isusernameAndpassword == "loginWithUserAndpassword" {
+      return 2
+    } else {
+      return 1
+    }
+//    return super.tableView(tableView, numberOfRowsInSection: section)
   }
   
   override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

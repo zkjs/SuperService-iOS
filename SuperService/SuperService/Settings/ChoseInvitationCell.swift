@@ -1,16 +1,17 @@
 //
-//  ActivityManagementTableViewCell.swift
+//  ChoseInvitationCell.swift
 //  SuperService
 //
-//  Created by AlexBang on 16/6/29.
+//  Created by AlexBang on 16/6/30.
 //  Copyright © 2016年 ZKJS. All rights reserved.
 //
 
 import UIKit
 
-class ActivityManagementTableViewCell: UITableViewCell {
+class ChoseInvitationCell: UITableViewCell {
 
-  @IBOutlet weak var creattimeLabel: UILabel!
+  @IBOutlet weak var choiceButton: UIButton!
+  @IBOutlet weak var groupingLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +22,9 @@ class ActivityManagementTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+  
+  func configCell(person:InvitationpersonModel) {
+    groupingLabel.text = person.rolename
+  }
 
 }

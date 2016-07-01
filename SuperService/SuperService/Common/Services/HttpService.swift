@@ -49,6 +49,7 @@ class HttpService {
     case ActivityList                           //获取活动列表
     case CreatActivity                          //活动创建邀请客人
     case Activitymember                         //取邀请名单
+    case EditActivity                           //修改已经创建的活动
     
     
     var description: String {
@@ -80,9 +81,10 @@ class HttpService {
       case.Deletesrvtag:                        return "for/res/v1/call/srvtag?"
       case.Addsecondsrvtag:                     return "for/res/v1/call/secondsrvtag"
       case.RolesFromShop:                       return "for/res/v1/shop/roles"
-      case.ActivityList:                        return "for/res/v1/activity/detail"
+      case.ActivityList:                        return "for/res/v1/activity/detail?"
       case.CreatActivity:                       return "for/res/v1/activity"
       case.Activitymember:                      return "for/res/v1/activity/member"
+      case.EditActivity(let actid):             return "for/res/v1/activity/\(actid)"
       }
     }
   }

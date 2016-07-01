@@ -142,7 +142,7 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
         }
         if let users = arrivateArr where users.count > 0 {
           self.dataArray += users
-        } 
+        }
         if arrivateArr?.count < HttpService.DefaultPageSize {
           self.tableView.mj_footer.hidden = true
         }

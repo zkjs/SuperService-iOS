@@ -28,11 +28,8 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var remarkTextView: UITextView!
   @IBOutlet weak var photoTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
-  
   @IBOutlet weak var choiceDepartmentButton: UIButton!
-  override func loadView() {
-    NSBundle.mainBundle().loadNibNamed("AddMemberVC", owner:self, options:nil)
-  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,8 +39,6 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
       title = "添加会员"
     }
     
-  
-    
     remarkTextView.layer.borderColor = UIColor(white: 204.0/255.0, alpha: 1.0).CGColor
     remarkTextView.layer.borderWidth = 0.5
     remarkTextView.layer.masksToBounds = true
@@ -52,11 +47,15 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
       let addMemberButton = UIBarButtonItem(image: UIImage(named: "ic_tianjia"), style: UIBarButtonItemStyle.Plain ,
         target: self, action: #selector(AddMemberVC.Addteams(_:)))
       navigationItem.rightBarButtonItem = addMemberButton
-    }else {
+    } else {
       navigationItem.rightBarButtonItem = nil
     }
     
     
+  }
+  
+  override func loadView() {
+    NSBundle.mainBundle().loadNibNamed("AddMemberVC", owner:self, options:nil)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -230,7 +229,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
         // 名、名字拼音
         currentContact["LastName"] = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as! String? ?? ""
         // 姓名整理
-        currentContact["fullName"] =    currentContact["LastName"]! + currentContact["FirstName"]!
+        currentContact["fullName"] = currentContact["LastName"]! + currentContact["FirstName"]!
         // 电话
         var phone = String()
         let propertyValues:ABMultiValueRef? = ABRecordCopyValue(contact, kABPersonPhoneProperty)?.takeRetainedValue()
@@ -241,7 +240,7 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
             print("\(phone)")
           }
         }
-        let dic: [String : String] = ["username":currentContact["fullName"]!,"phone":phone]
+        let dic: [String : String] = ["username":currentContact["fullName"]!,"phone":phone.stringByReplacingOccurrencesOfString("-", withString: "")]
         allContacts.append(dic)
         print(dic)
       }

@@ -1,63 +1,65 @@
 //
-//  AddactivityTVC.swift
+//  EditActivityTVC.swift
 //  SuperService
 //
-//  Created by AlexBang on 16/6/29.
+//  Created by AlexBang on 16/7/1.
 //  Copyright © 2016年 ZKJS. All rights reserved.
 //
 
 import UIKit
-class AddactivityTVC: UITableViewController,UITextViewDelegate {
-  var avtivityModel = ActivitymanagerModel(dic:nil)
-  var datePicker = UIDatePicker()
-  var keyboardDoneButtonView = UIToolbar()
 
+class EditActivityTVC: UITableViewController {
   @IBOutlet weak var linkAaddresstextField: UITextField!
   @IBOutlet weak var activityImageView: UIImageView!
   @IBOutlet weak var activitycontent: UITextView! 
   @IBOutlet weak var activityEnddateButton: UIButton!
   @IBOutlet weak var activityStartdateButton: UIButton!
   @IBOutlet weak var actvityname: UITextView!
+  @IBOutlet weak var activitypersonCountTextField: UITextField!
+  var avtivityModel = ActivitymanagerModel(dic:nil)
+  var datePicker = UIDatePicker()
+  var keyboardDoneButtonView = UIToolbar()
   override func viewDidLoad() {
       super.viewDidLoad()
-      title = "创建活动"
-      let nextStepButton = UIBarButtonItem.init(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddactivityTVC.nextStep))
-      navigationItem.rightBarButtonItem = nextStepButton
-      let item = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: #selector(AddactivityTVC.backtoVC))
-      navigationItem.leftBarButtonItem = item
+    title = "编辑活动"
+    let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+    navigationItem.backBarButtonItem = item
+    tableView.bounces = false
+
+
   }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    setupUI()
   }
   
-  
-  func backtoVC(sender:UIBarButtonItem) {
-    let alertController = UIAlertController(title: "推出该界面，内容将不会被保存", message: "", preferredStyle: .Alert)
-    let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
-      self.navigationController?.popViewControllerAnimated(true)
+  func setupUI() {
+    if let actcontent = avtivityModel.actcontent,let startdate = avtivityModel.startdate,let enddate = avtivityModel.enddate,let actname = avtivityModel.actname,let actimage = avtivityModel.actimage?.fullImageUrl,let acturl = avtivityModel.acturl {
+      activitycontent.text = actcontent
+      activityStartdateButton.setTitle(startdate, forState: .Normal)
+      activityEnddateButton.setTitle(enddate, forState: .Normal)
+      actvityname.text = actname
+      activityImageView.sd_setImageWithURL(NSURL(string: "\(actimage)"), placeholderImage: nil)
+      linkAaddresstextField.text = acturl
     }
-    let cancleAction = UIAlertAction(title: "取消", style: .Cancel) { (_) in
-      self.view.endEditing(true)
-    }
-    alertController.addAction(checkAction)
-    alertController.addAction(cancleAction)
-    self.presentViewController(alertController, animated: true, completion: nil)
+    
   }
-
   @IBAction func personCountSwith(sender: AnyObject) {
     
   }
-  // MARK: - Table view data source
-  
+
+    // MARK: - Table view data source
+
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      return cell
+    let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
+    return cell
   }
   
   override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -66,27 +68,14 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
     }
     return 5
   }
-  
-  func nextStep(sender:UIBarButtonItem) {
-    if actvityname.text.trim.isEmpty == true || activitycontent.text.trim.isEmpty == true || activityStartdateButton.titleLabel?.text == "请选择活动开始日期" || activityEnddateButton.titleLabel?.text == "请选择活动结束时间" || activityImageView.image == nil {
-      self.showHint("请完善创建活动信息")
-      return
-    } 
-    let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
-    let choseInvitationVC = storyboard.instantiateViewControllerWithIdentifier("ChoseInvitationTVC") as! ChoseInvitationTVC
-    self.navigationController?.pushViewController(choseInvitationVC, animated: true)
-    
-    
-  }
-    
+
   @IBAction func startDate(sender: AnyObject) {
     addDatepicker(1)
   }
-
+  
   @IBAction func endDate(sender: AnyObject) {
     addDatepicker(2)
   }
-  
   func addDatepicker(tag:Int) {
     keyboardDoneButtonView = UIToolbar()
     keyboardDoneButtonView.sizeToFit()
@@ -133,7 +122,7 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
     datePicker.removeFromSuperview()
     keyboardDoneButtonView.removeFromSuperview()
   }
-   
+  
   //UITEXTVIEW DELEGATE
   
   func textViewShouldBeginEditing(textView: UITextView) -> Bool {

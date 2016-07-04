@@ -49,7 +49,7 @@ class HttpService {
     case ActivityList                           //获取活动列表
     case CreatActivity                          //活动创建邀请客人
     case Activitymember                         //取邀请名单
-    case EditActivity                           //修改已经创建的活动
+    case EditActivity(actid:String)             //修改已经创建的活动
     case CancleActivity                         // 取消活动
     
     
@@ -85,7 +85,7 @@ class HttpService {
       case.ActivityList:                        return "for/res/v1/activity/detail?"
       case.CreatActivity:                       return "for/res/v1/activity"
       case.Activitymember:                      return "for/res/v1/activity/member"
-      case.EditActivity:                        return "for/res/v1/activity/"
+      case.EditActivity(let actid):             return "for/res/v1/activity/\(actid)"
       case.CancleActivity:                      return "for/res/v1/activity/"
       }
     }

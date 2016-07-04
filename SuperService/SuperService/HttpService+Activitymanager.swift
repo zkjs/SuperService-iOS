@@ -36,20 +36,6 @@ extension HttpService {
     }
   }
   
-  func creatActivity(dic:NSDictionary,completionHandler:(JSON?,NSError?) -> ()) {
-    let url = ResourcePath.CreatActivity.description.fullUrl
-    post(url, parameters: dic as? [String : AnyObject]) { (json, error) in
-      if let error = error {
-        completionHandler(nil,error)
-      } else {
-        if let data = json?["data"] {
-          completionHandler(data,nil)
-        }
-      }
-    }
-
-  }
-  
   func activitymemberlist(actid:String,completionHandler:([InvitationpersonModel]?,NSError?) -> ())  {
     let urlString = ResourcePath.Activitymember.description.fullUrl
     let dic = ["actid":actid]
@@ -72,39 +58,6 @@ extension HttpService {
     }
   }
   
-  func editactivity(actid:String,dic:[String:AnyObject], completionHandler:HttpCompletionHandler) {
-    let urlString = ResourcePath.EditActivity.description.fullUrl + "/\(actid)"
-    guard  let token = TokenPayload.sharedInstance.token else {return}
-    let req = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-    req.HTTPMethod = "POST"
-    req.setValue("application/form", forHTTPHeaderField: "Content-Type")
-    req.setValue(token, forHTTPHeaderField: "Token")
-    
-    do {
-      req.HTTPBody = try NSJSONSerialization.dataWithJSONObject(dic, options: [])
-      request(req).response { (req, res, data, error) in
-        print("statusCode:\(res?.statusCode) for url:\(req?.URL?.absoluteString)")
-        
-        if let error = error {
-          completionHandler(nil,error)
-        } else {
-          print(self.jsonFromData(data))
-          if let data = data {
-            let json = JSON(data: data)
-            if json["res"].int == 0 {
-              completionHandler(json,nil)
-              print(json["resDesc"].string)
-            } else {
-              print("error with reason: \(json["resDesc"].string)")
-            }
-          }
-        }
-      }
-    } catch _ {
-      
-    }
-  }
-  
   func cancleActivity(actid:String,completionHandler:(JSON?,NSError?) -> ()) {
     let url = ResourcePath.CancleActivity.description.fullUrl + "/\(actid)"
     delete(url, parameters: nil) { (json, error) in
@@ -116,6 +69,98 @@ extension HttpService {
         }
       }
     }
+  }
+  
+  func createActivity(actid:String = "", actname:String,actcontent:String,startdate:String,enddate:String,
+                      acturl:String, invitesi:String, portable:Bool = true,
+                      maxtake:Int = 0, image:UIImage?, completionHandler:HttpCompletionHandler) {
+    guard  let token = TokenPayload.sharedInstance.token else {return}
+    var urlString = ResourcePath.CreatActivity.description.fullUrl
+    if !actid.isEmpty {
+      urlString = ResourcePath.EditActivity(actid: actid).description.fullUrl
+    }
+    
+    var parameters = [String:String]()
+    parameters["actname"] = actname
+    parameters["actcontent"] = actcontent
+    parameters["startdate"] = startdate
+    parameters["enddate"] = enddate
+    //parameters["actimage"] = nil
+    parameters["maxtake"] = "\(maxtake)"
+    parameters["acturl"] = acturl
+    parameters["portable"] = portable ? "1" : "0"
+    parameters["invitesi"] = invitesi
+    
+    var headers = ["Content-Type":"multipart/form-data"]
+    headers["Token"] = token
+    print(urlString)
+    print(parameters)
+    
+    upload(.POST, urlString,headers: headers,multipartFormData: {
+      multipartFormData in
+      if let image = image, let imageData = UIImageJPEGRepresentation(image, 1.0) {
+        multipartFormData.appendBodyPart(data: imageData, name: "actimage", fileName: "actimage", mimeType: "image/png")
+      }
+      for (key, value) in parameters {
+        multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
+      }
+      
+    }, encodingCompletion: {
+        encodingResult in
+        switch encodingResult {
+        case .Success(let upload, _, _):
+          upload.response(completionHandler: { (request, response, data, error) -> Void in
+            print("statusCode:\(response?.statusCode)")
+            guard let statusCode = response?.statusCode else{
+              let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+                code: 0,
+                userInfo: ["res":"0","resDesc":"未知网络错误:)"])
+              completionHandler(nil,e)
+              return
+            }
+            if statusCode == 401 {//token过期
+              print("invalid token:\(request)")
+              TokenPayload.sharedInstance.clearCacheTokenPayload()
+              NSNotificationCenter.defaultCenter().postNotificationName(KNOTIFICATION_LOGOUTCHANGE, object: nil)
+              return
+            } else if statusCode != 200 {
+              let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+                code: statusCode,
+                userInfo: ["res":"\(statusCode)","resDesc":"网络错误:\(statusCode)"])
+              completionHandler(nil,e)
+              return
+            }
+            
+            if let error = error {
+              print("api request fail [res code:,\(response?.statusCode)]:\(error)")
+              completionHandler(nil,error)
+            } else {
+              print(self.jsonFromData(data))
+              if let data = data {
+                let json = JSON(data: data)
+                if json["res"].int == 0 {
+                  print(json["resDesc"].string)
+                  completionHandler(json,nil)
+                } else {
+                  let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+                    code: -1,
+                    userInfo: ["res":"\(json["res"].int)","resDesc":json["resDesc"].string ?? ""])
+                  completionHandler(json,e)
+                  print("error with reason: \(json["resDesc"].string)")
+                }
+              }
+            }
+          })
+          
+        case .Failure(let encodingError):
+          let e = NSError(domain: NSBundle.mainBundle().bundleIdentifier ?? "com.zkjinshi.svip",
+            code: 0,
+            userInfo: ["res":"0","resDesc":"上传活动数据失败:)"])
+          completionHandler(nil,e)
+          print(encodingError)
+        }
+    })
+    
   }
 }
   

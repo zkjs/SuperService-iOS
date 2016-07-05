@@ -21,7 +21,6 @@ class ContactVC: XLSegmentedPagerTabStripViewController,UIAdaptivePresentationCo
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     setupRightBarButton()
-
   }
   
   // MARK: - Private

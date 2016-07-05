@@ -89,6 +89,9 @@
                                                 <constraint firstAttribute="height" constant="45" id="OSL-hR-AuI"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="ic_-round_blue"/>
+                                            <connections>
+                                                <action selector="tappedCheckedButton:" destination="wPa-lg-9V8" eventType="touchUpInside" id="4d6-DT-qUJ"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所有人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E67-kr-Fmq">
                                             <rect key="frame" x="85" y="14" width="48" height="20"/>
@@ -113,6 +116,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="amountLabel" destination="Ot4-92-LbX" id="WS7-Ls-JU7"/>
                                     <outlet property="choiceButton" destination="SFe-SA-9b2" id="IQx-cv-z2f"/>
                                     <outlet property="groupingLabel" destination="E67-kr-Fmq" id="SXN-gt-c7p"/>
                                 </connections>
@@ -138,51 +142,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonunderMemberCell" rowHeight="80" id="uo7-Qx-07p" customClass="PersonunderMemberCell" customModule="SuperService" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PersonunderMemberCell" rowHeight="80" id="uo7-Qx-07p" customClass="PersonunderMemberCell" customModule="SuperService" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uo7-Qx-07p" id="dHq-xJ-KOQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiT-oz-phW">
-                                            <rect key="frame" x="15" y="17" width="45" height="45"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="FFU-r0-AMQ"/>
-                                                <constraint firstAttribute="height" constant="45" id="mYL-Mm-Owi"/>
-                                            </constraints>
-                                            <state key="normal" image="ic_gou_r"/>
-                                        </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ero-qb-7I1">
-                                            <rect key="frame" x="78" y="14" width="50" height="50"/>
+                                            <rect key="frame" x="46" y="15" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="8rX-ER-aVo"/>
                                                 <constraint firstAttribute="width" constant="50" id="ndR-Zq-QWZ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-q2-glr">
-                                            <rect key="frame" x="148" y="28" width="42" height="21"/>
+                                            <rect key="frame" x="116" y="30" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_gou_blue" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-Lk-pKl">
+                                            <rect key="frame" x="16" y="30" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="FAM-yP-dXW"/>
+                                                <constraint firstAttribute="width" constant="20" id="ic1-un-jWu"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="ero-qb-7I1" firstAttribute="centerY" secondItem="Fyv-Lk-pKl" secondAttribute="centerY" id="3XI-oE-xMP"/>
+                                        <constraint firstItem="Fyv-Lk-pKl" firstAttribute="centerY" secondItem="dHq-xJ-KOQ" secondAttribute="centerY" id="PhV-fo-z67"/>
                                         <constraint firstItem="BWp-q2-glr" firstAttribute="centerY" secondItem="ero-qb-7I1" secondAttribute="centerY" id="QOq-dG-Pw5"/>
-                                        <constraint firstItem="PiT-oz-phW" firstAttribute="centerY" secondItem="dHq-xJ-KOQ" secondAttribute="centerY" id="fGS-tn-hcf"/>
+                                        <constraint firstItem="ero-qb-7I1" firstAttribute="leading" secondItem="Fyv-Lk-pKl" secondAttribute="trailing" constant="10" id="Txe-Rk-2Aq"/>
                                         <constraint firstItem="BWp-q2-glr" firstAttribute="leading" secondItem="ero-qb-7I1" secondAttribute="trailing" constant="20" id="ghL-xE-Igg"/>
-                                        <constraint firstItem="PiT-oz-phW" firstAttribute="leading" secondItem="dHq-xJ-KOQ" secondAttribute="leadingMargin" constant="7" id="i8i-Gr-0te"/>
-                                        <constraint firstItem="ero-qb-7I1" firstAttribute="centerY" secondItem="PiT-oz-phW" secondAttribute="centerY" id="l9l-ah-hoY"/>
-                                        <constraint firstItem="ero-qb-7I1" firstAttribute="leading" secondItem="PiT-oz-phW" secondAttribute="trailing" constant="18" id="vYs-Mx-fa3"/>
+                                        <constraint firstItem="Fyv-Lk-pKl" firstAttribute="top" secondItem="ero-qb-7I1" secondAttribute="top" id="n8r-Lh-4a7"/>
+                                        <constraint firstItem="Fyv-Lk-pKl" firstAttribute="leading" secondItem="dHq-xJ-KOQ" secondAttribute="leadingMargin" constant="8" id="x1c-sB-Nk6"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="n8r-Lh-4a7"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="personChoiceButton" destination="PiT-oz-phW" id="CXm-ZE-THr"/>
+                                    <outlet property="checkImageView" destination="Fyv-Lk-pKl" id="lwK-pU-s3O"/>
                                     <outlet property="personImageView" destination="ero-qb-7I1" id="5Nf-dE-qTc"/>
                                     <outlet property="personnameLabel" destination="BWp-q2-glr" id="yAU-hV-R3Z"/>
                                 </connections>
@@ -1116,6 +1125,7 @@
                         <outlet property="activitycontent" destination="rTF-eL-9MO" id="xtN-XL-EJK"/>
                         <outlet property="actvityname" destination="Bl1-dA-suR" id="XiI-aK-B1A"/>
                         <outlet property="linkAaddresstextField" destination="esz-Nr-daY" id="XkL-0y-i9R"/>
+                        <outlet property="personSwitch" destination="dFx-vn-OAm" id="K2L-Q4-bHH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuY-e5-1S0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1125,7 +1135,7 @@
     </scenes>
     <resources>
         <image name="ic_-round_blue" width="20" height="20"/>
-        <image name="ic_gou_r" width="20" height="20"/>
+        <image name="list_gou_blue" width="18" height="18"/>
         <image name="mainIcon" width="60" height="60"/>
     </resources>
 </document>

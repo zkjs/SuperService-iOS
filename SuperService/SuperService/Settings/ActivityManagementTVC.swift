@@ -29,6 +29,7 @@ class ActivityManagementTVC: UITableViewController {
   }
   
   func loadData() {
+    self.showHudInView(view, hint: "")
     HttpService.sharedInstance.activityManagerlist("") {[weak self] (json, error) in
       guard let strongSelf = self else {return}
       if let error = error {
@@ -37,6 +38,7 @@ class ActivityManagementTVC: UITableViewController {
         if let data = json {
           strongSelf.activityArr = data
         }
+        strongSelf.hideHUD()
         strongSelf.tableView.reloadData()
       }
     }
@@ -68,6 +70,14 @@ class ActivityManagementTVC: UITableViewController {
   
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     return true
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let model = activityArr[indexPath.row]
+    let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
+    let invitationlistVC = storyboard.instantiateViewControllerWithIdentifier("InvitationlistTVC") as! InvitationlistTVC
+    invitationlistVC.invitationArr = model.inviteperson!
+    navigationController?.pushViewController(invitationlistVC, animated: true)
   }
   
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -115,7 +125,4 @@ class ActivityManagementTVC: UITableViewController {
     invitationlistVC.avtivityModel = model
     navigationController?.pushViewController(invitationlistVC, animated: true)
   }
-    
-
-
 }

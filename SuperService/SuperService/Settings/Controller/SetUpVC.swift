@@ -39,6 +39,7 @@ class SetUpVC: UIViewController, UINavigationControllerDelegate {
       avatarButton.setImage(image, forState: .Normal)
       imageData = UIImageJPEGRepresentation(image, 0.8)!
     }
+    self.navigationItem.hidesBackButton = true
     
     let nextStepButton = UIBarButtonItem(image: UIImage(named: "ic_qianjin"), style: UIBarButtonItemStyle.Plain ,
       target: self, action: #selector(SetUpVC.nextStep))

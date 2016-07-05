@@ -21,6 +21,7 @@ class EditActivityTVC: UITableViewController {
   var datePicker = UIDatePicker()
   var keyboardDoneButtonView = UIToolbar()
   var portable = 0
+  var image = UIImage()
   override func viewDidLoad() {
       super.viewDidLoad()
     title = "编辑活动"
@@ -48,6 +49,7 @@ class EditActivityTVC: UITableViewController {
       activityEnddateButton.setTitle(enddate, forState: .Normal)
       actvityname.text = actname
       activityImageView.sd_setImageWithURL(NSURL(string: "\(actimage)"), placeholderImage: nil)
+      self.activityImageView.image = image
       linkAaddresstextField.text = acturl
       activitypersonCountTextField.text = String(personcount)
     }
@@ -72,6 +74,12 @@ class EditActivityTVC: UITableViewController {
       return 1
     }
     return 5
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.section == 3 {
+      showPhotoPicker()
+    }
   }
 
   @IBAction func startDate(sender: AnyObject) {
@@ -110,7 +118,7 @@ class EditActivityTVC: UITableViewController {
     //更新提醒时间文本框
     let formatter = NSDateFormatter()
     //日期样式
-    formatter.dateFormat = "yyyy年MM月dd日 HH:mm"
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     if sender.tag == 1 {
       activityStartdateButton.titleLabel?.text = formatter.stringFromDate(datePicker.date)
     } else {
@@ -137,7 +145,7 @@ class EditActivityTVC: UITableViewController {
   func textViewDidBeginEditing(textView: UITextView) {
     if actvityname.text == "请输入活动名称" {
       actvityname.text = ""
-    } 
+    }
     if activitycontent.text == "请输入活动内容（100字以内）" {
       activitycontent.text = ""
     } 
@@ -154,31 +162,59 @@ class EditActivityTVC: UITableViewController {
   }
 
   @IBAction func checkoutEdit(sender: AnyObject) {
-    var parameters = [String:AnyObject]()
-    if let actvityname = actvityname.text,let activitycontent = activitycontent.text,let startDate = activityStartdateButton.titleLabel?.text,let  enddate = activityEnddateButton.titleLabel?.text,let maxtake = Int(activitypersonCountTextField.text!),let acturl = linkAaddresstextField.text {
-      parameters["actname"] = actvityname
-      parameters["actcontent"] = activitycontent
-      parameters["startdate"] = startDate
-      parameters["enddate"] = enddate
-      parameters["actimage"] = nil
-      parameters["maxtake"] = maxtake
-      parameters["acturl"] = acturl
-      parameters["portable"] = portable
-      parameters["invitesi"] = "1,2,3"
-      
-    }
-    HttpService.sharedInstance.editactivity(avtivityModel.actid!, dic: parameters) { (json, error) in
+
+    guard let actvityname = actvityname.text,let activitycontent = activitycontent.text,let startDate = activityStartdateButton.titleLabel?.text,let  enddate = activityEnddateButton.titleLabel?.text,let maxtake = Int(activitypersonCountTextField.text!),let acturl = linkAaddresstextField.text,let actid = avtivityModel.actid else {return}
+    self.showHudInView(view, hint: "")
+    HttpService.sharedInstance.createActivity(actid, actname: actvityname, actcontent: activitycontent, startdate: startDate, enddate: enddate, acturl: acturl, invitesi: "", portable: self.portable == 1, maxtake: maxtake, image: image) { (json, error) in
       if let error = error {
         self.showErrorHint(error)
       } else {
         if let data = json {
-          
+          self.navigationController?.popToRootViewControllerAnimated(true)
+
         }
       }
+      self.hideHUD()
     }
-   
-    
-    
-
   }
+  
+  func showPhotoPicker() {
+    let alertController = UIAlertController(title: "请选择图片", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
+    let takePhotoAction = UIAlertAction(title: "拍照", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.Camera
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(takePhotoAction)
+    let choosePhotoAction = UIAlertAction(title: "从相册中选择", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(choosePhotoAction)
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+
+}
+
+extension EditActivityTVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+  
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    picker.dismissViewControllerAnimated(true, completion: nil)
+    var imageData = UIImageJPEGRepresentation(image, 1.0)!
+    var i = 0
+    while imageData.length / 1024 > 80 {
+      i += 1
+      let persent = CGFloat(100 - i) / 100.0
+      self.image = image
+      imageData = UIImageJPEGRepresentation(image, persent)!
+    }
+  }
+  
 }

@@ -192,6 +192,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
   }
   
   func deleteTeamUser(indexPath:NSIndexPath) {
+    self.showHudInView(view, hint: "")
     let role = sectionTitleArr[indexPath.section].1
     if let team = sections[role]?[indexPath.row],let userid = team.userid {
        HttpService.sharedInstance.deleteTeamUser(userid, completionHandler: { (json, error) in
@@ -204,6 +205,7 @@ class TeamListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,/
             self.tableView.reloadData() 
           }
         }
+        self.hideHUD()
        })
     }
    

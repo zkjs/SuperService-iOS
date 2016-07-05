@@ -11,7 +11,7 @@ import UIKit
 struct InvitationpersonModel {
   var roleid:String?
   var rolename:String?
-  var member:[MemberpersonModel]?
+  var member:[MemberpersonModel]!
   init(dic:JSON) {
     roleid = dic["roleid"].string ?? ""
     rolename = dic["rolename"].string ?? ""
@@ -23,20 +23,48 @@ struct InvitationpersonModel {
       }
       member = ordersArray
     } else {
-      member = nil
+      member = []
+    }
+  }
+  
+  func selectedMembers() -> [MemberpersonModel] {
+    return member.filter{ $0.selected }
+  }
+  
+  func isAllSelected() -> Bool {
+    return member.filter{ !$0.selected }.count == 0 
+  }
+  
+  func selectMembers(userids:[String]) {
+    for (k,m) in member.enumerate() {
+      member[k].selected = userids.contains(m.userid)
+    }
+  }
+  
+  func selectAll() {
+    for (k,m) in member.enumerate() {
+      member[k].selected = true
+    }
+  }
+  
+  func unselectAll() {
+    for (k,m) in member.enumerate() {
+      member[k].selected = false
     }
   }
 
 }
-struct MemberpersonModel {
-  var userid:String?
-  var username:String?
-  var userimage:String?
-  
-  init(dic:JSON) {
-    userid = dic["userid"].string ?? ""
-    username = dic["username"].string ?? ""
-    userimage = dic["userimage"].string ?? ""
-  }
-  
-}
+//struct MemberpersonModel {
+//  var userid:String?
+//  var username:String?
+//  var userimage:String?
+//  
+//  
+//  
+//  init(dic:JSON) {
+//    userid = dic["userid"].string ?? ""
+//    username = dic["username"].string ?? ""
+//    userimage = dic["userimage"].string ?? ""
+//  }
+//  
+//}

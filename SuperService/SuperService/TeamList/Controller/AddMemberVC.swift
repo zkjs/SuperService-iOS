@@ -240,9 +240,15 @@ class AddMemberVC: UIViewController, UITextFieldDelegate {
             print("\(phone)")
           }
         }
-        let dic: [String : String] = ["username":currentContact["fullName"]!,"phone":phone.stringByReplacingOccurrencesOfString("-", withString: "")]
-        allContacts.append(dic)
-        print(dic)
+        if phone.isMobile == true {
+          let dic: [String : String] = ["username":currentContact["fullName"]!,"phone":phone.stringByReplacingOccurrencesOfString("-", withString: "")]
+          allContacts.append(dic)
+          print(dic)
+        } else {
+          self.showHint("您选择批量导入的员工手机格式不对")
+          break
+        }
+        
       }
       let vc = MassAddVC()
       vc.ContactsArray = allContacts

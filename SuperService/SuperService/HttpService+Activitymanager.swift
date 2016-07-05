@@ -79,18 +79,18 @@ extension HttpService {
     if !actid.isEmpty {
       urlString = ResourcePath.EditActivity(actid: actid).description.fullUrl
     }
-    
     var parameters = [String:String]()
     parameters["actname"] = actname
     parameters["actcontent"] = actcontent
     parameters["startdate"] = startdate
     parameters["enddate"] = enddate
-    //parameters["actimage"] = nil
+//    parameters["actimage"] = strBase64
     parameters["maxtake"] = "\(maxtake)"
     parameters["acturl"] = acturl
     parameters["portable"] = portable ? "1" : "0"
-    parameters["invitesi"] = invitesi
-    
+    if !invitesi.isEmpty {
+      parameters["invitesi"] = invitesi
+    }
     var headers = ["Content-Type":"multipart/form-data"]
     headers["Token"] = token
     print(urlString)

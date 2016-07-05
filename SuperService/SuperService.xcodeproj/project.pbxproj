@@ -454,6 +454,7 @@
 		FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB198791CD207CE00A6F339 /* ClientFooterView.swift */; };
 		FAB325B61C92657C00DB982C /* HttpService+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */; };
 		FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */; };
+		FADF091B1D267544002DF1A1 /* MemberpersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF091A1D267544002DF1A1 /* MemberpersonModel.swift */; };
 		FAEC9BE61CF2F66E00432A2F /* VIPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC9BE41CF2F66E00432A2F /* VIPCell.swift */; };
 		FAEC9BE71CF2F66E00432A2F /* VIPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEC9BE51CF2F66E00432A2F /* VIPCell.xib */; };
 		FAEDFD471C58B84B00AAEEEF /* AddSalesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */; };
@@ -1172,6 +1173,7 @@
 		FAB198791CD207CE00A6F339 /* ClientFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientFooterView.swift; sourceTree = "<group>"; };
 		FAB325B51C92657C00DB982C /* HttpService+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Contacts.swift"; sourceTree = "<group>"; };
 		FAB325B71C92C38000DB982C /* HttpService+GetCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+GetCode.swift"; sourceTree = "<group>"; };
+		FADF091A1D267544002DF1A1 /* MemberpersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberpersonModel.swift; sourceTree = "<group>"; };
 		FAEC9BE41CF2F66E00432A2F /* VIPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPCell.swift; sourceTree = "<group>"; };
 		FAEC9BE51CF2F66E00432A2F /* VIPCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPCell.xib; sourceTree = "<group>"; };
 		FAEDFD451C58B84B00AAEEEF /* AddSalesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesVC.swift; sourceTree = "<group>"; };
@@ -2730,6 +2732,7 @@
 				FA5E24411D261DB900865DE1 /* PersonunderMemberCell.swift */,
 				FA4ACB751D23B92600D3794A /* Activitymanagermodel.swift */,
 				FA5E243D1D26170400865DE1 /* InvitationpersonModel.swift */,
+				FADF091A1D267544002DF1A1 /* MemberpersonModel.swift */,
 			);
 			name = ActivityManagement;
 			sourceTree = "<group>";
@@ -3359,6 +3362,7 @@
 				FAF644F81C9830DE00C30D00 /* HttpService+Others.swift in Sources */,
 				FAA420561CE2D8EE000DCCCA /* HttpService+Password.swift in Sources */,
 				40E326411BD50544008344DF /* Location.swift in Sources */,
+				FADF091B1D267544002DF1A1 /* MemberpersonModel.swift in Sources */,
 				404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */,
 				40FB3D5F1C00203900675044 /* EaseFaceView.m in Sources */,
 				842659491BE0A216005E82F2 /* MemberModel.swift in Sources */,

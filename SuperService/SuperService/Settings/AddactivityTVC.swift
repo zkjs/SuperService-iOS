@@ -11,7 +11,9 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
   var avtivityModel = ActivitymanagerModel(dic:nil)
   var datePicker = UIDatePicker()
   var keyboardDoneButtonView = UIToolbar()
-
+  var portable = 0
+  var image = UIImage()
+  @IBOutlet weak var personSwitch: UISwitch!
   @IBOutlet weak var linkAaddresstextField: UITextField!
   @IBOutlet weak var activityImageView: UIImageView!
   @IBOutlet weak var activitycontent: UITextView! 
@@ -50,7 +52,9 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
   }
 
   @IBAction func personCountSwith(sender: AnyObject) {
-    
+    if personSwitch.on == true {
+      portable = 1
+    }
   }
   // MARK: - Table view data source
   
@@ -67,13 +71,52 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
     return 5
   }
   
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.section == 3 {
+      showPhotoPicker()
+    }
+  }
+  
+  func showPhotoPicker() {
+    let alertController = UIAlertController(title: "请选择图片", message: "", preferredStyle: DeviceType.IS_IPAD ?  .Alert : .ActionSheet)
+    let takePhotoAction = UIAlertAction(title: "拍照", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.Camera
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(takePhotoAction)
+    let choosePhotoAction = UIAlertAction(title: "从相册中选择", style:.Default, handler: { (action: UIAlertAction) -> Void in
+      let picker = UIImagePickerController()
+      picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+      picker.delegate = self
+      picker.allowsEditing = true
+      self.presentViewController(picker, animated: true, completion: nil)
+    })
+    alertController.addAction(choosePhotoAction)
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  
   func nextStep(sender:UIBarButtonItem) {
-//    if actvityname.text.trim.isEmpty == true || activitycontent.text.trim.isEmpty == true || activityStartdateButton.titleLabel?.text == "请选择活动开始日期" || activityEnddateButton.titleLabel?.text == "请选择活动结束时间" || activityImageView.image == nil {
-//      self.showHint("请完善创建活动信息")
-//      return
-//    } 
+    if actvityname.text.trim.isEmpty == true || activitycontent.text.trim.isEmpty == true || activityStartdateButton.titleLabel?.text == "请选择活动开始日期" || activityEnddateButton.titleLabel?.text == "请选择活动结束时间" || activityImageView.image == nil {
+      self.showHint("请完善创建活动信息")
+      return
+    } 
     let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
     let choseInvitationVC = storyboard.instantiateViewControllerWithIdentifier("ChoseInvitationTVC") as! ChoseInvitationTVC
+    choseInvitationVC.actname = actvityname.text
+    choseInvitationVC.actcontent = activitycontent.text
+    choseInvitationVC.startdate = activityStartdateButton.titleLabel?.text
+    choseInvitationVC.enddate = activityEnddateButton.titleLabel?.text
+    choseInvitationVC.maxtake = 5
+    choseInvitationVC.actimage = image
+    choseInvitationVC.acturl = linkAaddresstextField.text
+    choseInvitationVC.portable = portable
+
     self.navigationController?.pushViewController(choseInvitationVC, animated: true)
     
     
@@ -116,7 +159,7 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
     //更新提醒时间文本框
     let formatter = NSDateFormatter()
     //日期样式
-    formatter.dateFormat = "yyyy年MM月dd日 HH:mm"
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     if sender.tag == 1 {
       activityStartdateButton.titleLabel?.text = formatter.stringFromDate(datePicker.date)
     } else {
@@ -160,3 +203,23 @@ class AddactivityTVC: UITableViewController,UITextViewDelegate {
   }
 
 }
+
+extension AddactivityTVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+  
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    picker.dismissViewControllerAnimated(true, completion: nil)
+    
+    var imageData = UIImageJPEGRepresentation(image, 1.0)!
+    var i = 0
+    while imageData.length / 1024 > 80 {
+      i += 1
+      let persent = CGFloat(100 - i) / 100.0
+      self.activityImageView.image = image
+      self.image = image
+      imageData = UIImageJPEGRepresentation(image, persent)!
+      
+    }
+  }
+  
+}
+

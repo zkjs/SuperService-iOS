@@ -90,7 +90,7 @@ class StaffLoginVC: UIViewController {
     HttpService.sharedInstance.loginWithPhone(self.identifyingCodeTextField.text!, phone: self.userphoneTextField.text!) { (json, error) -> () in
       if let error = error {
         if error.code == 11 {//还未完善用户资料就跳转到用户资料完善页面
-        self.navigationController?.pushViewController(SetUpVC(), animated: true)
+        self.navigationController?.pushViewController(SetUpVC(), animated: false)
         } else {
           self.hideHUD()
           self.showErrorHint(error)

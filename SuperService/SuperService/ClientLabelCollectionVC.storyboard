@@ -126,11 +126,22 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     </variation>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ax-Dr-Scv">
+                                    <rect key="frame" x="510" y="31" width="30" height="30"/>
+                                    <state key="normal" title="添加">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addTags:" destination="i74-9b-wQM" eventType="touchUpInside" id="QcL-zb-foJ"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="VEE-mx-veS" firstAttribute="top" secondItem="al8-VN-viW" secondAttribute="bottom" constant="8" id="V6e-T5-orw"/>
                                 <constraint firstItem="VEE-mx-veS" firstAttribute="centerX" secondItem="al8-VN-viW" secondAttribute="centerX" id="Yj0-rW-zE1"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="2ax-Dr-Scv" secondAttribute="trailing" constant="20" id="cmD-cM-q16"/>
+                                <constraint firstItem="2ax-Dr-Scv" firstAttribute="top" secondItem="c99-yx-1z9" secondAttribute="topMargin" constant="23" id="odP-WK-Psp"/>
                                 <constraint firstItem="al8-VN-viW" firstAttribute="top" secondItem="c99-yx-1z9" secondAttribute="top" constant="20" id="tkK-3F-RIr"/>
                                 <constraint firstItem="al8-VN-viW" firstAttribute="centerX" secondItem="c99-yx-1z9" secondAttribute="centerX" id="vk4-xP-N44"/>
                             </constraints>
@@ -176,7 +187,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="991.5" y="356.25"/>
+            <point key="canvasLocation" x="861" y="357"/>
         </scene>
     </scenes>
 </document>

@@ -61,4 +61,15 @@ extension HttpService {
       }
     }
   }
+  
+  func addTags(tagname:String,completionHandler:(JSON?,NSError?) -> ())  {
+    let urlString = ResourcePath.AddTags(tagname: tagname.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!).description.fullUrl
+    post(urlString, parameters: nil) { (json, error) in
+      if let error = error {
+        completionHandler(nil,error)
+      } else {
+        completionHandler(json,nil)
+      }
+    }
+  }
 }

@@ -394,6 +394,8 @@
 		FA3E50501C8FCB7700011433 /* MassAddVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E504E1C8FCB7700011433 /* MassAddVC.xib */; };
 		FA3E50531C90049900011433 /* MassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E50511C90049900011433 /* MassCell.swift */; };
 		FA3E50541C90049900011433 /* MassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E50521C90049900011433 /* MassCell.xib */; };
+		FA46187B1D2E31C600A6B9E1 /* AddTagsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4618791D2E31C600A6B9E1 /* AddTagsVC.swift */; };
+		FA46187C1D2E31C600A6B9E1 /* AddTagsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA46187A1D2E31C600A6B9E1 /* AddTagsVC.xib */; };
 		FA4ACB6C1D23680B00D3794A /* ActivityManagementTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4ACB6B1D23680B00D3794A /* ActivityManagementTVC.swift */; };
 		FA4ACB6E1D23681600D3794A /* ActivityManagementTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4ACB6D1D23681600D3794A /* ActivityManagementTVC.storyboard */; };
 		FA4ACB701D23687700D3794A /* ActivityManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4ACB6F1D23687700D3794A /* ActivityManagementTableViewCell.swift */; };
@@ -1113,6 +1115,8 @@
 		FA3E504E1C8FCB7700011433 /* MassAddVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MassAddVC.xib; sourceTree = "<group>"; };
 		FA3E50511C90049900011433 /* MassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassCell.swift; sourceTree = "<group>"; };
 		FA3E50521C90049900011433 /* MassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MassCell.xib; sourceTree = "<group>"; };
+		FA4618791D2E31C600A6B9E1 /* AddTagsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTagsVC.swift; sourceTree = "<group>"; };
+		FA46187A1D2E31C600A6B9E1 /* AddTagsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTagsVC.xib; sourceTree = "<group>"; };
 		FA4ACB6B1D23680B00D3794A /* ActivityManagementTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityManagementTVC.swift; sourceTree = "<group>"; };
 		FA4ACB6D1D23681600D3794A /* ActivityManagementTVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityManagementTVC.storyboard; sourceTree = "<group>"; };
 		FA4ACB6F1D23687700D3794A /* ActivityManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityManagementTableViewCell.swift; sourceTree = "<group>"; };
@@ -1765,6 +1769,8 @@
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
 				FAF165D91CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift */,
 				FAF165DB1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard */,
+				FA4618791D2E31C600A6B9E1 /* AddTagsVC.swift */,
+				FA46187A1D2E31C600A6B9E1 /* AddTagsVC.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3072,6 +3078,7 @@
 				409EE0A71C0070680074F43C /* Assets.xcassets in Resources */,
 				408694031C39162F00BE1709 /* KTVTableView.storyboard in Resources */,
 				40F7576F1BE0553E0053C2BE /* InformVC.xib in Resources */,
+				FA46187C1D2E31C600A6B9E1 /* AddTagsVC.xib in Resources */,
 				40F7574A1BE054160053C2BE /* ClientListVC.xib in Resources */,
 				408694141C391A2E00BE1709 /* BookRoomCell.xib in Resources */,
 				40FB3CFD1C00203900675044 /* callRing.mp3 in Resources */,
@@ -3488,6 +3495,7 @@
 				40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */,
 				40C841611C102A31003E8037 /* EMTextView.m in Sources */,
 				40FB3D3C1C00203900675044 /* EaseUserModel.m in Sources */,
+				FA46187B1D2E31C600A6B9E1 /* AddTagsVC.swift in Sources */,
 				40CF567D1BF3621600E20D50 /* UIViewController+ZKJS.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
 				FA9A42981D1BCC8700CA4D16 /* ServicetagFirstModel.swift in Sources */,

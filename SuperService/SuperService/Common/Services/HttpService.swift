@@ -52,6 +52,8 @@ class HttpService {
     case EditActivity(actid:String)             //修改已经创建的活动
     case CancleActivity                         // 取消活动
     
+    case AddTags(tagname:String)                //添加标签
+    
     
     var description: String {
       switch self {
@@ -87,6 +89,7 @@ class HttpService {
       case.Activitymember:                      return "for/res/v1/activity/member"
       case.EditActivity(let actid):             return "for/res/v1/activity/\(actid)"
       case.CancleActivity:                      return "for/res/v1/activity/"
+      case.AddTags(let tagname):                return "for/res/v1/update/user/add/tags/\(tagname)"
       }
     }
   }

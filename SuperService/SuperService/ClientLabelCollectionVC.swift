@@ -27,7 +27,7 @@ class ClientLabelCollectionVC: UICollectionViewController {
     layout.itemSize = CGSize(width: width, height: width)
     layout.headerReferenceSize = CGSizeMake(0, DeviceType.IS_IPAD ? 270 : 170)
     
-    title = "客户信息"
+    title = "客户详情"
   }
 
   override func didReceiveMemoryWarning() {
@@ -178,4 +178,45 @@ class ClientLabelCollectionVC: UICollectionViewController {
       }
     }
   }
+  
+  
+  @IBAction func addTags(sender: AnyObject) {
+    let alertController = UIAlertController(title: "添加喜爱标签", message: "", preferredStyle:.Alert )
+    let checkAction = UIAlertAction(title: "确定", style: .Default) { (_) in
+      let tagsTextField = alertController.textFields![0] as UITextField
+      guard let tag = tagsTextField.text else { 
+        self.showHint("请输入标签")
+        return
+      }
+      HttpService.sharedInstance.addTags(tag, completionHandler: { [weak self](json, error) in
+        guard let strongSelf = self else {return}
+        if let error = error {
+          strongSelf.showErrorHint(error)
+        } else {
+          if let data = json?["resDesc"].string {
+            if data == "success" {
+              strongSelf.loadData()
+            }
+          }
+        }
+
+      })
+
+    }
+    checkAction.enabled = false
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel) { (_) in
+      self.view.endEditing(true)
+    }
+    alertController.addTextFieldWithConfigurationHandler { (textField) in
+      textField.placeholder = "请输入标签(字数不超过8个字)"
+      NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+        checkAction.enabled = (textField.text != "")
+      }
+    }
+    alertController.addAction(checkAction)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+
 }
+

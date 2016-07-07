@@ -23,18 +23,15 @@ class EditActivityTVC: UITableViewController {
   var portable = 0
   var image = UIImage()
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
     title = "编辑活动"
     let item = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
     navigationItem.backBarButtonItem = item
     tableView.bounces = false
-
-
   }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -55,6 +52,7 @@ class EditActivityTVC: UITableViewController {
     }
     
   }
+  
   @IBAction func personCountSwith(sender: AnyObject) {
     if personSwitch.on == true {
       portable = 1
@@ -89,6 +87,8 @@ class EditActivityTVC: UITableViewController {
   @IBAction func endDate(sender: AnyObject) {
     addDatepicker(2)
   }
+  
+  
   func addDatepicker(tag:Int) {
     keyboardDoneButtonView = UIToolbar()
     keyboardDoneButtonView.sizeToFit()
@@ -171,7 +171,6 @@ class EditActivityTVC: UITableViewController {
       } else {
         if let data = json {
           self.navigationController?.popToRootViewControllerAnimated(true)
-
         }
       }
       self.hideHUD()

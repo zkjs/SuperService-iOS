@@ -90,52 +90,21 @@ class EditActivityTVC: UITableViewController {
   
   
   func addDatepicker(tag:Int) {
-    keyboardDoneButtonView = UIToolbar()
-    keyboardDoneButtonView.sizeToFit()
-    keyboardDoneButtonView.frame = CGRectMake(0.0, ScreenSize.SCREEN_HEIGHT-266.0, ScreenSize.SCREEN_WIDTH, 50)
-    let calcleButton = UIBarButtonItem(title: "取消", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(cancle))
-    let btngap = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem.FlexibleSpace,target:nil,action:nil)
-    let doneButton = UIBarButtonItem(title: "确认", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(doneClicked))
-    doneButton.tag = tag
-    var items = [UIBarButtonItem]()
-    items.append(calcleButton)
-    items.append(btngap)
-    items.append(doneButton)
-    keyboardDoneButtonView.items = items
-    
-    //创建日期选择器
-    
-    datePicker = UIDatePicker(frame: CGRectMake(0.0, ScreenSize.SCREEN_HEIGHT-216.0, ScreenSize.SCREEN_WIDTH, 216.0))
-    datePicker.backgroundColor = UIColor.hx_colorWithHexRGBAString("#D1D1D1")
-    //将日期选择器区域设置为中文，则选择器日期显示为中文
-    datePicker.locale = NSLocale(localeIdentifier: "zh_CN")
-    self.tableView.scrollEnabled = false
-    self.tableView.addSubview(datePicker)
-    self.tableView.addSubview(keyboardDoneButtonView)
-  }
-  
-  func doneClicked(sender:UIBarButtonItem) {
-    //更新提醒时间文本框
-    let formatter = NSDateFormatter()
-    //日期样式
-    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    if sender.tag == 1 {
-      activityStartdateButton.titleLabel?.text = formatter.stringFromDate(datePicker.date)
-    } else {
-      activityEnddateButton.titleLabel?.text = formatter.stringFromDate(datePicker.date)
+    let storyboard = UIStoryboard(name: "ActivityManagementTVC", bundle: nil)
+    let datePickerVC = storyboard.instantiateViewControllerWithIdentifier("DatePickerViewController") as! DatePickerViewController
+    self.presentViewController(datePickerVC, animated: true) { 
     }
-    
-    self.tableView.scrollEnabled = true
-    datePicker.removeFromSuperview()
-    keyboardDoneButtonView.removeFromSuperview()
+    datePickerVC.datepickerClourse = {dateString -> Void in
+      if tag == 1 {
+        self.activityStartdateButton.titleLabel?.text = dateString
+      } else {
+        self.activityEnddateButton.titleLabel?.text = dateString
+      }
+    }
+
   }
   
-  func cancle(sender:UIBarButtonItem) {
-    self.tableView.scrollEnabled = true
-    datePicker.removeFromSuperview()
-    keyboardDoneButtonView.removeFromSuperview()
-  }
-  
+   
   //UITEXTVIEW DELEGATE
   
   func textViewShouldBeginEditing(textView: UITextView) -> Bool {

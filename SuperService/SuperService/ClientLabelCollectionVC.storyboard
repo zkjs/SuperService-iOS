@@ -126,9 +126,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     </variation>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ax-Dr-Scv">
-                                    <rect key="frame" x="510" y="31" width="30" height="30"/>
-                                    <state key="normal" title="添加">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ax-Dr-Scv">
+                                    <rect key="frame" x="520" y="31" width="20" height="22"/>
+                                    <state key="normal" image="nav_add">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -190,4 +190,7 @@
             <point key="canvasLocation" x="861" y="357"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nav_add" width="20" height="20"/>
+    </resources>
 </document>

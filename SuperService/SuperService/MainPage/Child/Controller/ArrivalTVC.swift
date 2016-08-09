@@ -222,11 +222,17 @@ class ArrivalTVC: UITableViewController,GotoLabelVCDelegate {
   
   func gotoLabelVC(arrivate:ArrivateModel) {
     
-    let storyboard = UIStoryboard(name: "ClientLabelCollectionVC", bundle: nil)
+    /*let storyboard = UIStoryboard(name: "ClientLabelCollectionVC", bundle: nil)
     let ClientVC = storyboard.instantiateViewControllerWithIdentifier("ClientLabelCollectionVC") as! ClientLabelCollectionVC
     ClientVC.clientInfo = arrivate
     ClientVC.hidesBottomBarWhenPushed = true
-    self.navigationController?.pushViewController(ClientVC, animated: true)
+    self.navigationController?.pushViewController(ClientVC, animated: true)*/
+    
+    let storyboard = UIStoryboard(name: "ClientInfo", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("ClientInfoTVC") as! ClientInfoTVC
+    vc.clientInfo = arrivate
+    vc.hidesBottomBarWhenPushed = true
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 
   

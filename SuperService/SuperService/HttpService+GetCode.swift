@@ -62,34 +62,6 @@ extension HttpService {
       }
    }
   }
-
-  func queryUsertags(userid:String,completionHandler: (TagsModel?,NSError?)->Void) {
-    let urlString = ResourcePath.QueryUserTags.description.fullUrl
-    let param = ["si_id":userid]
-    get(urlString, parameters: param) { (json, error) -> Void in
-     if let error = error {
-          completionHandler(nil,error)
-        } else {
-          if let data = json?["data"]
-          {
-            let user = TagsModel(dic: data)
-            completionHandler(user,nil)
-          }
-        }
-      }
-    }
-  
-  func updataUsertags(userid:String,tags:[Int],completionHandler: (JSON?,NSError?)->Void) {
-    let urlString = ResourcePath.UpdateUserTags.description.fullUrl
-    let param = ["si_id":userid,"tags":tags]
-    post(urlString, parameters: param as? [String : AnyObject]) { (json, error) -> Void in
-      if let error = error {
-        completionHandler(nil,error)
-      } else {
-        completionHandler(json,nil)
-      }
-    }
-  }
   
 }
   

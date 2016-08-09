@@ -50,9 +50,12 @@ class HttpService {
     case CreatActivity                          //活动创建邀请客人
     case Activitymember                         //取邀请名单
     case EditActivity(actid:String)             //修改已经创建的活动
-    case CancleActivity                         // 取消活动
+    case CancleActivity                         //取消活动
     
     case AddTags(tagname:String)                //添加标签
+    case ClientArriving(uid:String)             //到店记录
+    case ClientPayment(uid:String)              //消费记录
+    case AddClientPayment                       //添加客户消费记录
     
     
     var description: String {
@@ -66,30 +69,33 @@ class HttpService {
       case .QueryUserInfo:                      return "/res/v1/query/si/all"
       case .CheckVersion(let version):          return "/for/res/v1/systempub/upgrade/newestversion/2/IOS/\(version)"
       case .QueryUserTags:                      return "/for/res/v1/query/user/tags"
-      case.UpdateUserTags:                      return "/for/res/v1/update/user/tags"
-      case.VerifyPassWord:                      return "/for/res/v1/verify/ss/loginpassword"
-      case.ChangePassWord:                      return "/for/res/v1/update/ss/loginpassword"
-      case.VIPUsers:                            return "/for/res/v1/whiteuser/info"
-      case.DeleteVIPUser:                       return "/for/res/v1/whiteuser"
-      case.AddWhiteUser:                        return "for/res/v1/whiteuser"
-      case.DeleteTeamUser:                      return "/for/res/v1/delete/ss?userids="
+      case .UpdateUserTags:                     return "/for/res/v1/update/user/tags"
+      case .VerifyPassWord:                     return "/for/res/v1/verify/ss/loginpassword"
+      case .ChangePassWord:                     return "/for/res/v1/update/ss/loginpassword"
+      case .VIPUsers:                           return "/for/res/v1/whiteuser/info"
+      case .DeleteVIPUser:                      return "/for/res/v1/whiteuser"
+      case .AddWhiteUser:                       return "/for/res/v1/whiteuser"
+      case .DeleteTeamUser:                     return "/for/res/v1/delete/ss?userids="
       case .Beacon:                             return "/pyx/lbs/v1/loc/beacon"
       case .GPS:                                return "/pyx/lbs/v1/loc/gps"
       case .UploadBeacons:                      return "/pyx/lbs/v1/loc/beacons"
-      case.CallServerTask:                      return "for/res/v1/call/service/task"
-      case.ServicetaskStatusChange:             return "for/res/v1/call/service/task" 
-      case.ServicetaskDetail:                   return "for/res/v1/call/service/task/detail/"
-      case.Servicetag:                          return "for/res/v1/call/servicetag"
-      case.Addfirstsrvtag:                      return "for/res/v1/call/firstsrvtag"
-      case.Deletesrvtag:                        return "for/res/v1/call/srvtag?"
-      case.Addsecondsrvtag:                     return "for/res/v1/call/secondsrvtag"
-      case.RolesFromShop:                       return "for/res/v1/shop/roles"
-      case.ActivityList:                        return "for/res/v1/activity/detail?"
-      case.CreatActivity:                       return "for/res/v1/activity"
-      case.Activitymember:                      return "for/res/v1/activity/member"
-      case.EditActivity(let actid):             return "for/res/v1/activity/\(actid)"
-      case.CancleActivity:                      return "for/res/v1/activity/"
-      case.AddTags(let tagname):                return "for/res/v1/update/user/add/tags/\(tagname)"
+      case .CallServerTask:                     return "/for/res/v1/call/service/task"
+      case .ServicetaskStatusChange:            return "/for/res/v1/call/service/task"
+      case .ServicetaskDetail:                  return "/for/res/v1/call/service/task/detail/"
+      case .Servicetag:                         return "/for/res/v1/call/servicetag"
+      case .Addfirstsrvtag:                     return "/for/res/v1/call/firstsrvtag"
+      case .Deletesrvtag:                       return "/for/res/v1/call/srvtag?"
+      case .Addsecondsrvtag:                    return "/for/res/v1/call/secondsrvtag"
+      case .RolesFromShop:                      return "/for/res/v1/shop/roles"
+      case .ActivityList:                       return "/for/res/v1/activity/detail?"
+      case .CreatActivity:                      return "/for/res/v1/activity"
+      case .Activitymember:                     return "/for/res/v1/activity/member"
+      case .EditActivity(let actid):            return "/for/res/v1/activity/\(actid)"
+      case .CancleActivity:                     return "/for/res/v1/activity/"
+      case .AddTags(let tagname):               return "/for/res/v1/update/user/add/tags/\(tagname)"
+      case .ClientArriving(let uid):            return "/for/lbs/v1/loc/beacon/u/\(uid)"
+      case .ClientPayment(let uid):             return "/for/res/v1/payment/records/\(uid)"
+      case .AddClientPayment:                   return "/for/res/v1/payment/records"
       }
     }
   }

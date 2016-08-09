@@ -61,6 +61,13 @@
 		4023F7411C1D61310057351E /* BindCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4023F73F1C1D61310057351E /* BindCodeCell.xib */; };
 		4023F7431C1D619A0057351E /* BindCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023F7421C1D619A0057351E /* BindCodeModel.swift */; };
 		4023F7461C1D764D0057351E /* ZKJSJavaHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4023F7451C1D764D0057351E /* ZKJSJavaHTTPSessionManager.m */; };
+		403ECE441D58654900351FE9 /* ClientInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403ECE431D58654900351FE9 /* ClientInfo.storyboard */; };
+		403ECE461D586AB300351FE9 /* ClientInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ECE451D586AB300351FE9 /* ClientInfoTVC.swift */; };
+		403ECE481D587FB700351FE9 /* HttpService+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ECE471D587FB700351FE9 /* HttpService+Client.swift */; };
+		403ECE4A1D5881AB00351FE9 /* ClientArrivalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ECE491D5881AB00351FE9 /* ClientArrivalModel.swift */; };
+		403ECE4C1D5883D400351FE9 /* ClientPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ECE4B1D5883D400351FE9 /* ClientPaymentModel.swift */; };
+		403ECE4E1D59C04D00351FE9 /* ClientPaymentAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ECE4D1D59C04D00351FE9 /* ClientPaymentAdd.swift */; };
+		403ECE501D59CCB800351FE9 /* ClientHabitTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ECE4F1D59CCB700351FE9 /* ClientHabitTVC.swift */; };
 		404FB51B1BCE01AE0074D205 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FB51A1BCE01AE0074D205 /* MainTBC.swift */; };
 		404FB5211BCE09940074D205 /* ZKJSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */; };
 		404FB5241BCE2A4B0074D205 /* NSString+ZKJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 404FB5231BCE2A4B0074D205 /* NSString+ZKJS.m */; };
@@ -624,6 +631,13 @@
 		4023F7421C1D619A0057351E /* BindCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindCodeModel.swift; sourceTree = "<group>"; };
 		4023F7441C1D764D0057351E /* ZKJSJavaHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSJavaHTTPSessionManager.h; sourceTree = "<group>"; };
 		4023F7451C1D764D0057351E /* ZKJSJavaHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSJavaHTTPSessionManager.m; sourceTree = "<group>"; };
+		403ECE431D58654900351FE9 /* ClientInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ClientInfo.storyboard; path = ArrivalInfo/Controller/ClientInfo.storyboard; sourceTree = "<group>"; };
+		403ECE451D586AB300351FE9 /* ClientInfoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientInfoTVC.swift; path = ArrivalInfo/Controller/ClientInfoTVC.swift; sourceTree = "<group>"; };
+		403ECE471D587FB700351FE9 /* HttpService+Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpService+Client.swift"; sourceTree = "<group>"; };
+		403ECE491D5881AB00351FE9 /* ClientArrivalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientArrivalModel.swift; path = ArrivalInfo/Model/ClientArrivalModel.swift; sourceTree = "<group>"; };
+		403ECE4B1D5883D400351FE9 /* ClientPaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientPaymentModel.swift; path = ArrivalInfo/Model/ClientPaymentModel.swift; sourceTree = "<group>"; };
+		403ECE4D1D59C04D00351FE9 /* ClientPaymentAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientPaymentAdd.swift; path = ArrivalInfo/Controller/ClientPaymentAdd.swift; sourceTree = "<group>"; };
+		403ECE4F1D59CCB700351FE9 /* ClientHabitTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientHabitTVC.swift; path = ArrivalInfo/Controller/ClientHabitTVC.swift; sourceTree = "<group>"; };
 		404FB51A1BCE01AE0074D205 /* MainTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		404FB51F1BCE09940074D205 /* ZKJSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKJSHTTPSessionManager.h; sourceTree = "<group>"; };
 		404FB5201BCE09940074D205 /* ZKJSHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKJSHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -1484,6 +1498,7 @@
 				FA4ACB731D23B70500D3794A /* HttpService+Activitymanager.swift */,
 				408C47D81C8710E500F9B0C7 /* errorMessages.plist */,
 				FAFA30891CDC7A49003FEBCD /* HttpServiceForOC.swift */,
+				403ECE471D587FB700351FE9 /* HttpService+Client.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1767,6 +1782,10 @@
 				408423031BC689E200C215CD /* ArrivalTVC.xib */,
 				FAF165D91CD1A95F00A88BD0 /* ClientLabelCollectionVC.swift */,
 				FAF165DB1CD1A96A00A88BD0 /* ClientLabelCollectionVC.storyboard */,
+				403ECE431D58654900351FE9 /* ClientInfo.storyboard */,
+				403ECE451D586AB300351FE9 /* ClientInfoTVC.swift */,
+				403ECE4D1D59C04D00351FE9 /* ClientPaymentAdd.swift */,
+				403ECE4F1D59CCB700351FE9 /* ClientHabitTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2714,6 +2733,8 @@
 			children = (
 				FA07ABD61C966AD3009CCC3E /* ArrivateModel.swift */,
 				FAF165DD1CD1B1D800A88BD0 /* TagsModel.swift */,
+				403ECE491D5881AB00351FE9 /* ClientArrivalModel.swift */,
+				403ECE4B1D5883D400351FE9 /* ClientPaymentModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -3069,6 +3090,7 @@
 				40F757591BE054550053C2BE /* OrderTVC.xib in Resources */,
 				FA6CCCB51D1A2D1C00B8A4DE /* CallInfoCell.xib in Resources */,
 				4023F7391C1D598D0057351E /* UnbindCodeTVC.xib in Resources */,
+				403ECE441D58654900351FE9 /* ClientInfo.storyboard in Resources */,
 				FAFFC3321C40DE4C00DB1C86 /* PayTypeVC.xib in Resources */,
 				FA1B4A811C0D4F9000D57DB2 /* CodeCell.xib in Resources */,
 				40F757741BE0553E0053C2BE /* SettingsHeaderView.xib in Resources */,
@@ -3378,6 +3400,7 @@
 				40FB3D2C1C00203900675044 /* PSTCollectionView.m in Sources */,
 				400D62861C1526B50021E750 /* TranslationAnimation.swift in Sources */,
 				FAF6B0F11C8D6EF400D1192A /* StorageManager.swift in Sources */,
+				403ECE481D587FB700351FE9 /* HttpService+Client.swift in Sources */,
 				FA9A42921D1BB57C00CA4D16 /* CallServiceModel.swift in Sources */,
 				40ABA9751BE1C60A00737C6D /* TSQCalendarMonthHeaderCell.m in Sources */,
 				FAB325B81C92C38000DB982C /* HttpService+GetCode.swift in Sources */,
@@ -3394,6 +3417,7 @@
 				40FB3D021C00203900675044 /* CustomMessageCell.m in Sources */,
 				400D62841C1526B50021E750 /* ScaleAnimation.swift in Sources */,
 				40C87C681CEF0DFD00130D8C /* XLBarPagerTabStripViewController.m in Sources */,
+				403ECE4A1D5881AB00351FE9 /* ClientArrivalModel.swift in Sources */,
 				40F757491BE054160053C2BE /* ClientListVC.swift in Sources */,
 				4023F73C1C1D59B20057351E /* BindCodeTVC.swift in Sources */,
 				40E326451BD50B2F008344DF /* NSDate+Days.swift in Sources */,
@@ -3489,12 +3513,15 @@
 				40FB3D631C00203900675044 /* EaseConversationCell.m in Sources */,
 				400D62791C1526B50021E750 /* Filmstrip.swift in Sources */,
 				40CAA5FF1BE7810800FAFDA0 /* InquiryVC.swift in Sources */,
+				403ECE4C1D5883D400351FE9 /* ClientPaymentModel.swift in Sources */,
 				40C841611C102A31003E8037 /* EMTextView.m in Sources */,
 				40FB3D3C1C00203900675044 /* EaseUserModel.m in Sources */,
 				40CF567D1BF3621600E20D50 /* UIViewController+ZKJS.swift in Sources */,
 				408423041BC689E200C215CD /* ArrivalTVC.swift in Sources */,
 				FA9A42981D1BCC8700CA4D16 /* ServicetagFirstModel.swift in Sources */,
 				40CFC18C1C3E17FA002DF0C7 /* BookRoomListVC.swift in Sources */,
+				403ECE461D586AB300351FE9 /* ClientInfoTVC.swift in Sources */,
+				403ECE501D59CCB800351FE9 /* ClientHabitTVC.swift in Sources */,
 				408C47D71C8710B500F9B0C7 /* ZKJSErrorMessages.swift in Sources */,
 				40FB3D361C00203900675044 /* PSTGridLayoutRow.m in Sources */,
 				40FB3D071C00203900675044 /* EMCDDeviceManager+Media.m in Sources */,
@@ -3556,6 +3583,7 @@
 				FAB1987A1CD207CE00A6F339 /* ClientFooterView.swift in Sources */,
 				40F7574F1BE054340053C2BE /* BaseNavigationController.swift in Sources */,
 				40E326421BD50544008344DF /* Order.swift in Sources */,
+				403ECE4E1D59C04D00351FE9 /* ClientPaymentAdd.swift in Sources */,
 				40DC2D5E1C904E3F007D9A3F /* FacePayResult.swift in Sources */,
 				40DC2D591C902D9C007D9A3F /* TPKeyboardAvoidingTableView.m in Sources */,
 				FA6CCCD21D1A86C200B8A4DE /* AddServerlabelVC.swift in Sources */,
